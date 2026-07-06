@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="The Precision Illusion: Why 6.3% Matters" description="An introduction to the precision illusion">
+  <div class="container-content py-16">
+    <article class="max-w-2xl">
+      <a href="/blog/" class="link-arrow mb-6 inline-flex">
+        â†?All posts
+      </a>
+      <p class="font-mono text-[0.65rem] text-[var(--color-text-muted)] mb-3">Research Note Â· 2026-07-01</p>
+      <h1 class="mb-8">The Precision Illusion: Why 6.3% Matters</h1>
+      <div class="prose-page text-base leading-relaxed text-[var(--color-text)] space-y-4">
+        <p>In our recent benchmark of LLM fitness advice, we found something surprising: <strong>0% overconfident outputs.</strong> The models weren't dangerously overconfident. They were subtly misleading.</p>
+        <p>6.3% of outputs contained precise-sounding numerical claims â€?"a 38.7% reduction" â€?without any evidence grounding. We call this the <strong>precision illusion</strong>.</p>
+        <p>Why does this matter? Because precise numbers carry disproportionate weight in human judgment. Zhang & Schwarz (2012) showed that people trust precise numbers more, even when they know the precision is unwarranted. A pseudo-precise output exploits this cognitive bias silently.</p>
+        <p>At a 6.3% rate per output, a user session involving 10 advice statements carries a ~48% cumulative probability of encountering at least one pseudo-precise response. And these outputs cluster in exactly the scenarios where users most need reliable advice â€?mixed-evidence and insufficient-evidence questions.</p>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

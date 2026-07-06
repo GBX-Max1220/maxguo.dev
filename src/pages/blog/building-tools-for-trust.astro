@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Building Tools, Not Just Papers: Why I Code" description="Why building systems alongside papers is essential">
+  <div class="container-content py-16">
+    <article class="max-w-2xl">
+      <a href="/blog/" class="link-arrow mb-6 inline-flex">
+        â†?All posts
+      </a>
+      <p class="font-mono text-[0.65rem] text-[var(--color-text-muted)] mb-3">Essay Â· 2026-06-15</p>
+      <h1 class="mb-8">Building Tools, Not Just Papers: Why I Code</h1>
+      <div class="prose-page text-base leading-relaxed text-[var(--color-text)] space-y-4">
+        <p>When I started this research, I had a choice: publish a paper pointing out that LLMs produce miscalibrated advice, or build a system that fixes it. I chose both.</p>
+        <p>CheckMyCoach isn't just a paper contribution â€?it's 44 passing tests, a functioning API pipeline, a Streamlit frontend, and a cost per correction of ~$0.001.</p>
+        <p>Why does this matter? Because <strong>trust calibration research needs to be deployable.</strong> If we find that AI advice is systematically misleading but only propose theoretical fixes, we've done half the job. The other half is building things that work.</p>
+        <p>This philosophy extends to reproducibility. Every project on this site includes a quick-start guide, full environment specification, and tested code with CI.</p>
+        <p>Not because it's required for publication, but because <strong>work you can't reproduce is work that doesn't exist.</strong></p>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

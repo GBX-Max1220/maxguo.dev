@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="CalTrust" description="Adaptive Trust Calibration via Contextual Bandits">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+
+      <a href="/projects/" class="link-arrow mb-6 inline-flex">
+        ← All projects
+      </a>
+
+      <div class="flex items-center gap-3 mb-4">
+        <span class="badge badge-gold">In Development</span>
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">v1.0</span>
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">Updated: 2026-07-03</span>
+      </div>
+
+      <h1 class="mb-3">CalTrust</h1>
+      <p class="text-base text-[var(--color-text-dim)] mb-6">Adaptive Trust Calibration via Contextual Bandits</p>
+
+      <!-- Elevator pitch -->
+      <div class="card-static mb-8">
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          <strong class="text-[var(--color-ink)]">The problem:</strong> Different users need different types of calibration. A naive user might be overwhelmed by technical uncertainty expressions, while an expert needs precise confidence intervals. One-size-fits-all calibration doesn't work.
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mt-3">
+          <strong class="text-[var(--color-ink)]">The solution:</strong> CalTrust uses a <strong class="text-[var(--color-ink)]">LinUCB contextual bandit</strong> to select among four calibration interventions based on user context and output characteristics. An XGBoost trust predictor (AUC 0.70) trained on <strong class="text-[var(--color-ink)]">19,200 simulation trials</strong> guides the bandit's decisions.
+        </p>
+      </div>
+
+      <!-- SVG: Bandit Decision Diagram -->
+      <div class="card-static mb-6 text-center">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-4">Intervention Selection Logic</h2>
+        <svg viewBox="0 0 480 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="caltrust-title" class="max-w-full h-auto">
+          <title id="caltrust-title">Contextual bandit selects among 4 interventions based on user type and output UCS score</title>
+
+          <!-- User input -->
+          <rect x="20" y="20" width="120" height="40" rx="8" fill="var(--color-page-warm, #F5F0E6)" stroke="var(--color-rule, #E5DFD6)" stroke-width="1"/>
+          <text x="80" y="35" font-family="Inter, sans-serif" font-size="8" fill="var(--color-text-dim, #6B6660)" text-anchor="middle">User Profile</text>
+          <text x="80" y="48" font-family="JetBrains Mono, monospace" font-size="7" fill="var(--color-text-dim, #6B6660)" text-anchor="middle">naive / intermediate / expert</text>
+
+          <!-- Output input -->
+          <rect x="20" y="80" width="120" height="40" rx="8" fill="var(--color-page-warm, #F5F0E6)" stroke="var(--color-rule, #E5DFD6)" stroke-width="1"/>
+          <text x="80" y="95" font-family="Inter, sans-serif" font-size="8" fill="var(--color-text-dim, #6B6660)" text-anchor="middle">LLM Output</text>
+          <text x="80" y="108" font-family="JetBrains Mono, monospace" font-size="7" fill="var(--color-text-dim, #6B6660)" text-anchor="middle">UCS: /5</text>
+
+          <!-- Arrow from inputs to bandit -->
+          <path d="M140 40 L175 40 L175 100 L195 100" stroke="var(--color-rule, #E5DFD6)" stroke-width="1.2"/>
+          <path d="M140 100 L195 100" stroke="var(--color-rule, #E5DFD6)" stroke-width="1.2"/>
+
+          <!-- LinUCB Bandit -->
+          <rect x="200" y="60" width="100" height="80" rx="10" fill="var(--color-primary-subtle, #F5E4DC)" stroke="var(--color-primary, #B85A3A)" stroke-width="1.5"/>
+          <text x="250" y="88" font-family="Inter, sans-serif" font-size="10" fill="var(--color-primary, #B85A3A)" text-anchor="middle" font-weight="600">LinUCB</text>
+          <text x="250" y="105" font-family="Inter, sans-serif" font-size="7" fill="var(--color-primary-dim, #9C4A2E)" text-anchor="middle">Contextual</text>
+          <text x="250" y="117" font-family="Inter, sans-serif" font-size="7" fill="var(--color-primary-dim, #9C4A2E)" text-anchor="middle">Bandit</text>
+
+          <!-- Arrows to interventions -->
+          <path d="M300 80 L335 40" stroke="var(--color-rule, #E5DFD6)" stroke-width="1.2"/>
+          <path d="M300 95 L335 95" stroke="var(--color-rule, #E5DFD6)" stroke-width="1.2"/>
+          <path d="M300 110 L335 150" stroke="var(--color-rule, #E5DFD6)" stroke-width="1.2"/>
+          <path d="M300 125 L335 180" stroke="var(--color-rule, #E5DFD6)" stroke-width="1.2"/>
+
+          <!-- Intervention options -->
+          <rect x="340" y="20" width="120" height="35" rx="6" fill="var(--color-secondary-subtle, #E4F0EC)" stroke="var(--color-secondary, #2D7D6A)" stroke-width="1"/>
+          <text x="400" y="35" font-family="Inter, sans-serif" font-size="7" fill="var(--color-secondary-dim, #1E6353)" text-anchor="middle" font-weight="500">No Intervention</text>
+          <text x="400" y="47" font-family="JetBrains Mono, monospace" font-size="6" fill="var(--color-text-muted, #807C74)" text-anchor="middle">output unchanged</text>
+
+          <rect x="340" y="75" width="120" height="35" rx="6" fill="var(--color-primary-subtle, #F5E4DC)" stroke="var(--color-primary, #B85A3A)" stroke-width="1"/>
+          <text x="400" y="90" font-family="Inter, sans-serif" font-size="7" fill="var(--color-primary-dim, #9C4A2E)" text-anchor="middle" font-weight="500">Verbal Uncertainty</text>
+          <text x="400" y="102" font-family="JetBrains Mono, monospace" font-size="6" fill="var(--color-text-muted, #807C74)" text-anchor="middle">"This may vary…"</text>
+
+          <rect x="340" y="130" width="120" height="35" rx="6" fill="var(--color-gold-subtle, #F0E6D4)" stroke="var(--color-gold, #B8823A)" stroke-width="1"/>
+          <text x="400" y="145" font-family="Inter, sans-serif" font-size="7" fill="var(--color-text-dim, #6B6660)" text-anchor="middle" font-weight="500">Numerical Range</text>
+          <text x="400" y="157" font-family="JetBrains Mono, monospace" font-size="6" fill="var(--color-text-muted, #807C74)" text-anchor="middle">"10-15% reduction"</text>
+
+          <rect x="340" y="185" width="120" height="35" rx="6" fill="var(--color-secondary-subtle, #E4F0EC)" stroke="var(--color-secondary, #2D7D6A)" stroke-width="1"/>
+          <text x="400" y="200" font-family="Inter, sans-serif" font-size="7" fill="var(--color-secondary-dim, #1E6353)" text-anchor="middle" font-weight="500">Evidence Citation</text>
+          <text x="400" y="212" font-family="JetBrains Mono, monospace" font-size="6" fill="var(--color-text-muted, #807C74)" text-anchor="middle">"per ACSM guidelines"</text>
+        </svg>
+      </div>
+
+      <!-- Results Table -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Bandit Performance by User Profile</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-[var(--color-rule-light)]">
+                <th class="text-left py-2 pr-4 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">User Type</th>
+                <th class="text-right py-2 px-3 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Bandit ΔUCS</th>
+                <th class="text-right py-2 px-3 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Random ΔUCS</th>
+                <th class="text-right py-2 pl-3 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Best Intervention</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[var(--color-rule-light)]">
+                <td class="py-2.5 pr-4 text-[var(--color-ink)]">Naive</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-text-dim)]">−0.0048</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-text-dim)]">−0.0048</td>
+                <td class="text-right py-2.5 pl-3 text-[var(--color-secondary)]">No Intervention</td>
+              </tr>
+              <tr class="border-b border-[var(--color-rule-light)]">
+                <td class="py-2.5 pr-4 text-[var(--color-ink)]">Intermediate</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-secondary)] font-medium">+0.0004</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-text-dim)]">−0.0003</td>
+                <td class="text-right py-2.5 pl-3 text-[var(--color-text-dim)]">Verbal Uncertainty</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 pr-4 text-[var(--color-ink)]">Expert</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-secondary)] font-medium">+0.0080</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-text-dim)]">−0.0004</td>
+                <td class="text-right py-2.5 pl-3 text-[var(--color-text-dim)]">Numerical Range</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SVG: Predictor Performance -->
+      <div class="card-static mb-6 text-center">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-4">XGBoost Trust Predictor Performance</h2>
+        <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="xgboost-title" class="max-w-full h-auto">
+          <title id="xgboost-title">XGBoost predictor achieves AUC 0.70, RMSE 1.04 across 19,200 trials</title>
+          <!-- Background -->
+          <rect x="0" y="0" width="400" height="140" rx="8" fill="var(--color-surface, #FFFFFF)" stroke="var(--color-rule-light, #EFEADE)" stroke-width="1"/>
+
+          <!-- Metric blocks -->
+          <rect x="30" y="25" width="150" height="90" rx="8" fill="var(--color-secondary-subtle, #E4F0EC)" stroke="var(--color-secondary, #2D7D6A)" stroke-width="1"/>
+          <text x="105" y="60" font-family="'DM Serif Display', Georgia, serif" font-size="28" fill="var(--color-secondary, #2D7D6A)" text-anchor="middle">0.70</text>
+          <text x="105" y="82" font-family="Inter, sans-serif" font-size="9" fill="var(--color-secondary-dim, #1E6353)" text-anchor="middle" font-weight="500">AUC</text>
+          <text x="105" y="98" font-family="JetBrains Mono, monospace" font-size="6" fill="var(--color-text-muted, #807C74)" text-anchor="middle">discrimination</text>
+
+          <rect x="220" y="25" width="150" height="90" rx="8" fill="var(--color-primary-subtle, #F5E4DC)" stroke="var(--color-primary, #B85A3A)" stroke-width="1"/>
+          <text x="295" y="60" font-family="'DM Serif Display', Georgia, serif" font-size="28" fill="var(--color-primary, #B85A3A)" text-anchor="middle">1.04</text>
+          <text x="295" y="82" font-family="Inter, sans-serif" font-size="9" fill="var(--color-primary-dim, #9C4A2E)" text-anchor="middle" font-weight="500">RMSE</text>
+          <text x="295" y="98" font-family="JetBrains Mono, monospace" font-size="6" fill="var(--color-text-muted, #807C74)" text-anchor="middle">calibration</text>
+
+          <!-- Trial count -->
+          <text x="200" y="130" font-family="Inter, sans-serif" font-size="8" fill="var(--color-text-muted, #807C74)" text-anchor="middle">Trained on 19,200 simulation trials</text>
+        </svg>
+      </div>
+
+      <!-- Key insight -->
+      <div class="card-static mb-6 bg-[var(--color-gold-subtle)]">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider mb-3">Key Insight</h2>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          The bandit correctly learns <strong class="text-[var(--color-ink)]">"no intervention"</strong> for naive users (~46.7% of cases), avoiding unnecessary cognitive load. This is a ceiling effect: naive users already accept ~89% of LLM outputs, and any calibration intervention risks reducing trust rather than building it. The system prioritizes <strong class="text-[var(--color-ink)]">do no harm</strong> over maximal intervention.
+        </p>
+      </div>
+
+      <!-- Tech stack -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Tech Stack</h2>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="badge">Python 3.12</span>
+          <span class="badge">XGBoost</span>
+          <span class="badge">LinUCB</span>
+          <span class="badge">scikit-learn</span>
+          <span class="badge">Streamlit</span>
+          <span class="badge">19.2K trials</span>
+        </div>
+      </div>
+
+      <!-- Key Takeaways -->
+      <div class="card-static mb-6 bg-[var(--color-gold-subtle)]">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider mb-3">Key Takeaways</h2>
+        <ol class="space-y-2 text-sm text-[var(--color-text-dim)] list-decimal list-inside">
+          <li>LinUCB contextual bandit selects among 4 intervention types based on user + output context.</li>
+          <li>XGBoost trust predictor: AUC 0.70, RMSE 1.04 on 19,200 simulation trials.</li>
+          <li>Bandit learns "no intervention" for naive users (~46.7%), avoiding unnecessary cognitive load.</li>
+        </ol>
+      </div>
+
+      <!-- Related -->
+      <div class="card-static flex items-center justify-between mb-6">
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Related</span>
+        <div class="flex gap-2">
+          <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="btn btn-sm">MaxFitCalib-Bench →</a>
+          <a href="/research/building-trustworthy-ai/checkmycoach/" class="btn btn-sm">CheckMyCoach →</a>
+        </div>
+      </div>
+
+      <!-- Changelog -->
+      <div class="card-static">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Changelog</h2>
+        <div class="space-y-2 text-sm">
+          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v1.0</span><span class="text-[var(--color-text-dim)]">2026-07-03 — Simulation pipeline complete.</span></div>
+          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v0.2</span><span class="text-[var(--color-text-dim)]">2026-06-15 — LinUCB + Streamlit integrated.</span></div>
+          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v0.1</span><span class="text-[var(--color-text-dim)]">2026-02-01 — Prototype.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

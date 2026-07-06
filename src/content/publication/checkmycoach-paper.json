@@ -1,0 +1,21 @@
+{
+  "id": "checkmycoach-paper",
+  "title": "From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice",
+  "authors": ["Max Guo"],
+  "venue": "Target: CSCW 2027",
+  "year": 2026,
+  "status": "under_review",
+  "tags": ["LLM Calibration", "Human-AI Trust", "Fitness AI"],
+  "links": {
+    "arxiv": "https://arxiv.org/abs/..."
+  },
+  "citation": {
+    "bibtex": "@misc{guo2026checkmycoach,\n  author = {Guo, Max},\n  title = {From Precision Illusion to Calibration Intervention},\n  year = {2026},\n  url = {https://maxguo.dev/research/building-trustworthy-ai/checkmycoach/}\n}",
+    "apa": "Guo, M. (2026). From Precision Illusion to Calibration Intervention.",
+    "chicago": "Guo, Max. \"From Precision Illusion to Calibration Intervention.\" 2026.",
+    "mla": "Guo, Max. \"From Precision Illusion to Calibration Intervention.\" 2026."
+  },
+  "abstract": "Large language models are increasingly used as advisors in safety-critical domains, but standard benchmarks measure accuracy rather than calibration. We introduce the UCS taxonomy, evaluate 126 fitness advice questions across two models (finding the precision illusion: 92.9% Calibrated, 6.3% Pseudo-precise), and present CheckMyCoach, a four-stage calibration pipeline.",
+  "featured": true,
+  "projectId": "checkmycoach"
+}

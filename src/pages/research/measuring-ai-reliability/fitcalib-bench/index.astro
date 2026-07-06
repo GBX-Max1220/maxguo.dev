@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="MaxFitCalib-Bench" description="A Benchmark for LLM Calibration in Fitness Advice">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+
+      <a href="/projects/" class="link-arrow mb-6 inline-flex">
+        â†?All projects
+      </a>
+
+      <div class="flex items-center gap-3 mb-4">
+        <span class="badge badge-published">In Preparation</span>
+        <span class="font-mono text-xs text-[var(--color-muted)]">v1.0</span>
+        <span class="font-mono text-xs text-[var(--color-muted)]">Updated: 2026-06-01</span>
+      </div>
+
+      <h1 class="mb-3">MaxFitCalib-Bench</h1>
+      <p class="text-base text-[var(--color-text-dim)] mb-6">A Benchmark for LLM Calibration in Fitness Advice</p>
+
+      <!-- Elevator pitch -->
+      <div class="card-static mb-8">
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          <strong class="text-[var(--color-ink)]">The problem:</strong> LLMs are increasingly used for fitness advice, but how reliable are they? We built a 126-question benchmark grounded in ACSM/NSCA/AHA guidelines to find out.
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mt-3">
+          <strong class="text-[var(--color-ink)]">The finding:</strong> 92.9% of outputs are calibrated, but 6.3% contain <strong class="text-[var(--color-ink)]">pseudo-precise</strong> claims â€?numbers that sound authoritative but lack evidence. This is the <strong class="text-[var(--color-ink)]">precision illusion</strong>, and it clusters in safety-critical scenarios.
+        </p>
+      </div>
+
+      <!-- SVG: Precision Illusion Diagram -->
+      <div class="card-static mb-6 text-center">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-4">Precision Illusion â€?Failure Mode Breakdown</h2>
+        <svg viewBox="0 0 480 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig1-title" class="max-w-full h-auto">
+          <title id="fig1-title">Bar chart showing 92.9% calibrated outputs, 6.3% pseudo-precise, and 0.8% other failures</title>
+          <!-- Background -->
+          <rect x="0" y="0" width="480" height="220" rx="8" fill="var(--color-surface, #FFFFFF)" stroke="var(--color-rule-light, #EFEADE)" stroke-width="1"/>
+
+          <!-- Bars -->
+          <!-- Calibrated 92.9% -->
+          <rect x="40" y="55" width="280" height="40" rx="4" fill="var(--color-secondary, #2D7D6A)" opacity="0.8"/>
+          <text x="50" y="80" font-family="Inter, sans-serif" font-size="11" fill="#FFFFFF" font-weight="500">Calibrated â€?92.9%</text>
+          <text x="330" y="80" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--color-secondary-dim, #1E6353)" font-weight="500">âœ?Dominant</text>
+
+          <!-- Pseudo-precise 6.3% -->
+          <rect x="40" y="105" width="140" height="40" rx="4" fill="var(--color-primary, #B85A3A)" opacity="0.85"/>
+          <text x="50" y="130" font-family="Inter, sans-serif" font-size="11" fill="#FFFFFF" font-weight="500">Pseudo-precise â€?6.3%</text>
+          <text x="330" y="130" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--color-primary, #B85A3A)" font-weight="500">âš?Main failure mode</text>
+
+          <!-- Other 0.8% -->
+          <rect x="40" y="155" width="30" height="40" rx="4" fill="var(--color-muted, #807C74)" opacity="0.6"/>
+          <text x="50" y="180" font-family="Inter, sans-serif" font-size="11" fill="var(--color-muted, #807C74)" font-weight="500">Other â€?0.8%</text>
+        </svg>
+      </div>
+
+      <!-- Results Table -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Key Results by Evidence Category</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-[var(--color-rule-light)]">
+                <th class="text-left py-2 pr-4 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Evidence Level</th>
+                <th class="text-right py-2 px-3 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Calibrated</th>
+                <th class="text-right py-2 px-3 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Pseudo-precise</th>
+                <th class="text-right py-2 pl-3 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Overconfident</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[var(--color-rule-light)]">
+                <td class="py-2.5 pr-4 text-[var(--color-ink)]">Strong Evidence</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-text-dim)]">96.1%</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-primary)]">3.2%</td>
+                <td class="text-right py-2.5 pl-3 text-[var(--color-text-dim)]">0%</td>
+              </tr>
+              <tr class="border-b border-[var(--color-rule-light)]">
+                <td class="py-2.5 pr-4 text-[var(--color-ink)]">Mixed Evidence</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-text-dim)]">72.4%</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-primary)]">23.7%</td>
+                <td class="text-right py-2.5 pl-3 text-[var(--color-text-dim)]">0%</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 pr-4 text-[var(--color-ink)]">Insufficient Evidence</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-text-dim)]">69.8%</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-primary)]">26.7%</td>
+                <td class="text-right py-2.5 pl-3 text-[var(--color-text-dim)]">0%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- How it works -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Methodology</h2>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+          We curated 126 fitness advice questions spanning 8 categories (nutrition, supplementation, training programming, injury prevention, etc.), each grounded in ACSM, NSCA, or AHA position stands. Questions were classified by evidence level and administered to frontier LLMs.
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          Outputs were evaluated using the <strong class="text-[var(--color-ink)]">UCS (Uncertainty Calibration Score)</strong> engine, which classifies each statement as Calibrated, Pseudo-precise, or Overconfident.
+        </p>
+      </div>
+
+      <!-- Tech stack -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Tech Stack</h2>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="badge">Python</span>
+          <span class="badge">GPT-4o</span>
+          <span class="badge">Claude 3.5</span>
+          <span class="badge">Gemini 1.5</span>
+          <span class="badge">UCS Engine</span>
+          <span class="badge">ACSM Guidelines</span>
+          <span class="badge">Streamlit</span>
+        </div>
+      </div>
+
+      <!-- Key Takeaways -->
+      <div class="card-static mb-6 bg-[var(--color-secondary-subtle)]">
+        <h2 class="font-sans text-xs font-semibold text-[var(--color-secondary)] uppercase tracking-wider mb-3">Key Takeaways</h2>
+        <ol class="space-y-2 text-sm text-[var(--color-text-dim)] list-decimal list-inside">
+          <li>126 expert-crafted questions across 8 categories, grounded in ACSM/NSCA/AHA position stands.</li>
+          <li>92.9% of outputs Calibrated, but the dominant failure mode is Pseudo-precise (6.3%).</li>
+          <li>Pseudo-precise outputs cluster in safety-critical scenarios: 23.7% on mixed-evidence, 26.7% on insufficient-evidence.</li>
+          <li>~48% cumulative exposure probability per 10-statement session.</li>
+        </ol>
+      </div>
+
+      <!-- Reproducibility -->
+      <div class="card mb-6">
+        <h2 class="font-sans text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Reproducibility</h2>
+        <ul class="space-y-2 text-sm text-[var(--color-text-dim)]">
+          <li><span class="text-[var(--color-ink)]">ðŸ“„ Paper</span> â€?In preparation</li>
+          <li><span class="text-[var(--color-ink)]">ðŸ“¦ Code + Data</span> â€?Coming soon</li>
+          <li><span class="text-[var(--color-ink)]">âš?Quick Start:</span> <code class="text-xs bg-[var(--color-page-alt)] px-1.5 py-0.5 rounded">python evaluation/run_benchmark.py</code></li>
+        </ul>
+      </div>
+
+      <!-- Related -->
+      <div class="card-static flex items-center justify-between mb-6">
+        <span class="font-mono text-xs text-[var(--color-text-muted)] uppercase tracking-wider">Related</span>
+        <div class="flex gap-2">
+          <a href="/research/building-trustworthy-ai/checkmycoach/" class="btn btn-sm">CheckMyCoach â†?/a>
+        </div>
+      </div>
+
+      <!-- Changelog -->
+      <div class="card-static">
+        <h2 class="font-sans text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Changelog</h2>
+        <div class="space-y-2 text-sm">
+          <div class="flex gap-3"><span class="font-mono text-xs font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v1.0</span><span class="text-[var(--color-text-dim)]">2026-06-01 â€?arXiv submission.</span></div>
+          <div class="flex gap-3"><span class="font-mono text-xs font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v0.2</span><span class="text-[var(--color-text-dim)]">2026-03-15 â€?UCS Engine implemented.</span></div>
+          <div class="flex gap-3"><span class="font-mono text-xs font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v0.1</span><span class="text-[var(--color-text-dim)]">2025-12-10 â€?126 questions drafted.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

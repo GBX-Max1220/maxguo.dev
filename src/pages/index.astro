@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const site = 'https://maxguo.dev';
+---
+
+<BaseLayout title="Home" description="LLM Calibration & Trust in AI Coaching Ôø?Max Guo" hideNav>
+
+<!-- ================================================================ -->
+<!-- TWO-COLUMN LAYOUT: Left = brand sidebar, Right = content flow    -->
+<!-- ================================================================ -->
+<div class="container-content">
+  <div class="flex flex-col lg:flex-row gap-0 lg:gap-16">
+
+    <!-- ============================================================ -->
+    <!-- LEFT COLUMN Ôø?personal brand sidebar (sticky on lg+)          -->
+    <!-- ============================================================ -->
+    <div class="w-full lg:w-[340px] lg:min-w-[340px] lg:sticky lg:top-20 lg:self-start py-12 lg:py-20">
+
+      <!-- Navigation (placed in sidebar, not top bar) -->
+      <nav class="flex flex-wrap lg:flex-col gap-2 mb-10" aria-label="Section navigation">
+        <a href="#research" class="group flex items-center gap-2 px-3 py-2 text-[0.8rem] font-mono font-medium uppercase tracking-wider text-[var(--color-text-dim)] hover:text-[var(--color-primary)] transition-colors rounded-md hover:bg-[var(--color-primary-subtle)]">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] opacity-40 group-hover:opacity-100 transition-opacity"></span>
+          Research
+        </a>
+        <a href="/publications/" class="group flex items-center gap-2 px-3 py-2 text-[0.8rem] font-mono font-medium uppercase tracking-wider text-[var(--color-text-dim)] hover:text-[var(--color-primary)] transition-colors rounded-md hover:bg-[var(--color-primary-subtle)]">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+          Publications
+        </a>
+        <a href="/blog/" class="group flex items-center gap-2 px-3 py-2 text-[0.8rem] font-mono font-medium uppercase tracking-wider text-[var(--color-text-dim)] hover:text-[var(--color-primary)] transition-colors rounded-md hover:bg-[var(--color-primary-subtle)]">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+          Blog
+        </a>
+        <a href="/about/" class="group flex items-center gap-2 px-3 py-2 text-[0.8rem] font-mono font-medium uppercase tracking-wider text-[var(--color-text-dim)] hover:text-[var(--color-primary)] transition-colors rounded-md hover:bg-[var(--color-primary-subtle)]">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+          About
+        </a>
+        <a href="/contact/" class="group flex items-center gap-2 px-3 py-2 text-[0.8rem] font-mono font-medium uppercase tracking-wider text-[var(--color-text-dim)] hover:text-[var(--color-primary)] transition-colors rounded-md hover:bg-[var(--color-primary-subtle)]">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+          Contact
+        </a>
+      </nav>
+
+      <!-- Abstract graphic (smaller in sidebar) -->
+            <div class="hero-graphic max-w-[180px] mb-8">
+        <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="cal-title">
+          <title id="cal-title">Calibration motif ÔøΩÔøΩ overlapping rings symbolising alignment of confidence and accuracy</title>
+          <circle cx="140" cy="140" r="130" stroke="var(--color-rule-light, #EFEADE)" stroke-width="0.5" fill="none"/>
+          <circle cx="140" cy="140" r="96" stroke="var(--color-secondary, #2D7D6A)" stroke-width="1" fill="none" opacity="0.15"/>
+          <path d="M62 190 A96 96 0 0 1 218 190" stroke="var(--color-gold, #C9954E)" stroke-width="2" fill="none" opacity="0.4"/>
+          <circle cx="128" cy="128" r="64" stroke="var(--color-primary, #C87050)" stroke-width="1.5" fill="none" opacity="0.25"/>
+          <path d="M84 168 Q140 112 196 98" stroke="var(--color-primary, #C87050)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M90 100 Q140 160 198 168" stroke="var(--color-secondary, #2D7D6A)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+          <circle cx="120" cy="136" r="3" fill="var(--color-primary, #C87050)" opacity="0.5"/>
+          <circle cx="150" cy="122" r="2.5" fill="var(--color-secondary, #2D7D6A)" opacity="0.5"/>
+          <circle cx="176" cy="108" r="2" fill="var(--color-gold, #C9954E)" opacity="0.5"/>
+          <circle cx="128" cy="128" r="22" fill="var(--color-page-warm, #F5F0E6)" stroke="var(--color-rule, #E5DFD6)" stroke-width="1"/>
+          <text x="128" y="136" font-family="'DM Serif Display', Georgia, serif" font-size="22" fill="var(--color-primary, #C87050)" text-anchor="middle" font-style="italic">M</text>
+        </svg>
+      </div>
+
+      <!-- Name + identity -->
+      <h1 class="font-display text-[2.4rem] leading-[1.05] text-[var(--color-ink)] mb-1">
+        Max&nbsp;<span class="italic text-[var(--color-primary)]">Guo</span>
+      </h1>
+      <p class="font-mono text-sm text-[var(--color-text-dim)] mb-1">ÈÉ≠‰Ω∞Ôø?¬∑ /Ààba…™. ÉiÀên Àà…°wo ä/ ¬∑ bye-sheen gwoh</p>
+      <p class="font-mono text-[0.65rem] text-[var(--color-primary)] font-medium uppercase tracking-[0.12em] mb-4">
+        HCI &amp; AI Research ¬∑ Applied Psychology
+      </p>
+      <p class="font-sans text-base text-[var(--color-text-dim)] leading-relaxed mb-6">
+        Building <span class="text-[var(--color-ink)] font-medium">calibrated trust</span> between people and AI Ôø?at the intersection of psychology, sports science, and artificial intelligence.
+      </p>
+
+      <!-- CTA -->
+      <div class="flex flex-wrap gap-3 mb-6">
+        <a href="#research" class="btn btn-primary text-base px-5 py-2.5">
+          Explore my work
+          <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 6h8M6 2l4 4-4 4"/>
+          </svg>
+        </a>
+        <a href="/about/" class="btn text-base px-5 py-2.5">
+          About me
+        </a>
+      </div>
+
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2 mb-8">
+        <span class="badge text-[0.7rem]">LLM Calibration</span>
+        <span class="badge text-[0.7rem]">Trust in AI</span>
+        <span class="badge badge-gold text-[0.7rem]">Sports √ó HCI</span>
+        <span class="badge text-[0.7rem]">CSCW</span>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider-ornament mb-8"></div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 gap-x-6 gap-y-4">
+        <div>
+          <div class="stat-number text-[1.6rem]">6.3%</div>
+          <div class="stat-label">Precision illusion rate</div>
+        </div>
+        <div>
+          <div class="stat-number text-[1.6rem]">126</div>
+          <div class="stat-label">Benchmark questions</div>
+        </div>
+        <div>
+          <div class="stat-number text-[1.6rem]">+0.75</div>
+          <div class="stat-label">UCS improvement</div>
+        </div>
+        <div>
+          <div class="stat-number text-[1.6rem]">19.2K</div>
+          <div class="stat-label">Simulation trials</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- RIGHT COLUMN Ôø?content flow                                   -->
+    <!-- ============================================================ -->
+    <div class="flex-1 min-w-0 py-12 lg:py-20">
+
+      <!-- RESEARCH ARC -->
+      <section id="research" class="mb-16">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-7 h-7 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.65rem] font-bold">01</span>
+          <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Research Arc</span>
+        </div>
+        <h2 class="text-[1.6rem] mb-2">Three Movements</h2>
+        <p class="font-sans text-sm text-[var(--color-text-dim)] mb-8 max-w-md">
+          A coherent progression from diagnosing the problem, to building the fix, to adapting it to how people actually trust.
+        </p>
+
+        <div class="space-y-4">
+          <!-- Step 1 -->
+          <div class="card group">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.55rem] font-bold">01</span>
+              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Diagnose</span>
+            </div>
+            <h3 class="text-[1.05rem] mb-2">Measuring AI Reliability</h3>
+            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+              How reliable are LLMs in high-stakes fitness domains? Discovered the <strong class="text-[var(--color-ink)]">precision illusion</strong> Ôø?6.3% of LLM fitness outputs contain pseudo-precise claims. Built a 126-question benchmark.
+            </p>
+            <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="link-arrow">MaxFitCalib-Bench Ôø?/a>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="card group">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="w-6 h-6 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.55rem] font-bold">02</span>
+              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Build</span>
+            </div>
+            <h3 class="text-[1.05rem] mb-2">Building Trustworthy AI</h3>
+            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+              How should AI communicate its uncertainty? <strong class="text-[var(--color-ink)]">CheckMyCoach</strong> Ôø?a four-stage pipeline that detects, diagnoses, and corrects overconfident LLM outputs. <strong class="text-[var(--color-ink)]">+0.75 UCS</strong> at ~$0.001/correction.
+            </p>
+            <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach Ôø?/a>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="card group">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="w-6 h-6 rounded-full bg-[var(--color-gold-subtle)] flex items-center justify-center text-[var(--color-gold)] font-mono text-[0.55rem] font-bold">03</span>
+              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Adapt</span>
+            </div>
+            <h3 class="text-[1.05rem] mb-2">Understanding Human Trust</h3>
+            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+              How do people calibrate trust over time? <strong class="text-[var(--color-ink)]">CalTrust</strong> Ôø?a LinUCB contextual bandit that selects the right calibration intervention per user. <strong class="text-[var(--color-ink)]">AUC 0.70</strong>, 19,200 simulation trials.
+            </p>
+            <a href="/research/understanding-human-trust/caltrust/" class="link-arrow">CalTrust Ôø?/a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURED PUBLICATIONS -->
+      <section class="mb-16">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-7 h-7 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.65rem] font-bold">02</span>
+          <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Publications</span>
+        </div>
+        <h2 class="text-[1.6rem] mb-6">Featured Papers</h2>
+
+        <div class="space-y-4">
+          <a href="/publications/#checkmycoach-paper" class="card group block">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="badge badge-under-review">Under Review</span>
+              <span class="font-mono text-[0.55rem] text-[var(--color-text-muted)]">CSCW 2027</span>
+            </div>
+            <h3 class="font-display text-[1.05rem] text-[var(--color-ink)] group-hover:text-[var(--color-primary)] transition-colors mb-1">
+              From Precision Illusion to Calibration Intervention
+            </h3>
+            <p class="font-mono text-[0.6rem] text-[var(--color-text-dim)] mb-2">Guo, 2026</p>
+            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed">
+              LLM calibration framework + CheckMyCoach pipeline for correcting uncertainty expression in fitness coaching.
+            </p>
+          </a>
+
+          <a href="/publications/#fitcalib-bench-paper" class="card group block">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="badge badge-published">In Preparation</span>
+            </div>
+            <h3 class="font-display text-[1.05rem] text-[var(--color-ink)] group-hover:text-[var(--color-primary)] transition-colors mb-1">
+              MaxFitCalib-Bench: A Benchmark for LLM Calibration
+            </h3>
+            <p class="font-mono text-[0.6rem] text-[var(--color-text-dim)] mb-2">Guo, 2026</p>
+            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed">
+              126-question benchmark revealing the precision illusion in LLM fitness advice.
+            </p>
+          </a>
+        </div>
+      </section>
+
+      <!-- RECENT UPDATES -->
+      <section class="mb-16">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-7 h-7 rounded-full bg-[var(--color-gold-subtle)] flex items-center justify-center text-[var(--color-gold)] font-mono text-[0.65rem] font-bold">03</span>
+          <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Activity</span>
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-[1.6rem]">Recent Updates</h2>
+          <a href="/blog/" class="link-arrow">All posts Ôø?/a>
+        </div>
+
+        <div class="bg-[var(--color-surface)] rounded-xl border border-[var(--color-rule-light)] p-1">
+          <div class="log-item px-4 py-3">
+            <span class="log-date">Jul 3</span>
+            <div class="log-dot"></div>
+            <p class="font-sans text-sm text-[var(--color-text-dim)]">Expanded discussion w/ dual-process theory framework</p>
+          </div>
+          <div class="log-item px-4 py-3">
+            <span class="log-date">Jul 2</span>
+            <div class="log-dot"></div>
+            <p class="font-sans text-sm text-[var(--color-text-dim)]">CalTrust: XGBoost AUC 0.70, RMSE 1.04</p>
+          </div>
+          <div class="log-item px-4 py-3">
+            <span class="log-date">Jun 20</span>
+            <div class="log-dot"></div>
+            <p class="font-sans text-sm text-[var(--color-text-dim)]">CheckMyCoach: 44 tests pass, +0.75 UCS improvement</p>
+          </div>
+          <div class="log-item px-4 py-3">
+            <span class="log-date">Jun 1</span>
+            <div class="log-dot"></div>
+            <p class="font-sans text-sm text-[var(--color-text-dim)]">MaxFitCalib-Bench: benchmark design complete</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+</div>
+
+</BaseLayout>

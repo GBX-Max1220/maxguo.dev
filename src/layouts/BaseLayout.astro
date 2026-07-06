@@ -1,0 +1,76 @@
+﻿---
+import '../styles/globals.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: string;
+  hideNav?: boolean;
+}
+
+const { title, description, ogImage, ogType, hideNav } = Astro.props;
+const site = 'https://maxguo.dev';
+const defaultDesc = 'LLM Calibration & Trust in AI Coaching | Max Guo';
+const absTitle = `${title} — Max Guo`;
+const absDesc = description || defaultDesc;
+const ogImageUrl = ogImage ? new URL(ogImage, site).href : undefined;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{absTitle}</title>
+    <meta name="description" content={absDesc} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={absTitle} />
+    <meta property="og:description" content={absDesc} />
+    <meta property="og:type" content={ogType || 'website'} />
+    <meta property="og:url" content={Astro.url} />
+    {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={absTitle} />
+    <meta name="twitter:description" content={absDesc} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={Astro.url} />
+
+    <!-- Schema.org Person -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Max Guo",
+      "givenName": "Max",
+      "familyName": "Guo",
+      "email": "gbx1220max@gmail.com",
+      "url": site,
+      "sameAs": [
+        "https://scholar.google.com/citations?user=PLACEHOLDER",
+        "https://github.com/GBX-Max1220",
+        "https://www.linkedin.com/in/baixin-guo-681113285/",
+      ],
+      "description": defaultDesc,
+    })}></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="Max Guo — Blog" href="/rss.xml" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    {!hideNav && <Nav />}
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

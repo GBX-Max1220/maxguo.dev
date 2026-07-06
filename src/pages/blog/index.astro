@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Blog" description="Research notes and essays â€?Max Guo">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+
+      <span class="section-label mb-4">Blog</span>
+      <h1 class="mb-8">Blog</h1>
+
+      <!-- Research Notes -->
+      <h2 class="font-sans text-[0.8rem] font-semibold text-[var(--color-text-dim)] uppercase tracking-wider mb-4">Research Notes</h2>
+      <div class="space-y-4 mb-12">
+        <a href="/blog/precision-illusion-intro/" class="card group block">
+          <p class="font-mono text-[0.6rem] text-[var(--color-text-muted)] mb-2">2026-07-01</p>
+          <h3 class="font-display text-[1.05rem] text-[var(--color-ink)] group-hover:text-[var(--color-primary)] transition-colors mb-1">
+            The Precision Illusion: Why 6.3% Matters
+          </h3>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+            An introduction to the precision illusion â€?the finding that LLMs aren't dangerously overconfident, but subtly misleading in a hard-to-detect way.
+          </p>
+          <div class="flex gap-1.5">
+            <span class="badge">LLM Calibration</span>
+            <span class="badge">Precision Illusion</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Essays -->
+      <h2 class="font-sans text-[0.8rem] font-semibold text-[var(--color-text-dim)] uppercase tracking-wider mb-4">Essays</h2>
+      <div class="space-y-4">
+        <a href="/blog/building-tools-for-trust/" class="card group block">
+          <p class="font-mono text-[0.6rem] text-[var(--color-text-muted)] mb-2">2026-06-15</p>
+          <h3 class="font-display text-[1.05rem] text-[var(--color-ink)] group-hover:text-[var(--color-primary)] transition-colors mb-1">
+            Building Tools, Not Just Papers: Why I Code
+          </h3>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+            Why I believe building functional systems alongside publishing papers is essential for trustworthy AI research.
+          </p>
+          <div class="flex gap-1.5">
+            <span class="badge">Research Practice</span>
+            <span class="badge">Open Science</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

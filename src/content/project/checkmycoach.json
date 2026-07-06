@@ -1,0 +1,52 @@
+{
+  "id": "checkmycoach",
+  "programId": "building-trustworthy-ai",
+  "title": "CheckMyCoach: A Calibration Pipeline for LLM Uncertainty Expression",
+  "shortTitle": "CheckMyCoach",
+  "status": "under_review",
+  "version": "v1.0",
+  "updated": "2026-07-03",
+  "keyTakeaways": [
+    "CheckMyCoach is a four-stage calibration pipeline (Detection → Diagnosis → Correction → Validation) that automatically identifies and rewrites Pseudo-precise and Overconfident LLM outputs.",
+    "The pipeline improved Overconfident outputs by +0.75 UCS points and Pseudo-precise outputs by +0.17 UCS points without degrading already-Calibrated outputs (Δ = 0.00).",
+    "The validation stage (M4) enforces four sanity checks and falls back to the original output on failure, prioritizing 'do no harm' over maximum correction coverage.",
+    "At ~$0.001 per correction via GPT-4o-mini, the pipeline is cost-effective for real-time deployment in AI advisory systems."
+  ],
+  "faq": [
+    {
+      "q": "What failure types does CheckMyCoach diagnose?",
+      "a": "Three types, priority-ordered: (1) Context Mismatch — contradictory features in the output, (2) Template Dominance — superiority claims without evidence, (3) Cue Leakage — pseudo-precise numbers without evidence grounding."
+    },
+    {
+      "q": "Does CheckMyCoach ever make outputs worse?",
+      "a": "In 3 of 19 scorable cases, corrections lowered the UCS score. These cases are a focus of ongoing improvement. The validation stage (M4) catches basic errors (truncation, unchanged text, increased assertion count) and falls back to the original output."
+    },
+    {
+      "q": "Is it worth building a four-stage system for 6.3% of outputs?",
+      "a": "Yes — Pseudo-precise outputs cluster in the most safety-critical scenarios (23.7% on mixed-evidence questions), and at 10 statements per session, users face ~48% cumulative exposure. In safety-critical domains, individual undetected errors carry high costs."
+    }
+  ],
+  "links": {
+    "paper": "https://arxiv.org/abs/...",
+    "code": "https://github.com/.../CheckMyCoach",
+    "demo": "https://..."
+  },
+  "citation": {
+    "bibtex": "@misc{guo2026checkmycoach,\n  author = {Guo, Max},\n  title = {From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice},\n  year = {2026},\n  url = {https://maxguo.dev/research/building-trustworthy-ai/checkmycoach/}\n}",
+    "apa": "Guo, M. (2026). From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice. https://maxguo.dev/research/building-trustworthy-ai/checkmycoach/",
+    "chicago": "Guo, Max. \"From Precision Illusion to Calibration Intervention.\" 2026. https://maxguo.dev/research/building-trustworthy-ai/checkmycoach/.",
+    "mla": "Guo, Max. \"From Precision Illusion to Calibration Intervention.\" 2026, https://maxguo.dev/research/building-trustworthy-ai/checkmycoach/."
+  },
+  "reproducible": {
+    "env": "Python 3.12 with requirements.txt; OpenRouter API key for M3 (GPT-4o-mini); fallback mode available when API is offline",
+    "quickStart": "git clone ... && cd CheckMyCoach && pip install -r requirements.txt && python calibration_agent/e2e_test.py"
+  },
+  "changelog": [
+    { "version": "v1.0", "date": "2026-07-03", "event": "Paper complete (8.5/9 sections). Discussion expanded to ~985 words. Human Evaluation skeleton in place." },
+    { "version": "v0.3", "date": "2026-06-20", "event": "44 tests (41 unit + 3 e2e) all passing. Baseline comparison (24 cases) complete." },
+    { "version": "v0.2", "date": "2026-06-01", "event": "M1-M4 pipeline complete with UCS Engine integration" },
+    { "version": "v0.1", "date": "2026-04-15", "event": "Prototype: rule-based detection + correction" }
+  ],
+  "relatedIds": ["fitcalib-bench", "caltrust"],
+  "order": 3
+}
