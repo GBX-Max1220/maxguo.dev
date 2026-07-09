@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="AI-Fit-Scan Dataset" description="Analysis of 161 fitness apps — 61 with AI claims">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+
+      <span class="section-label mb-4">Dataset</span>
+      <h1 class="mb-2">AI-Fit-Scan Dataset</h1>
+      <p class="text-sm text-[var(--color-text-dim)] mb-6">A systematic analysis of AI claims in fitness applications.</p>
+
+      <!-- Overview stats -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+        <div class="card-static text-center">
+          <div class="font-display text-lg text-[var(--color-ink)]">161</div>
+          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Apps Analyzed</div>
+        </div>
+        <div class="card-static text-center">
+          <div class="font-display text-lg text-[var(--color-ink)]">61</div>
+          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">With AI Claims</div>
+        </div>
+        <div class="card-static text-center">
+          <div class="font-display text-lg text-[var(--color-ink)]">3</div>
+          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Label Categories</div>
+        </div>
+        <div class="card-static text-center">
+          <div class="font-display text-lg text-[var(--color-ink)]">T/F/Q</div>
+          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">AI Label Types</div>
+        </div>
+      </div>
+
+      <!-- About the dataset -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">About</h2>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+          The AI-Fit-Scan dataset catalogs 161 fitness and health applications available on iOS and Android app stores, documenting their use of artificial intelligence features. Each app was reviewed for AI-related claims and categorized by functionality.
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          Of the 161 apps analyzed, <strong class="text-[var(--color-ink)]">61 (37.9%)</strong> made explicit AI claims. These claims were classified into three label types: <strong class="text-[var(--color-ink)]">True (T)</strong>, <strong class="text-[var(--color-ink)]">False (F)</strong>, and <strong class="text-[var(--color-ink)]">Questionable (Q)</strong>, based on whether the claimed AI functionality was actually implemented.
+        </p>
+      </div>
+
+      <!-- Key findings -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Key Findings</h2>
+        <ul class="space-y-2 text-sm text-[var(--color-text-dim)]">
+          <li><strong class="text-[var(--color-ink)]">37.9%</strong> of fitness apps make AI claims — suggesting widespread adoption of AI marketing in the fitness domain.</li>
+          <li>Claims fall into <strong class="text-[var(--color-ink)]">three categories</strong>: actual AI implementation (T), overstated claims (F), and ambiguous/misleading descriptions (Q).</li>
+          <li>This dataset informed the motivation for FitCalib-Bench: if apps claim AI but don't deliver, how reliable is the AI advice they provide?</li>
+        </ul>
+      </div>
+
+      <!-- Download -->
+      <div class="card-static mb-6 bg-[var(--color-page-warm)]">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Download</h2>
+        <p class="text-sm text-[var(--color-text-dim)] mb-3">The full dataset is available for research use.</p>
+        <span class="btn btn-sm opacity-60 cursor-default">CSV download — coming soon</span>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>
