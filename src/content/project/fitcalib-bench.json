@@ -24,9 +24,7 @@
     }
   ],
   "links": {
-    "paper": "https://arxiv.org/abs/...",
-    "code": "https://github.com/GBX-Max1220/FitCalib-Bench",
-    "dataset": "https://github.com/.../MaxFitCalib-Bench/data"
+    "code": "https://github.com/GBX-Max1220/FitCalib-Bench"
   },
   "citation": {
     "bibtex": "@misc{guo2026fitcalib,\n  author = {Guo, Max},\n  title = {MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice},\n  year = {2026},\n  eprint = {...,\n  archivePrefix = {arXiv},\n  url = {https://maxguo.dev/research/measuring-ai-reliability/fitcalib-bench/}\n}",

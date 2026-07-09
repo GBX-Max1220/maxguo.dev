@@ -27,9 +27,7 @@
     }
   ],
   "links": {
-    "paper": "https://arxiv.org/abs/...",
-    "code": "https://github.com/GBX-Max1220/CheckMyCoach",
-    "demo": "https://..."
+    "code": "https://github.com/GBX-Max1220/CheckMyCoach"
   },
   "citation": {
     "bibtex": "@misc{guo2026checkmycoach,\n  author = {Guo, Max},\n  title = {From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice},\n  year = {2026},\n  url = {https://maxguo.dev/research/building-trustworthy-ai/checkmycoach/}\n}",

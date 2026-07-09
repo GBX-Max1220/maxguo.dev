@@ -7,7 +7,7 @@
   "status": "under_review",
   "tags": ["LLM Calibration", "Human-AI Trust", "Fitness AI"],
   "links": {
-    "arxiv": "https://arxiv.org/abs/..."
+    "arxiv": ""
   },
   "citation": {
     "bibtex": "@misc{guo2026checkmycoach,\n  author = {Guo, Max},\n  title = {From Precision Illusion to Calibration Intervention},\n  year = {2026},\n  url = {https://maxguo.dev/research/building-trustworthy-ai/checkmycoach/}\n}",

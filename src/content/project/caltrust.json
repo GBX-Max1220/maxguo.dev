@@ -23,8 +23,7 @@
     }
   ],
   "links": {
-    "code": "https://github.com/GBX-Max1220/CalTrust",
-    "demo": "https://..."
+    "code": "https://github.com/GBX-Max1220/CalTrust"
   },
   "citation": {
     "bibtex": "@misc{guo2026caltrust,\n  author = {Guo, Max},\n  title = {CalTrust: Adaptive Trust Calibration via Contextual Bandits},\n  year = {2026},\n  url = {https://maxguo.dev/research/understanding-human-trust/caltrust/}\n}",

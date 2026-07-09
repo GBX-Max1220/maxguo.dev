@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const notes = (await getCollection('blog'))
+  .filter((p) => p.data.type === 'research-note' && !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<BaseLayout title="Research Notes" description="Short research notes and findings — Max Guo">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+
+      <span class="section-label mb-4">Research Notes</span>
+      <h1 class="mb-2">Research Notes</h1>
+      <p class="text-sm text-[var(--color-text-dim)] mb-8 max-w-md">
+        Short notes on findings, failed experiments, observations, and research process — updated as things happen.
+      </p>
+
+      {
+        notes.length > 0 ? (
+          <div class="space-y-4 mb-12">
+            {notes.map((note) => (
+              <a href={`/blog/${note.id}/`} class="card group block">
+                <p class="font-mono text-[0.6rem] text-[var(--color-text-muted)] mb-2">
+                  {note.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                </p>
+                <h2 class="font-display text-[1.05rem] text-[var(--color-ink)] group-hover:text-[var(--color-primary)] transition-colors mb-1">
+                  {note.data.title}
+                </h2>
+                <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">{note.data.excerpt}</p>
+                <div class="flex gap-1.5 flex-wrap">
+                  {note.data.tags.map((tag) => <span class="badge text-[0.55rem]">{tag}</span>)}
+                </div>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <div class="card-static text-center py-8">
+            <p class="text-sm text-[var(--color-text-dim)]">No research notes yet. Coming soon.</p>
+          </div>
+        )
+      }
+
+    </div>
+  </div>
+</BaseLayout>
