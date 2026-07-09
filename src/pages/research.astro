@@ -10,6 +10,52 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="text-sm text-[var(--color-text-dim)] mb-10 max-w-lg">
         My research is organized around three long-term scientific questions. Each program contains one or more active projects.
       </p>
+      <!-- Research Timeline -->
+      <div class="card-static mb-10 bg-[var(--color-page-warm)]">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-4">Research Arc</h2>
+        <div class="relative">
+          <!-- Timeline line -->
+          <div class="absolute left-[15px] top-2 bottom-2 w-px bg-[var(--color-rule)]"></div>
+
+          <div class="space-y-5 pl-10">
+            <div class="relative">
+              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-secondary)] border-2 border-[var(--color-page-warm)]"></div>
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-secondary)] uppercase">2025 Q4</span>
+                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Diagnose</span>
+              </div>
+              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">FitCalib-Bench</strong> — 126-question benchmark design. Discovered the precision illusion.</p>
+            </div>
+
+            <div class="relative">
+              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-primary)] border-2 border-[var(--color-page-warm)]"></div>
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-primary)] uppercase">2026 Q1-Q2</span>
+                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Build</span>
+              </div>
+              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">Knowledge Compiler</strong> — 2,306 objects from ACSM. <strong class="text-[var(--color-ink)]">CheckMyCoach</strong> — 4-stage calibration pipeline.</p>
+            </div>
+
+            <div class="relative">
+              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-gold)] border-2 border-[var(--color-page-warm)]"></div>
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-gold)] uppercase">2026 Q2-Q3</span>
+                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Adapt</span>
+              </div>
+              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">CalTrust</strong> — LinUCB bandit, AUC 0.70, 19.2K trials. <strong class="text-[var(--color-ink)]">PI Discovery</strong> — advisor search engine.</p>
+            </div>
+
+            <div class="relative">
+              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-secondary)] border-2 border-[var(--color-page-warm)]"></div>
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-secondary)] uppercase">2026 Q3+</span>
+                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Scale</span>
+              </div>
+              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">Multi-Domain Benchmark</strong> — extending to medical &amp; legal. Precision illusion across domains.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="space-y-5">
 

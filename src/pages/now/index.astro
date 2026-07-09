@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Now" description="What Max Guo is working on right now">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+
+      <span class="section-label mb-4">Now</span>
+      <h1 class="mb-2">What I'm Working On</h1>
+      <p class="text-sm text-[var(--color-text-dim)] mb-8">Updated July 2026</p>
+
+      <div class="space-y-6">
+
+        <div class="card-static">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 rounded-full bg-[var(--color-primary)]"></span>
+            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider">Under Review</span>
+          </div>
+          <h2 class="text-[1.05rem] mb-1">From Precision Illusion to Calibration Intervention</h2>
+          <p class="text-sm text-[var(--color-text-dim)]">Submitted to CSCW 2027. CheckMyCoach pipeline, precision illusion findings.</p>
+        </div>
+
+        <div class="card-static">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 rounded-full bg-[var(--color-secondary)]"></span>
+            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider">Active</span>
+          </div>
+          <h2 class="text-[1.05rem] mb-1">Multi-Domain Precision Illusion Benchmark</h2>
+          <p class="text-sm text-[var(--color-text-dim)]">Extending FitCalib-Bench to medical and legal domains. Protocol and stimulus design in progress.</p>
+        </div>
+
+        <div class="card-static">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 rounded-full bg-[var(--color-gold)]"></span>
+            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider">Building</span>
+          </div>
+          <h2 class="text-[1.05rem] mb-1">PI Discovery Engine</h2>
+          <p class="text-sm text-[var(--color-text-dim)]">Streamlit web app for finding and tracking potential PhD advisors. v0.3 with email pipeline.</p>
+        </div>
+
+        <div class="card-static">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 rounded-full bg-[var(--color-secondary)]"></span>
+            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider">Reading</span>
+          </div>
+          <h2 class="text-[1.05rem] mb-1">Trust Calibration in Human-AI Interaction</h2>
+          <p class="text-sm text-[var(--color-text-dim)]">Kahneman's Thinking Fast and Slow, dual-process theory, and calibration literature for Paper 2 discussion.</p>
+        </div>
+
+      </div>
+
+      <p class="text-xs text-[var(--color-text-muted)] mt-8 italic">Inspired by <a href="https://nownownow.com" class="underline hover:text-[var(--color-primary)]">nownownow.com</a></p>
+    </div>
+  </div>
+</BaseLayout>
