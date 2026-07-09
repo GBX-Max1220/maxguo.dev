@@ -28,7 +28,7 @@
     }
   ],
   "links": {
-    "code": "https://github.com/MaxGuo1220/pi-discovery-pipeline"
+    "code": "https://github.com/GBX-Max1220/pi-discovery-pipeline"
   },
   "citation": {
     "bibtex": "@misc{guo2026pidiscovery,\n  author = {Guo, Max},\n  title = {PI Discovery Engine: From Research Topics to Investigator Cards},\n  year = {2026},\n  url = {https://maxguo.dev/research/building-trustworthy-ai/pi-discovery/}\n}",
@@ -38,7 +38,7 @@
   },
   "reproducible": {
     "env": "Python 3.11+ with pip install pyalex semanticscholar streamlit pandas pyyaml",
-    "quickStart": "git clone https://github.com/MaxGuo1220/pi-discovery-pipeline && cd pi-discovery-pipeline && pip install -e . && streamlit run src/web/app.py"
+    "quickStart": "git clone https://github.com/GBX-Max1220/pi-discovery-pipeline && cd pi-discovery-pipeline && pip install -e . && streamlit run src/web/app.py"
   },
   "changelog": [
     { "version": "v0.3", "date": "2026-07-05", "event": "Streamlit web app with country filter, email tracking, and ranking" },

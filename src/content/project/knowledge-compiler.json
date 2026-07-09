@@ -29,7 +29,7 @@
     }
   ],
   "links": {
-    "code": "https://github.com/MaxGuo1220/acsms12-manifest"
+    "code": "https://github.com/GBX-Max1220/acsms12-manifest"
   },
   "citation": {
     "bibtex": "@misc{guo2026knowledgecompiler,\n  author = {Guo, Max},\n  title = {Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks},\n  year = {2026},\n  url = {https://maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/}\n}",
@@ -39,7 +39,7 @@
   },
   "reproducible": {
     "env": "Python 3.11+ with requirements.txt (openai, pyyaml, pydantic)",
-    "quickStart": "git clone https://github.com/MaxGuo1220/acsms12-manifest && cd acsms12-manifest && pip install -r requirements.txt && python -m compiler.cli run --book acsm12"
+    "quickStart": "git clone https://github.com/GBX-Max1220/acsms12-manifest && cd acsms12-manifest && pip install -r requirements.txt && python -m compiler.cli run --book acsm12"
   },
   "changelog": [
     { "version": "v2.0", "date": "2026-07-01", "event": "NSCA CSCS 5th edition complete: 1,598 objects, 26 chapters" },
