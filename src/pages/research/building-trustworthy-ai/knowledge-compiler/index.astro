@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Knowledge Compiler" description="Convert authoritative textbooks into reusable structured knowledge for trustworthy AI evaluation">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+
+      <a href="/projects/" class="link-arrow mb-6 inline-flex">
+        ← All projects
+      </a>
+
+      <div class="flex items-center gap-3 mb-4">
+        <span class="badge badge-published">Published</span>
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">v2.0</span>
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">Updated: 2026-07-01</span>
+      </div>
+
+      <h1 class="mb-3">Knowledge Compiler</h1>
+      <p class="text-base text-[var(--color-text-dim)] mb-6">Convert authoritative textbooks into reusable structured knowledge for trustworthy AI evaluation.</p>
+
+      <!-- Elevator pitch -->
+      <div class="card-static mb-8">
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          <strong class="text-[var(--color-ink)]">The problem:</strong> LLM claims in safety-critical domains need to be verifiable against a ground-truth source, but textbooks are unstructured — buried in prose, tables, and figures.
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mt-3">
+          <strong class="text-[var(--color-ink)]">The solution:</strong> Knowledge Compiler is a fully reproducible pipeline — <strong class="text-[var(--color-ink)]">chunk → extract → normalize → validate</strong> — that converts authoritative textbooks into structured, queryable knowledge objects. <strong class="text-[var(--color-ink)]">2,306 objects</strong> from ACSM's Guidelines, <strong class="text-[var(--color-ink)]">1,598</strong> from NSCA's Essentials, at <strong class="text-[var(--color-ink)]">~$0.003/object</strong>.
+        </p>
+      </div>
+
+      <!-- Pipeline Overview -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Pipeline Architecture</h2>
+        <div class="grid grid-cols-4 gap-2 text-center">
+          <div class="bg-[var(--color-secondary-subtle)] rounded-lg p-3">
+            <div class="font-mono text-[0.55rem] font-semibold text-[var(--color-secondary)] mb-1">Step 1</div>
+            <div class="text-sm font-medium text-[var(--color-ink)]">Chunk</div>
+            <div class="text-xs text-[var(--color-text-dim)]">Split textbook into digestible passages</div>
+          </div>
+          <div class="bg-[var(--color-primary-subtle)] rounded-lg p-3">
+            <div class="font-mono text-[0.55rem] font-semibold text-[var(--color-primary)] mb-1">Step 2</div>
+            <div class="text-sm font-medium text-[var(--color-ink)]">Extract</div>
+            <div class="text-xs text-[var(--color-text-dim)]">LLM extracts structured objects using ontology schema</div>
+          </div>
+          <div class="bg-[var(--color-gold-subtle)] rounded-lg p-3">
+            <div class="font-mono text-[0.55rem] font-semibold text-[var(--color-gold)] mb-1">Step 3</div>
+            <div class="text-sm font-medium text-[var(--color-ink)]">Normalize</div>
+            <div class="text-xs text-[var(--color-text-dim)]">Deduplicate and resolve cross-references</div>
+          </div>
+          <div class="bg-[var(--color-secondary-subtle)] rounded-lg p-3">
+            <div class="font-mono text-[0.55rem] font-semibold text-[var(--color-secondary)] mb-1">Step 4</div>
+            <div class="text-sm font-medium text-[var(--color-ink)]">Validate</div>
+            <div class="text-xs text-[var(--color-text-dim)]">Automated quality gates: semantic fidelity, completeness</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Stats -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+        <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center">
+          <div class="font-display text-lg text-[var(--color-ink)]">2,306</div>
+          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">ACSM Objects</div>
+        </div>
+        <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center">
+          <div class="font-display text-lg text-[var(--color-ink)]">1,598</div>
+          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">NSCA Objects</div>
+        </div>
+        <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center">
+          <div class="font-display text-lg text-[var(--color-ink)]">14</div>
+          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Ontology Types</div>
+        </div>
+        <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center">
+          <div class="font-display text-lg text-[var(--color-ink)]">91.2%</div>
+          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Accuracy</div>
+        </div>
+      </div>
+
+      <!-- Ontology Structure -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Ontology Structure</h2>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+          14 object types organized in a three-layer schema:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-3">
+            <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider mb-2">Core Concepts</h3>
+            <ul class="text-xs text-[var(--color-text-dim)] space-y-1">
+              <li>• Concept</li>
+              <li>• Evidence</li>
+              <li>• Formula</li>
+            </ul>
+          </div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-3">
+            <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-2">Operational Rules</h3>
+            <ul class="text-xs text-[var(--color-text-dim)] space-y-1">
+              <li>• Recommendation</li>
+              <li>• Threshold</li>
+              <li>• Procedure</li>
+              <li>• DecisionRule</li>
+            </ul>
+          </div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-3">
+            <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider mb-2">Safety</h3>
+            <ul class="text-xs text-[var(--color-text-dim)] space-y-1">
+              <li>• Warning</li>
+              <li>• Contraindication</li>
+              <li>• RiskFactor</li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-xs text-[var(--color-text-muted)] mt-3 italic">Plus supporting types: Figure, Table, TableRow</p>
+      </div>
+
+      <!-- FAQ -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">FAQ</h2>
+        <div class="space-y-4 text-sm text-[var(--color-text-dim)]">
+          <div>
+            <p class="font-medium text-[var(--color-ink)] mb-1">Why compile textbooks into structured knowledge?</p>
+            <p class="leading-relaxed">Structured knowledge enables downstream systems (like CheckMyCoach's calibration pipeline) to verify LLM claims against a verifiable ground-truth source, rather than relying on the LLM's internal knowledge.</p>
+          </div>
+          <div>
+            <p class="font-medium text-[var(--color-ink)] mb-1">What's the ontology structure?</p>
+            <p class="leading-relaxed">14 object types organized in a three-layer schema: Core Concepts (Concept, Evidence, Formula), Operational Rules (Recommendation, Threshold, Procedure, DecisionRule), and Safety (Warning, Contraindication, RiskFactor), plus supporting types (Figure, Table, TableRow).</p>
+          </div>
+          <div>
+            <p class="font-medium text-[var(--color-ink)] mb-1">Can this pipeline work for other textbooks?</p>
+            <p class="leading-relaxed">Yes — the pipeline is textbook-agnostic. Schema and prompts are the main per-book adaptation cost. Demonstrated by successful ACSM → NSCA transfer.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech stack -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Tech Stack</h2>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="badge">Python 3.11+</span>
+          <span class="badge">Pydantic</span>
+          <span class="badge">LLM Extraction</span>
+          <span class="badge">PyYAML</span>
+          <span class="badge">OpenAI</span>
+        </div>
+      </div>
+
+      <!-- Reproducibility -->
+      <div class="card-static mb-6 bg-[var(--color-secondary-subtle)]">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider mb-3">Reproducibility</h2>
+        <p class="text-xs font-mono text-[var(--color-text-dim)] mb-2">Env: Python 3.11+ with requirements.txt (openai, pyyaml, pydantic)</p>
+        <code class="block bg-[var(--color-page)] rounded p-2 text-xs font-mono text-[var(--color-text-dim)] break-all">git clone https://github.com/MaxGuo1220/acsms12-manifest && cd acsms12-manifest && pip install -r requirements.txt && python -m compiler.cli run --book acsm12</code>
+      </div>
+
+      <!-- Key Takeaways -->
+      <div class="card-static mb-6 bg-[var(--color-primary-subtle)]">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-3">Key Takeaways</h2>
+        <ol class="space-y-2 text-sm text-[var(--color-text-dim)] list-decimal list-inside">
+          <li>Extracted 2,306 structured knowledge objects from ACSM's Guidelines (12th ed.) — spanning 14 ontology types.</li>
+          <li>Full pipeline reproducibility: chunk → extract → normalize → validate, with automated quality gates at each stage.</li>
+          <li>Generalized to NSCA's Essentials (5th ed.): 1,598 objects across 26 chapters, demonstrating domain-agnostic pipeline transfer.</li>
+          <li>Validation report confirms semantic fidelity: 91.2% structural accuracy against textbook source material.</li>
+          <li>Pipeline cost: ~$0.003 per object using structured LLM extraction with schema enforcement.</li>
+        </ol>
+      </div>
+
+      <!-- Changelog -->
+      <div class="card-static">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Changelog</h2>
+        <div class="space-y-2 text-sm">
+          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v2.0</span><span class="text-[var(--color-text-dim)]">2026-07-01 — NSCA CSCS 5th edition complete: 1,598 objects, 26 chapters.</span></div>
+          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v1.0</span><span class="text-[var(--color-text-dim)]">2026-05-01 — ACSM 12th edition complete: 708 objects, 31 chapters.</span></div>
+          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v0.5</span><span class="text-[var(--color-text-dim)]">2026-03-01 — Pipeline v2: chunk → extract → normalize → validate with quality gates.</span></div>
+          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v0.1</span><span class="text-[var(--color-text-dim)]">2026-01-15 — Initial schema design and pilot extraction (15 objects).</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

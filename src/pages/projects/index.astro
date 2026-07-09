@@ -8,7 +8,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <span class="section-label mb-4">Projects</span>
       <h1 class="mb-4">Research Projects</h1>
       <p class="text-sm text-[var(--color-text-dim)] mb-10 max-w-lg">
-        From diagnosing the precision illusion to building correction pipelines and adaptive trust interventions — three projects that form a coherent research arc.
+        From diagnosing the precision illusion to building correction pipelines and adaptive trust interventions — five projects that form a coherent research arc.
       </p>
 
       <!-- Project 1: MaxFitCalib-Bench -->
@@ -90,6 +90,45 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">View project details →</a>
       </div>
 
+      <!-- Project 2b: Knowledge Compiler -->
+      <div class="card mb-5">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-7 h-7 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.55rem] font-bold">KB</span>
+          <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Build</span>
+          <span class="badge badge-published">Published</span>
+        </div>
+        <h2 class="text-[1.3rem] mb-2">Knowledge Compiler</h2>
+        <p class="text-sm text-[var(--color-text-dim)] mb-3">Convert authoritative textbooks into reusable structured knowledge — 2,306 objects from ACSM, 1,598 from NSCA for grounding LLM claims.</p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
+            <div class="font-display text-lg text-[var(--color-ink)]">2,306</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">ACSM Objects</div>
+          </div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
+            <div class="font-display text-lg text-[var(--color-ink)]">1,598</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">NSCA Objects</div>
+          </div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
+            <div class="font-display text-lg text-[var(--color-ink)]">14</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Ontology Types</div>
+          </div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
+            <div class="font-display text-lg text-[var(--color-ink)]">91.2%</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Accuracy</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-1.5 mb-4">
+          <span class="badge text-[0.55rem]">Knowledge Extraction</span>
+          <span class="badge text-[0.55rem]">LLM Grounding</span>
+          <span class="badge text-[0.55rem]">Textbook NLP</span>
+          <span class="badge text-[0.55rem]">Pydantic</span>
+        </div>
+
+        <a href="/research/building-trustworthy-ai/knowledge-compiler/" class="link-arrow">View project details →</a>
+      </div>
+
       <!-- Project 3: CalTrust -->
       <div class="card mb-5">
         <div class="flex items-center gap-3 mb-3">
@@ -127,6 +166,45 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
 
         <a href="/research/understanding-human-trust/caltrust/" class="link-arrow">View project details →</a>
+      </div>
+
+      <!-- Project 4: PI Discovery -->
+      <div class="card mb-5">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-7 h-7 rounded-full bg-[var(--color-gold-subtle)] flex items-center justify-center text-[var(--color-gold)] font-mono text-[0.55rem] font-bold">PI</span>
+          <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Tool</span>
+          <span class="badge badge-gold">In Development</span>
+        </div>
+        <h2 class="text-[1.3rem] mb-2">PI Discovery Engine</h2>
+        <p class="text-sm text-[var(--color-text-dim)] mb-3">Search Semantic Scholar and OpenAlex to find investigators by research topic, with ranked PI cards and outreach tracking.</p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
+            <div class="font-display text-lg text-[var(--color-ink)]">2</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">API Sources</div>
+          </div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
+            <div class="font-display text-lg text-[var(--color-ink)]">7</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Contact Stages</div>
+          </div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
+            <div class="font-display text-lg text-[var(--color-ink)]">∞</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Topics</div>
+          </div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
+            <div class="font-display text-lg text-[var(--color-ink)]">Web</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Streamlit App</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-1.5 mb-4">
+          <span class="badge text-[0.55rem]">Semantic Scholar</span>
+          <span class="badge text-[0.55rem]">OpenAlex</span>
+          <span class="badge text-[0.55rem]">Streamlit</span>
+          <span class="badge text-[0.55rem]">RA Search</span>
+        </div>
+
+        <a href="/research/building-trustworthy-ai/pi-discovery/" class="link-arrow">View project details →</a>
       </div>
 
       <!-- Research arc visual -->

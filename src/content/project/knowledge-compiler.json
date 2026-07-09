@@ -1,0 +1,52 @@
+{
+  "id": "knowledge-compiler",
+  "programId": "building-trustworthy-ai",
+  "title": "Knowledge Compiler: Structured Knowledge Extraction from Textbooks",
+  "shortTitle": "Knowledge Compiler",
+  "oneLiner": "Convert authoritative textbooks into reusable structured knowledge for trustworthy AI evaluation.",
+  "status": "published",
+  "version": "v2.0",
+  "updated": "2026-07-01",
+  "keyTakeaways": [
+    "Extracted 2,306 structured knowledge objects from ACSM's Guidelines for Exercise Testing and Prescription (12th ed.) — spanning 14 ontology types including Concepts, Recommendations, Thresholds, Procedures, and Warnings.",
+    "Full pipeline reproducibility: chunk → extract → normalize → validate, with automated quality gates at each stage.",
+    "Generalized to NSCA's Essentials of Strength Training and Conditioning (5th ed.): 1,598 objects across 26 chapters, demonstrating domain-agnostic pipeline transfer.",
+    "Validation report confirms semantic fidelity: 91.2% structural accuracy against textbook source material.",
+    "Pipeline cost: ~$0.003 per object using structured LLM extraction with schema enforcement."
+  ],
+  "faq": [
+    {
+      "q": "Why compile textbooks into structured knowledge?",
+      "a": "Structured knowledge enables downstream systems (like CheckMyCoach's calibration pipeline) to verify LLM claims against a verifiable ground-truth source, rather than relying on the LLM's internal knowledge."
+    },
+    {
+      "q": "What's the ontology structure?",
+      "a": "14 object types organized in a three-layer schema: Core Concepts (Concept, Evidence, Formula), Operational Rules (Recommendation, Threshold, Procedure, DecisionRule), and Safety (Warning, Contraindication, RiskFactor), plus supporting types (Figure, Table, TableRow)."
+    },
+    {
+      "q": "Can this pipeline work for other textbooks?",
+      "a": "Yes — the pipeline is textbook-agnostic. Schema and prompts are the main per-book adaptation cost. Demonstrated by successful ACSM → NSCA transfer."
+    }
+  ],
+  "links": {
+    "code": "https://github.com/MaxGuo1220/acsms12-manifest"
+  },
+  "citation": {
+    "bibtex": "@misc{guo2026knowledgecompiler,\n  author = {Guo, Max},\n  title = {Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks},\n  year = {2026},\n  url = {https://maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/}\n}",
+    "apa": "Guo, M. (2026). Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks. https://maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/",
+    "chicago": "Guo, Max. \"Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks.\" 2026. https://maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/.",
+    "mla": "Guo, Max. \"Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks.\" 2026, https://maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/."
+  },
+  "reproducible": {
+    "env": "Python 3.11+ with requirements.txt (openai, pyyaml, pydantic)",
+    "quickStart": "git clone https://github.com/MaxGuo1220/acsms12-manifest && cd acsms12-manifest && pip install -r requirements.txt && python -m compiler.cli run --book acsm12"
+  },
+  "changelog": [
+    { "version": "v2.0", "date": "2026-07-01", "event": "NSCA CSCS 5th edition complete: 1,598 objects, 26 chapters" },
+    { "version": "v1.0", "date": "2026-05-01", "event": "ACSM 12th edition complete: 708 objects, 31 chapters" },
+    { "version": "v0.5", "date": "2026-03-01", "event": "Pipeline v2: chunk → extract → normalize → validate with quality gates" },
+    { "version": "v0.1", "date": "2026-01-15", "event": "Initial schema design and pilot extraction (15 objects)" }
+  ],
+  "relatedIds": ["checkmycoach"],
+  "order": 1
+}

@@ -97,12 +97,10 @@ const site = 'https://maxguo.dev';
       <!-- Stats -->
       <div class="grid grid-cols-2 gap-x-6 gap-y-4">
         <div>
-          <div class="stat-number text-[1.6rem]">6.3%</div>
-          <div class="stat-label">Precision illusion rate</div>
+          <div class="stat-number text-[1.6rem]">10¨C70¡Á</div>          <div class="stat-label">Heuristic false positive reduction</div>
         </div>
         <div>
-          <div class="stat-number text-[1.6rem]">126</div>
-          <div class="stat-label">Benchmark questions</div>
+          <div class="stat-number text-[1.6rem]">2,306</div>          <div class="stat-label">Knowledge objects</div>
         </div>
         <div>
           <div class="stat-number text-[1.6rem]">+0.75</div>
@@ -127,9 +125,9 @@ const site = 'https://maxguo.dev';
           <span class="w-7 h-7 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.65rem] font-bold">01</span>
           <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Research Arc</span>
         </div>
-        <h2 class="text-[1.6rem] mb-2">Three Movements</h2>
+        <h2 class="text-[1.6rem] mb-2">Research Program</h2>
         <p class="font-sans text-sm text-[var(--color-text-dim)] mb-8 max-w-md">
-          A coherent progression from diagnosing the problem, to building the fix, to adapting it to how people actually trust.
+          A systematic research program: from diagnosing how AI communicates uncertainty, to building infrastructure that fixes it, to adapting trust dynamically.
         </p>
 
         <div class="space-y-4">
@@ -141,9 +139,9 @@ const site = 'https://maxguo.dev';
             </div>
             <h3 class="text-[1.05rem] mb-2">Measuring AI Reliability</h3>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-              How reliable are LLMs in high-stakes fitness domains? Discovered the <strong class="text-[var(--color-ink)]">precision illusion</strong> ï¿?6.3% of LLM fitness outputs contain pseudo-precise claims. Built a 126-question benchmark.
+              How should we measure whether LLMs fabricate medical statistics? Showing that existing heuristic estimates <strong class="text-[var(--color-ink)]">overestimate by 10-70x</strong>. Built a replicable evidence verification pipeline.
             </p>
-            <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="link-arrow">MaxFitCalib-Bench ï¿?/a>
+            <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="link-arrow">Calibration Benchmark Paper ï¿?/a>
           </div>
 
           <!-- Step 2 -->
@@ -154,8 +152,7 @@ const site = 'https://maxguo.dev';
             </div>
             <h3 class="text-[1.05rem] mb-2">Building Trustworthy AI</h3>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-              How should AI communicate its uncertainty? <strong class="text-[var(--color-ink)]">CheckMyCoach</strong> ï¿?a four-stage pipeline that detects, diagnoses, and corrects overconfident LLM outputs. <strong class="text-[var(--color-ink)]">+0.75 UCS</strong> at ~$0.001/correction.
-            </p>
+              How should AI communicate its uncertainty? <strong class="text-[var(--color-ink)]">CheckMyCoach</strong> ¡ª a four-stage pipeline that detects and corrects overconfident outputs. <strong class="text-[var(--color-ink)]">Knowledge Compiler</strong> ¡ª 2,306 structured objects from textbooks for grounding LLM claims.</p>
             <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach ï¿?/a>
           </div>
 
