@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="InteractionKit" description="A Methodological Infrastructure for HAI Trust Calibration">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+
+      <a href="/research/building-trustworthy-ai/" class="link-arrow mb-6 inline-flex">
+        ← Building Trustworthy AI
+      </a>
+
+      <div class="flex items-center gap-3 mb-4">
+        <span class="badge badge-primary">Active</span>
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">v0.3</span>
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">Updated: 2026-07-13</span>
+      </div>
+
+      <h1 class="mb-3">InteractionKit</h1>
+      <p class="text-base text-[var(--color-text-dim)] mb-6">A Methodological Infrastructure for HAI Trust Calibration</p>
+
+      <!-- Elevator pitch -->
+      <div class="card-static mb-8">
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          <strong class="text-[var(--color-ink)]">The problem:</strong> Different labs studying the "same" HAI interaction pattern produce incompatible behavioral data — different variable names, different logging formats, different measurement conventions.
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mt-3">
+          <strong class="text-[var(--color-ink)]">The solution:</strong> InteractionKit provides a versioned log schema (14 columns) and an experiment platform such that two independent implementations produce data that can be merged with minimal translation.
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mt-3">
+          <strong class="text-[var(--color-ink)]">Design:</strong> Built on earlier work on calibration measurement (MaxFitCalib) and knowledge infrastructure (Knowledge Compiler).
+        </p>
+      </div>
+
+      <!-- Statement cards -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Problem</h2>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          Different labs studying the "same" HAI interaction pattern produce incompatible behavioral data — different variable names, different logging formats, different measurement conventions.
+        </p>
+      </div>
+
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Solution</h2>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          InteractionKit provides a versioned log schema (14 columns) and an experiment platform such that two independent implementations produce data that can be merged with minimal translation.
+        </p>
+      </div>
+
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Design</h2>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          Built on earlier work on calibration measurement (MaxFitCalib) and knowledge infrastructure (Knowledge Compiler).
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="card-static flex items-center justify-between">
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Links</span>
+        <div class="flex gap-2">
+          <a href="https://github.com/GBX-Max1220/InteractionKit" class="btn btn-sm">GitHub →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>
