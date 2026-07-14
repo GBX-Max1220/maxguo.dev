@@ -5,7 +5,7 @@
   "description": "Max Guo — Research on Human-AI Trust Calibration",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/prefix-base.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
