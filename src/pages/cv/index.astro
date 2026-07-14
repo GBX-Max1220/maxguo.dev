@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="CV" description="Max Guo — Curriculum Vitae">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <span class="section-label mb-4">CV</span>
+          <h1 class="mb-1">Curriculum Vitae</h1>
+        </div>
+        <span class="btn btn-sm opacity-60 cursor-default">PDF — in progress</span>
+      </div>
+
+      <!-- Education -->
+      <h2 class="text-[1.3rem] mb-4">Education</h2>
+      <div class="card-static mb-8">
+        <div class="flex items-start gap-3">
+          <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.5rem] font-bold mt-0.5">B</span>
+          <div>
+            <h3 class="font-medium text-[var(--color-ink)]">B.A. in Applied Psychology</h3>
+            <p class="text-sm text-[var(--color-text-dim)]">Expected 2027</p>
+            <p class="text-xs text-[var(--color-text-dim)] mt-1">Training in experimental design, statistics (LMM, ANOVA, factor analysis), and psychometrics.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research Experience -->
+      <h2 class="text-[1.3rem] mb-4">Research Experience</h2>
+      <div class="card-static mb-8">
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.5rem] font-bold mt-0.5">I</span>
+            <div>
+              <h3 class="font-medium text-[var(--color-ink)]">Independent Researcher</h3>
+              <p class="text-xs text-[var(--color-text-muted)]">2025 — Present</p>
+              <p class="text-sm text-[var(--color-text-dim)] mt-1">Self-directed research program in LLM calibration and human-AI trust. Produced two papers, a software system (CheckMyCoach), and an adaptive intervention framework (CalTrust).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <h2 class="text-[1.3rem] mb-4">Skills</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+        <div class="card-static">
+          <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider mb-2">Research Methods</h3>
+          <ul class="text-sm text-[var(--color-text-dim)] space-y-1">
+            <li>• Experimental design (within/between-subject, factorial)</li>
+            <li>• Survey design &amp; psychometrics</li>
+            <li>• LMM, ANOVA, factor analysis</li>
+            <li>• Qualitative coding (thematic analysis)</li>
+          </ul>
+        </div>
+        <div class="card-static">
+          <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-2">ML &amp; Programming</h3>
+          <ul class="text-sm text-[var(--color-text-dim)] space-y-1">
+            <li>• Python (scikit-learn, XGBoost, pandas)</li>
+            <li>• R (lme4, lmerTest)</li>
+            <li>• LLM pipelines &amp; evaluation</li>
+            <li>• Contextual bandits (LinUCB)</li>
+          </ul>
+        </div>
+        <div class="card-static">
+          <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider mb-2">Systems</h3>
+          <ul class="text-sm text-[var(--color-text-dim)] space-y-1">
+            <li>• Streamlit, Gradio</li>
+            <li>• Docker, CI/CD</li>
+            <li>• API integration (OpenRouter, LLM APIs)</li>
+            <li>• Git, pytest (44+ tests)</li>
+          </ul>
+        </div>
+        <div class="card-static">
+          <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider mb-2">Domain Knowledge</h3>
+          <ul class="text-sm text-[var(--color-text-dim)] space-y-1">
+            <li>• ACSM/NSCA/AHA guidelines</li>
+            <li>• Exercise science</li>
+            <li>• Sports psychology</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Publications -->
+      <h2 class="text-[1.3rem] mb-4">Publications</h2>
+      <div class="card-static mb-8">
+        <div class="space-y-3 text-sm">
+          <div>
+            <p class="font-medium text-[var(--color-ink)]">From Precision Illusion to Calibration Intervention</p>
+            <p class="text-[var(--color-text-dim)]">Max Guo. 2026. <span class="badge badge-under-review text-[0.5rem]">Under Review</span> — CSCW 2027</p>
+          </div>
+          <div>
+            <p class="font-medium text-[var(--color-ink)]">MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice</p>
+            <p class="text-[var(--color-text-dim)]">Max Guo. 2026. <span class="badge badge-published text-[0.5rem]">In Preparation</span></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,28 @@
+---
+const projects = await Astro.glob('../content/project/*.json');
+const entries = [];
+
+for (const p of projects) {
+  if (p.changelog) {
+    for (const entry of p.changelog) {
+      entries.push({
+        date: new Date(entry.date),
+        text: `${p.shortTitle || p.title}: ${entry.event}`,
+        projectId: p.id,
+      });
+    }
+  }
+}
+
+entries.sort((a, b) => b.date - a.date);
+const recent = entries.slice(0, 6);
+---
+<div class="bg-[var(--color-surface)] rounded-xl border border-[var(--color-rule-light)] p-1">
+  {recent.map((e) => (
+    <div class="log-item px-4 py-3">
+      <span class="log-date">{e.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+      <div class="log-dot"></div>
+      <p class="font-sans text-sm text-[var(--color-text-dim)]">{e.text}</p>
+    </div>
+  ))}
+</div>

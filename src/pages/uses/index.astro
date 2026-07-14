@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Uses" description="Tools and gear — Max Guo">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+
+      <span class="section-label mb-4">Uses</span>
+      <h1 class="mb-2">Tools &amp; Gear</h1>
+      <p class="text-sm text-[var(--color-text-dim)] mb-8">What I use for research, writing, and daily work.</p>
+
+      <div class="space-y-6">
+
+        <div class="card-static">
+          <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider mb-3">Research &amp; ML</h2>
+          <ul class="space-y-2 text-sm text-[var(--color-text-dim)]">
+            <li><strong class="text-[var(--color-ink)]">Python</strong> — scikit-learn, XGBoost, pandas, pingouin</li>
+            <li><strong class="text-[var(--color-ink)]">R</strong> — lme4, lmerTest for mixed-effects models</li>
+            <li><strong class="text-[var(--color-ink)]">LLM APIs</strong> — OpenRouter (multi-provider), OpenAI, Anthropic</li>
+            <li><strong class="text-[var(--color-ink)]">Contextual Bandits</strong> — LinUCB implementation for adaptive interventions</li>
+            <li><strong class="text-[var(--color-ink)]">UCS Engine</strong> — Custom LLM-as-judge evaluation pipeline</li>
+          </ul>
+        </div>
+
+        <div class="card-static">
+          <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-3">Development</h2>
+          <ul class="space-y-2 text-sm text-[var(--color-text-dim)]">
+            <li><strong class="text-[var(--color-ink)]">Editor</strong> — Cursor / VS Code with AI assistants</li>
+            <li><strong class="text-[var(--color-ink)]">LLM Tools</strong> — Claude Code, Reasonix, ChatGPT, Hermes</li>
+            <li><strong class="text-[var(--color-ink)]">Frontend</strong> — Astro, Tailwind CSS, Streamlit, Gradio</li>
+            <li><strong class="text-[var(--color-ink)]">Infrastructure</strong> — Docker, GitHub Actions, pytest</li>
+            <li><strong class="text-[var(--color-ink)]">OS</strong> — Windows 11 with WSL2</li>
+          </ul>
+        </div>
+
+        <div class="card-static">
+          <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider mb-3">Writing &amp; Reference</h2>
+          <ul class="space-y-2 text-sm text-[var(--color-text-dim)]">
+            <li><strong class="text-[var(--color-ink)]">Writing</strong> — Overleaf (LaTeX), Google Docs</li>
+            <li><strong class="text-[var(--color-ink)]">Reference Management</strong> — Zotero</li>
+            <li><strong class="text-[var(--color-ink)]">Diagrams</strong> — draw.io, TikZ</li>
+          </ul>
+        </div>
+
+        <div class="card-static">
+          <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider mb-3">Hardware</h2>
+          <ul class="space-y-2 text-sm text-[var(--color-text-dim)]">
+            <li><strong class="text-[var(--color-ink)]">Machine</strong> — CPU-only. All ML runs via API or local CPU inference.</li>
+            <li><strong class="text-[var(--color-ink)]">Monitor</strong> — Single 27" 4K display</li>
+          </ul>
+          <p class="text-xs text-[var(--color-text-muted)] mt-3 italic">No GPU dependency — all research is designed to be reproducible on commodity hardware.</p>
+        </div>
+
+      </div>
+
+      <p class="text-xs text-[var(--color-text-muted)] mt-8 italic">Inspired by <a href="https://uses.tech" class="underline hover:text-[var(--color-primary)]">uses.tech</a></p>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,19 @@
+{
+  "id": "fitcalib-bench-paper",
+  "title": "MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice",
+  "authors": ["Max Guo"],
+  "venue": "",
+  "year": 2026,
+  "status": "preprint",
+  "tags": ["Benchmark", "LLM Calibration", "Fitness AI"],
+  "links": {},
+  "citation": {
+    "bibtex": "@misc{guo2026fitcalib,\n  author = {Guo, Max},\n  title = {MaxFitCalib-Bench},\n  year = {2026}\n}",
+    "apa": "Guo, M. (2026). MaxFitCalib-Bench.",
+    "chicago": "Guo, Max. \"MaxFitCalib-Bench.\"",
+    "mla": "Guo, Max. \"MaxFitCalib-Bench.\""
+  },
+  "abstract": "We present 126 expert-crafted fitness questions across 8 categories, grounded in ACSM/NSCA/AHA position stands. Evaluating frontier LLMs reveals the precision illusion: 92.9% Calibrated, but 6.3% Pseudo-precise outputs.",
+  "featured": true,
+  "projectId": "fitcalib-bench"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "building-trustworthy-ai",
+  "title": "Building Trustworthy AI",
+  "scientificQuestion": "How should AI systems communicate uncertainty to humans?",
+  "description": "Designing and evaluating interaction techniques that help AI systems express calibrated uncertainty, enabling users to make better-informed decisions when relying on AI advice.",
+  "order": 3
+}

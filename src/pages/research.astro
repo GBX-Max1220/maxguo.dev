@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Research" description="Research programs and projects — Max Guo">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+
+      <span class="section-label mb-4">Research</span>
+      <h1 class="mb-4">Research</h1>
+      <p class="text-sm text-[var(--color-text-dim)] mb-10 max-w-lg">
+        My work spans five layers: from defining the Precision Illusion taxonomy, through measurement and intervention, to adaptive policies and research infrastructure. Each layer maps to one or more active projects.
+      </p>
+      <!-- Research Timeline -->
+      <div class="card-static mb-10 bg-[var(--color-page-warm)]">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-4">Research Arc</h2>
+        <div class="relative">
+          <!-- Timeline line -->
+          <div class="absolute left-[15px] top-2 bottom-2 w-px bg-[var(--color-rule)]"></div>
+
+          <div class="space-y-5 pl-10">
+            <div class="relative">
+              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-secondary)] border-2 border-[var(--color-page-warm)]"></div>
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-secondary)] uppercase">2025 Q4</span>
+                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Theory / Measurement</span>
+              </div>
+              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">FitCalib-Bench</strong> — 126-question benchmark design. Discovered the precision illusion.</p>
+            </div>
+
+            <div class="relative">
+              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-primary)] border-2 border-[var(--color-page-warm)]"></div>
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-primary)] uppercase">2026 Q1-Q2</span>
+                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Intervention / Infrastructure</span>
+              </div>
+              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">Knowledge Compiler</strong> — 2,306 objects from ACSM. <strong class="text-[var(--color-ink)]">CheckMyCoach</strong> — 4-stage calibration pipeline.</p>
+            </div>
+
+            <div class="relative">
+              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-gold)] border-2 border-[var(--color-page-warm)]"></div>
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-gold)] uppercase">2026 Q2-Q3</span>
+                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Adaptation</span>
+              </div>
+              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">CalTrust</strong> — LinUCB bandit, AUC 0.70, 19.2K trials. <strong class="text-[var(--color-ink)]">PI Discovery</strong> — advisor search engine.</p>
+            </div>
+
+            <div class="relative">
+              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-primary)] border-2 border-[var(--color-page-warm)]"></div>
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-primary)] uppercase">2026 Q2</span>
+                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Infrastructure</span>
+              </div>
+              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">InteractionKit</strong> — Platform design + schema specification + CHI reviewer critique + 3-agent audit + code complete.</p>
+            </div>
+
+            <div class="relative">
+              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-gold)] border-2 border-[var(--color-page-warm)]"></div>
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-gold)] uppercase">2026 Q3</span>
+                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Infrastructure</span>
+              </div>
+              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">InteractionKit</strong> — Pilot &amp; Study 1 (in progress).</p>
+            </div>
+
+            <div class="relative">
+              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-secondary)] border-2 border-[var(--color-page-warm)]"></div>
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-secondary)] uppercase">2026 Q3+</span>
+                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Scale</span>
+              </div>
+              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">Multi-Domain Benchmark</strong> — extending to medical &amp; legal. Precision illusion across domains.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-5">
+
+        <!-- Program 1 -->
+        <div class="card group">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="w-7 h-7 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.5rem] font-bold">01</span>
+            <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Understanding Human Trust</span>
+          </div>
+          <h2 class="font-display text-[1.2rem] mb-2">
+            <a href="/research/understanding-human-trust/" class="text-[var(--color-ink)] hover:text-[var(--color-primary)] transition-colors">
+              Understanding Human Trust in AI
+            </a>
+          </h2>
+          <p class="text-sm text-[var(--color-text-dim)] italic mb-1">How do people calibrate trust in AI systems?</p>
+          <p class="text-xs text-[var(--color-text-dim)] mb-4">Projects: CalTrust</p>
+          <a href="/research/understanding-human-trust/" class="link-arrow">
+            Explore program →          </a>
+        </div>
+
+        <!-- Program 2 -->
+        <div class="card group">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="w-7 h-7 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.5rem] font-bold">02</span>
+            <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Measuring AI Reliability</span>
+          </div>
+          <h2 class="font-display text-[1.2rem] mb-2">
+            <a href="/research/measuring-ai-reliability/" class="text-[var(--color-ink)] hover:text-[var(--color-primary)] transition-colors">
+              Measuring AI Reliability
+            </a>
+          </h2>
+          <p class="text-sm text-[var(--color-text-dim)] italic mb-1">How reliable are AI systems in high-stakes domains?</p>
+          <p class="text-xs text-[var(--color-text-dim)] mb-4">Projects: MaxFitCalib-Bench</p>
+          <a href="/research/measuring-ai-reliability/" class="link-arrow">
+            Explore program →          </a>
+        </div>
+
+        <!-- Program 3 -->
+        <div class="card group">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="w-7 h-7 rounded-full bg-[var(--color-gold-subtle)] flex items-center justify-center text-[var(--color-gold)] font-mono text-[0.5rem] font-bold">03</span>
+            <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Building Trustworthy AI</span>
+          </div>
+          <h2 class="font-display text-[1.2rem] mb-2">
+            <a href="/research/building-trustworthy-ai/" class="text-[var(--color-ink)] hover:text-[var(--color-primary)] transition-colors">
+              Building Trustworthy AI
+            </a>
+          </h2>
+          <p class="text-sm text-[var(--color-text-dim)] italic mb-1">How should AI systems communicate uncertainty to humans?</p>
+          <p class="text-xs text-[var(--color-text-dim)] mb-4">Projects: CheckMyCoach</p>
+          <a href="/research/building-trustworthy-ai/" class="link-arrow">
+            Explore program →          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,59 @@
+{
+  "id": "fitcalib-bench",
+  "programId": "measuring-ai-reliability",
+  "title": "MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice",
+  "shortTitle": "MaxFitCalib-Bench",
+  "status": "published",
+  "version": "v1.0",
+  "updated": "2026-06-01",
+  "keyTakeaways": [
+    "We created 126 expert-crafted fitness advice questions across 8 categories, grounded in ACSM/NSCA/AHA position stands, each tagged with evidence uncertainty type.",
+    "Evaluating two models (DeepSeek-chat, Qwen-plus) revealed the precision illusion: 92.9% of outputs are Calibrated, but the dominant failure mode is Pseudo-precise (6.3%) — precise-sounding numbers without evidence support.",
+    "Pseudo-precise outputs cluster in safety-critical scenarios: 23.7% on mixed-evidence questions and 26.7% on insufficient-evidence questions.",
+    "At 6.3% per output, a typical user session of 10 advice statements carries a ~48% cumulative probability of encountering at least one Pseudo-precise response.",
+    "Calibration quality appears decoupled from factual accuracy — no significant UCS distribution difference between models despite their accuracy gap."
+  ],
+  "hciRelevance": "Challenges the assumption that LLMs' primary risk is over-reliance — the bigger risk may be subtle misdirection through false precision that standard accuracy benchmarks cannot detect.",
+  "faq": [
+    {
+      "q": "Why only fitness advice?",
+      "a": "Fitness was chosen as a testbed for its accessible, safety-critical characteristics shared with medical, legal, and financial advice. Fitness knowledge can be verified against ACSM and NSCA position stands, providing objective ground truth."
+    },
+    {
+      "q": "Could the 0% overconfident result be a judge artifact?",
+      "a": "Yes — this is acknowledged as a key limitation. The LLM judge (GPT-5.5-instant) may preferentially classify outputs matching its own style as Calibrated. Human validation (target Cohen's κ ≥ 0.70) is planned and ongoing."
+    }
+  ],
+  "links": {
+    "code": "https://github.com/GBX-Max1220/FitCalib-Bench"
+  },
+  "citation": {
+    "bibtex": "@misc{guo2026fitcalib,\n  author = {Guo, Max},\n  title = {MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice},\n  year = {2026},\n  eprint = {...,\n  archivePrefix = {arXiv},\n  url = {https://maxguo.dev/research/measuring-ai-reliability/fitcalib-bench/}\n}",
+    "apa": "Guo, M. (2026). MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice. arXiv. https://maxguo.dev/research/measuring-ai-reliability/fitcalib-bench/",
+    "chicago": "Guo, Max. \"MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice.\" 2026. https://maxguo.dev/research/measuring-ai-reliability/fitcalib-bench/.",
+    "mla": "Guo, Max. \"MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice.\" 2026, https://maxguo.dev/research/measuring-ai-reliability/fitcalib-bench/."
+  },
+  "reproducible": {
+    "env": "Python 3.10+ with requirements.txt",
+    "quickStart": "git clone ... && cd MaxFitCalib-Bench && pip install -r requirements.txt && python evaluation/run_benchmark.py"
+  },
+  "changelog": [
+    {
+      "version": "v1.0",
+      "date": "2026-06-01",
+      "event": "arXiv submission. 126 questions, two models, UCS evaluations complete."
+    },
+    {
+      "version": "v0.2",
+      "date": "2026-03-15",
+      "event": "UCS Engine (4-stage pipeline) implemented and validated on 252 responses"
+    },
+    {
+      "version": "v0.1",
+      "date": "2025-12-10",
+      "event": "126 questions drafted across 8 categories"
+    }
+  ],
+  "relatedIds": ["checkmycoach"],
+  "order": 2
+}

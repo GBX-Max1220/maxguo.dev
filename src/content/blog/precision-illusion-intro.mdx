@@ -1,0 +1,18 @@
+---
+id: "precision-illusion-intro"
+title: "The Precision Illusion: Why 6.3% Matters"
+date: 2026-07-01
+type: "research-note"
+tags: ["LLM Calibration", "Precision Illusion"]
+excerpt: "An introduction to the precision illusion — the finding that LLMs aren't dangerously overconfident, but subtly misleading in a hard-to-detect way."
+draft: false
+projectId: "fitcalib-bench"
+---
+
+In our recent benchmark of LLM fitness advice, we found something surprising: **0% overconfident outputs.** The models weren't dangerously overconfident. They were subtly misleading.
+
+6.3% of outputs contained precise-sounding numerical claims — "a 38.7% reduction" — without any evidence grounding. We call this the **precision illusion**.
+
+Why does this matter? Because precise numbers carry disproportionate weight in human judgment. Zhang & Schwarz (2012) showed that people trust precise numbers more, even when they know the precision is unwarranted. A pseudo-precise output exploits this cognitive bias silently.
+
+At a 6.3% rate per output, a user session involving 10 advice statements carries a ~48% cumulative probability of encountering at least one pseudo-precise response. And these outputs cluster in exactly the scenarios where users most need reliable advice — mixed-evidence and insufficient-evidence questions.

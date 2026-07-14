@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="About" description="About Max Guo — independent researcher in human-AI trust calibration" ogImage="/og/about.png">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+
+      <span class="section-label mb-4">About</span>
+      <h1 class="mb-2">Max <span class="text-[var(--color-primary)] italic">Guo</span></h1>
+      <p class="font-mono text-sm text-[var(--color-text-dim)] mb-8">郭佰昕· /ˈbaɪ.ʃiːn ˈɡwoʊ/ · bye-sheen gwoh</p>
+
+      <!-- Intro card -->
+      <div class="card-static mb-10">
+        <p class="text-base leading-relaxed text-[var(--color-text)]">
+          I am an independent researcher studying how people calibrate trust in AI systems and how
+          AI can communicate uncertainty more effectively. My work sits at the intersection of
+          human-computer interaction, machine learning, and cognitive science.
+        </p>
+      </div>
+
+      <!-- Research Philosophy -->
+      <h2 class="text-[1.5rem] mb-6">Research Philosophy</h2>
+      <p class="text-sm text-[var(--color-text-dim)] mb-5">
+        My work builds a five-layer research stack on <strong class="text-[var(--color-ink)]">Precision Illusion</strong>:
+        from defining the problem, to measuring it, to intervening, to personalizing, to making it reproducible across labs.
+      </p>
+
+      <div class="space-y-4 mb-10">
+        <div class="card group">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="w-6 h-6 rounded-full bg-[var(--color-ink-light)] flex items-center justify-center text-[var(--color-surface)] font-mono text-[0.55rem] font-bold">01</span>
+            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Theory</span>
+          </div>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+            Taxonomizing how AI systems misrepresent uncertainty — pseudo-precise numerical claims, unwarranted overconfidence, and the cognitive mechanisms that make them persuasive.
+          </p>
+        </div>
+
+        <div class="card group">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.55rem] font-bold">02</span>
+            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Measurement</span>
+          </div>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+            Build benchmarks and evaluation frameworks to characterize how LLMs express uncertainty (<em>MaxFitCalib-Bench</em>).
+            Discovered the <strong class="text-[var(--color-ink)]">precision illusion</strong> — 6.3% of LLM outputs are pseudo-precise,
+            citing numbers without evidence.
+          </p>
+        </div>
+
+        <div class="card group">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="w-6 h-6 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.55rem] font-bold">03</span>
+            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Intervention</span>
+          </div>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+            Design and build automated pipelines that detect, diagnose, and correct miscalibrated outputs (<em>CheckMyCoach</em>).
+            Improves overconfident outputs by <strong class="text-[var(--color-ink)]">+0.75 UCS</strong> at ~$0.001/correction.
+          </p>
+        </div>
+
+        <div class="card group">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="w-6 h-6 rounded-full bg-[var(--color-gold-subtle)] flex items-center justify-center text-[var(--color-gold)] font-mono text-[0.55rem] font-bold">04</span>
+            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Adaptation</span>
+          </div>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+            Develop adaptive policies that select the right calibration intervention for each user and context (<em>CalTrust</em>).
+            A LinUCB contextual bandit trained on <strong class="text-[var(--color-ink)]">19,200</strong> simulation trials.
+          </p>
+        </div>
+
+        <div class="card group">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.55rem] font-bold">05</span>
+            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Infrastructure</span>
+          </div>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+            Build structured knowledge bases from domain textbooks (<em>Knowledge Compiler</em>) and a versioned schema + experiment platform so trust calibration data is mergeable across labs (<em>InteractionKit</em>).
+          </p>
+        </div>
+      </div>
+
+      <!-- Belief -->
+      <blockquote class="border-l-2 border-[var(--color-primary)] pl-5 py-2 mb-10 text-[var(--color-text-dim)] italic">
+        Trust calibration research should produce deployable systems, not just papers.
+        Every project on this site includes full reproducibility instructions — environment specs,
+        quick-start guides, and CI-tested code.
+      </blockquote>
+
+      <!-- Research Program -->
+      <h2 class="text-[1.5rem] mb-6">Research Program</h2>
+      <div class="card-static mb-10">
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+          <strong class="text-[var(--color-ink)]">Core question:</strong> How do AI systems mislead through false precision, and how can we measure, fix, and prevent it?
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+          I have produced: (1) a <strong class="text-[var(--color-ink)]">systematic taxonomy</strong> of how LLMs misrepresent uncertainty (Precision Illusion); (2) a <strong class="text-[var(--color-ink)]">benchmark and measurement methodology</strong> that detects the precision illusion where standard accuracy metrics cannot (MaxFitCalib-Bench); (3) a <strong class="text-[var(--color-ink)]">deployable correction pipeline</strong> that fixes miscalibrated outputs at ~$0.001/correction (CheckMyCoach); (4) an <strong class="text-[var(--color-ink)]">adaptive intervention framework</strong> that personalises calibration strategies per user (CalTrust); and (5) <strong class="text-[var(--color-ink)]">research infrastructure</strong> that makes trust calibration experiments reproducible and mergeable across labs (Knowledge Compiler, InteractionKit).
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+          I am seeking a PhD position (Fall 2027) in a lab working on <strong class="text-[var(--color-ink)]">Human-AI Interaction, CSCW, or HCI + AI reliability</strong>. I bring a demonstrated ability to produce both theoretical contributions and deployable systems, and I am looking for an environment where I can extend the precision illusion framework to multi-domain settings (medicine, law) and test user-facing calibration interventions in controlled experiments.
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          <strong class="text-[var(--color-ink)]">Specific questions I want to pursue in a PhD:</strong> (a) Does the precision illusion generalise across domains with different stakes and user populations? (b) What interaction designs most effectively shorten the feedback loop between AI output and user trust calibration? (c) Can we build evaluation standards for AI uncertainty communication that the HCI community adopts?
+        </p>
+      </div>
+
+      <!-- Methodological Approach -->
+      <h2 class="text-[1.5rem] mb-6">Methodological Approach</h2>
+      <p class="text-sm text-[var(--color-text-dim)] mb-5">I bring three methodological traditions together:</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+        <div class="card-static">
+          <h4 class="font-mono text-[0.65rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider mb-2">Psychology</h4>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+            Controlled experiments with LMM analysis, psychometric scale development, survey design.
+            Training in applied psychology with quantitative methods.
+          </p>
+        </div>
+        <div class="card-static">
+          <h4 class="font-mono text-[0.65rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-2">ML Engineering</h4>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+            XGBoost for behavioral prediction (AUC 0.70), contextual bandits (LinUCB),
+            LLM-based evaluation pipelines (UCS Engine), RAG for structured retrieval.
+          </p>
+        </div>
+        <div class="card-static">
+          <h4 class="font-mono text-[0.65rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider mb-2">System Building</h4>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+            Production-caliber Python pipelines with 44+ passing tests, Streamlit frontends,
+            CI/CD, and API integration (OpenRouter, multiple LLM providers).
+          </p>
+        </div>
+      </div>
+
+      <p class="text-sm text-[var(--color-text-dim)] mb-10">
+        All ML work runs CPU-only or via API — no GPU dependency. Tools: Python (scikit-learn,
+        XGBoost, pingouin), R (lme4, lmerTest), Astro (this site), Streamlit, Docker.
+      </p>
+
+      <!-- Why HCI -->
+      <h2 class="text-[1.5rem] mb-6">Why HCI?</h2>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-10">
+        I am drawn to HCI because it demands both rigor and impact. A calibration metric that only
+        an ML engineer can interpret is incomplete — it needs to connect to how users actually
+        experience AI advice. Conversely, a user study that treats the AI output as a fixed stimulus
+        misses the opportunity to improve the technology itself. HCI is the discipline that bridges
+        these worlds, and that is where I want to contribute.
+      </p>
+
+      <!-- Background -->
+      <h2 class="text-[1.5rem] mb-6">Background</h2>
+      <div class="space-y-3 mb-10">
+        <div class="flex items-start gap-3">
+          <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.5rem] font-bold mt-0.5">B</span>
+          <div>
+            <strong class="text-[var(--color-ink)]">B.A. in Applied Psychology</strong>
+            <span class="text-sm text-[var(--color-text-dim)]">(expected) — Training in experimental design, statistics (LMM, ANOVA, factor analysis), and psychometrics.</span>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-6 h-6 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.5rem] font-bold mt-0.5">I</span>
+          <div>
+            <strong class="text-[var(--color-ink)]">Independent research</strong>
+            <span class="text-sm text-[var(--color-text-dim)]">(2025–present) — Self-directed research program in LLM calibration and human-AI trust, producing two papers, a software system (CheckMyCoach), and an adaptive intervention framework (CalTrust).</span>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-6 h-6 rounded-full bg-[var(--color-gold-subtle)] flex items-center justify-center text-[var(--color-gold)] font-mono text-[0.5rem] font-bold mt-0.5">F</span>
+          <div>
+            <strong class="text-[var(--color-ink)]">Domain expertise</strong>
+            <span class="text-sm text-[var(--color-text-dim)]">— Fitness and sports science (ACSM/NSCA/AHA guidelines), used as the testbed for calibration research due to its accessible safety-critical characteristics.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prospective Advisors -->
+      <h2 class="text-[1.5rem] mb-6">For Prospective Advisors</h2>
+      <div class="card-static mb-10">
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+          I am seeking a PhD position in <strong class="text-[var(--color-ink)]">Human-AI Interaction / HCI / CSCW</strong> for Fall 2027, with interest in labs working on AI reliability, human trust calibration, or evaluation methodology.
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+          I bring a complete research pipeline — from problem definition and experiment design through implementation and reproducible analysis — and a demonstrated ability to produce both theoretical contributions (Precision Illusion taxonomy) and deployable systems (CheckMyCoach, InteractionKit).
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          <a href="/cv/" class="link-arrow">View CV →</a>
+        </p>
+      </div>
+
+      <!-- Beyond the Lab -->
+      <h2 class="text-[1.5rem] mb-6">🏀 Beyond the Lab</h2>
+      <div class="card-static mb-10">
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">
+          When I'm not calibrating LLMs, you'll find me —        </p>
+
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+          <strong>Former student-athlete</strong> — I'm absolutely obsessed with
+          basketball 🏀 and soccer ⚽ and I love watching weightlifting 🏋️
+          track &amp; field, and wrestling 🤼.
+        </p>
+
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+          Die-hard fan of <strong>Giannis Antetokounmpo 🇬🇷</strong> (Miami Heat)
+          and <strong>Kylian Mbappé 🇫🇷</strong> (Real Madrid).
+        </p>
+
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+          Avid reader 📚 — social psychology, behavioral psychology,
+          and social ideology.
+        </p>
+
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          In my spare time I follow research on AI / large language models,
+          computer science, HCI, and human performance.
+        </p>
+      </div>
+
+      <!-- Research Interests -->
+      <h2 class="text-[1.5rem] mb-6">Research Interests</h2>
+      <div class="flex flex-wrap gap-2">
+        <span class="badge">Human-AI Interaction</span>
+        <span class="badge">Trust Calibration</span>
+        <span class="badge">LLM Evaluation</span>
+        <span class="badge">AI Safety</span>
+        <span class="badge">Sports Science × AI</span>
+        <span class="badge">Experimental Design</span>
+        <span class="badge">CSCW</span>
+        <span class="badge">Contextual Bandits</span>
+        <span class="badge">Open Science</span>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

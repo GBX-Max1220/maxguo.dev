@@ -1,0 +1,216 @@
+﻿---
+// CheckMyCoach Interactive Demo
+// Max Guo — 2026
+import Layout from '../../layouts/BaseLayout.astro'
+---
+
+<Layout title="CheckMyCoach Demo">
+<main class="min-h-screen bg-white font-sans">
+
+  <section class="max-w-5xl mx-auto px-6 pt-16 pb-8">
+    <p class="text-xs tracking-widest uppercase text-gray-400 mb-3">Interactive Demo</p>
+    <h1 class="text-3xl font-bold tracking-tight text-gray-900">
+      CheckMyCoach: AI Calibration in Action
+    </h1>
+    <p class="mt-3 text-gray-600 max-w-xl leading-relaxed">
+      Type a fitness question and watch the four-stage calibration pipeline
+      <span class="font-semibold text-blue-600">Detect → Diagnose → Correct → Validate</span>
+      work in real time on AI-generated advice.
+    </p>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-6 pb-24">
+    <div id="demo-root" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+      <!-- Left: Question Input -->
+      <div class="lg:col-span-1 space-y-4">
+        <div class="border border-gray-200 rounded-xl p-5 bg-gray-50">
+          <h3 class="text-sm font-semibold text-gray-700 mb-3">Try a question</h3>
+          <div class="space-y-2" id="presets">
+            <button class="w-full text-left text-sm px-3 py-2 rounded-lg border border-gray-300 bg-white hover:bg-blue-50 hover:border-blue-300 transition-colors" data-question="Should I squat below parallel?">Should I squat below parallel?</button>
+            <button class="w-full text-left text-sm px-3 py-2 rounded-lg border border-gray-300 bg-white hover:bg-blue-50 hover:border-blue-300 transition-colors" data-question="Is walking better than running for fat loss?">Is walking better than running for fat loss?</button>
+            <button class="w-full text-left text-sm px-3 py-2 rounded-lg border border-gray-300 bg-white hover:bg-blue-50 hover:border-blue-300 transition-colors" data-question="Should healthy adults take creatine daily?">Should healthy adults take creatine daily?</button>
+          </div>
+          <div class="mt-4">
+            <label class="text-xs text-gray-500 block mb-1">Or type your own:</label>
+            <div class="flex gap-2">
+              <input type="text" id="custom-question" placeholder="e.g. Should I train to failure?" class="flex-1 text-sm px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+              <button id="run-btn" class="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50">Run</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Pipeline + Answer -->
+      <div class="lg:col-span-2 space-y-4">
+        <div class="grid grid-cols-4 gap-3" id="pipeline-stages">
+          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="0"><div class="text-xs font-bold text-gray-500 mb-1">M1 Detect</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
+          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="1"><div class="text-xs font-bold text-gray-500 mb-1">M2 Diagnose</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
+          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="2"><div class="text-xs font-bold text-gray-500 mb-1">M3 Correct</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
+          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="3"><div class="text-xs font-bold text-gray-500 mb-1">M4 Validate</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-6 bg-white min-h-[200px]" id="answer-panel">
+          <p class="text-gray-400 text-sm italic" id="answer-placeholder">AI-generated answer will appear here, with each sentence color-coded for trustworthiness.</p>
+          <div id="answer-content" class="hidden space-y-3 text-sm leading-relaxed"></div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 bg-white hidden" id="evidence-panel">
+          <h4 class="text-sm font-semibold text-gray-700 mb-2">Evidence Trail</h4>
+          <div id="evidence-list" class="text-xs text-gray-600 space-y-1"></div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-3 text-center text-xs text-gray-500 hidden" id="timing-stats">
+          <div><span class="font-mono text-blue-600" id="time-retrieve">—</span><br/>Retrieve</div>
+          <div><span class="font-mono text-blue-600" id="time-detect">—</span><br/>Detect</div>
+          <div><span class="font-mono text-blue-600" id="time-correct">—</span><br/>Correct</div>
+          <div><span class="font-mono text-blue-600" id="time-validate">—</span><br/>Validate</div>
+        </div>
+
+        <div class="border border-blue-200 bg-blue-50 rounded-xl p-5 hidden" id="summary-panel">
+          <div class="flex items-center justify-between">
+            <div><h4 class="text-sm font-semibold text-blue-900">Calibration Result</h4><p class="text-xs text-blue-700" id="summary-text"></p></div>
+            <div class="text-right"><div class="text-2xl font-bold" id="trust-score">—</div><div class="text-[10px] uppercase tracking-wider text-blue-600">Trust Score</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</Layout>
+
+<script>
+(function() {
+  const mockResults = {
+    "Should I squat below parallel?": {
+      ucs_score: 1, needs_calibration: false, failure_type: null, score_delta: 0,
+      latency_ms: { retrieve: 412, detect: 89, correct: 0, validate: 67 },
+      evidence: [
+        "ACSM Guideline 4.2: Squat depth should be determined by individual mobility, not a universal threshold.",
+        "Systematic review (Hartmann et al., 2016): Deep squats do NOT increase knee injury risk in healthy trained individuals."
+      ],
+      correct: false, trust: 92,
+      answer: 'Squatting below parallel is <span class="text-green-700 bg-green-50 px-1 rounded">generally safe for healthy trained individuals</span>. Research by Hartmann et al. (2016) found no increased knee injury risk from deep squats in trained populations. However, <span class="text-yellow-700 bg-yellow-50 px-1 rounded">individual mobility, injury history, and proper form are key factors</span> \u2014 consult a qualified coach for technique assessment.'
+    },
+    "Is walking better than running for fat loss?": {
+      ucs_score: 2, needs_calibration: true, failure_type: "CONTEXT_MISMATCH", score_delta: -1,
+      latency_ms: { retrieve: 387, detect: 112, correct: 203, validate: 78 },
+      evidence: [
+        "ACSM Position Stand: Fat loss depends primarily on caloric deficit, not exercise modality.",
+        "Meta-analysis (Willis et al., 2016): Running produces slightly greater total energy expenditure per session (8.2 vs 5.4 kcal/min), but walking allows longer sessions with less fatigue."
+      ],
+      correct: true, trust: 68,
+      answer: '<span class="line-through text-red-400">Running burns 3x more calories than walking.</span> <span class="text-green-700 bg-green-50 px-1 rounded">Fat loss depends primarily on caloric deficit</span>, not exercise modality. Running burns more calories per minute (8.2 vs 5.4 kcal/min), but <span class="text-yellow-700 bg-yellow-50 px-1 rounded">the best exercise is the one you can sustain consistently</span>. Walking for 60 minutes may produce better long-term adherence than running for 20.'
+    },
+    "Should healthy adults take creatine daily?": {
+      ucs_score: 1, needs_calibration: false, failure_type: null, score_delta: 0,
+      latency_ms: { retrieve: 352, detect: 76, correct: 0, validate: 55 },
+      evidence: [
+        "ISSN Position Stand (Kreider et al., 2017): Creatine monohydrate is the most effective ergogenic supplement for increasing high-intensity exercise capacity. Standard dose: 3-5g/day.",
+        "Long-term safety studies (up to 5 years): No adverse effects on renal function in healthy adults at recommended doses."
+      ],
+      correct: false, trust: 88,
+      answer: 'Daily creatine supplementation (3-5g) is <span class="text-green-700 bg-green-50 px-1 rounded">safe and effective for healthy adults</span>, per the ISSN position stand (Kreider et al., 2017). It improves high-intensity exercise capacity and lean body mass. <span class="text-yellow-700 bg-yellow-50 px-1 rounded">Individuals with pre-existing kidney conditions should consult a physician</span> before use.'
+    }
+  };
+
+  const defaultResult = {
+    ucs_score: 2, needs_calibration: true, failure_type: "TEMPLATE_DOMINANCE", score_delta: -1,
+    latency_ms: { retrieve: 420, detect: 95, correct: 180, validate: 70 },
+    evidence: [
+      "ACSM Guideline: Training recommendations depend on individual goals, experience, and recovery capacity.",
+      "RCT evidence is limited for many specific training questions \u2014 expert consensus forms the basis for most recommendations."
+    ],
+    correct: true, trust: 65,
+    answer: '<span class="text-green-700 bg-green-50 px-1 rounded">Evidence for this specific question is limited</span>. <span class="text-yellow-700 bg-yellow-50 px-1 rounded">Expert consensus and general training principles</span> provide the best available guidance. Consider consulting a certified professional for individualized advice.'
+  };
+
+  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  async function runPipeline(question) {
+    var result = mockResults[question] || defaultResult;
+
+    // Reset
+    var ac = document.getElementById('answer-content');
+    ac.classList.add('hidden');
+    ac.innerHTML = '';
+    document.getElementById('answer-placeholder').classList.remove('hidden');
+    document.getElementById('answer-placeholder').textContent = 'Running pipeline...';
+    document.getElementById('evidence-panel').classList.add('hidden');
+    document.getElementById('timing-stats').classList.add('hidden');
+    document.getElementById('summary-panel').classList.add('hidden');
+    document.querySelectorAll('.stage').forEach(function(s) {
+      s.classList.add('opacity-40'); s.classList.remove('bg-blue-50', 'border-blue-300');
+      s.querySelector('.stage-label').textContent = 'Waiting...';
+    });
+    document.getElementById('run-btn').disabled = true;
+
+    // M1: Evidence Retrieval
+    await sleep(Math.min(result.latency_ms.retrieve, 600));
+    updateStage(0, '\u2705', 'Evidence');
+    document.getElementById('time-retrieve').textContent = result.latency_ms.retrieve + 'ms';
+    document.getElementById('evidence-panel').classList.remove('hidden');
+    document.getElementById('evidence-list').innerHTML = result.evidence.map(function(e) { return '<div class="flex gap-2 items-start"><span class="text-blue-400 mt-0.5">\uD83D\uDCC4</span><span>' + e + '</span></div>'; }).join('');
+    document.getElementById('timing-stats').classList.remove('hidden');
+
+    // M2: Detection
+    await sleep(Math.min(result.latency_ms.detect, 400));
+    var dl = result.failure_type ? '\u26A0\uFE0F ' + result.failure_type.replace('_', ' ') : '\u2705 No failure detected';
+    updateStage(1, result.failure_type ? '\uD83D\uDD34' : '\u2705', dl);
+    document.getElementById('time-detect').textContent = result.latency_ms.detect + 'ms';
+
+    // M3: Correction
+    await sleep(Math.min(result.latency_ms.correct, 500));
+    if (result.needs_calibration) {
+      updateStage(2, '\uD83D\uDD27', 'Correction');
+      document.getElementById('time-correct').textContent = result.latency_ms.correct + 'ms';
+    } else {
+      updateStage(2, '\u2705', 'None needed');
+      document.getElementById('time-correct').textContent = '\u2014';
+    }
+
+    // M4: Validation
+    await sleep(Math.min(result.latency_ms.validate, 300));
+    updateStage(3, '\u2705', 'Validated');
+    document.getElementById('time-validate').textContent = result.latency_ms.validate + 'ms';
+
+    // Show answer
+    document.getElementById('answer-placeholder').classList.add('hidden');
+    ac.classList.remove('hidden');
+    ac.innerHTML = '<p>' + result.answer + '</p>';
+
+    // Summary
+    document.getElementById('summary-panel').classList.remove('hidden');
+    var ts = document.getElementById('trust-score');
+    ts.textContent = result.trust + '%';
+    ts.className = 'text-2xl font-bold ' + (result.trust >= 80 ? 'text-green-600' : result.trust >= 60 ? 'text-yellow-600' : 'text-red-600');
+    document.getElementById('summary-text').textContent = result.needs_calibration ? 'Calibrated \u2014 score improved by ' + result.score_delta + ' point(s)' : 'No calibration needed \u2014 answer already trustworthy';
+
+    document.getElementById('run-btn').disabled = false;
+  }
+
+  function updateStage(index, icon, label) {
+    var s = document.querySelector('[data-stage="' + index + '"]');
+    s.classList.remove('opacity-40');
+    s.classList.add('bg-blue-50', 'border-blue-300');
+    s.querySelector('.stage-label').textContent = label;
+  }
+
+  // Event handlers
+  document.querySelectorAll('#presets button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.getElementById('custom-question').value = btn.dataset.question;
+      runPipeline(btn.dataset.question);
+    });
+  });
+
+  document.getElementById('run-btn').addEventListener('click', function() {
+    var q = document.getElementById('custom-question').value.trim();
+    if (q) runPipeline(q);
+  });
+
+  document.getElementById('custom-question').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { var q = e.target.value.trim(); if (q) runPipeline(q); }
+  });
+})();
+</script>

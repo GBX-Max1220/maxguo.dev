@@ -1,0 +1,7 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F5F0E6"/>
+  <rect x="0" y="0" width="12" height="630" fill="#B85A3A"/>
+  <text x="80" y="300" font-family="'DM Serif Display', Georgia, serif" font-size="72" fill="#1A1A18">Max Guo</text>
+  <text x="80" y="360" font-family="Inter, sans-serif" font-size="28" fill="#6B6660">LLM Calibration &amp; Trust in AI Coaching</text>
+  <text x="1040" y="570" font-family="'JetBrains Mono', monospace" font-size="16" fill="#B85A3A" letter-spacing="2">maxguo.dev</text>
+</svg>

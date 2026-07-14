@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Measuring AI Reliability" description="How reliable are AI systems in high-stakes domains?">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+      <a href="/research/" class="link-arrow mb-6 inline-flex">
+        ← All research
+      </a>
+      <span class="section-label mb-4">Research Program</span>
+      <h1 class="mb-4">Measuring AI Reliability</h1>
+      <p class="text-base text-[var(--color-text-dim)] italic mb-2">Scientific Question:</p>
+      <p class="text-lg font-display text-[var(--color-ink)] mb-6">How reliable are AI systems in high-stakes domains?</p>
+      <div class="card-static mb-8">
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          This program develops benchmarks, evaluation frameworks, and metrics to assess the reliability and calibration of AI systems, particularly in safety-critical advisory contexts.
+        </p>
+      </div>
+      <h2 class="font-sans text-[0.8rem] font-semibold text-[var(--color-text-dim)] uppercase tracking-wider mb-4">Projects</h2>
+      <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="card group block">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.5rem] font-bold">P</span>
+          <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Active</span>
+        </div>
+        <h3 class="font-display text-[1.05rem] text-[var(--color-ink)] group-hover:text-[var(--color-primary)] transition-colors">MaxFitCalib-Bench</h3>
+        <p class="text-sm text-[var(--color-text-dim)] mt-1">A Benchmark for LLM Calibration in Fitness Advice</p>
+      </a>
+    </div>
+  </div>
+</BaseLayout>

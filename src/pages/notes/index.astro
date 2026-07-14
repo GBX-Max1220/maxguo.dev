@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const notes = await getCollection('learning-note');
+const published = notes.filter(n => !n.data.draft).sort((a, b) => b.data.date - a.data.date);
+---
+<BaseLayout title="Notes" description="Learning notes and reading summaries — Max Guo">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+
+      <span class="section-label mb-4">Notes</span>
+      <h1 class="mb-4">Learning Notes</h1>
+      <p class="text-sm text-[var(--color-text-dim)] mb-8 max-w-lg">
+        Reading summaries, technical notes, and study records. Arranged newest first.
+      </p>
+
+      {published.length === 0 && (
+        <div class="card-static text-center py-12">
+          <p class="text-sm text-[var(--color-text-muted)]">No notes yet. Coming soon.</p>
+        </div>
+      )}
+
+      {published.length > 0 && (
+        <div class="space-y-3">
+          {published.map((note) => (
+            <a href={`/notes/${note.id}/`} class="card group block">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">{note.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                {note.data.source && <span class="badge text-[0.5rem]">{note.data.source}</span>}
+              </div>
+              <h3 class="text-[1.05rem] mb-1 group-hover:text-[var(--color-primary)] transition-colors">{note.data.title}</h3>
+              <p class="text-sm text-[var(--color-text-dim)]">{note.data.excerpt}</p>
+            </a>
+          ))}
+        </div>
+      )}
+
+    </div>
+  </div>
+</BaseLayout>

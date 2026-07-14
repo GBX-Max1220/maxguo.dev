@@ -1,0 +1,27 @@
+{
+  "name": "maxguo.dev",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Max Guo — Research on Human-AI Trust Calibration",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.0.0",
+    "@astrojs/rss": "^4.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/tailwind": "^6.0.0",
+    "@fontsource/dm-serif-display": "^5.2.8",
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "astro": "^5.0.0",
+    "chart.js": "^4.5.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "tailwindcss": "^3.4.0",
+    "tailwindcss-animate": "^1.0.0"
+  }
+}

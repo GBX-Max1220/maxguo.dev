@@ -1,0 +1,74 @@
+---
+// FitCalibChart.astro — Interactive Chart.js bar chart for FitCalib-Bench results
+---
+
+<div class="card-static mb-6">
+  <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Interactive Results by Evidence Category</h2>
+  <div class="relative" style="height: 300px;">
+    <canvas id="fitcalibChart"></canvas>
+  </div>
+  <p class="text-xs text-[var(--color-text-muted)] mt-2 italic">Hover over bars for exact values</p>
+</div>
+
+<script>
+import { Chart, BarController, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from 'chart.js';
+
+Chart.register(BarController, CategoryScale, LinearScale, BarElement, Tooltip, Legend);
+
+const ctx = document.getElementById('fitcalibChart');
+if (ctx) {
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Strong Evidence', 'Mixed Evidence', 'Insufficient Evidence'],
+      datasets: [
+        {
+          label: 'Calibrated',
+          data: [96.1, 72.4, 69.8],
+          backgroundColor: '#2D7D6A',
+          borderRadius: 4,
+        },
+        {
+          label: 'Pseudo-precise',
+          data: [3.2, 23.7, 26.7],
+          backgroundColor: '#B85A3A',
+          borderRadius: 4,
+        },
+        {
+          label: 'Overconfident',
+          data: [0, 0, 0],
+          backgroundColor: '#807C74',
+          borderRadius: 4,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { font: { family: 'Inter, sans-serif', size: 11 }, padding: 16 },
+        },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y}%`,
+          },
+        },
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100,
+          ticks: { callback: (v) => v + '%', font: { family: 'JetBrains Mono, monospace', size: 10 } },
+          grid: { color: 'rgba(0,0,0,0.06)' },
+        },
+        x: {
+          ticks: { font: { family: 'Inter, sans-serif', size: 10 } },
+          grid: { display: false },
+        },
+      },
+    },
+  });
+}
+</script>

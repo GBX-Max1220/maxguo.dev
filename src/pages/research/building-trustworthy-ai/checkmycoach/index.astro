@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="CheckMyCoach" description="A Calibration Pipeline for LLM Uncertainty Expression" ogImage="/og/checkmycoach.png">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+
+      <a href="/projects/" class="link-arrow mb-6 inline-flex">
+        ← All projects
+      </a>
+
+      <div class="flex items-center gap-3 mb-4">
+        <span class="badge badge-under-review">Under Review</span>
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">v1.0</span>
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">Updated: 2026-07-03</span>
+      </div>
+
+      <h1 class="mb-3">CheckMyCoach</h1>
+      <p class="text-base text-[var(--color-text-dim)] mb-6">A Calibration Pipeline for LLM Uncertainty Expression</p>
+
+      <!-- Hero image -->
+      <div class="mb-8 rounded-xl overflow-hidden border border-[var(--color-rule-light)]">
+        <img src="/images/projects/checkmycoach-hero.png" alt="CheckMyCoach — +0.75 UCS improvement" width="1200" height="675" class="w-full h-auto" loading="eager" />
+      </div>
+
+      <!-- Elevator pitch -->
+      <div class="card-static mb-8">
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          <strong class="text-[var(--color-ink)]">The problem:</strong> LLMs produce pseudo-precise and overconfident outputs. Manually reviewing every response is impractical.
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mt-3">
+          <strong class="text-[var(--color-ink)]">The solution:</strong> CheckMyCoach is an automated four-stage pipeline — <strong class="text-[var(--color-ink)]">Detection → Diagnosis → Correction → Validation</strong> — that identifies problematic outputs, diagnoses the failure type, rewrites them with appropriate uncertainty, and validates the fix. At <strong class="text-[var(--color-ink)]">~$0.001 per correction</strong>, it's practical for real-time deployment.
+        </p>
+      </div>
+
+      <!-- HCI Relevance -->
+      <div class="card-static mb-6 border-l-2 border-[var(--color-primary)]">
+        <p class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-1">Why this matters for HCI</p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">Tests whether calibration is a trainable skill — if trust can be repaired through automated correction, then calibration is a design problem, not a user education problem.</p>
+      </div>
+
+      <!-- SVG Pipeline Diagram -->
+      <div class="card-static mb-6 text-center">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-4">Pipeline Architecture</h2>
+        <svg viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pipeline-title" class="max-w-full h-auto">
+          <title id="pipeline-title">Four-stage pipeline: Detection → Diagnosis → Correction → Validation</title>
+
+          <!-- Stage 1: Detection -->
+          <rect x="20" y="60" width="90" height="80" rx="8" fill="var(--color-secondary-subtle, #E4F0EC)" stroke="var(--color-secondary, #2D7D6A)" stroke-width="1.5"/>
+          <text x="65" y="88" font-family="Inter, sans-serif" font-size="9" fill="var(--color-secondary, #2D7D6A)" text-anchor="middle" font-weight="600">M1</text>
+          <text x="65" y="104" font-family="Inter, sans-serif" font-size="8" fill="var(--color-secondary-dim, #1E6353)" text-anchor="middle">Detection</text>
+          <text x="65" y="120" font-family="JetBrains Mono, monospace" font-size="6" fill="var(--color-text-muted, #807C74)" text-anchor="middle">UCS scan</text>
+
+          <!-- Arrow 1→2 -->
+          <path d="M110 100 L125 100" stroke="var(--color-rule, #E5DFD6)" stroke-width="1.5" marker-end="url(#arrow)"/>
+          <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10" fill="var(--color-rule, #E5DFD6)"/></marker></defs>
+
+          <!-- Stage 2: Diagnosis -->
+          <rect x="135" y="60" width="90" height="80" rx="8" fill="var(--color-primary-subtle, #F5E4DC)" stroke="var(--color-primary, #B85A3A)" stroke-width="1.5"/>
+          <text x="180" y="88" font-family="Inter, sans-serif" font-size="9" fill="var(--color-primary, #B85A3A)" text-anchor="middle" font-weight="600">M2</text>
+          <text x="180" y="104" font-family="Inter, sans-serif" font-size="8" fill="var(--color-primary-dim, #9C4A2E)" text-anchor="middle">Diagnosis</text>
+          <text x="180" y="120" font-family="JetBrains Mono, monospace" font-size="6" fill="var(--color-text-muted, #807C74)" text-anchor="middle">3 failure types</text>
+
+          <!-- Arrow 2→3 -->
+          <path d="M225 100 L240 100" stroke="var(--color-rule, #E5DFD6)" stroke-width="1.5"/>
+
+          <!-- Stage 3: Correction -->
+          <rect x="250" y="60" width="90" height="80" rx="8" fill="var(--color-gold-subtle, #F0E6D4)" stroke="var(--color-gold, #B8823A)" stroke-width="1.5"/>
+          <text x="295" y="88" font-family="Inter, sans-serif" font-size="9" fill="var(--color-gold, #B8823A)" text-anchor="middle" font-weight="600">M3</text>
+          <text x="295" y="104" font-family="Inter, sans-serif" font-size="8" fill="var(--color-text-dim, #6B6660)" text-anchor="middle">Correction</text>
+          <text x="295" y="120" font-family="JetBrains Mono, monospace" font-size="6" fill="var(--color-text-muted, #807C74)" text-anchor="middle">LLM rewrite</text>
+
+          <!-- Arrow 3→4 -->
+          <path d="M340 100 L355 100" stroke="var(--color-rule, #E5DFD6)" stroke-width="1.5"/>
+
+          <!-- Stage 4: Validation -->
+          <rect x="365" y="60" width="90" height="80" rx="8" fill="var(--color-secondary-subtle, #E4F0EC)" stroke="var(--color-secondary, #2D7D6A)" stroke-width="1.5"/>
+          <text x="410" y="88" font-family="Inter, sans-serif" font-size="9" fill="var(--color-secondary, #2D7D6A)" text-anchor="middle" font-weight="600">M4</text>
+          <text x="410" y="104" font-family="Inter, sans-serif" font-size="8" fill="var(--color-secondary-dim, #1E6353)" text-anchor="middle">Validation</text>
+          <text x="410" y="120" font-family="JetBrains Mono, monospace" font-size="6" fill="var(--color-text-muted, #807C74)" text-anchor="middle">4 sanity checks</text>
+
+          <!-- Bottom annotation -->
+          <text x="250" y="175" font-family="Inter, sans-serif" font-size="9" fill="var(--color-text-muted, #807C74)" text-anchor="middle" font-style="italic">Cost: ~$0.001/correction via GPT-4o-mini</text>
+        </svg>
+      </div>
+
+      <!-- Results Table -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Correction Results by Failure Type</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-[var(--color-rule-light)]">
+                <th class="text-left py-2 pr-4 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Failure Type</th>
+                <th class="text-right py-2 px-3 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Pre-Correction UCS</th>
+                <th class="text-right py-2 px-3 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Post-Correction UCS</th>
+                <th class="text-right py-2 pl-3 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Improvement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[var(--color-rule-light)]">
+                <td class="py-2.5 pr-4 text-[var(--color-ink)]">Overconfident</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-text-dim)]">1.54</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-secondary)]">2.29</td>
+                <td class="text-right py-2.5 pl-3 text-[var(--color-primary)] font-medium">+0.75</td>
+              </tr>
+              <tr class="border-b border-[var(--color-rule-light)]">
+                <td class="py-2.5 pr-4 text-[var(--color-ink)]">Pseudo-precise</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-text-dim)]">2.56</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-secondary)]">2.73</td>
+                <td class="text-right py-2.5 pl-3 text-[var(--color-primary)] font-medium">+0.17</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 pr-4 text-[var(--color-ink)]">Already Calibrated</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-text-dim)]">4.00</td>
+                <td class="text-right py-2.5 px-3 text-[var(--color-secondary)]">4.00</td>
+                <td class="text-right py-2.5 pl-3 text-[var(--color-text-dim)]">0.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-xs text-[var(--color-text-muted)] mt-3 italic">UCS = Uncertainty Calibration Score (1–5, higher is better)</p>
+      </div>
+
+      <!-- Failure Type Breakdown -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Failure Type Diagnosis</h2>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+          The diagnosis stage (M2) classifies failures into three priority-ordered types:
+        </p>
+        <ul class="space-y-2 text-sm text-[var(--color-text-dim)]">
+          <li><strong class="text-[var(--color-ink)]">① Context Mismatch</strong> — Contradictory features within the output (e.g., recommending both high-intensity and rest)</li>
+          <li><strong class="text-[var(--color-ink)]">② Template Dominance</strong> — Unsupported superiority claims ("This is the best program")</li>
+          <li><strong class="text-[var(--color-ink)]">③ Cue Leakage</strong> — Pseudo-precise numbers without evidence grounding ("a 38.7% improvement")</li>
+        </ul>
+      </div>
+
+      <!-- Validation -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Validation Stage (M4) Checks</h2>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-3">
+            <div class="font-mono text-[0.55rem] text-[var(--color-secondary)] font-semibold mb-1">✓ Truncation Check</div>
+            <div class="text-xs text-[var(--color-text-dim)]">Output not cut off</div>
+          </div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-3">
+            <div class="font-mono text-[0.55rem] text-[var(--color-secondary)] font-semibold mb-1">✓ Unchanged Check</div>
+            <div class="text-xs text-[var(--color-text-dim)]">Correction actually changed</div>
+          </div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-3">
+            <div class="font-mono text-[0.55rem] text-[var(--color-secondary)] font-semibold mb-1">✓ Assertion Count</div>
+            <div class="text-xs text-[var(--color-text-dim)]">Not adding new claims</div>
+          </div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-3">
+            <div class="font-mono text-[0.55rem] text-[var(--color-secondary)] font-semibold mb-1">✓ UCS Score</div>
+            <div class="text-xs text-[var(--color-text-dim)]">Improvement confirmed</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech stack -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Tech Stack</h2>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="badge">Python 3.12</span>
+          <span class="badge">GPT-4o-mini</span>
+          <span class="badge">UCS Engine</span>
+          <span class="badge">pytest (44+)</span>
+          <span class="badge">Streamlit</span>
+          <span class="badge">OpenRouter</span>
+        </div>
+      </div>
+
+      <!-- Key Takeaways -->
+      <div class="card-static mb-6 bg-[var(--color-primary-subtle)]">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-3">Key Takeaways</h2>
+        <ol class="space-y-2 text-sm text-[var(--color-text-dim)] list-decimal list-inside">
+          <li>Four-stage pipeline (Detection → Diagnosis → Correction → Validation) for automated LLM calibration.</li>
+          <li>+0.75 UCS improvement for overconfident outputs, +0.17 for pseudo-precise, Δ = 0.00 for already-calibrated.</li>
+          <li>Validation stage enforces 4 sanity checks, falls back on failure — "do no harm" principle.</li>
+          <li>~$0.001 per correction via GPT-4o-mini, cost-effective for real-time deployment.</li>
+        </ol>
+      </div>
+
+      <!-- Related -->
+      <div class="card-static flex items-center justify-between mb-6">
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Related</span>
+        <div class="flex gap-2">
+          <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="btn btn-sm">MaxFitCalib-Bench →</a>
+          <a href="/research/understanding-human-trust/caltrust/" class="btn btn-sm">CalTrust →</a>
+        </div>
+      </div>
+
+      <!-- Changelog -->
+      <div class="card-static">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Changelog</h2>
+        <div class="space-y-2 text-sm">
+          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v1.0</span><span class="text-[var(--color-text-dim)]">2026-07-03 — Paper 8.5/9 sections.</span></div>
+          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v0.3</span><span class="text-[var(--color-text-dim)]">2026-06-20 — 44 tests all passing.</span></div>
+          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v0.2</span><span class="text-[var(--color-text-dim)]">2026-06-01 — M1-M4 pipeline complete.</span></div>
+          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v0.1</span><span class="text-[var(--color-text-dim)]">2026-04-15 — Prototype with rule-based detection.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

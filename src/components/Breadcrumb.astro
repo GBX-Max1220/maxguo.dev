@@ -1,0 +1,26 @@
+---
+const { path } = Astro.props;
+const segments = path.split('/').filter(Boolean);
+const crumbs = [];
+let accum = '';
+
+for (const seg of segments) {
+  accum += '/' + seg;
+  const label = seg.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+  crumbs.push({ href: accum + '/', label });
+}
+---
+
+<nav aria-label="Breadcrumb" class="flex items-center gap-1.5 text-[0.65rem] font-mono text-[var(--color-text-muted)] mb-4 flex-wrap">
+  <a href="/" class="hover:text-[var(--color-primary)] transition-colors">Home</a>
+  {crumbs.map((c, i) => (
+    <>
+      <span class="text-[var(--color-rule)]">/</span>
+      {i < crumbs.length - 1 ? (
+        <a href={c.href} class="hover:text-[var(--color-primary)] transition-colors">{c.label}</a>
+      ) : (
+        <span class="text-[var(--color-text-dim)]">{c.label}</span>
+      )}
+    </>
+  ))}
+</nav>

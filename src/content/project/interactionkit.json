@@ -1,0 +1,62 @@
+{
+  "id": "interactionkit",
+  "programId": "building-trustworthy-ai",
+  "title": "InteractionKit: A Methodological Infrastructure for HAI Trust Calibration",
+  "shortTitle": "InteractionKit",
+  "oneLiner": "A versioned log schema and experiment platform for reproducible trust calibration experiments.",
+  "status": "development",
+  "version": "v0.3",
+  "updated": "2026-07-13",
+  "keyTakeaways": [
+    "Different labs studying the same HAI interaction pattern produce incompatible behavioral data — different variable names, different logging formats, different measurement conventions.",
+    "InteractionKit provides a versioned log schema (14 columns) and an experiment platform such that two independent implementations produce data that can be merged with minimal translation.",
+    "Built on earlier work on calibration measurement (MaxFitCalib) and knowledge infrastructure (Knowledge Compiler).",
+    "Pilot and Study 1 in progress (N\u2265120, fitness domain, evidence-augmented vs baseline confidence display)."
+  ],
+  "faq": [
+    {
+      "q": "What does the 14-column schema cover?",
+      "a": "Participant ID, trial ID, condition, scenario, AI advice text, confidence display, user confidence rating, user decision, response time, correctness, evidence tags, attention check, timestamp, schema version."
+    },
+    {
+      "q": "How does this differ from existing experiment frameworks?",
+      "a": "Existing frameworks (jsPsych, lab.js, PsychoPy) focus on presentation and timing. InteractionKit focuses on data compatibility: two labs running the same study design produce data with identical column names and types."
+    },
+    {
+      "q": "What's the current status?",
+      "a": "Schema v0.3 finalized after a CHI reviewer critique and 3-agent code audit. Pilot deployment and Study 1 (N\u2265120, within-subject, 10 scenarios) in progress."
+    }
+  ],
+  "links": {
+    "code": "https://github.com/GBX-Max1220/InteractionKit"
+  },
+  "citation": {
+    "bibtex": "@misc{guo2026interactionkit,\n  author = {Guo, Max},\n  title = {InteractionKit: A Methodological Infrastructure for HAI Trust Calibration},\n  year = {2026},\n  url = {https://maxguo.dev/research/building-trustworthy-ai/interactionkit/}\n}",
+    "apa": "Guo, M. (2026). InteractionKit: A Methodological Infrastructure for HAI Trust Calibration. https://maxguo.dev/research/building-trustworthy-ai/interactionkit/",
+    "chicago": "Guo, Max. \"InteractionKit: A Methodological Infrastructure for HAI Trust Calibration.\" 2026. https://maxguo.dev/research/building-trustworthy-ai/interactionkit/.",
+    "mla": "Guo, Max. \"InteractionKit: A Methodological Infrastructure for HAI Trust Calibration.\" 2026, https://maxguo.dev/research/building-trustworthy-ai/interactionkit/."
+  },
+  "reproducible": {
+    "env": "Python 3.12+ with requirements.txt",
+    "quickStart": "git clone https://github.com/GBX-Max1220/InteractionKit && cd InteractionKit && pip install -r requirements.txt"
+  },
+  "changelog": [
+    {
+      "version": "v0.3",
+      "date": "2026-07-13",
+      "event": "Pilot-ready. CHI reviewer critique addressed, 3-agent code audit converged (0 P0 blockers)."
+    },
+    {
+      "version": "v0.2",
+      "date": "2026-06-20",
+      "event": "Schema v0.2 with 14-column log spec. Layout finalized (desktop)."
+    },
+    {
+      "version": "v0.1",
+      "date": "2026-06-01",
+      "event": "Design spec + PRD v0.3. Prolific URL params verified."
+    }
+  ],
+  "relatedIds": ["fitcalib-bench", "checkmycoach", "knowledge-compiler"],
+  "order": 5
+}

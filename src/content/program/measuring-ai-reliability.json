@@ -1,0 +1,7 @@
+{
+  "id": "measuring-ai-reliability",
+  "title": "Measuring AI Reliability",
+  "scientificQuestion": "How reliable are AI systems in high-stakes domains?",
+  "description": "Developing benchmarks, evaluation frameworks, and metrics to assess the reliability and calibration of AI systems, particularly in safety-critical advisory contexts.",
+  "order": 2
+}
