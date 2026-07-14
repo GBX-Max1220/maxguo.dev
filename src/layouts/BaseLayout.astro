@@ -21,8 +21,8 @@ export interface Props {
 
 const { title, description, ogImage, ogType, hideNav, hideTopBar } = Astro.props;
 const site = 'https://maxguo.dev';
-const defaultDesc = 'LLM Calibration & Trust in AI Coaching | Max Guo';
-const absTitle = `${title} — Max Guo`;
+const defaultDesc = 'LLM Calibration & Trust in AI Coaching | Baixin Guo';
+const absTitle = `${title} — Baixin Guo`;
 const absDesc = description || defaultDesc;
 const ogImageUrl = ogImage ? new URL(ogImage, site).href : `${site}/og-default.svg`;
 ---
@@ -54,8 +54,8 @@ const ogImageUrl = ogImage ? new URL(ogImage, site).href : `${site}/og-default.s
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "Max Guo",
-      "givenName": "Max",
+      "name": "Baixin Guo",
+      "givenName": "Baixin",
       "familyName": "Guo",
       "email": "gbx1220max@gmail.com",
       "url": site,
@@ -68,7 +68,7 @@ const ogImageUrl = ogImage ? new URL(ogImage, site).href : `${site}/og-default.s
 
     <!-- Fonts: self-hosted via @fontsource -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" type="application/rss+xml" title="Max Guo — Blog" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Baixin Guo — Blog" href="/rss.xml" />
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>

@@ -1,7 +1,7 @@
 {
   "id": "checkmycoach-paper",
   "title": "From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice",
-  "authors": ["Max Guo"],
+  "authors": ["Baixin Guo"],
   "venue": "Target: CSCW 2027",
   "year": 2026,
   "status": "under_review",

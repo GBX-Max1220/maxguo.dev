@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 const notes = await getCollection('learning-note');
 const published = notes.filter(n => !n.data.draft).sort((a, b) => b.data.date - a.data.date);
 ---
-<BaseLayout title="Notes" description="Learning notes and reading summaries — Max Guo">
+<BaseLayout title="Notes" description="Learning notes and reading summaries — Baixin Guo">
   <div class="container-content py-16">
     <div class="max-w-2xl">
 

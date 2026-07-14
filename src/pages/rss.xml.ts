@@ -6,7 +6,7 @@ export async function GET(context) {
   const site = context.site || 'https://maxguo.dev';
 
   return rss({
-    title: 'Max Guo — Blog',
+    title: 'Baixin Guo — Blog',
     description: 'Research notes and essays on human-AI trust calibration',
     site: site,
     items: blog.map((post) => ({

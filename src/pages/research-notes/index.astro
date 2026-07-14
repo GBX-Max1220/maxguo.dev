@@ -6,7 +6,7 @@ const notes = (await getCollection('blog'))
   .filter((p) => p.data.type === 'research-note' && !p.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
-<BaseLayout title="Research Notes" description="Short research notes and findings — Max Guo">
+<BaseLayout title="Research Notes" description="Short research notes and findings — Baixin Guo">
   <div class="container-content py-16">
     <div class="max-w-2xl">
 
