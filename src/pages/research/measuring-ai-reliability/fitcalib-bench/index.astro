@@ -20,7 +20,7 @@ import Breadcrumb from '../../../../components/Breadcrumb.astro';
 
       <!-- Hero image -->
       <div class="mb-8 rounded-xl overflow-hidden border border-[var(--color-rule-light)]">
-        <img src="/images/fitcalib-bench-hero.png" alt="MaxFitCalib-Bench — 6.3% pseudo-precise failure rate" width="1200" height="675" class="w-full h-auto" loading="eager" />
+        <img src={import.meta.env.BASE_URL + '/images/fitcalib-bench-hero.png'} alt="MaxFitCalib-Bench — 6.3% pseudo-precise failure rate" width="1200" height="675" class="w-full h-auto" loading="eager" />
       </div>
 
       <!-- Elevator pitch -->
