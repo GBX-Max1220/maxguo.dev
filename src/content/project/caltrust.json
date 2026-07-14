@@ -12,6 +12,7 @@
     "The bandit successfully learns to choose 'no intervention' for naive users (~46.7%), avoiding unnecessary calibration that would waste cognitive effort.",
     "Simulation results show adaptive policies can match or exceed static calibration baselines while reducing unnecessary interventions."
   ],
+  "hciRelevance": "Shows that one-size-fits-all uncertainty presentation is suboptimal — different users and contexts require different calibration strategies, making personalisation an HCI design challenge.",
   "faq": [
     {
       "q": "Why LinUCB instead of Thompson Sampling?",
@@ -36,9 +37,21 @@
     "quickStart": "git clone ... && cd CalTrust && pip install -r requirements.txt && python notebooks/simulation_benchmark.py"
   },
   "changelog": [
-    { "version": "v1.0", "date": "2026-07-03", "event": "Simulation pipeline complete. XGBoost trained on 19,200 trials (AUC 0.70, RMSE 1.04)" },
-    { "version": "v0.2", "date": "2026-06-15", "event": "LinUCB bandit + Streamlit frontend integrated" },
-    { "version": "v0.1", "date": "2026-02-01", "event": "Prototype: rule-based fallback + synthetic data generation" }
+    {
+      "version": "v1.0",
+      "date": "2026-07-03",
+      "event": "Simulation pipeline complete. XGBoost trained on 19,200 trials (AUC 0.70, RMSE 1.04)"
+    },
+    {
+      "version": "v0.2",
+      "date": "2026-06-15",
+      "event": "LinUCB bandit + Streamlit frontend integrated"
+    },
+    {
+      "version": "v0.1",
+      "date": "2026-02-01",
+      "event": "Prototype: rule-based fallback + synthetic data generation"
+    }
   ],
   "relatedIds": ["fitcalib-bench", "checkmycoach"],
   "order": 1

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="CalTrust" description="Adaptive Trust Calibration via Contextual Bandits">
+<BaseLayout title="CalTrust" description="Adaptive Trust Calibration via Contextual Bandits" ogImage="/og/caltrust.png">
   <div class="container-content py-16">
     <div class="max-w-2xl">
 
@@ -18,6 +18,11 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
       <h1 class="mb-3">CalTrust</h1>
       <p class="text-base text-[var(--color-text-dim)] mb-6">Adaptive Trust Calibration via Contextual Bandits</p>
 
+      <!-- Hero image -->
+      <div class="mb-8 rounded-xl overflow-hidden border border-[var(--color-rule-light)]">
+        <img src="/images/projects/caltrust-hero.png" alt="CalTrust — AUC 0.70 adaptive bandit" width="1200" height="675" class="w-full h-auto" loading="eager" />
+      </div>
+
       <!-- Elevator pitch -->
       <div class="card-static mb-8">
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
@@ -26,6 +31,12 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mt-3">
           <strong class="text-[var(--color-ink)]">The solution:</strong> CalTrust uses a <strong class="text-[var(--color-ink)]">LinUCB contextual bandit</strong> to select among four calibration interventions based on user context and output characteristics. An XGBoost trust predictor (AUC 0.70) trained on <strong class="text-[var(--color-ink)]">19,200 simulation trials</strong> guides the bandit's decisions.
         </p>
+      </div>
+
+      <!-- HCI Relevance -->
+      <div class="card-static mb-6 border-l-2 border-[var(--color-primary)]">
+        <p class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-1">Why this matters for HCI</p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">Shows that one-size-fits-all uncertainty presentation is suboptimal — different users and contexts require different calibration strategies, making personalisation an HCI design challenge.</p>
       </div>
 
       <!-- SVG: Bandit Decision Diagram -->

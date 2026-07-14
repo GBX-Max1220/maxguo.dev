@@ -17,6 +17,7 @@ const projectSchema = z.object({
   version: z.string(),
   updated: z.coerce.date(),
   keyTakeaways: z.array(z.string()),
+  hciRelevance: z.string().optional(),
   faq: z.array(z.object({ q: z.string(), a: z.string() })),
   links: z.object({
     paper: z.string().optional(),
@@ -90,9 +91,20 @@ const blogSchema = z.object({
   draft: z.boolean(),
 });
 
+const learningNoteSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  date: z.coerce.date(),
+  tags: z.array(z.string()),
+  excerpt: z.string(),
+  source: z.string().optional(),
+  draft: z.boolean(),
+});
+
 export const collections = {
   program: defineCollection({ type: 'data', schema: programSchema }),
   project: defineCollection({ type: 'data', schema: projectSchema }),
   publication: defineCollection({ type: 'data', schema: publicationSchema }),
   blog: defineCollection({ type: 'content', schema: blogSchema }),
+  'learning-note': defineCollection({ type: 'content', schema: learningNoteSchema }),
 };

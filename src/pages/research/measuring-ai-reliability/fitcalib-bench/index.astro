@@ -3,7 +3,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import FitCalibChart from '../../../../components/FitCalibChart.astro';
 import Breadcrumb from '../../../../components/Breadcrumb.astro';
 ---
-<BaseLayout title="MaxFitCalib-Bench" description="A Benchmark for LLM Calibration in Fitness Advice">
+<BaseLayout title="MaxFitCalib-Bench" description="A Benchmark for LLM Calibration in Fitness Advice" ogImage="/og/fitcalib-bench.png">
   <div class="container-content py-16">
     <div class="max-w-2xl">
 
@@ -18,6 +18,11 @@ import Breadcrumb from '../../../../components/Breadcrumb.astro';
       <h1 class="mb-3">MaxFitCalib-Bench</h1>
       <p class="text-base text-[var(--color-text-dim)] mb-6">A Benchmark for LLM Calibration in Fitness Advice</p>
 
+      <!-- Hero image -->
+      <div class="mb-8 rounded-xl overflow-hidden border border-[var(--color-rule-light)]">
+        <img src="/images/projects/fitcalib-bench-hero.png" alt="MaxFitCalib-Bench — 6.3% pseudo-precise failure rate" width="1200" height="675" class="w-full h-auto" loading="eager" />
+      </div>
+
       <!-- Elevator pitch -->
       <div class="card-static mb-8">
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
@@ -26,6 +31,12 @@ import Breadcrumb from '../../../../components/Breadcrumb.astro';
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mt-3">
           <strong class="text-[var(--color-ink)]">The finding:</strong> 92.9% of outputs are calibrated, but 6.3% contain <strong class="text-[var(--color-ink)]">pseudo-precise</strong> claims — numbers that sound authoritative but lack evidence. This is the <strong class="text-[var(--color-ink)]">precision illusion</strong>, and it clusters in safety-critical scenarios.
         </p>
+      </div>
+
+      <!-- HCI Relevance -->
+      <div class="card-static mb-6 border-l-2 border-[var(--color-primary)]">
+        <p class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-1">Why this matters for HCI</p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">Challenges the assumption that LLMs' primary risk is over-reliance — the bigger risk may be subtle misdirection through false precision that standard accuracy benchmarks cannot detect.</p>
       </div>
 
       <!-- SVG: Precision Illusion Diagram -->

@@ -12,6 +12,7 @@
     "The validation stage (M4) enforces four sanity checks and falls back to the original output on failure, prioritizing 'do no harm' over maximum correction coverage.",
     "At ~$0.001 per correction via GPT-4o-mini, the pipeline is cost-effective for real-time deployment in AI advisory systems."
   ],
+  "hciRelevance": "Tests whether calibration is a trainable skill — if trust can be repaired through automated correction, then calibration is a design problem, not a user education problem.",
   "faq": [
     {
       "q": "What failure types does CheckMyCoach diagnose?",
@@ -40,10 +41,26 @@
     "quickStart": "git clone ... && cd CheckMyCoach && pip install -r requirements.txt && python calibration_agent/e2e_test.py"
   },
   "changelog": [
-    { "version": "v1.0", "date": "2026-07-03", "event": "Paper complete (8.5/9 sections). Discussion expanded to ~985 words. Human Evaluation skeleton in place." },
-    { "version": "v0.3", "date": "2026-06-20", "event": "44 tests (41 unit + 3 e2e) all passing. Baseline comparison (24 cases) complete." },
-    { "version": "v0.2", "date": "2026-06-01", "event": "M1-M4 pipeline complete with UCS Engine integration" },
-    { "version": "v0.1", "date": "2026-04-15", "event": "Prototype: rule-based detection + correction" }
+    {
+      "version": "v1.0",
+      "date": "2026-07-03",
+      "event": "Paper complete (8.5/9 sections). Discussion expanded to ~985 words. Human Evaluation skeleton in place."
+    },
+    {
+      "version": "v0.3",
+      "date": "2026-06-20",
+      "event": "44 tests (41 unit + 3 e2e) all passing. Baseline comparison (24 cases) complete."
+    },
+    {
+      "version": "v0.2",
+      "date": "2026-06-01",
+      "event": "M1-M4 pipeline complete with UCS Engine integration"
+    },
+    {
+      "version": "v0.1",
+      "date": "2026-04-15",
+      "event": "Prototype: rule-based detection + correction"
+    }
   ],
   "relatedIds": ["fitcalib-bench", "caltrust"],
   "order": 3

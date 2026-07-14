@@ -8,7 +8,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <span class="section-label mb-4">Projects</span>
       <h1 class="mb-4">Research Projects</h1>
       <p class="text-sm text-[var(--color-text-dim)] mb-10 max-w-lg">
-        From diagnosing the precision illusion to building correction pipelines and adaptive trust interventions — five projects that form a coherent research arc.
+        From defining the precision illusion to building infrastructure for reproducible experiments — six projects forming a five-layer research stack.
       </p>
 
       <!-- Project 1: MaxFitCalib-Bench -->
@@ -207,11 +207,50 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <a href="/research/building-trustworthy-ai/pi-discovery/" class="link-arrow">View project details →</a>
       </div>
 
+      <!-- Project 5: InteractionKit -->
+      <div class="card mb-5">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-7 h-7 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.55rem] font-bold">IK</span>
+          <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Infrastructure</span>
+          <span class="badge badge-gold">In Development</span>
+        </div>
+        <h2 class="text-[1.3rem] mb-2">InteractionKit</h2>
+        <p class="text-sm text-[var(--color-text-dim)] mb-3">A versioned log schema and experiment platform so trust calibration experiments produce mergeable data across labs.</p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
+            <div class="font-display text-lg text-[var(--color-ink)]">14</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Schema Columns</div>
+          </div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
+            <div class="font-display text-lg text-[var(--color-ink)]">v0.3</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Schema Version</div>
+          </div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
+            <div class="font-display text-lg text-[var(--color-ink)]">N≥120</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Pilot Size</div>
+          </div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
+            <div class="font-display text-lg text-[var(--color-ink)]">Pilot</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Status</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-1.5 mb-4">
+          <span class="badge text-[0.55rem]">Experiment Platform</span>
+          <span class="badge text-[0.55rem]">Trust Calibration</span>
+          <span class="badge text-[0.55rem]">Open Science</span>
+          <span class="badge text-[0.55rem]">Prolific</span>
+        </div>
+
+        <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">View project details →</a>
+      </div>
+
       <!-- Research arc visual -->
       <div class="card-static mt-8 bg-[var(--color-page-warm)] text-center py-6">
         <p class="font-mono text-[0.65rem] text-[var(--color-text-muted)] uppercase tracking-wider mb-2">The Big Picture</p>
         <p class="text-sm text-[var(--color-text-dim)] max-w-md mx-auto">
-          These three projects form a complete arc: <strong class="text-[var(--color-ink)]">measure the problem → build the fix → adapt to the user</strong>. Together they represent a full-stack approach to trustworthy AI.
+          These six projects form a complete research stack: <strong class="text-[var(--color-ink)]">theory → measure → intervene → adapt → infrastructure</strong>. Together they represent a full-stack approach to understanding and fixing how AI communicates uncertainty.
         </p>
       </div>
 

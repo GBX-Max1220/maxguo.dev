@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="CheckMyCoach" description="A Calibration Pipeline for LLM Uncertainty Expression">
+<BaseLayout title="CheckMyCoach" description="A Calibration Pipeline for LLM Uncertainty Expression" ogImage="/og/checkmycoach.png">
   <div class="container-content py-16">
     <div class="max-w-2xl">
 
@@ -18,6 +18,11 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
       <h1 class="mb-3">CheckMyCoach</h1>
       <p class="text-base text-[var(--color-text-dim)] mb-6">A Calibration Pipeline for LLM Uncertainty Expression</p>
 
+      <!-- Hero image -->
+      <div class="mb-8 rounded-xl overflow-hidden border border-[var(--color-rule-light)]">
+        <img src="/images/projects/checkmycoach-hero.png" alt="CheckMyCoach — +0.75 UCS improvement" width="1200" height="675" class="w-full h-auto" loading="eager" />
+      </div>
+
       <!-- Elevator pitch -->
       <div class="card-static mb-8">
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
@@ -26,6 +31,12 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mt-3">
           <strong class="text-[var(--color-ink)]">The solution:</strong> CheckMyCoach is an automated four-stage pipeline — <strong class="text-[var(--color-ink)]">Detection → Diagnosis → Correction → Validation</strong> — that identifies problematic outputs, diagnoses the failure type, rewrites them with appropriate uncertainty, and validates the fix. At <strong class="text-[var(--color-ink)]">~$0.001 per correction</strong>, it's practical for real-time deployment.
         </p>
+      </div>
+
+      <!-- HCI Relevance -->
+      <div class="card-static mb-6 border-l-2 border-[var(--color-primary)]">
+        <p class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-1">Why this matters for HCI</p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">Tests whether calibration is a trainable skill — if trust can be repaired through automated correction, then calibration is a design problem, not a user education problem.</p>
       </div>
 
       <!-- SVG Pipeline Diagram -->

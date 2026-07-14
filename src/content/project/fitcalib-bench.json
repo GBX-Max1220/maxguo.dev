@@ -13,6 +13,7 @@
     "At 6.3% per output, a typical user session of 10 advice statements carries a ~48% cumulative probability of encountering at least one Pseudo-precise response.",
     "Calibration quality appears decoupled from factual accuracy — no significant UCS distribution difference between models despite their accuracy gap."
   ],
+  "hciRelevance": "Challenges the assumption that LLMs' primary risk is over-reliance — the bigger risk may be subtle misdirection through false precision that standard accuracy benchmarks cannot detect.",
   "faq": [
     {
       "q": "Why only fitness advice?",
@@ -37,9 +38,21 @@
     "quickStart": "git clone ... && cd MaxFitCalib-Bench && pip install -r requirements.txt && python evaluation/run_benchmark.py"
   },
   "changelog": [
-    { "version": "v1.0", "date": "2026-06-01", "event": "arXiv submission. 126 questions, two models, UCS evaluations complete." },
-    { "version": "v0.2", "date": "2026-03-15", "event": "UCS Engine (4-stage pipeline) implemented and validated on 252 responses" },
-    { "version": "v0.1", "date": "2025-12-10", "event": "126 questions drafted across 8 categories" }
+    {
+      "version": "v1.0",
+      "date": "2026-06-01",
+      "event": "arXiv submission. 126 questions, two models, UCS evaluations complete."
+    },
+    {
+      "version": "v0.2",
+      "date": "2026-03-15",
+      "event": "UCS Engine (4-stage pipeline) implemented and validated on 252 responses"
+    },
+    {
+      "version": "v0.1",
+      "date": "2025-12-10",
+      "event": "126 questions drafted across 8 categories"
+    }
   ],
   "relatedIds": ["checkmycoach"],
   "order": 2

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="PI Discovery" description="Discover collaborators through publication and expertise graphs">
+<BaseLayout title="PI Discovery" description="Discover collaborators through publication and expertise graphs" ogImage="/og/pi-discovery.png">
   <div class="container-content py-16">
     <div class="max-w-2xl">
 
@@ -17,6 +17,11 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
       <h1 class="mb-3">PI Discovery Engine</h1>
       <p class="text-base text-[var(--color-text-dim)] mb-6">From research topics to investigator cards — discover collaborators through publication and expertise graphs.</p>
+
+      <!-- Hero image -->
+      <div class="mb-8 rounded-xl overflow-hidden border border-[var(--color-rule-light)]">
+        <img src="/images/projects/pi-discovery-hero.png" alt="PI Discovery Engine — Semantic Scholar + OpenAlex" width="1200" height="675" class="w-full h-auto" loading="eager" />
+      </div>
 
       <!-- Elevator pitch -->
       <div class="card-static mb-8">
