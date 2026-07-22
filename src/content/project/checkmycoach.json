@@ -3,9 +3,11 @@
   "programId": "building-trustworthy-ai",
   "title": "CheckMyCoach: A Calibration Pipeline for LLM Uncertainty Expression",
   "shortTitle": "CheckMyCoach",
-  "status": "under_review",
+  "workflowState": "active",
+  "evidenceLevel": "offline_evaluated",
   "version": "v1.0",
   "updated": "2026-07-03",
+  "lastVerified": "2026-07-22",
   "keyTakeaways": [
     "CheckMyCoach is a four-stage calibration pipeline (Detection → Diagnosis → Correction → Validation) that automatically identifies and rewrites Pseudo-precise and Overconfident LLM outputs.",
     "The pipeline improved Overconfident outputs by +0.75 UCS points and Pseudo-precise outputs by +0.17 UCS points without degrading already-Calibrated outputs (Δ = 0.00).",
@@ -31,10 +33,10 @@
     "code": "https://github.com/GBX-Max1220/CheckMyCoach"
   },
   "citation": {
-    "bibtex": "@misc{guo2026checkmycoach,\n  author = {Guo, Max},\n  title = {From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice},\n  year = {2026},\n  url = {https://maxguo.dev/research/building-trustworthy-ai/checkmycoach/}\n}",
-    "apa": "Guo, M. (2026). From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice. https://maxguo.dev/research/building-trustworthy-ai/checkmycoach/",
-    "chicago": "Guo, Max. \"From Precision Illusion to Calibration Intervention.\" 2026. https://maxguo.dev/research/building-trustworthy-ai/checkmycoach/.",
-    "mla": "Guo, Max. \"From Precision Illusion to Calibration Intervention.\" 2026, https://maxguo.dev/research/building-trustworthy-ai/checkmycoach/."
+    "bibtex": "@misc{guo2026checkmycoach,\n  author = {Guo, Max},\n  title = {From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice},\n  year = {2026},\n  url = {https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/checkmycoach/}\n}",
+    "apa": "Guo, M. (2026). From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice. https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/checkmycoach/",
+    "chicago": "Guo, Max. \"From Precision Illusion to Calibration Intervention.\" 2026. https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/checkmycoach/.",
+    "mla": "Guo, Max. \"From Precision Illusion to Calibration Intervention.\" 2026, https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/checkmycoach/."
   },
   "reproducible": {
     "env": "Python 3.12 with requirements.txt; OpenRouter API key for M3 (GPT-4o-mini); fallback mode available when API is offline",

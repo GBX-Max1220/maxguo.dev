@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="PI Discovery" description="Discover collaborators through publication and expertise graphs" ogImage="/og/pi-discovery.png">
+  <div class="container-content py-16">
+    <div class="max-w-2xl">
+
+      <a href="/projects/" class="link-arrow mb-6 inline-flex">
+        ← All projects
+      </a>
+
+      <div class="flex items-center gap-3 mb-4">
+        <span class="badge badge-gold">In Development</span>
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">v0.3</span>
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">Updated: 2026-07-05</span>
+      </div>
+
+      <h1 class="mb-3">PI Discovery Engine</h1>
+      <p class="text-base text-[var(--color-text-dim)] mb-6">From research topics to investigator cards — discover collaborators through publication and expertise graphs.</p>
+
+      <!-- Hero image -->
+      <div class="mb-8 rounded-xl overflow-hidden border border-[var(--color-rule-light)]">
+        <img src="/images/pi-discovery-hero.png" alt="PI Discovery Engine — Semantic Scholar + OpenAlex" width="1200" height="675" class="w-full h-auto" loading="eager" />
+      </div>
+
+      <!-- Elevator pitch -->
+      <div class="card-static mb-8">
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          <strong class="text-[var(--color-ink)]">The problem:</strong> Finding the right advisors for RA/PhD applications is a search and triage problem. Existing tools (Google Scholar, lab websites) require manual effort to compile and compare candidates.
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mt-3">
+          <strong class="text-[var(--color-ink)]">The solution:</strong> PI Discovery automates the initial screening by searching <strong class="text-[var(--color-ink)]">Semantic Scholar</strong> and <strong class="text-[var(--color-ink)]">OpenAlex</strong> APIs, deduplicating and ranking candidates, and generating decision-ready PI <strong class="text-[var(--color-ink)]">cards</strong> — including publication history, h-index trends, country, and outreach status.
+        </p>
+      </div>
+
+      <!-- Key Stats -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+        <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center">
+          <div class="font-display text-lg text-[var(--color-ink)]">2</div>
+          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">API Sources</div>
+        </div>
+        <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center">
+          <div class="font-display text-lg text-[var(--color-ink)]">7</div>
+          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Contact Stages</div>
+        </div>
+        <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center">
+          <div class="font-display text-lg text-[var(--color-ink)]">∞</div>
+          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Research Topics</div>
+        </div>
+        <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center">
+          <div class="font-display text-lg text-[var(--color-ink)]">Web</div>
+          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Streamlit App</div>
+        </div>
+      </div>
+
+      <!-- How it works -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">How It Works</h2>
+        <div class="space-y-3 text-sm text-[var(--color-text-dim)]">
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.5rem] font-bold mt-0.5">1</span>
+            <div><strong class="text-[var(--color-ink)]">Search</strong> — Enter research topics (e.g., "trust calibration", "human-AI interaction"). The engine queries Semantic Scholar and OpenAlex in parallel.</div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.5rem] font-bold mt-0.5">2</span>
+            <div><strong class="text-[var(--color-ink)]">Rank</strong> — Deduplicate across sources, rank by relevance, h-index, and publication recency.</div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-[var(--color-gold-subtle)] flex items-center justify-center text-[var(--color-gold)] font-mono text-[0.5rem] font-bold mt-0.5">3</span>
+            <div><strong class="text-[var(--color-ink)]">Card</strong> — Generate decision-ready PI cards with publication history, h-index trends, affiliation, country, and contact info.</div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.5rem] font-bold mt-0.5">4</span>
+            <div><strong class="text-[var(--color-ink)]">Track</strong> — Built-in outreach pipeline across 7 stages: not_started → reading_papers → drafting_email → sent → replied → meeting_scheduled → declined.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Pipeline -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Contact Pipeline Stages</h2>
+        <div class="flex flex-wrap gap-2">
+          <span class="badge bg-[var(--color-page-alt)] text-[0.55rem]">Not Started</span>
+          <span class="badge bg-[var(--color-page-alt)] text-[0.55rem]">Reading Papers</span>
+          <span class="badge bg-[var(--color-page-alt)] text-[0.55rem]">Drafting Email</span>
+          <span class="badge bg-[var(--color-page-alt)] text-[0.55rem]">Sent</span>
+          <span class="badge bg-[var(--color-primary-subtle)] text-[0.55rem]">Replied</span>
+          <span class="badge bg-[var(--color-secondary-subtle)] text-[0.55rem]">Meeting Scheduled</span>
+          <span class="badge bg-[var(--color-gold-subtle)] text-[0.55rem]">Declined</span>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">FAQ</h2>
+        <div class="space-y-4 text-sm text-[var(--color-text-dim)]">
+          <div>
+            <p class="font-medium text-[var(--color-ink)] mb-1">Why build a PI discovery tool?</p>
+            <p class="leading-relaxed">Finding the right advisors for RA/PhD applications is a search and triage problem. Existing tools (Google Scholar, lab websites) require manual effort to compile and compare candidates. PI Discovery automates the initial screening.</p>
+          </div>
+          <div>
+            <p class="font-medium text-[var(--color-ink)] mb-1">What APIs does it use?</p>
+            <p class="leading-relaxed">Semantic Scholar API for paper search and citation metrics, OpenAlex for author affiliation and country data. Both are free and openly accessible.</p>
+          </div>
+          <div>
+            <p class="font-medium text-[var(--color-ink)] mb-1">Is it usable for others?</p>
+            <p class="leading-relaxed">Yes — the Streamlit app is designed for general use. Enter research topics, set filters, and get a ranked list of PI candidates with decision-ready profiles.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech stack -->
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Tech Stack</h2>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="badge">Python 3.11+</span>
+          <span class="badge">Semantic Scholar API</span>
+          <span class="badge">OpenAlex API</span>
+          <span class="badge">Streamlit</span>
+          <span class="badge">Pandas</span>
+          <span class="badge">PyYAML</span>
+        </div>
+      </div>
+
+      <!-- Reproducibility -->
+      <div class="card-static mb-6 bg-[var(--color-gold-subtle)]">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider mb-3">Reproducibility</h2>
+        <p class="text-xs font-mono text-[var(--color-text-dim)] mb-2">Env: Python 3.11+ with pip install pyalex semanticscholar streamlit pandas pyyaml</p>
+        <code class="block bg-[var(--color-page)] rounded p-2 text-xs font-mono text-[var(--color-text-dim)] break-all">git clone https://github.com/MaxGuo1220/pi-discovery-pipeline && cd pi-discovery-pipeline && pip install -e . && streamlit run src/web/app.py</code>
+      </div>
+
+      <!-- Key Takeaways -->
+      <div class="card-static mb-6 bg-[var(--color-primary-subtle)]">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-3">Key Takeaways</h2>
+        <ol class="space-y-2 text-sm text-[var(--color-text-dim)] list-decimal list-inside">
+          <li>Searches Semantic Scholar and OpenAlex APIs to find PIs working on specific research topics, with deduplication and relevance ranking.</li>
+          <li>Generates decision-ready PI 'cards' including publication history, h-index trends, recent funding, country, and email contact status tracking.</li>
+          <li>Streamlit web app with interactive filtering by country, topic, and minimum publications.</li>
+          <li>Contact pipeline tracks outreach status across 7 stages: not_started → reading_papers → drafting_email → sent → replied → meeting_scheduled → declined.</li>
+        </ol>
+      </div>
+
+      <!-- Changelog -->
+      <div class="card-static">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Changelog</h2>
+        <div class="space-y-2 text-sm">
+          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v0.3</span><span class="text-[var(--color-text-dim)]">2026-07-05 — Streamlit web app with country filter, email tracking, and ranking.</span></div>
+          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v0.2</span><span class="text-[var(--color-text-dim)]">2026-06-20 — Author deduplication and PI card generation.</span></div>
+          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v0.1</span><span class="text-[var(--color-text-dim)]">2026-06-10 — Semantic Scholar + OpenAlex search integration.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

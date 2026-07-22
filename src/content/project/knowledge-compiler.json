@@ -4,9 +4,11 @@
   "title": "Knowledge Compiler: Structured Knowledge Extraction from Textbooks",
   "shortTitle": "Knowledge Compiler",
   "oneLiner": "Convert authoritative textbooks into reusable structured knowledge for trustworthy AI evaluation.",
-  "status": "published",
+  "workflowState": "frozen",
+  "evidenceLevel": "offline_evaluated",
   "version": "v2.0",
   "updated": "2026-07-01",
+  "lastVerified": "2026-07-22",
   "keyTakeaways": [
     "Extracted 2,306 structured knowledge objects from ACSM's Guidelines for Exercise Testing and Prescription (12th ed.) — spanning 14 ontology types including Concepts, Recommendations, Thresholds, Procedures, and Warnings.",
     "Full pipeline reproducibility: chunk → extract → normalize → validate, with automated quality gates at each stage.",
@@ -32,20 +34,36 @@
     "code": "https://github.com/GBX-Max1220/acsms12-manifest"
   },
   "citation": {
-    "bibtex": "@misc{guo2026knowledgecompiler,\n  author = {Guo, Max},\n  title = {Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks},\n  year = {2026},\n  url = {https://maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/}\n}",
-    "apa": "Guo, M. (2026). Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks. https://maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/",
-    "chicago": "Guo, Max. \"Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks.\" 2026. https://maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/.",
-    "mla": "Guo, Max. \"Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks.\" 2026, https://maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/."
+    "bibtex": "@misc{guo2026knowledgecompiler,\n  author = {Guo, Max},\n  title = {Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks},\n  year = {2026},\n  url = {https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/}\n}",
+    "apa": "Guo, M. (2026). Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks. https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/",
+    "chicago": "Guo, Max. \"Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks.\" 2026. https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/.",
+    "mla": "Guo, Max. \"Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks.\" 2026, https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/."
   },
   "reproducible": {
     "env": "Python 3.11+ with requirements.txt (openai, pyyaml, pydantic)",
     "quickStart": "git clone https://github.com/GBX-Max1220/acsms12-manifest && cd acsms12-manifest && pip install -r requirements.txt && python -m compiler.cli run --book acsm12"
   },
   "changelog": [
-    { "version": "v2.0", "date": "2026-07-01", "event": "NSCA CSCS 5th edition complete: 1,598 objects, 26 chapters" },
-    { "version": "v1.0", "date": "2026-05-01", "event": "ACSM 12th edition complete: 708 objects, 31 chapters" },
-    { "version": "v0.5", "date": "2026-03-01", "event": "Pipeline v2: chunk → extract → normalize → validate with quality gates" },
-    { "version": "v0.1", "date": "2026-01-15", "event": "Initial schema design and pilot extraction (15 objects)" }
+    {
+      "version": "v2.0",
+      "date": "2026-07-01",
+      "event": "NSCA CSCS 5th edition complete: 1,598 objects, 26 chapters"
+    },
+    {
+      "version": "v1.0",
+      "date": "2026-05-01",
+      "event": "ACSM 12th edition complete: 708 objects, 31 chapters"
+    },
+    {
+      "version": "v0.5",
+      "date": "2026-03-01",
+      "event": "Pipeline v2: chunk → extract → normalize → validate with quality gates"
+    },
+    {
+      "version": "v0.1",
+      "date": "2026-01-15",
+      "event": "Initial schema design and pilot extraction (15 objects)"
+    }
   ],
   "relatedIds": ["checkmycoach"],
   "order": 1

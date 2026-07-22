@@ -3,9 +3,11 @@
   "programId": "measuring-ai-reliability",
   "title": "MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice",
   "shortTitle": "MaxFitCalib-Bench",
-  "status": "published",
+  "workflowState": "active",
+  "evidenceLevel": "offline_evaluated",
   "version": "v1.0",
   "updated": "2026-06-01",
+  "lastVerified": "2026-07-22",
   "keyTakeaways": [
     "We created 126 expert-crafted fitness advice questions across 8 categories, grounded in ACSM/NSCA/AHA position stands, each tagged with evidence uncertainty type.",
     "Evaluating two models (DeepSeek-chat, Qwen-plus) revealed the precision illusion: 92.9% of outputs are Calibrated, but the dominant failure mode is Pseudo-precise (6.3%) — precise-sounding numbers without evidence support.",
@@ -28,10 +30,10 @@
     "code": "https://github.com/GBX-Max1220/FitCalib-Bench"
   },
   "citation": {
-    "bibtex": "@misc{guo2026fitcalib,\n  author = {Guo, Max},\n  title = {MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice},\n  year = {2026},\n  eprint = {...,\n  archivePrefix = {arXiv},\n  url = {https://maxguo.dev/research/measuring-ai-reliability/fitcalib-bench/}\n}",
-    "apa": "Guo, M. (2026). MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice. arXiv. https://maxguo.dev/research/measuring-ai-reliability/fitcalib-bench/",
-    "chicago": "Guo, Max. \"MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice.\" 2026. https://maxguo.dev/research/measuring-ai-reliability/fitcalib-bench/.",
-    "mla": "Guo, Max. \"MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice.\" 2026, https://maxguo.dev/research/measuring-ai-reliability/fitcalib-bench/."
+    "bibtex": "@misc{guo2026fitcalib,\n  author = {Guo, Max},\n  title = {MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice},\n  year = {2026},\n  url = {https://gbx-max1220.github.io/maxguo.dev/research/measuring-ai-reliability/fitcalib-bench/}\n}",
+    "apa": "Guo, M. (2026). MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice. arXiv. https://gbx-max1220.github.io/maxguo.dev/research/measuring-ai-reliability/fitcalib-bench/",
+    "chicago": "Guo, Max. \"MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice.\" 2026. https://gbx-max1220.github.io/maxguo.dev/research/measuring-ai-reliability/fitcalib-bench/.",
+    "mla": "Guo, Max. \"MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice.\" 2026, https://gbx-max1220.github.io/maxguo.dev/research/measuring-ai-reliability/fitcalib-bench/."
   },
   "reproducible": {
     "env": "Python 3.10+ with requirements.txt",

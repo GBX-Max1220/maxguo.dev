@@ -2,15 +2,17 @@
   "id": "checkmycoach-paper",
   "title": "From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice",
   "authors": ["Baixin Guo"],
-  "venue": "Target: CSCW 2027",
+  "venueTarget": "CSCW 2027",
   "year": 2026,
-  "status": "under_review",
+  "status": "in_preparation",
+  "workflowState": "active",
+  "lastVerified": "2026-07-22",
   "tags": ["LLM Calibration", "Human-AI Trust", "Fitness AI"],
   "links": {
     "arxiv": ""
   },
   "citation": {
-    "bibtex": "@misc{guo2026checkmycoach,\n  author = {Guo, Max},\n  title = {From Precision Illusion to Calibration Intervention},\n  year = {2026},\n  url = {https://maxguo.dev/research/building-trustworthy-ai/checkmycoach/}\n}",
+    "bibtex": "@misc{guo2026checkmycoach,\n  author = {Guo, Max},\n  title = {From Precision Illusion to Calibration Intervention},\n  year = {2026},\n  url = {https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/checkmycoach/}\n}",
     "apa": "Guo, M. (2026). From Precision Illusion to Calibration Intervention.",
     "chicago": "Guo, Max. \"From Precision Illusion to Calibration Intervention.\" 2026.",
     "mla": "Guo, Max. \"From Precision Illusion to Calibration Intervention.\" 2026."
