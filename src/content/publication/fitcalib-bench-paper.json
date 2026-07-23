@@ -2,11 +2,15 @@
   "id": "fitcalib-bench-paper",
   "title": "MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice",
   "authors": ["Baixin Guo"],
-  "venue": "",
+  "venueTarget": "arXiv (cs.CL)",
   "year": 2026,
-  "status": "preprint",
+  "status": "in_preparation",
+  "workflowState": "active",
+  "lastVerified": "2026-07-22",
   "tags": ["Benchmark", "LLM Calibration", "Fitness AI"],
-  "links": {},
+  "links": {
+    "code": "https://github.com/GBX-Max1220/FitCalib-Bench"
+  },
   "citation": {
     "bibtex": "@misc{guo2026fitcalib,\n  author = {Guo, Max},\n  title = {MaxFitCalib-Bench},\n  year = {2026}\n}",
     "apa": "Guo, M. (2026). MaxFitCalib-Bench.",

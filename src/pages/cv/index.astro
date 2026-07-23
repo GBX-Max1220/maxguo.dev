@@ -1,5 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import PublicationStatus from '../../components/PublicationStatus.astro';
+
+const publications = (await getCollection('publication')).sort((a, b) =>
+  b.data.year - a.data.year || a.data.title.localeCompare(b.data.title)
+);
 ---
 <BaseLayout title="CV" description="Baixin Guo — Curriculum Vitae">
   <div class="container-content py-16">
@@ -85,14 +91,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <h2 class="text-[1.3rem] mb-4">Publications</h2>
       <div class="card-static mb-8">
         <div class="space-y-3 text-sm">
-          <div>
-            <p class="font-medium text-[var(--color-ink)]">From Precision Illusion to Calibration Intervention</p>
-            <p class="text-[var(--color-text-dim)]">Baixin Guo. 2026. <span class="badge badge-under-review text-[0.5rem]">Under Review</span> — CSCW 2027</p>
-          </div>
-          <div>
-            <p class="font-medium text-[var(--color-ink)]">MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice</p>
-            <p class="text-[var(--color-text-dim)]">Baixin Guo. 2026. <span class="badge badge-published text-[0.5rem]">In Preparation</span></p>
-          </div>
+          {publications.map(({ data }) => (
+            <div>
+              <p class="font-medium text-[var(--color-ink)]">{data.title}</p>
+              <p class="text-[var(--color-text-dim)]">
+                {data.authors.join(', ')}. {data.year}. <PublicationStatus status={data.status} class="text-[0.5rem]" />
+                {data.venue && <> — {data.venue}</>}
+                {!data.venue && data.venueTarget && <> — {data.status === 'submitted' ? 'Submitted to' : 'Target:'} {data.venueTarget}</>}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
 

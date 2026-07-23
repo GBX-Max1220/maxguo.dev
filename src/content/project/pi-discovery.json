@@ -1,12 +1,14 @@
 {
   "id": "pi-discovery",
-  "programId": "building-trustworthy-ai",
+  "programId": "tools",
   "title": "PI Discovery Engine: From Research Topics to Investigator Cards",
   "shortTitle": "PI Discovery",
   "oneLiner": "Discover collaborators through publication and expertise graphs.",
-  "status": "development",
+  "workflowState": "active",
+  "evidenceLevel": "prototype",
   "version": "v0.3",
   "updated": "2026-07-05",
+  "lastVerified": "2026-07-22",
   "keyTakeaways": [
     "Searches Semantic Scholar and OpenAlex APIs to find PIs working on specific research topics, with deduplication and relevance ranking.",
     "Generates decision-ready PI 'cards' including publication history, h-index trends, recent funding, country, and email contact status tracking.",
@@ -31,19 +33,31 @@
     "code": "https://github.com/GBX-Max1220/pi-discovery-pipeline"
   },
   "citation": {
-    "bibtex": "@misc{guo2026pidiscovery,\n  author = {Guo, Max},\n  title = {PI Discovery Engine: From Research Topics to Investigator Cards},\n  year = {2026},\n  url = {https://maxguo.dev/research/building-trustworthy-ai/pi-discovery/}\n}",
-    "apa": "Guo, M. (2026). PI Discovery Engine: From Research Topics to Investigator Cards. https://maxguo.dev/research/building-trustworthy-ai/pi-discovery/",
-    "chicago": "Guo, Max. \"PI Discovery Engine: From Research Topics to Investigator Cards.\" 2026. https://maxguo.dev/research/building-trustworthy-ai/pi-discovery/.",
-    "mla": "Guo, Max. \"PI Discovery Engine: From Research Topics to Investigator Cards.\" 2026, https://maxguo.dev/research/building-trustworthy-ai/pi-discovery/."
+    "bibtex": "@misc{guo2026pidiscovery,\n  author = {Guo, Max},\n  title = {PI Discovery Engine: From Research Topics to Investigator Cards},\n  year = {2026},\n  url = {https://gbx-max1220.github.io/maxguo.dev/tools/pi-discovery/}\n}",
+    "apa": "Guo, M. (2026). PI Discovery Engine: From Research Topics to Investigator Cards. https://gbx-max1220.github.io/maxguo.dev/tools/pi-discovery/",
+    "chicago": "Guo, Max. \"PI Discovery Engine: From Research Topics to Investigator Cards.\" 2026. https://gbx-max1220.github.io/maxguo.dev/tools/pi-discovery/.",
+    "mla": "Guo, Max. \"PI Discovery Engine: From Research Topics to Investigator Cards.\" 2026, https://gbx-max1220.github.io/maxguo.dev/tools/pi-discovery/."
   },
   "reproducible": {
     "env": "Python 3.11+ with pip install pyalex semanticscholar streamlit pandas pyyaml",
     "quickStart": "git clone https://github.com/GBX-Max1220/pi-discovery-pipeline && cd pi-discovery-pipeline && pip install -e . && streamlit run src/web/app.py"
   },
   "changelog": [
-    { "version": "v0.3", "date": "2026-07-05", "event": "Streamlit web app with country filter, email tracking, and ranking" },
-    { "version": "v0.2", "date": "2026-06-20", "event": "Author deduplication and PI card generation" },
-    { "version": "v0.1", "date": "2026-06-10", "event": "Semantic Scholar + OpenAlex search integration" }
+    {
+      "version": "v0.3",
+      "date": "2026-07-05",
+      "event": "Streamlit web app with country filter, email tracking, and ranking"
+    },
+    {
+      "version": "v0.2",
+      "date": "2026-06-20",
+      "event": "Author deduplication and PI card generation"
+    },
+    {
+      "version": "v0.1",
+      "date": "2026-06-10",
+      "event": "Semantic Scholar + OpenAlex search integration"
+    }
   ],
   "relatedIds": [],
   "order": 4

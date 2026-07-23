@@ -3,9 +3,11 @@
   "programId": "understanding-human-trust",
   "title": "CalTrust: Adaptive Trust Calibration via Contextual Bandits",
   "shortTitle": "CalTrust",
-  "status": "development",
+  "workflowState": "active",
+  "evidenceLevel": "simulation_tested",
   "version": "v1.0",
   "updated": "2026-07-03",
+  "lastVerified": "2026-07-22",
   "keyTakeaways": [
     "We built a LinUCB contextual bandit that selects among four calibration interventions (none, calibrate only, comparison, reflection) based on user context and output characteristics.",
     "An XGBoost trust predictor (AUC 0.70, RMSE 1.04) trained on 19,200 simulation trials predicts user acceptance and confidence for each intervention arm.",
@@ -27,10 +29,10 @@
     "code": "https://github.com/GBX-Max1220/CalTrust"
   },
   "citation": {
-    "bibtex": "@misc{guo2026caltrust,\n  author = {Guo, Max},\n  title = {CalTrust: Adaptive Trust Calibration via Contextual Bandits},\n  year = {2026},\n  url = {https://maxguo.dev/research/understanding-human-trust/caltrust/}\n}",
-    "apa": "Guo, M. (2026). CalTrust: Adaptive Trust Calibration via Contextual Bandits. https://maxguo.dev/research/understanding-human-trust/caltrust/",
-    "chicago": "Guo, Max. \"CalTrust: Adaptive Trust Calibration via Contextual Bandits.\" 2026. https://maxguo.dev/research/understanding-human-trust/caltrust/.",
-    "mla": "Guo, Max. \"CalTrust: Adaptive Trust Calibration via Contextual Bandits.\" 2026, https://maxguo.dev/research/understanding-human-trust/caltrust/."
+    "bibtex": "@misc{guo2026caltrust,\n  author = {Guo, Max},\n  title = {CalTrust: Adaptive Trust Calibration via Contextual Bandits},\n  year = {2026},\n  url = {https://gbx-max1220.github.io/maxguo.dev/research/understanding-human-trust/caltrust/}\n}",
+    "apa": "Guo, M. (2026). CalTrust: Adaptive Trust Calibration via Contextual Bandits. https://gbx-max1220.github.io/maxguo.dev/research/understanding-human-trust/caltrust/",
+    "chicago": "Guo, Max. \"CalTrust: Adaptive Trust Calibration via Contextual Bandits.\" 2026. https://gbx-max1220.github.io/maxguo.dev/research/understanding-human-trust/caltrust/.",
+    "mla": "Guo, Max. \"CalTrust: Adaptive Trust Calibration via Contextual Bandits.\" 2026, https://gbx-max1220.github.io/maxguo.dev/research/understanding-human-trust/caltrust/."
   },
   "reproducible": {
     "env": "Python 3.12 with requirements.txt (see repo)",

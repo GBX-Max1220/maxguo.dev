@@ -6,6 +6,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && node scripts/prefix-base.mjs",
+    "validate": "node scripts/validate-build.mjs",
+    "validate:content": "node scripts/validate-content.mjs",
+    "check:overflow": "node scripts/check-overflow.mjs",
+    "ci": "npm run build && npm run validate && npm run validate:content && npm run check:overflow",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -21,7 +25,9 @@
     "chart.js": "^4.5.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
-    "tailwindcss": "^3.4.0",
-    "tailwindcss-animate": "^1.0.0"
+    "tailwindcss": "^3.4.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.61.1"
   }
 }

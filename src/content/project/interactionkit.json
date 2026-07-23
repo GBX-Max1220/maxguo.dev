@@ -4,9 +4,11 @@
   "title": "InteractionKit: A Methodological Infrastructure for HAI Trust Calibration",
   "shortTitle": "InteractionKit",
   "oneLiner": "A versioned log schema and experiment platform for reproducible trust calibration experiments.",
-  "status": "development",
+  "workflowState": "active",
+  "evidenceLevel": "prototype",
   "version": "v0.3",
   "updated": "2026-07-13",
+  "lastVerified": "2026-07-22",
   "keyTakeaways": [
     "Different labs studying the same HAI interaction pattern produce incompatible behavioral data — different variable names, different logging formats, different measurement conventions.",
     "InteractionKit provides a versioned log schema (14 columns) and an experiment platform such that two independent implementations produce data that can be merged with minimal translation.",
@@ -31,10 +33,10 @@
     "code": "https://github.com/GBX-Max1220/InteractionKit"
   },
   "citation": {
-    "bibtex": "@misc{guo2026interactionkit,\n  author = {Guo, Max},\n  title = {InteractionKit: A Methodological Infrastructure for HAI Trust Calibration},\n  year = {2026},\n  url = {https://maxguo.dev/research/building-trustworthy-ai/interactionkit/}\n}",
-    "apa": "Guo, M. (2026). InteractionKit: A Methodological Infrastructure for HAI Trust Calibration. https://maxguo.dev/research/building-trustworthy-ai/interactionkit/",
-    "chicago": "Guo, Max. \"InteractionKit: A Methodological Infrastructure for HAI Trust Calibration.\" 2026. https://maxguo.dev/research/building-trustworthy-ai/interactionkit/.",
-    "mla": "Guo, Max. \"InteractionKit: A Methodological Infrastructure for HAI Trust Calibration.\" 2026, https://maxguo.dev/research/building-trustworthy-ai/interactionkit/."
+    "bibtex": "@misc{guo2026interactionkit,\n  author = {Guo, Max},\n  title = {InteractionKit: A Methodological Infrastructure for HAI Trust Calibration},\n  year = {2026},\n  url = {https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/interactionkit/}\n}",
+    "apa": "Guo, M. (2026). InteractionKit: A Methodological Infrastructure for HAI Trust Calibration. https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/interactionkit/",
+    "chicago": "Guo, Max. \"InteractionKit: A Methodological Infrastructure for HAI Trust Calibration.\" 2026. https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/interactionkit/.",
+    "mla": "Guo, Max. \"InteractionKit: A Methodological Infrastructure for HAI Trust Calibration.\" 2026, https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/interactionkit/."
   },
   "reproducible": {
     "env": "Python 3.12+ with requirements.txt",
