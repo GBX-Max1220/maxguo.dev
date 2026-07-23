@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import PublicationStatus from '../../components/PublicationStatus.astro';
+
+const checkMyCoachPaper = (await getCollection('publication')).find(({ id }) => id === 'checkmycoach-paper');
 ---
 <BaseLayout title="Now" description="What Baixin Guo is working on right now">
   <div class="container-content py-16">
@@ -14,10 +18,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="card-static">
           <div class="flex items-center gap-2 mb-2">
             <span class="w-2 h-2 rounded-full bg-[var(--color-primary)]"></span>
-            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider">Under Review</span>
+            {checkMyCoachPaper && <PublicationStatus status={checkMyCoachPaper.data.status} class="text-[0.6rem]" />}
           </div>
           <h2 class="text-[1.05rem] mb-1">From Precision Illusion to Calibration Intervention</h2>
-          <p class="text-sm text-[var(--color-text-dim)]">Submitted to CSCW 2027. CheckMyCoach pipeline, precision illusion findings.</p>
+          <p class="text-sm text-[var(--color-text-dim)]">Manuscript in preparation. Target venue: CSCW 2027.</p>
         </div>
 
         <div class="card-static">

@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import PublicationStatus from '../../components/PublicationStatus.astro';
+import { projectHref } from '../../lib/publications';
 
 export async function getStaticPaths() {
   const pubs = await getCollection('publication');
@@ -12,6 +14,7 @@ export async function getStaticPaths() {
 
 const { pub } = Astro.props;
 const { data } = pub;
+const projectUrl = projectHref(data.projectId);
 ---
 
 <BaseLayout title={data.title} description={data.abstract || data.title}>
@@ -23,11 +26,10 @@ const { data } = pub;
       </a>
 
       <!-- Status badge -->
-      <div class="flex items-center gap-3 mb-4">
-        {data.status === 'under_review' && <span class="badge badge-under-review">Under Review</span>}
-        {data.status === 'preprint' && <span class="badge badge-published">Preprint</span>}
-        {data.status === 'published' && <span class="badge badge-published">Published</span>}
-        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">{data.venue}</span>
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <PublicationStatus status={data.status} />
+        {data.venue && <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">{data.venue}</span>}
+        {!data.venue && data.venueTarget && <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">{data.status === 'submitted' ? 'Submitted to' : 'Target:'} {data.venueTarget}</span>}
         <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">{data.year}</span>
       </div>
 
@@ -72,10 +74,12 @@ const { data } = pub;
           <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Links</h2>
           <div class="flex flex-wrap gap-2">
             {data.links.arxiv && <a href={data.links.arxiv} class="btn btn-sm" target="_blank">arXiv</a>}
+            {data.links.preprint && <a href={data.links.preprint} class="btn btn-sm" target="_blank">Preprint</a>}
             {data.links.pdf && <a href={data.links.pdf} class="btn btn-sm" target="_blank">PDF</a>}
             {data.links.doi && <a href={'https://doi.org/' + data.links.doi} class="btn btn-sm" target="_blank">DOI</a>}
             {data.links.code && <a href={data.links.code} class="btn btn-sm" target="_blank">Code</a>}
-            {!data.links.arxiv && !data.links.pdf && !data.links.doi && !data.links.code && (
+            {data.links.dataset && <a href={data.links.dataset} class="btn btn-sm" target="_blank">Data</a>}
+            {!data.links.arxiv && !data.links.preprint && !data.links.pdf && !data.links.doi && !data.links.code && !data.links.dataset && (
               <span class="text-xs text-[var(--color-text-muted)] italic">Links coming soon</span>
             )}
           </div>
@@ -83,10 +87,10 @@ const { data } = pub;
       )}
 
       <!-- Related project -->
-      {data.projectId && (
+      {projectUrl && (
         <div class="card-static mb-6 bg-[var(--color-page-warm)]">
           <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Related Project</h2>
-          <a href={'/research/building-trustworthy-ai/' + data.projectId + '/'} class="link-arrow">
+          <a href={projectUrl} class="link-arrow">
             View project details &rarr;
           </a>
         </div>
