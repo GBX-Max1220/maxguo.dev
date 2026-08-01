@@ -9,7 +9,10 @@
     "validate": "node scripts/validate-build.mjs",
     "validate:content": "node scripts/validate-content.mjs",
     "check:overflow": "node scripts/check-overflow.mjs",
-    "ci": "npm run build && npm run validate && npm run validate:content && npm run check:overflow",
+    "test:worker": "node --test worker/index.test.mjs",
+    "test:cloudflare-runtime": "node scripts/validate-cloudflare-runtime.mjs",
+    "validate:cloudflare": "npm run build && npm run test:worker && npm run test:cloudflare-runtime && npx --yes wrangler@4.118.0 deploy --dry-run --outdir .wrangler-dry-run",
+    "ci": "npm run build && npm run validate && npm run validate:content && npm run check:overflow && npm run test:worker",
     "preview": "astro preview",
     "astro": "astro"
   },
