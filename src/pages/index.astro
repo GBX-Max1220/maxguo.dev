@@ -100,13 +100,13 @@ const featuredPublications = (await getCollection('publication'))
         HCI &amp; AI Research · Applied Psychology
       </p>
       <p class="font-sans text-base text-[var(--color-text-dim)] leading-relaxed mb-6">
-        I study how AI systems <span class="text-[var(--color-ink)] font-medium">mislead through false precision</span> — and build the methods to measure, fix, and prevent it.
+        I study when confident AI language outruns its evidence — and build auditable methods for specifying, testing, and correcting that mismatch.
       </p>
       <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-6">
-        My work defines <strong class="text-[var(--color-ink)]">Precision Illusion</strong> — where AI sounds more certain than evidence warrants — and builds the full research stack to address it: from theory and measurement (MaxFitCalib-Bench) through intervention (CheckMyCoach) and adaptation (CalTrust), to infrastructure for reproducible experiments (Knowledge Compiler, InteractionKit).
+        My current program centers on <strong class="text-[var(--color-ink)]">InteractionKit</strong>, a typed experiment-specification artifact, and <strong class="text-[var(--color-ink)]">CheckMyCoach</strong>, an offline-evaluated correction pipeline. Earlier benchmark and adaptation prototypes are retained as bounded engineering evidence, not validated scientific findings.
       </p>
       <p class="font-mono text-[0.65rem] text-[var(--color-primary)] leading-relaxed mb-6">
-        Application domain: fitness coaching. Extending to medicine &amp; law.
+        Current application domain: fitness coaching. No cross-domain validation claimed.
       </p>
 
       <!-- CTA -->
@@ -136,18 +136,19 @@ const featuredPublications = (await getCollection('publication'))
       <!-- Stats -->
       <div class="grid grid-cols-2 gap-x-6 gap-y-4">
         <div>
-          <div class="stat-number text-[1.6rem]">10–70×</div>          <div class="stat-label">FP reduction vs heuristic</div>
+          <div class="stat-number text-[1.6rem]">3</div>
+          <div class="stat-label">Typed interaction primitives (v1.0.0 RC)</div>
         </div>
         <div>
-          <div class="stat-number text-[1.6rem]">3,904</div>          <div class="stat-label">Knowledge objects (2 textbooks)</div>
+          <div class="stat-number text-[1.6rem]">2,305</div>          <div class="stat-label">Knowledge IR nodes (2 textbooks)</div>
         </div>
         <div>
-          <div class="stat-number text-[1.6rem]">+0.75</div>
-          <div class="stat-label">UCS improvement (1–7 scale)</div>
+          <div class="stat-number text-[1.6rem]">12/40</div>
+          <div class="stat-label">Targeted failures removed end-to-end (fixed corpus)</div>
         </div>
         <div>
-          <div class="stat-number text-[1.6rem]">19.2K</div>
-          <div class="stat-label">Simulation trials (LinUCB)</div>
+          <div class="stat-number text-[1.6rem]">0</div>
+          <div class="stat-label">Human participants claimed</div>
         </div>
       </div>
 
@@ -178,22 +179,21 @@ const featuredPublications = (await getCollection('publication'))
         </div>
         <h2 class="text-[1.6rem] mb-2">Research Program</h2>
         <p class="font-sans text-sm text-[var(--color-text-dim)] mb-8 max-w-md">
-          Current work across calibration measurement, intervention, exploratory adaptation, and reproducible experimentation.
+          Active work on reproducible experiment specification and bounded offline correction evaluation; earlier prototypes are explicitly frozen.
         </p>
 
         <div class="space-y-4">
-          <!-- Measurement -->
+          <!-- Main infrastructure artifact -->
           <div class="card group overflow-hidden">
-            <img src={'/images/fitcalib-bench-hero.png'} alt="" class="w-full h-28 object-cover" style="margin:-1.5rem -1.5rem 1rem -1.5rem; width:calc(100% + 3rem); max-width:none" loading="lazy" />
             <div class="flex items-center gap-3 mb-3">
               <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.55rem] font-bold">01</span>
-              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Measurement</span>
+              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Main CS/HCI artifact · v1.0.0 RC</span>
             </div>
-            <h3 class="text-[1.05rem] mb-2">MaxFitCalib-Bench</h3>
+            <h3 class="text-[1.05rem] mb-2">InteractionKit</h3>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-              126-question benchmark revealing the precision illusion. Existing heuristic estimates <strong class="text-[var(--color-ink)]">overestimate fabrications by 10–70×</strong>. Built a replicable evidence verification pipeline.
+              A typed specification layer with three interaction primitives, composition rules, JSON Schema export, and structured event logging. Seven contract tests, type checking, production build, and clean-install reproduction pass; no human study or construct-validity claim is attached.
             </p>
-            <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="link-arrow">Calibration Benchmark →</a>
+            <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">InteractionKit →</a>
           </div>
 
           <!-- Intervention -->
@@ -205,36 +205,36 @@ const featuredPublications = (await getCollection('publication'))
             </div>
             <h3 class="text-[1.05rem] mb-2">CheckMyCoach</h3>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-              A four-stage calibration pipeline (Detect → Diagnose → Correct → Validate) that fixes overconfident and pseudo-precise LLM outputs. <strong class="text-[var(--color-ink)]">+0.75 UCS</strong> improvement at ~$0.001/correction.
+              A four-stage research prototype (Detect → Diagnose → Correct → Validate). In a fixed 40-case evaluation, CheckMyCoach routed 15/40 cases to correction and removed the targeted failure in 12 of those 15 cases (12/40 end-to-end). These are single-execution, constructed-corpus descriptive results.
             </p>
             <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach →</a>
           </div>
 
-          <!-- Exploratory adaptation -->
+          <!-- Frozen benchmark artifact -->
           <div class="card group overflow-hidden">
-            <img src={'/images/caltrust-hero.png'} alt="" class="w-full h-28 object-cover" style="margin:-1.5rem -1.5rem 1rem -1.5rem; width:calc(100% + 3rem); max-width:none" loading="lazy" />
+            <img src={'/images/fitcalib-bench-hero.png'} alt="" class="w-full h-28 object-cover" style="margin:-1.5rem -1.5rem 1rem -1.5rem; width:calc(100% + 3rem); max-width:none" loading="lazy" />
             <div class="flex items-center gap-3 mb-3">
               <span class="w-6 h-6 rounded-full bg-[var(--color-gold-subtle)] flex items-center justify-center text-[var(--color-gold)] font-mono text-[0.55rem] font-bold">03</span>
-              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Exploratory adaptation</span>
+              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Frozen engineering artifact</span>
             </div>
-            <h3 class="text-[1.05rem] mb-2">CalTrust</h3>
+            <h3 class="text-[1.05rem] mb-2">MaxFitCalib-Bench Controlled Audit</h3>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-              A simulation-tested LinUCB prototype for selecting calibration interventions. Its synthetic acceptance proxy reached <strong class="text-[var(--color-ink)]">AUC 0.70</strong> across 19,200 simulated trials; human validation has not yet been conducted.
+              The audit records a failed v0.1 execution contract and a v0.2 preflight abort before scientific calls. It produced zero interpretable scientific outputs. <strong class="text-[var(--color-ink)]">ENGINEERING TEST ONLY — scientific direction closed.</strong>
             </p>
-            <a href="/research/understanding-human-trust/caltrust/" class="link-arrow">CalTrust →</a>
+            <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="link-arrow">Audit record →</a>
           </div>
 
-          <!-- Infrastructure -->
+          <!-- Frozen simulation -->
           <div class="card group">
             <div class="flex items-center gap-3 mb-3">
               <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.55rem] font-bold">04</span>
-              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Infrastructure</span>
+              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Frozen simulation prototype</span>
             </div>
-            <h3 class="text-[1.05rem] mb-2">Knowledge Compiler + InteractionKit</h3>
+            <h3 class="text-[1.05rem] mb-2">CalTrust</h3>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-              <strong class="text-[var(--color-ink)]">Knowledge Compiler</strong>: 3,904 structured objects from ACSM + NSCA textbooks for grounding LLM claims. <strong class="text-[var(--color-ink)]">InteractionKit</strong> (active): a versioned schema and platform so trust calibration experiments produce mergeable data across labs.
+              A frozen LinUCB prototype evaluated only with 19,200 synthetic trials. AUC 0.70 and RMSE 1.04 describe the simulation proxy, not human trust, behavior, or intervention effects.
             </p>
-            <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">InteractionKit →</a>
+            <a href="/research/understanding-human-trust/caltrust/" class="link-arrow">CalTrust →</a>
           </div>
         </div>
       </section>
@@ -243,9 +243,9 @@ const featuredPublications = (await getCollection('publication'))
       <section class="mb-16">
         <div class="flex items-center gap-3 mb-6">
           <span class="w-7 h-7 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.65rem] font-bold">02</span>
-          <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Publications</span>
+          <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Research Outputs</span>
         </div>
-        <h2 class="text-[1.6rem] mb-6">Featured Papers</h2>
+        <h2 class="text-[1.6rem] mb-6">Featured Manuscripts</h2>
 
         <div class="space-y-4">
           {featuredPublications.map(({ id, data }) => (
@@ -275,10 +275,30 @@ const featuredPublications = (await getCollection('publication'))
         </div>
 
         <div class="bg-[var(--color-surface)] rounded-xl border border-[var(--color-rule-light)] p-1">
-                    <div class="log-item px-4 py-3">
-            <span class="log-date">Jul 11</span>
+          <div class="log-item px-4 py-3">
+            <span class="log-date">Aug 2</span>
             <div class="log-dot"></div>
-            <p class="font-sans text-sm text-[var(--color-text-dim)]">MaxFitCalib-Bench manuscript submitted to arXiv; public identifier pending</p>
+            <p class="font-sans text-sm text-[var(--color-text-dim)]">Portfolio claim audit completed — active, frozen, simulation-only, and engineering-only artifacts separated</p>
+          </div>
+          <div class="log-item px-4 py-3">
+            <span class="log-date">Jul 31</span>
+            <div class="log-dot"></div>
+            <p class="font-sans text-sm text-[var(--color-text-dim)]">InteractionKit v1.0.0 release candidate passed 7 contract tests, type checking, production build, and clean-install reproduction</p>
+          </div>
+                    <div class="log-item px-4 py-3">
+            <span class="log-date">Jul 24</span>
+            <div class="log-dot"></div>
+            <p class="font-sans text-sm text-[var(--color-text-dim)]">Full site rebrand: Max Guo → Baixin Guo; Chinese name 昕→鑫 correction</p>
+          </div>
+          <div class="log-item px-4 py-3">
+            <span class="log-date">Jul 31</span>
+            <div class="log-dot"></div>
+            <p class="font-sans text-sm text-[var(--color-text-dim)]">CheckMyCoach v2.2 fixed-corpus claim boundary finalized; all reported outcomes remain descriptive and offline</p>
+          </div>
+          <div class="log-item px-4 py-3">
+            <span class="log-date">Jul 24</span>
+            <div class="log-dot"></div>
+            <p class="font-sans text-sm text-[var(--color-text-dim)]">MaxFitCalib-Bench controlled audit closed with zero interpretable scientific outputs; retained as an engineering methods artifact</p>
           </div>
           <div class="log-item px-4 py-3">
             <span class="log-date">Jul 11</span>

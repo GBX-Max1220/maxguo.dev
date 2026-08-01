@@ -1,18 +1,28 @@
 ---
 id: "precision-illusion-intro"
-title: "The Precision Illusion: Why 6.3% Matters"
+title: "Precision Illusion: A Framework for Studying Unsupported Numerical Specificity in AI"
 date: 2026-07-01
 type: "research-note"
 tags: ["LLM Calibration", "Precision Illusion"]
-excerpt: "An introduction to the precision illusion — the finding that LLMs aren't dangerously overconfident, but subtly misleading in a hard-to-detect way."
+excerpt: "A proposed framework for studying unsupported numerical specificity in AI communication and its effects on human reliance."
 draft: false
 projectId: "fitcalib-bench"
 ---
 
-In our recent benchmark of LLM fitness advice, we found something surprising: **0% overconfident outputs.** The models weren't dangerously overconfident. They were subtly misleading.
+AI outputs can contain precise numbers that are not adequately supported by the available evidence — for example, citing “a 38.7% reduction” without a traceable source. We call this communication failure the **precision illusion**.
 
-6.3% of outputs contained precise-sounding numerical claims — "a 38.7% reduction" — without any evidence grounding. We call this the **precision illusion**.
+The precision illusion is a **research construct, not a measured prevalence rate**. It describes cases where an AI output expresses numerical specificity that cannot be justified from verifiable evidence.
 
-Why does this matter? Because precise numbers carry disproportionate weight in human judgment. Zhang & Schwarz (2012) showed that people trust precise numbers more, even when they know the precision is unwarranted. A pseudo-precise output exploits this cognitive bias silently.
+Why does this matter? Research on the precision heuristic suggests that precise numbers can be perceived as more credible than less precise estimates, even when that precision is unwarranted. Unsupported numerical specificity may therefore influence reliance even when an answer is directionally plausible.
 
-At a 6.3% rate per output, a user session involving 10 advice statements carries a ~48% cumulative probability of encountering at least one pseudo-precise response. And these outputs cluster in exactly the scenarios where users most need reliable advice — mixed-evidence and insufficient-evidence questions.
+Our current work focuses on three questions:
+
+1. **Operationalization**: How should unsupported numerical specificity be reliably detected and classified? The UCS taxonomy is our current proposal.
+
+2. **Measurement**: How does it vary across domains, models, and interaction contexts? Protocol-valid prevalence estimates are not yet established.
+
+3. **Intervention**: Can these outputs be detected and repaired without degrading appropriate outputs? CheckMyCoach is an ongoing research prototype.
+
+We are building toward controlled human experiments that test whether unsupported numerical specificity affects trust and reliance, and whether correction changes user behavior.
+
+*Status note: Earlier exploratory runs produced preliminary descriptive numbers, but those are not treated as protocol-valid prevalence estimates. Current work focuses on reproducible measurement and behavioral validation.*

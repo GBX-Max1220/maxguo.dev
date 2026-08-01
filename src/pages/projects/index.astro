@@ -8,7 +8,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <span class="section-label mb-4">Projects</span>
       <h1 class="mb-4">Research Projects</h1>
       <p class="text-sm text-[var(--color-text-dim)] mb-10 max-w-lg">
-        From defining the precision illusion to building infrastructure for reproducible experiments — six projects forming a five-layer research stack.
+        Active artifacts are separated from frozen prototypes. InteractionKit is the main CS/HCI artifact; CheckMyCoach is a bounded offline evaluation. No project listed here includes human-participant evidence.
       </p>
 
       <!-- Project 1: MaxFitCalib-Bench -->
@@ -16,28 +16,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="flex items-center gap-3 mb-3">
           <span class="w-7 h-7 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.55rem] font-bold">01</span>
           <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Diagnose</span>
-          <span class="badge badge-published">In Preparation</span>
+          <span class="badge badge-gold">Frozen · Engineering Test Only</span>
         </div>
         <h2 class="text-[1.3rem] mb-2">MaxFitCalib-Bench</h2>
-        <p class="text-sm text-[var(--color-text-dim)] mb-3">A benchmark for evaluating LLM calibration in fitness advice — 126 expert-crafted questions revealing the precision illusion.</p>
+        <p class="text-sm text-[var(--color-text-dim)] mb-3">A closed controlled audit of an execution contract. v0.1 produced no parser-valid scientific outputs; v0.2 stopped at preflight before scientific calls. It supports engineering lessons only.</p>
 
         <!-- Mini data table -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">126</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Questions</div>
+            <div class="font-display text-lg text-[var(--color-ink)]">72</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">v0.1 Attempts</div>
           </div>
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">8</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Categories</div>
+            <div class="font-display text-lg text-[var(--color-ink)]">0</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Scientific Outputs</div>
           </div>
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">6.3%</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Pseudo-precise</div>
+            <div class="font-display text-lg text-[var(--color-ink)]">2</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">v0.2 Preflights</div>
           </div>
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">48%</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Session risk</div>
+            <div class="font-display text-lg text-[var(--color-ink)]">Closed</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Scientific Direction</div>
           </div>
         </div>
 
@@ -56,27 +56,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="flex items-center gap-3 mb-3">
           <span class="w-7 h-7 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.55rem] font-bold">02</span>
           <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Build</span>
-          <span class="badge badge-under-review">Under Review</span>
+          <span class="badge badge-gold">v2.2 · Fixed 40-case Evaluation</span>
         </div>
         <h2 class="text-[1.3rem] mb-2">CheckMyCoach</h2>
-        <p class="text-sm text-[var(--color-text-dim)] mb-3">A four-stage calibration pipeline that detects, diagnoses, and corrects overconfident and pseudo-precise LLM outputs in real time.</p>
+        <p class="text-sm text-[var(--color-text-dim)] mb-3">An offline-evaluated four-stage research prototype that detects, diagnoses, and attempts to correct selected LLM outputs.</p>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">+0.75</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">UCS Improvement</div>
+            <div class="font-display text-lg text-[var(--color-ink)]">36/40</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Generic Removal</div>
           </div>
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">$0.001</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Per Correction</div>
+            <div class="font-display text-lg text-[var(--color-ink)]">36/40</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Generic + Oracle</div>
           </div>
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">4</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Pipeline Stages</div>
+            <div class="font-display text-lg text-[var(--color-ink)]">12/40</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">CMC End-to-End</div>
           </div>
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">44+</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Passing Tests</div>
+            <div class="font-display text-lg text-[var(--color-ink)]">0/40</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">CMC All-check Pass</div>
           </div>
         </div>
 
@@ -95,14 +95,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="flex items-center gap-3 mb-3">
           <span class="w-7 h-7 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.55rem] font-bold">KB</span>
           <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Build</span>
-          <span class="badge badge-published">Published</span>
+          <span class="badge badge-gold">Software/Data Artifact</span>
         </div>
         <h2 class="text-[1.3rem] mb-2">Knowledge Compiler</h2>
-        <p class="text-sm text-[var(--color-text-dim)] mb-3">Convert authoritative textbooks into reusable structured knowledge — 2,306 objects from ACSM, 1,598 from NSCA for grounding LLM claims.</p>
+        <p class="text-sm text-[var(--color-text-dim)] mb-3">Public software and data artifact with 2,305 documented Knowledge IR nodes across ACSM and NSCA exercise-science textbooks.</p>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">2,306</div>
+            <div class="font-display text-lg text-[var(--color-ink)]">707</div>
             <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">ACSM Objects</div>
           </div>
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
@@ -110,12 +110,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">NSCA Objects</div>
           </div>
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">14</div>
+            <div class="font-display text-lg text-[var(--color-ink)]">13</div>
             <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Ontology Types</div>
           </div>
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">91.2%</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Accuracy</div>
+            <div class="font-display text-lg text-[var(--color-ink)]">5</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Structural Checks</div>
           </div>
         </div>
 
@@ -134,19 +134,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="flex items-center gap-3 mb-3">
           <span class="w-7 h-7 rounded-full bg-[var(--color-gold-subtle)] flex items-center justify-center text-[var(--color-gold)] font-mono text-[0.55rem] font-bold">03</span>
           <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Adapt</span>
-          <span class="badge badge-gold">In Development</span>
+          <span class="badge badge-gold">Frozen · Simulation Only</span>
         </div>
         <h2 class="text-[1.3rem] mb-2">CalTrust</h2>
-        <p class="text-sm text-[var(--color-text-dim)] mb-3">An adaptive trust calibration system using LinUCB contextual bandits to select the right intervention for each user and context.</p>
+        <p class="text-sm text-[var(--color-text-dim)] mb-3">A frozen LinUCB prototype evaluated on synthetic trials only. Reported metrics describe a simulation proxy and do not establish human trust calibration or intervention effects.</p>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
             <div class="font-display text-lg text-[var(--color-ink)]">0.70</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">AUC Score</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Simulated AUC</div>
           </div>
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
             <div class="font-display text-lg text-[var(--color-ink)]">1.04</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">RMSE</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Simulated RMSE</div>
           </div>
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
             <div class="font-display text-lg text-[var(--color-ink)]">19.2K</div>
@@ -173,7 +173,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="flex items-center gap-3 mb-3">
           <span class="w-7 h-7 rounded-full bg-[var(--color-gold-subtle)] flex items-center justify-center text-[var(--color-gold)] font-mono text-[0.55rem] font-bold">PI</span>
           <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Tool</span>
-          <span class="badge badge-gold">In Development</span>
+          <span class="badge badge-gold">Local Prototype</span>
         </div>
         <h2 class="text-[1.3rem] mb-2">PI Discovery Engine</h2>
         <p class="text-sm text-[var(--color-text-dim)] mb-3">Search Semantic Scholar and OpenAlex to find investigators by research topic, with ranked PI cards and outreach tracking.</p>
@@ -212,27 +212,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="flex items-center gap-3 mb-3">
           <span class="w-7 h-7 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.55rem] font-bold">IK</span>
           <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Infrastructure</span>
-          <span class="badge badge-gold">In Development</span>
+          <span class="badge badge-gold">v1.0.0 Release Candidate</span>
         </div>
         <h2 class="text-[1.3rem] mb-2">InteractionKit</h2>
-        <p class="text-sm text-[var(--color-text-dim)] mb-3">A versioned log schema and experiment platform so trust calibration experiments produce mergeable data across labs.</p>
+        <p class="text-sm text-[var(--color-text-dim)] mb-3">A typed specification format for defining AI interaction experiments and generating structured behavioral data; independent convergence has not yet been evaluated.</p>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">14</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Schema Columns</div>
+            <div class="font-display text-lg text-[var(--color-ink)]">3</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Pattern Primitives</div>
           </div>
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">v0.3</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Schema Version</div>
+            <div class="font-display text-lg text-[var(--color-ink)]">v1.0.0</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Release Candidate</div>
           </div>
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">N≥120</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Pilot Size</div>
+            <div class="font-display text-lg text-[var(--color-ink)]">7</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Contract Tests</div>
           </div>
           <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">Pilot</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Status</div>
+            <div class="font-display text-lg text-[var(--color-ink)]">0</div>
+            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Human Participants</div>
           </div>
         </div>
 
@@ -250,7 +250,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <div class="card-static mt-8 bg-[var(--color-page-warm)] text-center py-6">
         <p class="font-mono text-[0.65rem] text-[var(--color-text-muted)] uppercase tracking-wider mb-2">The Big Picture</p>
         <p class="text-sm text-[var(--color-text-dim)] max-w-md mx-auto">
-          These six projects form a complete research stack: <strong class="text-[var(--color-ink)]">theory → measure → intervene → adapt → infrastructure</strong>. Together they represent a full-stack approach to understanding and fixing how AI communicates uncertainty.
+          The portfolio distinguishes executable software evidence from scientific evidence. InteractionKit and CheckMyCoach are active; MaxFitCalib-Bench and CalTrust are frozen with their failure and simulation boundaries visible.
         </p>
       </div>
 
