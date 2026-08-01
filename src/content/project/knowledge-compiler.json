@@ -4,14 +4,16 @@
   "title": "Knowledge Compiler: Structured Knowledge Extraction from Textbooks",
   "shortTitle": "Knowledge Compiler",
   "oneLiner": "Convert authoritative textbooks into reusable structured knowledge for trustworthy AI evaluation.",
-  "status": "published",
-  "version": "v2.0",
+  "workflowState": "frozen",
+  "evidenceLevel": "offline_evaluated",
+  "version": "untagged public artifact",
   "updated": "2026-07-01",
+  "lastVerified": "2026-07-22",
   "keyTakeaways": [
-    "Extracted 2,306 structured knowledge objects from ACSM's Guidelines for Exercise Testing and Prescription (12th ed.) — spanning 14 ontology types including Concepts, Recommendations, Thresholds, Procedures, and Warnings.",
-    "Full pipeline reproducibility: chunk → extract → normalize → validate, with automated quality gates at each stage.",
-    "Generalized to NSCA's Essentials of Strength Training and Conditioning (5th ed.): 1,598 objects across 26 chapters, demonstrating domain-agnostic pipeline transfer.",
-    "Validation report confirms semantic fidelity: 91.2% structural accuracy against textbook source material.",
+    "The public artifact documents 2,305 Knowledge IR nodes: 707 from ACSM's Guidelines for Exercise Testing and Prescription (12th ed.) and 1,598 from NSCA's Essentials of Strength Training and Conditioning (5th ed.).",
+    "All documented objects pass five automated structural validation layers; content accuracy has not been manually reviewed.",
+    "The pipeline was applied to two exercise-science textbooks, demonstrating transfer across sources within one domain.",
+    "The pipeline is designed to be source-extensible; cross-domain generalization has not been tested.",
     "Pipeline cost: ~$0.003 per object using structured LLM extraction with schema enforcement."
   ],
   "faq": [
@@ -21,31 +23,47 @@
     },
     {
       "q": "What's the ontology structure?",
-      "a": "14 object types organized in a three-layer schema: Core Concepts (Concept, Evidence, Formula), Operational Rules (Recommendation, Threshold, Procedure, DecisionRule), and Safety (Warning, Contraindication, RiskFactor), plus supporting types (Figure, Table, TableRow)."
+      "a": "The public artifact currently documents 13 Knowledge IR node types, including concepts, thresholds, recommendations, procedures, warnings, evidence, formulas, figures, and supporting table and decision types."
     },
     {
       "q": "Can this pipeline work for other textbooks?",
-      "a": "Yes — the pipeline is textbook-agnostic. Schema and prompts are the main per-book adaptation cost. Demonstrated by successful ACSM → NSCA transfer."
+      "a": "The pipeline has been applied to ACSM and NSCA exercise-science textbooks. This supports transfer across two sources within one domain; cross-domain generalization has not been tested."
     }
   ],
   "links": {
-    "code": "https://github.com/GBX-Max1220/acsms12-manifest"
+    "code": "https://github.com/GBX-Max1220/knowledge-compiler"
   },
   "citation": {
-    "bibtex": "@misc{guo2026knowledgecompiler,\n  author = {Guo, Max},\n  title = {Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks},\n  year = {2026},\n  url = {https://maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/}\n}",
-    "apa": "Guo, M. (2026). Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks. https://maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/",
-    "chicago": "Guo, Max. \"Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks.\" 2026. https://maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/.",
-    "mla": "Guo, Max. \"Knowledge Compiler: Structured Knowledge Extraction from Exercise Science Textbooks.\" 2026, https://maxguo.dev/research/building-trustworthy-ai/knowledge-compiler/."
+    "bibtex": "@software{guo_knowledge_compiler_2025,\n  author = {Guo, Baixin},\n  title = {Knowledge Compiler: From Textbook to Structured Skill},\n  year = {2025},\n  url = {https://github.com/GBX-Max1220/knowledge-compiler}\n}",
+    "apa": "Guo, B. (2025). Knowledge Compiler: From textbook to structured skill [Software and data artifact]. https://github.com/GBX-Max1220/knowledge-compiler",
+    "chicago": "Guo, Baixin. \"Knowledge Compiler: From Textbook to Structured Skill.\" Software and data artifact, 2025. https://github.com/GBX-Max1220/knowledge-compiler.",
+    "mla": "Guo, Baixin. Knowledge Compiler: From Textbook to Structured Skill. Software and data artifact, 2025, https://github.com/GBX-Max1220/knowledge-compiler."
   },
   "reproducible": {
     "env": "Python 3.11+ with requirements.txt (openai, pyyaml, pydantic)",
     "quickStart": "git clone https://github.com/GBX-Max1220/acsms12-manifest && cd acsms12-manifest && pip install -r requirements.txt && python -m compiler.cli run --book acsm12"
   },
   "changelog": [
-    { "version": "v2.0", "date": "2026-07-01", "event": "NSCA CSCS 5th edition complete: 1,598 objects, 26 chapters" },
-    { "version": "v1.0", "date": "2026-05-01", "event": "ACSM 12th edition complete: 708 objects, 31 chapters" },
-    { "version": "v0.5", "date": "2026-03-01", "event": "Pipeline v2: chunk → extract → normalize → validate with quality gates" },
-    { "version": "v0.1", "date": "2026-01-15", "event": "Initial schema design and pilot extraction (15 objects)" }
+    {
+      "version": "v2.0",
+      "date": "2026-07-01",
+      "event": "Internal milestone (not a Git release): NSCA CSCS 5th edition complete, 1,598 objects across 26 chapters."
+    },
+    {
+      "version": "v1.0",
+      "date": "2026-05-01",
+      "event": "Internal milestone (not a Git release): ACSM 12th edition corpus documented with 707 objects."
+    },
+    {
+      "version": "v0.5",
+      "date": "2026-03-01",
+      "event": "Pipeline v2: chunk → extract → normalize → validate with quality gates"
+    },
+    {
+      "version": "v0.1",
+      "date": "2026-01-15",
+      "event": "Initial schema design and pilot extraction (15 objects)"
+    }
   ],
   "relatedIds": ["checkmycoach"],
   "order": 1

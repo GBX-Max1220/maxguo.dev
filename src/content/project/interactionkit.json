@@ -1,62 +1,66 @@
 {
   "id": "interactionkit",
   "programId": "building-trustworthy-ai",
-  "title": "InteractionKit: A Methodological Infrastructure for HAI Trust Calibration",
+  "title": "InteractionKit: Typed Specifications for AI Interaction Experiments",
   "shortTitle": "InteractionKit",
-  "oneLiner": "A versioned log schema and experiment platform for reproducible trust calibration experiments.",
-  "status": "development",
-  "version": "v0.3",
-  "updated": "2026-07-13",
+  "oneLiner": "Typed experiment infrastructure for testing whether corrective interfaces must match how AI communication fails.",
+  "workflowState": "active",
+  "evidenceLevel": "prototype",
+  "version": "v1.0.0",
+  "updated": "2026-08-02",
+  "lastVerified": "2026-08-02",
   "keyTakeaways": [
-    "Different labs studying the same HAI interaction pattern produce incompatible behavioral data — different variable names, different logging formats, different measurement conventions.",
-    "InteractionKit provides a versioned log schema (14 columns) and an experiment platform such that two independent implementations produce data that can be merged with minimal translation.",
-    "Built on earlier work on calibration measurement (MaxFitCalib) and knowledge infrastructure (Knowledge Compiler).",
-    "Pilot and Study 1 in progress (N\u2265120, fitness domain, evidence-augmented vs baseline confidence display)."
+    "InteractionKit defines typed PatternSpec objects for research-oriented AI interaction components.",
+    "The publicly tagged v1.0.0 release implements ConfidenceDisplay, RelianceDecision, and OutcomeFeedback primitives, plus composition, JSON Schema generation, and structured event logging.",
+    "The release payload passed seven Pattern System contract tests, TypeScript checking, a production build, and clean-install reproduction checks.",
+    "The artifact establishes a software specification and local implementation only. It has no participant data and does not establish construct validity, behavioral equivalence, or cross-lab reproducibility.",
+    "A planned Study 2 uses InteractionKit to test a failure-contingent interaction principle; its design is frozen, but materials, ethics approval, registration, and human evidence are not complete."
   ],
+  "hciRelevance": "Makes uncertainty communication and reliance measurement explicit, typed experimental objects that can be audited before behavioral studies are run.",
   "faq": [
     {
-      "q": "What does the 14-column schema cover?",
-      "a": "Participant ID, trial ID, condition, scenario, AI advice text, confidence display, user confidence rating, user decision, response time, correctness, evidence tags, attention check, timestamp, schema version."
+      "q": "What does the Pattern System cover?",
+      "a": "PatternSpec defines typed research-oriented objects. The current primitives are ConfidenceDisplay, RelianceDecision, and OutcomeFeedback; compositions generate structured schemas and behavioral events."
     },
     {
-      "q": "How does this differ from existing experiment frameworks?",
-      "a": "Existing frameworks (jsPsych, lab.js, PsychoPy) focus on presentation and timing. InteractionKit focuses on data compatibility: two labs running the same study design produce data with identical column names and types."
+      "q": "How does this differ from experiment presentation frameworks?",
+      "a": "Frameworks such as jsPsych and lab.js focus on presentation and timing. InteractionKit focuses on typed interaction specifications, composition, and output contracts. Complementarity and interoperability have not yet been empirically evaluated."
     },
     {
-      "q": "What's the current status?",
-      "a": "Schema v0.3 finalized after a CHI reviewer critique and 3-agent code audit. Pilot deployment and Study 1 (N\u2265120, within-subject, 10 scenarios) in progress."
+      "q": "What is the current evidence boundary?",
+      "a": "Version 1.0.0 is publicly tagged at commit 91bda82 and verified as a software artifact. No participant dataset or human-study result is claimed."
     }
   ],
   "links": {
     "code": "https://github.com/GBX-Max1220/InteractionKit"
   },
   "citation": {
-    "bibtex": "@misc{guo2026interactionkit,\n  author = {Guo, Max},\n  title = {InteractionKit: A Methodological Infrastructure for HAI Trust Calibration},\n  year = {2026},\n  url = {https://maxguo.dev/research/building-trustworthy-ai/interactionkit/}\n}",
-    "apa": "Guo, M. (2026). InteractionKit: A Methodological Infrastructure for HAI Trust Calibration. https://maxguo.dev/research/building-trustworthy-ai/interactionkit/",
-    "chicago": "Guo, Max. \"InteractionKit: A Methodological Infrastructure for HAI Trust Calibration.\" 2026. https://maxguo.dev/research/building-trustworthy-ai/interactionkit/.",
-    "mla": "Guo, Max. \"InteractionKit: A Methodological Infrastructure for HAI Trust Calibration.\" 2026, https://maxguo.dev/research/building-trustworthy-ai/interactionkit/."
+    "bibtex": "@software{guo_interactionkit_2026,\n  author = {Guo, Baixin},\n  title = {InteractionKit: Typed Specifications for AI Interaction Experiments},\n  year = {2026},\n  version = {1.0.0},\n  url = {https://github.com/GBX-Max1220/InteractionKit/tree/interactionkit-v1.0.0}\n}",
+    "apa": "Guo, B. (2026). InteractionKit: Typed specifications for AI interaction experiments (Version 1.0.0) [Software]. https://github.com/GBX-Max1220/InteractionKit/tree/interactionkit-v1.0.0",
+    "chicago": "Guo, Baixin. \"InteractionKit: Typed Specifications for AI Interaction Experiments.\" Version 1.0.0, 2026. https://github.com/GBX-Max1220/InteractionKit/tree/interactionkit-v1.0.0.",
+    "mla": "Guo, Baixin. InteractionKit: Typed Specifications for AI Interaction Experiments. Version 1.0.0, 2026, https://github.com/GBX-Max1220/InteractionKit/tree/interactionkit-v1.0.0."
   },
   "reproducible": {
-    "env": "Python 3.12+ with requirements.txt",
-    "quickStart": "git clone https://github.com/GBX-Max1220/InteractionKit && cd InteractionKit && pip install -r requirements.txt"
+    "env": "Node.js 20.9+ with npm",
+    "quickStart": "git clone https://github.com/GBX-Max1220/InteractionKit && cd InteractionKit && npm ci && npm run test:patterns && npx tsc --noEmit && npm run build"
   },
   "changelog": [
     {
+      "version": "v1.0.0-rc",
+      "date": "2026-07-31",
+      "event": "Exact 23-file release payload was committed as 91bda82 and tagged interactionkit-v1.0.0 after contract tests, type checking, build, and clean-install reproduction."
+    },
+    {
       "version": "v0.3",
       "date": "2026-07-13",
-      "event": "Pilot-ready. CHI reviewer critique addressed, 3-agent code audit converged (0 P0 blockers)."
+      "event": "Legacy study scaffolding and preregistration materials were prepared separately from the typed Pattern System claim."
     },
     {
       "version": "v0.2",
       "date": "2026-06-20",
-      "event": "Schema v0.2 with 14-column log spec. Layout finalized (desktop)."
-    },
-    {
-      "version": "v0.1",
-      "date": "2026-06-01",
-      "event": "Design spec + PRD v0.3. Prolific URL params verified."
+      "event": "Structured logging schema and prototype layouts were implemented."
     }
   ],
-  "relatedIds": ["fitcalib-bench", "checkmycoach", "knowledge-compiler"],
-  "order": 5
+  "relatedIds": ["checkmycoach", "knowledge-compiler"],
+  "order": 2
 }

@@ -22,7 +22,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <h2 class="text-[1.5rem] mb-6">Research Philosophy</h2>
       <p class="text-sm text-[var(--color-text-dim)] mb-5">
         My work builds a five-layer research stack on <strong class="text-[var(--color-ink)]">Precision Illusion</strong>:
-        from defining the problem, to measuring it, to intervening, to personalizing, to making it reproducible across labs.
+        from defining the problem, to measuring it, to intervening, to simulated adaptation, and to typed experiment specification.
       </p>
 
       <div class="space-y-4 mb-10">
@@ -43,8 +43,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           </div>
           <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
             Build benchmarks and evaluation frameworks to characterize how LLMs express uncertainty (<em>MaxFitCalib-Bench</em>).
-            Discovered the <strong class="text-[var(--color-ink)]">precision illusion</strong> — 6.3% of LLM outputs are pseudo-precise,
-            citing numbers without evidence.
+            The current benchmark is a 126-question prototype with an engineering audit; protocol-valid prevalence estimates are not yet established.
           </p>
         </div>
 
@@ -54,8 +53,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Intervention</span>
           </div>
           <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            Design and build automated pipelines that detect, diagnose, and correct miscalibrated outputs (<em>CheckMyCoach</em>).
-            Improves overconfident outputs by <strong class="text-[var(--color-ink)]">+0.75 UCS</strong> at ~$0.001/correction.
+            Design and build automated pipelines that detect, diagnose, and attempt to correct selected outputs (<em>CheckMyCoach</em>).
+            In a fixed 40-case corpus, the pipeline routed 15/40 cases to correction and removed the targeted failure in 12/15 routed cases (12/40 end-to-end).
           </p>
         </div>
 
@@ -65,8 +64,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Adaptation</span>
           </div>
           <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            Develop adaptive policies that select the right calibration intervention for each user and context (<em>CalTrust</em>).
-            A LinUCB contextual bandit trained on <strong class="text-[var(--color-ink)]">19,200</strong> simulation trials.
+            Develop and test adaptive-intervention policies in simulation (<em>CalTrust</em>).
+            The LinUCB prototype was evaluated on <strong class="text-[var(--color-ink)]">19,200</strong> simulated trials; human validation has not yet been conducted.
           </p>
         </div>
 
@@ -76,16 +75,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Infrastructure</span>
           </div>
           <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            Build structured knowledge bases from domain textbooks (<em>Knowledge Compiler</em>) and a versioned schema + experiment platform so trust calibration data is mergeable across labs (<em>InteractionKit</em>).
+            Build structured knowledge artifacts from domain textbooks (<em>Knowledge Compiler</em>) and typed specifications for consistent experiment definition and behavioral logging (<em>InteractionKit</em>). Independent cross-lab convergence has not yet been evaluated.
           </p>
         </div>
       </div>
 
       <!-- Belief -->
       <blockquote class="border-l-2 border-[var(--color-primary)] pl-5 py-2 mb-10 text-[var(--color-text-dim)] italic">
-        Trust calibration research should produce deployable systems, not just papers.
-        Every project on this site includes full reproducibility instructions — environment specs,
-        quick-start guides, and CI-tested code.
+        Trust calibration research should produce inspectable systems, not just papers.
+        For released artifacts, I provide environment information, quick-start instructions, tests, and versioned schemas where available; reproducibility status is reported separately for each project.
       </blockquote>
 
       <!-- Research Program -->
@@ -95,10 +93,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <strong class="text-[var(--color-ink)]">Core question:</strong> How do AI systems mislead through false precision, and how can we measure, fix, and prevent it?
         </p>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-          I have produced: (1) a <strong class="text-[var(--color-ink)]">systematic taxonomy</strong> of how LLMs misrepresent uncertainty (Precision Illusion); (2) a <strong class="text-[var(--color-ink)]">benchmark and measurement methodology</strong> that detects the precision illusion where standard accuracy metrics cannot (MaxFitCalib-Bench); (3) a <strong class="text-[var(--color-ink)]">deployable correction pipeline</strong> that fixes miscalibrated outputs at ~$0.001/correction (CheckMyCoach); (4) an <strong class="text-[var(--color-ink)]">adaptive intervention framework</strong> that personalises calibration strategies per user (CalTrust); and (5) <strong class="text-[var(--color-ink)]">research infrastructure</strong> that makes trust calibration experiments reproducible and mergeable across labs (Knowledge Compiler, InteractionKit).
+          I have produced: (1) a <strong class="text-[var(--color-ink)]">research taxonomy</strong> of uncertainty-expression failures (Precision Illusion); (2) a <strong class="text-[var(--color-ink)]">126-question benchmark prototype</strong> and measurement methodology (MaxFitCalib-Bench); (3) an <strong class="text-[var(--color-ink)]">offline-evaluated correction prototype</strong> (CheckMyCoach); (4) an <strong class="text-[var(--color-ink)]">adaptive-intervention simulation framework</strong> (CalTrust); and (5) <strong class="text-[var(--color-ink)]">research software</strong> for structured knowledge and typed experiment specification (Knowledge Compiler, InteractionKit).
         </p>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-          I am seeking a PhD position (Fall 2027) in a lab working on <strong class="text-[var(--color-ink)]">Human-AI Interaction, CSCW, or HCI + AI reliability</strong>. I bring a demonstrated ability to produce both theoretical contributions and deployable systems, and I am looking for an environment where I can extend the precision illusion framework to multi-domain settings (medicine, law) and test user-facing calibration interventions in controlled experiments.
+          I am seeking a PhD position (Fall 2027) in a lab working on <strong class="text-[var(--color-ink)]">Human-AI Interaction, CSCW, or HCI + AI reliability</strong>. I bring an applied-psychology perspective and inspectable research systems. My next scientific step is construct validation and controlled human evaluation of uncertainty-communication interventions; I do not yet claim cross-domain or user-level evidence.
         </p>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
           <strong class="text-[var(--color-ink)]">Specific questions I want to pursue in a PhD:</strong> (a) Does the precision illusion generalise across domains with different stakes and user populations? (b) What interaction designs most effectively shorten the feedback loop between AI output and user trust calibration? (c) Can we build evaluation standards for AI uncertainty communication that the HCI community adopts?
@@ -162,7 +160,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <span class="w-6 h-6 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.5rem] font-bold mt-0.5">I</span>
           <div>
             <strong class="text-[var(--color-ink)]">Independent research</strong>
-            <span class="text-sm text-[var(--color-text-dim)]">(2025–present) — Self-directed research program in LLM calibration and human-AI trust, producing two papers, a software system (CheckMyCoach), and an adaptive intervention framework (CalTrust).</span>
+            <span class="text-sm text-[var(--color-text-dim)]">(2025–present) — Self-directed research program in LLM calibration and human-AI trust, developing two manuscripts and multiple research software artifacts.</span>
           </div>
         </div>
         <div class="flex items-start gap-3">
@@ -181,7 +179,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           I am seeking a PhD position in <strong class="text-[var(--color-ink)]">Human-AI Interaction / HCI / CSCW</strong> for Fall 2027, with interest in labs working on AI reliability, human trust calibration, or evaluation methodology.
         </p>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-          I bring a complete research pipeline — from problem definition and experiment design through implementation and reproducible analysis — and a demonstrated ability to produce both theoretical contributions (Precision Illusion taxonomy) and deployable systems (CheckMyCoach, InteractionKit).
+          I work across the research pipeline — from problem definition and experiment design through prototype implementation and reproducible analysis — and have produced both conceptual contributions (Precision Illusion taxonomy) and implemented research systems (CheckMyCoach, InteractionKit).
         </p>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
           <a href="/cv/" class="link-arrow">View CV →</a>

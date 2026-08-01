@@ -9,6 +9,7 @@ import '@fontsource/jetbrains-mono/400.css';
 import '@fontsource/jetbrains-mono/500.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import { SITE, siteUrl } from '../config/site.mjs';
 
 export interface Props {
   title: string;
@@ -20,11 +21,10 @@ export interface Props {
 }
 
 const { title, description, ogImage, ogType, hideNav, hideTopBar } = Astro.props;
-const site = 'https://maxguo.dev';
-const defaultDesc = 'LLM Calibration & Trust in AI Coaching | Baixin Guo';
+const defaultDesc = SITE.description;
 const absTitle = `${title} — Baixin Guo`;
 const absDesc = description || defaultDesc;
-const ogImageUrl = ogImage ? new URL(ogImage, site).href : `${site}/og-default.svg`;
+const ogImageUrl = siteUrl(ogImage || '/og-default.svg');
 ---
 
 <!DOCTYPE html>
@@ -58,7 +58,7 @@ const ogImageUrl = ogImage ? new URL(ogImage, site).href : `${site}/og-default.s
       "givenName": "Baixin",
       "familyName": "Guo",
       "email": "gbx1220max@gmail.com",
-      "url": site,
+      "url": SITE.url,
       "sameAs": [
         "https://github.com/GBX-Max1220",
         "https://www.linkedin.com/in/baixin-guo-681113285/",

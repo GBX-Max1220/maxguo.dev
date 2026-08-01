@@ -1,0 +1,7 @@
+{
+  "id": "tools",
+  "title": "Tools & Infrastructure",
+  "scientificQuestion": "How can we build practical tools to accelerate research workflows?",
+  "description": "Side projects and tools that support the core research program, including investigator discovery, experiment platforms, and knowledge extraction pipelines.",
+  "order": 10
+}

@@ -1,0 +1,13 @@
+---
+import { publicationStatusMeta, type PublicationStatus } from '../lib/publications';
+
+interface Props {
+  status: PublicationStatus;
+  class?: string;
+}
+
+const { status, class: className = '' } = Astro.props;
+const meta = publicationStatusMeta(status);
+---
+
+<span class={`badge ${meta.className} ${className}`.trim()}>{meta.label}</span>

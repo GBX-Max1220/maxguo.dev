@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="InteractionKit Research Brief" description="A ten-minute review of the InteractionKit research program, evidence, and planned human study">
+  <div class="container-content py-16">
+    <article class="max-w-3xl">
+      <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow mb-6 inline-flex">← InteractionKit</a>
+
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <span class="badge badge-primary">Flagship research direction</span>
+        <span class="badge badge-gold">Study 2 · design frozen, materials not built</span>
+      </div>
+      <h1 class="mb-4">Can corrective interfaces be matched to how AI communication fails?</h1>
+      <p class="text-lg text-[var(--color-text-dim)] leading-relaxed mb-8">
+        A planned human-AI decision study tests whether a corrective card improves appropriate reliance specifically when its information structure matches the AI answer's communication failure.
+      </p>
+
+      <div class="card-static mb-8 border-l-4 border-l-[var(--color-primary)]">
+        <p class="font-mono text-[0.65rem] text-[var(--color-primary)] uppercase tracking-wider mb-2">Single research question</p>
+        <p class="text-base text-[var(--color-ink)] leading-relaxed">
+          Does matching an evidence-based corrective interface to an AI answer's communication-failure family improve appropriate reliance relative to an equally formatted, truthful but failure-mismatched correction?
+        </p>
+      </div>
+
+      <section class="mb-10">
+        <h2 class="mb-4">Why this is identifiable</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="card-static">
+            <h3 class="text-base mb-2">Two failure families</h3>
+            <p class="text-sm text-[var(--color-text-dim)]">Unsupported numerical precision and omitted decision boundaries are operationalized in parallel answer variants.</p>
+          </div>
+          <div class="card-static">
+            <h3 class="text-base mb-2">Two corrective cards</h3>
+            <p class="text-sm text-[var(--color-text-dim)]">A numerical-warrant card and a boundary-condition card are crossed with both failure families.</p>
+          </div>
+          <div class="card-static">
+            <h3 class="text-base mb-2">Matched counterfactual</h3>
+            <p class="text-sm text-[var(--color-text-dim)]">Every participant receives matched and mismatched corrections; mismatch is irrelevant to the failure, not false or lower quality.</p>
+          </div>
+          <div class="card-static">
+            <h3 class="text-base mb-2">Stimulus generalization</h3>
+            <p class="text-sm text-[var(--color-text-dim)]">The planned design uses 24 independently grounded scenarios and models participants and scenarios as crossed sources of variation.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="mb-4">Frozen design</h2>
+        <div class="overflow-x-auto card-static">
+          <table class="w-full text-sm">
+            <tbody class="divide-y divide-[var(--color-rule-light)]">
+              <tr><th class="text-left py-3 pr-6 font-medium">Design</th><td class="py-3 text-[var(--color-text-dim)]">Within-participant 2 × 2 × 2 × 2, with evidence support varied across scenarios</td></tr>
+              <tr><th class="text-left py-3 pr-6 font-medium">Planned exposure</th><td class="py-3 text-[var(--color-text-dim)]">16 trials per participant; 8 matched and 8 mismatched</td></tr>
+              <tr><th class="text-left py-3 pr-6 font-medium">Scenario pool</th><td class="py-3 text-[var(--color-text-dim)]">24 exercise-and-health decisions; 12 per evidence-support level</td></tr>
+              <tr><th class="text-left py-3 pr-6 font-medium">Primary outcome</th><td class="py-3 text-[var(--color-text-dim)]">Change in probability assigned to the correct final decision</td></tr>
+              <tr><th class="text-left py-3 pr-6 font-medium">Secondary outcome</th><td class="py-3 text-[var(--color-text-dim)]">Final decision accuracy</td></tr>
+              <tr><th class="text-left py-3 pr-6 font-medium">Provisional N</th><td class="py-3 text-[var(--color-text-dim)]">240 analyzable participants; binding only after exact-schedule post-pilot simulation passes</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="mb-4">What exists now</h2>
+        <div class="grid sm:grid-cols-3 gap-4 mb-4">
+          <div class="card-static"><div class="stat-number text-2xl">3</div><div class="stat-label">typed primitives</div></div>
+          <div class="card-static"><div class="stat-number text-2xl">7</div><div class="stat-label">contract tests</div></div>
+          <div class="card-static"><div class="stat-number text-2xl">0</div><div class="stat-label">human participants claimed</div></div>
+        </div>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          The publicly tagged v1.0.0 release implements typed interaction specifications, composition checks, schema generation, and structured logging. The Study 2 design, confounding audit, and simulation code exist locally. Study 2 scenarios, answer variants, corrective-card text, independent ratings, ethics approval, registration, and participant data do not yet exist.
+        </p>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="mb-4">Decision gates before recruitment</h2>
+        <ol class="space-y-3 text-sm text-[var(--color-text-dim)] list-decimal pl-5">
+          <li>Independently adjudicate 24 scenarios and their evidence support.</li>
+          <li>Blind-code failure-family purity and remove mixed-failure answer variants.</li>
+          <li>Pretest card relevance, leakage, length, credibility, and comprehension.</li>
+          <li>Verify the exact allocation schedule, full-rank design matrix, logging, and recovery behavior.</li>
+          <li>Pass the post-pilot simulation gate: at least 80% power with acceptable Type I error, coverage, and wrong-sign probability.</li>
+          <li>Obtain institutional ethics approval and freeze the public preregistration before confirmatory recruitment.</li>
+        </ol>
+      </section>
+
+      <section class="card-static mb-8">
+        <h2 class="mb-3">Contribution boundary</h2>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+          The intended contribution is a failure-contingent interaction principle: uncertainty support should expose the information missing from a specific communication failure. It is not a claim that more explanation, provenance, or interface complexity generally increases trust.
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          Current evidence supports software conformance and design auditability only. Causal, construct-validity, cross-domain, and cross-lab claims remain untested.
+        </p>
+      </section>
+
+      <div class="flex flex-wrap gap-3">
+        <a href="/research-packs/interactionkit-advisor-brief.pdf" class="btn btn-primary">Download two-page brief</a>
+        <a href="/research-packs/interactionkit-demo-script.txt" class="btn">90-second demo script</a>
+        <a href="https://github.com/GBX-Max1220/InteractionKit" target="_blank" rel="noopener" class="btn">Inspect code →</a>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

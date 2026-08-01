@@ -1,19 +1,26 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="The Precision Illusion: Why 6.3% Matters" description="An introduction to the precision illusion">
+<BaseLayout title="Precision Illusion: A Framework for Studying Unsupported Numerical Specificity in AI" description="A framework for studying unsupported numerical specificity in AI communication">
   <div class="container-content py-16">
     <article class="max-w-2xl">
       <a href="/blog/" class="link-arrow mb-6 inline-flex">
         ← All posts
       </a>
       <p class="font-mono text-[0.65rem] text-[var(--color-text-muted)] mb-3">Research Note · 2026-07-01</p>
-      <h1 class="mb-8">The Precision Illusion: Why 6.3% Matters</h1>
+      <h1 class="mb-8">Precision Illusion: A Framework for Studying Unsupported Numerical Specificity in AI</h1>
       <div class="prose-page text-base leading-relaxed text-[var(--color-text)] space-y-4">
-        <p>In our recent benchmark of LLM fitness advice, we found something surprising: <strong>0% overconfident outputs.</strong> The models weren't dangerously overconfident. They were subtly misleading.</p>
-        <p>6.3% of outputs contained precise-sounding numerical claims — "a 38.7% reduction" — without any evidence grounding. We call this the <strong>precision illusion</strong>.</p>
-        <p>Why does this matter? Because precise numbers carry disproportionate weight in human judgment. Zhang & Schwarz (2012) showed that people trust precise numbers more, even when they know the precision is unwarranted. A pseudo-precise output exploits this cognitive bias silently.</p>
-        <p>At a 6.3% rate per output, a user session involving 10 advice statements carries a ~48% cumulative probability of encountering at least one pseudo-precise response. And these outputs cluster in exactly the scenarios where users most need reliable advice — mixed-evidence and insufficient-evidence questions.</p>
+        <p>AI outputs can contain precise numbers that are not adequately supported by the available evidence — for example, citing “a 38.7% reduction” without a traceable source. We call this communication failure the <strong>precision illusion</strong>.</p>
+        <p>The precision illusion is a <strong>research construct, not a measured prevalence rate</strong>. It describes cases where an AI output expresses numerical specificity that cannot be justified from verifiable evidence.</p>
+        <p>Why does this matter? Research on the precision heuristic suggests that precise numbers can be perceived as more credible than less precise estimates, even when that precision is unwarranted. Unsupported numerical specificity may therefore influence reliance even when an answer is directionally plausible.</p>
+        <p>Our current work focuses on three questions:</p>
+        <ol>
+          <li><strong>Operationalization:</strong> How should unsupported numerical specificity be reliably detected and classified? The UCS taxonomy is our current proposal.</li>
+          <li><strong>Measurement:</strong> How does it vary across domains, models, and interaction contexts? Protocol-valid prevalence estimates are not yet established.</li>
+          <li><strong>Intervention:</strong> Can these outputs be detected and repaired without degrading appropriate outputs? CheckMyCoach is an ongoing research prototype.</li>
+        </ol>
+        <p>We are building toward controlled human experiments that test whether unsupported numerical specificity affects trust and reliance, and whether correction changes user behavior.</p>
+        <p><em>Status note: Earlier exploratory runs produced preliminary descriptive numbers, but those are not treated as protocol-valid prevalence estimates. Current work focuses on reproducible measurement and behavioral validation.</em></p>
       </div>
     </article>
   </div>

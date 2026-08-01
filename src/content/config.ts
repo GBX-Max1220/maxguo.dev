@@ -8,14 +8,39 @@ const programSchema = z.object({
   order: z.number(),
 });
 
+const academicStatusSchema = z.enum([
+  'draft',
+  'in_preparation',
+  'preprint',
+  'submitted',
+  'under_review',
+  'accepted',
+  'published',
+  'archived',
+]);
+
+const workflowStateSchema = z.enum(['active', 'frozen', 'superseded', 'archived']);
+
+const evidenceLevelSchema = z.enum([
+  'concept',
+  'prototype',
+  'simulation_tested',
+  'offline_evaluated',
+  'human_pilot',
+  'human_validated',
+]);
+
 const projectSchema = z.object({
   id: z.string(),
   programId: z.string(),
   title: z.string(),
   shortTitle: z.string(),
-  status: z.enum(['published', 'preprint', 'under_review', 'irb', 'development', 'archived']),
+  oneLiner: z.string().optional(),
+  workflowState: workflowStateSchema,
+  evidenceLevel: evidenceLevelSchema,
   version: z.string(),
   updated: z.coerce.date(),
+  lastVerified: z.coerce.date(),
   keyTakeaways: z.array(z.string()),
   hciRelevance: z.string().optional(),
   faq: z.array(z.object({ q: z.string(), a: z.string() })),
@@ -58,15 +83,22 @@ const publicationSchema = z.object({
   id: z.string(),
   title: z.string(),
   authors: z.array(z.string()),
-  venue: z.string(),
+  venue: z.string().optional(),
+  venueTarget: z.string().optional(),
   year: z.number(),
-  status: z.enum(['published', 'preprint', 'under_review']),
+  status: academicStatusSchema,
+  workflowState: workflowStateSchema,
+  submittedAt: z.coerce.date().optional(),
+  acceptedAt: z.coerce.date().optional(),
+  lastVerified: z.coerce.date(),
   tags: z.array(z.string()),
   links: z.object({
     pdf: z.string().optional(),
     arxiv: z.string().optional(),
+    preprint: z.string().optional(),
     doi: z.string().optional(),
     code: z.string().optional(),
+    dataset: z.string().optional(),
     bibtex: z.string().optional(),
   }),
   citation: z.object({
@@ -78,6 +110,40 @@ const publicationSchema = z.object({
   abstract: z.string().optional(),
   featured: z.boolean(),
   projectId: z.string().optional(),
+}).superRefine((publication, ctx) => {
+  const publicPreprint = publication.links.arxiv || publication.links.preprint;
+
+  if (publication.status === 'preprint' && !publicPreprint) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['links'],
+      message: 'Preprint status requires an arXiv or preprint URL.',
+    });
+  }
+
+  if (['submitted', 'under_review', 'accepted'].includes(publication.status) && !publication.submittedAt) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['submittedAt'],
+      message: `${publication.status} status requires submittedAt.`,
+    });
+  }
+
+  if (publication.status === 'under_review' && !publication.venue) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['venue'],
+      message: 'Under-review status requires a confirmed venue.',
+    });
+  }
+
+  if (publication.status === 'accepted' && (!publication.acceptedAt || !publication.venue)) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['acceptedAt'],
+      message: 'Accepted status requires acceptedAt and a confirmed venue.',
+    });
+  }
 });
 
 const blogSchema = z.object({

@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import PublicationStatus from '../../components/PublicationStatus.astro';
+
+const checkMyCoachPaper = (await getCollection('publication')).find(({ id }) => id === 'checkmycoach-paper');
 ---
 <BaseLayout title="Now" description="What Baixin Guo is working on right now">
   <div class="container-content py-16">
@@ -7,26 +11,35 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
       <span class="section-label mb-4">Now</span>
       <h1 class="mb-2">What I'm Working On</h1>
-      <p class="text-sm text-[var(--color-text-dim)] mb-8">Updated July 2026</p>
+      <p class="text-sm text-[var(--color-text-dim)] mb-8">Updated August 2026</p>
+
+        <div class="card-static mb-6">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 rounded-full bg-[var(--color-secondary)]"></span>
+            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider">Active</span>
+          </div>
+          <h2 class="text-[1.05rem] mb-1">InteractionKit v1.0.0 Released</h2>
+          <p class="text-sm text-[var(--color-text-dim)]">Hardening the typed interaction-specification artifact and its release evidence. Current evidence covers contracts, type checking, build, and clean-install reproduction—not human validity.</p>
+        </div>
 
       <div class="space-y-6">
 
         <div class="card-static">
           <div class="flex items-center gap-2 mb-2">
             <span class="w-2 h-2 rounded-full bg-[var(--color-primary)]"></span>
-            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider">Under Review</span>
+            {checkMyCoachPaper && <PublicationStatus status={checkMyCoachPaper.data.status} class="text-[0.6rem]" />}
           </div>
-          <h2 class="text-[1.05rem] mb-1">From Precision Illusion to Calibration Intervention</h2>
-          <p class="text-sm text-[var(--color-text-dim)]">Submitted to CSCW 2027. CheckMyCoach pipeline, precision illusion findings.</p>
+          <h2 class="text-[1.05rem] mb-1">CheckMyCoach v2.2 Controlled Evaluation</h2>
+          <p class="text-sm text-[var(--color-text-dim)]">Documenting the fixed 40-case offline comparison and its limits. No superiority, validated-detection, equivalence, or user-effect claim.</p>
         </div>
 
         <div class="card-static">
           <div class="flex items-center gap-2 mb-2">
             <span class="w-2 h-2 rounded-full bg-[var(--color-secondary)]"></span>
-            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider">Active</span>
+            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider">Frozen</span>
           </div>
-          <h2 class="text-[1.05rem] mb-1">Multi-Domain Precision Illusion Benchmark</h2>
-          <p class="text-sm text-[var(--color-text-dim)]">Extending FitCalib-Bench to medical and legal domains. Protocol and stimulus design in progress.</p>
+          <h2 class="text-[1.05rem] mb-1">Earlier Prototypes</h2>
+          <p class="text-sm text-[var(--color-text-dim)]">MaxFitCalib-Bench is closed as an engineering-only audit; CalTrust is frozen as a simulation-only prototype. Neither is an active scientific claim.</p>
         </div>
 
         <div class="card-static">
