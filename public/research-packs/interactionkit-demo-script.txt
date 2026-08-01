@@ -1,0 +1,16 @@
+InteractionKit - 90-second advisor demo script
+
+0:00-0:15 - Research problem
+AI systems can fail while sounding precise or while omitting the conditions under which advice applies. My question is not whether more explanation helps. It is whether a corrective interface works specifically when it exposes the information missing from that failure.
+
+0:15-0:35 - Software artifact
+InteractionKit represents confidence display, reliance decisions, and outcome feedback as typed experimental objects. Composition checks and generated schemas make the manipulation and behavioral trace inspectable before a study runs.
+
+0:35-1:00 - Planned causal test
+Study 2 crosses two failure families with two truthful corrective cards. The key contrast is matched versus mismatched correction. Accuracy, displayed confidence, intervention type, and failure family are balanced within participant; evidence support varies across 24 independently grounded scenarios.
+
+1:00-1:15 - What is already verified
+The public v1.0.0 release passes seven contract tests, type checking, a production build, and clean-install reproduction. The design matrix and simulation audit exist. There are no human results yet.
+
+1:15-1:30 - Falsification and next gate
+If matched cards do not improve probability movement toward the correct decision relative to mismatched cards, the proposed failure-contingent principle is not supported. Before recruitment, materials must pass independent adjudication, leakage and relevance pretests, ethics review, and an exact-schedule power gate.

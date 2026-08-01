@@ -103,7 +103,7 @@ const featuredPublications = (await getCollection('publication'))
         I study when confident AI language outruns its evidence — and build auditable methods for specifying, testing, and correcting that mismatch.
       </p>
       <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-6">
-        My current program centers on <strong class="text-[var(--color-ink)]">InteractionKit</strong>, a typed experiment-specification artifact, and <strong class="text-[var(--color-ink)]">CheckMyCoach</strong>, an offline-evaluated correction pipeline. Earlier benchmark and adaptation prototypes are retained as bounded engineering evidence, not validated scientific findings.
+        My current program centers on <strong class="text-[var(--color-ink)]">InteractionKit</strong>: typed experiment infrastructure for testing whether corrective interfaces must match how AI communication fails. Earlier systems are retained as bounded formative or engineering evidence, not parallel flagship claims.
       </p>
       <p class="font-mono text-[0.65rem] text-[var(--color-primary)] leading-relaxed mb-6">
         Current application domain: fitness coaching. No cross-domain validation claimed.
@@ -116,6 +116,9 @@ const featuredPublications = (await getCollection('publication'))
           <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2 6h8M6 2l4 4-4 4"/>
           </svg>
+        </a>
+        <a href="/research/building-trustworthy-ai/interactionkit/research-brief/" class="btn text-base px-5 py-2.5">
+          10-minute research brief
         </a>
         <a href="/about/" class="btn text-base px-5 py-2.5">
           About me
@@ -137,7 +140,7 @@ const featuredPublications = (await getCollection('publication'))
       <div class="grid grid-cols-2 gap-x-6 gap-y-4">
         <div>
           <div class="stat-number text-[1.6rem]">3</div>
-          <div class="stat-label">Typed interaction primitives (v1.0.0 RC)</div>
+          <div class="stat-label">Typed interaction primitives (v1.0.0)</div>
         </div>
         <div>
           <div class="stat-number text-[1.6rem]">2,305</div>          <div class="stat-label">Knowledge IR nodes (2 textbooks)</div>
@@ -179,7 +182,7 @@ const featuredPublications = (await getCollection('publication'))
         </div>
         <h2 class="text-[1.6rem] mb-2">Research Program</h2>
         <p class="font-sans text-sm text-[var(--color-text-dim)] mb-8 max-w-md">
-          Active work on reproducible experiment specification and bounded offline correction evaluation; earlier prototypes are explicitly frozen.
+          One flagship direction, supported by bounded formative and engineering artifacts.
         </p>
 
         <div class="space-y-4">
@@ -187,13 +190,15 @@ const featuredPublications = (await getCollection('publication'))
           <div class="card group overflow-hidden">
             <div class="flex items-center gap-3 mb-3">
               <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.55rem] font-bold">01</span>
-              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Main CS/HCI artifact · v1.0.0 RC</span>
+              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Main CS/HCI artifact · v1.0.0</span>
             </div>
             <h3 class="text-[1.05rem] mb-2">InteractionKit</h3>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-              A typed specification layer with three interaction primitives, composition rules, JSON Schema export, and structured event logging. Seven contract tests, type checking, production build, and clean-install reproduction pass; no human study or construct-validity claim is attached.
+              Typed experiment infrastructure for a planned causal test of failure-matched corrective interfaces. Version 1.0.0 is publicly tagged and locally verified; the human study remains gated on material validation, ethics review, registration, and pilot evidence.
             </p>
             <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">InteractionKit →</a>
+            <span class="mx-2 text-[var(--color-rule)]">·</span>
+            <a href="/research/building-trustworthy-ai/interactionkit/research-brief/" class="link-arrow">Research brief →</a>
           </div>
 
           <!-- Intervention -->
@@ -283,7 +288,7 @@ const featuredPublications = (await getCollection('publication'))
           <div class="log-item px-4 py-3">
             <span class="log-date">Jul 31</span>
             <div class="log-dot"></div>
-            <p class="font-sans text-sm text-[var(--color-text-dim)]">InteractionKit v1.0.0 release candidate passed 7 contract tests, type checking, production build, and clean-install reproduction</p>
+            <p class="font-sans text-sm text-[var(--color-text-dim)]">InteractionKit v1.0.0 published at commit 91bda82 after 7 contract tests, type checking, production build, and clean-install reproduction</p>
           </div>
                     <div class="log-item px-4 py-3">
             <span class="log-date">Jul 24</span>

@@ -3,17 +3,18 @@
   "programId": "building-trustworthy-ai",
   "title": "InteractionKit: Typed Specifications for AI Interaction Experiments",
   "shortTitle": "InteractionKit",
-  "oneLiner": "Typed, composable specifications for uncertainty-aware AI interaction experiments and structured behavioral data.",
+  "oneLiner": "Typed experiment infrastructure for testing whether corrective interfaces must match how AI communication fails.",
   "workflowState": "active",
   "evidenceLevel": "prototype",
-  "version": "v1.0.0 release candidate",
-  "updated": "2026-07-31",
+  "version": "v1.0.0",
+  "updated": "2026-08-02",
   "lastVerified": "2026-08-02",
   "keyTakeaways": [
     "InteractionKit defines typed PatternSpec objects for research-oriented AI interaction components.",
-    "The v1.0.0 release candidate implements ConfidenceDisplay, RelianceDecision, and OutcomeFeedback primitives, plus composition, JSON Schema generation, and structured event logging.",
+    "The publicly tagged v1.0.0 release implements ConfidenceDisplay, RelianceDecision, and OutcomeFeedback primitives, plus composition, JSON Schema generation, and structured event logging.",
     "The release payload passed seven Pattern System contract tests, TypeScript checking, a production build, and clean-install reproduction checks.",
-    "The artifact establishes a software specification and local implementation only. It has no participant data and does not establish construct validity, behavioral equivalence, or cross-lab reproducibility."
+    "The artifact establishes a software specification and local implementation only. It has no participant data and does not establish construct validity, behavioral equivalence, or cross-lab reproducibility.",
+    "A planned Study 2 uses InteractionKit to test a failure-contingent interaction principle; its design is frozen, but materials, ethics approval, registration, and human evidence are not complete."
   ],
   "hciRelevance": "Makes uncertainty communication and reliance measurement explicit, typed experimental objects that can be audited before behavioral studies are run.",
   "faq": [
@@ -27,17 +28,17 @@
     },
     {
       "q": "What is the current evidence boundary?",
-      "a": "The v1.0.0 release candidate is locally and clean-install verified as a software artifact. No public release tag or participant dataset is currently claimed."
+      "a": "Version 1.0.0 is publicly tagged at commit 91bda82 and verified as a software artifact. No participant dataset or human-study result is claimed."
     }
   ],
   "links": {
     "code": "https://github.com/GBX-Max1220/InteractionKit"
   },
   "citation": {
-    "bibtex": "@software{guo_interactionkit_2026,\n  author = {Guo, Baixin},\n  title = {InteractionKit: Typed Specifications for AI Interaction Experiments},\n  year = {2026},\n  note = {Version 1.0.0 release candidate; no public release tag or human data},\n  url = {https://github.com/GBX-Max1220/InteractionKit}\n}",
-    "apa": "Guo, B. (2026). InteractionKit: Typed specifications for AI interaction experiments [Version 1.0.0 release candidate]. https://github.com/GBX-Max1220/InteractionKit",
-    "chicago": "Guo, Baixin. \"InteractionKit: Typed Specifications for AI Interaction Experiments.\" Version 1.0.0 release candidate, 2026. https://github.com/GBX-Max1220/InteractionKit.",
-    "mla": "Guo, Baixin. InteractionKit: Typed Specifications for AI Interaction Experiments. Version 1.0.0 release candidate, 2026, https://github.com/GBX-Max1220/InteractionKit."
+    "bibtex": "@software{guo_interactionkit_2026,\n  author = {Guo, Baixin},\n  title = {InteractionKit: Typed Specifications for AI Interaction Experiments},\n  year = {2026},\n  version = {1.0.0},\n  url = {https://github.com/GBX-Max1220/InteractionKit/tree/interactionkit-v1.0.0}\n}",
+    "apa": "Guo, B. (2026). InteractionKit: Typed specifications for AI interaction experiments (Version 1.0.0) [Software]. https://github.com/GBX-Max1220/InteractionKit/tree/interactionkit-v1.0.0",
+    "chicago": "Guo, Baixin. \"InteractionKit: Typed Specifications for AI Interaction Experiments.\" Version 1.0.0, 2026. https://github.com/GBX-Max1220/InteractionKit/tree/interactionkit-v1.0.0.",
+    "mla": "Guo, Baixin. InteractionKit: Typed Specifications for AI Interaction Experiments. Version 1.0.0, 2026, https://github.com/GBX-Max1220/InteractionKit/tree/interactionkit-v1.0.0."
   },
   "reproducible": {
     "env": "Node.js 20.9+ with npm",
@@ -47,7 +48,7 @@
     {
       "version": "v1.0.0-rc",
       "date": "2026-07-31",
-      "event": "Exact release-candidate payload passed contract tests, type checking, build, and clean-install reproduction; no tag was created."
+      "event": "Exact 23-file release payload was committed as 91bda82 and tagged interactionkit-v1.0.0 after contract tests, type checking, build, and clean-install reproduction."
     },
     {
       "version": "v0.3",

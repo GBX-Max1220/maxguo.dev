@@ -11,8 +11,8 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
       <div class="flex items-center gap-3 mb-4">
         <span class="badge badge-primary">Active</span>
-        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">v1.0.0 release candidate</span>
-        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">Updated: 2026-07-13</span>
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">v1.0.0 · Public release</span>
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">Updated: 2026-08-02</span>
       </div>
 
       <h1 class="mb-3">InteractionKit</h1>
@@ -39,6 +39,14 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
         </p>
       </div>
 
+      <div class="card-static mb-6 border-l-4 border-l-[var(--color-primary)]">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Flagship research direction</h2>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">
+          A planned Study 2 asks whether corrective interfaces improve appropriate reliance specifically when their information structure matches the AI answer's communication failure. The design is frozen; materials, preregistration, ethics approval, and human data are not complete.
+        </p>
+        <a href="/research/building-trustworthy-ai/interactionkit/research-brief/" class="link-arrow">Read the ten-minute research brief →</a>
+      </div>
+
       <div class="card-static mb-6">
         <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Solution</h2>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
@@ -55,14 +63,15 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
       <div class="card-static mb-6">
         <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Current Status</h2>
-        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">Main CS/HCI software artifact, v1.0.0 release candidate. The release gate covers three typed primitives, composition, JSON Schema export, structured event logging, seven contract tests, type checking, production build, and clean-install reproduction. It includes no participant data and makes no construct-validity, behavioral-equivalence, or cross-lab convergence claim.</p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">Main CS/HCI software artifact, publicly tagged as v1.0.0 at commit 91bda82. The release gate covers three typed primitives, composition, JSON Schema export, structured event logging, seven contract tests, type checking, production build, and clean-install reproduction. It includes no participant data and makes no construct-validity, behavioral-equivalence, or cross-lab convergence claim.</p>
       </div>
 
       <!-- Links -->
       <div class="card-static flex items-center justify-between">
         <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Links</span>
         <div class="flex gap-2">
-          <a href="https://github.com/GBX-Max1220/InteractionKit" class="btn btn-sm">GitHub →</a>
+          <a href="/research-packs/interactionkit-advisor-brief.pdf" class="btn btn-sm btn-primary">2-page brief ↓</a>
+          <a href="https://github.com/GBX-Max1220/InteractionKit/tree/interactionkit-v1.0.0" class="btn btn-sm">v1.0.0 source →</a>
         </div>
       </div>
 

@@ -4,256 +4,75 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <BaseLayout title="Projects" description="Research projects — Baixin Guo">
   <div class="container-content py-16">
     <div class="max-w-3xl">
-
       <span class="section-label mb-4">Projects</span>
-      <h1 class="mb-4">Research Projects</h1>
-      <p class="text-sm text-[var(--color-text-dim)] mb-10 max-w-lg">
-        Active artifacts are separated from frozen prototypes. InteractionKit is the main CS/HCI artifact; CheckMyCoach is a bounded offline evaluation. No project listed here includes human-participant evidence.
+      <h1 class="mb-4">One flagship, bounded supporting work</h1>
+      <p class="text-base text-[var(--color-text-dim)] mb-10 max-w-2xl">
+        InteractionKit is the active research direction. The remaining projects document formative evidence, infrastructure, or failed and frozen prototypes; they are not presented as parallel validated contributions.
       </p>
 
-      <!-- Project 1: MaxFitCalib-Bench -->
-      <div class="card mb-5">
-        <div class="flex items-center gap-3 mb-3">
-          <span class="w-7 h-7 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.55rem] font-bold">01</span>
-          <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Diagnose</span>
-          <span class="badge badge-gold">Frozen · Engineering Test Only</span>
+      <section class="card mb-10 border-l-4 border-l-[var(--color-primary)]">
+        <div class="flex flex-wrap items-center gap-3 mb-3">
+          <span class="badge badge-primary">Flagship</span>
+          <span class="badge badge-gold">v1.0.0 · Public release</span>
+          <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Software verified · human evidence pending</span>
         </div>
-        <h2 class="text-[1.3rem] mb-2">MaxFitCalib-Bench</h2>
-        <p class="text-sm text-[var(--color-text-dim)] mb-3">A closed controlled audit of an execution contract. v0.1 produced no parser-valid scientific outputs; v0.2 stopped at preflight before scientific calls. It supports engineering lessons only.</p>
-
-        <!-- Mini data table -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">72</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">v0.1 Attempts</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">0</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Scientific Outputs</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">2</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">v0.2 Preflights</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">Closed</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Scientific Direction</div>
-          </div>
+        <h2 class="text-2xl mb-3">InteractionKit</h2>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-5">
+          Typed experiment infrastructure for testing whether corrective interfaces must match how AI communication fails. The active Study 2 direction crosses two communication failures with two truthful corrective cards and treats matched versus mismatched correction as the key causal contrast.
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center"><div class="stat-number text-xl">3</div><div class="stat-label">typed primitives</div></div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center"><div class="stat-number text-xl">7</div><div class="stat-label">contract tests</div></div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center"><div class="stat-number text-xl">24</div><div class="stat-label">planned scenarios</div></div>
+          <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center"><div class="stat-number text-xl">0</div><div class="stat-label">participants claimed</div></div>
         </div>
-
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="badge text-[0.55rem]">LLM Evaluation</span>
-          <span class="badge text-[0.55rem]">Calibration</span>
-          <span class="badge text-[0.55rem]">Fitness AI</span>
-          <span class="badge text-[0.55rem]">ACSM Guidelines</span>
+        <div class="flex flex-wrap gap-3">
+          <a href="/research/building-trustworthy-ai/interactionkit/research-brief/" class="btn btn-primary">10-minute research brief</a>
+          <a href="/research/building-trustworthy-ai/interactionkit/" class="btn">Artifact details</a>
+          <a href="https://github.com/GBX-Max1220/InteractionKit" target="_blank" rel="noopener" class="btn">GitHub →</a>
         </div>
+      </section>
 
-        <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="link-arrow">View project details →</a>
+      <div class="flex items-center gap-3 mb-5">
+        <span class="section-label">Supporting evidence</span>
+        <div class="h-px flex-1 bg-[var(--color-rule-light)]"></div>
       </div>
 
-      <!-- Project 2: CheckMyCoach -->
-      <div class="card mb-5">
-        <div class="flex items-center gap-3 mb-3">
-          <span class="w-7 h-7 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.55rem] font-bold">02</span>
-          <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Build</span>
-          <span class="badge badge-gold">v2.2 · Fixed 40-case Evaluation</span>
-        </div>
-        <h2 class="text-[1.3rem] mb-2">CheckMyCoach</h2>
-        <p class="text-sm text-[var(--color-text-dim)] mb-3">An offline-evaluated four-stage research prototype that detects, diagnoses, and attempts to correct selected LLM outputs.</p>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <article class="card">
+          <div class="flex items-center gap-2 mb-3"><span class="badge badge-gold">Formative intervention</span></div>
+          <h2 class="text-lg mb-2">CheckMyCoach</h2>
+          <p class="text-sm text-[var(--color-text-dim)] mb-4">A fixed 40-case offline evaluation. It motivates targeted correction, but supplies no participant evidence or general performance estimate.</p>
+          <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">Evidence record →</a>
+        </article>
 
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">36/40</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Generic Removal</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">36/40</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Generic + Oracle</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">12/40</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">CMC End-to-End</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">0/40</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">CMC All-check Pass</div>
-          </div>
-        </div>
+        <article class="card">
+          <div class="flex items-center gap-2 mb-3"><span class="badge badge-gold">Data infrastructure</span></div>
+          <h2 class="text-lg mb-2">Knowledge Compiler</h2>
+          <p class="text-sm text-[var(--color-text-dim)] mb-4">A public software and data artifact containing 2,305 documented exercise-science Knowledge IR nodes and structural checks.</p>
+          <a href="/research/building-trustworthy-ai/knowledge-compiler/" class="link-arrow">Artifact details →</a>
+        </article>
 
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="badge text-[0.55rem]">LLM Pipeline</span>
-          <span class="badge text-[0.55rem]">Calibration</span>
-          <span class="badge text-[0.55rem]">GPT-4o-mini</span>
-          <span class="badge text-[0.55rem]">AI Safety</span>
-        </div>
+        <article class="card">
+          <div class="flex items-center gap-2 mb-3"><span class="badge badge-gold">Frozen · engineering only</span></div>
+          <h2 class="text-lg mb-2">MaxFitCalib-Bench</h2>
+          <p class="text-sm text-[var(--color-text-dim)] mb-4">A failed execution-contract audit that produced zero interpretable scientific outputs. Retained as an engineering methods record.</p>
+          <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="link-arrow">Audit record →</a>
+        </article>
 
-        <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">View project details →</a>
+        <article class="card">
+          <div class="flex items-center gap-2 mb-3"><span class="badge badge-gold">Frozen · simulation only</span></div>
+          <h2 class="text-lg mb-2">CalTrust</h2>
+          <p class="text-sm text-[var(--color-text-dim)] mb-4">A synthetic LinUCB prototype. Its metrics describe simulated proxies, not human trust or intervention effects.</p>
+          <a href="/research/understanding-human-trust/caltrust/" class="link-arrow">Simulation record →</a>
+        </article>
       </div>
 
-      <!-- Project 2b: Knowledge Compiler -->
-      <div class="card mb-5">
-        <div class="flex items-center gap-3 mb-3">
-          <span class="w-7 h-7 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.55rem] font-bold">KB</span>
-          <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Build</span>
-          <span class="badge badge-gold">Software/Data Artifact</span>
-        </div>
-        <h2 class="text-[1.3rem] mb-2">Knowledge Compiler</h2>
-        <p class="text-sm text-[var(--color-text-dim)] mb-3">Public software and data artifact with 2,305 documented Knowledge IR nodes across ACSM and NSCA exercise-science textbooks.</p>
-
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">707</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">ACSM Objects</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">1,598</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">NSCA Objects</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">13</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Ontology Types</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">5</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Structural Checks</div>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="badge text-[0.55rem]">Knowledge Extraction</span>
-          <span class="badge text-[0.55rem]">LLM Grounding</span>
-          <span class="badge text-[0.55rem]">Textbook NLP</span>
-          <span class="badge text-[0.55rem]">Pydantic</span>
-        </div>
-
-        <a href="/research/building-trustworthy-ai/knowledge-compiler/" class="link-arrow">View project details →</a>
-      </div>
-
-      <!-- Project 3: CalTrust -->
-      <div class="card mb-5">
-        <div class="flex items-center gap-3 mb-3">
-          <span class="w-7 h-7 rounded-full bg-[var(--color-gold-subtle)] flex items-center justify-center text-[var(--color-gold)] font-mono text-[0.55rem] font-bold">03</span>
-          <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Adapt</span>
-          <span class="badge badge-gold">Frozen · Simulation Only</span>
-        </div>
-        <h2 class="text-[1.3rem] mb-2">CalTrust</h2>
-        <p class="text-sm text-[var(--color-text-dim)] mb-3">A frozen LinUCB prototype evaluated on synthetic trials only. Reported metrics describe a simulation proxy and do not establish human trust calibration or intervention effects.</p>
-
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">0.70</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Simulated AUC</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">1.04</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Simulated RMSE</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">19.2K</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Trials</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">4</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Interventions</div>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="badge text-[0.55rem]">Contextual Bandit</span>
-          <span class="badge text-[0.55rem]">XGBoost</span>
-          <span class="badge text-[0.55rem]">LinUCB</span>
-          <span class="badge text-[0.55rem]">HCI</span>
-        </div>
-
-        <a href="/research/understanding-human-trust/caltrust/" class="link-arrow">View project details →</a>
-      </div>
-
-      <!-- Project 4: PI Discovery -->
-      <div class="card mb-5">
-        <div class="flex items-center gap-3 mb-3">
-          <span class="w-7 h-7 rounded-full bg-[var(--color-gold-subtle)] flex items-center justify-center text-[var(--color-gold)] font-mono text-[0.55rem] font-bold">PI</span>
-          <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Tool</span>
-          <span class="badge badge-gold">Local Prototype</span>
-        </div>
-        <h2 class="text-[1.3rem] mb-2">PI Discovery Engine</h2>
-        <p class="text-sm text-[var(--color-text-dim)] mb-3">Search Semantic Scholar and OpenAlex to find investigators by research topic, with ranked PI cards and outreach tracking.</p>
-
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">2</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">API Sources</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">7</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Contact Stages</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">∞</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Topics</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">Web</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Streamlit App</div>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="badge text-[0.55rem]">Semantic Scholar</span>
-          <span class="badge text-[0.55rem]">OpenAlex</span>
-          <span class="badge text-[0.55rem]">Streamlit</span>
-          <span class="badge text-[0.55rem]">RA Search</span>
-        </div>
-
-        <a href="/tools/pi-discovery/" class="link-arrow">View project details →</a>
-      </div>
-
-      <!-- Project 5: InteractionKit -->
-      <div class="card mb-5">
-        <div class="flex items-center gap-3 mb-3">
-          <span class="w-7 h-7 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.55rem] font-bold">IK</span>
-          <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Infrastructure</span>
-          <span class="badge badge-gold">v1.0.0 Release Candidate</span>
-        </div>
-        <h2 class="text-[1.3rem] mb-2">InteractionKit</h2>
-        <p class="text-sm text-[var(--color-text-dim)] mb-3">A typed specification format for defining AI interaction experiments and generating structured behavioral data; independent convergence has not yet been evaluated.</p>
-
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">3</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Pattern Primitives</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">v1.0.0</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Release Candidate</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">7</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Contract Tests</div>
-          </div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-2.5 text-center">
-            <div class="font-display text-lg text-[var(--color-ink)]">0</div>
-            <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Human Participants</div>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="badge text-[0.55rem]">Experiment Platform</span>
-          <span class="badge text-[0.55rem]">Trust Calibration</span>
-          <span class="badge text-[0.55rem]">Open Science</span>
-          <span class="badge text-[0.55rem]">Prolific</span>
-        </div>
-
-        <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">View project details →</a>
-      </div>
-
-      <!-- Research arc visual -->
-      <div class="card-static mt-8 bg-[var(--color-page-warm)] text-center py-6">
-        <p class="font-mono text-[0.65rem] text-[var(--color-text-muted)] uppercase tracking-wider mb-2">The Big Picture</p>
-        <p class="text-sm text-[var(--color-text-dim)] max-w-md mx-auto">
-          The portfolio distinguishes executable software evidence from scientific evidence. InteractionKit and CheckMyCoach are active; MaxFitCalib-Bench and CalTrust are frozen with their failure and simulation boundaries visible.
+      <div class="card-static mt-8">
+        <p class="text-sm text-[var(--color-text-dim)]">
+          <strong class="text-[var(--color-ink)]">Portfolio rule:</strong> software conformance, constructed-corpus outcomes, simulation behavior, and human evidence are reported as different evidence classes. None is used as a substitute for another.
         </p>
       </div>
-
     </div>
   </div>
 </BaseLayout>
