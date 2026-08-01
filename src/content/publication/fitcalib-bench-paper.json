@@ -1,23 +1,22 @@
 {
   "id": "fitcalib-bench-paper",
-  "title": "MaxFitCalib-Bench: A Benchmark for LLM Calibration in Fitness Advice",
+  "title": "MaxFitCalib-Bench: Controlled Audit of an LLM Calibration Benchmark Prototype",
   "authors": ["Baixin Guo"],
-  "venueTarget": "arXiv (cs.CL)",
   "year": 2026,
-  "status": "in_preparation",
-  "workflowState": "active",
-  "lastVerified": "2026-07-22",
-  "tags": ["Benchmark", "LLM Calibration", "Fitness AI"],
+  "status": "archived",
+  "workflowState": "archived",
+  "lastVerified": "2026-08-02",
+  "tags": ["Engineering Audit", "LLM Evaluation", "Research Infrastructure"],
   "links": {
     "code": "https://github.com/GBX-Max1220/FitCalib-Bench"
   },
   "citation": {
-    "bibtex": "@misc{guo2026fitcalib,\n  author = {Guo, Max},\n  title = {MaxFitCalib-Bench},\n  year = {2026}\n}",
-    "apa": "Guo, M. (2026). MaxFitCalib-Bench.",
-    "chicago": "Guo, Max. \"MaxFitCalib-Bench.\"",
-    "mla": "Guo, Max. \"MaxFitCalib-Bench.\""
+    "bibtex": "@unpublished{guo2026fitcalib_audit,\n  author = {Guo, Baixin},\n  title = {MaxFitCalib-Bench: Controlled Audit of an LLM Calibration Benchmark Prototype},\n  year = {2026},\n  note = {Archived engineering methods artifact; scientific direction closed}\n}",
+    "apa": "Guo, B. (2026). MaxFitCalib-Bench: Controlled audit of an LLM calibration benchmark prototype [Archived engineering methods artifact].",
+    "chicago": "Guo, Baixin. \"MaxFitCalib-Bench: Controlled Audit of an LLM Calibration Benchmark Prototype.\" Archived engineering methods artifact, 2026.",
+    "mla": "Guo, Baixin. \"MaxFitCalib-Bench: Controlled Audit of an LLM Calibration Benchmark Prototype.\" Archived engineering methods artifact, 2026."
   },
-  "abstract": "We present 126 expert-crafted fitness questions across 8 categories, grounded in ACSM/NSCA/AHA position stands. Evaluating frontier LLMs reveals the precision illusion: 92.9% Calibrated, but 6.3% Pseudo-precise outputs.",
-  "featured": true,
+  "abstract": "This archived methods artifact documents static construct formalization, deterministic evaluator validation, a failed v0.1 scientific execution, and a v0.2 provider preflight that correctly blocked scientific calls. It produced zero interpretable scientific outputs and does not validate Precision Illusion or any model-behavior claim.",
+  "featured": false,
   "projectId": "fitcalib-bench"
 }

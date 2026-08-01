@@ -1,69 +1,65 @@
 {
   "id": "checkmycoach",
   "programId": "building-trustworthy-ai",
-  "title": "CheckMyCoach: A Calibration Pipeline for LLM Uncertainty Expression",
+  "title": "CheckMyCoach: Controlled Evaluation of LLM Correction Strategies",
   "shortTitle": "CheckMyCoach",
+  "oneLiner": "A provenance-preserving framework for comparing evidence-based correction strategies on a fixed corpus.",
   "workflowState": "active",
   "evidenceLevel": "offline_evaluated",
-  "version": "v1.0",
-  "updated": "2026-07-03",
-  "lastVerified": "2026-07-22",
+  "version": "evaluation v2.2",
+  "updated": "2026-07-31",
+  "lastVerified": "2026-08-02",
   "keyTakeaways": [
-    "CheckMyCoach is a four-stage calibration pipeline (Detection → Diagnosis → Correction → Validation) that automatically identifies and rewrites Pseudo-precise and Overconfident LLM outputs.",
-    "The pipeline improved Overconfident outputs by +0.75 UCS points and Pseudo-precise outputs by +0.17 UCS points without degrading already-Calibrated outputs (Δ = 0.00).",
-    "The validation stage (M4) enforces four sanity checks and falls back to the original output on failure, prioritizing 'do no harm' over maximum correction coverage.",
-    "At ~$0.001 per correction via GPT-4o-mini, the pipeline is cost-effective for real-time deployment in AI advisory systems."
+    "The v2.2 package compares Original, Generic, Generic plus a frozen Oracle Failure Specification, and the selectively routed CheckMyCoach pipeline on 40 constructed fitness-advice cases.",
+    "Generic and Generic+Oracle each removed the prespecified targeted failure in 36/40 cases, with identical case-level targeted-removal outcomes in this single execution.",
+    "CheckMyCoach routed 15/40 cases to correction. All 15 attempted M3 calls returned a correction; 12 passed M4 and removed the targeted failure, yielding 12/40 end-to-end targeted-failure removal.",
+    "No CheckMyCoach output passed every deterministic target-and-retention check. The experiment does not establish superiority, validated detection, equivalence, human benefit, or cross-domain generalization."
   ],
-  "hciRelevance": "Tests whether calibration is a trainable skill — if trust can be repaired through automated correction, then calibration is a design problem, not a user education problem.",
+  "hciRelevance": "Provides a controlled way to separate routing coverage, correction execution, validator acceptance, targeted-failure removal, and information retention before testing effects on human reliance.",
   "faq": [
     {
-      "q": "What failure types does CheckMyCoach diagnose?",
-      "a": "Three types, priority-ordered: (1) Context Mismatch — contradictory features in the output, (2) Template Dominance — superiority claims without evidence, (3) Cue Leakage — pseudo-precise numbers without evidence grounding."
+      "q": "Did the oracle failure specification improve correction?",
+      "a": "Not in this single 40-case execution: Generic and Generic+Oracle had identical targeted-removal decisions. This is not an equivalence or non-inferiority result and does not prove that oracle information has no value."
     },
     {
-      "q": "Does CheckMyCoach ever make outputs worse?",
-      "a": "In 3 of 19 scorable cases, corrections lowered the UCS score. These cases are a focus of ongoing improvement. The validation stage (M4) catches basic errors (truncation, unchanged text, increased assertion count) and falls back to the original output."
+      "q": "How did the full CheckMyCoach pipeline perform?",
+      "a": "M1 routed 15/40 constructed failures to M3. Twelve delivered outputs removed the targeted failure, so the end-to-end result was 12/40. The other 25 cases were not API failures; they never reached M3."
     },
     {
-      "q": "Is it worth building a four-stage system for 6.3% of outputs?",
-      "a": "Yes — Pseudo-precise outputs cluster in the most safety-critical scenarios (23.7% on mixed-evidence questions), and at 10 statements per session, users face ~48% cumulative exposure. In safety-critical domains, individual undetected errors carry high costs."
+      "q": "Has the evaluation been human validated?",
+      "a": "No. Outcomes are deterministic proxy checks on one fixed constructed corpus. No usability, trust, safety, or human-validity claim is made."
     }
   ],
   "links": {
     "code": "https://github.com/GBX-Max1220/CheckMyCoach"
   },
   "citation": {
-    "bibtex": "@misc{guo2026checkmycoach,\n  author = {Guo, Max},\n  title = {From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice},\n  year = {2026},\n  url = {https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/checkmycoach/}\n}",
-    "apa": "Guo, M. (2026). From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice. https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/checkmycoach/",
-    "chicago": "Guo, Max. \"From Precision Illusion to Calibration Intervention.\" 2026. https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/checkmycoach/.",
-    "mla": "Guo, Max. \"From Precision Illusion to Calibration Intervention.\" 2026, https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/checkmycoach/."
+    "bibtex": "@software{guo_checkmycoach_2026,\n  author = {Guo, Baixin},\n  title = {CheckMyCoach: Controlled Evaluation of LLM Correction Strategies},\n  year = {2026},\n  note = {Offline-evaluated research prototype; fixed 40-case corpus},\n  url = {https://github.com/GBX-Max1220/CheckMyCoach}\n}",
+    "apa": "Guo, B. (2026). CheckMyCoach: Controlled evaluation of LLM correction strategies [Offline-evaluated research prototype]. https://github.com/GBX-Max1220/CheckMyCoach",
+    "chicago": "Guo, Baixin. \"CheckMyCoach: Controlled Evaluation of LLM Correction Strategies.\" Offline-evaluated research prototype, 2026. https://github.com/GBX-Max1220/CheckMyCoach.",
+    "mla": "Guo, Baixin. CheckMyCoach: Controlled Evaluation of LLM Correction Strategies. Offline-evaluated research prototype, 2026, https://github.com/GBX-Max1220/CheckMyCoach."
   },
   "reproducible": {
-    "env": "Python 3.12 with requirements.txt; OpenRouter API key for M3 (GPT-4o-mini); fallback mode available when API is offline",
-    "quickStart": "git clone ... && cd CheckMyCoach && pip install -r requirements.txt && python calibration_agent/e2e_test.py"
+    "env": "Python 3.12 with requirements.txt; OpenRouter API key is required only for new M3 calls.",
+    "quickStart": "Use the v2.2 artifact instructions and verify the frozen execution manifest before reproducing any evaluation step."
   },
   "changelog": [
     {
+      "version": "evaluation v2.2",
+      "date": "2026-07-31",
+      "event": "Final claim boundary reconstructed routing, M3 execution, M4 acceptance, targeted-failure removal, retention, and end-to-end denominators."
+    },
+    {
       "version": "v1.0",
       "date": "2026-07-03",
-      "event": "Paper complete (8.5/9 sections). Discussion expanded to ~985 words. Human Evaluation skeleton in place."
+      "event": "Initial four-stage research prototype and manuscript draft."
     },
     {
       "version": "v0.3",
       "date": "2026-06-20",
-      "event": "44 tests (41 unit + 3 e2e) all passing. Baseline comparison (24 cases) complete."
-    },
-    {
-      "version": "v0.2",
-      "date": "2026-06-01",
-      "event": "M1-M4 pipeline complete with UCS Engine integration"
-    },
-    {
-      "version": "v0.1",
-      "date": "2026-04-15",
-      "event": "Prototype: rule-based detection + correction"
+      "event": "Initial unit and end-to-end test suite and baseline comparison."
     }
   ],
-  "relatedIds": ["fitcalib-bench", "caltrust"],
-  "order": 3
+  "relatedIds": ["interactionkit", "fitcalib-bench"],
+  "order": 1
 }

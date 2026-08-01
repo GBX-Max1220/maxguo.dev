@@ -26,21 +26,18 @@
     },
     {
       "q": "Is it usable for others?",
-      "a": "Yes — the Streamlit app is designed for general use. Enter research topics, set filters, and get a ranked list of PI candidates with decision-ready profiles."
+      "a": "The current local prototype supports topic and country filtering and ranked PI cards. A public release has not yet been prepared."
     }
   ],
-  "links": {
-    "code": "https://github.com/GBX-Max1220/pi-discovery-pipeline"
-  },
+  "links": {},
   "citation": {
-    "bibtex": "@misc{guo2026pidiscovery,\n  author = {Guo, Max},\n  title = {PI Discovery Engine: From Research Topics to Investigator Cards},\n  year = {2026},\n  url = {https://gbx-max1220.github.io/maxguo.dev/tools/pi-discovery/}\n}",
-    "apa": "Guo, M. (2026). PI Discovery Engine: From Research Topics to Investigator Cards. https://gbx-max1220.github.io/maxguo.dev/tools/pi-discovery/",
-    "chicago": "Guo, Max. \"PI Discovery Engine: From Research Topics to Investigator Cards.\" 2026. https://gbx-max1220.github.io/maxguo.dev/tools/pi-discovery/.",
-    "mla": "Guo, Max. \"PI Discovery Engine: From Research Topics to Investigator Cards.\" 2026, https://gbx-max1220.github.io/maxguo.dev/tools/pi-discovery/."
+    "bibtex": "@software{guo_pi_discovery_2026,\n  author = {Guo, Baixin},\n  title = {PI Discovery Engine: From Research Topics to Investigator Cards},\n  year = {2026},\n  note = {Software prototype; public release pending},\n  url = {https://gbx-max1220.github.io/maxguo.dev/tools/pi-discovery/}\n}",
+    "apa": "Guo, B. (2026). PI Discovery Engine: From research topics to investigator cards [Software prototype; public release pending].",
+    "chicago": "Guo, Baixin. \"PI Discovery Engine: From Research Topics to Investigator Cards.\" Software prototype; public release pending, 2026.",
+    "mla": "Guo, Baixin. PI Discovery Engine: From Research Topics to Investigator Cards. Software prototype; public release pending, 2026."
   },
   "reproducible": {
-    "env": "Python 3.11+ with pip install pyalex semanticscholar streamlit pandas pyyaml",
-    "quickStart": "git clone https://github.com/GBX-Max1220/pi-discovery-pipeline && cd pi-discovery-pipeline && pip install -e . && streamlit run src/web/app.py"
+    "env": "Local Python 3.11+ prototype; public setup instructions pending."
   },
   "changelog": [
     {

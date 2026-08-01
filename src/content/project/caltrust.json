@@ -1,60 +1,56 @@
 {
   "id": "caltrust",
   "programId": "understanding-human-trust",
-  "title": "CalTrust: Adaptive Trust Calibration via Contextual Bandits",
+  "title": "CalTrust: Contextual-Bandit Simulation for Adaptive Calibration",
   "shortTitle": "CalTrust",
-  "workflowState": "active",
+  "oneLiner": "A frozen simulation prototype for exploring adaptive selection among calibration interventions.",
+  "workflowState": "frozen",
   "evidenceLevel": "simulation_tested",
-  "version": "v1.0",
+  "version": "simulation prototype",
   "updated": "2026-07-03",
-  "lastVerified": "2026-07-22",
+  "lastVerified": "2026-08-02",
   "keyTakeaways": [
-    "We built a LinUCB contextual bandit that selects among four calibration interventions (none, calibrate only, comparison, reflection) based on user context and output characteristics.",
-    "An XGBoost trust predictor (AUC 0.70, RMSE 1.04) trained on 19,200 simulation trials predicts user acceptance and confidence for each intervention arm.",
-    "The bandit successfully learns to choose 'no intervention' for naive users (~46.7%), avoiding unnecessary calibration that would waste cognitive effort.",
-    "Simulation results show adaptive policies can match or exceed static calibration baselines while reducing unnecessary interventions."
+    "CalTrust implements a LinUCB simulation that selects among four calibration interventions using synthetic user contexts and output features.",
+    "An XGBoost proxy trained on 19,200 simulated trials achieved AUC 0.70 and RMSE 1.04 on simulated acceptance and confidence outcomes.",
+    "The reported policy behavior describes the assumptions of the simulator and synthetic profiles; it is not evidence about human trust or intervention effectiveness.",
+    "The contextual-bandit direction is frozen pending real behavioral evidence. InteractionKit is maintained as a separate interaction-specification artifact."
   ],
-  "hciRelevance": "Shows that one-size-fits-all uncertainty presentation is suboptimal — different users and contexts require different calibration strategies, making personalisation an HCI design challenge.",
+  "hciRelevance": "Provides an inspectable simulation for generating hypotheses about adaptive uncertainty presentation, while making clear that human validation is required before design recommendations are justified.",
   "faq": [
     {
-      "q": "Why LinUCB instead of Thompson Sampling?",
-      "a": "LinUCB provides deterministic recommendations suitable for the experimental context where reproducibility across sessions is desirable. Thompson Sampling would be a natural alternative for future work, particularly if we extend to non-stationary reward distributions."
+      "q": "Does CalTrust improve human trust calibration?",
+      "a": "Unknown. All reported outcomes come from synthetic users and simulated rewards; no participant study has tested the policy."
     },
     {
-      "q": "Why does the naive user profile still show -0.4% below random?",
-      "a": "This is a ceiling effect: naive users already accept ~89% of outputs, so the bandit's exploration cost during learning outweighs potential improvement. The bandit correctly learns to choose 'no intervention' (46.7% of trials), which is the desired behavior — it just takes time to learn."
+      "q": "Why is the project frozen?",
+      "a": "Additional simulator optimization would not resolve the missing construct and behavioral validation. The reusable interaction-specification work continues separately in InteractionKit."
     }
   ],
   "links": {
     "code": "https://github.com/GBX-Max1220/CalTrust"
   },
   "citation": {
-    "bibtex": "@misc{guo2026caltrust,\n  author = {Guo, Max},\n  title = {CalTrust: Adaptive Trust Calibration via Contextual Bandits},\n  year = {2026},\n  url = {https://gbx-max1220.github.io/maxguo.dev/research/understanding-human-trust/caltrust/}\n}",
-    "apa": "Guo, M. (2026). CalTrust: Adaptive Trust Calibration via Contextual Bandits. https://gbx-max1220.github.io/maxguo.dev/research/understanding-human-trust/caltrust/",
-    "chicago": "Guo, Max. \"CalTrust: Adaptive Trust Calibration via Contextual Bandits.\" 2026. https://gbx-max1220.github.io/maxguo.dev/research/understanding-human-trust/caltrust/.",
-    "mla": "Guo, Max. \"CalTrust: Adaptive Trust Calibration via Contextual Bandits.\" 2026, https://gbx-max1220.github.io/maxguo.dev/research/understanding-human-trust/caltrust/."
+    "bibtex": "@software{guo_caltrust_2026,\n  author = {Guo, Baixin},\n  title = {CalTrust: Contextual-Bandit Simulation for Adaptive Calibration},\n  year = {2026},\n  note = {Frozen simulation-tested research prototype; no human validation},\n  url = {https://github.com/GBX-Max1220/CalTrust}\n}",
+    "apa": "Guo, B. (2026). CalTrust: Contextual-bandit simulation for adaptive calibration [Frozen simulation prototype]. https://github.com/GBX-Max1220/CalTrust",
+    "chicago": "Guo, Baixin. \"CalTrust: Contextual-Bandit Simulation for Adaptive Calibration.\" Frozen simulation prototype, 2026. https://github.com/GBX-Max1220/CalTrust.",
+    "mla": "Guo, Baixin. CalTrust: Contextual-Bandit Simulation for Adaptive Calibration. Frozen simulation prototype, 2026, https://github.com/GBX-Max1220/CalTrust."
   },
   "reproducible": {
-    "env": "Python 3.12 with requirements.txt (see repo)",
-    "quickStart": "git clone ... && cd CalTrust && pip install -r requirements.txt && python notebooks/simulation_benchmark.py"
+    "env": "Python 3.12 with requirements.txt",
+    "quickStart": "git clone https://github.com/GBX-Max1220/CalTrust && cd CalTrust && pip install -r requirements.txt && python notebooks/simulation_benchmark.py"
   },
   "changelog": [
     {
+      "version": "frozen",
+      "date": "2026-08-02",
+      "event": "Adaptive-policy direction frozen at the simulation-evidence boundary; no human-effect claim is retained."
+    },
+    {
       "version": "v1.0",
       "date": "2026-07-03",
-      "event": "Simulation pipeline complete. XGBoost trained on 19,200 trials (AUC 0.70, RMSE 1.04)"
-    },
-    {
-      "version": "v0.2",
-      "date": "2026-06-15",
-      "event": "LinUCB bandit + Streamlit frontend integrated"
-    },
-    {
-      "version": "v0.1",
-      "date": "2026-02-01",
-      "event": "Prototype: rule-based fallback + synthetic data generation"
+      "event": "Simulation pipeline and synthetic XGBoost proxy completed."
     }
   ],
-  "relatedIds": ["fitcalib-bench", "checkmycoach"],
-  "order": 1
+  "relatedIds": ["interactionkit", "checkmycoach"],
+  "order": 5
 }

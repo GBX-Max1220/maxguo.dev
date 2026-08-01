@@ -6,18 +6,18 @@
   "year": 2026,
   "status": "in_preparation",
   "workflowState": "active",
-  "lastVerified": "2026-07-22",
+  "lastVerified": "2026-08-02",
   "tags": ["LLM Calibration", "Human-AI Trust", "Fitness AI"],
   "links": {
-    "arxiv": ""
+    "code": "https://github.com/GBX-Max1220/CheckMyCoach"
   },
   "citation": {
-    "bibtex": "@misc{guo2026checkmycoach,\n  author = {Guo, Max},\n  title = {From Precision Illusion to Calibration Intervention},\n  year = {2026},\n  url = {https://gbx-max1220.github.io/maxguo.dev/research/building-trustworthy-ai/checkmycoach/}\n}",
-    "apa": "Guo, M. (2026). From Precision Illusion to Calibration Intervention.",
-    "chicago": "Guo, Max. \"From Precision Illusion to Calibration Intervention.\" 2026.",
-    "mla": "Guo, Max. \"From Precision Illusion to Calibration Intervention.\" 2026."
+    "bibtex": "@unpublished{guo2026checkmycoach,\n  author = {Guo, Baixin},\n  title = {From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice},\n  year = {2026},\n  note = {Manuscript in preparation}\n}",
+    "apa": "Guo, B. (2026). From precision illusion to calibration intervention: A framework for evaluating and correcting LLM uncertainty expression in safety-critical advice [Manuscript in preparation].",
+    "chicago": "Guo, Baixin. \"From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice.\" Manuscript in preparation, 2026.",
+    "mla": "Guo, Baixin. \"From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice.\" Manuscript in preparation, 2026."
   },
-  "abstract": "Large language models are increasingly used as advisors in safety-critical domains, but standard benchmarks measure accuracy rather than calibration. We introduce the UCS taxonomy, evaluate 126 fitness advice questions across two models (finding the precision illusion: 92.9% Calibrated, 6.3% Pseudo-precise), and present CheckMyCoach, a four-stage calibration pipeline.",
+  "abstract": "This manuscript reports a controlled descriptive comparison on one fixed 40-case constructed fitness-advice corpus. Generic and Generic+Oracle each removed the prespecified targeted failure in 36/40 cases. CheckMyCoach routed 15/40 cases to correction and achieved 12/40 end-to-end targeted-failure removal. The study contains no human validation and does not establish system superiority, validated detection, equivalence, or user-level effects.",
   "featured": true,
   "projectId": "checkmycoach"
 }

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="InteractionKit" description="A Methodological Infrastructure for HAI Trust Calibration">
+<BaseLayout title="InteractionKit" description="Typed specifications for AI interaction experiments">
   <div class="container-content py-16">
     <div class="max-w-2xl">
 
@@ -11,12 +11,12 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
       <div class="flex items-center gap-3 mb-4">
         <span class="badge badge-primary">Active</span>
-        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">v0.3</span>
+        <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">v1.0.0 release candidate</span>
         <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">Updated: 2026-07-13</span>
       </div>
 
       <h1 class="mb-3">InteractionKit</h1>
-      <p class="text-base text-[var(--color-text-dim)] mb-6">A Methodological Infrastructure for HAI Trust Calibration</p>
+      <p class="text-base text-[var(--color-text-dim)] mb-6">A typed specification format for defining AI interaction experiments and generating structured behavioral data.</p>
 
       <!-- Elevator pitch -->
       <div class="card-static mb-8">
@@ -24,7 +24,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
           <strong class="text-[var(--color-ink)]">The problem:</strong> Different labs studying the "same" HAI interaction pattern produce incompatible behavioral data — different variable names, different logging formats, different measurement conventions.
         </p>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mt-3">
-          <strong class="text-[var(--color-ink)]">The solution:</strong> InteractionKit provides a versioned log schema (14 columns) and an experiment platform such that two independent implementations produce data that can be merged with minimal translation.
+          <strong class="text-[var(--color-ink)]">The artifact:</strong> InteractionKit defines research-oriented typed PatternSpec objects, three pattern primitives, experiment composition, JSON Schema generation, and structured event logging. Shared schemas are designed to reduce translation effort; independent-implementation convergence has not yet been evaluated.
         </p>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mt-3">
           <strong class="text-[var(--color-ink)]">Design:</strong> Built on earlier work on calibration measurement (MaxFitCalib) and knowledge infrastructure (Knowledge Compiler).
@@ -42,7 +42,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
       <div class="card-static mb-6">
         <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Solution</h2>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-          InteractionKit provides a versioned log schema (14 columns) and an experiment platform such that two independent implementations produce data that can be merged with minimal translation.
+          InteractionKit supports consistent experiment specification and structured behavioral logging. It does not yet claim construct validation, independent-implementation equivalence, or cross-lab reproducibility.
         </p>
       </div>
 
@@ -51,6 +51,11 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
           Built on earlier work on calibration measurement (MaxFitCalib) and knowledge infrastructure (Knowledge Compiler).
         </p>
+      </div>
+
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Current Status</h2>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">Main CS/HCI software artifact, v1.0.0 release candidate. The release gate covers three typed primitives, composition, JSON Schema export, structured event logging, seven contract tests, type checking, production build, and clean-install reproduction. It includes no participant data and makes no construct-validity, behavioral-equivalence, or cross-lab convergence claim.</p>
       </div>
 
       <!-- Links -->
