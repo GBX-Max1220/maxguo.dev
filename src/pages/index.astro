@@ -8,7 +8,7 @@ const featuredPublications = (await getCollection('publication'))
   .sort((a, b) => b.data.year - a.data.year || a.data.title.localeCompare(b.data.title));
 ---
 
-<BaseLayout title="Home" description="LLM Calibration & Trust in AI Coaching | Baixin Guo" ogImage="/og/home.png" hideNav hideTopBar>
+<BaseLayout title="Home" description="I study how AI systems communicate reliability, uncertainty, and numerical precision—and how these signals shape human reliance and decision quality" ogImage="/og/home.png" hideNav hideTopBar>
 
 <!-- ================================================================ -->
 <!-- TWO-COLUMN LAYOUT: Left = brand sidebar, Right = content flow    -->
@@ -100,13 +100,10 @@ const featuredPublications = (await getCollection('publication'))
         HCI &amp; AI Research · Applied Psychology
       </p>
       <p class="font-sans text-base text-[var(--color-text-dim)] leading-relaxed mb-6">
-        I study when confident AI language outruns its evidence — and build auditable methods for specifying, testing, and correcting that mismatch.
+        Human-AI Decision Calibration under Epistemic Uncertainty — I study how AI systems communicate reliability, uncertainty, and numerical precision, and how these signals shape human reliance and decision quality.
       </p>
       <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-6">
-        My current program centers on <strong class="text-[var(--color-ink)]">InteractionKit</strong>: typed experiment infrastructure for testing whether corrective interfaces must match how AI communication fails. Earlier systems are retained as bounded formative or engineering evidence, not parallel flagship claims.
-      </p>
-      <p class="font-mono text-[0.65rem] text-[var(--color-primary)] leading-relaxed mb-6">
-        Current application domain: fitness coaching. No cross-domain validation claimed.
+        Current study: how displayed numerical precision and supporting-evidence resolution shape reliance on AI-generated advice. Study design in progress; no human-participant findings claimed.
       </p>
 
       <!-- CTA -->
@@ -146,8 +143,8 @@ const featuredPublications = (await getCollection('publication'))
           <div class="stat-number text-[1.6rem]">2,305</div>          <div class="stat-label">Knowledge IR nodes (2 textbooks)</div>
         </div>
         <div>
-          <div class="stat-number text-[1.6rem]">12/40</div>
-          <div class="stat-label">Targeted failures removed end-to-end (fixed corpus)</div>
+          <div class="stat-number text-[1.6rem]">M1–M4</div>
+          <div class="stat-label">Calibration correction pipeline (fixed corpus)</div>
         </div>
         <div>
           <div class="stat-number text-[1.6rem]">0</div>
@@ -171,7 +168,7 @@ const featuredPublications = (await getCollection('publication'))
 
       <!-- Home hero banner -->
       <div class="mb-10 rounded-xl overflow-hidden border border-[var(--color-rule-light)]">
-        <img src={'/images/home-hero.png'} alt="Precision Illusion — From Theory to Infrastructure" width="1200" height="500" class="w-full h-auto" loading="eager" />
+        <img src={'/images/home-hero.png'} alt="Human-AI decision calibration research overview" width="1200" height="500" class="w-full h-auto" loading="eager" />
       </div>
 
       <!-- RESEARCH ARC -->
@@ -182,7 +179,7 @@ const featuredPublications = (await getCollection('publication'))
         </div>
         <h2 class="text-[1.6rem] mb-2">Research Program</h2>
         <p class="font-sans text-sm text-[var(--color-text-dim)] mb-8 max-w-md">
-          One flagship direction, supported by bounded formative and engineering artifacts.
+          One research program, supported by bounded formative and engineering artifacts.
         </p>
 
         <div class="space-y-4">
@@ -190,7 +187,7 @@ const featuredPublications = (await getCollection('publication'))
           <div class="card group overflow-hidden">
             <div class="flex items-center gap-3 mb-3">
               <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.55rem] font-bold">01</span>
-              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Main CS/HCI artifact · v1.0.0</span>
+              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Frozen methodological asset · pending human validation</span>
             </div>
             <h3 class="text-[1.05rem] mb-2">InteractionKit</h3>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
@@ -210,7 +207,7 @@ const featuredPublications = (await getCollection('publication'))
             </div>
             <h3 class="text-[1.05rem] mb-2">CheckMyCoach</h3>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-              A four-stage research prototype (Detect → Diagnose → Correct → Validate). In a fixed 40-case evaluation, CheckMyCoach routed 15/40 cases to correction and removed the targeted failure in 12 of those 15 cases (12/40 end-to-end). These are single-execution, constructed-corpus descriptive results.
+              A four-stage research prototype (Detect → Diagnose → Correct → Validate). In a fixed 40-case evaluation, the pipeline routed candidate failures to correction, produced a correction for each routed case, and validated a subset of them; no delivered output passed every deterministic check. These are single-execution, constructed-corpus descriptive results.
             </p>
             <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach →</a>
           </div>
@@ -237,7 +234,7 @@ const featuredPublications = (await getCollection('publication'))
             </div>
             <h3 class="text-[1.05rem] mb-2">CalTrust</h3>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-              A frozen LinUCB prototype evaluated only with 19,200 synthetic trials. AUC 0.70 and RMSE 1.04 describe the simulation proxy, not human trust, behavior, or intervention effects.
+              A frozen LinUCB prototype evaluated on synthetic trial data in simulation. The reported proxy metrics describe the simulator, not human trust, behavior, or intervention effects.
             </p>
             <a href="/research/understanding-human-trust/caltrust/" class="link-arrow">CalTrust →</a>
           </div>
@@ -333,7 +330,7 @@ const featuredPublications = (await getCollection('publication'))
           <div class="log-item px-4 py-3">
             <span class="log-date">Jul 2</span>
             <div class="log-dot"></div>
-            <p class="font-sans text-sm text-[var(--color-text-dim)]">CalTrust: XGBoost AUC 0.70, RMSE 1.04</p>
+            <p class="font-sans text-sm text-[var(--color-text-dim)]">CalTrust: LinUCB simulation prototype (synthetic trial data)</p>
           </div>
         </div>
       </section>

@@ -17,7 +17,7 @@
     "chicago": "Guo, Baixin. \"From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice.\" Manuscript in preparation, 2026.",
     "mla": "Guo, Baixin. \"From Precision Illusion to Calibration Intervention: A Framework for Evaluating and Correcting LLM Uncertainty Expression in Safety-Critical Advice.\" Manuscript in preparation, 2026."
   },
-  "abstract": "This manuscript reports a controlled descriptive comparison on one fixed 40-case constructed fitness-advice corpus. Generic and Generic+Oracle each removed the prespecified targeted failure in 36/40 cases. CheckMyCoach routed 15/40 cases to correction and achieved 12/40 end-to-end targeted-failure removal. The study contains no human validation and does not establish system superiority, validated detection, equivalence, or user-level effects.",
+  "abstract": "This manuscript reports a controlled descriptive comparison on one fixed 40-case constructed fitness-advice corpus. Generic and Generic+Oracle revision produced identical per-case decisions in this single execution. CheckMyCoach routes candidate calibration failures to correction and validates the revised outputs; no delivered output passed every deterministic check. The study contains no human validation and does not establish system superiority, validated detection, equivalence, or user-level effects.",
   "featured": true,
   "projectId": "checkmycoach"
 }

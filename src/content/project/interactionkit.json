@@ -4,7 +4,7 @@
   "title": "InteractionKit: Typed Specifications for AI Interaction Experiments",
   "shortTitle": "InteractionKit",
   "oneLiner": "Typed experiment infrastructure for testing whether corrective interfaces must match how AI communication fails.",
-  "workflowState": "active",
+  "workflowState": "frozen",
   "evidenceLevel": "prototype",
   "version": "v1.0.0",
   "updated": "2026-08-02",

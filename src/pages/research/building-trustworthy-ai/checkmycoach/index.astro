@@ -23,39 +23,29 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
         </p>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
-        <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center">
-          <div class="font-display text-xl text-[var(--color-ink)]">36/40</div>
-          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Generic Removal</div>
-        </div>
-        <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center">
-          <div class="font-display text-xl text-[var(--color-ink)]">36/40</div>
-          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">Generic + Oracle</div>
-        </div>
-        <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center">
-          <div class="font-display text-xl text-[var(--color-ink)]">12/40</div>
-          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">CMC End-to-End</div>
-        </div>
-        <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center">
-          <div class="font-display text-xl text-[var(--color-ink)]">0/40</div>
-          <div class="text-[0.55rem] font-mono text-[var(--color-text-muted)] uppercase">CMC All-check Pass</div>
-        </div>
+      <div class="card-static mb-6">
+        <h2 class="font-sans text-xs font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-2">What the evaluation shows</h2>
+        <ul class="space-y-2 text-sm text-[var(--color-text-dim)] list-disc list-inside">
+          <li>CheckMyCoach provides a pipeline for detecting and revising candidate calibration failures.</li>
+          <li>Generic revision and Generic-plus-Oracle revision produced identical per-case decisions in this single execution; this is not an equivalence result and does not show that oracle information has no value.</li>
+          <li>No delivered output passed every deterministic target-and-retention check; the evaluation is descriptive, single-execution, and not a validated effectiveness claim.</li>
+        </ul>
       </div>
 
       <div class="card-static mb-6">
         <h2 class="text-[1.1rem] mb-3">Pipeline trace</h2>
         <ol class="space-y-3 text-sm text-[var(--color-text-dim)] list-decimal list-inside">
-          <li><strong class="text-[var(--color-ink)]">M1 routing:</strong> 15/40 cases were routed, all for numerical specificity.</li>
-          <li><strong class="text-[var(--color-ink)]">M3 correction:</strong> all 15 routed cases returned a correction.</li>
-          <li><strong class="text-[var(--color-ink)]">M4 validation:</strong> 12/15 corrections passed the pipeline's checks and removed the prespecified targeted failure.</li>
-          <li><strong class="text-[var(--color-ink)]">End to end:</strong> 12/40 cases achieved targeted-failure removal; none passed every evaluation check.</li>
+          <li><strong class="text-[var(--color-ink)]">M1 routing:</strong> a subset of the 40 constructed cases was routed to correction, all for numerical specificity.</li>
+          <li><strong class="text-[var(--color-ink)]">M3 correction:</strong> every routed case returned a correction from the correction model.</li>
+          <li><strong class="text-[var(--color-ink)]">M4 validation:</strong> a subset of the corrections passed the pipeline's validation checks and changed the delivered output.</li>
+          <li><strong class="text-[var(--color-ink)]">End to end:</strong> none of the delivered outputs passed every evaluation check.</li>
         </ol>
       </div>
 
       <div class="card-static mb-8">
         <h2 class="text-[1.1rem] mb-3">Baseline interpretation</h2>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-          Generic and Generic+Oracle each removed the targeted failure in 36/40 cases and made identical case-level targeted-removal decisions in this execution. That observation is not an equivalence result and does not show that oracle information has no value.
+          Generic and Generic+Oracle revision produced identical per-case decisions in this single execution. That observation is not an equivalence result and does not show that oracle information has no value.
         </p>
       </div>
 

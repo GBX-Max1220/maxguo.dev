@@ -11,19 +11,19 @@
   "lastVerified": "2026-08-02",
   "keyTakeaways": [
     "The v2.2 package compares Original, Generic, Generic plus a frozen Oracle Failure Specification, and the selectively routed CheckMyCoach pipeline on 40 constructed fitness-advice cases.",
-    "Generic and Generic+Oracle each removed the prespecified targeted failure in 36/40 cases, with identical case-level targeted-removal outcomes in this single execution.",
-    "CheckMyCoach routed 15/40 cases to correction. All 15 attempted M3 calls returned a correction; 12 passed M4 and removed the targeted failure, yielding 12/40 end-to-end targeted-failure removal.",
+    "Generic and Generic+Oracle revision produced identical per-case decisions in this single execution; this is not an equivalence result and does not show that oracle information has no value.",
+    "CheckMyCoach provides a pipeline for detecting and revising candidate calibration failures. In this single execution, every routed case received a correction and a subset of those corrections passed the pipeline's validation checks; no delivered output passed every deterministic target-and-retention check.",
     "No CheckMyCoach output passed every deterministic target-and-retention check. The experiment does not establish superiority, validated detection, equivalence, human benefit, or cross-domain generalization."
   ],
   "hciRelevance": "Provides a controlled way to separate routing coverage, correction execution, validator acceptance, targeted-failure removal, and information retention before testing effects on human reliance.",
   "faq": [
     {
       "q": "Did the oracle failure specification improve correction?",
-      "a": "Not in this single 40-case execution: Generic and Generic+Oracle had identical targeted-removal decisions. This is not an equivalence or non-inferiority result and does not prove that oracle information has no value."
+      "a": "Not in this single execution: Generic and Generic+Oracle produced identical per-case decisions. This is not an equivalence or non-inferiority result and does not prove that oracle information has no value."
     },
     {
       "q": "How did the full CheckMyCoach pipeline perform?",
-      "a": "M1 routed 15/40 constructed failures to M3. Twelve delivered outputs removed the targeted failure, so the end-to-end result was 12/40. The other 25 cases were not API failures; they never reached M3."
+      "a": "The pipeline routed a subset of the constructed cases to correction, produced a correction for each routed case, and validated a subset of those corrections. No delivered output passed every deterministic check. Cases that were not routed are not API failures; they never reached the correction stage."
     },
     {
       "q": "Has the evaluation been human validated?",

@@ -29,7 +29,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
           <strong class="text-[var(--color-ink)]">The research question:</strong> Could different user contexts benefit from different calibration interventions? CalTrust tests this design hypothesis in simulation; it does not yet establish differential human effects.
         </p>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mt-3">
-          <strong class="text-[var(--color-ink)]">The simulation prototype:</strong> CalTrust uses a <strong class="text-[var(--color-ink)]">LinUCB contextual bandit</strong> to select among four interventions using synthetic user contexts and output characteristics. An XGBoost acceptance proxy achieved AUC 0.70 on <strong class="text-[var(--color-ink)]">19,200 simulated trials</strong>; human validation has not yet been conducted.
+          <strong class="text-[var(--color-ink)]">The simulation prototype:</strong> CalTrust uses a <strong class="text-[var(--color-ink)]">LinUCB contextual bandit</strong> to select among four interventions using synthetic user contexts and output characteristics. An XGBoost proxy is trained on simulated trial data to predict simulated acceptance and confidence outcomes; the training-run metrics were not archived as a report artifact, and human validation has not yet been conducted.
         </p>
       </div>
 
@@ -127,35 +127,14 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
         </div>
       </div>
 
-      <!-- SVG: Predictor Performance -->
-      <div class="card-static mb-6 text-center">
-        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-4">XGBoost Trust Predictor Performance</h2>
-        <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="xgboost-title" class="max-w-full h-auto">
-          <title id="xgboost-title">XGBoost predictor achieves AUC 0.70, RMSE 1.04 across 19,200 trials</title>
-          <!-- Background -->
-          <rect x="0" y="0" width="400" height="140" rx="8" fill="var(--color-surface, #FFFFFF)" stroke="var(--color-rule-light, #EFEADE)" stroke-width="1"/>
+      <!-- Predictor performance card removed: the reported training-run metrics (AUC/RMSE) were not archived as a report artifact, so no performance figure is displayed. -->
 
-          <!-- Metric blocks -->
-          <rect x="30" y="25" width="150" height="90" rx="8" fill="var(--color-secondary-subtle, #E4F0EC)" stroke="var(--color-secondary, #2D7D6A)" stroke-width="1"/>
-          <text x="105" y="60" font-family="'DM Serif Display', Georgia, serif" font-size="28" fill="var(--color-secondary, #2D7D6A)" text-anchor="middle">0.70</text>
-          <text x="105" y="82" font-family="Inter, sans-serif" font-size="9" fill="var(--color-secondary-dim, #1E6353)" text-anchor="middle" font-weight="500">AUC</text>
-          <text x="105" y="98" font-family="JetBrains Mono, monospace" font-size="6" fill="var(--color-text-muted, #807C74)" text-anchor="middle">discrimination</text>
-
-          <rect x="220" y="25" width="150" height="90" rx="8" fill="var(--color-primary-subtle, #F5E4DC)" stroke="var(--color-primary, #B85A3A)" stroke-width="1"/>
-          <text x="295" y="60" font-family="'DM Serif Display', Georgia, serif" font-size="28" fill="var(--color-primary, #B85A3A)" text-anchor="middle">1.04</text>
-          <text x="295" y="82" font-family="Inter, sans-serif" font-size="9" fill="var(--color-primary-dim, #9C4A2E)" text-anchor="middle" font-weight="500">RMSE</text>
-          <text x="295" y="98" font-family="JetBrains Mono, monospace" font-size="6" fill="var(--color-text-muted, #807C74)" text-anchor="middle">calibration</text>
-
-          <!-- Trial count -->
-          <text x="200" y="130" font-family="Inter, sans-serif" font-size="8" fill="var(--color-text-muted, #807C74)" text-anchor="middle">Trained on 19,200 simulation trials</text>
-        </svg>
-      </div>
 
       <!-- Key insight -->
       <div class="card-static mb-6 bg-[var(--color-gold-subtle)]">
         <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider mb-3">Key Insight</h2>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-          Within the simulation, the bandit selected <strong class="text-[var(--color-ink)]">"no intervention"</strong> for the naive synthetic profile on approximately 46.7% of trials. This is simulated policy behavior, not evidence about real users or cognitive load.
+          Within the simulation, the bandit frequently selected <strong class="text-[var(--color-ink)]">"no intervention"</strong> for the naive synthetic profile. This is simulated policy behavior, not evidence about real users or cognitive load.
         </p>
       </div>
 
@@ -168,7 +147,6 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
           <span class="badge">LinUCB</span>
           <span class="badge">scikit-learn</span>
           <span class="badge">Streamlit</span>
-          <span class="badge">19.2K trials</span>
         </div>
       </div>
 
@@ -177,8 +155,8 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
         <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider mb-3">Key Takeaways</h2>
         <ol class="space-y-2 text-sm text-[var(--color-text-dim)] list-decimal list-inside">
           <li>LinUCB simulation prototype selects among four intervention types using synthetic user and output contexts.</li>
-          <li>XGBoost acceptance/confidence proxies achieved AUC 0.70 and RMSE 1.04 on 19,200 simulated trials.</li>
-          <li>The simulated policy selected "no intervention" for the naive synthetic profile on approximately 46.7% of trials; human validation has not yet been conducted.</li>
+          <li>XGBoost acceptance/confidence proxies are trained on simulated trial data to predict simulated acceptance and confidence outcomes; the training-run metrics were not archived as a report artifact.</li>
+          <li>The simulated policy often selected "no intervention" for the naive synthetic profile; human validation has not yet been conducted.</li>
         </ol>
       </div>
 

@@ -54,7 +54,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           </div>
           <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
             Design and build automated pipelines that detect, diagnose, and attempt to correct selected outputs (<em>CheckMyCoach</em>).
-            In a fixed 40-case corpus, the pipeline routed 15/40 cases to correction and removed the targeted failure in 12/15 routed cases (12/40 end-to-end).
+            In a fixed 40-case corpus, the pipeline routed candidate failures to correction, produced a correction for each routed case, and validated a subset of them; no delivered output passed every deterministic check.
           </p>
         </div>
 
@@ -65,7 +65,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           </div>
           <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
             Develop and test adaptive-intervention policies in simulation (<em>CalTrust</em>).
-            The LinUCB prototype was evaluated on <strong class="text-[var(--color-ink)]">19,200</strong> simulated trials; human validation has not yet been conducted.
+            The LinUCB prototype was evaluated on simulated trial data; human validation has not yet been conducted.
           </p>
         </div>
 
@@ -118,7 +118,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="card-static">
           <h4 class="font-mono text-[0.65rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-2">ML Engineering</h4>
           <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            XGBoost for behavioral prediction (AUC 0.70), contextual bandits (LinUCB),
+            XGBoost for behavioral prediction, contextual bandits (LinUCB),
             LLM-based evaluation pipelines (UCS Engine), RAG for structured retrieval.
           </p>
         </div>

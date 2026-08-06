@@ -11,7 +11,7 @@
   "lastVerified": "2026-08-02",
   "keyTakeaways": [
     "CalTrust implements a LinUCB simulation that selects among four calibration interventions using synthetic user contexts and output features.",
-    "An XGBoost proxy trained on 19,200 simulated trials achieved AUC 0.70 and RMSE 1.04 on simulated acceptance and confidence outcomes.",
+    "An XGBoost proxy is trained on simulated trial data to predict simulated acceptance and confidence outcomes; the training-run metrics were not archived as a report artifact.",
     "The reported policy behavior describes the assumptions of the simulator and synthetic profiles; it is not evidence about human trust or intervention effectiveness.",
     "The contextual-bandit direction is frozen pending real behavioral evidence. InteractionKit is maintained as a separate interaction-specification artifact."
   ],
