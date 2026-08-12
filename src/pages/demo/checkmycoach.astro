@@ -10,11 +10,11 @@ import Layout from '../../layouts/BaseLayout.astro'
   <section class="max-w-5xl mx-auto px-6 pt-16 pb-8">
     <p class="text-xs tracking-widest uppercase text-gray-400 mb-3">Interactive Demo</p>
     <h1 class="text-3xl font-bold tracking-tight text-gray-900">
-      CheckMyCoach: AI Calibration in Action
+      CheckMyCoach: Prototype Pipeline Walkthrough
     </h1>
     <p class="mt-3 text-gray-600 max-w-xl leading-relaxed">
-      Type a fitness question and watch the four-stage calibration pipeline
-      <span class="font-semibold text-blue-600">Detect → Diagnose → Correct → Validate</span>
+      Choose a fitness question and inspect the four-module implementation
+      <span class="font-semibold text-blue-600">Route → Rule Tag → Candidate → Surface Checks</span>
       work in real time on AI-generated advice.
     </p>
   </section>
@@ -44,15 +44,16 @@ import Layout from '../../layouts/BaseLayout.astro'
       <!-- Right: Pipeline + Answer -->
       <div class="lg:col-span-2 space-y-4">
         <div class="grid grid-cols-4 gap-3" id="pipeline-stages">
-          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="0"><div class="text-xs font-bold text-gray-500 mb-1">M1 Detect</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
-          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="1"><div class="text-xs font-bold text-gray-500 mb-1">M2 Diagnose</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
-          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="2"><div class="text-xs font-bold text-gray-500 mb-1">M3 Correct</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
-          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="3"><div class="text-xs font-bold text-gray-500 mb-1">M4 Validate</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
+          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="0"><div class="text-xs font-bold text-gray-500 mb-1">M1 Route</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
+          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="1"><div class="text-xs font-bold text-gray-500 mb-1">M2 Rule Tag</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
+          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="2"><div class="text-xs font-bold text-gray-500 mb-1">M3 Candidate</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
+          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="3"><div class="text-xs font-bold text-gray-500 mb-1">M4 Surface Checks</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
         </div>
 
         <div class="border border-gray-200 rounded-xl p-6 bg-white min-h-[200px]" id="answer-panel">
-          <p class="text-gray-400 text-sm italic" id="answer-placeholder">AI-generated answer will appear here, with each sentence color-coded for trustworthiness.</p>
+          <p class="text-gray-400 text-sm italic" id="answer-placeholder">A fixed demo answer will appear here, with colors illustrating internal rule categories rather than measured trustworthiness.</p>
           <div id="answer-content" class="hidden space-y-3 text-sm leading-relaxed"></div>
+          <p class="text-[10px] text-gray-400 mt-3">Fixed illustrative fixtures; colors, tags, and scores are internal demo signals, not validated fitness advice or trust measurements.</p>
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5 bg-white hidden" id="evidence-panel">
@@ -62,15 +63,15 @@ import Layout from '../../layouts/BaseLayout.astro'
 
         <div class="grid grid-cols-4 gap-3 text-center text-xs text-gray-500 hidden" id="timing-stats">
           <div><span class="font-mono text-blue-600" id="time-retrieve">—</span><br/>Retrieve</div>
-          <div><span class="font-mono text-blue-600" id="time-detect">—</span><br/>Detect</div>
-          <div><span class="font-mono text-blue-600" id="time-correct">—</span><br/>Correct</div>
-          <div><span class="font-mono text-blue-600" id="time-validate">—</span><br/>Validate</div>
+          <div><span class="font-mono text-blue-600" id="time-detect">—</span><br/>Route</div>
+          <div><span class="font-mono text-blue-600" id="time-correct">—</span><br/>Candidate</div>
+          <div><span class="font-mono text-blue-600" id="time-validate">—</span><br/>Checks</div>
         </div>
 
         <div class="border border-blue-200 bg-blue-50 rounded-xl p-5 hidden" id="summary-panel">
           <div class="flex items-center justify-between">
-            <div><h4 class="text-sm font-semibold text-blue-900">Calibration Result</h4><p class="text-xs text-blue-700" id="summary-text"></p></div>
-            <div class="text-right"><div class="text-2xl font-bold" id="trust-score">—</div><div class="text-[10px] uppercase tracking-wider text-blue-600">Trust Score</div></div>
+            <div><h4 class="text-sm font-semibold text-blue-900">Prototype Run</h4><p class="text-xs text-blue-700" id="summary-text"></p></div>
+            <div class="text-right"><div class="text-2xl font-bold" id="trust-score">—</div><div class="text-[10px] uppercase tracking-wider text-blue-600">Demo Fixture Score</div></div>
           </div>
         </div>
       </div>
@@ -153,25 +154,25 @@ import Layout from '../../layouts/BaseLayout.astro'
     document.getElementById('evidence-list').innerHTML = result.evidence.map(function(e) { return '<div class="flex gap-2 items-start"><span class="text-blue-400 mt-0.5">\uD83D\uDCC4</span><span>' + e + '</span></div>'; }).join('');
     document.getElementById('timing-stats').classList.remove('hidden');
 
-    // M2: Detection
+    // M2: rule-based routing tag
     await sleep(Math.min(result.latency_ms.detect, 400));
-    var dl = result.failure_type ? '\u26A0\uFE0F ' + result.failure_type.replace('_', ' ') : '\u2705 No failure detected';
+    var dl = result.failure_type ? '\u26A0\uFE0F Rule tag: ' + result.failure_type.replace('_', ' ') : '\u2705 No route triggered';
     updateStage(1, result.failure_type ? '\uD83D\uDD34' : '\u2705', dl);
     document.getElementById('time-detect').textContent = result.latency_ms.detect + 'ms';
 
-    // M3: Correction
+    // M3: candidate generation
     await sleep(Math.min(result.latency_ms.correct, 500));
     if (result.needs_calibration) {
-      updateStage(2, '\uD83D\uDD27', 'Correction');
+      updateStage(2, '\uD83D\uDD27', 'Candidate generated');
       document.getElementById('time-correct').textContent = result.latency_ms.correct + 'ms';
     } else {
       updateStage(2, '\u2705', 'None needed');
       document.getElementById('time-correct').textContent = '\u2014';
     }
 
-    // M4: Validation
+    // M4: deterministic surface checks
     await sleep(Math.min(result.latency_ms.validate, 300));
-    updateStage(3, '\u2705', 'Validated');
+    updateStage(3, '\u2705', 'Surface checks run');
     document.getElementById('time-validate').textContent = result.latency_ms.validate + 'ms';
 
     // Show answer
@@ -184,7 +185,7 @@ import Layout from '../../layouts/BaseLayout.astro'
     var ts = document.getElementById('trust-score');
     ts.textContent = result.trust + '%';
     ts.className = 'text-2xl font-bold ' + (result.trust >= 80 ? 'text-green-600' : result.trust >= 60 ? 'text-yellow-600' : 'text-red-600');
-    document.getElementById('summary-text').textContent = result.needs_calibration ? 'Calibrated \u2014 score improved by ' + result.score_delta + ' point(s)' : 'No calibration needed \u2014 answer already trustworthy';
+    document.getElementById('summary-text').textContent = result.needs_calibration ? 'Candidate path ran; internal score delta: ' + result.score_delta : 'No rewrite routed; fixed fixture displayed unchanged';
 
     document.getElementById('run-btn').disabled = false;
   }

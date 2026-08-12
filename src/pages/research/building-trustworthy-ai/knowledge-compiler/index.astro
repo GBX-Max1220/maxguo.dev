@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Knowledge Compiler" description="Convert authoritative textbooks into reusable structured knowledge for trustworthy AI evaluation">
+<BaseLayout title="Knowledge Compiler" description="Structured evidence infrastructure with a provenance-recovered historical subset">
   <div class="container-content py-16">
     <div class="max-w-2xl">
 
@@ -16,15 +16,15 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
       </div>
 
       <h1 class="mb-3">Knowledge Compiler</h1>
-      <p class="text-base text-[var(--color-text-dim)] mb-6">Convert authoritative textbooks into reusable structured knowledge for trustworthy AI evaluation.</p>
+      <p class="text-base text-[var(--color-text-dim)] mb-6">Structured evidence infrastructure with partial provenance recovery over a historical textbook-derived corpus.</p>
 
       <!-- Elevator pitch -->
       <div class="card-static mb-8">
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-          <strong class="text-[var(--color-ink)]">The problem:</strong> LLM claims in safety-critical domains need to be verifiable against a ground-truth source, but textbooks are unstructured — buried in prose, tables, and figures.
+          <strong class="text-[var(--color-ink)]">The problem:</strong> Downstream systems need inspectable links between structured records and their source material, but textbooks are unstructured—buried in prose, tables, and figures.
         </p>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mt-3">
-          <strong class="text-[var(--color-ink)]">The artifact:</strong> Knowledge Compiler implements a <strong class="text-[var(--color-ink)]">chunk → extract → normalize → validate</strong> pipeline. The public repository documents <strong class="text-[var(--color-ink)]">2,305 Knowledge IR nodes</strong>: 707 from ACSM and 1,598 from NSCA, at approximately <strong class="text-[var(--color-ink)]">$0.003/object</strong>.
+          <strong class="text-[var(--color-ink)]">The artifact:</strong> Knowledge Compiler implements a <strong class="text-[var(--color-ink)]">chunk → extract → normalize → structurally check</strong> pipeline. The historical corpus contains <strong class="text-[var(--color-ink)]">2,305 files representing 2,294 unique IDs</strong>; 571 records meet the strongest recovered-subset criterion. Provenance recovery does not establish scientific validity or study admissibility.
         </p>
       </div>
 
@@ -49,7 +49,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
           </div>
           <div class="bg-[var(--color-secondary-subtle)] rounded-lg p-3">
             <div class="font-mono text-[0.55rem] font-semibold text-[var(--color-secondary)] mb-1">Step 4</div>
-            <div class="text-sm font-medium text-[var(--color-ink)]">Validate</div>
+            <div class="text-sm font-medium text-[var(--color-ink)]">Structural checks</div>
             <div class="text-xs text-[var(--color-text-dim)]">Automated quality gates: semantic fidelity, completeness</div>
           </div>
         </div>
@@ -117,15 +117,15 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
         <div class="space-y-4 text-sm text-[var(--color-text-dim)]">
           <div>
             <p class="font-medium text-[var(--color-ink)] mb-1">Why compile textbooks into structured knowledge?</p>
-            <p class="leading-relaxed">Structured knowledge enables downstream systems (like CheckMyCoach's calibration pipeline) to verify LLM claims against a verifiable ground-truth source, rather than relying on the LLM's internal knowledge.</p>
+            <p class="leading-relaxed">Structured records can expose stored source locators to downstream systems. For the recovered subset, those locators support re-checkable source relations; they do not make the records ground truth or validated scientific evidence.</p>
           </div>
           <div>
             <p class="font-medium text-[var(--color-ink)] mb-1">What's the ontology structure?</p>
-            <p class="leading-relaxed">14 object types organized in a three-layer schema: Core Concepts (Concept, Evidence, Formula), Operational Rules (Recommendation, Threshold, Procedure, DecisionRule), and Safety (Warning, Contraindication, RiskFactor), plus supporting types (Figure, Table, TableRow).</p>
+            <p class="leading-relaxed">13 object types organized in a three-layer schema: Core Concepts (Concept, Evidence, Formula), Operational Rules (Recommendation, Threshold, Procedure, DecisionRule), and Safety (Warning, Contraindication, RiskFactor), plus supporting types (Figure, Table, TableRow).</p>
           </div>
           <div>
             <p class="font-medium text-[var(--color-ink)] mb-1">Can this pipeline work for other textbooks?</p>
-            <p class="leading-relaxed">Yes — the pipeline is textbook-agnostic. Schema and prompts are the main per-book adaptation cost. Demonstrated by successful ACSM → NSCA transfer.</p>
+            <p class="leading-relaxed">The pipeline was applied to two exercise-science textbooks. That demonstrates implementation reuse within one domain; cross-domain generalization has not been tested.</p>
           </div>
         </div>
       </div>
@@ -145,7 +145,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
       <!-- Reproducibility -->
       <div class="card-static mb-6 bg-[var(--color-secondary-subtle)]">
         <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider mb-3">Reproducibility</h2>
-        <p class="text-xs font-mono text-[var(--color-text-dim)] mb-2">Env: Python 3.11+ with requirements.txt. Automated checks validate structure; content accuracy has not been manually reviewed.</p>
+        <p class="text-xs font-mono text-[var(--color-text-dim)] mb-2">Env: Python 3.11+ with requirements.txt. Automated checks enforce schema and structural constraints; they do not establish factual accuracy, source fidelity, or scientific validity.</p>
         <code class="block bg-[var(--color-page)] rounded p-2 text-xs font-mono text-[var(--color-text-dim)] break-all">git clone https://github.com/MaxGuo1220/acsms12-manifest && cd acsms12-manifest && pip install -r requirements.txt && python -m compiler.cli run --book acsm12</code>
       </div>
 
@@ -153,8 +153,9 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
       <div class="card-static mb-6 bg-[var(--color-primary-subtle)]">
         <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-3">Key Takeaways</h2>
         <ol class="space-y-2 text-sm text-[var(--color-text-dim)] list-decimal list-inside">
-          <li>The public artifact documents 2,305 Knowledge IR nodes: 707 from ACSM and 1,598 from NSCA.</li>
-          <li>All documented nodes pass five automated structural validation layers; content accuracy has not been manually reviewed.</li>
+          <li>The historical inventory contains 2,305 files—707 from ACSM and 1,598 from NSCA—representing 2,294 unique IDs.</li>
+          <li>571 records meet the strongest recovered-subset criterion; 1,734 records are quarantined from unsupported reuse.</li>
+          <li>Automated checks enforce structural constraints only; zero records currently have established scientific validity or study-admissible status.</li>
           <li>The pipeline was applied to two exercise-science textbooks, demonstrating transfer across sources within one domain.</li>
           <li>The pipeline is designed to be source-extensible; cross-domain generalization has not been tested.</li>
           <li>Pipeline cost: ~$0.003 per object using structured LLM extraction with schema enforcement.</li>
@@ -166,7 +167,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
         <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Changelog</h2>
         <div class="space-y-2 text-sm">
           <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v2.0</span><span class="text-[var(--color-text-dim)]">2026-07-01 — NSCA CSCS 5th edition complete: 1,598 objects, 26 chapters.</span></div>
-          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v1.0</span><span class="text-[var(--color-text-dim)]">2026-05-01 — ACSM 12th edition complete: 708 objects, 31 chapters.</span></div>
+          <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v1.0</span><span class="text-[var(--color-text-dim)]">2026-05-01 — Historical ACSM extraction: 707 files.</span></div>
           <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v0.5</span><span class="text-[var(--color-text-dim)]">2026-03-01 — Pipeline v2: chunk → extract → normalize → validate with quality gates.</span></div>
           <div class="flex gap-3"><span class="font-mono text-[0.65rem] font-medium text-[var(--color-text-muted)] w-16 flex-shrink-0">v0.1</span><span class="text-[var(--color-text-dim)]">2026-01-15 — Initial schema design and pilot extraction (15 objects).</span></div>
         </div>

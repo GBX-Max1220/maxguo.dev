@@ -6,14 +6,14 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
   <div class="container-content py-16">
     <div class="max-w-3xl">
       <div class="flex flex-wrap items-center gap-3 mb-4">
-        <span class="badge badge-gold">Controlled Offline Evaluation</span>
+        <span class="badge badge-gold">Engineering Prototype</span>
         <span class="font-mono text-xs text-[var(--color-muted)]">v2.2</span>
         <span class="font-mono text-xs text-[var(--color-muted)]">Verified: 2026-08-02</span>
       </div>
 
       <h1 class="mb-4">CheckMyCoach</h1>
       <p class="text-lg text-[var(--color-text-dim)] leading-relaxed mb-8">
-        A four-stage research prototype—route, diagnose, correct, validate—evaluated descriptively on one fixed 40-case constructed fitness-advice corpus.
+        A four-module research prototype—route, assign rule-based tags, generate candidate revisions, and run deterministic surface checks—evaluated descriptively on one fixed 40-case constructed fitness-advice corpus.
       </p>
 
       <div class="card-static mb-6 border-l-4 border-[var(--color-primary)]">
@@ -26,7 +26,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
       <div class="card-static mb-6">
         <h2 class="font-sans text-xs font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-2">What the evaluation shows</h2>
         <ul class="space-y-2 text-sm text-[var(--color-text-dim)] list-disc list-inside">
-          <li>CheckMyCoach provides a pipeline for detecting and revising candidate calibration failures.</li>
+          <li>CheckMyCoach implements a pipeline that routes selected cases and generates candidate revisions using historical UCS heuristics.</li>
           <li>Generic revision and Generic-plus-Oracle revision produced identical per-case decisions in this single execution; this is not an equivalence result and does not show that oracle information has no value.</li>
           <li>No delivered output passed every deterministic target-and-retention check; the evaluation is descriptive, single-execution, and not a validated effectiveness claim.</li>
         </ul>
@@ -35,9 +35,9 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
       <div class="card-static mb-6">
         <h2 class="text-[1.1rem] mb-3">Pipeline trace</h2>
         <ol class="space-y-3 text-sm text-[var(--color-text-dim)] list-decimal list-inside">
-          <li><strong class="text-[var(--color-ink)]">M1 routing:</strong> a subset of the 40 constructed cases was routed to correction, all for numerical specificity.</li>
-          <li><strong class="text-[var(--color-ink)]">M3 correction:</strong> every routed case returned a correction from the correction model.</li>
-          <li><strong class="text-[var(--color-ink)]">M4 validation:</strong> a subset of the corrections passed the pipeline's validation checks and changed the delivered output.</li>
+          <li><strong class="text-[var(--color-ink)]">M1 routing:</strong> 15 of the 40 constructed cases were routed to candidate generation under the historical heuristic.</li>
+          <li><strong class="text-[var(--color-ink)]">M3 candidate generation:</strong> every routed case returned a candidate revision from the generation model.</li>
+          <li><strong class="text-[var(--color-ink)]">M4 surface checks:</strong> 12 of 40 delivered outputs removed the predefined target feature; none passed every target-and-retention check.</li>
           <li><strong class="text-[var(--color-ink)]">End to end:</strong> none of the delivered outputs passed every evaluation check.</li>
         </ol>
       </div>

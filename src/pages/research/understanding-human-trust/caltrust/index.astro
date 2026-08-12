@@ -43,7 +43,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
       <div class="card-static mb-6 text-center">
         <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-4">Intervention Selection Logic</h2>
         <svg viewBox="0 0 480 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="caltrust-title" class="max-w-full h-auto">
-          <title id="caltrust-title">Contextual bandit selects among 4 interventions based on user type and output UCS score</title>
+          <title id="caltrust-title">Contextual bandit selects among four interventions using synthetic user features and a historical UCS heuristic</title>
 
           <!-- User input -->
           <rect x="20" y="20" width="120" height="40" rx="8" fill="var(--color-page-warm, #F5F0E6)" stroke="var(--color-rule, #E5DFD6)" stroke-width="1"/>
@@ -53,7 +53,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
           <!-- Output input -->
           <rect x="20" y="80" width="120" height="40" rx="8" fill="var(--color-page-warm, #F5F0E6)" stroke="var(--color-rule, #E5DFD6)" stroke-width="1"/>
           <text x="80" y="95" font-family="Inter, sans-serif" font-size="8" fill="var(--color-text-dim, #6B6660)" text-anchor="middle">LLM Output</text>
-          <text x="80" y="108" font-family="JetBrains Mono, monospace" font-size="7" fill="var(--color-text-dim, #6B6660)" text-anchor="middle">UCS: /5</text>
+          <text x="80" y="108" font-family="JetBrains Mono, monospace" font-size="7" fill="var(--color-text-dim, #6B6660)" text-anchor="middle">historical UCS heuristic</text>
 
           <!-- Arrow from inputs to bandit -->
           <path d="M140 40 L175 40 L175 100 L195 100" stroke="var(--color-rule, #E5DFD6)" stroke-width="1.2"/>
@@ -90,41 +90,10 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
         </svg>
       </div>
 
-      <!-- Results Table -->
+      <!-- No profile-level result table is displayed: the current archived report does not bind the previously shown values to a reproducible run. -->
       <div class="card-static mb-6">
-        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Bandit Performance by User Profile</h2>
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm">
-            <thead>
-              <tr class="border-b border-[var(--color-rule-light)]">
-                <th class="text-left py-2 pr-4 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">User Type</th>
-                <th class="text-right py-2 px-3 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Bandit ΔUCS</th>
-                <th class="text-right py-2 px-3 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Random ΔUCS</th>
-                <th class="text-right py-2 pl-3 font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">Best Intervention</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b border-[var(--color-rule-light)]">
-                <td class="py-2.5 pr-4 text-[var(--color-ink)]">Naive</td>
-                <td class="text-right py-2.5 px-3 text-[var(--color-text-dim)]">−0.0048</td>
-                <td class="text-right py-2.5 px-3 text-[var(--color-text-dim)]">−0.0048</td>
-                <td class="text-right py-2.5 pl-3 text-[var(--color-secondary)]">No Intervention</td>
-              </tr>
-              <tr class="border-b border-[var(--color-rule-light)]">
-                <td class="py-2.5 pr-4 text-[var(--color-ink)]">Intermediate</td>
-                <td class="text-right py-2.5 px-3 text-[var(--color-secondary)] font-medium">+0.0004</td>
-                <td class="text-right py-2.5 px-3 text-[var(--color-text-dim)]">−0.0003</td>
-                <td class="text-right py-2.5 pl-3 text-[var(--color-text-dim)]">Verbal Uncertainty</td>
-              </tr>
-              <tr>
-                <td class="py-2.5 pr-4 text-[var(--color-ink)]">Expert</td>
-                <td class="text-right py-2.5 px-3 text-[var(--color-secondary)] font-medium">+0.0080</td>
-                <td class="text-right py-2.5 px-3 text-[var(--color-text-dim)]">−0.0004</td>
-                <td class="text-right py-2.5 pl-3 text-[var(--color-text-dim)]">Numerical Range</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Simulation Result Boundary</h2>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">The current archived report supports a simulation prototype description, but not a reproducible profile-level policy comparison. No human outcome or calibrated-trust result is claimed.</p>
       </div>
 
       <!-- Predictor performance card removed: the reported training-run metrics (AUC/RMSE) were not archived as a report artifact, so no performance figure is displayed. -->

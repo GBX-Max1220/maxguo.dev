@@ -3,23 +3,23 @@
   "programId": "building-trustworthy-ai",
   "title": "Knowledge Compiler: Structured Knowledge Extraction from Textbooks",
   "shortTitle": "Knowledge Compiler",
-  "oneLiner": "Convert authoritative textbooks into reusable structured knowledge for trustworthy AI evaluation.",
+  "oneLiner": "Structured evidence infrastructure with partial provenance recovery over a historical textbook-derived corpus.",
   "workflowState": "frozen",
   "evidenceLevel": "offline_evaluated",
   "version": "untagged public artifact",
   "updated": "2026-07-01",
   "lastVerified": "2026-07-22",
   "keyTakeaways": [
-    "The public artifact documents 2,305 Knowledge IR nodes: 707 from ACSM's Guidelines for Exercise Testing and Prescription (12th ed.) and 1,598 from NSCA's Essentials of Strength Training and Conditioning (5th ed.).",
-    "All documented objects pass five automated structural validation layers; content accuracy has not been manually reviewed.",
-    "The pipeline was applied to two exercise-science textbooks, demonstrating transfer across sources within one domain.",
+    "The historical inventory contains 2,305 files—707 from ACSM and 1,598 from NSCA—representing 2,294 unique IDs.",
+    "A provenance-recovery audit identifies 571 strongest-subset records and quarantines 1,734 records from unsupported reuse. Automated checks enforce structural constraints but do not establish factual accuracy or scientific validity.",
+    "The pipeline was applied to two exercise-science textbooks; this is implementation reuse within one domain, not evidence of scientific transfer.",
     "The pipeline is designed to be source-extensible; cross-domain generalization has not been tested.",
     "Pipeline cost: ~$0.003 per object using structured LLM extraction with schema enforcement."
   ],
   "faq": [
     {
       "q": "Why compile textbooks into structured knowledge?",
-      "a": "Structured knowledge enables downstream systems (like CheckMyCoach's calibration pipeline) to verify LLM claims against a verifiable ground-truth source, rather than relying on the LLM's internal knowledge."
+      "a": "Structured records expose stored source locators to downstream systems. The recovered subset supports re-checkable source relations, not ground-truth status, factual correctness, or scientific admissibility."
     },
     {
       "q": "What's the ontology structure?",

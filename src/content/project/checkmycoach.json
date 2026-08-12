@@ -1,9 +1,9 @@
 {
   "id": "checkmycoach",
   "programId": "building-trustworthy-ai",
-  "title": "CheckMyCoach: Controlled Evaluation of LLM Correction Strategies",
+  "title": "CheckMyCoach: Four-Module Intervention Prototype",
   "shortTitle": "CheckMyCoach",
-  "oneLiner": "A provenance-preserving framework for comparing evidence-based correction strategies on a fixed corpus.",
+  "oneLiner": "A provenance-preserving prototype for comparing candidate-revision strategies on a fixed constructed corpus.",
   "workflowState": "active",
   "evidenceLevel": "offline_evaluated",
   "version": "evaluation v2.2",
@@ -12,18 +12,18 @@
   "keyTakeaways": [
     "The v2.2 package compares Original, Generic, Generic plus a frozen Oracle Failure Specification, and the selectively routed CheckMyCoach pipeline on 40 constructed fitness-advice cases.",
     "Generic and Generic+Oracle revision produced identical per-case decisions in this single execution; this is not an equivalence result and does not show that oracle information has no value.",
-    "CheckMyCoach provides a pipeline for detecting and revising candidate calibration failures. In this single execution, every routed case received a correction and a subset of those corrections passed the pipeline's validation checks; no delivered output passed every deterministic target-and-retention check.",
+    "CheckMyCoach implements a four-module pipeline that routes selected cases, assigns rule-based tags, generates candidate revisions, and runs deterministic surface checks. In this single execution, 15 of 40 cases were routed, 12 of 40 delivered outputs removed the predefined target feature, and no delivered output passed every target-and-retention check.",
     "No CheckMyCoach output passed every deterministic target-and-retention check. The experiment does not establish superiority, validated detection, equivalence, human benefit, or cross-domain generalization."
   ],
-  "hciRelevance": "Provides a controlled way to separate routing coverage, correction execution, validator acceptance, targeted-failure removal, and information retention before testing effects on human reliance.",
+  "hciRelevance": "Provides a controlled way to separate routing coverage, candidate-generation execution, surface-check acceptance, targeted-feature removal, and information retention before testing effects on human reliance.",
   "faq": [
     {
-      "q": "Did the oracle failure specification improve correction?",
+      "q": "Did the oracle failure specification change the candidate revisions?",
       "a": "Not in this single execution: Generic and Generic+Oracle produced identical per-case decisions. This is not an equivalence or non-inferiority result and does not prove that oracle information has no value."
     },
     {
       "q": "How did the full CheckMyCoach pipeline perform?",
-      "a": "The pipeline routed a subset of the constructed cases to correction, produced a correction for each routed case, and validated a subset of those corrections. No delivered output passed every deterministic check. Cases that were not routed are not API failures; they never reached the correction stage."
+      "a": "The pipeline routed 15 of 40 constructed cases and produced a candidate revision for every routed case. Twelve delivered outputs removed the predefined target feature, but none passed every target-and-retention check. Cases that were not routed never reached candidate generation."
     },
     {
       "q": "Has the evaluation been human validated?",
@@ -34,10 +34,10 @@
     "code": "https://github.com/GBX-Max1220/CheckMyCoach"
   },
   "citation": {
-    "bibtex": "@software{guo_checkmycoach_2026,\n  author = {Guo, Baixin},\n  title = {CheckMyCoach: Controlled Evaluation of LLM Correction Strategies},\n  year = {2026},\n  note = {Offline-evaluated research prototype; fixed 40-case corpus},\n  url = {https://github.com/GBX-Max1220/CheckMyCoach}\n}",
-    "apa": "Guo, B. (2026). CheckMyCoach: Controlled evaluation of LLM correction strategies [Offline-evaluated research prototype]. https://github.com/GBX-Max1220/CheckMyCoach",
-    "chicago": "Guo, Baixin. \"CheckMyCoach: Controlled Evaluation of LLM Correction Strategies.\" Offline-evaluated research prototype, 2026. https://github.com/GBX-Max1220/CheckMyCoach.",
-    "mla": "Guo, Baixin. CheckMyCoach: Controlled Evaluation of LLM Correction Strategies. Offline-evaluated research prototype, 2026, https://github.com/GBX-Max1220/CheckMyCoach."
+    "bibtex": "@software{guo_checkmycoach_2026,\n  author = {Guo, Baixin},\n  title = {CheckMyCoach: Four-Module Intervention Prototype},\n  year = {2026},\n  note = {Offline-evaluated research prototype; fixed 40-case constructed corpus},\n  url = {https://github.com/GBX-Max1220/CheckMyCoach}\n}",
+    "apa": "Guo, B. (2026). CheckMyCoach: Four-module intervention prototype [Offline-evaluated research prototype]. https://github.com/GBX-Max1220/CheckMyCoach",
+    "chicago": "Guo, Baixin. \"CheckMyCoach: Four-Module Intervention Prototype.\" Offline-evaluated research prototype, 2026. https://github.com/GBX-Max1220/CheckMyCoach.",
+    "mla": "Guo, Baixin. CheckMyCoach: Four-Module Intervention Prototype. Offline-evaluated research prototype, 2026, https://github.com/GBX-Max1220/CheckMyCoach."
   },
   "reproducible": {
     "env": "Python 3.12 with requirements.txt; OpenRouter API key is required only for new M3 calls.",
