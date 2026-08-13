@@ -10,7 +10,7 @@
   "updated": "2026-07-24",
   "lastVerified": "2026-08-02",
   "keyTakeaways": [
-    "The artifact specifies 126 fitness-advice questions, a UCS taxonomy, deterministic evaluator logic, and a frozen execution protocol.",
+    "The artifact specifies 126 fitness-advice questions, a UCS taxonomy, rule-based evaluator logic (with an LLM-judge fallback), and a frozen execution protocol.",
     "The v0.1 scientific execution failed: 72 request attempts produced zero outputs that passed the frozen parser and zero interpretable scientific outputs.",
     "The v0.2 gate stopped execution during provider preflight before any scientific scenario calls occurred.",
     "Precision Illusion prevalence, model differences, human effects, and intervention need were not established. The final status is ENGINEERING TEST ONLY — SCIENTIFIC DIRECTION CLOSED."

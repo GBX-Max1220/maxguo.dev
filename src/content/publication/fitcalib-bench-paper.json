@@ -16,7 +16,7 @@
     "chicago": "Guo, Baixin. \"MaxFitCalib-Bench: Controlled Audit of an LLM Calibration Benchmark Prototype.\" Archived engineering methods artifact, 2026.",
     "mla": "Guo, Baixin. \"MaxFitCalib-Bench: Controlled Audit of an LLM Calibration Benchmark Prototype.\" Archived engineering methods artifact, 2026."
   },
-  "abstract": "This archived methods artifact documents static construct formalization, deterministic evaluator validation, a failed v0.1 scientific execution, and a v0.2 provider preflight that correctly blocked scientific calls. It produced zero interpretable scientific outputs and does not validate Precision Illusion or any model-behavior claim.",
+  "abstract": "This archived methods artifact documents static construct formalization, rule-based evaluator validation, a failed v0.1 scientific execution, and a v0.2 provider preflight that correctly blocked scientific calls. It produced zero interpretable scientific outputs and does not validate Precision Illusion or any model-behavior claim.",
   "featured": false,
   "projectId": "fitcalib-bench"
 }
