@@ -10,66 +10,57 @@
     --font-mono: "JetBrains Mono", "Cascadia Code", ui-monospace, monospace;
 
     /* ---- Layout ---- */
-    --width-content: 1040px;
-    --gutter: 48px;
-    --gutter-mobile: 24px;
+    --width-shell: 1160px;
+    --width-content: 1000px;
+    --width-narrow: 720px;
+    --gutter: 40px;
+    --gutter-mobile: 20px;
 
     /* ---- Radii ---- */
     --radius-sm: 3px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
-    --radius-xl: 16px;
+    --radius-md: 6px;
+    --radius-lg: 10px;
+    --radius-xl: 14px;
 
     /* ---- Palette ---- */
-    --color-ink: #2c2822;
-    --color-ink-light: #4a453e;
-    --color-page: #faf8f4;
-    --color-page-alt: #f3efe8;
-    --color-page-warm: #f5f0e6;
-    --color-surface: #ffffff;
-    --color-surface-hover: #f7f4ee;
-    --color-primary: #b85a3a;
-    --color-primary-dim: #9c4a2e;
-    --color-primary-subtle: #f5e4dc;
-    --color-secondary: #2d7d6a;
-    --color-secondary-dim: #1e6353;
-    --color-secondary-subtle: #e4f0ec;
-    --color-gold: #b8823a;
-    --color-gold-subtle: #f0e6d4;
-    --color-muted: #807c74;
-    --color-rule: #e5dfd6;
-    --color-rule-light: #efeade;
-    --color-text: #2c2822;
-    --color-text-dim: #6b6660;
-    --color-text-muted: #807c74;
-    --color-text-on-ink: #c8c4bc;
-  }
+    /* Brand / identity — ink navy */
+    --color-brand: #183b56;
+    --color-brand-dim: #122f46;
+    /* Functional / link — calm research blue */
+    --color-primary: #2d6a9f;
+    --color-primary-dim: #21507a;
+    --color-primary-subtle: #e6eef6;
+    /* Secondary — steel teal (active research accent) */
+    --color-secondary: #2e6f63;
+    --color-secondary-dim: #235448;
+    --color-secondary-subtle: #e2ede9;
+    /* Historical / frozen marker — muted amber */
+    --color-gold: #a67c2e;
+    --color-gold-subtle: #f2e8d4;
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --color-ink: #2c2822;
-      --color-ink-light: #4a453e;
-      --color-page: #faf8f4;
-      --color-page-alt: #f3efe8;
-      --color-page-warm: #f5f0e6;
-      --color-surface: #ffffff;
-      --color-surface-hover: #f7f4ee;
-      --color-primary: #b85a3a;
-      --color-primary-dim: #9c4a2e;
-      --color-primary-subtle: #f5e4dc;
-      --color-secondary: #2d7d6a;
-      --color-secondary-dim: #1e6353;
-      --color-secondary-subtle: #e4f0ec;
-      --color-gold: #b8823a;
-      --color-gold-subtle: #f0e6d4;
-      --color-muted: #807c74;
-      --color-rule: #e5dfd6;
-      --color-rule-light: #efeade;
-      --color-text: #2c2822;
-      --color-text-dim: #6b6660;
-      --color-text-muted: #807c74;
-      --color-text-on-ink: #c8c4bc;
-    }
+    /* Text & surfaces */
+    --color-ink: #20262d;
+    --color-ink-light: #39444f;
+    --color-page: #fbfaf8;
+    --color-page-alt: #f2f4f6;
+    --color-page-warm: #f4f1ec;
+    --color-surface: #ffffff;
+    --color-surface-hover: #f3f6f9;
+    --color-muted: #7c8a99;
+    --color-rule: #d8e0e8;
+    --color-rule-light: #e6ebf1;
+    --color-text: #20262d;
+    --color-text-dim: #5a6876;
+    --color-text-muted: #748290;
+    --color-text-on-ink: #c9d4de;
+
+    /* ---- Shadows ---- */
+    --shadow-card: 0 1px 2px rgba(24, 59, 86, 0.06),
+      0 1px 3px rgba(24, 59, 86, 0.05);
+    --shadow-card-hover: 0 4px 14px rgba(24, 59, 86, 0.1),
+      0 2px 4px rgba(24, 59, 86, 0.06);
+    --shadow-elevated: 0 8px 28px rgba(24, 59, 86, 0.12);
+    --shadow-subtle: 0 1px 2px rgba(24, 59, 86, 0.05);
   }
 
   html {
@@ -87,20 +78,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -1;
-    background-image: radial-gradient(
-      circle,
-      rgba(44, 40, 34, 0.03) 1px,
-      transparent 1px
-    );
-    background-size: 32px 32px;
-  }
-
   a {
     color: var(--color-primary);
     text-decoration: none;
@@ -111,7 +88,7 @@
   }
 
   ::selection {
-    background: rgba(200, 112, 80, 0.15);
+    background: rgba(45, 106, 159, 0.16);
     color: var(--color-ink);
   }
 
@@ -122,19 +99,20 @@
     font-family: var(--font-display);
     color: var(--color-ink);
     font-weight: 400;
-    line-height: 1.12;
+    line-height: 1.14;
   }
 
   h1 {
-    font-size: clamp(2.8rem, 6vw, 4rem);
-    letter-spacing: -0.02em;
+    font-size: clamp(2.3rem, 5vw, 3.2rem);
+    letter-spacing: -0.015em;
+    line-height: 1.08;
   }
   h2 {
-    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-size: clamp(1.5rem, 3vw, 1.95rem);
     letter-spacing: -0.01em;
   }
   h3 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
   h4 {
     font-size: 1rem;
@@ -158,7 +136,7 @@
     position: absolute;
     top: -100px;
     left: 1rem;
-    background: var(--color-primary);
+    background: var(--color-brand);
     color: #fff;
     padding: 0.5rem 1rem;
     z-index: 200;
@@ -171,10 +149,34 @@
   .skip-link:focus {
     top: 0.75rem;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
 @layer components {
   /* ---- Layout ---- */
+  .container-shell {
+    max-width: var(--width-shell);
+    margin: 0 auto;
+    padding: 0 var(--gutter-mobile);
+  }
+  @media (min-width: 640px) {
+    .container-shell {
+      padding: 0 var(--gutter);
+    }
+  }
+
   .container-content {
     max-width: var(--width-content);
     margin: 0 auto;
@@ -187,7 +189,7 @@
   }
 
   .container-narrow {
-    max-width: 680px;
+    max-width: var(--width-narrow);
     margin: 0 auto;
     padding: 0 var(--gutter-mobile);
   }
@@ -223,7 +225,7 @@
     background: var(--color-page-warm);
   }
 
-  /* ---- Section label with decorative line ---- */
+  /* ---- Section label / kicker ---- */
   .section-label {
     font-family: var(--font-mono);
     font-size: 0.65rem;
@@ -242,38 +244,42 @@
     background: var(--color-rule);
   }
 
+  .section-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-primary);
+  }
+
   /* ---- Cards ---- */
   .card {
     background: var(--color-surface);
     border-radius: var(--radius-lg);
     padding: 1.5rem;
-    box-shadow:
-      0 1px 3px rgba(44, 40, 34, 0.06),
-      0 1px 2px rgba(44, 40, 34, 0.04);
-    transition: all 0.2s ease;
+    box-shadow: var(--shadow-card);
+    transition:
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
     border: 1px solid var(--color-rule-light);
   }
   .card:hover {
-    box-shadow:
-      0 4px 16px rgba(44, 40, 34, 0.08),
-      0 2px 4px rgba(44, 40, 34, 0.04);
+    box-shadow: var(--shadow-card-hover);
     border-color: var(--color-rule);
-    transform: translateY(-1px);
   }
   .card-static {
     background: var(--color-surface);
     border-radius: var(--radius-lg);
     padding: 1.5rem;
-    box-shadow:
-      0 1px 3px rgba(44, 40, 34, 0.06),
-      0 1px 2px rgba(44, 40, 34, 0.04);
+    box-shadow: var(--shadow-card);
     border: 1px solid var(--color-rule-light);
   }
   .card-elevated {
     background: var(--color-surface);
     border-radius: var(--radius-xl);
     padding: 2rem;
-    box-shadow: 0 8px 30px rgba(44, 40, 34, 0.08);
+    box-shadow: var(--shadow-elevated);
     border: 1px solid var(--color-rule);
   }
   .card-plain {
@@ -296,7 +302,10 @@
     font-family: var(--font-body);
     font-size: 0.85rem;
     font-weight: 500;
-    transition: all 0.2s ease;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
     cursor: pointer;
     border: 1px solid var(--color-rule);
     background: var(--color-surface);
@@ -305,18 +314,18 @@
   .btn:hover {
     border-color: var(--color-primary);
     color: var(--color-primary);
-    box-shadow: 0 2px 8px rgba(200, 112, 80, 0.08);
+    box-shadow: var(--shadow-subtle);
   }
   .btn-primary {
-    background: var(--color-primary);
-    color: white;
-    border-color: var(--color-primary);
+    background: var(--color-brand);
+    color: #fff;
+    border-color: var(--color-brand);
   }
   .btn-primary:hover {
-    background: var(--color-primary-dim);
-    border-color: var(--color-primary-dim);
-    color: white;
-    box-shadow: 0 4px 12px rgba(200, 112, 80, 0.2);
+    background: var(--color-brand-dim);
+    border-color: var(--color-brand-dim);
+    color: #fff;
+    box-shadow: var(--shadow-card-hover);
   }
   .btn-ghost {
     border-color: transparent;
@@ -332,7 +341,7 @@
     font-size: 0.75rem;
   }
 
-  /* ---- Badges ---- */
+  /* ---- Badges / status chips ---- */
   .badge {
     display: inline-flex;
     align-items: center;
@@ -346,17 +355,21 @@
     background: var(--color-rule-light);
     color: var(--color-text-dim);
   }
-  .badge-published {
+  .badge-active {
     background: var(--color-secondary-subtle);
     color: var(--color-secondary-dim);
   }
-  .badge-under-review {
+  .badge-published {
     background: var(--color-primary-subtle);
     color: var(--color-primary-dim);
   }
+  .badge-under-review {
+    background: var(--color-gold-subtle);
+    color: var(--color-gold);
+  }
   .badge-gold {
     background: var(--color-gold-subtle);
-    color: var(--color-text-dim);
+    color: var(--color-gold);
   }
 
   /* ---- Activity log ---- */
@@ -387,6 +400,19 @@
     flex-shrink: 0;
     margin-top: 0.45rem;
     opacity: 0.6;
+  }
+  .log-cat {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-rule-light);
+    border-radius: 2px;
+    padding: 0.05rem 0.4rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
   }
 
   /* ---- Hero decorative graphic (abstract calibration motif) ---- */
@@ -428,7 +454,7 @@
   }
   .stat-label {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -550,7 +576,9 @@
     background: white !important;
     color: black !important;
   }
-  .container-content {
+  .container-content,
+  .container-shell,
+  .container-narrow {
     max-width: 100% !important;
     padding: 0 !important;
   }
