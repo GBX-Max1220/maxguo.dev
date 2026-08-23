@@ -1,134 +1,121 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Research" description="Research programs and projects — Baixin Guo">
-  <div class="container-content py-16">
-    <div class="max-w-2xl">
+<BaseLayout title="Research" description="Research program — Diagnose → Build → Adapt. How people mis-rely on AI outputs, whether interventions can improve appropriate reliance, and whether AI can adapt to individual trust context.">
+  <div class="container-content py-14">
+    <div class="max-w-[820px]">
 
-      <span class="section-label mb-4">Research</span>
-      <h1 class="mb-4">Research</h1>
-      <p class="text-sm text-[var(--color-text-dim)] mb-10 max-w-lg">
-        This portfolio separates historical measurement-development work, bounded prototypes and simulations, reusable infrastructure, and current research questions. Their evidence classes are not treated as interchangeable.
+      <!-- 1. Page introduction -->
+      <span class="section-kicker mb-3">Research program</span>
+      <h1 class="mb-4">Diagnose → Build → Adapt</h1>
+      <p class="lead mb-3">
+        How people mis-rely on AI outputs; whether interventions and systems can improve appropriate reliance; and whether AI can respond to individual trust context.
       </p>
-      <!-- Research Timeline -->
-      <div class="card-static mb-10 bg-[var(--color-page-warm)]">
-        <h2 class="font-sans text-[0.7rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-4">Research Arc</h2>
-        <div class="relative">
-          <!-- Timeline line -->
-          <div class="absolute left-[15px] top-2 bottom-2 w-px bg-[var(--color-rule)]"></div>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-12 max-w-2xl">
+        This is the recurring question set behind <em>human–AI decision-making under uncertainty</em>. Each stage below is a line of work with its own evidence class — historical measurement, active intervention, and simulation — rather than a set of parallel contributions.
+      </p>
 
-          <div class="space-y-5 pl-10">
-            <div class="relative">
-              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-secondary)] border-2 border-[var(--color-page-warm)]"></div>
-              <div class="flex items-center gap-2 mb-0.5">
-                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-secondary)] uppercase">2025 Q4</span>
-                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Theory / Measurement</span>
-              </div>
-              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">FitCalib-Bench</strong> — historical 126-question benchmark-development asset; later audits retired its scientific operationalisation and preserved it as measurement-development history.</p>
+      <!-- 2. Research arc — three editorial sections -->
+      <section id="diagnose" class="mb-12">
+        <div class="arc-item" style="border-top-width:0; padding-top:0">
+          <span class="arc-index">01 · Diagnose</span>
+          <h2 class="arc-question mt-2 mb-3">How and why do people mis-rely on AI outputs?</h2>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-5">
+            This stage asks what miscalibration looks like: how unsupported numerical precision and weak evidential support shape trust and reliance. The Precision-Illusion taxonomy and FitCalib-Bench record the measurement and audit work behind this question. They are historical assets — they inform the question without pretending to be active research.
+          </p>
+          <div class="related-list">
+            <div class="related-item">
+              <span class="rel-role">Measurement · historical</span>
+              <a href="/blog/precision-illusion-intro/" class="link-arrow">Precision Illusion taxonomy →</a>
             </div>
-
-            <div class="relative">
-              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-primary)] border-2 border-[var(--color-page-warm)]"></div>
-              <div class="flex items-center gap-2 mb-0.5">
-                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-primary)] uppercase">2026 Q1-Q2</span>
-                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Intervention / Infrastructure</span>
-              </div>
-              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">Knowledge Compiler</strong> — 2,305 historical files, 2,294 unique IDs, and a 571-record provenance-recovered subset. <strong class="text-[var(--color-ink)]">CheckMyCoach</strong> — four-module intervention prototype with one bounded offline execution.</p>
-            </div>
-
-            <div class="relative">
-              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-gold)] border-2 border-[var(--color-page-warm)]"></div>
-              <div class="flex items-center gap-2 mb-0.5">
-                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-gold)] uppercase">2026 Q2-Q3</span>
-                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Adaptation</span>
-              </div>
-              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">CalTrust</strong> — LinUCB bandit simulation prototype (synthetic trial data). <strong class="text-[var(--color-ink)]">PI Discovery</strong> — advisor search engine.</p>
-            </div>
-
-            <div class="relative">
-              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-primary)] border-2 border-[var(--color-page-warm)]"></div>
-              <div class="flex items-center gap-2 mb-0.5">
-                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-primary)] uppercase">2026 Q2</span>
-                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Infrastructure</span>
-              </div>
-              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">InteractionKit</strong> — Platform design + schema specification + CHI reviewer critique + 3-agent audit + code complete.</p>
-            </div>
-
-            <div class="relative">
-              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-gold)] border-2 border-[var(--color-page-warm)]"></div>
-              <div class="flex items-center gap-2 mb-0.5">
-                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-gold)] uppercase">2026 Q3</span>
-                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Infrastructure</span>
-              </div>
-              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">InteractionKit</strong> — Frozen methodological asset; publicly tagged v1.0.0 with contract, type-check, build, and clean-install evidence. No human data.</p>
-            </div>
-
-            <div class="relative">
-              <div class="absolute -left-[25px] top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-secondary)] border-2 border-[var(--color-page-warm)]"></div>
-              <div class="flex items-center gap-2 mb-0.5">
-                <span class="font-mono text-[0.55rem] font-bold text-[var(--color-secondary)] uppercase">2026 Q3+</span>
-                <span class="font-mono text-[0.5rem] text-[var(--color-text-muted)] uppercase tracking-wider">Scale</span>
-              </div>
-              <p class="text-sm text-[var(--color-text-dim)]"><strong class="text-[var(--color-ink)]">Frozen prototypes</strong> — MaxFitCalib-Bench is engineering-only and closed; CalTrust remains simulation-only.</p>
+            <div class="related-item">
+              <span class="rel-role">Audit · closed</span>
+              <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="link-arrow">FitCalib-Bench controlled audit →</a>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="space-y-5">
-
-        <!-- Program 1 -->
-        <div class="card group">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.5rem] font-bold">01</span>
-            <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Understanding Human Trust</span>
+      <section id="build" class="mb-12">
+        <div class="arc-item">
+          <span class="arc-index">02 · Build</span>
+          <h2 class="arc-question mt-2 mb-3">Can systems improve appropriate reliance?</h2>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-5">
+            The most active stage. CheckMyCoach tests whether evidential-limit failures in AI advice can be operationally detected, routed, and repaired without overstating certainty. InteractionKit is the typed measurement infrastructure the agenda builds on. Human validation of the uncertainty-communication measurement is the current empirical step — no human-participant findings are claimed.
+          </p>
+          <div class="related-list">
+            <div class="related-item">
+              <span class="rel-role">Intervention · active</span>
+              <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach →</a>
+            </div>
+            <div class="related-item">
+              <span class="rel-role">Infrastructure · released</span>
+              <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">InteractionKit v1.0.0 →</a>
+            </div>
           </div>
-          <h2 class="font-display text-[1.2rem] mb-2">
-            <a href="/research/understanding-human-trust/" class="text-[var(--color-ink)] hover:text-[var(--color-primary)] transition-colors">
-              Understanding Human Trust in AI
-            </a>
-          </h2>
-          <p class="text-sm text-[var(--color-text-dim)] italic mb-1">How do people calibrate trust in AI systems?</p>
-          <p class="text-xs text-[var(--color-text-dim)] mb-4">Projects: CalTrust</p>
-          <a href="/research/understanding-human-trust/" class="link-arrow">
-            Explore program →          </a>
         </div>
+      </section>
 
-        <!-- Program 2 -->
-        <div class="card group">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.5rem] font-bold">02</span>
-            <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Measuring AI Reliability</span>
+      <section id="adapt" class="mb-12">
+        <div class="arc-item">
+          <span class="arc-index">03 · Adapt</span>
+          <h2 class="arc-question mt-2 mb-3">Can AI respond to individual trust context?</h2>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-5">
+            When a static intervention is insufficient, the agenda asks whether the system can adapt to the person in front of it. CalTrust is a simulation-only prototype exploring this question — reported proxy metrics describe the simulator, not human trust.
+          </p>
+          <div class="related-list">
+            <div class="related-item">
+              <span class="rel-role">Simulation · prototype</span>
+              <a href="/research/understanding-human-trust/caltrust/" class="link-arrow">CalTrust →</a>
+            </div>
           </div>
-          <h2 class="font-display text-[1.2rem] mb-2">
-            <a href="/research/measuring-ai-reliability/" class="text-[var(--color-ink)] hover:text-[var(--color-primary)] transition-colors">
-              Measuring AI Reliability
-            </a>
-          </h2>
-          <p class="text-sm text-[var(--color-text-dim)] italic mb-1">How reliable are AI systems in high-stakes domains?</p>
-          <p class="text-xs text-[var(--color-text-dim)] mb-4">Projects: MaxFitCalib-Bench</p>
-          <a href="/research/measuring-ai-reliability/" class="link-arrow">
-            Explore program →          </a>
         </div>
+      </section>
 
-        <!-- Program 3 -->
-        <div class="card group">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[var(--color-gold-subtle)] flex items-center justify-center text-[var(--color-gold)] font-mono text-[0.5rem] font-bold">03</span>
-            <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Building Trustworthy AI</span>
+      <!-- 3. Cross-program synthesis -->
+      <section id="synthesis" class="mb-12">
+        <span class="section-kicker mb-2">Synthesis</span>
+        <h2 class="mt-1 mb-3">Why these three stages belong together</h2>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl">
+          Miscalibration is first <strong class="text-[var(--color-ink)] font-medium">diagnosed</strong> as an evidential mismatch between what an AI system knows and what it communicates. Interventions are then <strong class="text-[var(--color-ink)] font-medium">built</strong> to repair that mismatch. And when a fixed intervention cannot cover every context, the system may need to <strong class="text-[var(--color-ink)] font-medium">adapt</strong> to the person using it. Each stage produces measurement, artifacts, and open questions that feed the next — this is conceptual program framing, not an empirical claim.
+        </p>
+      </section>
+
+      <!-- 4. Current focus -->
+      <section id="focus" class="mb-12">
+        <div class="border-l-2 border-[var(--color-secondary)] bg-[var(--color-secondary-subtle)]/40 rounded-r-lg px-5 py-4">
+          <p class="font-mono text-[0.62rem] font-semibold text-[var(--color-secondary-dim)] uppercase tracking-wider mb-1">Current focus</p>
+          <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">
+            CheckMyCoach human validation of uncertainty-communication measurement, toward the combined Precision Illusion + CheckMyCoach paper. No completed human-participant findings are claimed.
+          </p>
+          <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach project →</a>
+        </div>
+      </section>
+
+      <!-- 5. Methods / infrastructure (secondary) -->
+      <section id="methods">
+        <span class="section-kicker mb-2">Methods &amp; infrastructure</span>
+        <h2 class="mt-1 mb-3">Reusable assets</h2>
+        <div class="related-list">
+          <div class="related-item">
+            <span class="rel-role">Measurement &amp; taxonomy</span>
+            <span class="text-sm text-[var(--color-text-dim)]">Precision Illusion taxonomy · FitCalib-Bench audit</span>
           </div>
-          <h2 class="font-display text-[1.2rem] mb-2">
-            <a href="/research/building-trustworthy-ai/" class="text-[var(--color-ink)] hover:text-[var(--color-primary)] transition-colors">
-              Building Trustworthy AI
-            </a>
-          </h2>
-          <p class="text-sm text-[var(--color-text-dim)] italic mb-1">How should AI systems communicate uncertainty to humans?</p>
-          <p class="text-xs text-[var(--color-text-dim)] mb-4">Projects: CheckMyCoach</p>
-          <a href="/research/building-trustworthy-ai/" class="link-arrow">
-            Explore program →          </a>
+          <div class="related-item">
+            <span class="rel-role">Experimental infrastructure</span>
+            <span class="text-sm text-[var(--color-text-dim)]">InteractionKit v1.0.0 — typed experiment infrastructure</span>
+          </div>
+          <div class="related-item">
+            <span class="rel-role">Provenance-aware knowledge</span>
+            <span class="text-sm text-[var(--color-text-dim)]">Knowledge Compiler — corpus artifact, no validity claim</span>
+          </div>
+          <div class="related-item">
+            <span class="rel-role">Evaluation tooling</span>
+            <span class="text-sm text-[var(--color-text-dim)]">CheckMyCoach offline pipeline · interactive demo</span>
+          </div>
         </div>
+      </section>
 
-      </div>
     </div>
   </div>
 </BaseLayout>

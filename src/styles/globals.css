@@ -299,6 +299,124 @@
     text-transform: uppercase;
   }
 
+  /* ---- Page lead ---- */
+  .lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+  }
+
+  /* ---- Research-arc related-work list ---- */
+  .related-list {
+    border-top: 1px solid var(--color-rule-light);
+  }
+  .related-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem 0.9rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--color-rule-light);
+  }
+  .related-item .rel-role {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    min-width: 9rem;
+  }
+
+  /* ---- Facts table (evaluation decomposition) ---- */
+  .fact-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+  .fact-table caption {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    padding-bottom: 0.5rem;
+  }
+  .fact-table th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-rule);
+    padding: 0.5rem 0.75rem;
+  }
+  .fact-table td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--color-rule-light);
+    vertical-align: top;
+    color: var(--color-text-dim);
+    line-height: 1.5;
+  }
+  .fact-table td strong {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+  .fact-table th:first-child,
+  .fact-table td:first-child {
+    padding-left: 0;
+  }
+  .fact-table th:last-child,
+  .fact-table td:last-child {
+    padding-right: 0;
+  }
+
+  /* ---- Pipeline diagram ---- */
+  .pipeline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+  .pipe-node {
+    flex: 1 1 150px;
+    border: 1px solid var(--color-rule-light);
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    padding: 0.7rem 0.9rem;
+  }
+  .pipe-node .pn {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-brand);
+  }
+  .pipe-node h4 {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0.2rem 0;
+  }
+  .pipe-node p {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: var(--color-text-dim);
+    margin: 0;
+  }
+  .pipe-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--color-rule);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
   /* ---- Cards ---- */
   .card {
     background: var(--color-surface);
