@@ -1,59 +1,210 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../../components/Breadcrumb.astro';
 ---
+<BaseLayout title="CheckMyCoach — intervention prototype" description="A bounded four-module intervention prototype testing whether evidential-limit failures in AI advice can be detected, routed, and repaired. Offline-evaluated; human validation is the current next step.">
+  <div class="container-content py-14">
+    <Breadcrumb path="/research/building-trustworthy-ai/checkmycoach" />
 
-<BaseLayout title="CheckMyCoach v2.2" description="Controlled offline evaluation on one fixed 40-case corpus">
-  <div class="container-content py-16">
-    <div class="max-w-3xl">
-      <div class="flex flex-wrap items-center gap-3 mb-4">
-        <span class="badge badge-gold">Engineering Prototype</span>
-        <span class="font-mono text-xs text-[var(--color-muted)]">v2.2</span>
-        <span class="font-mono text-xs text-[var(--color-muted)]">Verified: 2026-08-02</span>
-      </div>
-
-      <h1 class="mb-4">CheckMyCoach</h1>
-      <p class="text-lg text-[var(--color-text-dim)] leading-relaxed mb-8">
-        A four-module research prototype—route, assign rule-based tags, generate candidate revisions, and run deterministic surface checks—evaluated descriptively on one fixed 40-case constructed fitness-advice corpus.
+    <!-- 1. Project header -->
+    <div class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-3">Build · research program</span>
+      <h1 class="mb-3">CheckMyCoach</h1>
+      <p class="lead mb-3">
+        A bounded intervention prototype that tests whether evidential-limit failures in AI advice can be operationally detected, routed, and repaired without overstating certainty.
       </p>
-
-      <div class="card-static mb-6 border-l-4 border-[var(--color-primary)]">
-        <h2 class="font-sans text-xs font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-2">Final claim boundary</h2>
-        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-          These results describe one offline execution. They do not establish system superiority, validated detection, equivalence between baselines, deployment effectiveness, or human/user effects.
-        </p>
-      </div>
-
-      <div class="card-static mb-6">
-        <h2 class="font-sans text-xs font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-2">What the evaluation shows</h2>
-        <ul class="space-y-2 text-sm text-[var(--color-text-dim)] list-disc list-inside">
-          <li>CheckMyCoach implements a pipeline that routes selected cases and generates candidate revisions using historical UCS heuristics.</li>
-          <li>Generic revision and Generic-plus-Oracle revision produced identical per-case decisions in this single execution; this is not an equivalence result and does not show that oracle information has no value.</li>
-          <li>No delivered output passed every deterministic target-and-retention check; the evaluation is descriptive, single-execution, and not a validated effectiveness claim.</li>
-        </ul>
-      </div>
-
-      <div class="card-static mb-6">
-        <h2 class="text-[1.1rem] mb-3">Pipeline trace</h2>
-        <ol class="space-y-3 text-sm text-[var(--color-text-dim)] list-decimal list-inside">
-          <li><strong class="text-[var(--color-ink)]">M1 routing:</strong> 15 of the 40 constructed cases were routed to candidate generation under the historical heuristic.</li>
-          <li><strong class="text-[var(--color-ink)]">M3 candidate generation:</strong> every routed case returned a candidate revision from the generation model.</li>
-          <li><strong class="text-[var(--color-ink)]">M4 surface checks:</strong> 12 of 40 delivered outputs removed the predefined target feature; none passed every target-and-retention check.</li>
-          <li><strong class="text-[var(--color-ink)]">End to end:</strong> none of the delivered outputs passed every evaluation check.</li>
-        </ol>
-      </div>
-
-      <div class="card-static mb-8">
-        <h2 class="text-[1.1rem] mb-3">Baseline interpretation</h2>
-        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-          Generic and Generic+Oracle revision produced identical per-case decisions in this single execution. That observation is not an equivalence result and does not show that oracle information has no value.
-        </p>
-      </div>
-
-      <div class="flex flex-wrap gap-3">
-        <a href="https://github.com/GBX-Max1220/CheckMyCoach" target="_blank" rel="noopener" class="btn btn-primary">View code</a>
-        <a href="/demo/checkmycoach/" class="btn">Pipeline demo</a>
-        <a href="/research/building-trustworthy-ai/" class="link-arrow self-center">← Back to trustworthy AI</a>
+      <p class="font-mono text-[0.62rem] text-[var(--color-text-muted)] uppercase tracking-[0.06em] mb-5">
+        Active · offline-evaluated · updated 2026-07-31
+      </p>
+      <div class="flex flex-wrap gap-x-5 gap-y-2 font-mono text-[0.75rem]">
+        <a href="https://github.com/GBX-Max1220/CheckMyCoach" target="_blank" rel="noopener" class="text-[var(--color-primary)] hover:text-[var(--color-primary-dim)] transition-colors">Code ↗</a>
+        <a href="/demo/checkmycoach/" class="text-[var(--color-primary)] hover:text-[var(--color-primary-dim)] transition-colors">Interactive demo</a>
+        <a href="/publications/checkmycoach-paper/" class="text-[var(--color-primary)] hover:text-[var(--color-primary-dim)] transition-colors">System note</a>
+        <a href="/research/building-trustworthy-ai/" class="text-[var(--color-text-muted)] hover:text-[var(--color-ink)] transition-colors">Building Trustworthy AI →</a>
       </div>
     </div>
+
+    <!-- 2. Research question -->
+    <section class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-2">Research question</span>
+      <h2 class="mt-1 mb-3">Can a system detect when AI advice exceeds its evidential support — and repair the response without overstating certainty?</h2>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl">
+        Fitness advice from a generative AI can be confident and specific while resting on thin evidence. The question here is operational: can a bounded system detect when an answer exceeds its support, route that case for repair, and produce a revision that keeps useful content while dropping unsupported certainty?
+      </p>
+    </section>
+
+    <!-- 3. Why this project exists -->
+    <section class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-2">Why this exists</span>
+      <h2 class="mt-1 mb-3">Diagnose identified the failure; Build asks whether it can be repaired</h2>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl">
+        The measurement and audit work in <strong class="text-[var(--color-ink)] font-medium">Diagnose</strong> — the Precision-Illusion taxonomy and the FitCalib-Bench audit — identifies how unsupported numerical precision and weak evidential support shape reliance. CheckMyCoach is the <strong class="text-[var(--color-ink)] font-medium">Build</strong> stage: it tests whether those failures can be detected, routed, and repaired in a deterministic, inspectable way before any human study is run.
+      </p>
+    </section>
+
+    <!-- 4. System / pipeline -->
+    <section class="mb-12">
+      <span class="section-kicker mb-2">System</span>
+      <h2 class="mt-1 mb-2">The four-module pipeline</h2>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-6 max-w-2xl">
+        CheckMyCoach routes advice cases, assigns rule-based tags, generates candidate revisions, and verifies them with deterministic surface checks.
+      </p>
+      <div class="pipeline">
+        <div class="pipe-node">
+          <span class="pn">M1</span>
+          <h4>Routing</h4>
+          <p>Selects cases for candidate generation under the historical heuristic.</p>
+        </div>
+        <span class="pipe-arrow" aria-hidden="true">→</span>
+        <div class="pipe-node">
+          <span class="pn">M2</span>
+          <h4>Rule-based tagging</h4>
+          <p>Assigns rule-based tags to routed cases.</p>
+        </div>
+        <span class="pipe-arrow" aria-hidden="true">→</span>
+        <div class="pipe-node">
+          <span class="pn">M3</span>
+          <h4>Candidate generation</h4>
+          <p>Returns a candidate revision for every routed case.</p>
+        </div>
+        <span class="pipe-arrow" aria-hidden="true">→</span>
+        <div class="pipe-node">
+          <span class="pn">M4</span>
+          <h4>Surface checks</h4>
+          <p>Runs deterministic target-and-retention checks on delivered outputs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. What the evaluation establishes -->
+    <section class="mb-12">
+      <span class="section-kicker mb-2">Evidence</span>
+      <h2 class="mt-1 mb-3">What the current evaluation establishes</h2>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-6 max-w-2xl">
+        One fixed 40-case constructed corpus, one execution. The table separates documented execution facts from what they do <em>not</em> establish.
+      </p>
+      <div class="overflow-x-auto">
+        <table class="fact-table">
+          <caption>Fixed-corpus execution — descriptive facts, not validated outcomes</caption>
+          <thead>
+            <tr>
+              <th scope="col">Fact</th>
+              <th scope="col">What it is</th>
+              <th scope="col">What it is not</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>40 constructed cases</strong></td>
+              <td>A fixed, constructed fitness-advice corpus.</td>
+              <td>Not a real-world dataset.</td>
+            </tr>
+            <tr>
+              <td><strong>15 / 40 routed</strong></td>
+              <td>Cases routed to candidate generation under the heuristic (M1).</td>
+              <td>Routing coverage is not detection accuracy.</td>
+            </tr>
+            <tr>
+              <td><strong>12 / 40 removed target feature</strong></td>
+              <td>Delivered outputs that removed the predefined target feature (M4).</td>
+              <td>Removal is not validated detection or repair effectiveness.</td>
+            </tr>
+            <tr>
+              <td><strong>0 / 40 passed every check</strong></td>
+              <td>No delivered output passed every target-and-retention check.</td>
+              <td>No validated effectiveness is claimed.</td>
+            </tr>
+            <tr>
+              <td><strong>Generic = Generic+Oracle</strong></td>
+              <td>Identical per-case decisions in this single execution.</td>
+              <td>Not an equivalence result; oracle value remains unassessed.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 6. Scientific boundary -->
+    <section class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-2">Scientific boundary</span>
+      <h2 class="mt-1 mb-4">What this supports — and what it does not yet establish</h2>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div class="card-static">
+          <h3 class="font-mono text-[0.62rem] font-semibold text-[var(--color-secondary-dim)] uppercase tracking-wider mb-2">Supports</h3>
+          <ul class="text-sm text-[var(--color-text-dim)] space-y-2">
+            <li>Four-module decomposition executes end-to-end on a fixed constructed corpus.</li>
+            <li>Routing, removal, acceptance, and end-to-end denominators are documented for one run.</li>
+            <li>A controlled way to separate routing coverage, revision execution, and surface-check acceptance before testing human effects.</li>
+          </ul>
+        </div>
+        <div class="card-static">
+          <h3 class="font-mono text-[0.62rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-2">Does not yet establish</h3>
+          <ul class="text-sm text-[var(--color-text-dim)] space-y-2">
+            <li>Validated detection, superiority, equivalence, or user-effect claims.</li>
+            <li>Human benefit or cross-domain generalization.</li>
+            <li>Any human-participant finding.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Next empirical step -->
+    <section class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-2">Next step</span>
+      <h2 class="mt-1 mb-3">Human validation: the current empirical step</h2>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl mb-3">
+        The active empirical step is human validation of the uncertainty-communication measurement, toward the combined Precision Illusion + CheckMyCoach paper.
+      </p>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl">
+        Human validation is not completed, and no human-participant findings are claimed. The standalone CheckMyCoach system note remains a reusable writing asset; its standalone publication trajectory is archived in favor of the combined paper.
+      </p>
+    </section>
+
+    <!-- 8. Research lineage -->
+    <section class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-2">Place in the program</span>
+      <h2 class="mt-1 mb-4">Research lineage</h2>
+      <div class="space-y-4">
+        <div class="related-item" style="border-top-width:0; padding-top:0">
+          <span class="rel-role">Before · Diagnose</span>
+          <span class="text-sm text-[var(--color-text-dim)]">Precision Illusion taxonomy · FitCalib-Bench audit — measurement of miscalibration and evidential limits.</span>
+        </div>
+        <div class="related-item">
+          <span class="rel-role">Current · Build</span>
+          <span class="text-sm text-[var(--color-text-dim)]">CheckMyCoach — intervention prototype; human validation is the active step.</span>
+        </div>
+        <div class="related-item">
+          <span class="rel-role">Enables · Adapt</span>
+          <span class="text-sm text-[var(--color-text-dim)]">CalTrust explores adaptive systems when a static intervention is insufficient; InteractionKit is the measurement infrastructure this line builds on.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Artifacts -->
+    <section class="max-w-[820px]">
+      <span class="section-kicker mb-2">Artifacts</span>
+      <h2 class="mt-1 mb-4">Resources</h2>
+      <div class="related-list">
+        <div class="related-item">
+          <span class="rel-role">Code</span>
+          <a href="https://github.com/GBX-Max1220/CheckMyCoach" target="_blank" rel="noopener" class="link-arrow">GitHub →</a>
+        </div>
+        <div class="related-item">
+          <span class="rel-role">Demo</span>
+          <a href="/demo/checkmycoach/" class="link-arrow">Interactive pipeline demo →</a>
+        </div>
+        <div class="related-item">
+          <span class="rel-role">System note · archived</span>
+          <a href="/publications/checkmycoach-paper/" class="link-arrow">CheckMyCoach system note →</a>
+        </div>
+        <div class="related-item">
+          <span class="rel-role">Related research</span>
+          <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">InteractionKit →</a>
+          <span class="text-[var(--color-rule)]">·</span>
+          <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="link-arrow">FitCalib-Bench →</a>
+        </div>
+      </div>
+    </section>
+
   </div>
 </BaseLayout>
