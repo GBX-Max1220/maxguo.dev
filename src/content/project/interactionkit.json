@@ -14,7 +14,7 @@
     "The publicly tagged v1.0.0 release implements ConfidenceDisplay, RelianceDecision, and OutcomeFeedback primitives, plus composition, JSON Schema generation, and structured event logging.",
     "The release payload passed seven Pattern System contract tests, TypeScript checking, a production build, and clean-install reproduction checks.",
     "The artifact establishes a software specification and local implementation only. It has no participant data and does not establish construct validity, behavioral equivalence, or cross-lab reproducibility.",
-    "A planned Study 2 uses InteractionKit to test a failure-contingent interaction principle; its design is frozen, but materials, ethics approval, registration, and human evidence are not complete."
+    "A designed Study 2 uses InteractionKit to test a failure-contingent interaction principle; it is deferred and not an active priority, and its materials, ethics approval, registration, and human evidence are not complete."
   ],
   "hciRelevance": "Makes uncertainty communication and reliance measurement explicit, typed experimental objects that can be audited before behavioral studies are run.",
   "faq": [
