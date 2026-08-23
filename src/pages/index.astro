@@ -2,265 +2,160 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Home" description="I study how AI systems communicate reliability, uncertainty, and numerical precision—and how these signals shape human reliance and decision quality" ogImage="/og/home.png" hideNav hideTopBar>
+<BaseLayout title="Home" description="I study how AI systems communicate reliability, uncertainty, and numerical precision—and how these signals shape human reliance and decision quality" ogImage="/og/home.png" hideTopBar>
 
 <!-- ================================================================ -->
-<!-- Two-column research-operating-system layout                       -->
-<!-- Left: identity rail (sticky). Right: research agenda flow.        -->
+<!-- Hybrid editorial homepage: identity rail + research agenda flow   -->
 <!-- ================================================================ -->
 <div class="container-shell">
-  <div class="flex flex-col lg:flex-row gap-0 lg:gap-14">
+  <div class="flex flex-col lg:flex-row gap-0 lg:gap-16">
 
     <!-- ============================================================ -->
-    <!-- LEFT — identity + research statement + evidence               -->
+    <!-- LEFT — identity rail (sticky on lg+, stacks first on mobile)   -->
     <!-- ============================================================ -->
-    <div class="w-full lg:w-[360px] lg:min-w-[360px] lg:sticky lg:top-10 lg:self-start py-12 lg:py-16">
+    <div class="w-full lg:w-[380px] lg:min-w-[380px] lg:sticky lg:top-16 lg:self-start py-10 lg:py-16">
 
-      <!-- Sidebar navigation -->
-      <nav class="flex flex-wrap lg:flex-col gap-x-5 gap-y-2 mb-10" aria-label="Section navigation">
-        <a href="#research" class="group flex items-center gap-2 px-2 py-1.5 text-[0.72rem] font-mono font-medium uppercase tracking-wider text-[var(--color-text-dim)] hover:text-[var(--color-primary)] transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] opacity-40 group-hover:opacity-100 transition-opacity"></span>
-          Research program
-        </a>
-        <a href="#outputs" class="group flex items-center gap-2 px-2 py-1.5 text-[0.72rem] font-mono font-medium uppercase tracking-wider text-[var(--color-text-dim)] hover:text-[var(--color-primary)] transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-          Research outputs
-        </a>
-        <a href="#activity" class="group flex items-center gap-2 px-2 py-1.5 text-[0.72rem] font-mono font-medium uppercase tracking-wider text-[var(--color-text-dim)] hover:text-[var(--color-primary)] transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-          Recent activity
-        </a>
-        <a href="/publications/" class="group flex items-center gap-2 px-2 py-1.5 text-[0.72rem] font-mono font-medium uppercase tracking-wider text-[var(--color-text-dim)] hover:text-[var(--color-primary)] transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-          Publications
-        </a>
-        <a href="/blog/" class="group flex items-center gap-2 px-2 py-1.5 text-[0.72rem] font-mono font-medium uppercase tracking-wider text-[var(--color-text-dim)] hover:text-[var(--color-primary)] transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-          Blog
-        </a>
-        <a href="/about/" class="group flex items-center gap-2 px-2 py-1.5 text-[0.72rem] font-mono font-medium uppercase tracking-wider text-[var(--color-text-dim)] hover:text-[var(--color-primary)] transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-          About
-        </a>
-        <a href="/cv/" class="group flex items-center gap-2 px-2 py-1.5 text-[0.72rem] font-mono font-medium uppercase tracking-wider text-[var(--color-text-dim)] hover:text-[var(--color-primary)] transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-          CV
-        </a>
-      </nav>
+      <p class="rail-kicker mb-3">Human-Centered AI · AI Evaluation · Human Decision-Making</p>
+      <p class="rail-name mb-1">Baixin Guo</p>
+      <p class="font-mono text-[0.7rem] text-[var(--color-text-muted)] uppercase tracking-[0.1em] mb-5">Max · independent researcher</p>
 
-      <!-- Identity -->
-      <p class="section-kicker mb-4">Research · Human-Centered AI</p>
-      <h1 class="mb-4">
-        Human–AI decision calibration under epistemic uncertainty
+      <h1 class="mb-5">
+        Human–AI decision-making under uncertainty
       </h1>
-      <p class="font-mono text-[0.7rem] text-[var(--color-text-muted)] uppercase tracking-[0.1em] mb-5">
-        Baixin Guo (Max) · HCI &amp; AI research · applied psychology
-      </p>
 
-      <!-- Research statement -->
       <p class="font-sans text-[0.95rem] text-[var(--color-text-dim)] leading-relaxed mb-4">
         I study how AI systems communicate reliability, uncertainty, and numerical precision — and how these signals shape human reliance and decision quality.
       </p>
       <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-6">
-        Current program: CheckMyCoach human validation toward the combined Precision Illusion + CheckMyCoach paper. No human-participant findings are claimed.
+        Current work: CheckMyCoach human validation toward the combined Precision Illusion + CheckMyCoach paper — no human-participant findings are claimed.
       </p>
 
-      <!-- Primary links -->
-      <div class="flex flex-wrap gap-x-5 gap-y-2 mb-8 font-mono text-[0.72rem] text-[var(--color-text-dim)]">
-        <a href="#research" class="link-arrow">Explore the program →</a>
-        <a href="/research/building-trustworthy-ai/interactionkit/research-brief/" class="hover:text-[var(--color-primary)] transition-colors">10-min research brief</a>
-      </div>
-
       <!-- Identity links -->
-      <div class="flex flex-col gap-2 mb-10">
-        <a href="https://github.com/GBX-Max1220" target="_blank" rel="noopener" class="flex items-center gap-2 text-[var(--color-text-dim)] hover:text-[var(--color-ink)] transition-colors font-mono text-sm">
-          <svg width="16" height="16" viewBox="0 0 18 18" fill="currentColor" class="flex-shrink-0 opacity-80"><path d="M9 0a9 9 0 0 0-2.84 17.54c.45.08.62-.2.62-.44v-1.56c-2.56.56-3.1-1.1-3.1-1.1-.42-1.07-1.03-1.35-1.03-1.35-.84-.57.06-.56.06-.56.93.07 1.42.96 1.42.96.82 1.41 2.16 1 2.69.77.08-.6.33-1.01.59-1.24-2.06-.24-4.22-1.03-4.22-4.58 0-1.01.36-1.84.95-2.48-.1-.24-.42-1.18.09-2.46 0 0 .78-.25 2.55.95a8.9 8.9 0 0 1 4.64 0c1.77-1.2 2.55-.95 2.55-.95.51 1.28.19 2.22.1 2.46.59.64.95 1.47.95 2.48 0 3.55-2.16 4.34-4.22 4.57.33.28.62.84.62 1.7v2.52c0 .24.16.52.63.44A9 9 0 0 0 9 0z"/></svg>
-          GitHub — GBX-Max1220
-        </a>
-        <a href="https://www.linkedin.com/in/baixin-guo-681113285/" target="_blank" rel="noopener" class="flex items-center gap-2 text-[var(--color-text-dim)] hover:text-[var(--color-ink)] transition-colors font-mono text-sm">
-          <svg width="16" height="16" viewBox="0 0 18 18" fill="currentColor" class="flex-shrink-0 opacity-80"><path d="M4 6h2.5v7.5H4V6zm1.2-1.1a1.4 1.4 0 1 1 0-2.8 1.4 1.4 0 0 1 0 2.8zM8.7 6h2.4v1.1h0A3 3 0 0 1 13.8 5.5c2.6 0 3.1 1.7 3.1 4v4h-2.5v-3.5c0-1.1 0-2.4-1.5-2.4s-1.7 1.2-1.7 2.4V13.5H8.7V6z"/></svg>
-          LinkedIn — Baixin Guo
-        </a>
-        <a href="mailto:gbx1220max@gmail.com" class="flex items-center gap-2 text-[var(--color-text-dim)] hover:text-[var(--color-ink)] transition-colors font-mono text-sm">
-          <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 opacity-80"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M2 6l7 5 7-5"/></svg>
-          gbx1220max@gmail.com
-        </a>
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mb-8 font-mono text-[0.75rem]">
+        <a href="https://github.com/GBX-Max1220" target="_blank" rel="noopener" class="text-[var(--color-primary)] hover:text-[var(--color-primary-dim)] transition-colors">GitHub</a>
+        <a href="/cv/" class="text-[var(--color-primary)] hover:text-[var(--color-primary-dim)] transition-colors">CV</a>
+        <a href="mailto:gbx1220max@gmail.com" class="text-[var(--color-primary)] hover:text-[var(--color-primary-dim)] transition-colors">Email</a>
+        <a href="https://www.linkedin.com/in/baixin-guo-681113285/" target="_blank" rel="noopener" class="text-[var(--color-text-muted)] hover:text-[var(--color-ink)] transition-colors">LinkedIn</a>
       </div>
 
-      <!-- Divider -->
-      <div class="divider-ornament mb-8"></div>
+      <!-- Editorial visual (conceptual orientation, not a banner) -->
+      <figure class="hidden sm:block mb-8">
+        <img src={'/images/home-hero.png'} alt="Conceptual overview of human–AI decision calibration research" width="1200" height="500" loading="lazy" class="w-full h-auto rounded-lg border border-[var(--color-rule-light)]" />
+      </figure>
 
-      <!-- Evidence / quantitative signals (with context) -->
-      <div class="grid grid-cols-2 gap-x-6 gap-y-5">
-        <div>
-          <div class="stat-number text-[1.7rem]">3</div>
-          <div class="stat-label">Typed interaction primitives — InteractionKit v1.0.0, software-verified</div>
-        </div>
-        <div>
-          <div class="stat-number text-[1.7rem]">2,305</div>
-          <div class="stat-label">Historical corpus files · 2,294 IDs — provenance recovered, no validity claimed</div>
-        </div>
-        <div>
-          <div class="stat-number text-[1.7rem]">M1–M4</div>
-          <div class="stat-label">Four-module intervention prototype — one offline, constructed-corpus run</div>
-        </div>
-        <div>
-          <div class="stat-number text-[1.7rem]">0</div>
-          <div class="stat-label">Human participants claimed — human data not yet authorized</div>
-        </div>
-      </div>
+      <a href="#research" class="link-arrow">Explore the research program ↓</a>
     </div>
 
     <!-- ============================================================ -->
     <!-- RIGHT — research agenda flow                                  -->
     <!-- ============================================================ -->
-    <div class="flex-1 min-w-0 py-12 lg:py-16">
+    <div class="flex-1 min-w-0 py-10 lg:py-16">
 
-      <!-- RESEARCH PROGRAM / ARC -->
+      <!-- RESEARCH PROGRAM (editorial argument) -->
       <section id="research" class="mb-14">
         <span class="section-kicker">Research program</span>
-        <h2 class="mt-2 mb-3">One agenda: diagnose → build → adapt</h2>
-        <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-8 max-w-2xl">
-          How people mis-rely on AI-generated advice, how to measure and correct that reliance, and how systems can adapt to each person's trust. Each thread is bounded by its evidence class — active work, frozen assets, and simulation-only prototypes are kept distinct.
+        <h2 class="mt-2 mb-2">One agenda: diagnose → build → adapt</h2>
+        <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-6 max-w-2xl">
+          How people mis-rely on AI advice, how to measure and correct that reliance, and how systems might adapt — one agenda across measurement, intervention, and simulation.
         </p>
 
-        <div class="space-y-5">
+        <div class="space-y-0">
           <!-- 01 Diagnose -->
-          <article class="card-static">
-            <div class="flex flex-wrap items-center gap-3 mb-3">
-              <span class="section-kicker">01 · Diagnose</span>
-              <span class="badge badge-gold">Historical measurement</span>
-            </div>
-            <h3 class="text-[1.15rem] mb-2">How do people mis-rely on AI advice?</h3>
-            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">
-              Measurement development for over-reliance and false precision. <strong class="text-[var(--color-ink)] font-medium">FitCalib-Bench</strong> is retained as benchmark-development history — its scientific operationalisation was retired after audits. The <strong class="text-[var(--color-ink)] font-medium">Precision-Illusion</strong> measurement taxonomy is also historical: the behavioral thread was retired 2026-08-18, and a bounded measurement schema (M0 v1) is frozen as an instrument-testing asset with execution not activated.
+          <div class="arc-item">
+            <span class="arc-index">01 · Diagnose</span>
+            <p class="arc-question mt-1 mb-2">How and why do people mis-rely on AI outputs?</p>
+            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+              The Precision-Illusion taxonomy and FitCalib-Bench are historical measurement work behind this question — how unsupported numerical precision shapes reliance. <span class="work-kind">Historical method</span>
             </p>
             <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
               <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="link-arrow">FitCalib-Bench audit →</a>
               <a href="/blog/precision-illusion-intro/" class="link-arrow">Precision Illusion taxonomy →</a>
             </div>
-          </article>
+          </div>
 
           <!-- 02 Build -->
-          <article class="card-static">
-            <div class="flex flex-wrap items-center gap-3 mb-3">
-              <span class="section-kicker">02 · Build</span>
-              <span class="badge badge-active">Active</span>
-              <span class="badge">Frozen · released</span>
-            </div>
-            <h3 class="text-[1.15rem] mb-2">Can interventions improve appropriate reliance?</h3>
-            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">
-              <strong class="text-[var(--color-ink)] font-medium">CheckMyCoach</strong> — the active thread. A four-module intervention prototype evaluated on one fixed 40-case constructed corpus (15 routed, 12 revised, none passed every target-and-retention check): offline execution facts, with human validation as the next step. <strong class="text-[var(--color-ink)] font-medium">InteractionKit</strong> — frozen measurement infrastructure, v1.0.0 released and software-verified; its human study (Study 2) is designed but deferred.
+          <div class="arc-item">
+            <span class="arc-index">02 · Build</span>
+            <p class="arc-question mt-1 mb-2">Can systems improve appropriate reliance?</p>
+            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+              CheckMyCoach is the current empirical thread — an intervention prototype with a documented offline 40-case run, with human validation as the active step. InteractionKit is the released measurement infrastructure it builds on. <span class="work-kind">Current work · released</span>
             </p>
             <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
               <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach →</a>
               <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">InteractionKit →</a>
               <a href="/research/building-trustworthy-ai/interactionkit/research-brief/" class="link-arrow">Research brief →</a>
             </div>
-          </article>
+          </div>
 
           <!-- 03 Adapt -->
-          <article class="card-static">
-            <div class="flex flex-wrap items-center gap-3 mb-3">
-              <span class="section-kicker">03 · Adapt</span>
-              <span class="badge">Simulation only</span>
-            </div>
-            <h3 class="text-[1.15rem] mb-2">Can AI adapt to each person's trust context?</h3>
-            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">
-              <strong class="text-[var(--color-ink)] font-medium">CalTrust</strong> — a frozen LinUCB prototype evaluated on synthetic trial data in simulation. Reported proxy metrics describe the simulator, not human trust, behavior, or intervention effects.
+          <div class="arc-item">
+            <span class="arc-index">03 · Adapt</span>
+            <p class="arc-question mt-1 mb-2">Can AI respond to individual trust context?</p>
+            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+              CalTrust explores bandit-style adaptation in simulation only — reported proxy metrics describe the simulator, not human trust. <span class="work-kind">Simulation only</span>
             </p>
             <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
               <a href="/research/understanding-human-trust/caltrust/" class="link-arrow">CalTrust →</a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SELECTED WORK -->
+      <section id="work" class="mb-14">
+        <span class="section-kicker">Selected work</span>
+        <h2 class="mt-2 mb-5">Three threads, one agenda</h2>
+
+        <div class="space-y-5">
+          <article class="card-static">
+            <h3 class="text-[1.1rem] mb-1.5">CheckMyCoach</h3>
+            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">
+              A four-module intervention prototype that routes AI-advice cases, generates candidate revisions, and runs deterministic surface checks. It is the current empirical thread — human validation of uncertainty communication is the active research step.
+            </p>
+            <p class="work-kind mb-2">Intervention prototype · current work</p>
+            <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach →</a>
+          </article>
+
+          <article class="card-static">
+            <h3 class="text-[1.1rem] mb-1.5">InteractionKit</h3>
+            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">
+              Typed experiment infrastructure — JSON Schema and structured event logging — for reproducible AI-interaction experiments. v1.0.0 is released and software-verified.
+            </p>
+            <p class="work-kind mb-2">Measurement infrastructure · released</p>
+            <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">InteractionKit →</a>
+          </article>
+
+          <article class="card-static">
+            <h3 class="text-[1.1rem] mb-1.5">Knowledge Compiler</h3>
+            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">
+              A provenance-recovered corpus and pipeline for structured knowledge from domain textbooks — 2,305 files, 2,294 unique IDs. It is a corpus artifact; no validity claim is made.
+            </p>
+            <p class="work-kind mb-2">Corpus &amp; pipeline · historical</p>
+            <a href="/research/building-trustworthy-ai/knowledge-compiler/" class="link-arrow">Knowledge Compiler →</a>
           </article>
         </div>
-      </section>
 
-      <!-- ACTIVE WORK CALLOUT -->
-      <section class="mb-14">
-        <div class="border-l-2 border-[var(--color-secondary)] bg-[var(--color-secondary-subtle)]/40 rounded-r-lg px-5 py-4">
-          <p class="font-mono text-[0.62rem] font-semibold text-[var(--color-secondary-dim)] uppercase tracking-wider mb-1">Current active research</p>
-          <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed">
-            CheckMyCoach human validation of uncertainty-communication measurement, toward the combined Precision Illusion + CheckMyCoach paper. No human-participant findings are claimed.
-          </p>
+        <div class="mt-5">
+          <a href="/research/" class="link-arrow">View all research →</a>
         </div>
       </section>
 
-      <!-- RESEARCH OUTPUTS -->
-      <section id="outputs" class="mb-14">
-        <span class="section-kicker">Research outputs</span>
-        <h2 class="mt-2 mb-3">Writing &amp; artifacts</h2>
-        <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-4 max-w-2xl">
-          Two standalone system notes are archived (CheckMyCoach; MaxFitCalib-Bench). The standalone CheckMyCoach trajectory is superseded by the combined Precision Illusion + CheckMyCoach manuscript, currently in development. Public software artifacts are tracked separately from scientific claims.
-        </p>
-        <div class="card-static">
-          <ul class="space-y-2.5">
-            <li class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span class="badge">Archived</span>
-              <a href="/publications/checkmycoach-paper/" class="font-sans text-sm text-[var(--color-ink)] hover:text-[var(--color-primary)] transition-colors">CheckMyCoach: A Four-Module Intervention Prototype and Bounded Offline Evaluation</a>
-              <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">system note · 2026</span>
-            </li>
-            <li class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span class="badge">Archived</span>
-              <a href="/publications/fitcalib-bench-paper/" class="font-sans text-sm text-[var(--color-ink)] hover:text-[var(--color-primary)] transition-colors">MaxFitCalib-Bench: Controlled Audit of an LLM Calibration Benchmark Prototype</a>
-              <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">engineering methods · 2026</span>
-            </li>
-            <li class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span class="badge">Released · frozen</span>
-              <a href="/research/building-trustworthy-ai/interactionkit/" class="font-sans text-sm text-[var(--color-ink)] hover:text-[var(--color-primary)] transition-colors">InteractionKit v1.0.0</a>
-              <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">typed experiment infrastructure · no human data</span>
-            </li>
-            <li class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span class="badge">Active tool</span>
-              <a href="/tools/pi-discovery/" class="font-sans text-sm text-[var(--color-ink)] hover:text-[var(--color-primary)] transition-colors">PI Discovery</a>
-              <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">advisor search tool · v0.3</span>
-            </li>
-            <li class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span class="badge">Frozen</span>
-              <span class="font-sans text-sm text-[var(--color-text-dim)]">Knowledge Compiler</span>
-              <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]">provenance-recovered corpus artifact · no validity claim</span>
-            </li>
-          </ul>
-          <div class="mt-4 pt-3 border-t border-[var(--color-rule-light)]">
-            <a href="/publications/" class="link-arrow">All publications →</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- RECENT ACTIVITY -->
-      <section id="activity">
+      <!-- LATEST -->
+      <section id="latest">
         <div class="flex items-end justify-between mb-4">
           <div>
-            <span class="section-kicker">Recent activity</span>
+            <span class="section-kicker">Latest</span>
             <h2 class="mt-2">Activity</h2>
           </div>
-          <a href="/blog/" class="link-arrow">All posts →</a>
+          <a href="/blog/" class="link-arrow">More →</a>
         </div>
 
         <div class="bg-[var(--color-surface)] rounded-lg border border-[var(--color-rule-light)] px-5 py-2">
           <div class="log-item">
-            <span class="log-date">Aug 2</span>
-            <div class="log-dot"></div>
-            <p class="font-sans text-sm text-[var(--color-text-dim)]">Portfolio claim audit completed — active, frozen, simulation-only, and engineering-only artifacts separated</p>
-            <span class="log-cat">Research</span>
-          </div>
-          <div class="log-item">
             <span class="log-date">Jul 31</span>
             <div class="log-dot"></div>
-            <p class="font-sans text-sm text-[var(--color-text-dim)]">InteractionKit v1.0.0 released at commit 91bda82 after 7 contract tests, type checking, production build, and clean-install reproduction</p>
+            <p class="font-sans text-sm text-[var(--color-text-dim)]">InteractionKit v1.0.0 released — 7 contract tests, type checking, production build, and clean-install reproduction</p>
             <span class="log-cat">Release</span>
-          </div>
-          <div class="log-item">
-            <span class="log-date">Jul 31</span>
-            <div class="log-dot"></div>
-            <p class="font-sans text-sm text-[var(--color-text-dim)]">CheckMyCoach v2.2 fixed-corpus claim boundary finalized; all reported outcomes remain descriptive and offline</p>
-            <span class="log-cat">Research</span>
-          </div>
-          <div class="log-item">
-            <span class="log-date">Jul 24</span>
-            <div class="log-dot"></div>
-            <p class="font-sans text-sm text-[var(--color-text-dim)]">MaxFitCalib-Bench controlled audit closed with zero interpretable scientific outputs; retained as an engineering methods artifact</p>
-            <span class="log-cat">Research</span>
           </div>
           <div class="log-item">
             <span class="log-date">Jul 11</span>

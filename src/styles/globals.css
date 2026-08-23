@@ -23,44 +23,44 @@
     --radius-xl: 14px;
 
     /* ---- Palette ---- */
-    /* Brand / identity — ink navy */
+    /* Structural — ink navy (structure / labels / selected nav) */
     --color-brand: #183b56;
     --color-brand-dim: #122f46;
-    /* Functional / link — calm research blue */
-    --color-primary: #2d6a9f;
-    --color-primary-dim: #21507a;
-    --color-primary-subtle: #e6eef6;
-    /* Secondary — steel teal (active research accent) */
+    /* Signature — terracotta (links, CTA, personal accent; AA on warm bg) */
+    --color-primary: #a8522d;
+    --color-primary-dim: #8f4526;
+    --color-primary-subtle: #f5e3da;
+    /* Semantic — muted steel teal (used only where meaningful) */
     --color-secondary: #2e6f63;
     --color-secondary-dim: #235448;
     --color-secondary-subtle: #e2ede9;
-    /* Historical / frozen marker — muted amber */
+    /* Historical — muted amber */
     --color-gold: #a67c2e;
     --color-gold-subtle: #f2e8d4;
 
-    /* Text & surfaces */
+    /* Text & surfaces — warm editorial base */
     --color-ink: #20262d;
     --color-ink-light: #39444f;
-    --color-page: #fbfaf8;
-    --color-page-alt: #f2f4f6;
-    --color-page-warm: #f4f1ec;
+    --color-page: #faf6ef;
+    --color-page-alt: #f2ece2;
+    --color-page-warm: #f5efe4;
     --color-surface: #ffffff;
-    --color-surface-hover: #f3f6f9;
-    --color-muted: #7c8a99;
-    --color-rule: #d8e0e8;
-    --color-rule-light: #e6ebf1;
+    --color-surface-hover: #f5f0e8;
+    --color-muted: #7c786f;
+    --color-rule: #ddd6ca;
+    --color-rule-light: #eae4d9;
     --color-text: #20262d;
-    --color-text-dim: #5a6876;
-    --color-text-muted: #748290;
+    --color-text-dim: #5d5b55;
+    --color-text-muted: #7c786f;
     --color-text-on-ink: #c9d4de;
 
-    /* ---- Shadows ---- */
-    --shadow-card: 0 1px 2px rgba(24, 59, 86, 0.06),
-      0 1px 3px rgba(24, 59, 86, 0.05);
-    --shadow-card-hover: 0 4px 14px rgba(24, 59, 86, 0.1),
-      0 2px 4px rgba(24, 59, 86, 0.06);
-    --shadow-elevated: 0 8px 28px rgba(24, 59, 86, 0.12);
-    --shadow-subtle: 0 1px 2px rgba(24, 59, 86, 0.05);
+    /* ---- Shadows (warm-leaning neutral) ---- */
+    --shadow-card: 0 1px 2px rgba(60, 46, 30, 0.06),
+      0 1px 3px rgba(60, 46, 30, 0.05);
+    --shadow-card-hover: 0 4px 14px rgba(60, 46, 30, 0.1),
+      0 2px 4px rgba(60, 46, 30, 0.06);
+    --shadow-elevated: 0 8px 28px rgba(60, 46, 30, 0.12);
+    --shadow-subtle: 0 1px 2px rgba(60, 46, 30, 0.05);
   }
 
   html {
@@ -250,7 +250,53 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.14em;
+    color: var(--color-brand);
+  }
+
+  /* ---- Research arc (editorial argument, not dashboard cards) ---- */
+  .arc-item {
+    border-top: 1px solid var(--color-rule-light);
+    padding: 1.4rem 0;
+  }
+  .arc-item:last-child {
+    border-bottom: 1px solid var(--color-rule-light);
+  }
+  .arc-index {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-brand);
+  }
+  .arc-question {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--color-ink);
+  }
+
+  /* ---- Identity rail ---- */
+  .rail-name {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    line-height: 1.05;
+    color: var(--color-ink);
+  }
+  .rail-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
     color: var(--color-primary);
+  }
+
+  /* ---- Selected-work kind line ---- */
+  .work-kind {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
   }
 
   /* ---- Cards ---- */
