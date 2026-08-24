@@ -1,6 +1,36 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../../components/Breadcrumb.astro';
+
+// Fixed-corpus execution facts — single source rendered as a three-column
+// table on desktop and stacked fact records on mobile. Values stay identical.
+const facts = [
+  {
+    value: '40 constructed cases',
+    is: 'A fixed, constructed fitness-advice corpus.',
+    isNot: 'Not a real-world dataset.',
+  },
+  {
+    value: '15 / 40 routed',
+    is: 'Cases routed to candidate generation under the heuristic (M1).',
+    isNot: 'Routing coverage is not detection accuracy.',
+  },
+  {
+    value: '12 / 40 removed target feature',
+    is: 'Delivered outputs that removed the predefined target feature (M4).',
+    isNot: 'Removal is not validated detection or repair effectiveness.',
+  },
+  {
+    value: '0 / 40 passed every check',
+    is: 'No delivered output passed every target-and-retention check.',
+    isNot: 'No validated effectiveness is claimed.',
+  },
+  {
+    value: 'Generic = Generic+Oracle',
+    is: 'Identical per-case decisions in this single execution.',
+    isNot: 'Not an equivalence result; oracle value remains unassessed.',
+  },
+];
 ---
 <BaseLayout title="CheckMyCoach — intervention prototype" description="A bounded four-module intervention prototype testing whether evidential-limit failures in AI advice can be detected, routed, and repaired. Offline-evaluated; human validation is the current next step.">
   <div class="container-content py-14">
@@ -83,7 +113,7 @@ import Breadcrumb from '../../../../components/Breadcrumb.astro';
       <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-6 max-w-2xl">
         One fixed 40-case constructed corpus, one execution. The table separates documented execution facts from what they do <em>not</em> establish.
       </p>
-      <div class="overflow-x-auto">
+      <div class="hidden md:block overflow-x-auto">
         <table class="fact-table">
           <caption>Fixed-corpus execution — descriptive facts, not validated outcomes</caption>
           <thead>
@@ -94,33 +124,41 @@ import Breadcrumb from '../../../../components/Breadcrumb.astro';
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><strong>40 constructed cases</strong></td>
-              <td>A fixed, constructed fitness-advice corpus.</td>
-              <td>Not a real-world dataset.</td>
-            </tr>
-            <tr>
-              <td><strong>15 / 40 routed</strong></td>
-              <td>Cases routed to candidate generation under the heuristic (M1).</td>
-              <td>Routing coverage is not detection accuracy.</td>
-            </tr>
-            <tr>
-              <td><strong>12 / 40 removed target feature</strong></td>
-              <td>Delivered outputs that removed the predefined target feature (M4).</td>
-              <td>Removal is not validated detection or repair effectiveness.</td>
-            </tr>
-            <tr>
-              <td><strong>0 / 40 passed every check</strong></td>
-              <td>No delivered output passed every target-and-retention check.</td>
-              <td>No validated effectiveness is claimed.</td>
-            </tr>
-            <tr>
-              <td><strong>Generic = Generic+Oracle</strong></td>
-              <td>Identical per-case decisions in this single execution.</td>
-              <td>Not an equivalence result; oracle value remains unassessed.</td>
-            </tr>
+            {
+              facts.map((f) => (
+                <tr>
+                  <td><strong>{f.value}</strong></td>
+                  <td>{f.is}</td>
+                  <td>{f.isNot}</td>
+                </tr>
+              ))
+            }
           </tbody>
         </table>
+      </div>
+
+      <!-- Mobile: same evidence stacked as fact records — no horizontal dragging -->
+      <div class="md:hidden mt-6">
+        <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-2">
+          Fixed-corpus execution — descriptive facts, not validated outcomes
+        </p>
+        <div class="border-t border-[var(--color-rule-light)]">
+          {
+            facts.map((f) => (
+              <div class="fact-record">
+                <p class="fact-record-value">{f.value}</p>
+                <p class="fact-record-row">
+                  <span class="fact-record-label">What it is</span>
+                  {f.is}
+                </p>
+                <p class="fact-record-row">
+                  <span class="fact-record-label">What it is not</span>
+                  {f.isNot}
+                </p>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </section>
 

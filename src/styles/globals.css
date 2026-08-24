@@ -374,6 +374,38 @@
     padding-right: 0;
   }
 
+  /* ---- Mobile fact records (stacked view of the evaluation decomposition) ---- */
+  .fact-record {
+    border-bottom: 1px solid var(--color-rule-light);
+    padding: 0.85rem 0;
+  }
+  .fact-record-value {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0 0 0.55rem;
+  }
+  .fact-record-row {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-text-dim);
+  }
+  .fact-record-row + .fact-record-row {
+    margin-top: 0.55rem;
+  }
+  .fact-record-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.15rem;
+  }
+
   /* ---- Pipeline diagram ---- */
   .pipeline {
     display: flex;
