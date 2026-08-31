@@ -15,19 +15,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- ============================================================ -->
     <div class="w-full lg:w-[380px] lg:min-w-[380px] lg:sticky lg:top-16 lg:self-start py-10 lg:py-16">
 
-      <p class="rail-kicker mb-3">Human-Centered AI · AI Evaluation · Human Decision-Making</p>
+      <p class="rail-kicker mb-3">Human-centered AI · Decision support · Evaluation</p>
       <p class="rail-name mb-1">Baixin Guo</p>
       <p class="font-mono text-[0.7rem] text-[var(--color-text-muted)] uppercase tracking-[0.1em] mb-5">Max · independent researcher</p>
 
       <h1 class="mb-5">
-        Human–AI decision-making under uncertainty
+        Designing inspectable interventions; testing what their evidence supports.
       </h1>
 
       <p class="font-sans text-[0.95rem] text-[var(--color-text-dim)] leading-relaxed mb-4">
-        I study how AI systems communicate reliability, uncertainty, and numerical precision — and how these signals shape human reliance and decision quality.
+        I design and evaluate human-centered AI systems for evidence-bounded decisions. My work focuses on system specifications, inspectable evaluation structures, and evidence review. CheckMyCoach is my primary research system, with human validation in preparation. My academic background is in Applied Psychology; current system evidence comes from implementation and bounded machine evaluation.
       </p>
       <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-6">
-        Current work: CheckMyCoach human validation toward the combined Precision Illusion + CheckMyCoach paper — no human-participant findings are claimed.
+        I am preparing human validation of CheckMyCoach. Human evaluation has not yet been conducted.
       </p>
 
       <!-- Identity links -->
@@ -54,18 +54,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- RESEARCH PROGRAM (editorial argument) -->
       <section id="research" class="mb-14">
         <span class="section-kicker">Research program</span>
-        <h2 class="mt-2 mb-2">One agenda: diagnose → build → adapt</h2>
+        <h2 class="mt-2 mb-2">Evidence-bounded decision support</h2>
         <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-6 max-w-2xl">
-          How people mis-rely on AI advice, how to measure and correct that reliance, and how systems might adapt — one agenda across measurement, intervention, and simulation.
+          Earlier work includes a frozen measurement asset, engineering audit records, a frozen simulation prototype, and a retired behavioral research thread. These materials provide historical context for my current focus on CheckMyCoach.
         </p>
 
         <div class="space-y-0">
           <!-- 01 Diagnose -->
           <div class="arc-item">
-            <span class="arc-index">01 · Diagnose</span>
-            <p class="arc-question mt-1 mb-2">How and why do people mis-rely on AI outputs?</p>
+            <span class="arc-index">01 · Background</span>
+            <p class="arc-question mt-1 mb-2">Earlier work</p>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-              The Precision-Illusion taxonomy and FitCalib-Bench are historical measurement work behind this question — how unsupported numerical precision shapes reliance. <span class="work-kind">Historical method</span>
+              M0 is a frozen measurement asset, not a validated instrument. MaxFitCalib-Bench is retained as engineering audit history, not a source of prevalence estimates or model rankings. The Precision Illusion behavioral thread is retired and provides historical motivation rather than an active study. <span class="work-kind">Historical context</span>
             </p>
             <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
               <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="link-arrow">FitCalib-Bench audit →</a>
@@ -75,10 +75,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
           <!-- 02 Build -->
           <div class="arc-item">
-            <span class="arc-index">02 · Build</span>
-            <p class="arc-question mt-1 mb-2">Can systems improve appropriate reliance?</p>
+            <span class="arc-index">02 · Current priority</span>
+            <p class="arc-question mt-1 mb-2">CheckMyCoach</p>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-              CheckMyCoach is the current empirical thread — an intervention prototype with a documented offline 40-case run, with human validation as the active step. InteractionKit is the released measurement infrastructure it builds on. <span class="work-kind">Current work · released</span>
+              CheckMyCoach is my primary research system. InteractionKit is released, frozen methodological software, and Knowledge Compiler is supporting evidence infrastructure with partial provenance recovery. <span class="work-kind">Primary research system</span>
             </p>
             <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
               <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach →</a>
@@ -89,10 +89,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
           <!-- 03 Adapt -->
           <div class="arc-item">
-            <span class="arc-index">03 · Adapt</span>
-            <p class="arc-question mt-1 mb-2">Can AI respond to individual trust context?</p>
+            <span class="arc-index">03 · Historical context</span>
+            <p class="arc-question mt-1 mb-2">CalTrust</p>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-              CalTrust explores bandit-style adaptation in simulation only — reported proxy metrics describe the simulator, not human trust. <span class="work-kind">Simulation only</span>
+              CalTrust is frozen and simulation-only. <span class="work-kind">Frozen · Simulation only</span>
             </p>
             <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
               <a href="/research/understanding-human-trust/caltrust/" class="link-arrow">CalTrust →</a>
@@ -104,33 +104,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- SELECTED WORK -->
       <section id="work" class="mb-14">
         <span class="section-kicker">Selected work</span>
-        <h2 class="mt-2 mb-5">Three threads, one agenda</h2>
+        <h2 class="mt-2 mb-5">Selected work</h2>
 
         <div class="space-y-5">
           <article class="card-static">
             <h3 class="text-[1.1rem] mb-1.5">CheckMyCoach</h3>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">
-              A four-module intervention prototype that routes AI-advice cases, generates candidate revisions, and runs deterministic surface checks. It is the current empirical thread — human validation of uncertainty communication is the active research step.
+              A bounded prototype that routes selected AI outputs, generates candidate revisions, and checks target removal and information retention. I co-designed its evaluation decomposition, specified system behavior, and reviewed outputs against these requirements. Human validation is in preparation; human evaluation has not yet been conducted.
             </p>
-            <p class="work-kind mb-2">Intervention prototype · current work</p>
+            <p class="work-kind mb-2">Primary research system</p>
             <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach →</a>
           </article>
 
           <article class="card-static">
             <h3 class="text-[1.1rem] mb-1.5">InteractionKit</h3>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">
-              Typed experiment infrastructure — JSON Schema and structured event logging — for reproducible AI-interaction experiments. v1.0.0 is released and software-verified.
+              Released, frozen software for typed AI interaction experiments and contract checks. I originated and co-designed the typed experiment architecture, including specifications and contract requirements. The release makes experimental structure inspectable; it does not establish construct validity or equivalence across implementations.
             </p>
-            <p class="work-kind mb-2">Measurement infrastructure · released</p>
+            <p class="work-kind mb-2">Released methodological software · Frozen</p>
             <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">InteractionKit →</a>
           </article>
 
           <article class="card-static">
             <h3 class="text-[1.1rem] mb-1.5">Knowledge Compiler</h3>
             <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">
-              A provenance-recovered corpus and pipeline for structured knowledge from domain textbooks — 2,305 files, 2,294 unique IDs. It is a corpus artifact; no validity claim is made.
+              Supporting infrastructure for typed evidence objects, structural checks, and partial provenance recovery. I designed recovery and quarantine rules and reviewed their implementation against structural and evidence-boundary requirements. These checks expose unresolved evidence links without establishing universal source fidelity or downstream validity.
             </p>
-            <p class="work-kind mb-2">Corpus &amp; pipeline · historical</p>
+            <p class="work-kind mb-2">Supporting evidence infrastructure · Partial provenance recovery</p>
             <a href="/research/building-trustworthy-ai/knowledge-compiler/" class="link-arrow">Knowledge Compiler →</a>
           </article>
         </div>

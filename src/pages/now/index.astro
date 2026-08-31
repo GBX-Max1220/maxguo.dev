@@ -1,9 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
-import PublicationStatus from '../../components/PublicationStatus.astro';
-
-const checkMyCoachPaper = (await getCollection('publication')).find(({ id }) => id === 'checkmycoach-paper');
 ---
 <BaseLayout title="Now" description="What Baixin Guo is working on right now">
   <div class="container-content py-16">
@@ -19,7 +15,7 @@ const checkMyCoachPaper = (await getCollection('publication')).find(({ id }) => 
             <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider">Frozen</span>
           </div>
           <h2 class="text-[1.05rem] mb-1">InteractionKit v1.0.0 Released</h2>
-          <p class="text-sm text-[var(--color-text-dim)]">Frozen methodological asset (2026-08-03); v1.0.0 publicly tagged. Evidence covers contracts, type checking, build, and clean-install reproduction—not human validity. The human study is deferred, not an active priority.</p>
+          <p class="text-sm text-[var(--color-text-dim)]">InteractionKit is released and frozen. Knowledge Compiler remains supporting evidence infrastructure with partial provenance recovery.</p>
         </div>
 
       <div class="space-y-6">
@@ -27,10 +23,10 @@ const checkMyCoachPaper = (await getCollection('publication')).find(({ id }) => 
         <div class="card-static">
           <div class="flex items-center gap-2 mb-2">
             <span class="w-2 h-2 rounded-full bg-[var(--color-primary)]"></span>
-            {checkMyCoachPaper && <PublicationStatus status={checkMyCoachPaper.data.status} class="text-[0.6rem]" />}
+            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider">Human validation preparation</span>
           </div>
           <h2 class="text-[1.05rem] mb-1">CheckMyCoach Human Validation</h2>
-          <p class="text-sm text-[var(--color-text-dim)]">Active path: CheckMyCoach human validation toward the combined Precision Illusion + CheckMyCoach paper. The standalone v2.2 offline evaluation is archived; no superiority, validated-detection, equivalence, or user-effect claim.</p>
+          <p class="text-sm text-[var(--color-text-dim)]">Preparing human validation of CheckMyCoach, with attention to whether its target-removal and retention checks agree with human judgments. The prototype and a bounded development run are available as system evidence. Human evaluation has not yet been conducted.</p>
         </div>
 
         <div class="card-static">
@@ -38,8 +34,8 @@ const checkMyCoachPaper = (await getCollection('publication')).find(({ id }) => 
             <span class="w-2 h-2 rounded-full bg-[var(--color-secondary)]"></span>
             <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider">Frozen</span>
           </div>
-          <h2 class="text-[1.05rem] mb-1">Earlier Prototypes</h2>
-          <p class="text-sm text-[var(--color-text-dim)]">MaxFitCalib-Bench is closed as an engineering-only audit; CalTrust is frozen as a simulation-only prototype. Neither is an active scientific claim.</p>
+          <h2 class="text-[1.05rem] mb-1">Historical context</h2>
+          <p class="text-sm text-[var(--color-text-dim)]">M0 remains frozen, MaxFitCalib-Bench is audit history, CalTrust is frozen and simulation-only, and the Precision Illusion behavioral thread is retired.</p>
         </div>
 
         <div class="card-static">
@@ -54,10 +50,10 @@ const checkMyCoachPaper = (await getCollection('publication')).find(({ id }) => 
         <div class="card-static">
           <div class="flex items-center gap-2 mb-2">
             <span class="w-2 h-2 rounded-full bg-[var(--color-secondary)]"></span>
-            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider">Reading</span>
+            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider">Research</span>
           </div>
-          <h2 class="text-[1.05rem] mb-1">Trust Calibration in Human-AI Interaction</h2>
-          <p class="text-sm text-[var(--color-text-dim)]">Kahneman's Thinking Fast and Slow, dual-process theory, and calibration literature for Paper 2 discussion.</p>
+          <h2 class="text-[1.05rem] mb-1">Separate collaborative research</h2>
+          <p class="text-sm text-[var(--color-text-dim)]">My baseball research collaboration with Professor Lorena Martin produced two SABR abstracts. The related manuscripts are in preparation.</p>
         </div>
 
       </div>
