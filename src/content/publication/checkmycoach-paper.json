@@ -11,10 +11,10 @@
     "code": "https://github.com/GBX-Max1220/CheckMyCoach"
   },
   "citation": {
-    "bibtex": "@unpublished{guo2026checkmycoach,\n  author = {Guo, Baixin},\n  title = {CheckMyCoach: A Four-Module Intervention Prototype and Bounded Offline Evaluation},\n  year = {2026},\n  note = {Standalone system note, archived; superseded by the combined Precision Illusion + CheckMyCoach paper}\n}",
-    "apa": "Guo, B. (2026). CheckMyCoach: A four-module intervention prototype and bounded offline evaluation [Standalone system note, archived; superseded by the combined Precision Illusion + CheckMyCoach paper].",
-    "chicago": "Guo, Baixin. \"CheckMyCoach: A Four-Module Intervention Prototype and Bounded Offline Evaluation.\" Standalone system note, archived; superseded by the combined Precision Illusion + CheckMyCoach paper, 2026.",
-    "mla": "Guo, Baixin. \"CheckMyCoach: A Four-Module Intervention Prototype and Bounded Offline Evaluation.\" Standalone system note, archived; superseded by the combined Precision Illusion + CheckMyCoach paper, 2026."
+    "bibtex": "@unpublished{guo2026checkmycoach,\n  author = {Guo, Baixin},\n  title = {CheckMyCoach: A Four-Module Intervention Prototype and Bounded Offline Evaluation},\n  year = {2026},\n  note = {Standalone system note, archived; not an active manuscript submission or peer-reviewed publication}\n}",
+    "apa": "Guo, B. (2026). CheckMyCoach: A four-module intervention prototype and bounded offline evaluation [Standalone system note, archived; not an active manuscript submission or peer-reviewed publication].",
+    "chicago": "Guo, Baixin. \"CheckMyCoach: A Four-Module Intervention Prototype and Bounded Offline Evaluation.\" Standalone system note, archived; not an active manuscript submission or peer-reviewed publication, 2026.",
+    "mla": "Guo, Baixin. \"CheckMyCoach: A Four-Module Intervention Prototype and Bounded Offline Evaluation.\" Standalone system note, archived; not an active manuscript submission or peer-reviewed publication, 2026."
   },
   "abstract": "This system note describes a four-module intervention prototype and one bounded execution on a fixed 40-case constructed fitness-advice corpus. The pipeline routed 15 cases, generated candidate revisions for routed cases, and removed the predefined target feature in 12 delivered outputs; none passed every target-and-retention check. These are implementation and execution facts, not validated detection, repair effectiveness, human benefit, or cross-domain evidence.",
   "featured": false,

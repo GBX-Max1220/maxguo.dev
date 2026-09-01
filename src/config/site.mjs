@@ -3,7 +3,7 @@ export const SITE = Object.freeze({
   base: '/maxguo.dev',
   url: 'https://gbx-max1220.github.io/maxguo.dev',
   title: 'Baixin Guo',
-  description: 'I study how AI systems communicate reliability, uncertainty, and numerical precision—and how these signals shape human reliance and decision quality',
+  description: 'Designing and evaluating human-centered AI systems for evidence-bounded decision support.',
 });
 
 export function siteUrl(path = '') {

@@ -7,48 +7,43 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <span class="section-label mb-4">Projects</span>
       <h1 class="mb-4">One research program, bounded supporting work</h1>
       <p class="text-base text-[var(--color-text-dim)] mb-10 max-w-2xl">
-        The active research path is CheckMyCoach human validation for the combined Precision Illusion + CheckMyCoach paper; the Precision Illusion behavioral experiment thread is retired (2026-08-18), so no behavioral PI design is active, planned, or current. InteractionKit is a frozen methodological asset whose human study is deferred. The remaining projects document formative evidence, infrastructure, or failed and frozen prototypes; they are not presented as parallel validated contributions.
+        CheckMyCoach is my primary research system, with human validation in preparation. InteractionKit is released, frozen methodological software, and Knowledge Compiler is supporting evidence infrastructure with partial provenance recovery. The remaining projects document formative evidence, infrastructure, or frozen prototypes; they are not presented as parallel validated contributions.
       </p>
 
       <section class="card mb-10 border-l-4 border-l-[var(--color-primary)]">
         <div class="flex flex-wrap items-center gap-3 mb-3">
-          <span class="badge badge-gold">v1.0.0 · Public release</span>
-          <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Software verified · human evidence pending</span>
+          <span class="badge badge-primary">Primary research system</span>
+          <span class="font-mono text-[0.6rem] text-[var(--color-muted)] uppercase tracking-wider">Human validation in preparation</span>
         </div>
-        <h2 class="text-2xl mb-3">InteractionKit</h2>
+        <h2 class="text-2xl mb-3">CheckMyCoach</h2>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-5">
-          Typed experiment infrastructure for testing whether corrective interfaces must match how AI communication fails. A designed Study 2 uses InteractionKit to test a failure-contingent interaction principle; it is deferred and not an active priority, and its materials, ethics approval, registration, and human evidence are not complete.
+          A bounded prototype that routes selected AI outputs, generates candidate revisions, and checks target removal and information retention. In a fixed 40-case development run, 15 cases were routed, 12 delivered outputs removed the predefined target feature, and none passed every target-and-retention check. I co-designed the evaluation decomposition, specified system behavior, and reviewed outputs against these requirements. Human validation is in preparation; human evaluation has not yet been conducted.
         </p>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center"><div class="stat-number text-xl">3</div><div class="stat-label">typed primitives</div></div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center"><div class="stat-number text-xl">7</div><div class="stat-label">contract tests</div></div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center"><div class="stat-number text-xl">24</div><div class="stat-label">planned scenarios</div></div>
-          <div class="bg-[var(--color-page-alt)] rounded-lg p-3 text-center"><div class="stat-number text-xl">0</div><div class="stat-label">participants claimed</div></div>
-        </div>
         <div class="flex flex-wrap gap-3">
-          <a href="/research/building-trustworthy-ai/interactionkit/research-brief/" class="btn btn-primary">10-minute research brief</a>
-          <a href="/research/building-trustworthy-ai/interactionkit/" class="btn">Artifact details</a>
-          <a href="https://github.com/GBX-Max1220/InteractionKit" target="_blank" rel="noopener" class="btn">GitHub →</a>
+          <a href="/research/building-trustworthy-ai/checkmycoach/" class="btn btn-primary">Project details</a>
+          <a href="/demo/checkmycoach/" class="btn">Interactive demo</a>
+          <a href="/publications/checkmycoach-paper/" class="btn">System note</a>
+          <a href="https://github.com/GBX-Max1220/CheckMyCoach" target="_blank" rel="noopener" class="btn">GitHub →</a>
         </div>
       </section>
 
       <div class="flex items-center gap-3 mb-5">
-        <span class="section-label">Supporting evidence</span>
+        <span class="section-label">Supporting work</span>
         <div class="h-px flex-1 bg-[var(--color-rule-light)]"></div>
       </div>
 
       <div class="grid sm:grid-cols-2 gap-5">
         <article class="card">
-          <div class="flex items-center gap-2 mb-3"><span class="badge badge-gold">Formative intervention</span></div>
-          <h2 class="text-lg mb-2">CheckMyCoach</h2>
-          <p class="text-sm text-[var(--color-text-dim)] mb-4">A fixed 40-case offline evaluation. It motivates targeted correction, but supplies no participant evidence or general performance estimate.</p>
-          <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">Evidence record →</a>
+          <div class="flex items-center gap-2 mb-3"><span class="badge badge-gold">Released · frozen</span></div>
+          <h2 class="text-lg mb-2">InteractionKit</h2>
+          <p class="text-sm text-[var(--color-text-dim)] mb-4">Released, frozen software for typed AI interaction experiments and contract checks. The release makes experimental structure inspectable; it does not establish construct validity or equivalence across implementations.</p>
+          <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">Artifact details →</a>
         </article>
 
         <article class="card">
-          <div class="flex items-center gap-2 mb-3"><span class="badge badge-gold">Data infrastructure</span></div>
+          <div class="flex items-center gap-2 mb-3"><span class="badge badge-gold">Supporting infrastructure</span></div>
           <h2 class="text-lg mb-2">Knowledge Compiler</h2>
-          <p class="text-sm text-[var(--color-text-dim)] mb-4">Structured-evidence infrastructure over 2,305 historical files representing 2,294 unique IDs, with a 571-record provenance-recovered subset and explicit quarantine.</p>
+          <p class="text-sm text-[var(--color-text-dim)] mb-4">Supporting infrastructure for typed evidence objects, structural checks, and partial provenance recovery. Structural conformance does not establish source fidelity or downstream validity.</p>
           <a href="/research/building-trustworthy-ai/knowledge-compiler/" class="link-arrow">Artifact details →</a>
         </article>
 

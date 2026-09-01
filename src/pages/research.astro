@@ -1,119 +1,93 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Research" description="Research program — Diagnose → Build → Adapt. How people mis-rely on AI outputs, whether interventions can improve appropriate reliance, and whether AI can adapt to individual trust context.">
+<BaseLayout title="Research" description="Evidence-bounded decision support. CheckMyCoach is the primary research system, with human validation in preparation.">
   <div class="container-content py-14">
     <div class="max-w-[820px]">
 
       <!-- 1. Page introduction -->
       <span class="section-kicker mb-3">Research program</span>
-      <h1 class="mb-4">Diagnose → Build → Adapt</h1>
+      <h1 class="mb-4">Evidence-bounded decision support</h1>
       <p class="lead mb-3">
-        How people mis-rely on AI outputs; whether interventions and systems can improve appropriate reliance; and whether AI can respond to individual trust context.
+        I design and evaluate human-centered AI systems for evidence-bounded decision support through system specification, inspectable evaluation structures, and evidence review.
       </p>
       <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-12 max-w-2xl">
-        This is the recurring question set behind <em>human–AI decision-making under uncertainty</em>. Each stage below is a line of work with its own evidence class — historical measurement, active intervention, and simulation — rather than a set of parallel contributions.
+        The research question is when an AI output communicates more certainty than its evidence supports, when a system should intervene, and how to evaluate the consequences for human reliance. CheckMyCoach is the primary system through which I pursue this question. InteractionKit provides released methodological software, while Knowledge Compiler supports evidence handling. These projects have distinct roles and evidence limits; they are not a single validated platform or three equally active research studies.
       </p>
 
-      <!-- 2. Research arc — three editorial sections -->
-      <section id="diagnose" class="mb-12">
+      <!-- 2. Primary system -->
+      <section id="primary" class="mb-12">
         <div class="arc-item" style="border-top-width:0; padding-top:0">
-          <span class="arc-index">01 · Diagnose</span>
-          <h2 class="arc-question mt-2 mb-3">How and why do people mis-rely on AI outputs?</h2>
+          <span class="arc-index">Primary research system</span>
+          <h2 class="arc-question mt-2 mb-3">CheckMyCoach</h2>
           <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-5">
-            This stage asks what miscalibration looks like: how unsupported numerical precision and weak evidential support shape trust and reliance. The Precision-Illusion taxonomy and FitCalib-Bench record the measurement and audit work behind this question. They are historical assets — they inform the question without pretending to be active research.
+            A bounded four-module prototype that routes selected outputs, assigns rule-based tags, generates candidate revisions, and applies deterministic target-and-retention checks. My role centers on co-designing the evaluation decomposition, specifying system behavior, and reviewing outputs against target-removal and information-retention requirements. In a fixed 40-case run on a constructed development corpus, the pipeline routed 15 cases; 12 delivered outputs removed the predefined target feature, while none passed every target-and-retention check. This is a development result, not evidence of generalization or improved human decisions.
           </p>
           <div class="related-list">
             <div class="related-item">
-              <span class="rel-role">Measurement · historical</span>
-              <a href="/blog/precision-illusion-intro/" class="link-arrow">Precision Illusion taxonomy →</a>
-            </div>
-            <div class="related-item">
-              <span class="rel-role">Audit · closed</span>
-              <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="link-arrow">FitCalib-Bench controlled audit →</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="build" class="mb-12">
-        <div class="arc-item">
-          <span class="arc-index">02 · Build</span>
-          <h2 class="arc-question mt-2 mb-3">Can systems improve appropriate reliance?</h2>
-          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-5">
-            The most active stage. CheckMyCoach tests whether evidential-limit failures in AI advice can be operationally detected, routed, and repaired without overstating certainty. InteractionKit is the typed measurement infrastructure the agenda builds on. CheckMyCoach human validation is the current empirical step — no human-participant findings are claimed.
-          </p>
-          <div class="related-list">
-            <div class="related-item">
-              <span class="rel-role">Intervention · active</span>
+              <span class="rel-role">Primary system · human validation in preparation</span>
               <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach →</a>
             </div>
-            <div class="related-item">
-              <span class="rel-role">Infrastructure · released</span>
-              <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">InteractionKit v1.0.0 →</a>
-            </div>
           </div>
         </div>
       </section>
 
-      <section id="adapt" class="mb-12">
-        <div class="arc-item">
-          <span class="arc-index">03 · Adapt</span>
-          <h2 class="arc-question mt-2 mb-3">Can AI respond to individual trust context?</h2>
-          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-5">
-            When a static intervention is insufficient, the agenda asks whether the system can adapt to the person in front of it. CalTrust is a simulation-only prototype exploring this question — reported proxy metrics describe the simulator, not human trust.
-          </p>
-          <div class="related-list">
-            <div class="related-item">
-              <span class="rel-role">Simulation · prototype</span>
-              <a href="/research/understanding-human-trust/caltrust/" class="link-arrow">CalTrust →</a>
-            </div>
+      <!-- 3. Supporting work -->
+      <section id="supporting" class="mb-12">
+        <span class="section-kicker mb-2">Supporting work</span>
+        <div class="related-list">
+          <div class="related-item">
+            <span class="rel-role">Released · frozen methodological software</span>
+            <span class="text-sm text-[var(--color-text-dim)]">InteractionKit v1.0.0 is released and frozen. It implements typed specifications, composition constraints, derived schemas, and self-describing behavioral logs for AI interaction experiments. Its checks establish software contract conformance within the implemented scope; construct validity and cross-implementation equivalence have not been established.</span>
+            <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">InteractionKit →</a>
+          </div>
+          <div class="related-item">
+            <span class="rel-role">Supporting evidence infrastructure</span>
+            <span class="text-sm text-[var(--color-text-dim)]">Knowledge Compiler supports typed evidence objects, structural validation, partial provenance recovery, and quarantine of unresolved material. The current artifact exposes where evidence links remain incomplete; it does not establish source fidelity or validated downstream use.</span>
+            <a href="/research/building-trustworthy-ai/knowledge-compiler/" class="link-arrow">Knowledge Compiler →</a>
           </div>
         </div>
       </section>
 
-      <!-- 3. Cross-program synthesis -->
-      <section id="synthesis" class="mb-12">
-        <span class="section-kicker mb-2">Synthesis</span>
-        <h2 class="mt-1 mb-3">Why these three stages belong together</h2>
-        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl">
-          Miscalibration is first <strong class="text-[var(--color-ink)] font-medium">diagnosed</strong> as an evidential mismatch between what an AI system knows and what it communicates. Interventions are then <strong class="text-[var(--color-ink)] font-medium">built</strong> to repair that mismatch. And when a fixed intervention cannot cover every context, the system may need to <strong class="text-[var(--color-ink)] font-medium">adapt</strong> to the person using it. Each stage produces measurement, artifacts, and open questions that feed the next — this is conceptual program framing, not an empirical claim.
+      <!-- 4. Historical context -->
+      <section id="historical" class="mb-12">
+        <span class="section-kicker mb-2">Historical context</span>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl mb-5">
+          Earlier work provides historical motivation rather than active research. M0 is a frozen measurement asset, not a validated instrument. MaxFitCalib-Bench is retained as engineering audit history, not a source of prevalence estimates or model rankings. CalTrust is frozen and simulation-only. The Precision Illusion behavioral thread is retired.
         </p>
+        <div class="related-list">
+          <div class="related-item">
+            <span class="rel-role">Retired behavioral thread</span>
+            <a href="/blog/precision-illusion-intro/" class="link-arrow">Precision Illusion taxonomy →</a>
+          </div>
+          <div class="related-item">
+            <span class="rel-role">Engineering audit · closed</span>
+            <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="link-arrow">MaxFitCalib-Bench audit →</a>
+          </div>
+          <div class="related-item">
+            <span class="rel-role">Frozen · simulation only</span>
+            <a href="/research/understanding-human-trust/caltrust/" class="link-arrow">CalTrust →</a>
+          </div>
+        </div>
       </section>
 
-      <!-- 4. Current focus -->
+      <!-- 5. Current focus -->
       <section id="focus" class="mb-12">
-        <div class="border-l-2 border-[var(--color-secondary)] bg-[var(--color-secondary-subtle)]/40 rounded-r-lg px-5 py-4">
-          <p class="font-mono text-[0.62rem] font-semibold text-[var(--color-secondary-dim)] uppercase tracking-wider mb-1">Current focus</p>
+        <div class="border-l-2 border-[var(--color-primary)] bg-[var(--color-primary-subtle)]/40 rounded-r-lg px-5 py-4">
+          <p class="font-mono text-[0.62rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-1">Current focus</p>
           <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">
-            CheckMyCoach human validation toward the combined Precision Illusion + CheckMyCoach paper. No completed human-participant findings are claimed.
+            I am preparing human validation of CheckMyCoach. Human evaluation has not yet been conducted.
           </p>
           <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach project →</a>
         </div>
       </section>
 
-      <!-- 5. Methods / infrastructure (secondary) -->
-      <section id="methods">
-        <span class="section-kicker mb-2">Methods &amp; infrastructure</span>
-        <h2 class="mt-1 mb-3">Reusable assets</h2>
-        <div class="related-list">
-          <div class="related-item">
-            <span class="rel-role">Measurement &amp; taxonomy</span>
-            <span class="text-sm text-[var(--color-text-dim)]">Precision Illusion taxonomy · FitCalib-Bench audit</span>
-          </div>
-          <div class="related-item">
-            <span class="rel-role">Experimental infrastructure</span>
-            <span class="text-sm text-[var(--color-text-dim)]">InteractionKit v1.0.0 — typed experiment infrastructure</span>
-          </div>
-          <div class="related-item">
-            <span class="rel-role">Provenance-aware knowledge</span>
-            <span class="text-sm text-[var(--color-text-dim)]">Knowledge Compiler — corpus artifact, no validity claim</span>
-          </div>
-          <div class="related-item">
-            <span class="rel-role">Evaluation tooling</span>
-            <span class="text-sm text-[var(--color-text-dim)]">CheckMyCoach offline pipeline · interactive demo</span>
-          </div>
-        </div>
+      <!-- 6. Reading the evidence -->
+      <section id="evidence">
+        <span class="section-kicker mb-2">Reading the evidence</span>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl">
+          Software implementation, bounded machine evaluation, and human validation answer different questions. The first two are represented in these HCAI artifacts; completed human validation is not.
+        </p>
       </section>
 
     </div>
