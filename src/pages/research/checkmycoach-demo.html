@@ -1,0 +1,1075 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CheckMyCoach — Professor Demo (Final)</title>
+    <style>
+      :root {
+        --ink: #1c1c1c;
+        --muted: #5c5c5c;
+        --faint: #8a8a8a;
+        --paper: #f6f5f2;
+        --card: #ffffff;
+        --line: #dcd9d2;
+        --accent: #1e4e6e;
+        --accent-soft: #eaf0f4;
+        --good: #2e6e4e;
+        --good-soft: #e9f2ec;
+        --warn: #8a6d1a;
+        --warn-soft: #faf4e2;
+        --bad: #8c2f2f;
+        --bad-soft: #f9ecec;
+        --gap: #6b4fa0;
+        --gap-soft: #f1edf9;
+        --mono: "Consolas", "Menlo", "Courier New", monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: -apple-system, "Segoe UI", "Source Han Sans SC",
+          "Noto Sans SC", "Microsoft YaHei", sans-serif;
+        font-size: 15px;
+        line-height: 1.55;
+      }
+      .wrap {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 26px 18px 56px;
+      }
+      .kicker {
+        font-size: 11.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 700;
+      }
+      h1 {
+        font-size: 24px;
+        margin: 6px 0 2px;
+        font-weight: 700;
+      }
+      .tagline {
+        color: var(--ink);
+        font-size: 15px;
+      }
+      .status {
+        color: var(--muted);
+        font-size: 13.5px;
+        margin-top: 4px;
+      }
+      .status b {
+        color: var(--ink);
+      }
+      header.top {
+        border-bottom: 2px solid var(--ink);
+        padding-bottom: 12px;
+      }
+      nav.tabs {
+        display: flex;
+        gap: 8px;
+        margin: 16px 0 18px;
+        flex-wrap: wrap;
+      }
+      button.tab {
+        font: inherit;
+        font-size: 14px;
+        padding: 8px 15px;
+        border: 1px solid var(--line);
+        background: var(--card);
+        border-radius: 20px;
+        cursor: pointer;
+        color: var(--muted);
+      }
+      button.tab.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+        font-weight: 600;
+      }
+      .view {
+        display: none;
+      }
+      .view.active {
+        display: block;
+      }
+      h2 {
+        font-size: 18px;
+        margin: 24px 0 8px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 6px;
+      }
+      h3 {
+        font-size: 15px;
+        margin: 16px 0 6px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 14px 16px;
+        margin: 12px 0;
+      }
+      .flow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        align-items: center;
+        margin: 12px 0;
+      }
+      .fbox {
+        border: 1px solid var(--line);
+        background: var(--card);
+        border-radius: 6px;
+        padding: 7px 11px;
+        font-size: 12.5px;
+      }
+      .fbox b {
+        display: block;
+        font-size: 12.5px;
+      }
+      .fbox span {
+        color: var(--muted);
+        font-size: 11.5px;
+      }
+      .farr {
+        color: var(--faint);
+        font-size: 14px;
+      }
+      .fbranch {
+        border: 1px dashed var(--line);
+        background: #faf9f6;
+        border-radius: 6px;
+        padding: 7px 11px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 13.5px;
+        margin: 10px 0;
+        background: var(--card);
+      }
+      th,
+      td {
+        border: 1px solid var(--line);
+        padding: 6px 9px;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background: var(--accent-soft);
+        font-size: 12.5px;
+      }
+      td.num {
+        text-align: right;
+        font-family: var(--mono);
+        white-space: nowrap;
+      }
+      .badge {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border-radius: 3px;
+        padding: 2px 7px;
+        white-space: nowrap;
+        display: inline-block;
+      }
+      .b-rule {
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        background: var(--accent-soft);
+      }
+      .b-llm {
+        color: var(--warn);
+        border: 1px solid var(--warn);
+        background: var(--warn-soft);
+      }
+      .b-det {
+        color: var(--good);
+        border: 1px solid var(--good);
+        background: var(--good-soft);
+      }
+      .b-rec {
+        color: #555;
+        border: 1px solid #bbb;
+        background: #f1f0ec;
+      }
+      .b-ext {
+        color: #6b4fa0;
+        border: 1px solid #6b4fa0;
+        background: var(--gap-soft);
+      }
+      .q {
+        font-family: var(--mono);
+        font-size: 13px;
+        background: #f4f3ef;
+        border-left: 3px solid var(--accent);
+        padding: 7px 11px;
+        margin: 6px 0;
+        border-radius: 0 5px 5px 0;
+        white-space: pre-wrap;
+      }
+      .q.bad {
+        border-left-color: var(--bad);
+      }
+      .q.rev {
+        border-left-color: var(--good);
+      }
+      .src {
+        font-size: 11.5px;
+        color: var(--faint);
+        margin-top: 6px;
+        font-family: var(--mono);
+      }
+      .note {
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+      .pass {
+        color: var(--good);
+        font-weight: 700;
+      }
+      .fail {
+        color: var(--bad);
+        font-weight: 700;
+      }
+      .asym {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin: 12px 0;
+      }
+      @media (max-width: 760px) {
+        .asym {
+          grid-template-columns: 1fr;
+        }
+        .two {
+          grid-template-columns: 1fr;
+        }
+      }
+      .asym .cell {
+        border-radius: 8px;
+        padding: 12px 14px;
+        font-size: 14px;
+      }
+      .cell-yes {
+        background: var(--good-soft);
+        border: 1.5px solid var(--good);
+      }
+      .cell-no {
+        background: var(--bad-soft);
+        border: 1.5px solid var(--bad);
+      }
+      .asym .lbl {
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .asym .val {
+        font-size: 19px;
+        font-weight: 800;
+        margin-top: 2px;
+      }
+      .bigpoint {
+        border: 2px solid var(--ink);
+        background: var(--card);
+        border-radius: 8px;
+        padding: 12px 16px;
+        font-size: 16px;
+        font-weight: 800;
+        text-align: center;
+        margin: 14px 0;
+        letter-spacing: 0.02em;
+      }
+      .two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .box-current {
+        border: 1.5px solid var(--accent);
+        border-radius: 8px;
+        background: var(--card);
+        padding: 16px 18px;
+      }
+      .box-future {
+        border: 1.5px dashed var(--faint);
+        border-radius: 8px;
+        background: #faf9f6;
+        padding: 16px 18px;
+        color: #3d3d3d;
+      }
+      .box-current h3,
+      .box-future h3 {
+        margin-top: 0;
+      }
+      .gate {
+        display: inline-block;
+        font-size: 11.5px;
+        font-weight: 700;
+        border-radius: 3px;
+        padding: 2px 8px;
+        margin: 2px 4px 2px 0;
+      }
+      .g-red {
+        background: var(--bad-soft);
+        color: var(--bad);
+        border: 1px solid var(--bad);
+      }
+      .g-green {
+        background: var(--good-soft);
+        color: var(--good);
+        border: 1px solid var(--good);
+      }
+      .med-boundary {
+        border: 1px solid var(--bad);
+        background: var(--bad-soft);
+        border-radius: 6px;
+        padding: 10px 14px;
+        font-size: 13.5px;
+        margin: 12px 0;
+        font-weight: 600;
+        color: var(--bad);
+      }
+      .card.stress {
+        border: 2px solid var(--gap);
+        background: var(--gap-soft);
+      }
+      .fam {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border-radius: 3px;
+        padding: 2px 8px;
+        margin: 0 6px 6px 0;
+      }
+      .f-a {
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        background: var(--accent-soft);
+      }
+      .f-b {
+        color: var(--warn);
+        border: 1px solid var(--warn);
+        background: var(--warn-soft);
+      }
+      .f-c {
+        color: var(--gap);
+        border: 1px solid var(--gap);
+        background: #fff;
+      }
+      .syn {
+        color: var(--bad);
+        border: 1px solid var(--bad);
+        background: var(--bad-soft);
+      }
+      .lbl {
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--faint);
+      }
+      .gapbox {
+        border: 1.5px dashed var(--gap);
+        border-radius: 6px;
+        background: #fff;
+        padding: 10px 14px;
+        margin: 10px 0;
+        font-size: 13.5px;
+      }
+      .salient {
+        border: 2px solid var(--gap);
+        background: var(--card);
+        border-radius: 8px;
+        padding: 14px 18px;
+        margin: 14px 0;
+        text-align: center;
+      }
+      .salient .headline {
+        font-size: 17px;
+        font-weight: 800;
+        color: var(--gap);
+        letter-spacing: 0.02em;
+      }
+      .salient .expl {
+        font-size: 13.5px;
+        color: var(--muted);
+        margin-top: 6px;
+      }
+      .cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      @media (max-width: 760px) {
+        .cols {
+          grid-template-columns: 1fr;
+        }
+      }
+      .cols .half {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 12px 14px;
+        background: var(--card);
+      }
+      .cols .half.bad-half {
+        border-color: var(--bad);
+        background: var(--bad-soft);
+      }
+      .concl {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-left: 4px solid var(--accent);
+        border-radius: 0 8px 8px 0;
+        padding: 14px 20px;
+        font-size: 14px;
+        margin-top: 18px;
+      }
+      footer {
+        margin-top: 32px;
+        border-top: 1px solid var(--line);
+        padding-top: 12px;
+        font-size: 11.5px;
+        color: var(--faint);
+      }
+      code {
+        font-family: var(--mono);
+        font-size: 12px;
+        background: #f1f0ec;
+        padding: 1px 4px;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <div class="kicker">Research Prototype · Professor-Facing Demo</div>
+        <h1>CheckMyCoach</h1>
+        <div class="tagline">
+          A selective-intervention research prototype for evidence-bounded AI
+          advice.
+        </div>
+        <div class="status">
+          <b>Current status:</b> Implemented engineering pipeline; human
+          validation not completed.
+        </div>
+      </header>
+
+      <nav class="tabs">
+        <button class="tab active" id="tab-v1" onclick="show('v1')">
+          1 · Current System
+        </button>
+        <button class="tab" id="tab-v2" onclick="show('v2')">
+          2 · Concrete Case
+        </button>
+        <button class="tab" id="tab-v3" onclick="show('v3')">
+          3 · Medical-Domain Transfer Check
+        </button>
+        <button class="tab" id="tab-v4" onclick="show('v4')">
+          4 · Validation &amp; Next Question
+        </button>
+      </nav>
+
+      <!-- ================= TAB 1 — CURRENT SYSTEM ================= -->
+      <section class="view active" id="v1">
+        <h2>What the current implementation actually does</h2>
+        <div class="card">
+          <p class="note" style="margin-top: 0">
+            The pipeline takes an existing AI answer (or, in the full-auto path,
+            first retrieves evidence and generates one), and applies a fixed
+            sequence of engineering steps. Verbs are chosen deliberately:
+            <b
+              >routes, assigns a rule-based tag, generates a candidate revision,
+              applies deterministic surface checks</b
+            >
+            — not "detects", "diagnoses", "validates".
+          </p>
+          <div class="flow">
+            <div class="fbox">
+              <b>Existing / generated response</b
+              ><span>input answer (full-auto path generates one first)</span>
+            </div>
+            <div class="farr">→</div>
+            <div class="fbox">
+              <b>Evidence interface</b
+              ><span
+                >fixed evidence can be injected; native retriever is
+                fitness-corpus-bound</span
+              >
+            </div>
+            <div class="farr">→</div>
+            <div class="fbox">
+              <b>Historical UCS heuristic</b
+              ><span>external component · fitness-defined categories 0–3</span>
+            </div>
+            <div class="farr">→</div>
+            <div class="fbox">
+              <b>M1 selective routing</b
+              ><span
+                >manual-review flag first, then UCS 0/1 route; UCS 2/3 pass
+                through</span
+              >
+            </div>
+            <div class="farr">→</div>
+            <div class="fbox">
+              <b>M2 rule-based tag</b
+              ><span
+                >template_dominance / cue_leakage / context_mismatch /
+                unknown</span
+              >
+            </div>
+            <div class="farr">→</div>
+            <div class="fbox">
+              <b>M3 candidate revision</b
+              ><span
+                >LLM, failure-type-specific prompt (currently
+                fitness-worded)</span
+              >
+            </div>
+            <div class="farr">→</div>
+            <div class="fbox">
+              <b>M4 deterministic surface gate</b
+              ><span
+                >length · absolute-language count · non-copy; may fall back to
+                original</span
+              >
+            </div>
+            <div class="farr">→</div>
+            <div class="fbox">
+              <b>Audit record</b><span>JSONL, per run</span>
+            </div>
+          </div>
+        </div>
+
+        <h3>Interface vs. construct</h3>
+        <table>
+          <tr>
+            <th>Module name</th>
+            <th>What it actually is</th>
+            <th>Scientifically validated?</th>
+          </tr>
+          <tr>
+            <td>M1 "detection"</td>
+            <td>Historical UCS-based routing heuristic</td>
+            <td>No — routing coverage only</td>
+          </tr>
+          <tr>
+            <td>M2 "diagnosis"</td>
+            <td>
+              Deterministic rule-based failure tag over extracted features
+            </td>
+            <td>No — never compared against gold</td>
+          </tr>
+          <tr>
+            <td>M3 "correction"</td>
+            <td>LLM candidate revision from a failure-type-specific prompt</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>M4 "validation"</td>
+            <td>Deterministic surface checks + fallback</td>
+            <td>No</td>
+          </tr>
+        </table>
+
+        <h3>What the one frozen offline run showed (descriptive only)</h3>
+        <div class="card">
+          <p class="note" style="margin-top: 0">
+            Single execution, 40 constructed fitness-advice cases (frozen
+            evaluation, 2026-07-27; numbers as reconstructed in the project's
+            claim-boundary document). These are descriptive mechanism
+            measurements on a constructed corpus — not effectiveness claims, not
+            human-validated, and no population inference is possible.
+          </p>
+          <table>
+            <tr>
+              <th>Outcome</th>
+              <th>Result</th>
+            </tr>
+            <tr>
+              <td>M1 routed to correction</td>
+              <td class="num">
+                15 / 40 (all from one failure family: unsupported numerical
+                specificity)
+              </td>
+            </tr>
+            <tr>
+              <td>M3 candidate revisions returned (attempted calls)</td>
+              <td class="num">15 / 15</td>
+            </tr>
+            <tr>
+              <td>M4 accepted / fell back</td>
+              <td class="num">12 / 15 · 3 / 15</td>
+            </tr>
+            <tr>
+              <td>Targeted-failure removal (routed / end-to-end)</td>
+              <td class="num">12 / 15 · 12 / 40</td>
+            </tr>
+          </table>
+          <p class="note">
+            Nothing here measures trust, benefit, or real-world advice quality.
+            These numbers describe one historical fixed-corpus evaluation only.
+          </p>
+          <p class="src">
+            Provenance note (non-salient): the same frozen run also included
+            single-pass generic-revision comparison conditions, which removed
+            the targeted failure in 36/40 cases with case-level identical
+            outcomes between the two comparison conditions — an observed null
+            difference, not evidence of equivalence. Full reconstruction:
+            project claim-boundary audit (2026-07-29).
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= TAB 2 — CONCRETE CASE ================= -->
+      <section class="view" id="v2">
+        <h2>One concrete case, exactly as recorded</h2>
+        <p class="note">
+          Case CMC-A-001, a recorded artifact of the frozen evaluation run
+          (nothing on this page was executed live). Strings are verbatim from
+          the run ledger and the frozen case definitions.
+        </p>
+
+        <div class="card">
+          <div class="q">
+            Question: "How long should most adults do moderate aerobic exercise
+            on an exercise day?" Original answer: "Most adults should do
+            moderate aerobic exercise for exactly 43 minutes every day."
+            Evidence (frozen excerpt): "For most adults: 30–60 minutes per day
+            of purposeful moderate aerobic exercise, or 20–60 minutes per day of
+            vigorous exercise, on most days."
+          </div>
+          <div class="src">
+            source: frozen gold case + run ledger, condition = checkmycoach
+          </div>
+        </div>
+
+        <div class="card">
+          <h4 style="margin: 0 0 6px">Recorded pipeline trace</h4>
+          <div class="kv note" style="font-size: 13.5px; margin: 4px 0">
+            <span class="badge b-ext">external</span> UCS = 1
+            <span class="note"
+              >(inferred from the recorded M2 rule path; the UCS engine is an
+              external fitness-historical component)</span
+            ><br />
+            <span class="badge b-rule">rule</span> M1: <b>route</b> (UCS = 1 →
+            correction)<br />
+            <span class="badge b-rule">rule</span> M2: <b>cue_leakage</b>, rule
+            confidence 0.5 (conservative fallback: UCS = 1 without a directional
+            claim)<br />
+            <span class="badge b-llm">llm</span> M3: candidate revision —
+            gpt-4o-mini via OpenRouter, temperature 0.3 (recorded historical
+            output, ≈ 4.6 s)<br />
+            <span class="badge b-det">deterministic</span> M4: surface checks
+            <b>passed</b> → revision delivered
+          </div>
+          <div class="q rev">
+            Most adults should aim for approximately 30 to 60 minutes of
+            moderate aerobic exercise on most days, though individual needs may
+            vary.
+          </div>
+        </div>
+
+        <div class="card">
+          <h4 style="margin: 0 0 6px">
+            Frozen external scorer (independent of the pipeline)
+          </h4>
+          <table>
+            <tr>
+              <th>Frozen check</th>
+              <th>Definition</th>
+              <th>Result</th>
+            </tr>
+            <tr>
+              <td><code>remove_exact_43</code></td>
+              <td>"exactly 43 minutes every day" absent</td>
+              <td class="pass">PASS</td>
+            </tr>
+            <tr>
+              <td><code>retain_duration_range</code></td>
+              <td>frozen regex requires "30[–-]60 minutes"</td>
+              <td class="fail">FAIL</td>
+            </tr>
+            <tr>
+              <td><code>retain_frequency_qualifier</code></td>
+              <td>"most days" present</td>
+              <td class="pass">PASS</td>
+            </tr>
+          </table>
+          <p class="note">
+            The revision wrote "30 <b>to</b> 60 minutes", which does not match
+            the frozen dash-format regex — a supported-information atom was lost
+            while the targeted failure was removed.
+          </p>
+        </div>
+
+        <div class="asym">
+          <div class="cell cell-yes">
+            <div class="lbl">Targeted failure removal</div>
+            <div class="val pass">YES</div>
+            <div class="note">counts toward the 12/15 routed result</div>
+          </div>
+          <div class="cell cell-no">
+            <div class="lbl">Information-retention criterion</div>
+            <div class="val fail">FAILED</div>
+            <div class="note">not an all-check pass</div>
+          </div>
+        </div>
+
+        <div class="bigpoint">ENGINEERING PASS ≠ VERIFIED BETTER ANSWER</div>
+        <p class="note" style="text-align: center">
+          The pipeline's internal gate passed while the independent frozen
+          scorer found a retention failure. In the same run, no CheckMyCoach
+          output passed every check (0/40). This asymmetry — not a success story
+          — is the honest summary of the current mechanism.
+        </p>
+      </section>
+
+      <!-- ================= TAB 3 — MEDICAL PORTABILITY STRESS TEST ================= -->
+      <section class="view" id="v3">
+        <h2>Exploratory Medical-Domain Transfer Check</h2>
+        <div class="note">
+          Three fixed biomedical literature cases used to identify which
+          components transfer mechanically and which remain domain-specific.
+        </div>
+
+        <div class="med-boundary">
+          NOT A MEDICAL VALIDATION &nbsp;·&nbsp; NO CLINICAL USE &nbsp;·&nbsp;
+          NO HUMAN DATA &nbsp;·&nbsp; NO CROSS-DOMAIN PERFORMANCE CLAIM
+        </div>
+
+        <p class="note">
+          Three cases from the official PubMedQA PQA-L dataset, selected under
+          predeclared structural criteria frozen before the data was inspected
+          (PMIDs fixed below). Every failure answer is a
+          <b>SYNTHETIC FAILURE INJECTION</b> constructed for the probe; every
+          upstream state is <b>MANUALLY_CONSTRUCTED_FOR_PORTABILITY_PROBE</b>;
+          M3 was <b>not executed</b>; N = 3 with no aggregate metrics. Canonical
+          pipeline functions ran unchanged, read-only.
+        </p>
+
+        <div class="card">
+          <h3 style="margin-top: 0">
+            Case A — Unsupported precision
+            <span class="fam f-a">PMID 2503176 · 1989</span>
+          </h3>
+          <div class="kv note" style="font-size: 13.5px">
+            <b>Question:</b> "Inhibin: a new circulating marker of hydatidiform
+            mole?"
+          </div>
+          <div class="q">
+            Evidence boundary: pre-evacuation serum inhibin "median 8.3 U/ml;
+            95% confidence interval 2.4 to 34.5"; post-evacuation "0.4 U/ml; 0.1
+            to 1.4"; four patients at or below 0.4 U/ml developed no persistent
+            disease.
+          </div>
+          <div class="q bad">
+            SYNTHETIC FAILURE INJECTION (96.3% and 0.37 U/ml are fabricated):
+            "Serum inhibin reliably diagnoses persistent trophoblastic disease:
+            a pre-evacuation level of exactly 8.3 U/ml confirms the condition
+            with 96.3% accuracy, and a post-evacuation level of precisely 0.37
+            U/ml rules it out."
+          </div>
+          <div class="kv note" style="font-size: 13.5px">
+            <b>Manual state:</b> ucs_score = 1, has_directional_claim = true
+            (experimenter-assigned). <b>Actual M1/M2:</b> routed →
+            <b>cue_leakage</b>, rule confidence 0.9. <b>M3: NOT EXECUTED.</b>
+            <b>Actual M4 surface result:</b> length 1.82× ✓ · assertion 0 → 0 ✓
+            · overlap 0.600 &lt; 0.9 ✓ → passed.
+          </div>
+          <div class="boundaryline note">
+            Boundary: the rule functions executed; nothing was detected, and the
+            surface gate did not even register the fabricated precision (its
+            absolute-language list has no entry for "exactly / precisely").
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top: 0">
+            Case B — Absolute / overgeneralized claim
+            <span class="fam f-b">PMID 10808977 · 2000</span>
+          </h3>
+          <div class="kv note" style="font-size: 13.5px">
+            <b>Question:</b> "Can tailored interventions increase mammography
+            use among HMO women?"
+          </div>
+          <div class="q">
+            Evidence boundary: 71% vs 61% on-schedule mammography, "only after
+            the first year"; conclusion "might be the preferred first-line
+            intervention"; "additional interventions will be needed".
+          </div>
+          <div class="q bad">
+            SYNTHETIC FAILURE INJECTION (constructed absolutization): "Telephone
+            counseling is proven to be the best way to get women screened: it
+            always works as the first-line intervention, and every woman will
+            get her mammogram on schedule."
+          </div>
+          <div class="kv note" style="font-size: 13.5px">
+            <b>Manual state:</b> ucs_score = 0, all features false — minimal
+            fallback path; absolutism deliberately not mapped onto the
+            superiority feature. <b>Actual M1/M2:</b> routed →
+            <b>template_dominance</b>, conservative fallback label, confidence
+            0.5. <b>M3: NOT EXECUTED.</b>
+            <b>Actual M4 surface result:</b> length 2.45× ✓ · assertion 3 → 0 ✓
+            · overlap 0.551 &lt; 0.9 ✓ → passed.
+          </div>
+          <div class="boundaryline note">
+            Boundary: the tag is a fallback label, not a judgment; the M4 pass
+            is a surface property only.
+          </div>
+        </div>
+
+        <div class="card stress">
+          <h3 style="margin-top: 0">
+            Case C — Population/context mismatch
+            <span class="fam f-c">PMID 7664228 · 1995 · stress test</span>
+          </h3>
+          <div class="kv note" style="font-size: 13.5px">
+            <b>Question:</b> "Discharging patients earlier from Winnipeg
+            hospitals: does it adversely affect quality of care?"
+          </div>
+          <div class="q">
+            Evidence boundary: seven large (125+ beds) acute care hospitals in
+            Winnipeg; Manitoba residents; four procedure categories; fiscal
+            years 1989-90 to 1992-93; explicit exclusions; "does not appear to
+            result in increased rates of readmission…".
+          </div>
+          <div class="q bad">
+            SYNTHETIC FAILURE INJECTION (restrictions removed): "Shortening
+            hospital length of stay does not increase readmissions or physician
+            visits, and this holds for all hospitals and all patient groups."
+          </div>
+          <div class="kv note" style="font-size: 13.5px">
+            <b>Manual state — honest representation:</b> NOT REPRESENTABLE BY
+            CURRENT AUTOMATIC SIGNALS; the manual-review flag was injected
+            solely to document the only mechanical route to the tag (ucs_score =
+            2 alone would not route). <b>Actual M1/M2:</b> routed
+            <b>only because the flag was injected</b> →
+            <b>context_mismatch</b> via the no-pattern fallback, confidence 0.5.
+            <b>M3: NOT EXECUTED.</b> <b>Actual M4 surface result:</b> length
+            3.06× ✓ · assertion 2 → 0 ✓ · overlap 0.440 &lt; 0.9 ✓ → passed.
+          </div>
+          <div class="gapbox">
+            The population/context case exposed a missing representation in the
+            current pipeline: the downstream correction strategy exists, but the
+            live system has no corresponding automatic context signal.
+          </div>
+          <div class="boundaryline note">
+            Boundary: this documents a gap, not a capability; the tag reflects
+            experimenter assertion, not system judgment.
+          </div>
+        </div>
+
+        <div class="salient">
+          <div class="headline">
+            CURRENT SYSTEM HAS NO AUTOMATIC POPULATION/CONTEXT SIGNAL
+          </div>
+          <div class="expl">
+            The most consequential failure family in the stress test —
+            generalizing beyond a stated population — is the one the current
+            architecture cannot represent automatically at all. The repair
+            prompt exists; the signal does not.
+          </div>
+        </div>
+
+        <h3>Cross-case conclusion (compact)</h3>
+        <div class="cols">
+          <div class="half">
+            <div class="lbl" style="color: var(--good)">
+              Supported engineering observations
+            </div>
+            <ul
+              class="note"
+              style="font-size: 13px; padding-left: 18px; margin: 6px 0"
+            >
+              <li>
+                Some downstream components are mechanically reusable (M1/M2
+                logic executed on manually supplied states).
+              </li>
+              <li>
+                Fixed evidence can be injected without touching the retriever.
+              </li>
+              <li>M4 can process biomedical text as a surface gate.</li>
+              <li>
+                Deterministic behavior on biomedical input matched the code
+                exactly.
+              </li>
+            </ul>
+          </div>
+          <div class="half bad-half">
+            <div class="lbl" style="color: var(--bad)">Major boundaries</div>
+            <ul
+              class="note"
+              style="font-size: 13px; padding-left: 18px; margin: 6px 0"
+            >
+              <li>Current retriever is fitness-domain bound.</li>
+              <li>Biomedical UCS interpretation is unvalidated.</li>
+              <li>
+                Current M3 wording is fitness-specific (minimal isolated
+                adaptation documented, not executed).
+              </li>
+              <li>
+                M4 does not establish correctness or safety — it even passed a
+                fabricated-precision answer without noticing.
+              </li>
+              <li>Population/context representation is missing.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">
+          The probe suggests that parts of the downstream engineering are
+          mechanically portable, while the upstream construct and context
+          representation are not. N = 3 fixed constructed cases;
+          engineering-scope observation only.
+        </p>
+      </section>
+
+      <!-- ================= TAB 4 — VALIDATION & NEXT QUESTION ================= -->
+      <section class="view" id="v4">
+        <h2>Validation boundary — and the next question</h2>
+        <div class="two">
+          <div class="box-current">
+            <h3>Current formal human validation</h3>
+            <p class="note" style="margin-top: -4px">
+              Frozen protocol (2026-07-29) + owner-accepted launch spec
+              (2026-08-30)
+            </p>
+            <ul style="font-size: 13.5px; margin: 6px 0; padding-left: 20px">
+              <li>
+                <b>Construct (one only):</b> human judgment of whether the
+                delivered output removed the specified targeted failure.
+              </li>
+              <li>
+                <b>Fixed items:</b> 120 production items (40 generic, 40
+                oracle-aware, 40 CheckMyCoach) + 5 quality-control trials = 125
+                displayed, across 4 sessions.
+              </li>
+              <li>
+                <b>Annotators:</b> independent external annotators; target 5
+                (domain-credentialed, conflict-of-interest attestation);
+                protocol minimum 3; minimum analyzable 4 valid complete
+                datasets.
+              </li>
+              <li>
+                <b>Primary reliability (frozen):</b> three-category raw
+                agreement (YES / NO / UNCLEAR) and Krippendorff's α (nominal); α
+                ≥ .80 reads as "interpretable correspondence with evidence" —
+                not strong validation.
+              </li>
+              <li>
+                <b>Deliberately not measured:</b> trust, reliance, source
+                checking, override, decision quality, overall correctness,
+                benefit.
+              </li>
+            </ul>
+            <div
+              class="note"
+              style="
+                border-top: 1px solid var(--line);
+                padding-top: 8px;
+                margin-top: 8px;
+              "
+            >
+              <b>Status:</b>
+              <span class="gate g-green"
+                >Engineering: packages built; owner dry-run accepted (prior
+                implementation); owner bounded smoke test passed</span
+              >
+              <span class="gate g-red">Ethics determination: UNRESOLVED</span>
+              <span class="gate g-red">Collection: NOT_AUTHORIZED</span>
+              <br />No human data exists. Engineering acceptance is not a
+              collection authorization.
+            </div>
+          </div>
+          <div class="box-future">
+            <h3>Possible future end-user study</h3>
+            <p class="note" style="margin-top: -4px">
+              <b>FUTURE · NOT APPROVED · NO DATA.</b> Not part of the current
+              protocol.
+            </p>
+            <p style="font-size: 13.5px">Motivating question:</p>
+            <div class="q" style="font-family: inherit; font-size: 13.5px">
+              If the underlying content is fixed and manually verified, does the
+              way verification information is presented change what users
+              inspect, revise, accept, or override?
+            </div>
+            <ul style="font-size: 13.5px; margin: 6px 0; padding-left: 20px">
+              <li>verification / source-inspection behavior</li>
+              <li>revision and acceptance / override of advice</li>
+              <li>decision quality against fixed, manually verified content</li>
+              <li>presentation manipulations</li>
+              <li>
+                medical-domain transfer as a possible bounded extension of study
+                materials
+              </li>
+            </ul>
+            <p class="note">
+              Such a study would need its own design, ethics determination, and
+              explicit authorization. Nothing has been designed, approved, or
+              run.
+            </p>
+          </div>
+        </div>
+
+        <div class="concl">
+          <h3 style="margin-top: 0">What this suggests</h3>
+          <p>
+            The current prototype can support controlled study materials and
+            exposes several reusable engineering components. The small
+            biomedical stress test also revealed that domain transfer is not
+            simply a matter of replacing the evidence corpus: the current
+            upstream construct and population/context representation would need
+            separate validation or redesign.
+          </p>
+          <p>
+            This motivates a cleaner next step:
+            <b
+              >fixed, manually verified cases first; then controlled human
+              evaluation of how verification information affects judgment.</b
+            >
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        Sources: local-grounding audit (2026-09-15) · Phase 1 medical-transfer
+        audit (2026-09-15) · Phase 2 isolated three-case probe report
+        (2026-09-15) · frozen human-validation protocol + owner-accepted launch
+        spec (2026-08-30 chain). Data: frozen v2.2 evaluation run (2026-07-27);
+        PubMedQA PQA-L, official repository, MIT license as observed.
+        Repository-maintenance details are deliberately excluded here and remain
+        in the audit records. Static self-contained file · no network · no API ·
+        no tracking · generated 2026-09-16.
+      </footer>
+    </div>
+
+    <script>
+      function show(v) {
+        var s = document.querySelectorAll(".view"),
+          i;
+        for (i = 0; i < s.length; i++) {
+          s[i].classList.remove("active");
+        }
+        document.getElementById(v).classList.add("active");
+        var b = document.querySelectorAll(".tab");
+        for (i = 0; i < b.length; i++) {
+          b[i].classList.remove("active");
+        }
+        document.getElementById("tab-" + v).classList.add("active");
+      }
+    </script>
+  </body>
+</html>
