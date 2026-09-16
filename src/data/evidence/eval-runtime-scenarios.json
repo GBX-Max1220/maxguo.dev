@@ -1,0 +1,340 @@
+{
+  "meta": {
+    "artifact": "Evaluation Runtime",
+    "source": "Prepared local public snapshot (fresh-root candidate). Every projection below is illustrative: it transcribes documented, test-pinned semantics of the snapshot into a static view. No new experimental results were generated.",
+    "reliabilityContract": {
+      "totals": {
+        "supported": 7,
+        "partiallySupported": 4,
+        "notSupported": 3,
+        "notApplicable": 1
+      },
+      "source": "src/reliability_contract.py",
+      "note": "These are contract classifications of a machine-readable claim catalog, not a quality score. 7/15 is not a rating."
+    }
+  },
+  "scenarios": [
+    {
+      "id": "f1",
+      "tab": "F1 · Task vs attempt identity",
+      "failureMode": "Conflating a logical task with its executions. If a task_id were reused as the identity of an attempt, expressing \"ran it again\" would require overwriting history — the first attempt's failure record would be destroyed.",
+      "sequence": [
+        "one logical task_id",
+        "attempt 1 → new run_id, appended",
+        "attempt 2 → new run_id, appended",
+        "attempt 3 → new run_id, appended",
+        "attempt ordinals are derived from durable run_started events, never from an in-memory counter"
+      ],
+      "table": {
+        "caption": "Illustrative projection of retry semantics: one task_id, three attempts, three distinct run_id values",
+        "headers": ["Attempt", "Run identity", "Outcome"],
+        "rows": [
+          [
+            "1",
+            "run-1a2b (run_id A)",
+            "failed — stored as a fact, never erased"
+          ],
+          ["2", "run-9f3c (run_id B)", "failed — a separate appended record"],
+          ["3", "run-77d0 (run_id C)", "success — committed as a third record"]
+        ]
+      },
+      "preserved": "All three records remain in the append-only event history. The eventual success does not overwrite the failures; per-attempt status and task-level outcome stay separable.",
+      "evidence": [
+        {
+          "repoId": "eval-runtime",
+          "kind": "source",
+          "label": "Task / Run data model (logical vs attempt identity)",
+          "path": "src/models.py",
+          "ref": 40
+        },
+        {
+          "repoId": "eval-runtime",
+          "kind": "source",
+          "label": "run_id allocation",
+          "path": "src/storage.py",
+          "ref": 67
+        },
+        {
+          "repoId": "eval-runtime",
+          "kind": "source",
+          "label": "attempt ordinal derived from durable starts",
+          "path": "src/events.py",
+          "ref": 275
+        },
+        {
+          "repoId": "eval-runtime",
+          "kind": "test",
+          "label": "retry appends new attempts",
+          "path": "tests/test_retry.py"
+        },
+        {
+          "repoId": "eval-runtime",
+          "kind": "test",
+          "label": "I6 attempt identity stability",
+          "path": "tests/test_invariant_catalog.py"
+        }
+      ],
+      "nonClaim": "This does not demonstrate exactly-once execution, deduplication, or any real-provider behavior. The runtime deliberately rejects duplicate attempt identities instead of deduplicating them."
+    },
+    {
+      "id": "f2",
+      "tab": "F2 · Ambiguous external execution",
+      "failureMode": "A crash between dispatching external work and committing its outcome. If recovery treats a missing success record as permission to repeat the action, an already-executed (possibly billed) invocation is silently duplicated.",
+      "sequence": [
+        "run_started persisted",
+        "provider_invocation_started persisted immediately before the call",
+        "process interrupted before outcome/terminal could be committed",
+        "fold projects: ambiguous_external_execution",
+        "resume returns AMBIGUOUS — no provider invocation"
+      ],
+      "table": {
+        "caption": "Durable execution-state projection (documented contract; fold and resume decisions)",
+        "headers": [
+          "Durable event prefix",
+          "Folded execution_state",
+          "Automatic restart action"
+        ],
+        "rows": [
+          ["No run_started", "no Run exists", "FRESH"],
+          [
+            "Start, no invocation marker",
+            "known_not_executed",
+            "RETRY if attempt budget remains"
+          ],
+          [
+            "Invocation marker, no outcome",
+            "ambiguous_external_execution",
+            "AMBIGUOUS — no provider call"
+          ],
+          [
+            "Typed retryable failure outcome",
+            "known_failed",
+            "RETRY if attempt budget remains"
+          ],
+          [
+            "Untyped failure outcome, no terminal",
+            "ambiguous_external_execution",
+            "AMBIGUOUS — no provider call"
+          ],
+          [
+            "Success outcome, no terminal commit",
+            "ambiguous_external_execution",
+            "AMBIGUOUS — no provider call"
+          ],
+          ["Committed success terminal", "known_executed_and_committed", "SKIP"]
+        ]
+      },
+      "preserved": "Uncertainty itself. A durable invocation without a committed successful terminal is never automatically re-invoked unless durable evidence proves a retryable failure. Ambiguity is preserved across restarts rather than resolved by guessing.",
+      "evidence": [
+        {
+          "repoId": "eval-runtime",
+          "kind": "source",
+          "label": "persistence boundary phases",
+          "path": "src/runner.py",
+          "ref": 64
+        },
+        {
+          "repoId": "eval-runtime",
+          "kind": "source",
+          "label": "fold execution-state derivation",
+          "path": "src/events.py",
+          "ref": 176
+        },
+        {
+          "repoId": "eval-runtime",
+          "kind": "source",
+          "label": "resume AMBIGUOUS hard stop",
+          "path": "src/resume.py",
+          "ref": 80
+        },
+        {
+          "repoId": "eval-runtime",
+          "kind": "test",
+          "label": "execution-ambiguity suite (15 tests)",
+          "path": "tests/test_execution_ambiguity.py"
+        },
+        {
+          "repoId": "eval-runtime",
+          "kind": "policy",
+          "label": "RC-13 ambiguity preservation / RC-15 safe retry",
+          "path": "src/reliability_contract.py",
+          "ref": 158
+        }
+      ],
+      "nonClaim": "This demonstrates preservation and fail-closed recovery, not resolution. No reconciliation mechanism, no external-repair API, and no proof that the ambiguous invocation did not execute externally exists (RC-14: NOT_SUPPORTED)."
+    },
+    {
+      "id": "f3",
+      "tab": "F3 · Evaluator version binding",
+      "failureMode": "Re-judging a stored output against a silently changed specification. If the mutable current task definition were the scoring reference, a later spec edit would rewrite the meaning of every historical judgment.",
+      "sequence": [
+        "run executes with expected = \"Paris\"; the run persists expected_snapshot = \"Paris\"",
+        "output returned: \" paris \" (edge whitespace, different case)",
+        "current task fixture is later edited to expected = \"London\" (drift)",
+        "v1 (exact) judges the run: FAIL — against the snapshot, never \"London\"",
+        "v2 (normalized) judges the same run: PASS — same snapshot reference"
+      ],
+      "table": {
+        "caption": "Illustrative projection: one stored run, two evaluator versions, one immutable reference",
+        "headers": ["Scoring reference", "v1 exact", "v2 normalized-text"],
+        "rows": [
+          [
+            "expected_snapshot = \"Paris\" (captured at execution time)",
+            "FAIL — \" paris \" ≠ \"Paris\"",
+            "PASS — \"paris\" = \"paris\""
+          ],
+          [
+            "current tasks.jsonl = \"London\" (drifted)",
+            "never used as scoring reference",
+            "never used as scoring reference"
+          ]
+        ]
+      },
+      "preserved": "Judgment identity is the pair (run_id, evaluator_version). Each version's verdict is a separate durable record; execution metrics are invariant across evaluator versions; a run without a captured snapshot is not eligible for new evaluation at all (no current-task fallback).",
+      "evidence": [
+        {
+          "repoId": "eval-runtime",
+          "kind": "source",
+          "label": "evaluator: snapshot-only reference, version validation",
+          "path": "src/evaluator.py",
+          "ref": 57
+        },
+        {
+          "repoId": "eval-runtime",
+          "kind": "source",
+          "label": "executable version-binding demo",
+          "path": "scripts/demo_evaluator_versions.py"
+        },
+        {
+          "repoId": "eval-runtime",
+          "kind": "test",
+          "label": "evaluator versioning suite",
+          "path": "tests/test_evaluator_versioning.py"
+        },
+        {
+          "repoId": "eval-runtime",
+          "kind": "policy",
+          "label": "Evaluator Policy v0",
+          "path": "EVALUATOR_POLICY.md"
+        }
+      ],
+      "nonClaim": "Version binding establishes which semantics produced a judgment. It does not establish that any evaluator version measures output quality validly, nor anything about model quality."
+    },
+    {
+      "id": "f4",
+      "tab": "F4 · Denominator discipline",
+      "failureMode": "Collapsing different questions into one rate. Coverage, per-attempt reliability, recovery, and output quality have different denominators; merging them turns \"nothing was evaluated\" into a fake 0.0 and hides quarantined records inside an average.",
+      "sequence": [
+        "four report signals, four explicit denominators",
+        "raw vs valid vs quarantined counts are all exposed, never hidden",
+        "an undefined ratio is emitted as null, not 0.0",
+        "structural contradictions abort the report entirely (no numbers at all)",
+        "referential violations and ambiguous duplicate judgments are quarantined and listed"
+      ],
+      "table": {
+        "caption": "The four report signals (Signal Semantics v0) — each answers a different question",
+        "headers": ["Signal", "Numerator", "Denominator", "Undefined when"],
+        "rows": [
+          [
+            "Task execution coverage",
+            "unique attempted task_ids",
+            "defined tasks",
+            "no tasks defined → null"
+          ],
+          [
+            "Attempt execution reliability",
+            "successful valid runs",
+            "all valid runs (incl. interrupted)",
+            "no valid runs → null"
+          ],
+          [
+            "Recovery-aware task execution",
+            "attempted tasks with ≥1 success",
+            "unique attempted tasks",
+            "nothing attempted → null"
+          ],
+          [
+            "Conditional output quality",
+            "passed evaluations",
+            "completed evaluations only",
+            "no completed evaluations → null"
+          ]
+        ]
+      },
+      "preserved": "Quarantined observations stay visible: an evaluation referencing a nonexistent or failed run, or an ambiguous duplicate (run_id, evaluator_version) group, is excluded from every denominator and listed in the report's integrity block. Failed evaluator runs appear as raw counts, never as silent zeros.",
+      "evidence": [
+        {
+          "repoId": "eval-runtime",
+          "kind": "source",
+          "label": "report signals and null-on-zero rule",
+          "path": "src/report.py",
+          "ref": 30
+        },
+        {
+          "repoId": "eval-runtime",
+          "kind": "source",
+          "label": "integrity classification and quarantine",
+          "path": "src/integrity.py",
+          "ref": 46
+        },
+        {
+          "repoId": "eval-runtime",
+          "kind": "test",
+          "label": "signal semantics suite",
+          "path": "tests/test_signal.py"
+        },
+        {
+          "repoId": "eval-runtime",
+          "kind": "test",
+          "label": "integrity suite",
+          "path": "tests/test_integrity.py"
+        }
+      ],
+      "nonClaim": "No end-to-end task pass rate exists (deliberately deferred), and no metric here says anything about model quality or about the scientific validity of any evaluation."
+    }
+  ],
+  "claimBoundary": {
+    "supports": [
+      "Logical task identity and execution-attempt identity are distinct, durable, and test-pinned.",
+      "Retries append new history; committed results are immutable across resume and replay.",
+      "Ambiguous external execution is preserved and blocks automatic re-invocation (fail closed).",
+      "Evaluations bind (run_id, evaluator_version) and judge only the execution-time snapshot.",
+      "Report denominators are explicit; undefined ratios are null; invalid records are quarantined, not averaged in.",
+      "A machine-readable reliability contract classifies every claim with named evidence tests."
+    ],
+    "nonClaims": [
+      "No real LLM/provider integration — the agent is a deterministic mock plus injected faults.",
+      "Single process, single writer; no database, queue, or web service.",
+      "No exactly-once provider execution and no event-idempotent append (RC-10/RC-14: NOT_SUPPORTED).",
+      "Not production-grade infrastructure: append+flush is not fsync, transactional, or concurrent-writer safe.",
+      "Not a model-quality benchmark and not an evaluation-methodology validation.",
+      "Malformed returned output can be committed as execution success (no output schema validation)."
+    ]
+  },
+  "nonGuarantees": [
+    {
+      "id": "RC-10",
+      "name": "Event replay idempotence",
+      "status": "NOT_SUPPORTED",
+      "detail": "Duplicate events fail loudly; they are not deduplicated. No idempotency key or exactly-once append."
+    },
+    {
+      "id": "RC-11",
+      "name": "Failure replay determinism",
+      "status": "NOT_SUPPORTED",
+      "detail": "Replay accepts successful snapshot-bearing runs only; failed runs are not replayable."
+    },
+    {
+      "id": "RC-14",
+      "name": "Exactly-once provider execution",
+      "status": "NOT_SUPPORTED",
+      "detail": "Uncertainty is preserved and automatic replay blocked, but external execution cannot be proven either way without reconciliation."
+    },
+    {
+      "id": "RC-12",
+      "name": "Cost / token budget safety",
+      "status": "NOT_APPLICABLE",
+      "detail": "No cost or token budget subsystem exists; the only budget is the request-attempt budget (RC-02)."
+    }
+  ]
+}

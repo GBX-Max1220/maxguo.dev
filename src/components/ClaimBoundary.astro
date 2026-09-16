@@ -1,0 +1,39 @@
+---
+/**
+ * Two-column claim boundary: what the current evidence supports, and what it
+ * does not establish. Same visual pattern as the CheckMyCoach research page
+ * ("Supports" / "Does not yet establish" cards).
+ */
+interface Props {
+  supports: string[];
+  nonClaims: string[];
+  supportsTitle?: string;
+  nonClaimsTitle?: string;
+}
+
+const {
+  supports,
+  nonClaims,
+  supportsTitle = 'Supports',
+  nonClaimsTitle = 'Does not establish',
+} = Astro.props;
+---
+
+<div class="grid sm:grid-cols-2 gap-5">
+  <div class="card-static">
+    <h3 class="font-mono text-[0.62rem] font-semibold text-[var(--color-secondary-dim)] uppercase tracking-wider mb-2">
+      {supportsTitle}
+    </h3>
+    <ul class="text-sm text-[var(--color-text-dim)] space-y-2 list-disc list-inside">
+      {supports.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+  <div class="card-static">
+    <h3 class="font-mono text-[0.62rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-2">
+      {nonClaimsTitle}
+    </h3>
+    <ul class="text-sm text-[var(--color-text-dim)] space-y-2 list-disc list-inside">
+      {nonClaims.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+</div>

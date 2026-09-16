@@ -1,0 +1,63 @@
+{
+  "id": "eval-runtime",
+  "programId": "measuring-ai-reliability",
+  "title": "Evaluation Runtime: Bounded Reliability Semantics",
+  "shortTitle": "Evaluation Runtime",
+  "oneLiner": "A small single-process evaluation runtime that makes execution attempts, ambiguous failures, and report denominators separately inspectable, under a machine-readable reliability contract.",
+  "workflowState": "active",
+  "evidenceLevel": "prototype",
+  "version": "v0.1",
+  "updated": "2026-09-17",
+  "lastVerified": "2026-09-17",
+  "keyTakeaways": [
+    "Logical task identity and execution-attempt identity are separate durable concepts; retries append new history rather than overwrite prior attempts.",
+    "A crash between dispatching external work and committing its outcome projects as ambiguous_external_execution, and automatic recovery refuses to re-invoke the provider (fail closed) unless durable evidence proves a retryable failure.",
+    "Evaluations bind (run_id, evaluator_version) and judge only the execution-time expected_snapshot, never the mutable current task definition.",
+    "Report signals carry explicit denominators; undefined ratios are null rather than 0.0, and referentially invalid records are quarantined instead of averaged in."
+  ],
+  "hciRelevance": "Adjacent to trust calibration: an AI system's reliability story is only inspectable if its execution history, failure ambiguity, and report denominators are visible rather than collapsed into one number.",
+  "faq": [
+    {
+      "q": "Does this runtime connect to a real LLM or provider?",
+      "a": "No. The agent is a deterministic mock plus deterministic fault injection. There is no network call, no provider integration, and no empirical validation of real-provider reliability."
+    },
+    {
+      "q": "Is this production-grade infrastructure?",
+      "a": "No. It is single-process and single-writer; history is append plus userspace flush, which is not fsync, transactional, locked, or power-loss durable. There is no database, queue, or web service."
+    },
+    {
+      "q": "Does it guarantee exactly-once execution?",
+      "a": "No (RC-14: NOT_SUPPORTED). It preserves uncertainty about whether an outcome-unknown invocation executed externally and blocks automatic replay; it cannot prove either way without a reconciliation mechanism it does not have."
+    },
+    {
+      "q": "Is this a benchmark of model quality?",
+      "a": "No. It is evaluation-engineering evidence: how attempts, failures, judgments, and denominators are recorded and bounded. Its success criterion is that the agent returned a value, not that the output is valid."
+    },
+    {
+      "q": "Is it published?",
+      "a": "Not yet. A fresh-root public snapshot has been prepared locally; publication is a separate owner decision. No public repository URL exists for it yet."
+    }
+  ],
+  "links": {
+    "demo": "/demo/eval-runtime/"
+  },
+  "citation": {
+    "bibtex": "@software{guo_eval_runtime_2026,\n  author = {Guo, Baixin},\n  title = {Evaluation Runtime: Bounded Reliability Semantics},\n  year = {2026},\n  note = {Unpublished research prototype; single-process mock-agent runtime with a machine-readable reliability contract}\n}",
+    "apa": "Guo, B. (2026). Evaluation runtime: Bounded reliability semantics [Unpublished research prototype].",
+    "chicago": "Guo, Baixin. \"Evaluation Runtime: Bounded Reliability Semantics.\" Unpublished research prototype, 2026.",
+    "mla": "Guo, Baixin. Evaluation Runtime: Bounded Reliability Semantics. Unpublished research prototype, 2026."
+  },
+  "reproducible": {
+    "env": "Python 3.11+ standard library only; pytest for the test suite.",
+    "quickStart": "Reproduction ships with the public source snapshot once publication is authorized; until then the artifact is presented through its interactive evidence page."
+  },
+  "changelog": [
+    {
+      "version": "v0.1",
+      "date": "2026-09-17",
+      "event": "Fresh-root public snapshot prepared locally; reliability contract RC-01..RC-15 classified (7 supported / 4 partially supported / 3 not supported / 1 not applicable); full test suite verified green."
+    }
+  ],
+  "relatedIds": ["checkmycoach"],
+  "order": 6
+}

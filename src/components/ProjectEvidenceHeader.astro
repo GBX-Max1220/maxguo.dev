@@ -1,0 +1,28 @@
+---
+/**
+ * Evidence page header: kicker, title, lead paragraph, machine-readable
+ * status line, and a links row provided by the page via the "links" slot
+ * (plain anchors for public artifacts, EvidenceLink for repository
+ * provenance, including publication-pending state).
+ */
+interface Props {
+  kicker: string;
+  title: string;
+  lead: string;
+  statusLine: string;
+}
+
+const { kicker, title, lead, statusLine } = Astro.props;
+---
+
+<div class="max-w-[820px] mb-12">
+  <span class="section-kicker mb-3">{kicker}</span>
+  <h1 class="mb-3">{title}</h1>
+  <p class="lead mb-3">{lead}</p>
+  <p class="font-mono text-[0.62rem] text-[var(--color-text-muted)] uppercase tracking-[0.06em] mb-5">
+    {statusLine}
+  </p>
+  <div class="flex flex-wrap gap-x-5 gap-y-2 items-center font-mono text-[0.75rem]">
+    <slot name="links" />
+  </div>
+</div>

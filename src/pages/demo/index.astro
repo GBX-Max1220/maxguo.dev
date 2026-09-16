@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EvidenceLink from '../../components/EvidenceLink.astro';
+import { getCollection } from 'astro:content';
+
+const EVIDENCE_LEVEL_LABELS = {
+  concept: 'Concept',
+  prototype: 'Prototype',
+  simulation_tested: 'Simulation-tested',
+  offline_evaluated: 'Offline-evaluated',
+  human_pilot: 'Human pilot',
+  human_validated: 'Human-validated',
+};
+
+const WORKFLOW_LABELS = {
+  active: 'Active',
+  frozen: 'Frozen',
+  superseded: 'Superseded',
+  archived: 'Archived',
+};
+
+// The two artifacts that currently have interactive evidence surfaces.
+// No placeholder cards: a project appears here only when an artifact exists.
+const ARTIFACTS = [
+  {
+    id: 'checkmycoach',
+    artifactType: 'Interactive pipeline prototype · fixed mock fixtures',
+    demoPath: '/demo/checkmycoach/',
+    repoId: 'checkmycoach',
+    notePath: '/publications/checkmycoach-paper/',
+    noteLabel: 'System note · archived',
+    projectPagePath: '/research/building-trustworthy-ai/checkmycoach/',
+  },
+  {
+    id: 'eval-runtime',
+    artifactType: 'Interactive reliability evidence · static scenario projections',
+    demoPath: '/demo/eval-runtime/',
+    repoId: 'eval-runtime',
+    notePath: null,
+    noteLabel: null,
+    projectPagePath: null,
+  },
+];
+
+const projects = await getCollection('project');
+const cards = ARTIFACTS.map((a) => {
+  const project = projects.find((p) => p.data.id === a.id);
+  if (!project) throw new Error(`Research artifact card references missing project: ${a.id}`);
+  return { ...a, project };
+});
+---
+
+<BaseLayout
+  title="Research Artifacts"
+  description="Interactive evidence with bounded claims — research artifacts you can operate, with their claim boundaries attached."
+>
+  <div class="container-content py-14">
+    <div class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-3">Research artifacts</span>
+      <h1 class="mb-3">Research Artifacts</h1>
+      <p class="lead mb-3">
+        Interactive evidence with bounded claims. Each artifact can be operated in the browser, and each carries its own claim boundary: what it demonstrates, what it does not, and where the executable evidence lives.
+      </p>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl">
+        These are not product demos and not validated results. They are the inspectable layer of one research program: the same systems described under <a href="/research/" class="link-arrow">Research</a>, opened up for direct inspection.
+      </p>
+    </div>
+
+    <div class="space-y-6 mb-12">
+      {
+        cards.map(({ artifactType, demoPath, repoId, notePath, noteLabel, projectPagePath, project }) => (
+          <article class="card-static">
+            <div class="flex flex-wrap items-center gap-2 mb-3">
+              <span class="badge badge-primary">{WORKFLOW_LABELS[project.data.workflowState]}</span>
+              <span class="badge">{EVIDENCE_LEVEL_LABELS[project.data.evidenceLevel]}</span>
+              <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)] uppercase tracking-wider">
+                {artifactType} · updated {project.data.updated.toISOString().slice(0, 10)}
+              </span>
+            </div>
+            <h2 class="text-xl mb-2">{project.data.shortTitle}</h2>
+            <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-5">
+              {project.data.oneLiner}
+            </p>
+            <div class="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[0.75rem]">
+              <a href={demoPath} class="link-arrow">Open the artifact →</a>
+              <EvidenceLink repoId={repoId} label="Source" />
+              {notePath && (
+                <a href={notePath} class="link-arrow">{noteLabel} →</a>
+              )}
+              {projectPagePath && (
+                <a href={projectPagePath} class="text-[var(--color-text-muted)] hover:text-[var(--color-ink)] transition-colors">
+                  Project page →
+                </a>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="card-static max-w-[820px]">
+      <p class="font-mono text-[0.62rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-2">Portfolio rule</p>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+        An interactive artifact is not a validated scientific result. Software conformance, constructed-corpus outcomes, simulation behavior, and human evidence answer different questions; none is used as a substitute for another. Every claim on these pages points to the evidence that bounds it.
+      </p>
+    </div>
+
+  </div>
+</BaseLayout>

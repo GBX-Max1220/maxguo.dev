@@ -1,0 +1,228 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ProjectEvidenceHeader from '../../components/ProjectEvidenceHeader.astro';
+import ScenarioTabs from '../../components/ScenarioTabs.astro';
+import ClaimBoundary from '../../components/ClaimBoundary.astro';
+import EvidenceLink from '../../components/EvidenceLink.astro';
+import data from '../../data/evidence/eval-runtime-scenarios.json';
+
+const { meta, scenarios, claimBoundary, nonGuarantees } = data;
+const contract = meta.reliabilityContract;
+
+const statusGroups = [
+  { label: 'Supported', count: contract.totals.supported, ids: 'RC-01 · RC-02 · RC-03 · RC-04 · RC-05 · RC-13 · RC-15' },
+  { label: 'Partially supported', count: contract.totals.partiallySupported, ids: 'RC-06 · RC-07 · RC-08 · RC-09' },
+  { label: 'Not supported', count: contract.totals.notSupported, ids: 'RC-10 · RC-11 · RC-14' },
+  { label: 'Not applicable', count: contract.totals.notApplicable, ids: 'RC-12' },
+];
+---
+
+<BaseLayout
+  title="Evaluation Runtime — bounded reliability evidence"
+  description="A small single-process evaluation runtime that makes execution attempts, ambiguous failures, and report denominators separately inspectable. Interactive evidence with bounded claims; public source snapshot pending publication."
+>
+  <div class="container-content py-14">
+    <Breadcrumb path="/demo/eval-runtime" />
+
+    <ProjectEvidenceHeader
+      kicker="Research artifact · Measuring AI reliability"
+      title="Evaluation Runtime"
+      lead="When an AI-agent evaluation crashes mid-execution, what happened? Most harnesses answer by overwriting: the retry replaces the failed attempt, a missing success record becomes permission to repeat an external action, and one blended rate hides what was actually measured. This artifact is a deliberately small runtime built so that logical work, execution attempts, ambiguity, and report denominators stay separately inspectable — under a machine-readable reliability contract."
+      statusLine="Active · prototype · public snapshot prepared — publication pending · updated 2026-09-17"
+    >
+      <a href="/demo/" slot="links" class="text-[var(--color-text-muted)] hover:text-[var(--color-ink)] transition-colors">← Research Artifacts</a>
+      <EvidenceLink repoId="eval-runtime" kind="policy" label="Reliability contract (RC-01..RC-15)" path="src/reliability_contract.py" slot="links" />
+    </ProjectEvidenceHeader>
+
+    <!-- 1. Research question -->
+    <section class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-2">Research question</span>
+      <h2 class="mt-1 mb-3">Can an evaluation runtime record failure without inventing certainty — and refuse to repeat an external action it cannot account for?</h2>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl">
+        The question is operational, not scientific: given one append-only execution history, can the runtime distinguish a logical task from its attempts, preserve ambiguity instead of resolving it by guessing, bind judgments to the specification that was actually executed against, and keep every report denominator explicit?
+      </p>
+    </section>
+
+    <!-- 2. Four scenarios -->
+    <section class="mb-12">
+      <span class="section-kicker mb-2">Artifact · four scenarios</span>
+      <h2 class="mt-1 mb-3">What the runtime makes inspectable</h2>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-6 max-w-2xl">
+        Each scenario is a static, deterministic projection of documented, test-pinned semantics — {meta.source}. Select a scenario.
+      </p>
+
+      <ScenarioTabs scenarios={scenarios.map((s) => ({ id: s.id, tab: s.tab }))}>
+        {
+          scenarios.map((s) => (
+            <section data-scenario-panel={s.id} class="card-static mb-6" aria-label={s.tab}>
+              <h3 class="text-[1.05rem] mb-2">{s.tab}</h3>
+              <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">
+                <strong class="text-[var(--color-ink)]">Failure mode. </strong>
+                {s.failureMode}
+              </p>
+
+              <div class="mb-5">
+                <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-2">What happens</p>
+                <ol class="space-y-1.5 text-sm text-[var(--color-text-dim)] list-decimal list-inside">
+                  {s.sequence.map((step) => (
+                    <li>{step}</li>
+                  ))}
+                </ol>
+              </div>
+
+              <div class="mb-5">
+                <div class="overflow-x-auto">
+                  <table class="fact-table">
+                    <caption>{s.table.caption}</caption>
+                    <thead>
+                      <tr>
+                        {s.table.headers.map((h) => (
+                          <th scope="col">{h}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {s.table.rows.map((row) => (
+                        <tr>
+                          {row.map((cell, i) => (
+                            <td>{i === 0 ? <strong>{cell}</strong> : cell}</td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="mb-5">
+                <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-2">What the runtime preserves</p>
+                <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">{s.preserved}</p>
+              </div>
+
+              <div class="mb-5">
+                <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-2">Executable evidence</p>
+                <div class="flex flex-col gap-2 items-start">
+                  {s.evidence.map((e) => (
+                    <EvidenceLink repoId={e.repoId} kind={e.kind} label={e.label} path={e.path} ref={e.ref} />
+                  ))}
+                </div>
+              </div>
+
+              <div class="border-l-4 border-[var(--color-rule)] bg-[var(--color-page-alt)] rounded-r-lg px-5 py-4">
+                <p class="font-mono text-[0.62rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-1">
+                  Claim boundary
+                </p>
+                <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">{s.nonClaim}</p>
+              </div>
+            </section>
+          ))
+        }
+      </ScenarioTabs>
+    </section>
+
+    <!-- 3. Reliability contract classification -->
+    <section class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-2">Evidence</span>
+      <h2 class="mt-1 mb-3">Reliability contract classification</h2>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-6 max-w-2xl">
+        Every guarantee the runtime makes is a claim record with an explicit status and named evidence tests. The totals below are contract classifications, not a quality score: 7 of 15 is not a rating, and the NOT_SUPPORTED rows are as much a part of the artifact as the SUPPORTED ones.
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+        {
+          statusGroups.map((g) => (
+            <div class="bg-[var(--color-page-alt)] rounded-lg p-4 text-left">
+              <div class="font-display text-2xl text-[var(--color-ink)]">{g.count}</div>
+              <div class="text-[0.6rem] font-mono text-[var(--color-text-muted)] uppercase tracking-wider mt-1">{g.label}</div>
+              <div class="font-mono text-[0.6rem] text-[var(--color-text-dim)] mt-2 leading-relaxed">{g.ids}</div>
+            </div>
+          ))
+        }
+      </div>
+      <p class="font-mono text-[0.65rem] text-[var(--color-text-muted)]">
+        Source: src/reliability_contract.py in the public snapshot · statuses unchanged from the prepared candidate (7 / 4 / 3 / 1).
+      </p>
+    </section>
+
+    <!-- 4. Claim boundary -->
+    <section class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-2">Scientific boundary</span>
+      <h2 class="mt-1 mb-4">What this artifact demonstrates — and what it does not</h2>
+      <ClaimBoundary supports={claimBoundary.supports} nonClaims={claimBoundary.nonClaims} supportsTitle="Demonstrated here" nonClaimsTitle="Not established" />
+    </section>
+
+    <!-- 5. Non-guarantees -->
+    <section class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-2">Non-guarantees</span>
+      <h2 class="mt-1 mb-3">Stated limits, by claim id</h2>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-6 max-w-2xl">
+        These are contract records in the snapshot, not disclaimers added for this page.
+      </p>
+      <div class="hidden md:block overflow-x-auto">
+        <table class="fact-table">
+          <caption>Reliability contract records that are explicitly not guaranteed</caption>
+          <thead>
+            <tr>
+              <th scope="col">Claim</th>
+              <th scope="col">Status</th>
+              <th scope="col">What this means</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              nonGuarantees.map((g) => (
+                <tr>
+                  <td><strong>{g.id} · {g.name}</strong></td>
+                  <td>{g.status}</td>
+                  <td>{g.detail}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="md:hidden mt-4">
+        {
+          nonGuarantees.map((g) => (
+            <div class="fact-record">
+              <p class="fact-record-value">{g.id} · {g.name}</p>
+              <p class="fact-record-row">
+                <span class="fact-record-label">Status</span>
+                {g.status}
+              </p>
+              <p class="fact-record-row">
+                <span class="fact-record-label">Meaning</span>
+                {g.detail}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- 6. Reproducibility note (secondary) -->
+    <section class="max-w-[820px]">
+      <span class="section-kicker mb-2">Source & reproducibility</span>
+      <h2 class="mt-1 mb-3">Where the evidence lives</h2>
+      <div class="card-static mb-4">
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+          The runtime is a standard-library-only Python package whose semantics are pinned by an executable test suite; the prepared snapshot was verified green before this page was built. It is intentionally small enough to read in one sitting.
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">
+          The public snapshot exists locally as a fresh-root candidate. It has no public repository URL yet, so source and test references on this page are shown as provenance rather than links. They become clickable when the owner authorizes publication.
+        </p>
+        <div class="flex flex-col gap-2 items-start">
+          <EvidenceLink repoId="eval-runtime" kind="source" label="Runtime sources (event store, runner, evaluator, report, contract)" path="src/" />
+          <EvidenceLink repoId="eval-runtime" kind="test" label="Executable test suite (17 files)" path="tests/" />
+          <EvidenceLink repoId="eval-runtime" kind="policy" label="Runtime reliability contract (prose + machine-readable)" path="RUNTIME_RELIABILITY_CONTRACT.md" />
+        </div>
+      </div>
+      <div class="card-static">
+        <p class="text-sm text-[var(--color-text-dim)]">
+          <strong class="text-[var(--color-ink)]">Reading rule:</strong> an interactive artifact, an executable test suite, and a validated scientific result are different evidence classes. This page contains only the first two.
+        </p>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

@@ -1,0 +1,78 @@
+---
+/**
+ * Static scenario tabs for an evidence page. Tab buttons are rendered from
+ * data; the page places matching panels (elements carrying
+ * data-scenario-panel="<id>") inside the default slot. Selection is a tiny
+ * client-side class toggle — no network, no state, deterministic content.
+ */
+interface ScenarioTab {
+  id: string;
+  tab: string;
+}
+
+interface Props {
+  scenarios: ScenarioTab[];
+}
+
+const { scenarios } = Astro.props;
+
+const TAB_BASE =
+  'font-mono text-[0.68rem] uppercase tracking-wider px-3 py-1.5 rounded-md border transition-colors';
+const TAB_ACTIVE = `${TAB_BASE} bg-[var(--color-rule-light)] text-[var(--color-ink)] border-[var(--color-rule)]`;
+const TAB_INACTIVE = `${TAB_BASE} border-[var(--color-rule-light)] text-[var(--color-text-dim)] hover:text-[var(--color-brand)] hover:bg-[var(--color-surface-hover)]`;
+---
+
+<div data-scenario-tabs>
+  <div role="tablist" aria-label="Evidence scenarios" class="flex flex-wrap gap-2 mb-6">
+    {
+      scenarios.map((s, i) => (
+        <button
+          type="button"
+          role="tab"
+          data-scenario-tab={s.id}
+          aria-selected={i === 0 ? 'true' : 'false'}
+          class={i === 0 ? TAB_ACTIVE : TAB_INACTIVE}
+          data-active-class={TAB_ACTIVE}
+          data-inactive-class={TAB_INACTIVE}
+        >
+          {s.tab}
+        </button>
+      ))
+    }
+  </div>
+  <slot />
+</div>
+
+<script>
+  const CLASS_HIDDEN = 'hidden';
+
+  document.querySelectorAll('[data-scenario-tabs]').forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll('[data-scenario-tab]'));
+    const panels = Array.from(root.querySelectorAll('[data-scenario-panel]'));
+
+    function select(id) {
+      tabs.forEach((tab) => {
+        const active = tab.getAttribute('data-scenario-tab') === id;
+        tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        tab.className = active
+          ? tab.getAttribute('data-active-class') || ''
+          : tab.getAttribute('data-inactive-class') || '';
+      });
+      panels.forEach((panel) => {
+        panel.classList.toggle(
+          CLASS_HIDDEN,
+          panel.getAttribute('data-scenario-panel') !== id
+        );
+      });
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        select(tab.getAttribute('data-scenario-tab') || '');
+      });
+    });
+
+    // Idempotent initial state: show the first scenario, hide the rest.
+    if (tabs.length > 0) select(tabs[0].getAttribute('data-scenario-tab') || '');
+  });
+</script>

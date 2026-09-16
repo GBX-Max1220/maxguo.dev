@@ -1,0 +1,57 @@
+---
+/**
+ * Deep link into an evidence repository (source file, test, or policy doc).
+ *
+ * Public repo  -> normal external link into the repository file.
+ * Pending repo -> non-clickable provenance text: label + intended source
+ *                 path + a "publication pending" badge. Never emits an
+ *                 href, a fake URL, or a local filesystem path.
+ */
+import { getEvidenceRepo } from '../config/evidence-repos.mjs';
+
+interface Props {
+  repoId: string;
+  label: string;
+  path?: string;
+  ref?: string | number;
+  kind?: 'source' | 'test' | 'policy' | 'doc';
+}
+
+const { repoId, label, path, ref, kind } = Astro.props;
+const repo = getEvidenceRepo(repoId);
+const pending = repo.publicationState !== 'public' || !repo.publicUrl;
+
+const refSuffix = ref !== undefined ? (typeof ref === 'number' ? `#L${ref}` : `#${ref}`) : '';
+const href = pending
+  ? null
+  : path
+    ? `${repo.publicUrl}/blob/HEAD/${path}${refSuffix}`
+    : repo.publicUrl;
+const kindLabel = kind ? `${kind} · ` : '';
+---
+
+{
+  pending ? (
+    <span class="inline-flex flex-wrap items-baseline gap-x-2 gap-y-1">
+      <span class="font-mono text-[0.7rem] text-[var(--color-ink)]">
+        {kindLabel}{label}
+      </span>
+      {path && (
+        <code class="font-mono text-[0.65rem] text-[var(--color-text-muted)]">
+          {`${repo.label} · ${path}${ref !== undefined ? `:${ref}` : ''}`}
+        </code>
+      )}
+      <span class="badge">Snapshot prepared · publication pending</span>
+    </span>
+  ) : (
+    <a
+      href={href}
+      target={href?.startsWith('https://') ? '_blank' : undefined}
+      rel={href?.startsWith('https://') ? 'noopener' : undefined}
+      class="link-arrow font-mono text-[0.7rem]"
+    >
+      {kindLabel}{label}
+      {path && ` · ${path}`} ↗
+    </a>
+  )
+}

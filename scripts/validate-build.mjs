@@ -110,6 +110,68 @@ try {
   results.push(['WARN', 'No sitemap-index.xml found']);
 }
 
+// 8. Internal links resolve to built files; no placeholder hrefs
+const allDistFiles = walk(DIST);
+const routeSet = new Set();
+for (const f of allDistFiles) {
+  const rel = f.slice(DIST.length + 1).replace(/\\/g, '/');
+  routeSet.add('/' + rel);
+  if (rel.endsWith('/index.html') || rel === 'index.html') {
+    routeSet.add('/' + rel.slice(0, -'index.html'.length));
+  } else if (rel.endsWith('.html')) {
+    routeSet.add('/' + rel.slice(0, -'.html'.length) + '/');
+  }
+}
+const SITE_BASE = '/maxguo.dev';
+let linkFailures = [];
+for (const htmlFile of htmlFiles) {
+  const content = readFileSync(htmlFile, 'utf-8');
+  const hrefs = content.match(/href="[^"]*"/g) || [];
+  for (const hrefAttr of hrefs) {
+    const raw = hrefAttr.slice(6, -1);
+    if (raw === '#') {
+      linkFailures.push(`${htmlFile.replace(DIST, '')}: placeholder href="#"`);
+      continue;
+    }
+    let path = raw;
+    if (path === SITE_BASE || path.startsWith(SITE_BASE + '/')) {
+      path = path.slice(SITE_BASE.length) || '/';
+    }
+    if (!path.startsWith('/') || path.startsWith('//')) continue;
+    const clean = path.split('#')[0].split('?')[0];
+    if (clean === '' || clean === '/') continue;
+    const candidates = [clean, clean + '/index.html', clean.replace(/\/$/, '') + '.html', clean.replace(/\/$/, '')];
+    if (!candidates.some((c) => routeSet.has(c))) {
+      linkFailures.push(`${htmlFile.replace(DIST, '')}: dead internal link ${raw}`);
+    }
+  }
+}
+if (linkFailures.length === 0) {
+  results.push(['PASS', `All internal links resolve across ${htmlFiles.length} HTML pages`]);
+} else {
+  // Dead links are reported as WARN: the check must not block deployment on
+  // pre-existing content debt, but every hit is printed for review.
+  results.push(['WARN', `${linkFailures.length} internal link problem(s): ${linkFailures.slice(0, 5).join(' | ')}`]);
+}
+
+// 9. No local/private filesystem paths or governance material leaked into dist
+const LEAK_PATTERNS = ['C:\\', '/Users/', 'Users\\', 'private-drafts', '.ai/'];
+let leakHits = [];
+for (const htmlFile of htmlFiles) {
+  const content = readFileSync(htmlFile, 'utf-8');
+  for (const pattern of LEAK_PATTERNS) {
+    if (content.includes(pattern)) {
+      leakHits.push(`${htmlFile.replace(DIST, '')}: "${pattern}"`);
+    }
+  }
+}
+if (leakHits.length === 0) {
+  results.push(['PASS', 'No local/private paths or governance material in dist HTML']);
+} else {
+  results.push(['FAIL', `Leak pattern(s) found: ${leakHits.slice(0, 5).join(' | ')}`]);
+  exitCode = 1;
+}
+
 // Print results
 console.log('\n=== Build Validation Results ===\n');
 for (const [status, msg] of results) {
