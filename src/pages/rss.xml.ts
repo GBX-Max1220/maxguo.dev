@@ -1,6 +1,6 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
-import { SITE } from '../config/site.mjs';
+import { SITE, siteUrl } from '../config/site.mjs';
 
 export async function GET(context) {
   const blog = await getCollection('blog', ({ data }) => !data.draft);
@@ -12,7 +12,7 @@ export async function GET(context) {
       title: post.data.title,
       pubDate: post.data.date,
       description: post.data.excerpt,
-      link: `/blog/${post.id}/`,
+      link: siteUrl(`/blog/${post.data.id}/`),
     })),
   });
 }
