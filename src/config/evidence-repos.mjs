@@ -16,6 +16,12 @@ export const EVIDENCE_REPOS = Object.freeze({
     publicUrl: 'https://github.com/GBX-Max1220/CheckMyCoach',
     publicationState: 'public',
   }),
+  interactionkit: Object.freeze({
+    id: 'interactionkit',
+    label: 'InteractionKit',
+    publicUrl: 'https://github.com/GBX-Max1220/InteractionKit',
+    publicationState: 'public',
+  }),
   'eval-runtime': Object.freeze({
     id: 'eval-runtime',
     label: 'Evaluation Runtime',

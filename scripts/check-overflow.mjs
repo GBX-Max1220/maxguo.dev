@@ -27,7 +27,7 @@ const VIEWPORTS = [
   { width: 1440, height: 900, label: '1440×900 (desktop)' },
 ];
 
-const ROUTES = ['/', '/demo/', '/demo/checkmycoach/', '/demo/eval-runtime/', '/research/', '/projects/', '/publications/', '/cv/'];
+const ROUTES = ['/', '/demo/', '/demo/interactionkit/', '/demo/checkmycoach/', '/demo/eval-runtime/', '/research/', '/projects/', '/publications/', '/cv/'];
 
 const MIME_TYPES = {
   '.html': 'text/html',

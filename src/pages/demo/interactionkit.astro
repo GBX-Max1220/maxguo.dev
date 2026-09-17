@@ -1,0 +1,262 @@
+---
+// InteractionKit evidence walkthrough — design-time experiment contracts.
+// A deterministic, client-side-only projection of the pinned
+// interactionkit-v1.0.0 release: PatternSpec contracts, composition
+// legality, and data-column provenance. No network calls, no backend,
+// no study execution, no new research code.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ProjectEvidenceHeader from '../../components/ProjectEvidenceHeader.astro';
+import ScenarioTabs from '../../components/ScenarioTabs.astro';
+import ClaimBoundary from '../../components/ClaimBoundary.astro';
+import EvidenceLink from '../../components/EvidenceLink.astro';
+import data from '../../data/evidence/interactionkit-patterns.json';
+
+const { meta, patterns, sharedColumnsNote, compositionCases } = data;
+
+const claimSupports = [
+  'Released, typed experiment contracts exist for three interaction patterns, each naming its construct and experimental role.',
+  'Composition ordering and branch compatibility are mechanically checked before a study runs.',
+  'The derived data schema records which pattern instance produced each output column.',
+  'Contract behavior is pinned by executable tests in the released artifact.',
+];
+
+const claimNonClaims = [
+  'Construct validity of any pattern.',
+  'Psychometric validity of any collected measure.',
+  'Measurement reliability.',
+  'Human effects or participant results (none exist).',
+  'Causal effects.',
+  'Cross-lab behavioral reproducibility.',
+  'Cross-implementation equivalence.',
+  'Deployment effectiveness.',
+];
+
+const TAB_ACTIVE =
+  'font-mono text-[0.68rem] uppercase tracking-wider px-3 py-1.5 rounded-md border transition-colors bg-[var(--color-rule-light)] text-[var(--color-ink)] border-[var(--color-rule)]';
+const TAB_INACTIVE =
+  'font-mono text-[0.68rem] uppercase tracking-wider px-3 py-1.5 rounded-md border transition-colors border-[var(--color-rule-light)] text-[var(--color-text-dim)] hover:text-[var(--color-brand)] hover:bg-[var(--color-surface-hover)]';
+
+const ROLE_NOTE =
+  'Role labels describe the experimental contract — where the pattern sits in a study design. They do not establish construct validity.';
+---
+
+<BaseLayout
+  title="InteractionKit — design-time experiment contracts"
+  description="A deterministic walkthrough of InteractionKit's typed PatternSpec contracts: constructs, experimental roles, composition legality, and data-column provenance — checked before a study runs. Frozen v1.0.0 software; no participant data."
+>
+  <div class="container-content py-14">
+    <Breadcrumb path="/demo/interactionkit" />
+
+    <ProjectEvidenceHeader
+      kicker="Research artifact · Design-time experiment contracts"
+      title="InteractionKit"
+      lead="Experimental software often mixes what is manipulated, what is measured, and what gets written to data. InteractionKit makes those relationships explicit before a study runs: each interaction pattern is a typed contract that names its construct, its experimental role, and the exact output columns it emits — so a composition can be checked mechanically, and every data column can be traced to the pattern instance that produced it."
+      statusLine="Frozen · v1.0.0 publicly tagged · contract-tested software · no participant data"
+    >
+      <a href="/demo/" slot="links" class="text-[var(--color-text-muted)] hover:text-[var(--color-ink)] transition-colors">← Research Artifacts</a>
+      <EvidenceLink repoId="interactionkit" label="Source repository" slot="links" />
+      <a href={meta.pinnedTreeUrl} target="_blank" rel="noopener" slot="links" class="text-[var(--color-text-muted)] hover:text-[var(--color-ink)] transition-colors">Pinned release ↗</a>
+      <a href="/research/building-trustworthy-ai/interactionkit/" slot="links" class="text-[var(--color-text-muted)] hover:text-[var(--color-ink)] transition-colors">Project page →</a>
+    </ProjectEvidenceHeader>
+
+    <!-- 1. Why this exists -->
+    <section class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-2">Why this exists</span>
+      <h2 class="mt-1 mb-3">Three failures this contract layer is built to avoid</h2>
+      <div class="grid sm:grid-cols-3 gap-3">
+        <div class="card-static">
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed"><strong class="text-[var(--color-ink)]">Hidden roles.</strong> Manipulation and measurement logic buried in UI code, so no reviewer can tell what was manipulated or measured without reading the implementation.</p>
+        </div>
+        <div class="card-static">
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed"><strong class="text-[var(--color-ink)]">Orphan columns.</strong> Behavioral datasets whose columns have no recorded origin, making analysis preparation guesswork.</p>
+        </div>
+        <div class="card-static">
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed"><strong class="text-[var(--color-ink)]">Late composition bugs.</strong> Invalid study ordering discovered only when the study software already runs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. PatternSpec contract explorer -->
+    <section class="mb-12">
+      <span class="section-kicker mb-2">Artifact · PatternSpec contracts</span>
+      <h2 class="mt-1 mb-3">What each pattern declares</h2>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-6 max-w-2xl">
+        The released artifact ships three patterns as JSON Schema contracts. Select one to inspect its construct, experimental role, parameters, and emitted columns. {sharedColumnsNote}
+      </p>
+
+      <ScenarioTabs scenarios={patterns.map((p) => ({ id: p.id, tab: p.name }))}>
+        {
+          patterns.map((p) => (
+            <section data-scenario-panel={p.id} class="card-static mb-6" aria-label={p.name}>
+              <div class="flex flex-wrap items-center gap-2 mb-3">
+                <span class="badge font-mono">{p.role.toUpperCase()}</span>
+                <span class="font-mono text-[0.62rem] text-[var(--color-text-muted)]">measurementModel.role · v1.0.0</span>
+              </div>
+              <p class="text-xs text-[var(--color-text-muted)] italic mb-4">{ROLE_NOTE}</p>
+
+              <div class="mb-5">
+                <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-1">Construct</p>
+                <p class="text-sm text-[var(--color-ink)] mb-1">{p.construct}</p>
+                <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">{p.constructDefinition}</p>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-5 mb-5">
+                <div>
+                  <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-2">Parameters</p>
+                  <ul class="text-xs text-[var(--color-text-dim)] space-y-1">
+                    {p.params.map((param) => (
+                      <li><span class="font-mono text-[0.65rem] text-[var(--color-ink)]">{param.name}</span> — {param.constraint}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-2">Composition position</p>
+                  <ul class="text-xs text-[var(--color-text-dim)] space-y-1">
+                    <li>allowedAfter: {p.allowedAfter.length ? p.allowedAfter.join(', ') : '— (must come first)'}</li>
+                    <li>allowedBefore: {p.allowedBefore.length ? p.allowedBefore.join(', ') : '— (terminal)'}</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-2">Contract-specific output columns (required)</p>
+                <div class="overflow-x-auto">
+                  <table class="fact-table">
+                    <caption>Emitted columns declared by the {p.name} output schema</caption>
+                    <thead>
+                      <tr><th scope="col">Column</th><th scope="col">Contract constraint</th></tr>
+                    </thead>
+                    <tbody>
+                      {p.keyOutputColumns.map((col) => (
+                        <tr><td><strong class="font-mono text-[0.7rem]">{col.name}</strong></td><td>{col.detail}</td></tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <a href={p.schemaUrl} target="_blank" rel="noopener" class="link-arrow font-mono text-[0.65rem]">View the released schema at the pinned tag ↗</a>
+            </section>
+          ))
+        }
+      </ScenarioTabs>
+    </section>
+
+    <!-- 3. Composition legality walkthrough -->
+    <section class="mb-12">
+      <span class="section-kicker mb-2">Artifact · composition legality</span>
+      <h2 class="mt-1 mb-3">Can this composition be checked before the study runs?</h2>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-2 max-w-2xl">
+        The composition engine checks ordering, input availability, and branch compatibility, then derives one data schema that records which pattern instance produced each column. Each case below is pinned by an executable test in the released artifact.
+      </p>
+      <p class="text-sm text-[var(--color-ink)] font-medium mb-6 max-w-2xl">
+        Schema validity is a property of the software contract, not of the science: a composition that passes these checks is legal to run — nothing here establishes that a study built on it is scientifically valid.
+      </p>
+
+      <ScenarioTabs scenarios={compositionCases.map((c) => ({ id: c.id, tab: c.verdict === 'accepted' ? 'Valid sequence' : c.id === 'invalid-order' ? 'Invalid order' : 'Branch mismatch' }))}>
+        {
+          compositionCases.map((c) => (
+            <section data-scenario-panel={c.id} class="card-static mb-6" aria-label={c.headline}>
+              <div class="flex flex-wrap items-center gap-2 mb-3">
+                <span class={`badge font-mono ${c.verdict === 'accepted' ? 'badge-primary' : ''}`}>{c.verdict === 'accepted' ? 'CHECK: ACCEPTED' : 'CHECK: REJECTED'}</span>
+                <span class="font-mono text-[0.62rem] text-[var(--color-text-muted)]">{c.headline}</span>
+              </div>
+
+              <div class="mb-5">
+                <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-2">Ordered primitives</p>
+                <div class="flex flex-wrap items-center gap-2">
+                  {c.primitives.map((prim, i) => (
+                    <>
+                      {i > 0 && <span class="text-[var(--color-text-muted)]" aria-hidden="true">→</span>}
+                      <span class="font-mono text-[0.65rem] px-2 py-1 rounded-md border border-[var(--color-rule-light)] text-[var(--color-ink)]">{prim}</span>
+                    </>
+                  ))}
+                </div>
+              </div>
+
+              <div class="mb-5">
+                <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-2">What the engine checks</p>
+                <ul class="text-sm text-[var(--color-text-dim)] space-y-1 list-disc list-inside">
+                  {c.checks.map((check) => <li>{check}</li>)}
+                </ul>
+              </div>
+
+              {c.verdict === 'rejected' && c.rejectionReasons && (
+                <div class="mb-5">
+                  <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-2">Rejection reasons</p>
+                  <ul class="text-sm text-[var(--color-text-dim)] space-y-1">
+                    {c.rejectionReasons.map((reason) => (
+                      <li class="font-mono text-[0.7rem] px-3 py-2 rounded-md border border-[var(--color-rule-light)] bg-[var(--color-page-alt)]">{reason}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {c.provenance && (
+                <div class="mb-5">
+                  <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-2">Derived-column provenance (example)</p>
+                  <p class="text-sm text-[var(--color-text-dim)] mb-2">
+                    The merged schema records every origin of the column <span class="font-mono text-[0.7rem] text-[var(--color-ink)]">{c.provenance.column}</span>:
+                  </p>
+                  <ul class="text-xs text-[var(--color-text-dim)] space-y-1">
+                    {c.provenance.origins.map((origin) => (
+                      <li class="font-mono text-[0.65rem] px-2 py-1 rounded-md border border-[var(--color-rule-light)] inline-block mr-2 mb-1">{origin}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <p class="font-mono text-[0.62rem] text-[var(--color-text-muted)]">Pinned evidence: {c.sourceNote} · test/pattern-system.test.ts</p>
+            </section>
+          ))
+        }
+      </ScenarioTabs>
+    </section>
+
+    <!-- 4. Claim boundary -->
+    <section class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-2">Scientific boundary</span>
+      <h2 class="mt-1 mb-4">What this artifact supports — and what it does not establish</h2>
+      <ClaimBoundary
+        supports={claimSupports}
+        nonClaims={claimNonClaims}
+        supportsTitle="What this artifact supports"
+        nonClaimsTitle="What this artifact does not establish"
+      />
+    </section>
+
+    <!-- 5. Source & reproducibility -->
+    <section class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-2">Source & reproducibility</span>
+      <h2 class="mt-1 mb-3">Where the evidence lives</h2>
+      <div class="card-static mb-4">
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">
+          Every projection on this page is transcribed from the pinned release: the three pattern schemas, the composition engine, and the executable contract tests. The repository's own quick-start reproduces the release payload: <span class="font-mono text-[0.65rem]">npm ci && npm run test:patterns && npx tsc --noEmit && npm run build</span>.
+        </p>
+        <div class="flex flex-col gap-2 items-start">
+          <EvidenceLink repoId="interactionkit" kind="source" label="InteractionKit source repository" />
+          <a href={meta.pinnedTreeUrl} target="_blank" rel="noopener" class="link-arrow font-mono text-[0.7rem]">interactionkit-v1.0.0 (pinned tree) ↗</a>
+          <a href={`${meta.pinnedTreeUrl.replace('/tree/', '/blob/')}/test/pattern-system.test.ts`} target="_blank" rel="noopener" class="link-arrow font-mono text-[0.7rem]">test/pattern-system.test.ts at the pinned tag ↗</a>
+          <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow font-mono text-[0.7rem]">Project page →</a>
+        </div>
+      </div>
+      <div class="card-static">
+        <p class="text-sm text-[var(--color-text-dim)]">
+          <strong class="text-[var(--color-ink)]">Reading rule:</strong> a design-time contract, an object-level intervention system, and a run-time evaluation log answer different questions. InteractionKit supplies the first layer; it does not establish that studies built on it will produce valid or reliable measurements.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. Study 2 status note (bottom, deliberately compact) -->
+    <section class="max-w-[820px]">
+      <div class="card-static">
+        <p class="font-mono text-[0.62rem] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-2">Study status</p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          A two-condition study design using these patterns has written design materials and a draft registration document. The study is not registered, has no ethics approval, has collected no participant data, and is deferred — it is not an active priority. This page exists because the design-time contract layer is a released, tested artifact, not because any study has run.
+        </p>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

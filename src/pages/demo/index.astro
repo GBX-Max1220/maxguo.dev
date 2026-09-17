@@ -19,9 +19,18 @@ const WORKFLOW_LABELS = {
   archived: 'Archived',
 };
 
-// The two artifacts that currently have interactive evidence surfaces.
+// The three artifacts that currently have interactive evidence surfaces.
 // No placeholder cards: a project appears here only when an artifact exists.
 const ARTIFACTS = [
+  {
+    id: 'interactionkit',
+    artifactType: 'Experimental specification · design-time evidence',
+    demoPath: '/demo/interactionkit/',
+    repoId: 'interactionkit',
+    notePath: null,
+    noteLabel: null,
+    projectPagePath: '/research/building-trustworthy-ai/interactionkit/',
+  },
   {
     id: 'checkmycoach',
     artifactType: 'Interactive pipeline prototype · fixed mock fixtures',

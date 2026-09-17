@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "artifact": "InteractionKit",
+    "release": "interactionkit-v1.0.0",
+    "commit": "91bda821b47b540c88e44f2196e2e6e1d4b303b2",
+    "repoUrl": "https://github.com/GBX-Max1220/InteractionKit",
+    "pinnedTreeUrl": "https://github.com/GBX-Max1220/InteractionKit/tree/interactionkit-v1.0.0",
+    "source": "Illustrative projection of the pinned release contracts. Every construct, definition, role, column, enum value, and check outcome below is transcribed from the tagged schema and test files; nothing is invented."
+  },
+  "patterns": [
+    {
+      "id": "confidence-display",
+      "name": "ConfidenceDisplay",
+      "construct": "AI uncertainty communication",
+      "constructDefinition": "The observable representation of an AI system's uncertainty shown before a reliance decision.",
+      "role": "manipulated",
+      "params": [
+        {
+          "name": "format",
+          "constraint": "point_only | range | calibrated_badge"
+        }
+      ],
+      "keyOutputColumns": [
+        {
+          "name": "displayFormat",
+          "detail": "point_only | range | calibrated_badge"
+        },
+        { "name": "confidenceVisible", "detail": "boolean" },
+        {
+          "name": "confidenceSignalType",
+          "detail": "point | interval | calibration_summary"
+        },
+        { "name": "confidencePoint", "detail": "number 0–1 or null" },
+        { "name": "confidenceRangeLower", "detail": "number 0–1 or null" },
+        { "name": "confidenceRangeUpper", "detail": "number 0–1 or null" },
+        { "name": "calibratedAccuracy", "detail": "number 0–1 or null" }
+      ],
+      "allowedAfter": [],
+      "allowedBefore": ["RelianceDecision"],
+      "schemaUrl": "https://github.com/GBX-Max1220/InteractionKit/blob/interactionkit-v1.0.0/schemas/confidence-display.json"
+    },
+    {
+      "id": "reliance-decision",
+      "name": "RelianceDecision",
+      "construct": "Behavioral reliance on AI",
+      "constructDefinition": "A participant's observable choice to accept or reject an AI recommendation.",
+      "role": "measured",
+      "params": [{ "name": "mode", "constraint": "\"binary\" (fixed)" }],
+      "keyOutputColumns": [
+        { "name": "humanDecision", "detail": "rely | reject" },
+        { "name": "decisionType", "detail": "\"binary\" (fixed)" },
+        { "name": "responseTimeMs", "detail": "integer ≥ 0" },
+        {
+          "name": "isOptimalReliance",
+          "detail": "boolean (reliance matches AI correctness)"
+        },
+        {
+          "name": "relianceClassification",
+          "detail": "appropriate_reliance | appropriate_rejection | overreliance | underreliance"
+        }
+      ],
+      "allowedAfter": ["ConfidenceDisplay"],
+      "allowedBefore": ["OutcomeFeedback"],
+      "schemaUrl": "https://github.com/GBX-Max1220/InteractionKit/blob/interactionkit-v1.0.0/schemas/reliance-decision.json"
+    },
+    {
+      "id": "outcome-feedback",
+      "name": "OutcomeFeedback",
+      "construct": "Decision outcome feedback",
+      "constructDefinition": "Information shown after a reliance decision that reveals whether the selected action was correct.",
+      "role": "outcome",
+      "params": [{ "name": "timing", "constraint": "\"immediate\" (fixed)" }],
+      "keyOutputColumns": [
+        { "name": "feedbackFormat", "detail": "\"immediate\" (fixed)" },
+        { "name": "feedbackOutcome", "detail": "correct | incorrect" },
+        {
+          "name": "decisionCorrectness",
+          "detail": "boolean (whether the reliance choice was optimal)"
+        },
+        { "name": "feedbackShownAt", "detail": "ISO 8601 timestamp" }
+      ],
+      "allowedAfter": ["RelianceDecision"],
+      "allowedBefore": [],
+      "schemaUrl": "https://github.com/GBX-Max1220/InteractionKit/blob/interactionkit-v1.0.0/schemas/outcome-feedback.json"
+    }
+  ],
+  "sharedColumnsNote": "Every output row also carries patternName, patternVersion, trialIndex, scenarioId, and (for ConfidenceDisplay) aiOutput and aiIsCorrect as required columns; each pattern's output schema is closed (additionalProperties: false).",
+  "compositionCases": [
+    {
+      "id": "valid-sequence",
+      "verdict": "accepted",
+      "headline": "Legal sequence, checked before any study runs",
+      "primitives": [
+        "ConfidenceDisplay#uncertainty",
+        "RelianceDecision#reliance",
+        "OutcomeFeedback#feedback"
+      ],
+      "checks": [
+        "Ordering respects each pattern's allowedAfter / allowedBefore constraints.",
+        "Required inputs are available from the initial input or earlier pattern outputs.",
+        "Output columns merge into one derived schema with column origins."
+      ],
+      "provenance": {
+        "column": "scenarioId",
+        "origins": [
+          "ConfidenceDisplay@1.0.0#uncertainty",
+          "RelianceDecision@1.0.0#reliance",
+          "OutcomeFeedback@1.0.0#feedback"
+        ]
+      },
+      "sourceNote": "test: Sequence validates and derives a schema with column origins"
+    },
+    {
+      "id": "invalid-order",
+      "verdict": "rejected",
+      "headline": "Illegal order and missing input, caught at design time",
+      "primitives": [
+        "OutcomeFeedback#feedback",
+        "RelianceDecision#reliance",
+        "ConfidenceDisplay#uncertainty"
+      ],
+      "checks": [
+        "OutcomeFeedback may only run after RelianceDecision, so starting with it violates the ordering constraint.",
+        "Reversing the sequence also removes the inputs later patterns require."
+      ],
+      "rejectionReasons": ["ordering not allowed", "required input missing"],
+      "sourceNote": "test: Sequence rejects missing inputs and disallowed ordering (asserts both error kinds)"
+    },
+    {
+      "id": "choice-mismatch",
+      "verdict": "rejected",
+      "headline": "Branches must emit the same columns",
+      "primitives": [
+        "branch full: 3 patterns",
+        "branch short: first 2 patterns only"
+      ],
+      "checks": [
+        "A Choice composition requires every branch to emit the same output columns.",
+        "The short branch omits the OutcomeFeedback columns, so the branches differ."
+      ],
+      "rejectionReasons": ["branches emit different output columns"],
+      "sourceNote": "test: Choice requires branches to emit the same columns"
+    }
+  ]
+}
