@@ -1,217 +1,358 @@
-﻿---
-// CheckMyCoach Interactive Demo
-// Baixin Guo — 2026
-import Layout from '../../layouts/BaseLayout.astro'
+---
+// CheckMyCoach evidence walkthrough.
+// A deterministic, client-side-only walkthrough of the four-module pipeline
+// (routing, rule tags, candidate revisions, deterministic surface checks) on
+// fixed illustrative fixtures. No network calls, no backend, no timing
+// theater, no scores: stage outcomes are rendered per fixture and inspection
+// is instantaneous.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ProjectEvidenceHeader from '../../components/ProjectEvidenceHeader.astro';
+import ClaimBoundary from '../../components/ClaimBoundary.astro';
+import EvidenceLink from '../../components/EvidenceLink.astro';
+
+// Fixed illustrative fixtures authored for this walkthrough. Role spans in
+// the output HTML are fixture categories (supported / retained caveat /
+// removed over-precise claim), not measured correctness or trust.
+const cases = [
+  {
+    id: 'squat-depth',
+    question: 'Should I squat below parallel?',
+    routed: false,
+    routingReason: 'No rule triggered: the fixture response stays within its supported claims.',
+    ruleTag: null,
+    sources: [
+      'ACSM Guideline 4.2: Squat depth should be determined by individual mobility, not a universal threshold.',
+      'Systematic review (Hartmann et al., 2016): Deep squats do NOT increase knee injury risk in healthy trained individuals.',
+    ],
+    candidateChanges: null,
+    checks: null,
+    output: `<p>Squatting below parallel is <span class="text-green-700 bg-green-50 px-1 rounded">generally safe for healthy trained individuals</span>. Research by Hartmann et al. (2016) found no increased knee injury risk from deep squats in trained populations. However, <span class="text-yellow-700 bg-yellow-50 px-1 rounded">individual mobility, injury history, and proper form are key factors</span> — consult a qualified coach for technique assessment.</p>`,
+  },
+  {
+    id: 'walking-running',
+    question: 'Is walking better than running for fat loss?',
+    routed: true,
+    routingReason: 'An over-precise comparison in the fixture response exceeds its evidential support.',
+    ruleTag: 'Context mismatch',
+    sources: [
+      'ACSM Position Stand: Fat loss depends primarily on caloric deficit, not exercise modality.',
+      'Meta-analysis (Willis et al., 2016): Running produces slightly greater total energy expenditure per session (8.2 vs 5.4 kcal/min), but walking allows longer sessions with less fatigue.',
+    ],
+    candidateChanges: [
+      'Removed the over-precise calorie comparison ("3x more calories")',
+      'Reframed the answer around caloric deficit, the primary factor',
+      'Added a sustainability caveat instead of a single-modality recommendation',
+    ],
+    checks: [
+      { name: 'Target-feature removal', outcome: 'Over-precise claim removed' },
+      { name: 'Information retention', outcome: 'Supported framing and caveat retained' },
+    ],
+    output: `<p><span class="line-through text-red-400">Running burns 3x more calories than walking.</span> <span class="text-green-700 bg-green-50 px-1 rounded">Fat loss depends primarily on caloric deficit</span>, not exercise modality. Running burns more calories per minute (8.2 vs 5.4 kcal/min), but <span class="text-yellow-700 bg-yellow-50 px-1 rounded">the best exercise is the one you can sustain consistently</span>. Walking for 60 minutes may produce better long-term adherence than running for 20.</p>`,
+  },
+  {
+    id: 'creatine',
+    question: 'Should healthy adults take creatine daily?',
+    routed: false,
+    routingReason: 'No rule triggered: the fixture response stays within its supported claims.',
+    ruleTag: null,
+    sources: [
+      'ISSN Position Stand (Kreider et al., 2017): Creatine monohydrate is the most effective ergogenic supplement for increasing high-intensity exercise capacity. Standard dose: 3-5g/day.',
+      'Long-term safety studies (up to 5 years): No adverse effects on renal function in healthy adults at recommended doses.',
+    ],
+    candidateChanges: null,
+    checks: null,
+    output: `<p>Daily creatine supplementation (3-5g) is <span class="text-green-700 bg-green-50 px-1 rounded">safe and effective for healthy adults</span>, per the ISSN position stand (Kreider et al., 2017). It improves high-intensity exercise capacity and lean body mass. <span class="text-yellow-700 bg-yellow-50 px-1 rounded">Individuals with pre-existing kidney conditions should consult a physician</span> before use.</p>`,
+  },
+  {
+    id: 'custom-fallback',
+    question: 'Custom question (fallback fixture)',
+    routed: true,
+    routingReason: 'The fallback fixture demonstrates the routed path for questions without a dedicated case.',
+    ruleTag: 'Template dominance',
+    sources: [
+      'ACSM Guideline: Training recommendations depend on individual goals, experience, and recovery capacity.',
+      'RCT evidence is limited for many specific training questions — expert consensus forms the basis for most recommendations.',
+    ],
+    candidateChanges: [
+      'Replaced template-dominant phrasing with an explicit evidence-limit statement',
+      'Added a professional-consultation caveat',
+    ],
+    checks: [
+      { name: 'Target-feature removal', outcome: 'Template-dominant phrasing removed' },
+      { name: 'Information retention', outcome: 'General principles and caveat retained' },
+    ],
+    output: `<p><span class="text-green-700 bg-green-50 px-1 rounded">Evidence for this specific question is limited</span>. <span class="text-yellow-700 bg-yellow-50 px-1 rounded">Expert consensus and general training principles</span> provide the best available guidance. Consider consulting a certified professional for individualized advice.</p>`,
+  },
+];
+
+const claimSupports = [
+  'A deterministic walkthrough of the four-module implementation surface on fixed illustrative fixtures.',
+  'How routing, rule tags, candidate revisions, and surface-check states change for a fixed case.',
+  'The evaluation design that separates routing coverage, revision execution, and check acceptance before any human study.',
+];
+
+const claimNonClaims = [
+  'Human trust effects.',
+  'Human reliance or calibration effects.',
+  'Clinical or fitness-advice validity.',
+  'Real-world safety effectiveness.',
+  'Validated psychometric or trust measurement.',
+  'Model-level benchmark performance.',
+];
+
+const TAB_ACTIVE =
+  'font-mono text-[0.68rem] uppercase tracking-wider px-3 py-1.5 rounded-md border transition-colors bg-[var(--color-rule-light)] text-[var(--color-ink)] border-[var(--color-rule)] text-left';
+const TAB_INACTIVE =
+  'font-mono text-[0.68rem] uppercase tracking-wider px-3 py-1.5 rounded-md border transition-colors border-[var(--color-rule-light)] text-[var(--color-text-dim)] hover:text-[var(--color-brand)] hover:bg-[var(--color-surface-hover)] text-left';
 ---
 
-<Layout title="CheckMyCoach Demo">
-<main class="min-h-screen bg-white font-sans">
-  
-  <section class="max-w-5xl mx-auto px-6 pt-16 pb-8">
-    <p class="text-xs tracking-widest uppercase text-gray-400 mb-3">Interactive Demo</p>
-    <h1 class="text-3xl font-bold tracking-tight text-gray-900">
-      CheckMyCoach: Prototype Pipeline Walkthrough
-    </h1>
-    <p class="mt-3 text-gray-600 max-w-xl leading-relaxed">
-      Choose a fitness question and inspect the four-module implementation
-      <span class="font-semibold text-blue-600">Route → Rule Tag → Candidate → Surface Checks</span>
-      work in real time on AI-generated advice.
-    </p>
-  </section>
+<BaseLayout
+  title="CheckMyCoach — pipeline evidence walkthrough"
+  description="A deterministic walkthrough of the CheckMyCoach four-module pipeline — routing, rule tags, candidate revisions, and deterministic surface checks — on fixed illustrative fixtures. Offline-evaluated prototype; no human validation."
+>
+  <div class="container-content py-14">
+    <Breadcrumb path="/demo/checkmycoach" />
 
-  <section class="max-w-5xl mx-auto px-6 pb-24">
-    <div id="demo-root" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      
-      <!-- Left: Question Input -->
-      <div class="lg:col-span-1 space-y-4">
-        <div class="border border-gray-200 rounded-xl p-5 bg-gray-50">
-          <h3 class="text-sm font-semibold text-gray-700 mb-3">Try a question</h3>
-          <div class="space-y-2" id="presets">
-            <button class="w-full text-left text-sm px-3 py-2 rounded-lg border border-gray-300 bg-white hover:bg-blue-50 hover:border-blue-300 transition-colors" data-question="Should I squat below parallel?">Should I squat below parallel?</button>
-            <button class="w-full text-left text-sm px-3 py-2 rounded-lg border border-gray-300 bg-white hover:bg-blue-50 hover:border-blue-300 transition-colors" data-question="Is walking better than running for fat loss?">Is walking better than running for fat loss?</button>
-            <button class="w-full text-left text-sm px-3 py-2 rounded-lg border border-gray-300 bg-white hover:bg-blue-50 hover:border-blue-300 transition-colors" data-question="Should healthy adults take creatine daily?">Should healthy adults take creatine daily?</button>
-          </div>
-          <div class="mt-4">
-            <label class="text-xs text-gray-500 block mb-1">Or type your own:</label>
-            <div class="flex gap-2">
-              <input type="text" id="custom-question" placeholder="e.g. Should I train to failure?" class="flex-1 text-sm px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
-              <button id="run-btn" class="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50">Run</button>
+    <ProjectEvidenceHeader
+      kicker="Research artifact · Bounded advice intervention"
+      title="CheckMyCoach"
+      lead="Can a system detect when AI advice exceeds its evidential support — and repair the response without overstating certainty? This page walks fixed illustrative fixtures through the four-module pipeline — routing, rule-based tags, candidate revisions, deterministic surface checks — as a deterministic, inspectable walkthrough."
+      statusLine="Active · offline-evaluated prototype · engineering dry-run validated · no human validation · fixed illustrative fixtures"
+    >
+      <a href="/demo/" slot="links" class="text-[var(--color-text-muted)] hover:text-[var(--color-ink)] transition-colors">← Research Artifacts</a>
+      <EvidenceLink repoId="checkmycoach" label="Source repository" slot="links" />
+      <a href="/research/building-trustworthy-ai/checkmycoach/" slot="links" class="text-[var(--color-text-muted)] hover:text-[var(--color-ink)] transition-colors">Project page →</a>
+      <a href="/publications/checkmycoach-paper/" slot="links" class="text-[var(--color-text-muted)] hover:text-[var(--color-ink)] transition-colors">System note (archived) →</a>
+    </ProjectEvidenceHeader>
+
+    <!-- 1. Research question -->
+    <section class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-2">Research question</span>
+      <h2 class="mt-1 mb-3">Can a system detect when AI advice exceeds its evidential support — and repair the response without overstating certainty?</h2>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl">
+        Fitness advice from a generative AI can be confident and specific while resting on thin evidence. The question is operational, and deliberately ordered before any human study: route selected cases, tag the failure category, generate a candidate revision, and verify the delivered output with deterministic checks — keeping routing coverage, revision execution, and check acceptance separately inspectable.
+      </p>
+    </section>
+
+    <!-- 2. Interactive walkthrough -->
+    <section class="mb-12">
+      <span class="section-kicker mb-2">Artifact · pipeline walkthrough</span>
+      <h2 class="mt-1 mb-3">What each stage changes for a fixed case</h2>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-6 max-w-2xl">
+        Select a case. All stage states render instantly from the fixed fixture — nothing executes at inspection time, and the same case always produces the same states. Cases that are not routed never reach candidate generation or surface checks.
+      </p>
+
+      <div class="card-static mb-6">
+        <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-3">Fixed illustrative cases</p>
+        <div class="grid sm:grid-cols-2 gap-2" data-case-tabs>
+          {
+            cases.map((c, i) => (
+              <button
+                type="button"
+                data-case-btn={c.id}
+                aria-pressed={i === 1 ? 'true' : 'false'}
+                class={i === 1 ? TAB_ACTIVE : TAB_INACTIVE}
+                data-active-class={TAB_ACTIVE}
+                data-inactive-class={TAB_INACTIVE}
+              >
+                {c.question}
+              </button>
+            ))
+          }
+        </div>
+        <form id="case-custom-form" class="mt-4 flex flex-col sm:flex-row gap-2">
+          <label class="sr-only" for="case-custom-input">Custom question</label>
+          <input
+            type="text"
+            id="case-custom-input"
+            placeholder="Type another question — the fallback fixture is shown"
+            class="flex-1 text-sm px-3 py-2 border border-[var(--color-rule-light)] rounded-md bg-[var(--color-surface)] text-[var(--color-ink)] focus:outline-none focus:ring-2 focus:ring-[var(--color-rule)]"
+          />
+          <button
+            type="submit"
+            class="font-mono text-[0.68rem] uppercase tracking-wider px-4 py-2 rounded-md border border-[var(--color-rule)] bg-[var(--color-rule-light)] text-[var(--color-ink)] hover:bg-[var(--color-surface-hover)] transition-colors"
+          >
+            Inspect
+          </button>
+        </form>
+        <p class="font-mono text-[0.62rem] text-[var(--color-text-muted)] mt-2">
+          Custom questions always inspect the same deterministic fallback fixture; the input is never sent anywhere.
+        </p>
+      </div>
+
+      {
+        cases.map((c, caseIndex) => (
+          <div data-case-panel={c.id} class={caseIndex === 1 ? '' : 'hidden'}>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+              <div class="card-static">
+                <p class="font-mono text-[0.62rem] font-semibold uppercase tracking-wider text-[var(--color-ink)] mb-1">M1 · Routing</p>
+                <p class="text-xs text-[var(--color-text-dim)] mb-3">Selects which cases enter the pipeline under the heuristic router.</p>
+                <span class={`badge ${c.routed ? 'badge-primary' : ''}`}>{c.routed ? 'Routed' : 'Not routed'}</span>
+                <p class="text-xs text-[var(--color-text-dim)] mt-2 leading-relaxed">{c.routingReason}</p>
+              </div>
+              <div class="card-static">
+                <p class="font-mono text-[0.62rem] font-semibold uppercase tracking-wider text-[var(--color-ink)] mb-1">M2 · Rule tag</p>
+                <p class="text-xs text-[var(--color-text-dim)] mb-3">Assigns a rule-based tag naming the failure category.</p>
+                {c.ruleTag ? (
+                  <span class="badge badge-gold">{c.ruleTag}</span>
+                ) : (
+                  <span class="badge">No tag</span>
+                )}
+                <p class="text-xs text-[var(--color-text-dim)] mt-2 leading-relaxed">
+                  {c.ruleTag ? 'Tag recorded for the routed case.' : 'No failure category applies to this fixture.'}
+                </p>
+              </div>
+              <div class="card-static">
+                <p class="font-mono text-[0.62rem] font-semibold uppercase tracking-wider text-[var(--color-ink)] mb-1">M3 · Candidate revision</p>
+                <p class="text-xs text-[var(--color-text-dim)] mb-3">Generates a candidate revision for routed cases.</p>
+                {c.candidateChanges ? (
+                  <div>
+                    <span class="badge badge-primary">Candidate generated</span>
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-[var(--color-text-muted)] mt-3 mb-1">What changed</p>
+                    <ul class="text-xs text-[var(--color-text-dim)] space-y-1 list-disc list-inside">
+                      {c.candidateChanges.map((ch) => <li>{ch}</li>)}
+                    </ul>
+                  </div>
+                ) : (
+                  <div>
+                    <span class="badge">Not reached</span>
+                    <p class="text-xs text-[var(--color-text-dim)] mt-2 leading-relaxed">Case not routed — candidate generation never runs.</p>
+                  </div>
+                )}
+              </div>
+              <div class="card-static">
+                <p class="font-mono text-[0.62rem] font-semibold uppercase tracking-wider text-[var(--color-ink)] mb-1">M4 · Surface checks</p>
+                <p class="text-xs text-[var(--color-text-dim)] mb-3">Runs deterministic target-and-retention checks on the delivered output.</p>
+                {c.checks ? (
+                  <div>
+                    <span class="badge badge-primary">Checks rendered (illustrative)</span>
+                    <ul class="text-xs text-[var(--color-text-dim)] space-y-1 mt-3">
+                      {c.checks.map((k) => (
+                        <li>
+                          <span class="font-mono text-[0.62rem] text-[var(--color-text-muted)]">{k.name}:</span> {k.outcome}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  <div>
+                    <span class="badge">Not reached</span>
+                    <p class="text-xs text-[var(--color-text-dim)] mt-2 leading-relaxed">Case not routed — no output was delivered to check.</p>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div class="card-static mb-6">
+              <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-3">
+                Delivered output (fixture)
+                {c.id === 'custom-fallback' && (
+                  <span class="normal-case tracking-normal"> · inspected question: <span id="custom-question-echo">—</span></span>
+                )}
+              </p>
+              <div class="text-sm text-[var(--color-text-dim)] leading-relaxed prose-page" set:html={c.output} />
+              <div class="flex flex-wrap gap-x-4 gap-y-1 mt-4 pt-3 border-t border-[var(--color-rule-light)]">
+                <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]"><span class="inline-block w-2 h-2 rounded-sm bg-green-100 border border-green-300 align-middle mr-1"></span>supported claim (fixture role)</span>
+                <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]"><span class="inline-block w-2 h-2 rounded-sm bg-yellow-100 border border-yellow-300 align-middle mr-1"></span>uncertainty / caveat retained</span>
+                <span class="font-mono text-[0.6rem] text-[var(--color-text-muted)]"><span class="inline-block w-2 h-2 rounded-sm bg-red-100 border border-red-300 align-middle mr-1"></span>over-precise claim removed</span>
+              </div>
+              <p class="text-[0.65rem] text-[var(--color-text-muted)] mt-3 leading-relaxed">
+                Fixed illustrative fixture authored for this walkthrough — not live model output. Role coloring marks fixture categories, not measured correctness, safety, or trust.
+              </p>
+            </div>
+
+            <div class="card-static">
+              <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-3">Fixture source material</p>
+              <ul class="text-xs text-[var(--color-text-dim)] space-y-1.5">
+                {c.sources.map((s) => <li class="flex gap-2 items-start"><span aria-hidden="true" class="mt-0.5">📄</span><span>{s}</span></li>)}
+              </ul>
             </div>
           </div>
+        ))
+      }
+    </section>
+
+    <!-- 3. Evaluation context -->
+    <section class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-2">Evaluation context</span>
+      <h2 class="mt-1 mb-3">Where the real numbers live</h2>
+      <div class="card-static">
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+          The evaluation behind this prototype ran on a fixed constructed corpus (evaluation v2.2), not on this walkthrough: <strong class="text-[var(--color-ink)]">15 of 40</strong> constructed cases were routed, <strong class="text-[var(--color-ink)]">12 of 40</strong> delivered outputs removed the predefined target feature, and <strong class="text-[var(--color-ink)]">0 of 40</strong> passed every target-and-retention check in the single recorded execution.
+        </p>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+          The fixture check outcomes above are illustrative states of the pipeline, not those evaluation results. <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">Full evaluation record →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. Claim boundary -->
+    <section class="max-w-[820px] mb-12">
+      <span class="section-kicker mb-2">Scientific boundary</span>
+      <h2 class="mt-1 mb-4">What this walkthrough shows — and what it does not establish</h2>
+      <ClaimBoundary
+        supports={claimSupports}
+        nonClaims={claimNonClaims}
+        supportsTitle="What this walkthrough shows"
+        nonClaimsTitle="What this walkthrough does not establish"
+      />
+    </section>
+
+    <!-- 5. Source & reproducibility -->
+    <section class="max-w-[820px]">
+      <span class="section-kicker mb-2">Source & reproducibility</span>
+      <h2 class="mt-1 mb-3">Where the evidence lives</h2>
+      <div class="card-static mb-4">
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">
+          The evaluation code, the constructed-corpus manifest, and the recorded v2.2 execution live in the source repository. This page ships no evaluation code, runs no model, and makes no network requests — every state on this page is a fixed fixture rendered at build time.
+        </p>
+        <div class="flex flex-col gap-2 items-start">
+          <EvidenceLink repoId="checkmycoach" kind="source" label="CheckMyCoach source repository" />
+          <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow font-mono text-[0.7rem]">Project page · evaluation record →</a>
+          <a href="/publications/checkmycoach-paper/" class="link-arrow font-mono text-[0.7rem]">System note (archived) →</a>
         </div>
       </div>
-
-      <!-- Right: Pipeline + Answer -->
-      <div class="lg:col-span-2 space-y-4">
-        <div class="grid grid-cols-4 gap-3" id="pipeline-stages">
-          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="0"><div class="text-xs font-bold text-gray-500 mb-1">M1 Route</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
-          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="1"><div class="text-xs font-bold text-gray-500 mb-1">M2 Rule Tag</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
-          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="2"><div class="text-xs font-bold text-gray-500 mb-1">M3 Candidate</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
-          <div class="stage text-center py-3 px-2 rounded-xl border border-gray-200 bg-white opacity-40 transition-all duration-500" data-stage="3"><div class="text-xs font-bold text-gray-500 mb-1">M4 Surface Checks</div><div class="text-lg">⏳</div><div class="text-[10px] text-gray-400 mt-1 stage-label">Waiting...</div></div>
-        </div>
-
-        <div class="border border-gray-200 rounded-xl p-6 bg-white min-h-[200px]" id="answer-panel">
-          <p class="text-gray-400 text-sm italic" id="answer-placeholder">A fixed demo answer will appear here, with colors illustrating internal rule categories rather than measured trustworthiness.</p>
-          <div id="answer-content" class="hidden space-y-3 text-sm leading-relaxed"></div>
-          <p class="text-[10px] text-gray-400 mt-3">Fixed illustrative fixtures; colors, tags, and scores are internal demo signals, not validated fitness advice or trust measurements.</p>
-        </div>
-
-        <div class="border border-gray-200 rounded-xl p-5 bg-white hidden" id="evidence-panel">
-          <h4 class="text-sm font-semibold text-gray-700 mb-2">Evidence Trail</h4>
-          <div id="evidence-list" class="text-xs text-gray-600 space-y-1"></div>
-        </div>
-
-        <div class="grid grid-cols-4 gap-3 text-center text-xs text-gray-500 hidden" id="timing-stats">
-          <div><span class="font-mono text-blue-600" id="time-retrieve">—</span><br/>Retrieve</div>
-          <div><span class="font-mono text-blue-600" id="time-detect">—</span><br/>Route</div>
-          <div><span class="font-mono text-blue-600" id="time-correct">—</span><br/>Candidate</div>
-          <div><span class="font-mono text-blue-600" id="time-validate">—</span><br/>Checks</div>
-        </div>
-
-        <div class="border border-blue-200 bg-blue-50 rounded-xl p-5 hidden" id="summary-panel">
-          <div class="flex items-center justify-between">
-            <div><h4 class="text-sm font-semibold text-blue-900">Prototype Run</h4><p class="text-xs text-blue-700" id="summary-text"></p></div>
-            <div class="text-right"><div class="text-2xl font-bold" id="trust-score">—</div><div class="text-[10px] uppercase tracking-wider text-blue-600">Demo Fixture Score</div></div>
-          </div>
-        </div>
+      <div class="card-static">
+        <p class="text-sm text-[var(--color-text-dim)]">
+          <strong class="text-[var(--color-ink)]">Reading rule:</strong> an interactive artifact, an offline evaluation on a constructed corpus, and a human-subject study are different evidence classes. This artifact has the first two; it does not yet have the third.
+        </p>
       </div>
-    </div>
-  </section>
-</main>
-</Layout>
+    </section>
+
+  </div>
+</BaseLayout>
 
 <script>
-(function() {
-  const mockResults = {
-    "Should I squat below parallel?": {
-      ucs_score: 1, needs_calibration: false, failure_type: null, score_delta: 0,
-      latency_ms: { retrieve: 412, detect: 89, correct: 0, validate: 67 },
-      evidence: [
-        "ACSM Guideline 4.2: Squat depth should be determined by individual mobility, not a universal threshold.",
-        "Systematic review (Hartmann et al., 2016): Deep squats do NOT increase knee injury risk in healthy trained individuals."
-      ],
-      correct: false, trust: 92,
-      answer: 'Squatting below parallel is <span class="text-green-700 bg-green-50 px-1 rounded">generally safe for healthy trained individuals</span>. Research by Hartmann et al. (2016) found no increased knee injury risk from deep squats in trained populations. However, <span class="text-yellow-700 bg-yellow-50 px-1 rounded">individual mobility, injury history, and proper form are key factors</span> \u2014 consult a qualified coach for technique assessment.'
-    },
-    "Is walking better than running for fat loss?": {
-      ucs_score: 2, needs_calibration: true, failure_type: "CONTEXT_MISMATCH", score_delta: -1,
-      latency_ms: { retrieve: 387, detect: 112, correct: 203, validate: 78 },
-      evidence: [
-        "ACSM Position Stand: Fat loss depends primarily on caloric deficit, not exercise modality.",
-        "Meta-analysis (Willis et al., 2016): Running produces slightly greater total energy expenditure per session (8.2 vs 5.4 kcal/min), but walking allows longer sessions with less fatigue."
-      ],
-      correct: true, trust: 68,
-      answer: '<span class="line-through text-red-400">Running burns 3x more calories than walking.</span> <span class="text-green-700 bg-green-50 px-1 rounded">Fat loss depends primarily on caloric deficit</span>, not exercise modality. Running burns more calories per minute (8.2 vs 5.4 kcal/min), but <span class="text-yellow-700 bg-yellow-50 px-1 rounded">the best exercise is the one you can sustain consistently</span>. Walking for 60 minutes may produce better long-term adherence than running for 20.'
-    },
-    "Should healthy adults take creatine daily?": {
-      ucs_score: 1, needs_calibration: false, failure_type: null, score_delta: 0,
-      latency_ms: { retrieve: 352, detect: 76, correct: 0, validate: 55 },
-      evidence: [
-        "ISSN Position Stand (Kreider et al., 2017): Creatine monohydrate is the most effective ergogenic supplement for increasing high-intensity exercise capacity. Standard dose: 3-5g/day.",
-        "Long-term safety studies (up to 5 years): No adverse effects on renal function in healthy adults at recommended doses."
-      ],
-      correct: false, trust: 88,
-      answer: 'Daily creatine supplementation (3-5g) is <span class="text-green-700 bg-green-50 px-1 rounded">safe and effective for healthy adults</span>, per the ISSN position stand (Kreider et al., 2017). It improves high-intensity exercise capacity and lean body mass. <span class="text-yellow-700 bg-yellow-50 px-1 rounded">Individuals with pre-existing kidney conditions should consult a physician</span> before use.'
-    }
-  };
+  // Case selection: instant, deterministic class toggling over pre-rendered
+  // panels. The same pattern as ScenarioTabs — no state, no network, no timer.
+  const CLASS_HIDDEN = 'hidden';
 
-  const defaultResult = {
-    ucs_score: 2, needs_calibration: true, failure_type: "TEMPLATE_DOMINANCE", score_delta: -1,
-    latency_ms: { retrieve: 420, detect: 95, correct: 180, validate: 70 },
-    evidence: [
-      "ACSM Guideline: Training recommendations depend on individual goals, experience, and recovery capacity.",
-      "RCT evidence is limited for many specific training questions \u2014 expert consensus forms the basis for most recommendations."
-    ],
-    correct: true, trust: 65,
-    answer: '<span class="text-green-700 bg-green-50 px-1 rounded">Evidence for this specific question is limited</span>. <span class="text-yellow-700 bg-yellow-50 px-1 rounded">Expert consensus and general training principles</span> provide the best available guidance. Consider consulting a certified professional for individualized advice.'
-  };
-
-  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
-
-  async function runPipeline(question) {
-    var result = mockResults[question] || defaultResult;
-
-    // Reset
-    var ac = document.getElementById('answer-content');
-    ac.classList.add('hidden');
-    ac.innerHTML = '';
-    document.getElementById('answer-placeholder').classList.remove('hidden');
-    document.getElementById('answer-placeholder').textContent = 'Running pipeline...';
-    document.getElementById('evidence-panel').classList.add('hidden');
-    document.getElementById('timing-stats').classList.add('hidden');
-    document.getElementById('summary-panel').classList.add('hidden');
-    document.querySelectorAll('.stage').forEach(function(s) {
-      s.classList.add('opacity-40'); s.classList.remove('bg-blue-50', 'border-blue-300');
-      s.querySelector('.stage-label').textContent = 'Waiting...';
+  function selectCase(id: string) {
+    document.querySelectorAll('[data-case-btn]').forEach((btn) => {
+      const active = btn.getAttribute('data-case-btn') === id;
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      btn.className = active
+        ? btn.getAttribute('data-active-class') || ''
+        : btn.getAttribute('data-inactive-class') || '';
     });
-    document.getElementById('run-btn').disabled = true;
-
-    // M1: Evidence Retrieval
-    await sleep(Math.min(result.latency_ms.retrieve, 600));
-    updateStage(0, '\u2705', 'Evidence');
-    document.getElementById('time-retrieve').textContent = result.latency_ms.retrieve + 'ms';
-    document.getElementById('evidence-panel').classList.remove('hidden');
-    document.getElementById('evidence-list').innerHTML = result.evidence.map(function(e) { return '<div class="flex gap-2 items-start"><span class="text-blue-400 mt-0.5">\uD83D\uDCC4</span><span>' + e + '</span></div>'; }).join('');
-    document.getElementById('timing-stats').classList.remove('hidden');
-
-    // M2: rule-based routing tag
-    await sleep(Math.min(result.latency_ms.detect, 400));
-    var dl = result.failure_type ? '\u26A0\uFE0F Rule tag: ' + result.failure_type.replace('_', ' ') : '\u2705 No route triggered';
-    updateStage(1, result.failure_type ? '\uD83D\uDD34' : '\u2705', dl);
-    document.getElementById('time-detect').textContent = result.latency_ms.detect + 'ms';
-
-    // M3: candidate generation
-    await sleep(Math.min(result.latency_ms.correct, 500));
-    if (result.needs_calibration) {
-      updateStage(2, '\uD83D\uDD27', 'Candidate generated');
-      document.getElementById('time-correct').textContent = result.latency_ms.correct + 'ms';
-    } else {
-      updateStage(2, '\u2705', 'None needed');
-      document.getElementById('time-correct').textContent = '\u2014';
-    }
-
-    // M4: deterministic surface checks
-    await sleep(Math.min(result.latency_ms.validate, 300));
-    updateStage(3, '\u2705', 'Surface checks run');
-    document.getElementById('time-validate').textContent = result.latency_ms.validate + 'ms';
-
-    // Show answer
-    document.getElementById('answer-placeholder').classList.add('hidden');
-    ac.classList.remove('hidden');
-    ac.innerHTML = '<p>' + result.answer + '</p>';
-
-    // Summary
-    document.getElementById('summary-panel').classList.remove('hidden');
-    var ts = document.getElementById('trust-score');
-    ts.textContent = result.trust + '%';
-    ts.className = 'text-2xl font-bold ' + (result.trust >= 80 ? 'text-green-600' : result.trust >= 60 ? 'text-yellow-600' : 'text-red-600');
-    document.getElementById('summary-text').textContent = result.needs_calibration ? 'Candidate path ran; internal score delta: ' + result.score_delta : 'No rewrite routed; fixed fixture displayed unchanged';
-
-    document.getElementById('run-btn').disabled = false;
+    document.querySelectorAll('[data-case-panel]').forEach((panel) => {
+      panel.classList.toggle(CLASS_HIDDEN, panel.getAttribute('data-case-panel') !== id);
+    });
   }
 
-  function updateStage(index, icon, label) {
-    var s = document.querySelector('[data-stage="' + index + '"]');
-    s.classList.remove('opacity-40');
-    s.classList.add('bg-blue-50', 'border-blue-300');
-    s.querySelector('.stage-label').textContent = label;
-  }
-
-  // Event handlers
-  document.querySelectorAll('#presets button').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      document.getElementById('custom-question').value = btn.dataset.question;
-      runPipeline(btn.dataset.question);
-    });
+  document.querySelectorAll('[data-case-btn]').forEach((btn) => {
+    btn.addEventListener('click', () => selectCase(btn.getAttribute('data-case-btn') || ''));
   });
 
-  document.getElementById('run-btn').addEventListener('click', function() {
-    var q = document.getElementById('custom-question').value.trim();
-    if (q) runPipeline(q);
+  document.getElementById('case-custom-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = document.getElementById('case-custom-input') as HTMLInputElement | null;
+    const echo = document.getElementById('custom-question-echo');
+    if (echo) echo.textContent = input?.value.trim() || '(no text entered — fallback fixture)';
+    selectCase('custom-fallback');
   });
 
-  document.getElementById('custom-question').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') { var q = e.target.value.trim(); if (q) runPipeline(q); }
-  });
-})();
+  // Idempotent initial state: the routed case, which shows the full pipeline.
+  selectCase('walking-running');
 </script>
