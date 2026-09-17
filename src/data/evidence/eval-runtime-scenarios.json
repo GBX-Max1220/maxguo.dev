@@ -1,7 +1,7 @@
 {
   "meta": {
     "artifact": "Evaluation Runtime",
-    "source": "Prepared local public snapshot (fresh-root candidate). Every projection below is illustrative: it transcribes documented, test-pinned semantics of the snapshot into a static view. No new experimental results were generated.",
+    "source": "Published public repository (fresh-root history). Every projection below is illustrative: it transcribes documented, test-pinned semantics of the runtime into a static view. No new experimental results were generated.",
     "reliabilityContract": {
       "totals": {
         "supported": 7,

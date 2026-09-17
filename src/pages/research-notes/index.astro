@@ -20,7 +20,7 @@ const notes = (await getCollection('blog'))
         notes.length > 0 ? (
           <div class="space-y-4 mb-12">
             {notes.map((note) => (
-              <a href={`/blog/${note.id}/`} class="card group block">
+              <a href={`/blog/${note.data.id}/`} class="card group block">
                 <p class="font-mono text-[0.6rem] text-[var(--color-text-muted)] mb-2">
                   {note.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
                 </p>

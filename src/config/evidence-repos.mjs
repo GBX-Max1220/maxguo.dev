@@ -19,9 +19,8 @@ export const EVIDENCE_REPOS = Object.freeze({
   'eval-runtime': Object.freeze({
     id: 'eval-runtime',
     label: 'Evaluation Runtime',
-    publicUrl: null,
-    publicationState: 'publication_pending',
-    snapshotLabel: 'Public snapshot (local)',
+    publicUrl: 'https://github.com/GBX-Max1220/evaluation-runtime',
+    publicationState: 'public',
   }),
 });
 

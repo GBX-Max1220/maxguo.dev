@@ -35,7 +35,7 @@
     },
     {
       "q": "Is it published?",
-      "a": "Not yet. A fresh-root public snapshot has been prepared locally; publication is a separate owner decision. No public repository URL exists for it yet."
+      "a": "Yes — published as a public repository: https://github.com/GBX-Max1220/evaluation-runtime (fresh-root history, MIT)."
     }
   ],
   "links": {
@@ -49,7 +49,7 @@
   },
   "reproducible": {
     "env": "Python 3.11+ standard library only; pytest for the test suite.",
-    "quickStart": "Reproduction ships with the public source snapshot once publication is authorized; until then the artifact is presented through its interactive evidence page."
+    "quickStart": "Reproduction ships with the public repository; the artifact is also presented through its interactive evidence page."
   },
   "changelog": [
     {

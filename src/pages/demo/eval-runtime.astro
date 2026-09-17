@@ -20,7 +20,7 @@ const statusGroups = [
 
 <BaseLayout
   title="Evaluation Runtime — bounded reliability evidence"
-  description="A small single-process evaluation runtime that makes execution attempts, ambiguous failures, and report denominators separately inspectable. Interactive evidence with bounded claims; public source snapshot pending publication."
+  description="A small single-process evaluation runtime that makes execution attempts, ambiguous failures, and report denominators separately inspectable. Interactive evidence with bounded claims; source and tests published in a public repository."
 >
   <div class="container-content py-14">
     <Breadcrumb path="/demo/eval-runtime" />
@@ -29,7 +29,7 @@ const statusGroups = [
       kicker="Research artifact · Measuring AI reliability"
       title="Evaluation Runtime"
       lead="When an AI-agent evaluation crashes mid-execution, what happened? Most harnesses answer by overwriting: the retry replaces the failed attempt, a missing success record becomes permission to repeat an external action, and one blended rate hides what was actually measured. This artifact is a deliberately small runtime built so that logical work, execution attempts, ambiguity, and report denominators stay separately inspectable — under a machine-readable reliability contract."
-      statusLine="Active · prototype · public snapshot prepared — publication pending · updated 2026-09-17"
+      statusLine="Active · prototype · public repository · updated 2026-09-17"
     >
       <a href="/demo/" slot="links" class="text-[var(--color-text-muted)] hover:text-[var(--color-ink)] transition-colors">← Research Artifacts</a>
       <EvidenceLink repoId="eval-runtime" kind="policy" label="Reliability contract (RC-01..RC-15)" path="src/reliability_contract.py" slot="links" />
@@ -140,7 +140,7 @@ const statusGroups = [
         }
       </div>
       <p class="font-mono text-[0.65rem] text-[var(--color-text-muted)]">
-        Source: src/reliability_contract.py in the public snapshot · statuses unchanged from the prepared candidate (7 / 4 / 3 / 1).
+        Source: src/reliability_contract.py in the public repository · statuses unchanged from the prepared candidate (7 / 4 / 3 / 1).
       </p>
     </section>
 
@@ -209,7 +209,7 @@ const statusGroups = [
           The runtime is a standard-library-only Python package whose semantics are pinned by an executable test suite; the prepared snapshot was verified green before this page was built. It is intentionally small enough to read in one sitting.
         </p>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">
-          The public snapshot exists locally as a fresh-root candidate. It has no public repository URL yet, so source and test references on this page are shown as provenance rather than links. They become clickable when the owner authorizes publication.
+          The runtime is published as a public repository with fresh-root history, so the source and test references below link into it directly.
         </p>
         <div class="flex flex-col gap-2 items-start">
           <EvidenceLink repoId="eval-runtime" kind="source" label="Runtime sources (event store, runner, evaluator, report, contract)" path="src/" />
