@@ -7,7 +7,7 @@ const pdfUrl = siteUrl('Baixin_Guo_CV.pdf');
 
 <BaseLayout
   title="CV — Baixin (Max) Guo"
-  description="Baixin (Max) Guo — Human-Centered AI, Reliable AI Agents, and AI Evaluation"
+  description="Baixin (Max) Guo — Human-Centered AI, AI Evaluation & Learning, and Reliable AI Agents"
 >
   <div class="container-content py-16">
     <div class="max-w-3xl">
@@ -17,7 +17,7 @@ const pdfUrl = siteUrl('Baixin_Guo_CV.pdf');
           <div>
             <h1 class="mb-2">Baixin (Max) Guo</h1>
             <p class="text-base text-[var(--color-text-dim)] mb-3">
-              Human-Centered AI · Reliable AI Agents · AI Evaluation
+              Human-Centered AI · AI Evaluation &amp; Learning · Reliable AI Agents
             </p>
           </div>
           <a class="btn btn-sm" href={pdfUrl} target="_blank" rel="noopener noreferrer">Download PDF</a>
@@ -34,10 +34,16 @@ const pdfUrl = siteUrl('Baixin_Guo_CV.pdf');
         <h2 class="text-[1.3rem] mb-4">Research Profile</h2>
         <div class="card-static space-y-3">
           <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            Applied Psychology graduate working at the intersection of human-centered AI and reliable AI systems. I build reproducible evaluation and agent infrastructure, and study how uncertainty, imperfect feedback, and evidence quality should shape AI decisions, oversight, and learning.
+            Applied Psychology graduate working at the intersection of human-centered AI and reliable AI systems. I build reproducible evaluation and agent infrastructure, and study how uncertainty, imperfect feedback, and evidence quality affect AI decisions and oversight. I am increasingly interested in how these signals can support learning and adaptation.
           </p>
           <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
             <strong class="text-[var(--color-ink)]">Research interests:</strong> human/evaluator feedback; preference learning and post-training; reliable AI agents; reproducible AI evaluation.
+          </p>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+            <strong class="text-[var(--color-ink)]">Selected artifacts:</strong>
+            <a class="link" href="https://github.com/GBX-Max1220/CheckMyCoach" target="_blank" rel="noopener noreferrer">CheckMyCoach</a>
+            ·
+            <a class="link" href="https://github.com/GBX-Max1220/evaluation-runtime" target="_blank" rel="noopener noreferrer">Evaluation Runtime</a>
           </p>
         </div>
       </section>
@@ -56,7 +62,7 @@ const pdfUrl = siteUrl('Baixin_Guo_CV.pdf');
             </div>
             <ul class="text-sm text-[var(--color-text-dim)] space-y-1.5 list-disc pl-5">
               <li>Built an offline AI decision-support pipeline with evidence retrieval, rule-based routing/tagging, candidate revision generation, CLI/MCP interfaces, and structured JSONL audit logs.</li>
-              <li>Defined bounded evaluation criteria for routing, conditional revision, preservation, and end-to-end behavior; completed 82/82 engineering dry-run checks. Human-participant validation is in preparation.</li>
+              <li>Defined bounded evaluation criteria for routing, conditional revision, preservation, and end-to-end behavior; human-participant validation is in preparation.</li>
             </ul>
           </div>
 
@@ -70,8 +76,8 @@ const pdfUrl = siteUrl('Baixin_Guo_CV.pdf');
               <span class="text-xs text-[var(--color-text-muted)]">2026</span>
             </div>
             <ul class="text-sm text-[var(--color-text-dim)] space-y-1.5 list-disc pl-5">
-              <li>Specified and co-designed a serial runtime that keeps execution attempts, evaluation judgments, recovery decisions, and report denominators separately inspectable; directed implementation of reproducible CLI and ambiguity-aware retry behavior.</li>
-              <li>Candidate validation reproduced 279 tests; reprocessing unchanged stored inputs produced no duplicate runs/evaluations and byte-identical reports.</li>
+              <li>Specified and co-designed a serial runtime that keeps execution attempts, evaluation judgments, recovery decisions, and report denominators separately inspectable; directed implementation of the reproducible CLI.</li>
+              <li>Defined ambiguity-aware retry, event-consistency, and report-construction semantics; candidate validation reproduced 279 tests, while replay of unchanged stored inputs produced no duplicate runs/evaluations and byte-identical reports.</li>
             </ul>
           </div>
 
