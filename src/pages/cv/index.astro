@@ -1,62 +1,77 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteUrl } from '../../config/site.mjs';
+
+const pdfUrl = siteUrl('Baixin_Guo_CV.pdf');
 ---
 
 <BaseLayout
   title="CV — Baixin (Max) Guo"
-  description="Baixin (Max) Guo — Human-Centered AI, Human-AI Decision Making, and AI Evaluation"
+  description="Baixin (Max) Guo — Human-Centered AI, Reliable AI Agents, and AI Evaluation"
 >
   <div class="container-content py-16">
     <div class="max-w-3xl">
       <div class="mb-10">
         <span class="section-label mb-4">CV</span>
-        <h1 class="mb-2">Baixin (Max) Guo</h1>
-        <p class="text-base text-[var(--color-text-dim)] mb-3">
-          Human-Centered AI · Human-AI Decision Making · AI Evaluation
-        </p>
+        <div class="flex items-start justify-between gap-4 flex-wrap">
+          <div>
+            <h1 class="mb-2">Baixin (Max) Guo</h1>
+            <p class="text-base text-[var(--color-text-dim)] mb-3">
+              Human-Centered AI · Reliable AI Agents · AI Evaluation
+            </p>
+          </div>
+          <a class="btn btn-sm" href={pdfUrl} target="_blank" rel="noopener noreferrer">Download PDF</a>
+        </div>
         <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-[var(--color-text-dim)]">
           <a class="link" href="mailto:gbx1220max@gmail.com">gbx1220max@gmail.com</a>
           <a class="link" href="https://github.com/GBX-Max1220" target="_blank" rel="noopener noreferrer">GitHub</a>
           <span>China · Remote availability from Oct 2026</span>
         </div>
-        <p class="text-xs text-[var(--color-text-muted)] mt-3">Canonical web CV · Updated September 2026</p>
+        <p class="text-xs text-[var(--color-text-muted)] mt-3">Canonical research-outreach CV · Updated September 2026</p>
       </div>
 
       <section class="mb-10">
         <h2 class="text-[1.3rem] mb-4">Research Profile</h2>
-        <div class="card-static">
+        <div class="card-static space-y-3">
           <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            Recent Applied Psychology graduate transitioning toward CS and human-centered AI. I build and evaluate systems that help people make appropriately calibrated decisions with AI agents, using systems development, rigorous evaluation, measurement, and experiment design.
+            Applied Psychology graduate working at the intersection of human-centered AI and reliable AI systems. I build reproducible evaluation and agent infrastructure, and study how uncertainty, imperfect feedback, and evidence quality should shape AI decisions, oversight, and learning.
+          </p>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+            <strong class="text-[var(--color-ink)]">Research interests:</strong> human/evaluator feedback; preference learning and post-training; reliable AI agents; reproducible AI evaluation.
           </p>
         </div>
       </section>
 
       <section class="mb-10">
-        <h2 class="text-[1.3rem] mb-4">Research and Technical Experience</h2>
+        <h2 class="text-[1.3rem] mb-4">Selected Research &amp; Technical Experience</h2>
         <div class="space-y-4">
           <div class="card-static">
             <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
               <div>
-                <h3 class="font-medium text-[var(--color-ink)]">Trojan Sports Research Lab, USC Marshall School of Business</h3>
-                <p class="text-xs text-[var(--color-text-muted)]">Research collaboration · Supervisor: Prof. Lorena Martin</p>
+                <h3 class="font-medium text-[var(--color-ink)]">
+                  <a class="link" href="https://github.com/GBX-Max1220/CheckMyCoach" target="_blank" rel="noopener noreferrer">CheckMyCoach — Human-Centered AI Decision-Support Prototype</a>
+                </h3>
               </div>
-              <span class="text-xs text-[var(--color-text-muted)]">Mar 2025 – Mar 2026</span>
+              <span class="text-xs text-[var(--color-text-muted)]">2026</span>
             </div>
             <ul class="text-sm text-[var(--color-text-dim)] space-y-1.5 list-disc pl-5">
-              <li>Collected, cleaned, visualized, and analyzed multi-source baseball data for research on pitcher workload, pitch characteristics, and injury risk.</li>
+              <li>Built an offline AI decision-support pipeline with evidence retrieval, rule-based routing/tagging, candidate revision generation, CLI/MCP interfaces, and structured JSONL audit logs.</li>
+              <li>Defined bounded evaluation criteria for routing, conditional revision, preservation, and end-to-end behavior; completed 82/82 engineering dry-run checks. Human-participant validation is in preparation.</li>
             </ul>
           </div>
 
           <div class="card-static">
             <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
               <div>
-                <h3 class="font-medium text-[var(--color-ink)]">CheckMyCoach — Human-Centered AI Decision-Support Prototype</h3>
+                <h3 class="font-medium text-[var(--color-ink)]">
+                  <a class="link" href="https://github.com/GBX-Max1220/evaluation-runtime" target="_blank" rel="noopener noreferrer">Evaluation Runtime — Reproducible AI Evaluation Infrastructure</a>
+                </h3>
               </div>
               <span class="text-xs text-[var(--color-text-muted)]">2026</span>
             </div>
             <ul class="text-sm text-[var(--color-text-dim)] space-y-1.5 list-disc pl-5">
-              <li>Built an offline prototype and diagnostic pipeline that flags unsupported high-confidence AI advice, routes claims to evidence or repair, and exports structured evaluation records.</li>
-              <li>Specified evaluation boundaries for routing, conditional revision, preservation, and end-to-end behavior; completed 82/82 engineering dry-run checks. Human-participant data have not yet been collected.</li>
+              <li>Specified and co-designed a serial runtime that keeps execution attempts, evaluation judgments, recovery decisions, and report denominators separately inspectable; directed implementation of reproducible CLI and ambiguity-aware retry behavior.</li>
+              <li>Candidate validation reproduced 279 tests; reprocessing unchanged stored inputs produced no duplicate runs/evaluations and byte-identical reports.</li>
             </ul>
           </div>
 
@@ -69,20 +84,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             </div>
             <ul class="text-sm text-[var(--color-text-dim)] space-y-1.5 list-disc pl-5">
               <li>Designed a fixed zero-shot evaluation across five Chinese LLM services on 442 structured CBT-Bench examples; implemented batch API execution with checkpointing and retry logic.</li>
-              <li>Reported exact match, partial-overlap, and sample-average F1 metrics; treated findings as benchmark evidence, not clinical validation or human-outcome evidence.</li>
+              <li>Reported exact match, partial-overlap, and sample-average F1 metrics while bounding claims to benchmark evidence rather than clinical or human-outcome validity.</li>
             </ul>
           </div>
 
           <div class="card-static">
             <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
               <div>
-                <h3 class="font-medium text-[var(--color-ink)]">AI Evaluation and Evidence Infrastructure</h3>
+                <h3 class="font-medium text-[var(--color-ink)]">Trojan Sports Research Lab, USC Marshall School of Business</h3>
+                <p class="text-xs text-[var(--color-text-muted)]">Research collaboration · Supervisor: Prof. Lorena Martin</p>
               </div>
-              <span class="text-xs text-[var(--color-text-muted)]">2026</span>
+              <span class="text-xs text-[var(--color-text-muted)]">Mar 2025 – Mar 2026</span>
             </div>
             <ul class="text-sm text-[var(--color-text-dim)] space-y-1.5 list-disc pl-5">
-              <li>Conducted a Stage 0 reproducibility and feasibility audit of official SummEval annotations and G-Eval results across 1,600 item-system pairs, checking IDs, alignment, missingness, parser behavior, and provenance.</li>
-              <li>Designed typed interaction and session schemas for recording AI advice exposure, verification, revision, override, failure, and recovery states.</li>
+              <li>Collected, cleaned, visualized, and analyzed multi-source baseball data for research on pitcher workload, pitch characteristics, and injury risk.</li>
             </ul>
           </div>
         </div>
@@ -102,19 +117,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </section>
 
       <section>
-        <h2 class="text-[1.3rem] mb-4">Methods and Technical Skills</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <h2 class="text-[1.3rem] mb-4">Technical &amp; Research Skills</h2>
+        <div class="grid grid-cols-1 gap-3">
           <div class="card-static">
-            <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider mb-2">Research</h3>
-            <p class="text-sm text-[var(--color-text-dim)]">Experimental design; psychometrics and measurement; behavioral study design; inter-rater reliability; statistical analysis</p>
+            <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-2">Programming / Engineering</h3>
+            <p class="text-sm text-[var(--color-text-dim)]">Python; JavaScript/TypeScript; SQL/SQLite; Git/GitHub; pytest; CLI tooling; structured data pipelines</p>
           </div>
           <div class="card-static">
-            <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-2">Programming & Data</h3>
-            <p class="text-sm text-[var(--color-text-dim)]">Python; JavaScript/TypeScript; Git/GitHub; data pipelines; data analysis; data visualization; basic SQL/SQLite</p>
+            <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider mb-2">ML / AI</h3>
+            <p class="text-sm text-[var(--color-text-dim)]">LLM/API pipelines; LLM evaluation; agent prototyping; supervised ML workflows; contextual bandits (LinUCB)</p>
           </div>
-          <div class="card-static sm:col-span-2">
-            <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider mb-2">AI Evaluation</h3>
-            <p class="text-sm text-[var(--color-text-dim)]">LLM/API research pipelines; LLM evaluation; agent prototyping; supervised machine-learning workflows</p>
+          <div class="card-static">
+            <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider mb-2">Research / Measurement</h3>
+            <p class="text-sm text-[var(--color-text-dim)]">Experimental design; psychometrics; inter-rater reliability; behavioral study design; statistical analysis</p>
           </div>
         </div>
       </section>
