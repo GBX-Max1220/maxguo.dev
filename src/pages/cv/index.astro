@@ -1,109 +1,123 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
-import PublicationStatus from '../../components/PublicationStatus.astro';
-
-const publications = (await getCollection('publication')).sort((a, b) =>
-  b.data.year - a.data.year || a.data.title.localeCompare(b.data.title)
-);
 ---
-<BaseLayout title="CV" description="Baixin Guo — Curriculum Vitae">
+
+<BaseLayout
+  title="CV — Baixin (Max) Guo"
+  description="Baixin (Max) Guo — Human-Centered AI, Human-AI Decision Making, and AI Evaluation"
+>
   <div class="container-content py-16">
-    <div class="max-w-2xl">
-
-      <div class="flex items-center justify-between mb-8">
-        <div>
-          <span class="section-label mb-4">CV</span>
-          <h1 class="mb-1">Curriculum Vitae</h1>
+    <div class="max-w-3xl">
+      <div class="mb-10">
+        <span class="section-label mb-4">CV</span>
+        <h1 class="mb-2">Baixin (Max) Guo</h1>
+        <p class="text-base text-[var(--color-text-dim)] mb-3">
+          Human-Centered AI · Human-AI Decision Making · AI Evaluation
+        </p>
+        <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-[var(--color-text-dim)]">
+          <a class="link" href="mailto:gbx1220max@gmail.com">gbx1220max@gmail.com</a>
+          <a class="link" href="https://github.com/GBX-Max1220" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <span>China · Remote availability from Oct 2026</span>
         </div>
-        <span class="btn btn-sm opacity-60 cursor-default">PDF — in progress</span>
+        <p class="text-xs text-[var(--color-text-muted)] mt-3">Canonical web CV · Updated September 2026</p>
       </div>
 
-      <!-- Education -->
-      <h2 class="text-[1.3rem] mb-4">Education</h2>
-      <div class="card-static mb-8">
-        <div class="flex items-start gap-3">
-          <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.5rem] font-bold mt-0.5">B</span>
-          <div>
-            <h3 class="font-medium text-[var(--color-ink)]">B.A. in Applied Psychology</h3>
-            <p class="text-sm text-[var(--color-text-dim)]">Expected 2027</p>
-            <p class="text-xs text-[var(--color-text-dim)] mt-1">Training in experimental design, statistics (LMM, ANOVA, factor analysis), and psychometrics.</p>
-          </div>
+      <section class="mb-10">
+        <h2 class="text-[1.3rem] mb-4">Research Profile</h2>
+        <div class="card-static">
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+            Recent Applied Psychology graduate transitioning toward CS and human-centered AI. I build and evaluate systems that help people make appropriately calibrated decisions with AI agents, using systems development, rigorous evaluation, measurement, and experiment design.
+          </p>
         </div>
-      </div>
+      </section>
 
-      <!-- Research Experience -->
-      <h2 class="text-[1.3rem] mb-4">Research Experience</h2>
-      <div class="card-static mb-8">
+      <section class="mb-10">
+        <h2 class="text-[1.3rem] mb-4">Research and Technical Experience</h2>
         <div class="space-y-4">
-          <div class="flex items-start gap-3">
-            <span class="w-6 h-6 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.5rem] font-bold mt-0.5">I</span>
-            <div>
-              <h3 class="font-medium text-[var(--color-ink)]">Independent Researcher</h3>
-              <p class="text-xs text-[var(--color-text-muted)]">2025 — Present</p>
-              <p class="text-sm text-[var(--color-text-dim)] mt-1">Self-directed research program in evidence-bounded human-centered AI. CheckMyCoach is my primary research system, with human validation in preparation. InteractionKit is released and frozen, and the CalTrust simulation prototype is frozen and simulation-only.</p>
+          <div class="card-static">
+            <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+              <div>
+                <h3 class="font-medium text-[var(--color-ink)]">Trojan Sports Research Lab, USC Marshall School of Business</h3>
+                <p class="text-xs text-[var(--color-text-muted)]">Research collaboration · Supervisor: Prof. Lorena Martin</p>
+              </div>
+              <span class="text-xs text-[var(--color-text-muted)]">Mar 2025 – Mar 2026</span>
             </div>
+            <ul class="text-sm text-[var(--color-text-dim)] space-y-1.5 list-disc pl-5">
+              <li>Collected, cleaned, visualized, and analyzed multi-source baseball data for research on pitcher workload, pitch characteristics, and injury risk.</li>
+            </ul>
+          </div>
+
+          <div class="card-static">
+            <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+              <div>
+                <h3 class="font-medium text-[var(--color-ink)]">CheckMyCoach — Human-Centered AI Decision-Support Prototype</h3>
+              </div>
+              <span class="text-xs text-[var(--color-text-muted)]">2026</span>
+            </div>
+            <ul class="text-sm text-[var(--color-text-dim)] space-y-1.5 list-disc pl-5">
+              <li>Built an offline prototype and diagnostic pipeline that flags unsupported high-confidence AI advice, routes claims to evidence or repair, and exports structured evaluation records.</li>
+              <li>Specified evaluation boundaries for routing, conditional revision, preservation, and end-to-end behavior; completed 82/82 engineering dry-run checks. Human-participant data have not yet been collected.</li>
+            </ul>
+          </div>
+
+          <div class="card-static">
+            <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+              <div>
+                <h3 class="font-medium text-[var(--color-ink)]">Undergraduate Thesis — Evaluating Chinese LLMs on CBT-Bench</h3>
+              </div>
+              <span class="text-xs text-[var(--color-text-muted)]">2026</span>
+            </div>
+            <ul class="text-sm text-[var(--color-text-dim)] space-y-1.5 list-disc pl-5">
+              <li>Designed a fixed zero-shot evaluation across five Chinese LLM services on 442 structured CBT-Bench examples; implemented batch API execution with checkpointing and retry logic.</li>
+              <li>Reported exact match, partial-overlap, and sample-average F1 metrics; treated findings as benchmark evidence, not clinical validation or human-outcome evidence.</li>
+            </ul>
+          </div>
+
+          <div class="card-static">
+            <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+              <div>
+                <h3 class="font-medium text-[var(--color-ink)]">AI Evaluation and Evidence Infrastructure</h3>
+              </div>
+              <span class="text-xs text-[var(--color-text-muted)]">2026</span>
+            </div>
+            <ul class="text-sm text-[var(--color-text-dim)] space-y-1.5 list-disc pl-5">
+              <li>Conducted a Stage 0 reproducibility and feasibility audit of official SummEval annotations and G-Eval results across 1,600 item-system pairs, checking IDs, alignment, missingness, parser behavior, and provenance.</li>
+              <li>Designed typed interaction and session schemas for recording AI advice exposure, verification, revision, override, failure, and recovery states.</li>
+            </ul>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Skills -->
-      <h2 class="text-[1.3rem] mb-4">Skills</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+      <section class="mb-10">
+        <h2 class="text-[1.3rem] mb-4">Education</h2>
         <div class="card-static">
-          <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider mb-2">Research Methods</h3>
-          <ul class="text-sm text-[var(--color-text-dim)] space-y-1">
-            <li>• Experimental design (within/between-subject, factorial)</li>
-            <li>• Survey design &amp; psychometrics</li>
-            <li>• LMM, ANOVA, factor analysis</li>
-            <li>• Qualitative coding (thematic analysis)</li>
-          </ul>
-        </div>
-        <div class="card-static">
-          <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-2">ML &amp; Programming</h3>
-          <ul class="text-sm text-[var(--color-text-dim)] space-y-1">
-            <li>• Python (scikit-learn, XGBoost, pandas)</li>
-            <li>• R (lme4, lmerTest)</li>
-            <li>• LLM pipelines &amp; evaluation</li>
-            <li>• Contextual bandits (LinUCB)</li>
-          </ul>
-        </div>
-        <div class="card-static">
-          <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider mb-2">Systems</h3>
-          <ul class="text-sm text-[var(--color-text-dim)] space-y-1">
-            <li>• Streamlit, Gradio</li>
-            <li>• Docker, CI/CD</li>
-            <li>• API integration (OpenRouter, LLM APIs)</li>
-            <li>• Git, pytest (44+ tests)</li>
-          </ul>
-        </div>
-        <div class="card-static">
-          <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider mb-2">Domain Knowledge</h3>
-          <ul class="text-sm text-[var(--color-text-dim)] space-y-1">
-            <li>• ACSM/NSCA/AHA guidelines</li>
-            <li>• Exercise science</li>
-            <li>• Sports psychology</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Manuscripts -->
-      <h2 class="text-[1.3rem] mb-4">Manuscripts</h2>
-      <div class="card-static mb-8">
-        <div class="space-y-3 text-sm">
-          {publications.map(({ data }) => (
+          <div class="flex items-start justify-between gap-4 flex-wrap">
             <div>
-              <p class="font-medium text-[var(--color-ink)]">{data.title}</p>
-              <p class="text-[var(--color-text-dim)]">
-                {data.authors.join(', ')}. {data.year}. <PublicationStatus status={data.status} class="text-[0.5rem]" />
-                {data.venue && <> — {data.venue}</>}
-                {!data.venue && data.venueTarget && <> — {data.status === 'submitted' ? 'Submitted to' : 'Target:'} {data.venueTarget}</>}
-              </p>
+              <h3 class="font-medium text-[var(--color-ink)]">Changchun Humanities and Sciences College</h3>
+              <p class="text-sm text-[var(--color-text-dim)] mt-1">Bachelor’s degree in Applied Psychology</p>
             </div>
-          ))}
+            <span class="text-xs text-[var(--color-text-muted)]">2022 – 2026</span>
+          </div>
         </div>
-      </div>
+      </section>
 
+      <section>
+        <h2 class="text-[1.3rem] mb-4">Methods and Technical Skills</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="card-static">
+            <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider mb-2">Research</h3>
+            <p class="text-sm text-[var(--color-text-dim)]">Experimental design; psychometrics and measurement; behavioral study design; inter-rater reliability; statistical analysis</p>
+          </div>
+          <div class="card-static">
+            <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-2">Programming & Data</h3>
+            <p class="text-sm text-[var(--color-text-dim)]">Python; JavaScript/TypeScript; Git/GitHub; data pipelines; data analysis; data visualization; basic SQL/SQLite</p>
+          </div>
+          <div class="card-static sm:col-span-2">
+            <h3 class="font-mono text-[0.6rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider mb-2">AI Evaluation</h3>
+            <p class="text-sm text-[var(--color-text-dim)]">LLM/API research pipelines; LLM evaluation; agent prototyping; supervised machine-learning workflows</p>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </BaseLayout>
