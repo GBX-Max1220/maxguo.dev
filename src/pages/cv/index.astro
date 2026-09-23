@@ -41,8 +41,62 @@ const publications = (await getCollection('publication')).sort((a, b) =>
             <div>
               <h3 class="font-medium text-[var(--color-ink)]">Independent Researcher</h3>
               <p class="text-xs text-[var(--color-text-muted)]">2025 — Present</p>
-              <p class="text-sm text-[var(--color-text-dim)] mt-1">Self-directed research program in evidence-bounded human-centered AI. CheckMyCoach is my primary research system, with human validation in preparation. InteractionKit is released and frozen, and the CalTrust simulation prototype is frozen and simulation-only.</p>
+              <p class="text-sm text-[var(--color-text-dim)] mt-1">I build and evaluate human-centered AI systems that help people make calibrated decisions under uncertainty by studying feedback reliability, evidence quality, evaluation reliability, and interaction-level verification.</p>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Selected Research Projects -->
+      <h2 class="text-[1.3rem] mb-4">Selected Research Projects</h2>
+      <div class="card-static mb-8">
+        <div class="space-y-5">
+          <div>
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-[var(--color-ink)]">Preference Modeling Diagnostics (PMD)</h3>
+              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider text-right">Feedback Reliability</span>
+            </div>
+            <ul class="text-sm text-[var(--color-text-dim)] space-y-1 mt-2">
+              <li>• Examines preference quality and human-feedback variability in personalization settings.</li>
+              <li>• Develops model calibration diagnostics for heterogeneous feedback.</li>
+            </ul>
+          </div>
+
+          <div class="border-t border-[var(--color-border)] pt-5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-[var(--color-ink)]">Causal Estimation Diagnostics (CED)</h3>
+              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider text-right">Evidence Reliability</span>
+            </div>
+            <ul class="text-sm text-[var(--color-text-dim)] space-y-1 mt-2">
+              <li>• Implements outcome regression, stabilized IPW, and cross-fitted AIPW in a CPU-based causal inference diagnostic artifact.</li>
+              <li>• Audits five-fold cross-fitting integrity and reports overlap, weighting, balance, and uncertainty diagnostics.</li>
+              <li>• Evaluates treatment-effect estimation behavior on ACIC 2019 under controlled conditions with known treatment-effect truth.</li>
+            </ul>
+          </div>
+
+          <div class="border-t border-[var(--color-border)] pt-5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-[var(--color-ink)]">Eval Runtime</h3>
+              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider text-right">Evaluation Reliability</span>
+            </div>
+            <ul class="text-sm text-[var(--color-text-dim)] space-y-1 mt-2">
+              <li>• Builds reproducible AI evaluation infrastructure for execution integrity and artifact validation.</li>
+              <li>• Supports deterministic evaluation workflows and comparable AI evaluations.</li>
+            </ul>
+          </div>
+
+          <div class="border-t border-[var(--color-border)] pt-5">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-medium text-[var(--color-ink)]">CheckMyCoach</h3>
+                <p class="text-xs text-[var(--color-text-muted)]">In Progress</p>
+              </div>
+              <span class="font-mono text-[0.55rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider text-right">Interaction Reliability</span>
+            </div>
+            <ul class="text-sm text-[var(--color-text-dim)] space-y-1 mt-2">
+              <li>• Develops a human-AI interaction system for verification, calibrated reliance, and uncertainty-aware AI assistance.</li>
+              <li>• Human evaluation remains in preparation; no validated improvement in user decisions is claimed.</li>
+            </ul>
           </div>
         </div>
       </div>
