@@ -1,97 +1,118 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Research" description="Evidence-bounded decision support. CheckMyCoach is the primary research system, with human validation in preparation.">
+<BaseLayout
+  title="Research"
+  description="Human-centered AI systems for calibrated decisions under uncertainty."
+>
   <div class="container-content py-14">
-    <div class="max-w-[820px]">
+    <div class="max-w-[920px]">
 
-      <!-- 1. Page introduction -->
-      <span class="section-kicker mb-3">Research program</span>
-      <h1 class="mb-4">Evidence-bounded decision support</h1>
-      <p class="lead mb-3">
-        I design and evaluate human-centered AI systems for evidence-bounded decision support through system specification, inspectable evaluation structures, and evidence review.
-      </p>
-      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-12 max-w-2xl">
-        The research question is when an AI output communicates more certainty than its evidence supports, when a system should intervene, and how to evaluate the consequences for human reliance. CheckMyCoach is the primary system through which I pursue this question. InteractionKit provides released methodological software, while Knowledge Compiler supports evidence handling. These projects have distinct roles and evidence limits; they are not a single validated platform or three equally active research studies.
-      </p>
-
-      <!-- 2. Primary system -->
-      <section id="primary" class="mb-12">
-        <div class="arc-item" style="border-top-width:0; padding-top:0">
-          <span class="arc-index">Primary research system</span>
-          <h2 class="arc-question mt-2 mb-3">CheckMyCoach</h2>
-          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-5">
-            A bounded four-module prototype that routes selected outputs, assigns rule-based tags, generates candidate revisions, and applies deterministic target-and-retention checks. My role centers on co-designing the evaluation decomposition, specifying system behavior, and reviewing outputs against target-removal and information-retention requirements. In a fixed 40-case run on a constructed development corpus, the pipeline routed 15 cases; 12 delivered outputs removed the predefined target feature, while none passed every target-and-retention check. This is a development result, not evidence of generalization or improved human decisions.
-          </p>
-          <div class="related-list">
-            <div class="related-item">
-              <span class="rel-role">Primary system · human validation in preparation</span>
-              <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach →</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3. Supporting work -->
-      <section id="supporting" class="mb-12">
-        <span class="section-kicker mb-2">Supporting work</span>
-        <div class="related-list">
-          <div class="related-item">
-            <span class="rel-role">Released · frozen methodological software</span>
-            <span class="text-sm text-[var(--color-text-dim)]">InteractionKit v1.0.0 is released and frozen. It implements typed specifications, composition constraints, derived schemas, and self-describing behavioral logs for AI interaction experiments. Its checks establish software contract conformance within the implemented scope; construct validity and cross-implementation equivalence have not been established.</span>
-            <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">InteractionKit →</a>
-          </div>
-          <div class="related-item">
-            <span class="rel-role">Supporting evidence infrastructure</span>
-            <span class="text-sm text-[var(--color-text-dim)]">Knowledge Compiler supports typed evidence objects, structural validation, partial provenance recovery, and quarantine of unresolved material. The current artifact exposes where evidence links remain incomplete; it does not establish source fidelity or validated downstream use.</span>
-            <a href="/research/building-trustworthy-ai/knowledge-compiler/" class="link-arrow">Knowledge Compiler →</a>
-          </div>
-          <div class="related-item">
-            <span class="rel-role">Evidence infrastructure · public repository</span>
-            <span class="text-sm text-[var(--color-text-dim)]">Evaluation Runtime makes execution attempts, ambiguous failures, and report denominators separately inspectable under a machine-readable reliability contract. Interactive evidence is available; source and tests are published in a public repository.</span>
-            <a href="/demo/eval-runtime/" class="link-arrow">Evaluation Runtime evidence →</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4. Historical context -->
-      <section id="historical" class="mb-12">
-        <span class="section-kicker mb-2">Historical context</span>
-        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl mb-5">
-          Earlier work provides historical motivation rather than active research. M0 is a frozen measurement asset, not a validated instrument. MaxFitCalib-Bench is retained as engineering audit history, not a source of prevalence estimates or model rankings. CalTrust is frozen and simulation-only. The Precision Illusion behavioral thread is retired.
+      <!-- 1. Research agenda -->
+      <section id="agenda" class="mb-14">
+        <span class="section-kicker mb-3">Research agenda</span>
+        <h1 class="mb-4">Calibrated decisions under uncertainty</h1>
+        <p class="lead max-w-3xl">
+          I build and evaluate human-centered AI systems that help people make calibrated decisions under uncertainty by studying how AI systems interpret feedback, assess evidence quality, and support verification.
         </p>
-        <div class="related-list">
-          <div class="related-item">
-            <span class="rel-role">Retired behavioral thread</span>
-            <a href="/blog/precision-illusion-intro/" class="link-arrow">Precision Illusion taxonomy →</a>
-          </div>
-          <div class="related-item">
-            <span class="rel-role">Engineering audit · closed</span>
-            <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="link-arrow">MaxFitCalib-Bench audit →</a>
-          </div>
-          <div class="related-item">
-            <span class="rel-role">Frozen · simulation only</span>
-            <a href="/research/understanding-human-trust/caltrust/" class="link-arrow">CalTrust →</a>
-          </div>
+      </section>
+
+      <!-- 2. Portfolio map -->
+      <section id="portfolio-map" class="mb-14">
+        <span class="section-kicker mb-2">Portfolio map</span>
+        <h2 class="mb-5">From uncertainty to human decision consequence</h2>
+
+        <div class="border border-[var(--color-border)] rounded-lg px-5 py-6 mb-6 bg-[var(--color-surface)]">
+          <ol class="list-none m-0 p-0 text-center" aria-label="Research portfolio sequence">
+            <li class="font-sans text-sm font-semibold text-[var(--color-text)]">Uncertainty source</li>
+            <li class="font-mono text-lg text-[var(--color-primary)] leading-none py-2" aria-hidden="true">↓</li>
+            <li class="font-sans text-sm font-semibold text-[var(--color-text)]">Diagnostic/evaluation mechanism</li>
+            <li class="font-mono text-lg text-[var(--color-primary)] leading-none py-2" aria-hidden="true">↓</li>
+            <li class="font-sans text-sm font-semibold text-[var(--color-text)]">Verification or adaptation</li>
+            <li class="font-mono text-lg text-[var(--color-primary)] leading-none py-2" aria-hidden="true">↓</li>
+            <li class="font-sans text-sm font-semibold text-[var(--color-text)]">Human decision consequence</li>
+          </ol>
+        </div>
+
+        <div class="grid gap-3 sm:grid-cols-2">
+          <a href="#pmd" class="block border border-[var(--color-border)] rounded-lg px-4 py-4">
+            <span class="font-mono text-[0.65rem] font-semibold text-[var(--color-text-dim)] uppercase tracking-wider">PMD</span>
+            <p class="font-sans text-sm font-semibold text-[var(--color-text)] mt-1">Feedback Reliability</p>
+          </a>
+          <a href="#ced" class="block border border-[var(--color-border)] rounded-lg px-4 py-4">
+            <span class="font-mono text-[0.65rem] font-semibold text-[var(--color-text-dim)] uppercase tracking-wider">CED</span>
+            <p class="font-sans text-sm font-semibold text-[var(--color-text)] mt-1">Evidence Reliability</p>
+          </a>
+          <a href="#eval-runtime" class="block border border-[var(--color-border)] rounded-lg px-4 py-4">
+            <span class="font-mono text-[0.65rem] font-semibold text-[var(--color-text-dim)] uppercase tracking-wider">Eval Runtime</span>
+            <p class="font-sans text-sm font-semibold text-[var(--color-text)] mt-1">Evaluation Reliability</p>
+          </a>
+          <a href="#flagship-system" class="block border border-[var(--color-border)] rounded-lg px-4 py-4">
+            <div class="flex items-center justify-between gap-3">
+              <span class="font-mono text-[0.65rem] font-semibold text-[var(--color-text-dim)] uppercase tracking-wider">CheckMyCoach</span>
+              <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider">In Progress</span>
+            </div>
+            <p class="font-sans text-sm font-semibold text-[var(--color-text)] mt-1">Interaction Reliability</p>
+          </a>
         </div>
       </section>
 
-      <!-- 5. Current focus -->
-      <section id="focus" class="mb-12">
-        <div class="border-l-2 border-[var(--color-primary)] bg-[var(--color-primary-subtle)]/40 rounded-r-lg px-5 py-4">
-          <p class="font-mono text-[0.62rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-1">Current focus</p>
-          <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">
-            I am preparing human validation of CheckMyCoach. Human evaluation has not yet been conducted.
+      <!-- 3. Flagship system -->
+      <section id="flagship-system" class="mb-14">
+        <span class="section-kicker mb-2">Flagship system</span>
+        <div class="arc-item" style="border-top-width:0; padding-top:0">
+          <div class="flex items-center justify-between gap-3">
+            <span class="arc-index">Interaction Reliability</span>
+            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider">In Progress</span>
+          </div>
+          <h2 class="arc-question mt-2 mb-3">CheckMyCoach</h2>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+            A human-AI interaction system for verification and calibrated reliance. The current prototype routes selected outputs, assigns rule-based tags, generates candidate revisions, and applies deterministic target-removal and information-retention checks.
           </p>
-          <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach project →</a>
+          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-5">
+            In a fixed 40-case run on a constructed development corpus, the pipeline routed 15 cases; 12 delivered outputs removed the predefined target feature, while none passed every target-and-retention check. This is bounded development evidence, not evidence of generalization or validated user benefit.
+          </p>
+          <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">View CheckMyCoach evidence →</a>
         </div>
       </section>
 
-      <!-- 6. Reading the evidence -->
+      <!-- 4. Methods and evaluation layer -->
+      <section id="methods-evaluation" class="mb-14">
+        <span class="section-kicker mb-2">Methods and evaluation layer</span>
+        <div class="related-list">
+          <article id="pmd" class="related-item scroll-mt-6">
+            <span class="rel-role">Feedback Reliability</span>
+            <h2 class="text-xl mt-1 mb-2">PMD</h2>
+            <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+              Preference quality, personalization, feedback variability, and calibration diagnostics.
+            </p>
+          </article>
+
+          <article id="ced" class="related-item scroll-mt-6">
+            <span class="rel-role">Evidence Reliability</span>
+            <h2 class="text-xl mt-1 mb-2">CED</h2>
+            <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
+              A CPU-based causal inference diagnostic artifact implementing OR, IPW, and AIPW and studying overlap, uncertainty, balance, and treatment-effect estimation behavior under controlled evaluation. It evaluates established estimators; it is not presented as a new causal method.
+            </p>
+          </article>
+
+          <article id="eval-runtime" class="related-item scroll-mt-6">
+            <span class="rel-role">Evaluation Reliability</span>
+            <h2 class="text-xl mt-1 mb-2">Eval Runtime</h2>
+            <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
+              Reproducible evaluation infrastructure for execution integrity, artifact checks, and comparable AI evaluations. Execution attempts, ambiguous outcomes, and report denominators remain separately inspectable rather than being collapsed into a single result.
+            </p>
+            <a href="/demo/eval-runtime/" class="link-arrow">View Eval Runtime evidence →</a>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 5. Evidence boundary -->
       <section id="evidence">
         <span class="section-kicker mb-2">Reading the evidence</span>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl">
-          Software implementation, bounded machine evaluation, and human validation answer different questions. The first two are represented in these HCAI artifacts; completed human validation is not.
+          These projects address different reliability problems. CheckMyCoach remains in progress; no validated user benefit is claimed.
         </p>
       </section>
 
