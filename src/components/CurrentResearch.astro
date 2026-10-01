@@ -1,0 +1,12 @@
+---
+import profile from '../data/research-profile.json';
+---
+<section id="collaborations" class="mb-12">
+  <h2 class="text-2xl mb-5">Current collaborations</h2>
+  <div class="space-y-5">{profile.collaborations.map(work => <article id={work.id} class="card-static"><p class="work-kind mb-2">{work.status}</p><h3 class="text-lg mb-2">{work.title}</h3><p class="text-xs text-[var(--color-text-muted)] mb-3">{work.context} · {work.date}</p><p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">{work.summary}</p><ul class="list-disc pl-5 text-sm text-[var(--color-text-dim)] space-y-2">{work.bullets.map(item => <li>{item}</li>)}</ul></article>)}</div>
+</section>
+<section id="projects" class="mb-12">
+  <h2 class="text-2xl mb-5">Selected studies and prototypes</h2>
+  <div class="space-y-5">{profile.projects.map(work => <article id={work.id} class="card-static"><p class="work-kind mb-2">{work.status}</p><h3 class="text-lg mb-2">{work.title}</h3><p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">{work.summary}</p><ul class="list-disc pl-5 text-sm text-[var(--color-text-dim)] space-y-2 mb-3">{work.bullets.map(item => <li>{item}</li>)}</ul><a href={work.url} class="link-arrow">Artifact and evidence →</a></article>)}</div>
+</section>
+<section class="mb-12"><h2 class="text-2xl mb-5">Additional technical work</h2><div class="space-y-5">{profile.additional.map(work => <article id={work.id} class="card-static"><h3 class="text-lg mb-2">{work.title}</h3><p class="work-kind mb-2">{work.status}</p><p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">{work.summary}</p>{'url' in work && <a href={work.url} class="link-arrow">Public contributions →</a>}</article>)}</div></section>

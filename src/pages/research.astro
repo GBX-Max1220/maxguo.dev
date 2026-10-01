@@ -1,37 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CurrentResearch from '../components/CurrentResearch.astro';
+import profile from '../data/research-profile.json';
 ---
-<BaseLayout title="Research" description="Evidence-bounded decision support. CheckMyCoach is the primary research system, with human validation in preparation.">
+<BaseLayout title="Research" description="Human-centered AI research on imperfect feedback, preference learning, and evaluation reliability.">
   <div class="container-content py-14">
     <div class="max-w-[820px]">
 
-      <!-- 1. Page introduction -->
-      <span class="section-kicker mb-3">Research program</span>
-      <h1 class="mb-4">Evidence-bounded decision support</h1>
-      <p class="lead mb-3">
-        I design and evaluate human-centered AI systems for evidence-bounded decision support through system specification, inspectable evaluation structures, and evidence review.
-      </p>
-      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-12 max-w-2xl">
-        The research question is when an AI output communicates more certainty than its evidence supports, when a system should intervene, and how to evaluate the consequences for human reliance. CheckMyCoach is the primary system through which I pursue this question. InteractionKit provides released methodological software, while Knowledge Compiler supports evidence handling. These projects have distinct roles and evidence limits; they are not a single validated platform or three equally active research studies.
-      </p>
-
-      <!-- 2. Primary system -->
-      <section id="primary" class="mb-12">
-        <div class="arc-item" style="border-top-width:0; padding-top:0">
-          <span class="arc-index">Primary research system</span>
-          <h2 class="arc-question mt-2 mb-3">CheckMyCoach</h2>
-          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-5">
-            A bounded four-module prototype that routes selected outputs, assigns rule-based tags, generates candidate revisions, and applies deterministic target-and-retention checks. My role centers on co-designing the evaluation decomposition, specifying system behavior, and reviewing outputs against target-removal and information-retention requirements. In a fixed 40-case run on a constructed development corpus, the pipeline routed 15 cases; 12 delivered outputs removed the predefined target feature, while none passed every target-and-retention check. This is a development result, not evidence of generalization or improved human decisions.
-          </p>
-          <div class="related-list">
-            <div class="related-item">
-              <span class="rel-role">Primary system · human validation in preparation</span>
-              <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach →</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <span class="section-kicker mb-3">Research program · October 2026</span>
+      <h1 class="mb-4">Learning from imperfect feedback</h1>
+      <p class="lead mb-4">{profile.question}</p>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-10">{profile.profile} These collaborations, studies, and prototypes address different parts of the question. Together they motivate the next experiments; they do not establish a validated end-to-end adaptation system.</p>
+      <CurrentResearch />
       <!-- 3. Supporting work -->
       <section id="supporting" class="mb-12">
         <span class="section-kicker mb-2">Supporting work</span>
@@ -46,11 +26,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <span class="text-sm text-[var(--color-text-dim)]">Knowledge Compiler supports typed evidence objects, structural validation, partial provenance recovery, and quarantine of unresolved material. The current artifact exposes where evidence links remain incomplete; it does not establish source fidelity or validated downstream use.</span>
             <a href="/research/building-trustworthy-ai/knowledge-compiler/" class="link-arrow">Knowledge Compiler →</a>
           </div>
-          <div class="related-item">
-            <span class="rel-role">Evidence infrastructure · public repository</span>
-            <span class="text-sm text-[var(--color-text-dim)]">Evaluation Runtime makes execution attempts, ambiguous failures, and report denominators separately inspectable under a machine-readable reliability contract. Interactive evidence is available; source and tests are published in a public repository.</span>
-            <a href="/demo/eval-runtime/" class="link-arrow">Evaluation Runtime evidence →</a>
-          </div>
+
         </div>
       </section>
 
@@ -81,7 +57,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="border-l-2 border-[var(--color-primary)] bg-[var(--color-primary-subtle)]/40 rounded-r-lg px-5 py-4">
           <p class="font-mono text-[0.62rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-1">Current focus</p>
           <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">
-            I am preparing human validation of CheckMyCoach. Human evaluation has not yet been conducted.
+            I am working on feedback representation and evaluation reliability, and exploring controlled tests of adaptation. CheckMyCoach human validation remains in preparation; human evaluation has not yet been conducted.
           </p>
           <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach project →</a>
         </div>
