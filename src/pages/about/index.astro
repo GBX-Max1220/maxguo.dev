@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import profile from '../../data/research-profile.json';
 ---
-<BaseLayout title="About" description="About Baixin Guo — independent researcher in human-AI trust calibration" ogImage="/og/about.png">
+<BaseLayout title="About" description="About Baixin Guo — independent researcher in human-centered AI, feedback, and evaluation" ogImage="/og/about.png">
   <div class="container-content py-16">
     <div class="max-w-2xl">
 
@@ -9,128 +10,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <h1 class="mb-2">Baixin <span class="text-[var(--color-primary)] italic">Guo</span> <span class="text-[0.9rem] font-mono font-normal text-[var(--color-text-dim)]">(Max)</span></h1>
       <p class="font-mono text-sm text-[var(--color-text-dim)] mb-8">郭佰鑫· /ˈbaɪ.ʃiːn ˈɡwoʊ/ · bye-sheen gwoh</p>
 
-      <!-- Intro card -->
-      <div class="card-static mb-10">
-        <p class="text-base leading-relaxed text-[var(--color-text)]">
-          I design and evaluate human-centered AI systems for evidence-bounded decision support. My academic background is in Applied Psychology, which informs how I define evaluation requirements and interpret system behavior. I am interested in cases where an AI output communicates more certainty than its evidence supports, and in interventions that address that mismatch without discarding useful information. CheckMyCoach is my primary research system. I co-designed its evaluation decomposition, specified system behavior, and reviewed outputs against target-removal and information-retention requirements. Human validation is in preparation; current evidence is limited to implementation and a bounded development run. InteractionKit and Knowledge Compiler support my methodological work through experiment specifications and evidence infrastructure. Separately, I contributed baseball data to collaborative injury-risk research with Professor Lorena Martin at USC Marshall's Trojan Sports Research Lab. That work produced two SABR abstracts, with related manuscripts in preparation.
-        </p>
-      </div>
-
-      <!-- Research Philosophy -->
-      <h2 class="text-[1.5rem] mb-6">Research Philosophy</h2>
-      <p class="text-sm text-[var(--color-text-dim)] mb-5">
-        I separate software conformance, machine-scored changes, construct validity, and human outcomes.
-      </p>
-
-      <div class="space-y-4 mb-10">
-        <div class="card group">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="w-6 h-6 rounded-full bg-[var(--color-ink-light)] flex items-center justify-center text-[var(--color-surface)] font-mono text-[0.55rem] font-bold">01</span>
-            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Research question</span>
-          </div>
-          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            When an AI output communicates more certainty than its evidence supports, when should a system intervene, and how should we evaluate the consequences for human reliance?
-          </p>
-        </div>
-
-        <div class="card group">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.55rem] font-bold">02</span>
-            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Measurement</span>
-          </div>
-          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            My Applied Psychology background informs the measurement questions, while system design makes those questions concrete.
-          </p>
-        </div>
-
-        <div class="card group">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="w-6 h-6 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.55rem] font-bold">03</span>
-            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Intervention</span>
-          </div>
-          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            CheckMyCoach is the center of this work. It routes selected outputs, assigns rule-based tags, generates candidate revisions, and checks both target removal and information retention.
-          </p>
-        </div>
-
-        <div class="card group">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="w-6 h-6 rounded-full bg-[var(--color-gold-subtle)] flex items-center justify-center text-[var(--color-gold)] font-mono text-[0.55rem] font-bold">04</span>
-            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Evaluation</span>
-          </div>
-          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            Human evaluation has not yet been conducted, so I do not claim improved trust calibration or decision quality.
-          </p>
-        </div>
-
-        <div class="card group">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.55rem] font-bold">05</span>
-            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-muted)] uppercase tracking-wider">Infrastructure</span>
-          </div>
-          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            Two supporting assets address different methodological needs. InteractionKit is released, frozen software for typed experiment specifications and contract checks; those checks do not establish construct validity. Knowledge Compiler supports typed evidence objects and partial provenance recovery; structural checks do not guarantee source fidelity. These assets are not evidence that an integrated platform has been validated.
-          </p>
-        </div>
-      </div>
-
-      <!-- Belief -->
-      <blockquote class="border-l-2 border-[var(--color-primary)] pl-5 py-2 mb-10 text-[var(--color-text-dim)] italic">
-        I separate software conformance, machine-scored changes, construct validity, and human outcomes. My responsibilities center on system specification, evaluation design, and review of implementation behavior against explicit requirements.
-      </blockquote>
-
-      <!-- Research Program -->
-      <h2 class="text-[1.5rem] mb-6">Research Program</h2>
-      <div class="card-static mb-10">
-        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-          My research asks how AI decision-support systems should respond when an output communicates more certainty than its evidence supports. I approach this as a systems and evaluation problem: define what is being checked, make the intervention inspectable, and distinguish an engineering result from evidence about human decisions. My Applied Psychology background informs the measurement questions, while system design makes those questions concrete.
-        </p>
-        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-          CheckMyCoach is the center of this work. It routes selected outputs, assigns rule-based tags, generates candidate revisions, and checks both target removal and information retention. I co-designed the evaluation decomposition, specified system behavior, and reviewed outputs against target-removal and information-retention requirements. Its bounded development run exposed the difference between removing a target feature and satisfying every evaluation requirement. I am preparing human validation of these judgments. Human evaluation has not yet been conducted, so I do not claim improved trust calibration or decision quality.
-        </p>
-        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-          Two supporting assets address different methodological needs. InteractionKit is released, frozen software for typed experiment specifications and contract checks; those checks do not establish construct validity. Knowledge Compiler supports typed evidence objects and partial provenance recovery; structural checks do not guarantee source fidelity. These assets are not evidence that an integrated platform has been validated.
-        </p>
-        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-          Separate collaborative work at USC Marshall's Trojan Sports Research Lab gave me experience contributing data to baseball injury-risk studies. That experience belongs in my research record without changing the focus of my HCAI agenda. Looking ahead, I want to connect explicit decision costs, intervention policies, and baseline comparisons to human reliance outcomes. My aim is to make the relationship between a system action and the claim supported by its evaluation more precise, rather than treating a working prototype as the end of the research question.
-        </p>
-      </div>
-
-      <!-- Methodological Approach -->
-      <h2 class="text-[1.5rem] mb-6">Methodological Approach</h2>
-      <p class="text-sm text-[var(--color-text-dim)] mb-5">I separate software conformance, machine-scored changes, construct validity, and human outcomes.</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-        <div class="card-static">
-          <h4 class="font-mono text-[0.65rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider mb-2">Psychology</h4>
-          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            My academic background is in Applied Psychology, which informs my approach to measurement, experimental design, and the interpretation of system evaluations.
-          </p>
-        </div>
-        <div class="card-static">
-          <h4 class="font-mono text-[0.65rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-2">System specification</h4>
-          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            I design and evaluate human-centered AI systems for evidence-bounded decision support through system specification, inspectable evaluation structures, and evidence review.
-          </p>
-        </div>
-        <div class="card-static">
-          <h4 class="font-mono text-[0.65rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider mb-2">Evaluation</h4>
-          <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            The current evidence for my HCAI systems is limited to implementation and bounded machine evaluation; it does not establish improved human decisions.
-          </p>
-        </div>
-      </div>
-
-      <p class="text-sm text-[var(--color-text-dim)] mb-10">
-        My responsibilities center on system specification, evaluation design, and review of implementation behavior against explicit requirements.
-      </p>
-
-      <!-- Why HCI -->
-      <h2 class="text-[1.5rem] mb-6">Why CS/HCAI?</h2>
-      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-10">
-        I want to formalize the computational decisions behind an intervention: what is optimized, what errors cost, which baselines matter, and how evaluation connects to human consequences.
-      </p>
-
+      <div class="card-static mb-10"><p class="text-base leading-relaxed text-[var(--color-text)]">{profile.profile}</p></div>
+      <h2 class="text-[1.5rem] mb-5">Research question</h2>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-5">{profile.question}</p>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-5">My psychology background makes me attentive to what a behavioral measure represents. My systems work makes that question concrete: inspect collection mechanisms, test alternative representations, and separate an evaluator's judgment from evidence about an agent's behavior.</p>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-5">Current collaborations focus on implicit human feedback and memory-agent evaluation. PMD tests whether known-user preference adaptation helps on unseen prompts. Evaluation Runtime makes failures and reporting assumptions inspectable; CheckMyCoach asks how interventions preserve information and affect human decisions.</p>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-10">I use AI coding tools in research engineering and review specifications, outputs, and evidence boundaries. Software conformance, held-out prediction, and human outcomes answer different questions. <a href="/research/" class="link-arrow">Read the contributions and limits →</a></p>
       <!-- Background -->
       <h2 class="text-[1.5rem] mb-6">Background</h2>
       <div class="space-y-3 mb-10">
@@ -138,14 +23,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <span class="w-6 h-6 rounded-full bg-[var(--color-secondary-subtle)] flex items-center justify-center text-[var(--color-secondary)] font-mono text-[0.5rem] font-bold mt-0.5">B</span>
           <div>
             <strong class="text-[var(--color-ink)]">B.A. in Applied Psychology</strong>
-            <span class="text-sm text-[var(--color-text-dim)]">(expected) — Training in experimental design, statistics (LMM, ANOVA, factor analysis), and psychometrics.</span>
+            <span class="text-sm text-[var(--color-text-dim)]">— Training in experimental design, statistics (LMM, ANOVA, factor analysis), and psychometrics.</span>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="w-6 h-6 rounded-full bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)] font-mono text-[0.5rem] font-bold mt-0.5">I</span>
           <div>
             <strong class="text-[var(--color-ink)]">Independent research</strong>
-            <span class="text-sm text-[var(--color-text-dim)]">(2025–present) — CheckMyCoach is my primary research system. InteractionKit is released, frozen methodological software, and Knowledge Compiler is supporting evidence infrastructure with partial provenance recovery.</span>
+            <span class="text-sm text-[var(--color-text-dim)]">(2025–present) — Feedback representation, preference modeling, AI evaluation, and human-centered verification.</span>
           </div>
         </div>
         <div class="flex items-start gap-3">
@@ -164,7 +49,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           I am seeking graduate research opportunities in human-centered AI and computer science for Fall 2027, particularly where system design and careful evaluation meet.
         </p>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-          I design and evaluate human-centered AI systems for evidence-bounded decision support through system specification, inspectable evaluation structures, and evidence review.
+          I am open to research collaboration and RA opportunities in human-centered AI, feedback learning, and agent evaluation.
         </p>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
           <a href="/cv/" class="link-arrow">View CV →</a>
@@ -175,7 +60,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <h2 class="text-[1.5rem] mb-6">🏀 Beyond the Lab</h2>
       <div class="card-static mb-10">
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">
-          When I'm not calibrating LLMs, you'll find me —        </p>
+          When I'm away from research, you'll find me —        </p>
 
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
           <strong>Former student-athlete</strong> — I'm absolutely obsessed with
@@ -184,8 +69,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </p>
 
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-          Die-hard fan of <strong>Giannis Antetokounmpo 🇬🇷</strong> (Miami Heat)
-          and <strong>Kylian Mbappé 🇫🇷</strong> (Real Madrid).
+          Die-hard fan of <strong>Giannis Antetokounmpo 🇬🇷</strong>
+          and <strong>Kylian Mbappé 🇫🇷</strong> .
         </p>
 
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import profile from '../../data/research-profile.json';
 import { siteUrl } from '../../config/site.mjs';
 
 const pdfUrl = siteUrl('Baixin_Guo_CV.pdf');
@@ -27,20 +28,21 @@ const pdfUrl = siteUrl('Baixin_Guo_CV.pdf');
           <a class="link" href="https://github.com/GBX-Max1220" target="_blank" rel="noopener noreferrer">GitHub</a>
           <span>China · Remote availability from Oct 2026</span>
         </div>
-        <p class="text-xs text-[var(--color-text-muted)] mt-3">Canonical research-outreach CV · Updated September 2026</p>
+        <p class="text-xs text-[var(--color-text-muted)] mt-3">Canonical research-outreach CV · Updated October 2026</p>
       </div>
 
       <section class="mb-10">
         <h2 class="text-[1.3rem] mb-4">Research Profile</h2>
         <div class="card-static space-y-3">
           <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            Applied Psychology graduate working at the intersection of human-centered AI and reliable AI systems. I build reproducible evaluation and agent infrastructure, and study how uncertainty, imperfect feedback, and evidence quality affect AI decisions and oversight. I am increasingly interested in how these signals can support learning and adaptation.
+            {profile.profile}
           </p>
           <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
-            <strong class="text-[var(--color-ink)]">Research interests:</strong> human/evaluator feedback; preference learning and post-training; reliable AI agents; reproducible AI evaluation.
+            <strong class="text-[var(--color-ink)]">Research interests:</strong> {profile.interests}
           </p>
           <p class="text-sm text-[var(--color-text-dim)] leading-relaxed">
             <strong class="text-[var(--color-ink)]">Selected artifacts:</strong>
+            <a class="link" href="https://github.com/GBX-Max1220/preference-modeling-diagnostics">Preference Modeling Diagnostics</a> ·
             <a class="link" href="https://github.com/GBX-Max1220/CheckMyCoach" target="_blank" rel="noopener noreferrer">CheckMyCoach</a>
             ·
             <a class="link" href="https://github.com/GBX-Max1220/evaluation-runtime" target="_blank" rel="noopener noreferrer">Evaluation Runtime</a>
@@ -51,35 +53,7 @@ const pdfUrl = siteUrl('Baixin_Guo_CV.pdf');
       <section class="mb-10">
         <h2 class="text-[1.3rem] mb-4">Selected Research &amp; Technical Experience</h2>
         <div class="space-y-4">
-          <div class="card-static">
-            <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
-              <div>
-                <h3 class="font-medium text-[var(--color-ink)]">
-                  <a class="link" href="https://github.com/GBX-Max1220/CheckMyCoach" target="_blank" rel="noopener noreferrer">CheckMyCoach — Human-Centered AI Decision-Support Prototype</a>
-                </h3>
-              </div>
-              <span class="text-xs text-[var(--color-text-muted)]">2026</span>
-            </div>
-            <ul class="text-sm text-[var(--color-text-dim)] space-y-1.5 list-disc pl-5">
-              <li>Built an offline AI decision-support pipeline with evidence retrieval, rule-based routing/tagging, candidate revision generation, CLI/MCP interfaces, and structured JSONL audit logs.</li>
-              <li>Defined bounded evaluation criteria for routing, conditional revision, preservation, and end-to-end behavior; human-participant validation is in preparation.</li>
-            </ul>
-          </div>
-
-          <div class="card-static">
-            <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
-              <div>
-                <h3 class="font-medium text-[var(--color-ink)]">
-                  <a class="link" href="https://github.com/GBX-Max1220/evaluation-runtime" target="_blank" rel="noopener noreferrer">Evaluation Runtime — Reproducible AI Evaluation Infrastructure</a>
-                </h3>
-              </div>
-              <span class="text-xs text-[var(--color-text-muted)]">2026</span>
-            </div>
-            <ul class="text-sm text-[var(--color-text-dim)] space-y-1.5 list-disc pl-5">
-              <li>Specified and co-designed a serial runtime that keeps execution attempts, evaluation judgments, recovery decisions, and report denominators separately inspectable; directed implementation of the reproducible CLI.</li>
-              <li>Defined ambiguity-aware retry, event-consistency, and report-construction semantics; candidate validation reproduced 279 tests, while replay of unchanged stored inputs produced no duplicate runs/evaluations and byte-identical reports.</li>
-            </ul>
-          </div>
+          {[...profile.collaborations, ...profile.projects, ...profile.additional.filter(work => work.id !== 'jev-tind')].map(work => <div class="card-static"><div class="flex items-start justify-between gap-4 flex-wrap mb-2"><div><h3 class="font-medium text-[var(--color-ink)]">{'url' in work ? <a class="link" href={work.url}>{work.title}</a> : work.title}</h3>{'context' in work && <p class="text-xs text-[var(--color-text-muted)]">{work.context}</p>}</div><span class="text-xs text-[var(--color-text-muted)]">{work.date}</span></div><p class="work-kind mb-2">{work.status}</p><ul class="text-sm text-[var(--color-text-dim)] space-y-1.5 list-disc pl-5">{work.bullets.map(item => <li>{item}</li>)}</ul></div>)}
 
           <div class="card-static">
             <div class="flex items-start justify-between gap-4 flex-wrap mb-2">

@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import profile from '../data/research-profile.json';
 ---
 
-<BaseLayout title="Home" description="Designing and evaluating human-centered AI systems for evidence-bounded decision support." ogImage="/og/home.png" hideTopBar>
+<BaseLayout title="Home" description="Human-centered AI research on imperfect feedback, preference modeling, and reliable agents." ogImage="/og/home.png" hideTopBar>
 
 <!-- ================================================================ -->
 <!-- Hybrid editorial homepage: identity rail + research agenda flow   -->
@@ -15,19 +16,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- ============================================================ -->
     <div class="w-full lg:w-[380px] lg:min-w-[380px] lg:sticky lg:top-16 lg:self-start py-10 lg:py-16">
 
-      <p class="rail-kicker mb-3">Human-centered AI · Decision support · Evaluation</p>
+      <p class="rail-kicker mb-3">Human-centered AI · Feedback · Reliable agents</p>
       <p class="rail-name mb-1">Baixin Guo</p>
       <p class="font-mono text-[0.7rem] text-[var(--color-text-muted)] uppercase tracking-[0.1em] mb-5">Max · independent researcher</p>
 
       <h1 class="mb-5">
-        Designing inspectable interventions; testing what their evidence supports.
+        {profile.headline}
       </h1>
 
       <p class="font-sans text-[0.95rem] text-[var(--color-text-dim)] leading-relaxed mb-4">
-        I design and evaluate human-centered AI systems for evidence-bounded decisions. My work focuses on system specifications, inspectable evaluation structures, and evidence review. CheckMyCoach is my primary research system, with human validation in preparation. My academic background is in Applied Psychology; current system evidence comes from implementation and bounded machine evaluation.
+        {profile.profile}
       </p>
       <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-6">
-        I am preparing human validation of CheckMyCoach. Human evaluation has not yet been conducted.
+        I am open to research collaboration and RA opportunities in human-centered AI, feedback learning, and agent evaluation.
       </p>
 
       <!-- Identity links -->
@@ -54,50 +55,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- RESEARCH PROGRAM (editorial argument) -->
       <section id="research" class="mb-14">
         <span class="section-kicker">Research program</span>
-        <h2 class="mt-2 mb-2">Evidence-bounded decision support</h2>
-        <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-6 max-w-2xl">
-          Earlier work includes a frozen measurement asset, engineering audit records, a frozen simulation prototype, and a retired behavioral research thread. These materials provide historical context for my current focus on CheckMyCoach.
-        </p>
-
+        <h2 class="mt-2 mb-2">From feedback to reliable decisions</h2>
+        <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-6">{profile.question}</p>
         <div class="space-y-0">
-          <!-- 01 Diagnose -->
-          <div class="arc-item">
-            <span class="arc-index">01 · Background</span>
-            <p class="arc-question mt-1 mb-2">Earlier work</p>
-            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-              M0 is a frozen measurement asset, not a validated instrument. MaxFitCalib-Bench is retained as engineering audit history, not a source of prevalence estimates or model rankings. The Precision Illusion behavioral thread is retired and provides historical motivation rather than an active study. <span class="work-kind">Historical context</span>
-            </p>
-            <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <a href="/research/measuring-ai-reliability/fitcalib-bench/" class="link-arrow">FitCalib-Bench audit →</a>
-              <a href="/blog/precision-illusion-intro/" class="link-arrow">Precision Illusion taxonomy →</a>
-            </div>
-          </div>
-
-          <!-- 02 Build -->
-          <div class="arc-item">
-            <span class="arc-index">02 · Current priority</span>
-            <p class="arc-question mt-1 mb-2">CheckMyCoach</p>
-            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-              CheckMyCoach is my primary research system. InteractionKit is released, frozen methodological software, and Knowledge Compiler is supporting evidence infrastructure with partial provenance recovery. <span class="work-kind">Primary research system</span>
-            </p>
-            <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach →</a>
-              <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">InteractionKit →</a>
-              <a href="/research/building-trustworthy-ai/interactionkit/research-brief/" class="link-arrow">Research brief →</a>
-            </div>
-          </div>
-
-          <!-- 03 Adapt -->
-          <div class="arc-item">
-            <span class="arc-index">03 · Historical context</span>
-            <p class="arc-question mt-1 mb-2">CalTrust</p>
-            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">
-              CalTrust is frozen and simulation-only. <span class="work-kind">Frozen · Simulation only</span>
-            </p>
-            <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <a href="/research/understanding-human-trust/caltrust/" class="link-arrow">CalTrust →</a>
-            </div>
-          </div>
+          <div class="arc-item"><span class="arc-index">01 · Understand the signal</span><p class="arc-question mt-1 mb-2">What does the feedback measure?</p><p class="text-sm text-[var(--color-text-dim)] mb-3">Gaze, mouse behavior, and expressed preferences carry different kinds of evidence. I examine their collection and representation before treating them as learning signals.</p><a href="/research/#collaborations" class="link-arrow">Current collaborations →</a></div>
+          <div class="arc-item"><span class="arc-index">02 · Evaluate the decision</span><p class="arc-question mt-1 mb-2">What can a result establish?</p><p class="text-sm text-[var(--color-text-dim)] mb-3">Memory-agent diagnostics and Evaluation Runtime separate observable failures, uncertain attribution, and evaluator judgments.</p><a href="/demo/eval-runtime/" class="link-arrow">Evaluation Runtime →</a></div>
+          <div class="arc-item"><span class="arc-index">03 · Test adaptation</span><p class="arc-question mt-1 mb-2">Does using the signal help?</p><p class="text-sm text-[var(--color-text-dim)] mb-3">PMD tests known-user preference adaptation on held-out prompts. CheckMyCoach keeps human verification and information preservation in view. A reliable end-to-end learning loop remains a research goal.</p><a href="/research/#projects" class="link-arrow">Studies and prototypes →</a></div>
         </div>
       </section>
 
@@ -107,32 +70,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <h2 class="mt-2 mb-5">Selected work</h2>
 
         <div class="space-y-5">
-          <article class="card-static">
-            <h3 class="text-[1.1rem] mb-1.5">CheckMyCoach</h3>
-            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">
-              A bounded prototype that routes selected AI outputs, generates candidate revisions, and checks target removal and information retention. I co-designed its evaluation decomposition, specified system behavior, and reviewed outputs against these requirements. Human validation is in preparation; human evaluation has not yet been conducted.
-            </p>
-            <p class="work-kind mb-2">Primary research system</p>
-            <a href="/research/building-trustworthy-ai/checkmycoach/" class="link-arrow">CheckMyCoach →</a>
-          </article>
-
-          <article class="card-static">
-            <h3 class="text-[1.1rem] mb-1.5">InteractionKit</h3>
-            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">
-              Released, frozen software for typed AI interaction experiments and contract checks. I originated and co-designed the typed experiment architecture, including specifications and contract requirements. The release makes experimental structure inspectable; it does not establish construct validity or equivalence across implementations.
-            </p>
-            <p class="work-kind mb-2">Released methodological software · Frozen</p>
-            <a href="/research/building-trustworthy-ai/interactionkit/" class="link-arrow">InteractionKit →</a>
-          </article>
-
-          <article class="card-static">
-            <h3 class="text-[1.1rem] mb-1.5">Knowledge Compiler</h3>
-            <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">
-              Supporting infrastructure for typed evidence objects, structural checks, and partial provenance recovery. I designed recovery and quarantine rules and reviewed their implementation against structural and evidence-boundary requirements. These checks expose unresolved evidence links without establishing universal source fidelity or downstream validity.
-            </p>
-            <p class="work-kind mb-2">Supporting evidence infrastructure · Partial provenance recovery</p>
-            <a href="/research/building-trustworthy-ai/knowledge-compiler/" class="link-arrow">Knowledge Compiler →</a>
-          </article>
+          {profile.collaborations.map(work => <article class="card-static"><h3 class="text-[1.1rem] mb-1.5">{work.title}</h3><p class="text-xs text-[var(--color-text-muted)] mb-2">{work.context}</p><p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">{work.summary}</p><p class="work-kind mb-2">{work.status}</p><a href={`/research/#${work.id}`} class="link-arrow">Contribution and scope →</a></article>)}
+          {profile.projects.map(work => <article class="card-static"><h3 class="text-[1.1rem] mb-1.5">{work.title}</h3><p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">{work.summary}</p><p class="work-kind mb-2">{work.status}</p><a href={work.url} class="link-arrow">Explore the artifact →</a></article>)}
         </div>
 
         <div class="mt-5">
@@ -151,30 +90,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <div class="bg-[var(--color-surface)] rounded-lg border border-[var(--color-rule-light)] px-5 py-2">
-          <div class="log-item">
-            <span class="log-date">Sep 17</span>
-            <div class="log-dot"></div>
-            <p class="font-sans text-sm text-[var(--color-text-dim)]"><a href="/demo/eval-runtime/" class="link-arrow">Evaluation Runtime evidence</a> live — bounded reliability scenarios; source repository public</p>
-            <span class="log-cat">Artifact</span>
-          </div>
-          <div class="log-item">
-            <span class="log-date">Jul 31</span>
-            <div class="log-dot"></div>
-            <p class="font-sans text-sm text-[var(--color-text-dim)]">InteractionKit v1.0.0 released — 7 contract tests, type checking, production build, and clean-install reproduction</p>
-            <span class="log-cat">Release</span>
-          </div>
-          <div class="log-item">
-            <span class="log-date">Jul 11</span>
-            <div class="log-dot"></div>
-            <p class="font-sans text-sm text-[var(--color-text-dim)]"><a href="/demo/checkmycoach/" class="link-arrow">CheckMyCoach Interactive Demo</a> live — M1–M4 pipeline visualization</p>
-            <span class="log-cat">Release</span>
-          </div>
-          <div class="log-item">
-            <span class="log-date">Jul 3</span>
-            <div class="log-dot"></div>
-            <p class="font-sans text-sm text-[var(--color-text-dim)]">Expanded discussion with a dual-process theory framing</p>
-            <span class="log-cat">Writing</span>
-          </div>
+          <div class="log-item"><span class="log-date">Oct 1</span><div class="log-dot"></div><p class="text-sm text-[var(--color-text-dim)]">Submitted a third SkillHone regression example; three PRs await review.</p><span class="log-cat">Code</span></div>
+          <div class="log-item"><span class="log-date">Sep 26</span><div class="log-dot"></div><p class="text-sm text-[var(--color-text-dim)]">Delivered a memory-agent failure-attribution and evaluation-reliability framework for the Boundary Labs collaboration.</p><span class="log-cat">Methods</span></div>
+          <div class="log-item"><span class="log-date">Sep 22</span><div class="log-dot"></div><p class="text-sm text-[var(--color-text-dim)]"><a href="https://github.com/GBX-Max1220/preference-modeling-diagnostics" class="link-arrow">PMD public release</a>: a bounded diagnostic of known-user preference adaptation.</p><span class="log-cat">Release</span></div>
+          <div class="log-item"><span class="log-date">Sep 17</span><div class="log-dot"></div><p class="text-sm text-[var(--color-text-dim)]"><a href="/demo/eval-runtime/" class="link-arrow">Evaluation Runtime</a> public snapshot and interactive evidence.</p><span class="log-cat">Artifact</span></div>
         </div>
       </section>
 

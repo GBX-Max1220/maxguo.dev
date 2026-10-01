@@ -1,0 +1,104 @@
+{
+  "updated": "October 2026",
+  "headline": "Learning from imperfect feedback, with reliability in view.",
+  "question": "How can imperfect human, evaluator, and environment feedback become learning signals that let AI agents adapt without becoming less reliable?",
+  "profile": "I am an Applied Psychology graduate working on human-centered AI, feedback modeling, and agent evaluation. I design evaluation methods, inspect what feedback actually measures, and build reproducible research tools. My current work connects behavioral signals and individual preferences with the reliability of AI decisions.",
+  "interests": "Human and evaluator feedback; preference learning; human-agent collaboration; reliable adaptation; reproducible AI evaluation.",
+  "collaborations": [
+    {
+      "id": "implicit-feedback",
+      "title": "Implicit human feedback",
+      "context": "Research collaboration with Haw-Shiuan Chang, University of Arizona",
+      "date": "Sep 2026 - present",
+      "status": "Ongoing collaboration · data and representation audit",
+      "summary": "I audit gaze and mouse logs and compare sequence representations before they are used as implicit feedback. The first question is what the collection mechanism lets us infer about behavior.",
+      "bullets": [
+        "Audited missing and duplicate events, coordinate validity, temporal gaps, and query-trajectory-response alignment.",
+        "Compared word-run and fixation-proxy representations and examined how preprocessing choices change the signal. Learning improvements have not yet been established."
+      ]
+    },
+    {
+      "id": "longmemeval",
+      "title": "Memory-agent evaluation reliability",
+      "context": "Research collaboration with Dino Vitale, Boundary Labs",
+      "date": "Sep 2026",
+      "status": "Delivered evaluation framework · bounded trace review",
+      "summary": "For LongMemEval-based evaluation, I designed a framework that separates observed outcomes, available evidence, failure attribution, and judge confidence. Missing traces limit what a failed answer can tell us about the memory system.",
+      "bullets": [
+        "Delivered an observability map, failure-attribution framework, five diagnostic tests, and a judge-reliability protocol.",
+        "Distinguished independently inspected traces from collaborator-reported checks; limited attribution claims to the evidence actually available."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "pmd",
+      "title": "Preference Modeling Diagnostics",
+      "date": "2026",
+      "status": "Released · frozen diagnostic study",
+      "summary": "A CPU-only study of whether individual preference signal predicts choices on unseen prompts. Regularized known-user adaptation reduced equal-user negative log-likelihood by 0.879%; wrong-user and shuffled-identity controls removed the advantage.",
+      "url": "https://github.com/GBX-Max1220/preference-modeling-diagnostics",
+      "bullets": [
+        "Designed prompt-disjoint evaluation and identity controls to distinguish stable individual preference signal from leakage.",
+        "Regularized adaptation reduced equal-user negative log-likelihood by 0.879% across 94 eligible known users. Kept the confirmatory test separate from exploratory history-length analysis."
+      ]
+    },
+    {
+      "id": "eval-runtime",
+      "title": "Evaluation Runtime",
+      "date": "2026",
+      "status": "Public research prototype · deterministic mock agent",
+      "summary": "An evaluation runtime that keeps execution attempts, judgments, ambiguous failures, and report denominators separately inspectable. Its public snapshot provides reproducible engineering evidence, with no real-provider reliability validation.",
+      "url": "/demo/eval-runtime/",
+      "bullets": [
+        "Specified and co-designed attempt identity, evaluator-version binding, ambiguity-aware recovery, and denominator-aware reports.",
+        "Directed implementation and reviewed reproducibility checks. The public snapshot uses deterministic mocks; software checks do not establish real-provider reliability."
+      ]
+    },
+    {
+      "id": "checkmycoach",
+      "title": "CheckMyCoach",
+      "date": "2026",
+      "status": "Prototype · human validation in preparation",
+      "summary": "A human-centered verification prototype that routes selected AI outputs, proposes revisions, and checks both target removal and information retention. Human evaluation has not yet been conducted.",
+      "url": "/research/building-trustworthy-ai/checkmycoach/",
+      "bullets": [
+        "Co-designed the evaluation decomposition, specified routing and revision behavior, and reviewed outputs against explicit preservation requirements.",
+        "In a fixed 40-case constructed development run, 15 cases were routed and 12 delivered outputs removed the target feature; none passed every target-and-retention check. No human-outcome improvement is claimed."
+      ]
+    }
+  ],
+  "additional": [
+    {
+      "id": "optifrontier",
+      "title": "OptiFrontier",
+      "date": "2026",
+      "status": "Bounded optimizer-architecture experiment",
+      "summary": "A prespecified trainability experiment on a GPT-style model, with source, configurations, logs, and a decision record packaged for reproduction. The conclusion is limited to the tested one-seed configuration.",
+      "bullets": [
+        "Ran a prespecified 6,000-step optimizer comparison on a 162M-parameter GPT-style model with a fixed architecture on an A100 GPU.",
+        "Documented a trainability gap within that one-seed configuration and packaged commands, logs, hashes, and a bounded decision record."
+      ]
+    },
+    {
+      "id": "skillhone",
+      "title": "SkillHone contributions",
+      "date": "2026",
+      "status": "Open-source contributions · three PRs awaiting review",
+      "summary": "Submitted reproducible regression examples for file uploads, description authorization, and API model retirement. These are technical contributions to an existing project.",
+      "url": "https://github.com/Tencent/SkillHone/pulls?q=is%3Apr+author%3AGBX-Max1220",
+      "bullets": [
+        "Submitted regression examples with reproducible failures, repair workflows, and verification checks.",
+        "PRs #14, #15, and #16 are open and awaiting review as of October 1, 2026."
+      ]
+    },
+    {
+      "id": "jev-tind",
+      "title": "Jev × TIND: initial code and evaluation audit",
+      "date": "2026",
+      "status": "Preliminary discussion · no experiments run",
+      "summary": "Prepared a read-only code and metric audit for an initial discussion with Jungtaek Kim. Proposed controlled tree-search baselines; no experiments or API calls were run.",
+      "bullets": []
+    }
+  ]
+}

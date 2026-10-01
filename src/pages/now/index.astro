@@ -1,64 +1,17 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import profile from '../../data/research-profile.json';
 ---
-<BaseLayout title="Now" description="What Baixin Guo is working on right now">
-  <div class="container-content py-16">
-    <div class="max-w-2xl">
-
-      <span class="section-label mb-4">Now</span>
-      <h1 class="mb-2">What I'm Working On</h1>
-      <p class="text-sm text-[var(--color-text-dim)] mb-8">Updated August 2026</p>
-
-        <div class="card-static mb-6">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="w-2 h-2 rounded-full bg-[var(--color-secondary)]"></span>
-            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider">Frozen</span>
-          </div>
-          <h2 class="text-[1.05rem] mb-1">InteractionKit v1.0.0 Released</h2>
-          <p class="text-sm text-[var(--color-text-dim)]">InteractionKit is released and frozen. Knowledge Compiler remains supporting evidence infrastructure with partial provenance recovery.</p>
-        </div>
-
-      <div class="space-y-6">
-
-        <div class="card-static">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="w-2 h-2 rounded-full bg-[var(--color-primary)]"></span>
-            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider">Human validation preparation</span>
-          </div>
-          <h2 class="text-[1.05rem] mb-1">CheckMyCoach Human Validation</h2>
-          <p class="text-sm text-[var(--color-text-dim)]">Preparing human validation of CheckMyCoach, with attention to whether its target-removal and retention checks agree with human judgments. The prototype and a bounded development run are available as system evidence. Human evaluation has not yet been conducted.</p>
-        </div>
-
-        <div class="card-static">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="w-2 h-2 rounded-full bg-[var(--color-secondary)]"></span>
-            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider">Frozen</span>
-          </div>
-          <h2 class="text-[1.05rem] mb-1">Historical context</h2>
-          <p class="text-sm text-[var(--color-text-dim)]">M0 remains frozen, MaxFitCalib-Bench is audit history, CalTrust is frozen and simulation-only, and the Precision Illusion behavioral thread is retired.</p>
-        </div>
-
-        <div class="card-static">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="w-2 h-2 rounded-full bg-[var(--color-gold)]"></span>
-            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-gold)] uppercase tracking-wider">Building</span>
-          </div>
-          <h2 class="text-[1.05rem] mb-1">PI Discovery Engine</h2>
-          <p class="text-sm text-[var(--color-text-dim)]">Streamlit web app for finding and tracking potential PhD advisors. v0.3 with email pipeline.</p>
-        </div>
-
-        <div class="card-static">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="w-2 h-2 rounded-full bg-[var(--color-secondary)]"></span>
-            <span class="font-mono text-[0.6rem] font-semibold text-[var(--color-secondary)] uppercase tracking-wider">Research</span>
-          </div>
-          <h2 class="text-[1.05rem] mb-1">Separate collaborative research</h2>
-          <p class="text-sm text-[var(--color-text-dim)]">My baseball research collaboration with Professor Lorena Martin produced two SABR abstracts. The related manuscripts are in preparation.</p>
-        </div>
-
-      </div>
-
-      <p class="text-xs text-[var(--color-text-muted)] mt-8 italic">Inspired by <a href="https://nownownow.com" class="underline hover:text-[var(--color-primary)]">nownownow.com</a></p>
+<BaseLayout title="Now" description="Current research on human feedback, preferences, and evaluation reliability">
+  <div class="container-content py-16"><div class="max-w-2xl">
+    <span class="section-label mb-4">Now</span><h1 class="mb-3">What I'm working on</h1>
+    <p class="text-sm text-[var(--color-text-dim)] mb-8">Updated October 2026</p>
+    <div class="space-y-5">
+      {profile.collaborations.map(work => <article class="card-static"><p class="work-kind mb-2">{work.status}</p><h2 class="text-lg mb-2">{work.title}</h2><p class="text-sm text-[var(--color-text-dim)] mb-3">{work.summary}</p><a href={`/research/#${work.id}`} class="link-arrow">Contribution and scope →</a></article>)}
+      <article class="card-static"><h2 class="text-lg mb-2">Controlled tests of adaptation</h2><p class="text-sm text-[var(--color-text-dim)]">PMD's confirmatory preference diagnostic is frozen. I am exploring how to test adaptation against held-out outcomes while retaining uncertainty about the feedback signal.</p></article>
+      <article class="card-static"><h2 class="text-lg mb-2">Human-centered verification</h2><p class="text-sm text-[var(--color-text-dim)]">CheckMyCoach human validation remains in preparation. Human evaluation has not yet been conducted.</p></article>
+      <article class="card-static"><h2 class="text-lg mb-2">Open-source regression examples</h2><p class="text-sm text-[var(--color-text-dim)]">Three SkillHone contribution PRs await review. The initial Jev x TIND audit is preliminary; no experiments have been run.</p></article>
     </div>
-  </div>
+    <p class="text-sm text-[var(--color-text-dim)] mt-8">Open to research collaboration and RA opportunities. <a href="/cv/" class="link-arrow">Current CV →</a></p>
+  </div></div>
 </BaseLayout>

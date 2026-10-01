@@ -3,7 +3,7 @@ export const SITE = Object.freeze({
   base: '/maxguo.dev',
   url: 'https://gbx-max1220.github.io/maxguo.dev',
   title: 'Baixin Guo',
-  description: 'Designing and evaluating human-centered AI systems for evidence-bounded decision support.',
+  description: 'Human-centered AI research on imperfect feedback, preference modeling, and reliable agents.',
 });
 
 export function siteUrl(path = '') {
