@@ -294,7 +294,7 @@
     "event": "opened",
     "title": "Is `recall_used_count` intended to mean verified use or caller-reported use?",
     "contribution": "Asked whether the recall-use signal means independently verified use or caller-reported attribution.",
-    "whyItMatters": "Clarifies the authority of a signal that can affect future memory ranking; the behavior may be intentional.",
+    "whyItMatters": "Asks whether a signal affecting future memory ranking represents verified or caller-reported use.",
     "status": "open",
     "url": "https://github.com/caura-ai/caura/discussions/1822",
     "selected": false,

@@ -1,6 +1,6 @@
 ---
 import records from '../data/contributions.json';
-import { selectedContributions, storyEvents, EVENT_LABELS, formatDay } from '../lib/contributions.mjs';
+import { selectedContributions, storyEvents, EVENT_LABELS, formatDay, evidenceCta, eventMaturity } from '../lib/contributions.mjs';
 import ContributionStatus from './ContributionStatus.astro';
 const [featured, ...remaining] = selectedContributions(records);
 const featuredStory = featured ? storyEvents(featured, records) : [];
@@ -14,9 +14,9 @@ const featuredStory = featured ? storyEvents(featured, records) : [];
     <ContributionStatus record={featured} />
     <h3 class="contribution-featured-title"><a href={featured.url}>{featured.title}</a></h3>
     <p class="contribution-featured-summary">{featured.contribution}</p>
-    <a href={featured.url} class="link-arrow">Public evidence →</a>
+    <a href={featured.url} class="link-arrow">{evidenceCta(featured)}</a>
     {featuredStory.length > 1 && <ol class="contribution-featured-story" aria-label={`${featured.project} contribution story`}>
-      {featuredStory.map(event => <li><a href={`/contributions/#${event.id}`}>{EVENT_LABELS[event.event]} · {formatDay(event.localDate)}</a></li>)}
+      {featuredStory.map(event => <li data-maturity={eventMaturity(event)}><a href={`/contributions/#${event.id}`}>{EVENT_LABELS[event.event]} · {formatDay(event.localDate)}</a></li>)}
     </ol>}
   </article>}
 
@@ -29,9 +29,9 @@ const featuredStory = featured ? storyEvents(featured, records) : [];
         <ContributionStatus record={record} />
         <h3 class="contribution-selection-title"><a href={record.url}>{record.title}</a></h3>
         <p class="contribution-selection-summary">{record.contribution}</p>
-        <a href={record.url} class="link-arrow">Public evidence →</a>
+        <a href={record.url} class="link-arrow">{evidenceCta(record)}</a>
         {story.length > 1 && <ol class="contribution-selection-story" aria-label={`${record.project} contribution story`}>
-          {story.map(event => <li><a href={`/contributions/#${event.id}`}>{EVENT_LABELS[event.event]} · {formatDay(event.localDate)}</a></li>)}
+          {story.map(event => <li data-maturity={eventMaturity(event)}><a href={`/contributions/#${event.id}`}>{EVENT_LABELS[event.event]} · {formatDay(event.localDate)}</a></li>)}
         </ol>}
       </li>;
     })}

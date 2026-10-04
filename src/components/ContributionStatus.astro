@@ -1,9 +1,8 @@
 ---
-import { KIND_LABELS, statusLabel } from '../lib/contributions.mjs';
+import { KIND_LABELS, compactStatusLabel, contributionScopeLabel } from '../lib/contributions.mjs';
 const { record } = Astro.props;
 const established = ['merged', 'released', 'preprint', 'published', 'public', 'fixed_upstream'].includes(record.status);
 ---
 <p class="contribution-meta">
-  <span class="contribution-status" data-maturity={established ? 'established' : 'developing'}>{statusLabel(record)}</span>
-  <span>{record.scope === 'external' ? 'External' : 'Own research'} · {KIND_LABELS[record.kind]}</span>
+  <span>{KIND_LABELS[record.kind]}</span><span class="contribution-meta-divider" aria-hidden="true"> · </span><span class="contribution-status" data-maturity={established ? 'established' : 'developing'}>{compactStatusLabel(record)}</span><span class="contribution-meta-divider" aria-hidden="true"> · </span><span>{contributionScopeLabel(record)}</span>
 </p>

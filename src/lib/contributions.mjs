@@ -1,5 +1,17 @@
 export const KIND_LABELS = Object.freeze({ issue: 'Issue', pr: 'PR', discussion: 'Discussion', release: 'Release', paper: 'Paper', artifact: 'Artifact' });
 export const EVENT_LABELS = Object.freeze({ opened: 'Opened', submitted: 'Submitted', merged: 'Merged', closed: 'Closed', clarified: 'Clarified', released: 'Released', published: 'Published' });
+const COMPACT_STATUSES = Object.freeze({
+  issue: { open: 'Open', closed: 'Closed', fixed_upstream: 'Closed · fixed upstream' },
+  pr: { open: 'Open', merged: 'Merged', closed: 'Closed' },
+  discussion: { open: 'Open', answered: 'Answered', closed: 'Closed' },
+  release: { released: 'Released' },
+  paper: { preprint: 'Public preprint', published: 'Published' },
+  artifact: { public: 'Public' },
+});
+const EVIDENCE_CTA_LABELS = Object.freeze({
+  discussion: 'View discussion', issue: 'View issue', pr: 'View pull request',
+  release: 'View release', paper: 'View preprint', artifact: 'View artifact',
+});
 export const STATUSES = Object.freeze({
   issue: { open: 'Open issue', closed: 'Closed issue', fixed_upstream: 'Closed · fixed upstream' },
   pr: { open: 'Open PR', merged: 'Merged', closed: 'Closed PR' },
@@ -20,6 +32,24 @@ export function formatDay(day) {
 
 export function statusLabel(record) {
   return STATUSES[record.kind]?.[record.status] ?? record.status;
+}
+
+export function compactStatusLabel(record) {
+  return COMPACT_STATUSES[record.kind]?.[record.status] ?? statusLabel(record);
+}
+
+export function contributionScopeLabel(record) {
+  if (record.scope === 'external') return 'External';
+  if (/\bcollaboration\b/i.test(record.project)) return 'Collaborative research';
+  return 'Own research';
+}
+
+export function evidenceCta(record) {
+  return `${EVIDENCE_CTA_LABELS[record.kind] ?? 'View artifact'} →`;
+}
+
+export function eventMaturity(event) {
+  return ['merged', 'released', 'published'].includes(event.event) ? 'established' : 'developing';
 }
 
 export function newestFirst(records) {

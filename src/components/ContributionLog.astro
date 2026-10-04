@@ -1,6 +1,6 @@
 ---
 import records from '../data/contributions.json';
-import { groupByDay, storyEvents, EVENT_LABELS, formatDay } from '../lib/contributions.mjs';
+import { groupByDay, storyEvents, EVENT_LABELS, formatDay, evidenceCta, eventMaturity } from '../lib/contributions.mjs';
 import ContributionStatus from './ContributionStatus.astro';
 ---
 <div class="contribution-timeline">
@@ -29,10 +29,10 @@ import ContributionStatus from './ContributionStatus.astro';
               <p class="contribution-entry-summary">{record.contribution}</p>
               <p class="contribution-entry-context"><span>Why it matters</span>{record.whyItMatters}</p>
               <div class="contribution-entry-links">
-                <a href={record.url} class="link-arrow">Public evidence →</a>
+                <a href={record.url} class="link-arrow">{evidenceCta(record)}</a>
                 {related.length > 0 && <nav class="contribution-story" aria-label={`${record.project} related lifecycle events`}>
                   <span>Story</span>
-                  <ol>{related.map(event => <li><a href={`#${event.id}`}>{EVENT_LABELS[event.event]} · {formatDay(event.localDate)}</a></li>)}</ol>
+                  <ol>{related.map(event => <li data-maturity={eventMaturity(event)}><a href={`#${event.id}`}>{EVENT_LABELS[event.event]} · {formatDay(event.localDate)}</a></li>)}</ol>
                 </nav>}
               </div>
             </article>
