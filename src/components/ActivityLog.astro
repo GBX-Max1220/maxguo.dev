@@ -1,11 +1,17 @@
 ---
 import records from '../data/contributions.json';
-import { newestFirst, EVENT_LABELS, formatDay } from '../lib/contributions.mjs';
+import { newestFirst, EVENT_LABELS, formatDay, statusLabel } from '../lib/contributions.mjs';
 const recent = newestFirst(records).slice(0, 4);
 ---
-<ul class="bg-[var(--color-surface)] rounded-lg border border-[var(--color-rule-light)] px-5 py-2">
-  {recent.map(record => <li class="border-b last:border-b-0 border-[var(--color-rule-light)] py-4">
-    <p class="font-mono text-xs text-[var(--color-text-muted)] mb-1"><time datetime={record.occurredAt}>{formatDay(record.localDate)}</time> · {EVENT_LABELS[record.event]}</p>
-    <a href={`/contributions/#${record.id}`} class="text-sm text-[var(--color-text-dim)] break-words">{record.project}: {record.contribution}</a>
-  </li>)}
-</ul>
+<ol class="contribution-recent">
+  {recent.map((record, index) => {
+    const dayAlreadyShown = index > 0 && recent[index - 1].localDate === record.localDate;
+    return <li class="contribution-recent-item">
+      <time class:list={["contribution-recent-date", dayAlreadyShown && "sr-only"]} datetime={record.localDate} aria-label={formatDay(record.localDate)}>{formatDay(record.localDate)}</time>
+      <div class="contribution-recent-detail">
+        <p class="contribution-recent-meta">{record.project} · {EVENT_LABELS[record.event]} · {statusLabel(record)}</p>
+        <a href={`/contributions/#${record.id}`} class="contribution-recent-link">{record.title}</a>
+      </div>
+    </li>;
+  })}
+</ol>

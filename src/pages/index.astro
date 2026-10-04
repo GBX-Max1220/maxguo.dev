@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import profile from '../data/research-profile.json';
 import SelectedContributions from '../components/SelectedContributions.astro';
 import ActivityLog from '../components/ActivityLog.astro';
+import '../styles/contribution-editorial.css';
 ---
 
 <BaseLayout title="Home" description="Human-centered AI research on imperfect feedback, preference modeling, and reliable agents." ogImage="/og/home.png" hideTopBar>
@@ -29,6 +30,12 @@ import ActivityLog from '../components/ActivityLog.astro';
       <p class="font-sans text-[0.95rem] text-[var(--color-text-dim)] leading-relaxed mb-4">
         {profile.profile}
       </p>
+
+      <!-- Editorial visual (conceptual orientation, not a banner) -->
+      <figure class="hidden sm:block mb-6">
+        <img src={'/images/home-hero.png'} alt="Conceptual overview of human–AI decision calibration research" width="1200" height="500" loading="lazy" class="w-full h-auto rounded-lg border border-[var(--color-rule-light)]" />
+      </figure>
+
       <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-6">
         I am open to research collaboration and RA opportunities in human-centered AI, feedback learning, and agent evaluation.
       </p>
@@ -40,11 +47,6 @@ import ActivityLog from '../components/ActivityLog.astro';
         <a href="mailto:gbx1220max@gmail.com" class="text-[var(--color-primary)] hover:text-[var(--color-primary-dim)] transition-colors">Email</a>
         <a href="https://www.linkedin.com/in/baixin-guo-681113285/" target="_blank" rel="noopener" class="text-[var(--color-text-muted)] hover:text-[var(--color-ink)] transition-colors">LinkedIn</a>
       </div>
-
-      <!-- Editorial visual (conceptual orientation, not a banner) -->
-      <figure class="hidden sm:block mb-8">
-        <img src={'/images/home-hero.png'} alt="Conceptual overview of human–AI decision calibration research" width="1200" height="500" loading="lazy" class="w-full h-auto rounded-lg border border-[var(--color-rule-light)]" />
-      </figure>
 
       <a href="#research" class="link-arrow">Explore the research program ↓</a>
     </div>
@@ -84,7 +86,7 @@ import ActivityLog from '../components/ActivityLog.astro';
       <SelectedContributions />
 
       <!-- RECENT PUBLIC ACTIVITY -->
-      <section id="latest">
+      <section id="latest" class="contribution-latest">
         <div class="flex items-end justify-between mb-4">
           <div>
             <span class="section-kicker">Dated evidence</span>

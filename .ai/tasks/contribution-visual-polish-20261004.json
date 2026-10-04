@@ -1,0 +1,48 @@
+{
+  "task_id": "SITE-CONTRIB-VISUAL-20261004-002",
+  "agent": "Codex",
+  "model": "gpt-6",
+  "started_at": "2026-10-04T21:22:00+08:00",
+  "status": "PARTIAL",
+  "base_commit": "099c3e7ba8e142f3a348ba15248e94f6aa955b32",
+  "branch": "site/research-engineering-log-2026-10-04",
+  "objective": "Visually polish the homepage contribution area and /contributions/ into a compact research-engineering editorial display.",
+  "authority": "The owner directly requested this focused pass on the existing branch and approved a local-only commit after visual review and validation.",
+  "allowed_paths": [
+    "src/components/SelectedContributions.astro",
+    "src/components/ContributionLog.astro",
+    "src/components/ContributionStatus.astro",
+    "src/components/ActivityLog.astro",
+    "src/pages/index.astro",
+    "src/pages/contributions/index.astro",
+    "src/styles/contribution-editorial.css",
+    ".ai/tasks/contribution-visual-polish-20261004.json",
+    ".ai/ledger.jsonl"
+  ],
+  "protected_paths": [
+    "src/data/contributions.json",
+    "src/data/research-profile.json",
+    "src/pages/research.astro",
+    "CV assets and content",
+    "all project research claims and scientific artifacts",
+    "the original dirty worktree"
+  ],
+  "frozen_claims": "Do not change audited contribution facts, dates, URLs, statuses, selected set, research question, headline, profile, collaboration claims, CV, or research program.",
+  "validation": [
+    "npm run ci",
+    "npm run test:contributions",
+    "desktop/tablet/mobile inspection at 1440/768/390 pixels",
+    "git diff --check",
+    "verify original worktree still unchanged",
+    "local commit only after successful validation and visual review"
+  ],
+  "validation_result": "npm run ci exit 0: 35 HTML pages, 21 valid contribution events, 13/13 contribution tests, 60/60 route-viewport checks, 3/3 Worker tests. npm run test:contributions exit 0: 13/13 tests. git diff --check exit 0. Visual browser review passed at 1440px, 768px, and 390px.",
+  "screenshots": ".astro/contribution-polish/final (generated, ignored)",
+  "commit": "Not created: the host rejected the local git commit because the command requires approval while approvals are disabled.",
+  "blocker": "The validated and visually reviewed changes remain staged on the authorized branch; no permitted approval path is available in this session.",
+  "stop_conditions": [
+    "Unexpected tracked or untracked source changes",
+    "A change would require touching protected facts or research claims",
+    "Original dirty worktree state changes"
+  ]
+}
