@@ -1,0 +1,5 @@
+---
+import { KIND_LABELS, statusLabel } from '../lib/contributions.mjs';
+const { record } = Astro.props;
+---
+<p class="work-kind mb-2">{record.scope === 'external' ? 'External contribution' : 'Own research artifact'} · {KIND_LABELS[record.kind]} · {statusLabel(record)}</p>

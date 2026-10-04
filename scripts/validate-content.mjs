@@ -6,6 +6,7 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { validateContributions } from '../src/lib/contributions.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PUBLICATION_DIR = resolve(__dirname, '../src/content/publication');
@@ -95,6 +96,16 @@ function validateProjects() {
 
 validatePublications();
 validateProjects();
+
+const contributions = JSON.parse(readFileSync(resolve(__dirname, '../src/data/contributions.json'), 'utf-8'));
+const contributionIssues = validateContributions(contributions);
+console.log(`\nChecking ${contributions.length} contribution events...`);
+if (contributionIssues.length) {
+  contributionIssues.forEach(issue => console.log(`  ❌ ${issue}`));
+  exitCode = 1;
+} else {
+  console.log('  ✓ Contribution ids, dates, links, kinds, statuses, selection, and lifecycle relationships');
+}
 
 console.log(`\n${exitCode === 0 ? '✅ ALL CONTENT VALID' : '❌ CONTENT ISSUES FOUND'}`);
 process.exit(exitCode);

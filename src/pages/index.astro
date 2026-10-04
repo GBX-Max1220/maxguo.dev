@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import profile from '../data/research-profile.json';
+import SelectedContributions from '../components/SelectedContributions.astro';
+import ActivityLog from '../components/ActivityLog.astro';
 ---
 
 <BaseLayout title="Home" description="Human-centered AI research on imperfect feedback, preference modeling, and reliable agents." ogImage="/og/home.png" hideTopBar>
@@ -79,22 +81,19 @@ import profile from '../data/research-profile.json';
         </div>
       </section>
 
-      <!-- LATEST -->
+      <SelectedContributions />
+
+      <!-- RECENT PUBLIC ACTIVITY -->
       <section id="latest">
         <div class="flex items-end justify-between mb-4">
           <div>
-            <span class="section-kicker">Latest</span>
-            <h2 class="mt-2">Activity</h2>
+            <span class="section-kicker">Dated evidence</span>
+            <h2 class="mt-2">Recent activity</h2>
           </div>
-          <a href="/blog/" class="link-arrow">More →</a>
+          <a href="/contributions/" class="link-arrow">Full log →</a>
         </div>
 
-        <div class="bg-[var(--color-surface)] rounded-lg border border-[var(--color-rule-light)] px-5 py-2">
-          <div class="log-item"><span class="log-date">Oct 1</span><div class="log-dot"></div><p class="text-sm text-[var(--color-text-dim)]">Submitted a third SkillHone regression example; three PRs await review.</p><span class="log-cat">Code</span></div>
-          <div class="log-item"><span class="log-date">Sep 26</span><div class="log-dot"></div><p class="text-sm text-[var(--color-text-dim)]">Delivered a memory-agent failure-attribution and evaluation-reliability framework for the Boundary Labs collaboration.</p><span class="log-cat">Methods</span></div>
-          <div class="log-item"><span class="log-date">Sep 22</span><div class="log-dot"></div><p class="text-sm text-[var(--color-text-dim)]"><a href="https://github.com/GBX-Max1220/preference-modeling-diagnostics" class="link-arrow">PMD public release</a>: a bounded diagnostic of known-user preference adaptation.</p><span class="log-cat">Release</span></div>
-          <div class="log-item"><span class="log-date">Sep 17</span><div class="log-dot"></div><p class="text-sm text-[var(--color-text-dim)]"><a href="/demo/eval-runtime/" class="link-arrow">Evaluation Runtime</a> public snapshot and interactive evidence.</p><span class="log-cat">Artifact</span></div>
-        </div>
+        <ActivityLog />
       </section>
 
     </div>

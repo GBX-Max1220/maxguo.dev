@@ -1,0 +1,68 @@
+{
+  "task_id": "SITE-CONTRIBUTIONS-20261004-001",
+  "agent": "Codex",
+  "model": "gpt-6.1-sol",
+  "started_at": "2026-10-04T20:32:59+08:00",
+  "status": "COMPLETED",
+  "completed_at": "2026-10-04T21:00:26+08:00",
+  "validation_result": "npm ci exit 0; final npm run ci exit 0: 35 pages, 21 events, 13 contribution tests, 60 viewport checks, 3 Worker tests",
+  "handoff": "docs/CONTRIBUTIONS_AUDIT_2026-10-04.md",
+  "base_commit": "b73fee59afd1422a21f7e5ad1db079cdefc9c1f8",
+  "branch": "site/research-engineering-log-2026-10-04",
+  "objective": "Audit public contributions and add a curated homepage layer and dated contribution log with lightweight validation.",
+  "authority": "Owner explicitly approved a separate clean worktree from this SHA on 2026-10-04. Scoped implementation is authorized here; existing dirty worktree remains protected.",
+  "state": "ACTIVE for this task's allowed paths only; other artifacts remain read-only",
+  "allowed_paths": [
+    "src/data/contributions.json",
+    "src/lib/contributions.mjs",
+    "src/components/*Contrib*.astro",
+    "src/components/ActivityLog.astro",
+    "src/pages/contributions/index.astro",
+    "src/pages/index.astro",
+    "src/pages/research.astro",
+    "src/components/Footer.astro",
+    "scripts/*contributions*",
+    "scripts/validate-content.mjs",
+    "scripts/validate-build.mjs",
+    "scripts/check-overflow.mjs",
+    "package.json",
+    ".ai/tasks/research-engineering-log-20261004.json",
+    ".ai/ledger.jsonl",
+    "docs/CONTRIBUTIONS_AUDIT_2026-10-04.md"
+  ],
+  "protected_paths": [
+    "Existing dirty worktree: all files",
+    "src/data/research-profile.json",
+    "src/pages/cv/**",
+    "public/cv/**",
+    "scripts/cv/**",
+    "src/content/**",
+    "worker/**",
+    "src/pages/demo/**",
+    "src/assets/**",
+    "public/images/**"
+  ],
+  "claim_boundary": "Preserve headline, research question, collaboration descriptions, CV and scientific claims. Only narrowly necessary factual status/link corrections are allowed.",
+  "outputs": [
+    "Single contribution data source",
+    "Selected contributions and recent activity",
+    "/contributions/",
+    "Content and page validation",
+    "Audit and handoff",
+    "Local commit"
+  ],
+  "validation": [
+    "npm ci",
+    "npm run ci",
+    "Contribution validator negative cases",
+    "Desktop/mobile visual inspection",
+    "Keyboard, canonical, sitemap and internal-link checks",
+    "Protected-file and old-worktree verification"
+  ],
+  "stop_conditions": [
+    "Unexpected dirty state or ownership conflict",
+    "Protected artifact mutation required",
+    "Unverifiable public evidence excluded",
+    "No merge, push, PR or deployment"
+  ]
+}

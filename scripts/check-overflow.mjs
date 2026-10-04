@@ -7,12 +7,13 @@
  */
 import { chromium } from 'playwright';
 import { createServer, request as httpRequest } from 'node:http';
-import { readFileSync, realpathSync } from 'node:fs';
+import { readFileSync, realpathSync, mkdirSync } from 'node:fs';
 import { join, extname, resolve, dirname, relative, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, '../dist');
+const REVIEW_DIR = resolve(__dirname, '../.astro/contribution-review');
 
 // The built site is deployed under this base (GitHub Pages project site).
 // Root-relative asset and href URLs inside dist HTML carry this prefix, so
@@ -20,6 +21,7 @@ const DIST = resolve(__dirname, '../dist');
 const BASE = '/maxguo.dev';
 
 const VIEWPORTS = [
+  { width: 320, height: 740, label: '320×740 (small mobile)' },
   { width: 375, height: 812, label: '375×812 (mobile)' },
   { width: 390, height: 844, label: '390×844 (mobile)' },
   { width: 768, height: 1024, label: '768×1024 (tablet)' },
@@ -27,7 +29,7 @@ const VIEWPORTS = [
   { width: 1440, height: 900, label: '1440×900 (desktop)' },
 ];
 
-const ROUTES = ['/', '/demo/', '/demo/interactionkit/', '/demo/checkmycoach/', '/demo/eval-runtime/', '/research/', '/projects/', '/publications/', '/cv/'];
+const ROUTES = ['/', '/demo/', '/demo/interactionkit/', '/demo/checkmycoach/', '/demo/eval-runtime/', '/research/', '/contributions/', '/projects/', '/publications/', '/cv/'];
 
 const MIME_TYPES = {
   '.html': 'text/html',
@@ -161,6 +163,28 @@ try {
             continue;
           }
           console.log(`  served: HTTP 200 · title="${title}"`);
+          if (route === '/contributions/') {
+            const quality = await page.evaluate(() => {
+              const headings = [...document.querySelectorAll('main h1, main h2, main h3')].map(element => Number(element.tagName[1]));
+              const links = [...document.querySelectorAll('main a')];
+              return {
+                hierarchy: headings[0] === 1 && headings.filter(level => level === 1).length === 1 && headings.every((level, index) => index === 0 || level <= headings[index - 1] + 1),
+                links: links.every(link => link.href && link.tabIndex >= 0 && link.textContent.trim()),
+              };
+            });
+            if (!quality.hierarchy || !quality.links) throw new Error(`Contribution heading/link check failed: ${JSON.stringify(quality)}`);
+            const target = await page.locator('main article a').first().getAttribute('href');
+            let reached = false;
+            for (let tab = 0; tab < 80; tab++) {
+              await page.keyboard.press('Tab');
+              reached = await page.evaluate(href => document.activeElement?.getAttribute('href') === href, target);
+              if (reached) break;
+            }
+            if (!reached) throw new Error('Contribution evidence link could not be reached using Tab');
+            const outline = await page.evaluate(() => getComputedStyle(document.activeElement).outlineStyle);
+            if (outline === 'none') throw new Error('Contribution evidence link has no visible keyboard focus');
+            console.log('  ✅ Heading hierarchy, native links, Tab navigation and visible focus');
+          }
         }
 
         const overflow = await page.evaluate(() => {
@@ -175,8 +199,20 @@ try {
         } else {
           console.log(`  ✅ ${vp.label}: no overflow`);
         }
+        if (['/', '/research/', '/contributions/'].includes(route) && [390, 1440].includes(vp.width)) {
+          mkdirSync(REVIEW_DIR, { recursive: true });
+          const name = route === '/' ? 'home' : route.replaceAll('/', '');
+          await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+          await page.screenshot({ path: join(REVIEW_DIR, `${name}-${vp.width}.png`), fullPage: true });
+          await page.screenshot({ path: join(REVIEW_DIR, `${name}-${vp.width}-top.png`) });
+          if (route === '/') {
+            await page.locator('#contributions').evaluate(element => window.scrollTo({ top: element.getBoundingClientRect().top + window.scrollY - 80, behavior: 'instant' }));
+            await page.screenshot({ path: join(REVIEW_DIR, `${name}-${vp.width}-selected.png`) });
+          }
+        }
       } catch (err) {
-        results.push(['WARN', `${BASE}${route} @ ${vp.label}: ${err.message}`]);
+        results.push(['FAIL', `${BASE}${route} @ ${vp.label}: ${err.message}`]);
+        exitCode = 1;
       } finally {
         await context.close();
       }

@@ -6,6 +6,8 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, extname, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { SITE, siteUrl } from '../src/config/site.mjs';
+import { newestFirst, selectedContributions } from '../src/lib/contributions.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, '../dist');
@@ -169,6 +171,38 @@ if (leakHits.length === 0) {
   results.push(['PASS', 'No local/private paths or governance material in dist HTML']);
 } else {
   results.push(['FAIL', `Leak pattern(s) found: ${leakHits.slice(0, 5).join(' | ')}`]);
+  exitCode = 1;
+}
+
+// Contribution route quality and exact event coverage are required checks.
+try {
+  const logHtml = readFileSync(join(DIST, 'contributions/index.html'), 'utf8');
+  const contributions = JSON.parse(readFileSync(resolve(__dirname, '../src/data/contributions.json'), 'utf8'));
+  const assertPage = (condition, message) => {
+    results.push([condition ? 'PASS' : 'FAIL', message]);
+    if (!condition) exitCode = 1;
+  };
+  assertPage(logHtml.includes('<title>Research Engineering Log — Baixin Guo</title>'), 'Contribution page title');
+  assertPage(/<meta name="description" content="[^"]{50,180}"/.test(logHtml), 'Contribution meta description');
+  assertPage(logHtml.includes(`<link rel="canonical" href="${siteUrl('contributions/')}"`), 'Contribution canonical includes the site base exactly once');
+  const sitemap = walk(DIST).filter(file => /sitemap.*\.xml$/.test(file)).map(file => readFileSync(file, 'utf8')).join('');
+  assertPage(sitemap.includes(`<loc>${siteUrl('contributions/')}</loc>`), 'Contribution route included in sitemap');
+  const rendered = [...logHtml.matchAll(/data-contribution-id="([^"]+)"/g)].map(match => match[1]);
+  assertPage(JSON.stringify(rendered) === JSON.stringify(newestFirst(contributions).map(record => record.id)), 'Every contribution event rendered exactly once in chronological order');
+  const selected = [...indexHtml.matchAll(/data-selected-id="([^"]+)"/g)].map(match => match[1]);
+  assertPage(JSON.stringify(selected) === JSON.stringify(selectedContributions(contributions).map(record => record.id)), 'Homepage selection matches explicit curation');
+  for (const route of ['index.html', 'research/index.html', 'contributions/index.html']) {
+    const html = readFileSync(join(DIST, route), 'utf8');
+    for (const match of html.matchAll(/href="([^"#]*)#([^\"]+)"/g)) {
+      const path = match[1];
+      if (path && !path.startsWith(`${SITE.base}/`)) continue;
+      const target = path ? join(DIST, path.slice(SITE.base.length), 'index.html') : join(DIST, route);
+      const targetHtml = readFileSync(target, 'utf8');
+      assertPage(targetHtml.includes(`id="${match[2]}"`), `Anchor resolves: ${route} → ${path}#${match[2]}`);
+    }
+  }
+} catch (error) {
+  results.push(['FAIL', `Contribution page validation: ${error.message}`]);
   exitCode = 1;
 }
 

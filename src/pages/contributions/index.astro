@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContributionLog from '../../components/ContributionLog.astro';
+---
+<BaseLayout title="Research Engineering Log" description="Public, dated research artifacts and engineering contributions by Baixin Guo, with evidence links, current statuses, and separate lifecycle events.">
+  <div class="container-content py-14">
+    <div class="max-w-[820px]">
+      <span class="section-kicker mb-3">Public research &amp; engineering evidence</span>
+      <h1 class="mb-4">Research Engineering Log</h1>
+      <p class="lead mb-4">Public, dated research artifacts, reproducible reports, upstream issues, and engineering contributions.</p>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-10">Entries link to the underlying evidence and distinguish open reports, discussions, releases, and merged work. Dates use Asia/Shanghai (UTC+8); later lifecycle events keep their own dates. Statuses reflect the public sources checked on October 4, 2026.</p>
+      <ContributionLog />
+    </div>
+  </div>
+</BaseLayout>
