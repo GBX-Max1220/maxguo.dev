@@ -6,6 +6,7 @@ const isActive = (href) =>
 const pages = [
   { href: '/about/', label: 'About' },
   { href: '/research/', label: 'Research' },
+  { href: '/contributions/', label: 'Contributions' },
   { href: '/publications/', label: 'Publications' },
   { href: '/blog/', label: 'Blog' },
   { href: '/cv/', label: 'CV' },
@@ -23,13 +24,13 @@ const pages = [
     </a>
 
     <!-- Desktop nav -->
-    <div class="hidden sm:flex items-center gap-1.5">
+    <div class="hidden sm:flex items-center gap-1">
       {
         pages.map((p) => (
           <a
             href={p.href}
             class={`
-              px-4 py-2 text-[0.75rem] rounded-md transition-all duration-150 font-sans font-medium uppercase tracking-wider
+              px-3 py-2 text-[0.75rem] rounded-md transition-all duration-150 font-sans font-medium uppercase tracking-wider
               ${isActive(p.href)
                 ? 'text-[var(--color-brand)] bg-[var(--color-rule-light)]'
                 : 'text-[var(--color-text-dim)] hover:text-[var(--color-brand)] hover:bg-[var(--color-surface-hover)]'

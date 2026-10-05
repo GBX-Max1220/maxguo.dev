@@ -6,8 +6,8 @@ const [featured, ...remaining] = selectedContributions(records);
 const featuredStory = featured ? storyEvents(featured, records) : [];
 ---
 <section id="contributions" class="mb-14">
-  <span class="section-kicker">Public evidence</span>
-  <h2 class="mt-2 mb-3">Selected Research &amp; Engineering Contributions</h2>
+  <span class="section-kicker">Public record</span>
+  <h2 class="mt-2 mb-3">Selected Contributions</h2>
 
   {featured && <article data-selected-id={featured.id} class="contribution-featured" data-maturity="established">
     <p class="contribution-project">{featured.project}</p>
@@ -37,5 +37,5 @@ const featuredStory = featured ? storyEvents(featured, records) : [];
     })}
   </ol>
 
-  <a href="/contributions/" class="link-arrow mt-5">Research Engineering Log →</a>
+  <a href="/contributions/" class="link-arrow mt-5">View the full contribution log →</a>
 </section>
