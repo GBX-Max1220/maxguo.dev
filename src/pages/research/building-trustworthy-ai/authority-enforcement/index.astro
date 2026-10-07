@@ -23,13 +23,12 @@ import FigureBEnforcementLadder from '../../../../components/figures/FigureBEnfo
 /**
  * Public URL of the hosted research note.
  *
- * TODO(publication): set this to the real public URL once the note is hosted,
- * then mirror it into
- * authority_enforcement_external_circulation_v01/README.md.
- * Until then it stays null: the CTA renders disabled and no guessed URL is
- * emitted anywhere in the build.
+ * Points at the canonical in-site HTML edition of research note v0.1.1:
+ *   /research/building-trustworthy-ai/authority-enforcement/note/
+ * Not an external URL: the note is hosted by this site, so the CTA can never
+ * resolve to a third-party copy or a placeholder.
  */
-const FULL_NOTE_URL: string | null = null;
+const FULL_NOTE_URL = '/research/building-trustworthy-ai/authority-enforcement/note/';
 
 const supported = [
   'IJFW cross-consumer enforcement divergence',
@@ -120,7 +119,7 @@ const provenance = [
           One governed state, one canonical decision, three downstream paths. Two behavioral consumers
           disagree; the raw/audit observer can see the state and is explicitly not a behavioral consumer.
         </p>
-        <!-- TODO(publication): inline full-note link, enabled by FULL_NOTE_URL. -->
+        <!-- Inline full-note link, enabled by FULL_NOTE_URL. -->
         {
           FULL_NOTE_URL ? (
             <a href={FULL_NOTE_URL} class="fig-inline-link">Full note →</a>
@@ -195,18 +194,12 @@ const provenance = [
           The note carries the claim ledger, the per-section source map, and the correction log. Everything
           on this page is a compressed view of it.
         </p>
-        <!-- TODO(publication): enable this CTA by setting FULL_NOTE_URL above. -->
+        <!-- Full-note CTA, enabled by FULL_NOTE_URL. -->
         {
           FULL_NOTE_URL ? (
             <a href={FULL_NOTE_URL} class="btn btn-primary">Read the full research note</a>
           ) : (
-            <>
-              <span class="btn btn-primary is-disabled" aria-disabled="true">Read the full research note</span>
-              <p class="cta-pending">
-                The full research note is not yet hosted. The link is enabled once a public URL is configured;
-                no placeholder URL is published.
-              </p>
-            </>
+            <span class="btn btn-primary is-disabled" aria-disabled="true">Read the full research note</span>
           )
         }
       </section>
