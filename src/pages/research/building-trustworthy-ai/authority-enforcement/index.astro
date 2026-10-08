@@ -364,8 +364,11 @@ const provenance = [
     font-weight: 600;
     letter-spacing: 0.04em;
     color: var(--color-brand);
-    min-width: 20rem;
+    /* Must be able to shrink inside the narrow flex row: a hard 20rem
+       min-width forces the document 40px past a 320px viewport. */
+    min-width: 0;
     flex: 1 1 20rem;
+    overflow-wrap: anywhere;
   }
   .provenance-gloss {
     font-size: 0.86rem;
