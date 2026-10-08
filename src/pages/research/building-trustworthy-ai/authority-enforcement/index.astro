@@ -1,0 +1,393 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../../components/Breadcrumb.astro';
+import ClaimBoundary from '../../../../components/ClaimBoundary.astro';
+import FigureACrossConsumerDivergence from '../../../../components/figures/FigureACrossConsumerDivergence.astro';
+import FigureBEnforcementLadder from '../../../../components/figures/FigureBEnforcementLadder.astro';
+
+/**
+ * Cross-Consumer Authority Enforcement in a Persistent Agent System:
+ * A Bounded Case Study
+ *
+ * Content source (frozen, read-only):
+ *   authority_enforcement_external_circulation_v01/PROJECT_PAGE_COPY.md
+ *   authority_enforcement_external_circulation_v01/CLAIM_BOUNDARY.md
+ * Layout source (frozen, read-only):
+ *   authority_enforcement_presentation_design_v01/PROJECT_PAGE_INFORMATION_ARCHITECTURE.md
+ *   authority_enforcement_presentation_design_v01/PROJECT_PAGE_WIREFRAME.md
+ *
+ * No claim on this page goes beyond the frozen circulation package. Adding a
+ * claim here is a governance violation, not a copy edit.
+ */
+
+/**
+ * Public URL of the hosted research note.
+ *
+ * Points at the canonical in-site HTML edition of research note v0.1.1:
+ *   /research/building-trustworthy-ai/authority-enforcement/note/
+ * Not an external URL: the note is hosted by this site, so the CTA can never
+ * resolve to a third-party copy or a placeholder.
+ */
+const FULL_NOTE_URL = '/research/building-trustworthy-ai/authority-enforcement/note/';
+
+const supported = [
+  'IJFW cross-consumer enforcement divergence',
+  'Shared enforcement within audited paths',
+  'Completed-transition freshness in tested regime',
+  'Decision–use race under tested interleaving',
+  'Atomic boundary sufficient on audited substrate',
+  'Deterministic bypass detection within frozen inventory',
+  'Raw/audit observability preserved, not counted as a violation',
+];
+
+const notEstablished = [
+  'Cross-substrate replication',
+  'Downstream model consequence',
+  'Cross-model generalization',
+  'Universal authority architecture',
+  'Repository-wide bypass prevention',
+  'Non-cooperating writer safety',
+  'Distributed correctness',
+];
+
+const provenance = [
+  {
+    label: 'EMPIRICAL_EVIDENCE_FROM_FROZEN_RUNS',
+    gloss: 'Results come from preregistered runs; this page reruns none of them.',
+  },
+  {
+    label: 'RECOVERED_AND_HASH_VERIFIED_DURING_CONSOLIDATION',
+    gloss: 'Records were recovered and checked for integrity, not re-executed.',
+  },
+  {
+    label: 'INDEPENDENT_ARTIFACT_REVIEWED',
+    gloss: 'An independent reviewer inspected the frozen artifacts, including a hostile review.',
+  },
+  {
+    label: 'NOT_INDEPENDENTLY_EMPIRICALLY_REPLICATED',
+    gloss: 'No stage has been reproduced by another team or on another substrate.',
+  },
+];
+---
+
+<BaseLayout
+  title="Cross-Consumer Authority Enforcement in a Persistent Agent System: A Bounded Case Study"
+  description="In one audited persistent-agent substrate, the same canonical authority decision over the same governed state was enforced inconsistently across heterogeneous behavioral consumer paths."
+>
+  <div class="container-shell py-12">
+
+    <Breadcrumb path="/research/building-trustworthy-ai/authority-enforcement" />
+
+    <div class="ae-shell">
+
+      <!-- ============ 1. Hero ============ -->
+      <header class="mb-12">
+        <span class="scope-badge">Bounded systems case study · one audited substrate</span>
+        <h1 class="mt-4 mb-4">Cross-Consumer Authority Enforcement in a Persistent Agent System: A Bounded Case Study</h1>
+        <p class="ae-descriptor">
+          A persistent agent system stored one authority decision over one piece of state — and applied it
+          differently depending on which code path consumed that state.
+        </p>
+        <p class="ae-meta">Reliability / enforcement · systems case study</p>
+      </header>
+
+      <!-- ============ 2. Research question ============ -->
+      <section class="ae-section">
+        <span class="section-kicker mb-2">Research question</span>
+        <p class="ae-question">
+          When a single canonical authority decision governs a piece of persistent agent state, do all of
+          the code paths that can turn that state into behavior apply the decision the same way?
+        </p>
+      </section>
+
+      <!-- ============ 3. Main finding ============ -->
+      <section class="ae-section">
+        <div class="finding">
+          <p class="finding-primary">
+            One canonical authority decision was enforced differently by heterogeneous behavioral consumers.
+          </p>
+          <p class="finding-qualifier">Observed on one audited substrate.</p>
+        </div>
+      </section>
+
+      <!-- ============ 4. Figure A ============ -->
+      <section class="ae-section">
+        <span class="section-kicker mb-2">Core mechanism</span>
+        <h2 class="mt-1 mb-3">Cross-consumer enforcement divergence</h2>
+        <FigureACrossConsumerDivergence />
+        <p class="fig-caption">
+          One governed state, one canonical decision, three downstream paths. Two behavioral consumers
+          disagree; the raw/audit observer can see the state and is explicitly not a behavioral consumer.
+        </p>
+        <!-- Inline full-note link, enabled by FULL_NOTE_URL. -->
+        {
+          FULL_NOTE_URL ? (
+            <a href={FULL_NOTE_URL} class="fig-inline-link">Full note →</a>
+          ) : (
+            <span class="fig-inline-link is-disabled" aria-disabled="true">Full note →</span>
+          )
+        }
+      </section>
+
+      <!-- ============ 5. Figure B ============ -->
+      <section class="ae-section">
+        <span class="section-kicker mb-2">Constructive enforcement ladder</span>
+        <h2 class="mt-1 mb-3">v0.1 → v0.4: construct, test, falsify, narrow</h2>
+        <FigureBEnforcementLadder />
+        <p class="fig-caption">
+          Each stage solved one narrower regime and opened the next boundary. v0.2 changed nothing;
+          v0.3 falsified v0.2's stronger reading.
+        </p>
+      </section>
+
+      <!-- ============ 6. Supported vs Not established ============ -->
+      <section class="ae-section">
+        <span class="section-kicker mb-2">Scientific boundary</span>
+        <h2 class="mt-1 mb-3">What this supports — and what it does not establish</h2>
+        <p class="ae-note mb-5">
+          Both columns are bounded the same way: everything on the left holds inside the audited
+          substrate and the frozen conditions; nothing on the right is claimed.
+        </p>
+        <ClaimBoundary
+          supports={supported}
+          nonClaims={notEstablished}
+          supportsTitle="Supported (on the audited substrate)"
+          nonClaimsTitle="Not established"
+        />
+      </section>
+
+      <!-- ============ 7. Cross-substrate replication ============ -->
+      <section class="ae-section">
+        <span class="section-kicker mb-2">Replication</span>
+        <div class="replication">
+          <h2 class="replication-heading">Cross-substrate replication: unresolved</h2>
+          <ul class="replication-list">
+            <li>Honcho passed structural qualification.</li>
+            <li>Its runtime environment remained unavailable, so no valid comparison units were produced.</li>
+            <li>No model calls. No inference drawn.</li>
+            <li>The single-substrate result is neither strengthened nor weakened by this.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ 8. Provenance ============ -->
+      <section class="ae-section">
+        <span class="section-kicker mb-2">Evidence provenance</span>
+        <h2 class="mt-1 mb-3">What kind of evidence this is</h2>
+        <div class="provenance">
+          {
+            provenance.map((p) => (
+              <div class="provenance-row">
+                <span class="provenance-label">{p.label}</span>
+                <span class="provenance-gloss">{p.gloss}</span>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- ============ 9. Full research note CTA ============ -->
+      <section class="ae-section ae-section-last">
+        <span class="section-kicker mb-2">Full research note</span>
+        <h2 class="mt-1 mb-3">Read the source, not the summary</h2>
+        <p class="ae-note mb-5">
+          The note carries the claim ledger, the per-section source map, and the correction log. Everything
+          on this page is a compressed view of it.
+        </p>
+        <!-- Full-note CTA, enabled by FULL_NOTE_URL. -->
+        {
+          FULL_NOTE_URL ? (
+            <a href={FULL_NOTE_URL} class="btn btn-primary">Read the full research note</a>
+          ) : (
+            <span class="btn btn-primary is-disabled" aria-disabled="true">Read the full research note</span>
+          )
+        }
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Reading column for prose; figures use the wider shell on their own. */
+  .ae-shell {
+    max-width: var(--width-content, 1000px);
+  }
+
+  .ae-section {
+    margin-bottom: 3.5rem;
+    padding-top: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .ae-section {
+      margin-bottom: 5rem;
+    }
+  }
+  .ae-section-last {
+    margin-bottom: 0;
+  }
+
+  /* ---- Hero ---- */
+  .scope-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-sm, 3px);
+    padding: 0.2rem 0.55rem;
+  }
+  .ae-descriptor {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+    max-width: 44rem;
+    margin: 0;
+  }
+  .ae-meta {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0.75rem 0 0;
+  }
+
+  /* ---- Research question ---- */
+  .ae-question {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    line-height: 1.35;
+    color: var(--color-ink);
+    max-width: 44rem;
+    margin: 0;
+  }
+
+  /* ---- Main finding callout: divergence accent, qualifier inside the box ---- */
+  .finding {
+    border: 1px solid var(--color-rule);
+    border-left: 3px solid var(--color-primary);
+    border-radius: var(--radius-md, 6px);
+    background: var(--color-surface);
+    padding: 1.15rem 1.35rem;
+    max-width: 44rem;
+  }
+  .finding-primary {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--color-ink);
+    margin: 0 0 0.5rem;
+  }
+  .finding-qualifier {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-text-dim);
+    margin: 0;
+  }
+
+  .ae-note {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+    max-width: 44rem;
+  }
+
+  .fig-caption {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--color-text-dim);
+    max-width: 44rem;
+    margin: 0.9rem 0 0;
+  }
+
+  .fig-inline-link {
+    display: inline-block;
+    margin-top: 0.45rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--color-primary);
+  }
+  .fig-inline-link.is-disabled {
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+  }
+
+  /* ---- Replication: neutral by rule. No amber, no warning icon. ---- */
+  .replication {
+    border: 1px dashed var(--color-rule);
+    border-radius: var(--radius-md, 6px);
+    background: transparent;
+    padding: 1.1rem 1.25rem;
+    max-width: 44rem;
+  }
+  .replication-heading {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-text-dim);
+    margin: 0 0 0.6rem;
+  }
+  .replication-list {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+  }
+  .replication-list li + li {
+    margin-top: 0.25rem;
+  }
+
+  /* ---- Provenance ---- */
+  .provenance {
+    border-top: 1px solid var(--color-rule-light);
+    max-width: 46rem;
+  }
+  .provenance-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 1.25rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--color-rule-light);
+  }
+  .provenance-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-brand);
+    /* Must be able to shrink inside the narrow flex row: a hard 20rem
+       min-width forces the document 40px past a 320px viewport. */
+    min-width: 0;
+    flex: 1 1 20rem;
+    overflow-wrap: anywhere;
+  }
+  .provenance-gloss {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: var(--color-text-dim);
+    flex: 1 1 18rem;
+  }
+
+  .btn.is-disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  .cta-pending {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    max-width: 44rem;
+    margin: 0.7rem 0 0;
+  }
+</style>

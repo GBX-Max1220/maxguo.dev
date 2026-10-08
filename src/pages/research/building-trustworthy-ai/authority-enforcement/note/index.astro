@@ -1,0 +1,879 @@
+---
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../../../components/Breadcrumb.astro';
+import NoteTable from '../../../../../components/NoteTable.astro';
+import FigureACrossConsumerDivergence from '../../../../../components/figures/FigureACrossConsumerDivergence.astro';
+import FigureBEnforcementLadder from '../../../../../components/figures/FigureBEnforcementLadder.astro';
+
+/**
+ * Public HTML edition of the frozen research note v0.1.1.
+ *
+ * Content source (frozen, read-only):
+ *   authority_enforcement_external_research_note_v011/
+ *   AUTHORITY_ENFORCEMENT_EXTERNAL_RESEARCH_NOTE_V011.md
+ *
+ * This is a PACKAGING surface, not a research surface.
+ *   - Prose is reproduced verbatim from the frozen note. Where Markdown syntax
+ *     had to become site markup, the words were not changed.
+ *   - No claim here is stronger, broader, or less qualified than the frozen
+ *     note. Adding one is a governance violation, not a copy edit.
+ *   - No new diagram is drawn. Figure A and Figure B are the two already
+ *     approved figures, reused unchanged as presentation aids.
+ *
+ * Frozen v0.1.1 status, preserved on this page:
+ *   EVIDENCE_GROUNDING = PASS · CLAIM_SCOPE = DISCIPLINED ·
+ *   NOVELTY_DISCIPLINE = PASS · TITLE_SCOPE = DISCIPLINED ·
+ *   HONCHO_REPRESENTATION = PRECISE
+ */
+
+const OVERVIEW_URL = '/research/building-trustworthy-ai/authority-enforcement/';
+
+const provenance = [
+  {
+    label: 'EMPIRICAL_EVIDENCE_FROM_FROZEN_RUNS',
+    gloss:
+      'The v0.1–v0.4 results, the consumer-consistency audit, and the cross-substrate attempts were executed as preregistered experiments at the time they were created. This note reran none of them.',
+  },
+  {
+    label: 'RECOVERED_AND_HASH_VERIFIED_DURING_CONSOLIDATION',
+    gloss: 'The consolidation step recovered the protected inputs and verified their presence, inventories, and hashes. Recovery verification is not re-execution.',
+  },
+  {
+    label: 'INDEPENDENT_ARTIFACT_REVIEWED',
+    gloss:
+      'An independent adversarial reviewer (a different agent and model) inspected the frozen artifacts and produced the review and revision map cited in Section 5. That review inspected artifacts; it produced no separate empirical replication.',
+  },
+  {
+    label: 'NOT_INDEPENDENTLY_EMPIRICALLY_REPLICATED',
+    gloss: 'No stage of this ladder has been reproduced by an independent agent or on an independent substrate. The single attempt at the latter remained unresolved.',
+  },
+];
+
+const consumersRows = [
+  [
+    '`profileSnapshot(includePreferences=true)`',
+    'standing-context input constructor (preference admission seam)',
+    'CONTEXT_ELIGIBLE',
+  ],
+  ['`profileBrief` / `renderBrief`', 'profile context-summary constructor', 'CONTEXT_ELIGIBLE'],
+  [
+    'stdio MCP `tools/call ijfw_brain/profile.brief`',
+    'real tool response through a live child process',
+    'CONTEXT_ELIGIBLE',
+  ],
+];
+
+const conditionsRows = [
+  ['Absent', 'Block', 'Include', 'Include', 'Visible', 'CROSS_CONSUMER_INCONSISTENCY'],
+  ['Pending', 'Block', 'Include', 'Include', 'Visible', 'CROSS_CONSUMER_INCONSISTENCY'],
+  ['Approved', 'Include', 'Include', 'Include', 'Visible', 'CONSISTENT_ALLOW'],
+  ['Rejected', 'Block', 'Include', 'Include', 'Visible', 'CROSS_CONSUMER_INCONSISTENCY'],
+];
+
+const ladderRows = [
+  [
+    'v0.1',
+    'Do all behavioral consumers apply the same canonical decision?',
+    'Same unapproved state blocked by one constructor and admitted by a second constructor, with the MCP response reaching an emitted boundary by reusing that brief path rather than resolving authority independently; 2 disagreeing pairs',
+    'Shared canonical decision semantics threaded into all audited behavioral paths; predicate unchanged',
+    'Cross-consumer static consistency on 3 audited paths; approved behavior and raw/audit visibility preserved',
+    'Not all repository consumers; MCP delegates brief and is not a separate authority source; no host/model outcome',
+  ],
+  [
+    'v0.2',
+    'Do completed grant/revoke transitions reach new calls?',
+    'No new failure in the normal paths; stale supplied-state sensitivity fixture shows stale inputs are observable',
+    'None (zero implementation change; declared replication)',
+    'Completed-transition freshness for operations starting after a completed transition, retained and fresh processes',
+    'No mid-action revocation; no retroactive retraction of delivered context; no concurrency claim; stale-object construct is a calibration fixture, not primary evidence',
+  ],
+  [
+    'v0.3',
+    'Is fresh lookup at check sufficient when authority changes before use?',
+    '3 stale-allow + 3 stale-block decision–use races on unchanged source',
+    '14-line adapter enclosing check→construction/emission in the existing profile lock',
+    'Atomic decision–use ordering for participating operations with cooperating writers on the same lock',
+    'Unwrapped callers remain racy; lock not shown universally necessary; no lock-failure/recovery, nesting, non-cooperating writes, or distributed atomicity',
+  ],
+  [
+    'v0.4',
+    'Can protocol participation be checked mechanically?',
+    '3 declared behavioral entries omitted complete atomic participation',
+    'Fixed-purpose mediated facade and adapters plus executable closed-inventory gate',
+    'Deterministic check-time bypass detection over the seven declared entry paths; observers and writers preserved',
+    'Detection, not prevention or sandboxing; original modules callable and `bypass_possible = true`; no repository-wide completeness; no protection for undeclared callers',
+  ],
+];
+
+const boundaryRows = [
+  [
+    'Same canonical authority decision enforced inconsistently across behavioral consumers',
+    'EMPIRICAL (frozen runs)',
+    'IJFW consumer-consistency audit; 120 observations, 2 processes, 4 authority conditions, fixed profile bytes',
+    '3 behavioral consumers, 1 synthetic correction, 1 pin, 1 host/config',
+    'No downstream model behavior; no repository-wide consumer inventory; raw/audit visibility excluded from the finding',
+  ],
+  [
+    'Shared enforcement semantics remove the audited cross-consumer inconsistency',
+    'EMPIRICAL (frozen runs)',
+    'v0.1 paired 8-cell matrix; 2 → 0 disagreeing pairs; 0 approved false blocks; 0 lost visibility',
+    '3 audited paths; predicate unchanged',
+    'One fixture; MCP is an output path, not an independent decision source; no claim about other consumers',
+  ],
+  [
+    'Completed grant/revoke transitions propagate to new calls under current-state lookup',
+    'EMPIRICAL (frozen runs)',
+    'v0.2 two 32-row executions; real canonical read traces; retained/fresh agreement; 0 stale allows/blocks',
+    'Operations beginning after a completed transition; retained and fresh processes',
+    'Serialized regime only; no concurrency; no retroactive retraction; stale-object fixture is secondary',
+  ],
+  [
+    'Current-state lookup is insufficient under decision–use races; an atomic boundary is sufficient',
+    'EMPIRICAL (frozen runs)',
+    'v0.3 18-cell matrix; 3+3 real races before, 0+0 after; 6 real lock contentions',
+    'Participating operations, cooperating canonical writers, same lock',
+    'Lock necessity not established; unwrapped callers unprotected; no lock-failure/recovery or distributed guarantee',
+  ],
+  [
+    'Mediated entry plus executable checks remove undetected bypasses in the declared inventory',
+    'EMPIRICAL (frozen runs)',
+    'v0.4 omissions 3 → 0; 11 bounded cases; gate exit 0/1; executed raw-reader and direct-writer negatives',
+    '7 declared/adapted entry paths; trusted inventory and fingerprints',
+    'Detection only; original modules callable; `bypass_possible = true` outside the mediated interface; no repository-wide prevention',
+  ],
+  [
+    'Raw/audit observability preserved throughout',
+    'EMPIRICAL (frozen runs)',
+    '0 lost visibility counts in v0.1–v0.4; observers 2 → 2',
+    'Audited non-behavioral paths only',
+    'Does not imply all raw visibility is harmless; separation is detect-only and unenforced for undeclared callers',
+  ],
+  [
+    'The mechanism generalizes to other agent-memory systems',
+    'NOT SUPPORTED',
+    'No second substrate was successfully executed',
+    '—',
+    'Explicitly disclaimed',
+  ],
+  [
+    'Cross-substrate replication of the consumer divergence occurred',
+    'NOT SUPPORTED (unresolved)',
+    'Honcho qualified structurally; zero valid runtime cells; zero model calls',
+    '—',
+    'Infrastructure unavailable; no mechanism or behavioral inference drawn',
+  ],
+  [
+    'Any downstream model, host, or action consequence',
+    'NOT MEASURED',
+    'No LLM call in any stage',
+    '—',
+    'Ladder stops at construction/emission',
+  ],
+  [
+    'Priority, universality, or repository-wide prevention',
+    'NOT CLAIMED',
+    '—',
+    '—',
+    'Disclaimed throughout',
+  ],
+];
+
+const adjacentRows = [
+  [
+    'Always-On Agents (arXiv:2606.30306)',
+    'Persistent state as a governed object with authority as one of six state axes; a multi-stage lifecycle; propagation explicitly flagged as unstudied',
+    'No new lifecycle, taxonomy, or prevalence claim',
+  ],
+  [
+    'TMA-NM / origin-bound authority (arXiv:2606.24322)',
+    'Non-malleable, origin-bound memory authority with machine-checked guarantees and model-level evaluation',
+    'No provenance mechanism, no laundering defense, no security guarantee',
+  ],
+  [
+    'CommitGuard / commit-time authorization (arXiv:2607.10487)',
+    'Freshness, causal priority, effect binding, and eligibility at the durable-commit boundary; explicit TOCTOU lineage',
+    'No commit-time mechanism; our decision–use boundary is a narrower, upstream special case',
+  ],
+  [
+    'PPMF / provenance firewall (arXiv:2607.29167)',
+    'Non-amplification of memory authority into tool calls',
+    'No provenance firewall, no risk-policy enforcement',
+  ],
+  [
+    'EAL / endogenous authorization laundering (arXiv:2609.01836)',
+    'Authorization state as memory content; writer-versus-executor divergence with measured safety–utility tradeoffs',
+    'No laundering result, no model-executor outcome, no mitigation comparison',
+  ],
+  [
+    'Revoked but Still Authoritative (arXiv:2609.08258)',
+    'Retrieval-time revocation enforcement across five real memory systems and nine models, separating store properties from model properties',
+    'No revocation study; the frozen v0.2 freshness result is weaker than this work’s empirical treatment',
+  ],
+  [
+    'From Evidence to Effect / WTB (arXiv:2609.08472)',
+    'Authority semantics and runtime infrastructure for stateful agents; fixed-intent enforcement, shared evidence, transactional publication; freshness under live interleavings on real repositories',
+    'No runtime infrastructure, no repository-scale result, no authority semantics contribution',
+  ],
+  [
+    'Residual Authority Replay (arXiv:2609.33910)',
+    'Approval outliving its justifying context, with measured attack-surface consequences',
+    'No residual-authority or prompt-injection result',
+  ],
+  [
+    'MemLineage (arXiv:2605.14421); Security-oriented LLM lifecycle model (arXiv:2608.03626)',
+    'Lineage-guided memory enforcement; permission control as a named lifecycle stage',
+    'No lineage mechanism; no lifecycle framing claim',
+  ],
+];
+---
+
+<BaseLayout
+  title="Cross-Consumer Authority Enforcement in a Persistent Agent System: A Bounded Case Study"
+  description="Public HTML edition of research note v0.1.1: one canonical authority decision over one governed persistent state, enforced inconsistently across heterogeneous behavioral consumers in one audited agent-memory substrate."
+>
+  <div class="container-shell py-10">
+    <div class="note-shell">
+
+      <Breadcrumb path="/research/building-trustworthy-ai/authority-enforcement/note" />
+
+      <p class="note-back-top">
+        <a href={OVERVIEW_URL}>← Back to project overview</a>
+      </p>
+
+      <!-- ============ Title ============ -->
+      <header class="note-header">
+        <span class="scope-badge">Research note v0.1.1 · bounded single-substrate case study</span>
+        <h1 class="note-title">Cross-Consumer Authority Enforcement in a Persistent Agent System: A Bounded Case Study</h1>
+      </header>
+
+      <!-- ============ Provenance banner (prominent, above the abstract) ============ -->
+      <section class="note-prov" aria-label="Provenance and evidence banner">
+        <p class="note-prov-lead">
+          <strong>Provenance and evidence banner.</strong> This note is a synthesis and writing artifact. It reports <strong>no new experiments</strong>. All empirical content is inherited from frozen internal artifacts (v0.1–v0.4, the IJFW consumer-consistency audit, the independent adversarial review, the novelty/overlap audit, and the cross-substrate replication package). Consolidation recovered and hash-verified those records; an independent adversarial reviewer inspected the frozen artifacts. Neither consolidation, the adversarial review, the novelty audit, nor this note independently re-executed the experiments. Throughout this note, “supported”, “demonstrated”, “observed”, “reduced”, and “eliminated” refer to the <strong>recorded frozen evidence</strong>, not to a fresh replication.
+        </p>
+        <ul class="note-prov-labels">
+          {provenance.map((p) => (
+            <li class="note-prov-item">
+              <span class="note-prov-label">{p.label}</span>
+              <span class="note-prov-gloss">{p.gloss}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="note-prov-scope">
+          <strong>Scope in one line:</strong> one audited substrate, one synthetic fixture, participating operations and cooperating writers, seven declared entry paths, deterministic check-time detection, raw/audit observation preserved on audited non-behavioral paths. Original low-level modules remain technically callable; <code class="note-code">bypass_possible = true</code> outside the mediated interface. “Canonical” means canonical within the frozen artifact set, not universally canonical for agent systems.
+        </p>
+      </section>
+
+      <!-- ============ Abstract ============ -->
+      <section class="note-section" id="abstract">
+        <h2 class="note-h2">Abstract</h2>
+        <div class="note-prose">
+          <p>
+            Persistent agent state is frequently governed by an explicit authority decision — an approval, a revocation, a scope restriction — recorded separately from the state itself. This note reports a bounded case study of what happens <em>after</em> that decision exists. In one audited open-source agent-memory substrate (IJFW, release v1.6.5, pinned commit <code class="note-code">eda62f39…</code>), the same canonical authority decision over the same governed state was enforced inconsistently across heterogeneous behavioral consumers: the state was excluded by one context constructor and admitted by a second context constructor, with a real MCP tool response confirming that the admission reaches an emitted boundary — a further behaviorally relevant exposure path rather than independent evidence, because that response reuses the same brief path — while raw and audit visibility was preserved in every condition. We describe a four-stage constructive ladder built on that substrate: shared enforcement semantics across consumers (v0.1); completed-transition freshness under current-state lookup (v0.2); a deliberate falsification showing that current-state lookup is insufficient when authority changes between the check and the use, together with a sufficient atomic decision–use boundary (v0.3); and fixed-purpose mediated entry points with executable inventory checks that reduce undetected protocol omissions to zero within seven declared entry paths (v0.4). All results are bounded to one substrate, one synthetic fixture, participating operations and cooperating writers. The ladder measures construction and emission of behavioral context, not downstream model behavior. An attempted replication on a structurally qualified second substrate (Honcho) remained unresolved because its runtime dependency was unavailable after a single preregistered recovery attempt; no mechanism or behavioral inference was drawn from it. We claim no priority, no universal architecture, no repository-wide prevention, and no cross-system generalization.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 1. Motivation and Scope ============ -->
+      <section class="note-section" id="motivation-and-scope">
+        <h2 class="note-h2">1. Motivation and Scope</h2>
+        <div class="note-prose">
+          <p>
+            The broader research agenda behind this work is <strong>reliable adaptation under imperfect feedback</strong>: agent systems that learn from feedback, corrections, and observed outcomes must decide whether what they have learned should continue to govern behavior when the evidence, scope, or authorization conditions around it change. That agenda has several subprograms. This one is bounded to <strong>behavioral authority over persistent agent state</strong> — the question of whether a stored item that is <em>present</em> and <em>governed</em> is also <em>permitted</em> to enter the paths that shape agent behavior.
+          </p>
+          <p>Two distinctions organize everything that follows.</p>
+          <p>
+            <strong>State existence ≠ behavioral eligibility.</strong> A persistent store can hold an item — a correction, a preference, a derived conclusion, a commitment — while the system’s own authority rules say that the item must not be assembled into the context that drives the next action. Storage presence is a property of the store; behavioral eligibility is a property of the consumer. Confusing them turns every retained record into an authorization.
+          </p>
+          <p>
+            <strong>Observable ≠ behaviorally eligible.</strong> An authorized operator, an audit tool, or a debugging interface may legitimately <em>see</em> an item that no behavioral constructor may <em>use</em>. Visibility is an inspection capability. Counting it as an enforcement failure collapses two different predicates and makes every well-designed admin path look like a leak.
+          </p>
+          <p>
+            This note is deliberately narrow. It does not argue that persistent-state authority is a new concept; that framing is already present in 2026 work (Section 7). It does not propose a general lifecycle, a universal enforcement architecture, or a revised authorization semantics. It reports one audited instance of a specific failure shape, a constructive ladder that addresses it on that substrate, and one deliberate falsification that narrowed the claim.
+          </p>
+          <p>
+            <strong>Scope assumptions, stated up front.</strong> One audited substrate (IJFW, release v1.6.5). One synthetic governed state reconstructed through the substrate’s real capture and derivation pipeline. Three behavioral consumer paths and two observational paths. Local filesystem concurrency with cooperating canonical writers. Seven declared entry adapters. Downstream model behavior, host adoption, and real-user deployment are <strong>not</strong> measured anywhere in this note.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 2. Behavioral Authority and Consumer Enforcement ============ -->
+      <section class="note-section" id="behavioral-authority">
+        <h2 class="note-h2">2. Behavioral Authority and Consumer Enforcement</h2>
+        <div class="note-prose">
+          <p>
+            Let <em>s</em> be a governed persistent state item. Let <strong>A(s)</strong> be the canonical authority decision for a given purpose — in the audited substrate, an entry in an out-of-band approval registry combined with a citation-locator predicate, evaluated fail-closed so that absent, unknown, pending, and rejected all resolve to <em>not approved</em>. Let <strong>C₁ … Cₙ</strong> be the <em>consumers</em>: code paths that read persistent state and either assemble behaviorally relevant context or emit a response. Each consumer resolves its own admission predicate, yielding <strong>Eᵢ(s)</strong>, the behavioral eligibility of <em>s</em> at <em>Cᵢ</em>. Let <strong>Oⱼ(s)</strong> be observability of <em>s</em> at an inspection path <em>j</em>.
+          </p>
+          <p>
+            The failure shape studied here is <strong>consumer-enforcement divergence</strong>: <em>A(s)</em> is fixed and correct, yet <em>Eᵢ(s)</em> differs across <em>i</em>. Neither the store nor the decision is inconsistent; the inconsistency lives in how many independent admission predicates the system maintains for what its own declarations describe as one decision.
+          </p>
+          <p>Two structural observations make this shape easy to miss:</p>
+          <ul>
+            <li>
+              <strong>Partial centralization is enough to look centralized.</strong> The audited substrate stores one authority decision in one place and evaluates it through one canonical predicate function. But only some consumers call that function. Reuse of adjacent filters (sensitivity, redaction, token budget) creates the appearance of shared enforcement without sharing the authority decision. The measured architecture label was therefore <code class="note-code">PARTIALLY_CENTRALIZED</code>, not centralized and not fully distributed.
+            </li>
+            <li>
+              <strong>Divergence can be silent.</strong> If no consumer emits a diagnostic comparing its own admission outcome against the canonical decision, the system has no internal signal that one path disagrees with another. Divergence is then discoverable only by paired probing across consumers under a held-fixed state.
+            </li>
+          </ul>
+          <p>
+            Note what this analysis does <strong>not</strong> claim. It does not evaluate whether <em>A(s)</em> itself was warranted — whether the approval should have been granted, or whether a retained approval outlived its justifying evidence. Those are upstream questions about evidence quality, attribution, and maintenance. They are separable, and separating them is what lets a consumer-enforcement finding be stated without also claiming an authorization failure.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 3. Case Study ============ -->
+      <section class="note-section" id="case-study">
+        <h2 class="note-h2">3. Case Study: Cross-Consumer Enforcement Divergence</h2>
+        <div class="note-prose">
+          <p>
+            <strong>Substrate.</strong> IJFW is an open-source JavaScript agent-profile system (MCP server plus CLI and host hooks) that derives a persistent user profile from captured editing sessions, stores approval state out-of-band, and serves that profile through several output paths. Audit pin: commit <code class="note-code">eda62f39f08b3028d824de1d806fe05c1402fd94</code>, release v1.6.5, clean <code class="note-code">main</code> checkout. Source was read-only throughout.
+          </p>
+          <p>
+            <strong>Governed state.</strong> One synthetic correction atom recovered through the substrate’s real capture, derivation, and merge pipeline: <code class="note-code">correction::javascript::keep every parser error message beside the raise site in the same mo</code>, with three non-adjacent synthetic sessions supplying capture records and matching feedback. The complete profile was byte-identical across all conditions (SHA256 <code class="note-code">4da8041121f8…</code>). The authority carrier is <code class="note-code">approvals.json</code>, separate from the profile; the canonical admission predicate requires an approved state <em>and</em> a real citation locator. Host, sharing configuration, sensitivity policy, and token budget were held fixed.
+          </p>
+          <p><strong>Consumers.</strong> Three behavioral paths were exercised at the pin:</p>
+        </div>
+
+        <NoteTable
+          caption="Table — behavioral consumer paths exercised at the pin"
+          columns={['Path', 'Role', 'Measured effect']}
+          rows={consumersRows}
+        />
+
+        <div class="note-prose mt-6">
+          <p>
+            Two additional paths were exercised as controls: <code class="note-code">profileGet</code> (raw structured retrieval, RETRIEVABLE) and <code class="note-code">listInferences</code> / <code class="note-code">profile.audit</code> (inspection and provenance listing, OBSERVABLE_ONLY). MCP delegates to the brief path, so the three behavioral outputs are not three independent authority sources — the divergence of interest is between the <em>snapshot</em> branch and the <em>brief</em> branch, with the MCP row confirming that the divergence reaches a real emitted response.
+          </p>
+          <p>
+            <strong>Conditions and result.</strong> Four authority conditions — absent, pending, approved, rejected — were run in two separate fresh Node processes for deterministic mechanism reproduction — not independent experimental replication, not independent systems, and not model-level evidence — with 15 observations per condition per process (120 total), and with profile bytes and approval-registry bytes held fixed within each condition.
+          </p>
+        </div>
+
+        <NoteTable
+          caption="Table — authority condition × consumer outcome"
+          columns={['Authority condition', 'Snapshot context', 'Brief context', 'MCP brief response', 'Raw / audit visibility', 'Classification']}
+          rows={conditionsRows}
+        />
+
+        <div class="note-prose mt-6">
+          <p>
+            The absent/approved pair is the minimum decisive intervention; pending and rejected confirm that the omission is not an empty-registry special case. Encoded as a vector over the three behavioral consumers under the unapproved condition, the observed baseline is <code class="note-code">[false, true, true]</code> — <strong>two disagreeing consumer pairs</strong> — and the approved control is <code class="note-code">[true, true, true]</code> with zero false blocks.
+          </p>
+          <p>
+            <strong>What this is not.</strong> Raw <code class="note-code">profile.get</code> returning the unapproved atom, and <code class="note-code">profile.audit</code> listing it, are <em>not</em> counted as violations. Both are inspection features operating under their own visibility, sensitivity, and redaction rules; their rows deliberately carry no behavioral-eligibility value. The finding is also not a claim about model behavior. The audit measured <em>context eligibility</em> — whether a governed item is assembled into the text and fields that a behavioral constructor emits, and whether that text actually reaches an MCP response boundary. No LLM was invoked, no host prompt was observed, no ranking or action was measured. The verdict at the pin was <code class="note-code">CONSUMER_INCONSISTENCY_CONFIRMED</code>, bounded to these consumers and this opt-in configuration.
+          </p>
+        </div>
+
+        <figure class="note-figure">
+          <FigureACrossConsumerDivergence />
+          <figcaption class="note-figcaption">
+            Figure 1 — one canonical authority state feeding heterogeneous consumers with divergent behavioral eligibility, with the observational arm shown separately as intentionally non-behavioral.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ 4. Constructive Enforcement Ladder ============ -->
+      <section class="note-section" id="enforcement-ladder">
+        <h2 class="note-h2">4. Constructive Enforcement Ladder</h2>
+        <div class="note-prose">
+          <p>
+            The four stages below are paired, preregistered experiments on the same pinned substrate. Each stage begins from a boundary left open by the previous one. Classifications were frozen before execution in every stage, and failed or repaired attempts were retained rather than recast.
+          </p>
+        </div>
+
+        <h3 class="note-h3">4.1 Shared enforcement (v0.1) — spatial consumer consistency</h3>
+        <div class="note-prose">
+          <p>
+            <strong>Question.</strong> If all behavioral consumers resolve eligibility through the <em>same</em> canonical decision semantics, does the observed cross-consumer divergence disappear — and does it disappear without destroying legitimate observation?
+          </p>
+          <p>
+            <strong>Intervention.</strong> A three-file patch extending the existing decision seam: the existing approval-plus-citation predicate function was retained unchanged, the canonical registry was threaded into the brief path, and only preference/correction atoms in the brief’s behavioral branch were filtered. No authority API, authority state, derivation logic, atom content, or predicate semantics changed. The MCP dispatcher needed no separate gate because its response is produced by the brief path.
+          </p>
+          <p>
+            <strong>Result.</strong> Paired 8-cell matrix, baseline versus post, with the profile SHA256 identical across arms. Unapproved pairwise consumer inconsistencies <strong>2 → 0</strong>; approved false blocks <strong>0</strong>; lost legitimate audit visibility <strong>0</strong>. The same invariant, run against the frozen pre-intervention vector <code class="note-code">[false, true, true]</code>, fails — so the metric discriminates rather than merely passing. A deterministic regression test reconstructed the fixture and exercised a real MCP initialization and tool call: 1 passed, 0 failed.
+          </p>
+          <p>
+            <strong>Reading.</strong> A centralized decision store existed before v0.1 and was insufficient. What changed was that each behavioral path began <em>consuming</em> the shared decision. The supported claim is about shared consumption of one decision semantics, not about centralizing storage.
+          </p>
+        </div>
+
+        <h3 class="note-h3">4.2 Transition freshness (v0.2) — completed grant/revoke transitions</h3>
+        <div class="note-prose">
+          <p>
+            <strong>Question.</strong> v0.1 was static. If a canonical grant or revocation <em>completes</em>, do new constructions and requests observe the new authority without restarting the process?
+          </p>
+          <p>
+            <strong>Intervention. None.</strong> This stage changed zero implementation bytes; its “post” arm is a second execution of the identical frozen matrix against the recovered pinned source. It is declared replication, not treatment.
+          </p>
+          <p>
+            <strong>Result.</strong> Six retained groups plus two fresh-control groups yield 32 rows per execution (24 behavioral, 8 inspection). Across two independent executions: stale allows after revocation <strong>0</strong>, stale blocks after grant <strong>0</strong>, approved false blocks <strong>0</strong>, revoked false allows <strong>0</strong>, lost audit visibility <strong>0</strong>. Retained direct and MCP processes kept stable PIDs across both transitions; fresh-control processes in each arm observed the same current authority. The primary evidence is the real per-invocation canonical read traces together with retained/fresh agreement. A deliberately stale supplied-registry fixture produces 2 stale blocks and 2 stale allows per run and is rejected by the same classifier — this is a <strong>sensitivity fixture for detector calibration</strong>, not the primary evidence for freshness, and no freshness classification depends on it.
+          </p>
+          <p>
+            <strong>Reading.</strong> <code class="note-code">CURRENT_STATE_LOOKUP_SUFFICIENT</code> holds in the tested serialized regime: for operations that <em>begin after</em> a completed transition, per-invocation canonical lookup sufficed, and no authority version, transition timestamp comparison, invalidation channel, or content version was needed. This is deliberately not a concurrency result. v0.2 never claimed decision–use atomicity, and Section 4.3 shows that the stronger reading is false.
+          </p>
+        </div>
+
+        <h3 class="note-h3">4.3 Decision–use atomicity (v0.3) — falsification of current-state lookup</h3>
+        <div class="note-prose">
+          <p><strong>Question.</strong> Is fresh lookup at check time sufficient when authority changes <em>between</em> the check and the use?</p>
+          <p>This is the stage where the ladder deliberately tries to break its own prior result, and it succeeds.</p>
+          <p>
+            <strong>Exposed failure.</strong> The three behavioral paths are request-local: each resolves the registry into a local set or map, checks membership, and then builds the target line, inserts the field, or — for MCP — serializes and writes the response. No post-check revalidation and no consumer-side lock connects that local decision to a concurrently executing canonical writer. A harness that pauses after the native membership check has computed its value, while an independent worker completes a canonical transition, and then resumes the original consumer, produces on unchanged source: <strong>3 stale-allow races</strong> (approved check, completed revocation, stale admission) and <strong>3 stale-block races</strong> (pending check, completed grant, stale exclusion), across all three consumers. Ordering was established with shared-memory barriers and real writer schedules, not sleeps or probabilistic timing.
+          </p>
+          <p>
+            <strong>Repair.</strong> A 14-line helper encloses the supplied operation in the substrate’s <strong>existing</strong> profile lock, spanning fresh lookup through selected text/field construction, or through actual MCP emission and receipt. No new lock protocol, authority version, timestamp comparison, or content version was introduced. In the post matrix, all six attempted inside-window writes hit real contention on the held canonical lock and completed only after construction or emission; stale allows and stale blocks both go to <strong>0</strong>, with 0/36 lost individual raw/audit visibility checks.
+          </p>
+          <p>
+            <strong>Reading.</strong> The scientific result is the race and the placement of the boundary: correctness requires temporal coherence between the authority decision and the selected use. The shared profile lock is <strong>one sufficient implementation</strong> on this substrate for participating operations with cooperating writers; its universal necessity is not claimed, and equivalent revalidation, versioning, or transactional semantics remain conceptually available and untested here. The guarantee ends at the measured construction/emission boundary — it does not extend to arbitrary later use of returned data, to unwrapped callers, to non-cooperating writes, or to lock failure and recovery.
+          </p>
+        </div>
+
+        <h3 class="note-h3">4.4 Mediated entry and bypass detection (v0.4) — protocol participation</h3>
+        <div class="note-prose">
+          <p>
+            <strong>Question.</strong> v0.3’s boundary was opt-in: correctness still depended on each caller <em>remembering</em> to participate. Can participation be selected and verified mechanically?
+          </p>
+          <p>
+            <strong>Intervention.</strong> Two new native modules — a fixed-purpose access facade and a private persistent MCP transport — plus seven rewritten isolated entry adapters and a closed AST/import/hash gate. All 291 recovered original implementation files remain byte-identical (traceable to <code class="note-code">authority_protocol_completeness_v01/AUTHORITY_PROTOCOL_COMPLETENESS_V01_REPORT.md</code>, which records “all 291 recovered source hashes unchanged”; the same figure is restated in the independent artifact review). The facade separates three purposes: observational access (raw, audit), qualified behavioral construction (snapshot, brief, MCP brief), and canonical mutation (grant, revoke). Caller lock overrides inconsistent with the canonical lock are refused. The gate resolves aliases, checks exact module paths and literal purpose selectors, checks the trusted role inventory and implementation fingerprints, and rejects extra, computed, or dynamic source as UNRESOLVED rather than certifying it.
+          </p>
+          <p>
+            <strong>Result.</strong> Declared-adapter complete-protocol omissions <strong>3 → 0</strong> within the seven frozen declared entry paths; writer bypasses <strong>0 → 0</strong> (canonical writers were already correctly locked, so no writer defect is fabricated); legitimate raw observers <strong>2 → 2</strong>; fully mediated behavioral/writer paths 2 → 5. The gate exits 0 on the normal inventory and 1 with exact evidence on four violating/unresolved fixtures. Across eleven bounded cases — including a raw behavioral reader that actually formats pending content, a direct filesystem writer that actually flips approvals outside the API and lock, observer-result repurposing, legacy and aliased access, and counterfeit paths — eight are DETECTED, two are REFUSED_AT_CHECK_TIME_BY_THE_GATE (fixture-scoped gate refusal; no structural prevention implied), one correct-alias case NOT_APPLICABLE, and none is silently allowed within the frozen inventory. Seven entry runtime outputs are exactly equal before and after mediation.
+          </p>
+          <p>
+            <strong>Reading — and the ceiling of the claim.</strong> This is <strong>check-time deterministic detection over a declared inventory</strong>, not structural prevention. The original low-level modules remain technically callable; undeclared programs, caller intent outside trusted roles, a disabled or replaced gate, non-cooperating writers, and later reuse of already-returned values are outside scope. <code class="note-code">bypass_possible = true</code> remains true outside the controlled mediated interface. Stating this plainly is part of the result, not a hedge around it.
+          </p>
+        </div>
+
+        <figure class="note-figure">
+          <FigureBEnforcementLadder />
+          <figcaption class="note-figcaption">
+            Figure 2 — the v0.1 → v0.4 falsification ladder, showing each stage’s open boundary, the failure it exposed, and the guarantee it did and did not establish.
+          </figcaption>
+        </figure>
+
+        <h3 class="note-h3">4.5 Ladder summary</h3>
+        <p class="note-table-lead">TABLE 1 — v0.1–v0.4 constructive ladder.</p>
+        <NoteTable
+          caption="TABLE 1 — v0.1–v0.4 constructive ladder"
+          columns={['Version', 'Question', 'Failure exposed', 'Intervention', 'Supported guarantee', 'Explicit non-guarantee']}
+          rows={ladderRows}
+        />
+      </section>
+
+      <!-- ============ 5. What the Evidence Supports ============ -->
+      <section class="note-section" id="what-the-evidence-supports">
+        <h2 class="note-h2">5. What the Evidence Supports</h2>
+        <div class="note-prose">
+          <p>The strongest integrated statement supported by the four stages is:</p>
+        </div>
+        <blockquote class="note-quote">
+          <p>
+            <strong>On one audited persistent-agent substrate, the same canonical authority decision was enforced inconsistently across heterogeneous behavioral consumers. A shared enforcement contract removed that inconsistency while preserving approved behavior and legitimate raw/audit observability; subsequent falsification showed that completed-transition freshness was insufficient under decision–use races, motivating an atomic decision–use boundary and mediated access checks.</strong>
+          </p>
+        </blockquote>
+        <div class="note-prose">
+          <p>
+            Each clause carries a separate warrant: “inconsistently” from the v0.1 paired matrix and the pre-existing audit finding; “shared enforcement contract” from the v0.1 repair that changed no authority predicate; “preserving legitimate observability” from zero lost visibility counts across all four stages on frozen non-behavioral paths; “falsification” from the v0.3 race on unchanged source; “atomic boundary” from the v0.3 post matrix with real writer contention; “mediated access checks” from the v0.4 executed negatives and gate. Removing those qualifiers would outrun the evidence.
+          </p>
+          <p>
+            What the ladder establishes is a <strong>bounded enforcement contract spanning four regimes</strong> — spatial consumer consistency, completed-transition freshness, decision–use temporal integrity, and mediated protocol participation — under explicit scope assumptions. It is not a universal architecture. The mechanisms are standard (shared predicate, per-invocation lookup, one lock, a facade, an AST-level inventory check), the substrate is one synthetic fixture, and no alternative mechanism was experimentally compared. What is non-standard here is not any single mechanism but the shape of the evidence: a pre-existing cross-consumer divergence, a deliberate falsification that narrowed a prior positive result, and a participation check that is executable rather than asserted.
+          </p>
+        </div>
+
+        <p class="note-table-lead">TABLE 2 — Claim boundary.</p>
+        <NoteTable
+          caption="TABLE 2 — Claim boundary"
+          columns={['Claim', 'Status', 'Evidence', 'Scope', 'Limitation']}
+          rows={boundaryRows}
+        />
+
+        <div class="note-prose mt-6">
+          <p>
+            The independent adversarial review of the frozen v0.4 consolidation recorded <code class="note-code">NO_FATAL_FLAW</code>, <code class="note-code">BOUNDED_REUSABLE_DESIGN_MECHANISM_CONFIRMED</code>, <code class="note-code">DETECTION_DISCIPLINE_PRESERVED</code>, <code class="note-code">TEMPORAL_CLAIM_SOUND</code>, <code class="note-code">SUBSTRATE_SCOPE_DISCIPLINED</code>, <code class="note-code">REGRESSION_CHAIN_INTACT</code>, <code class="note-code">PREREGISTRATION_DISCIPLINE_STRONG</code>, and <code class="note-code">EVIDENCE_MATURITY = READY_FOR_EXTERNAL_TECHNICAL_REVIEW</code>, with revision limited to <code class="note-code">MINOR_CLAIM_CORRECTION</code> and the original core result retained. That review inspected artifacts; it did not replicate them.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 6. Cross-Substrate Replication Attempt ============ -->
+      <section class="note-section" id="cross-substrate-replication">
+        <h2 class="note-h2">6. Cross-Substrate Replication Attempt</h2>
+        <div class="note-prose">
+          <p>
+            A single-substrate finding invites one obvious question: is the divergence a property of this codebase or a recurring property of persistent-agent substrates? One bounded replication attempt was preregistered and executed. It did not resolve.
+          </p>
+          <p>
+            <strong>Second substrate.</strong> Honcho (pinned commit <code class="note-code">8e4df990…</code>, version 3.2.2) was structurally qualified against six preregistered criteria before any mechanism execution. The selected native decision is a session recall allowlist governing whether a persistent peer card is eligible for scoped behavioral context — a recall boundary, not an API authorization or a human approval. Two independently implemented behavioral consumers were identified: (A) the native session-context constructor, and (B) the native peer-chat preflight path. An admin SQL read of the same stored card served as the observational control. All six criteria passed. Qualification establishes <em>eligibility to test</em>, not a result.
+          </p>
+          <p>
+            <strong>What happened.</strong> Both fresh mechanism runs stopped before fixture creation: the required PostgreSQL dependency was unavailable. Syntax and import checks passed; zero contrast cells were produced. No model call, embedding call, transport canary, or behavioral pair was created, and IJFW was not rerun. One preregistered infrastructure recovery cycle was then permitted. Root cause was recorded before the action: the Docker backend could not initialize its global inference socket, leaving no listener on the declared database port; a normal Docker startup was attempted once, the same initialization failure recurred, and both database readiness probes timed out. No destructive global repair was performed. The recovery changed only transient processes and ordinary logs, and nothing in the frozen experiment design.
+          </p>
+          <p>
+            <strong>Final state.</strong> <code class="note-code">SECOND_SUBSTRATE_STATUS = QUALIFIED_HONCHO</code>; <code class="note-code">MECHANISM_STATUS = MECHANISM_PARTIAL</code>; <code class="note-code">BEHAVIORAL_STATUS = NOT_RUN</code>; <code class="note-code">FINAL_EXPERIMENT_STATUS = MECHANISM_UNRESOLVED</code>; <code class="note-code">NOVELTY_IMPACT = DIFFERENTIATION_UNCHANGED</code>.
+          </p>
+          <p>
+            <strong>How this should be read.</strong> Cross-substrate replication <strong>remained unresolved</strong>. It did not fail as a scientific result, and it did not succeed; an infrastructure failure is neither a replicated divergence nor a null. No mechanism or behavioral inference was drawn from Honcho, and the frozen single-substrate classifications were neither strengthened nor weakened. We report it here because a note that presents only its positive ladder would be hiding the one boundary that most constrains its own generality. Pre-registration, a single permitted recovery, and an explicit unresolved verdict are the discipline that makes the rest of the note readable.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 7. Relation to Adjacent 2026 Work ============ -->
+      <section class="note-section" id="adjacent-2026-work">
+        <h2 class="note-h2">7. Relation to Adjacent 2026 Work</h2>
+        <div class="note-prose">
+          <p>
+            All work discussed here precedes this project’s artifacts. No priority is claimed, and none is available on dates. The purpose of this section is to state what adjacent work already covers, what this note does not claim, and the narrow residue that remains.
+          </p>
+        </div>
+
+        <NoteTable
+          caption="Table — adjacent 2026 work and what this note does not claim against it"
+          columns={['Work', 'What it already covers', 'What this note does not claim against it']}
+          rows={adjacentRows}
+        />
+
+        <div class="note-prose mt-6">
+          <p>
+            The honest overlap assessment, from the completed novelty/overlap audit, is that the broad framings — persistent state as an authority object; staged authority failure; observable versus eligible; current lookup failing under a decision–use gap; atomic or revalidated boundaries as the remedy — are <strong>substantially to directly occupied</strong>. This note therefore does not present them as contributions.
+          </p>
+          <p>
+            The narrow residue is <strong>cross-consumer enforcement divergence</strong>: one canonical authority decision resolved through several heterogeneous behavioral consumer code paths inside a single system yielding inconsistent behavioral eligibility while raw/audit observation is preserved. Within the targeted 2026 overlap audit, we did not identify a directly matching treatment of multiple behavioral consumer code paths resolving the same canonical authority decision; the adjacent work examined there studies <em>role</em>-level divergence (store versus model; writer versus executor) and <em>boundary</em>-level divergence (which commit condition breaks under which hazard). This is a search-bounded differentiation, not a claim that such work is absent from the broader literature; accordingly we treat cross-consumer code-path divergence as a narrow observed differentiation rather than a priority claim. Two things cap that residue: the evidence is one synthetic fixture with no downstream behavioral measurement, and the general notion of divergent policy enforcement points is long-established in security systems — so this is a new <em>instance in agent memory</em>, not a new concept. A secondary, weaker residue is the bidirectional staleness (stale-allow <em>and</em> stale-block) measured at the agent’s own context-construction boundary, upstream of durable commit.
+          </p>
+          <p>
+            Accordingly, the audit’s external-form verdict is <code class="note-code">RESEARCH_NOTE_SEED</code>, with novelty <code class="note-code">DISTINCT_BUT_NARROW</code> and <code class="note-code">MIXED_RESEARCH_AND_HARDENING</code>. No strong differentiator was established, because no second substrate was successfully evaluated. This note is written to that ceiling.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 8. Limitations ============ -->
+      <section class="note-section" id="limitations">
+        <h2 class="note-h2">8. Limitations</h2>
+        <div class="note-prose">
+          <p>Every item below is a real boundary of the evidence, not a rhetorical hedge.</p>
+          <ol class="note-ol">
+            <li><strong>One successfully evaluated substrate.</strong> All positive and negative results come from IJFW at one pinned release on one synthetic governed state. Nothing here establishes prevalence or generality.</li>
+            <li><strong>No established cross-substrate replication.</strong> The one second substrate was structurally qualified but never executed; replication remains unresolved (Section 6).</li>
+            <li><strong>No downstream model-behavior result.</strong> The ladder measures whether governed state is assembled into behavioral context and emitted at a response boundary. It does not measure model adoption, output change, ranking, host behavior, or actions.</li>
+            <li><strong>No cross-model generalization.</strong> No model was called at any stage, and the separate behavioral pilot evidence in the wider program is single-model and unqualified for a second model.</li>
+            <li><strong>No repository-wide bypass prevention.</strong> Detection covers the seven declared entry paths under a frozen trusted inventory. Original low-level modules remain technically callable and <code class="note-code">bypass_possible = true</code> remains true outside the mediated interface.</li>
+            <li><strong>Non-cooperating writers remain outside the guarantee.</strong> The atomic boundary protects participating readers only against writers that use the same lock; direct storage writes are detected when present in an audited entry, not prevented.</li>
+            <li><strong>No distributed-system guarantee.</strong> Tested concurrency is local: a real MCP child process and local canonical workers. Arbitrary processes, distributed stores and transactions, and network failure conditions were not tested.</li>
+            <li><strong>No upstream authority-warrant guarantee.</strong> Whether an approval <em>should</em> have been granted, whether it was correctly attributed, and whether it survives changed evidence are separate questions this ladder does not address. A consumer can faithfully enforce an incorrect decision.</li>
+            <li><strong>Much of the surrounding space is already occupied.</strong> Authority lifecycle, revocation, provenance, and commit-time authorization are each covered by prior 2026 work, several on far stronger substrates. This note claims no priority and no framework.</li>
+          </ol>
+          <p>
+            Additional standing boundaries: lock failure and recovery, nested writes under a non-reentrant lock, long-held operations, production deployment, retroactive revocation of already-delivered context, and removal of prior behavioral influence are all untested and unclaimed.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 9. Discussion ============ -->
+      <section class="note-section" id="discussion">
+        <h2 class="note-h2">9. Discussion</h2>
+        <div class="note-prose">
+          <p>
+            Why write this as a note rather than as a systems paper? Because the object is a bounded instance plus a falsification sequence, and its value depends on the reader being able to see exactly where the guarantees stop. A paper-shaped artifact would be pressured to promote the four-stage ladder into an architecture; the evidence does not support that, and the independent review specifically warned against letting the mechanism names travel without their scope qualifiers.
+          </p>
+          <p>Three aspects deserve emphasis.</p>
+          <p>
+            <strong>The negative result is the most informative step.</strong> v0.2 established that current-state lookup sufficed for completed transitions. v0.3 showed that the same mechanism fails under a decision–use race — 3 stale allows and 3 stale blocks on unchanged source, in both directions. A ladder that had stopped at v0.2 would have reported a clean positive result with a hidden boundary. The value of v0.3 is not that it found a lock useful; it is that it located the boundary where coherence between decision and use becomes necessary, and demonstrated that the substrate’s existing serialization primitive is one sufficient construction of it.
+          </p>
+          <p>
+            <strong>Detection is a legitimate engineering ceiling, and it should be stated as one.</strong> v0.4 reduces undetected protocol omissions to zero within seven declared paths. It does not make bypass impossible, because the underlying language and filesystem allow direct access and the original modules remain callable. Presenting that as prevention would be false and would be caught immediately by a reviewer who reads the inventory definition.
+          </p>
+          <p>
+            <strong>Discipline is part of the contribution, but not the whole of it.</strong> Preregistration before execution, frozen classifications before results, retained failed attempts, a 14-item non-guarantee list, and an independent adversarial review with no fatal flaws are methodological assets. On their own they would be worth little; the real observed cross-consumer divergence and the real bidirectional race are what they attach to. Conversely, those two findings without the discipline would not survive hostile reading. The note needs both.
+          </p>
+          <p>
+            What would change the judgment is narrow and specific: a cross-substrate replication showing the same consumer-divergence shape in two or more independent agent-memory systems, with a downstream model-level consequence attached. That would move the surviving differentiator from moderate to strong. Its absence is currently the single largest constraint on this work, and Section 6 is the honest record of that absence.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 10. Conclusion ============ -->
+      <section class="note-section" id="conclusion">
+        <h2 class="note-h2">10. Conclusion</h2>
+        <div class="note-prose">
+          <p>
+            Persistent agent state can be governed by a clear canonical authority decision and still be enforced inconsistently, because authority is applied by consumers rather than by the store. On one audited substrate, one decision and one governed state produced divergent behavioral eligibility across heterogeneous consumers while raw and audit visibility was preserved. A shared enforcement contract removed that divergence; a completed-transition regime held under fresh lookup; a deliberate falsification showed fresh lookup was insufficient under decision–use races and that an atomic ordering boundary was sufficient for participating operations; and fixed-purpose mediated entry with executable inventory checks removed undetected protocol omissions within the declared paths. Each of those guarantees is bounded, and the note states where each one ends. An attempted second-substrate replication remained unresolved, and no inference was drawn from it. The result is a bounded enforcement contract and a documented falsification sequence on one substrate — not an architecture, not a lifecycle, and not a claim of priority.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 11. Provenance / Evidence Note ============ -->
+      <section class="note-section" id="provenance">
+        <h2 class="note-h2">11. Provenance / Evidence Note</h2>
+        <div class="note-prose">
+          <p>Empirical content in this note is inherited from frozen artifacts and must be read with the following distinctions.</p>
+          <ul>
+            <li>
+              <strong>EMPIRICAL_EVIDENCE_FROM_FROZEN_RUNS.</strong> The v0.1–v0.4 results, the consumer-consistency audit, and the cross-substrate attempts were executed as preregistered experiments at the time they were created. This note reran none of them.
+            </li>
+            <li>
+              <strong>RECOVERED_AND_HASH_VERIFIED_DURING_CONSOLIDATION.</strong> The consolidation step recovered the protected inputs and verified their presence, inventories, and hashes. Recovery verification is not re-execution.
+            </li>
+            <li>
+              <strong>INDEPENDENT_ARTIFACT_REVIEWED.</strong> An independent adversarial reviewer (a different agent and model) inspected the frozen artifacts and produced the review and revision map cited in Section 5. That review inspected artifacts; it produced no separate empirical replication.
+            </li>
+            <li>
+              <strong>NOT_INDEPENDENTLY_EMPIRICALLY_REPLICATED.</strong> No stage of this ladder has been reproduced by an independent agent or on an independent substrate. The single attempt at the latter remained unresolved.
+            </li>
+          </ul>
+          <p>
+            No frozen artifact was modified by this note. No experiment was run. No literature review beyond the completed novelty/overlap audit was performed, and no venue is proposed.
+          </p>
+          <p>
+            Artifact locators, per-section source mapping, the full external claim ledger, and the correction log accompany this note in <code class="note-code">AUTHORITY_ENFORCEMENT_EXTERNAL_NOTE_V011_SOURCE_MAP.md</code>, <code class="note-code">AUTHORITY_ENFORCEMENT_EXTERNAL_NOTE_V011_CLAIM_LEDGER.csv</code>, and <code class="note-code">AUTHORITY_ENFORCEMENT_EXTERNAL_NOTE_V011_CORRECTION_LOG.md</code>. Figure specifications are unchanged from v0.1 and remain in <code class="note-code">AUTHORITY_ENFORCEMENT_EXTERNAL_NOTE_V011_FIGURE_SPECS.md</code>.
+          </p>
+          <p>
+            <strong>CORRECTION_LAYER (v0.1.1).</strong> This document is the frozen v0.1 note with exactly six claim corrections (C1–C6) applied from the independent hostile review; see the correction log. No empirical claim, count, classification, or guarantee was changed, added, or removed by this layer.
+          </p>
+          <p class="note-status">
+            End of Research Note v0.1.1. Status: the six corrections (C1–C6) from the independent hostile review have been applied. Suitable for PI/collaborator sharing, portfolio source material, and public technical circulation as a bounded single-substrate case study; not a submission-style manuscript seed, and no venue is proposed. No automatic revision follows.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ End navigation ============ -->
+      <section class="note-section note-section-last">
+        <p class="note-back-end">
+          <a href={OVERVIEW_URL}>← Back to project overview</a>
+        </p>
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .note-shell {
+    max-width: var(--width-shell);
+  }
+
+  .note-back-top {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+    margin: 0 0 1.25rem;
+  }
+  .note-back-top a,
+  .note-back-end a {
+    color: var(--color-primary);
+  }
+  .note-back-end {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+    margin: 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-rule-light);
+  }
+
+  /* ---- Title ---- */
+  .note-header {
+    margin-bottom: 1.75rem;
+  }
+  .scope-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-sm, 3px);
+    padding: 0.2rem 0.55rem;
+  }
+  .note-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3.6vw, 2.15rem);
+    line-height: 1.2;
+    color: var(--color-ink);
+    margin: 0.85rem 0 0;
+    max-width: 40rem;
+    overflow-wrap: break-word;
+  }
+
+  /* ---- Provenance banner: above the abstract, never a footer ---- */
+  .note-prov {
+    border: 1px solid var(--color-rule);
+    border-left: 3px solid var(--color-brand);
+    border-radius: var(--radius-md, 6px);
+    background: var(--color-surface);
+    padding: 1.15rem 1.35rem;
+    margin-bottom: 2.75rem;
+  }
+  .note-prov-lead {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    margin: 0 0 1rem;
+    max-width: 52rem;
+  }
+  .note-prov-labels {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+    border-top: 1px solid var(--color-rule-light);
+  }
+  .note-prov-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 1.25rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--color-rule-light);
+  }
+  .note-prov-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-brand);
+    flex: 1 1 20rem;
+    overflow-wrap: anywhere;
+  }
+  .note-prov-gloss {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--color-text-dim);
+    flex: 1 1 18rem;
+    overflow-wrap: anywhere;
+  }
+  .note-prov-scope {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+    margin: 0;
+    max-width: 52rem;
+  }
+
+  /* ---- Sections ---- */
+  .note-section {
+    margin-bottom: 2.75rem;
+  }
+  @media (min-width: 768px) {
+    .note-section {
+      margin-bottom: 3.5rem;
+    }
+  }
+  .note-section-last {
+    margin-bottom: 0;
+  }
+
+  .note-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+    line-height: 1.3;
+    color: var(--color-ink);
+    margin: 0 0 0.9rem;
+    padding-top: 0.4rem;
+    max-width: 44rem;
+    overflow-wrap: break-word;
+  }
+  .note-h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 1.9vw, 1.15rem);
+    line-height: 1.35;
+    color: var(--color-ink);
+    margin: 2rem 0 0.7rem;
+    max-width: 44rem;
+    overflow-wrap: break-word;
+  }
+
+  /* ---- Prose ---- */
+  .note-prose p,
+  .note-prose ul,
+  .note-prose ol {
+    max-width: 46rem;
+  }
+  .note-prose p {
+    font-size: 0.95rem;
+    line-height: 1.72;
+    color: var(--color-text-dim);
+    margin: 0 0 1rem;
+    overflow-wrap: break-word;
+  }
+  .note-prose ul {
+    margin: 0 0 1rem;
+    padding-left: 1.15rem;
+  }
+  .note-prose li {
+    font-size: 0.95rem;
+    line-height: 1.72;
+    color: var(--color-text-dim);
+    margin-bottom: 0.6rem;
+    /* Long provenance identifiers (e.g. RECOVERED_AND_HASH_VERIFIED_DURING_CONSOLIDATION)
+       have no default break opportunity and overflow narrow viewports without this. */
+    overflow-wrap: anywhere;
+  }
+  .note-prose strong,
+  .note-prose em {
+    overflow-wrap: anywhere;
+  }
+  .note-ol {
+    padding-left: 1.35rem;
+  }
+  .note-ol li {
+    margin-bottom: 0.75rem;
+  }
+
+  .note-quote {
+    border-left: 3px solid var(--color-primary);
+    background: var(--color-surface);
+    border-radius: var(--radius-md, 6px);
+    padding: 1.1rem 1.3rem;
+    margin: 0 0 1.25rem;
+    max-width: 46rem;
+  }
+  .note-quote p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-ink);
+    margin: 0;
+  }
+
+  .note-code {
+    font-family: var(--font-mono);
+    font-size: 0.82em;
+    background: var(--color-page-alt);
+    border: 1px solid var(--color-rule-light);
+    border-radius: 3px;
+    padding: 0.05rem 0.28rem;
+    overflow-wrap: anywhere;
+  }
+
+  .note-status {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+    border-top: 1px solid var(--color-rule-light);
+    padding-top: 0.9rem;
+    margin-top: 1.25rem;
+  }
+
+  /* ---- Figures and tables ---- */
+  .note-figure {
+    margin: 1.75rem 0 0.5rem;
+  }
+  .note-figcaption {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--color-text-dim);
+    max-width: 46rem;
+    margin: 0.9rem 0 0;
+  }
+  .note-table-lead {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin: 0 0 0.5rem;
+  }
+  .mt-6 {
+    margin-top: 1.5rem;
+  }
+</style>

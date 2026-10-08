@@ -1,0 +1,102 @@
+---
+/**
+ * Generic research-note table.
+ *
+ * Renders one table two ways from a single data array, so the values cannot
+ * drift between breakpoints:
+ *
+ *   - desktop / large tablet: a real <table> reusing the site's existing
+ *     `.fact-table` styling (no new table CSS);
+ *   - below `lg` (1024px): the site's existing `.fact-record` stacked-record
+ *     pattern, one labelled row per column.
+ *
+ * Every column is emitted at every breakpoint with its own header label, so no
+ * column is hidden and no value is dropped. Non-guarantee / Limitation columns
+ * are ordinary columns and are never collapsed.
+ *
+ * Backticked spans in cell text are rendered as inline <code> so technical
+ * tokens survive the Markdown → HTML move unchanged.
+ */
+
+interface Props {
+  caption: string;
+  columns: string[];
+  rows: string[][];
+}
+
+const { caption, columns, rows } = Astro.props;
+
+/** Turn `token` into <code>token</code>; everything else is left as-is. */
+function inline(text: string): string {
+  return text.replace(/`([^`]+)`/g, '<code class="note-code">$1</code>');
+}
+---
+
+<div class="hidden lg:block overflow-x-auto">
+  <table class="fact-table">
+    <caption>{caption}</caption>
+    <thead>
+      <tr>
+        {columns.map((c) => <th scope="col">{c}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((row) => (
+          <tr>
+            {row.map((cell, i) =>
+              i === 0 ? (
+                <td><strong set:html={inline(cell)} /></td>
+              ) : (
+                <td set:html={inline(cell)} />
+              )
+            )}
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+
+<div class="lg:hidden mt-5">
+  <p class="font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[var(--color-text-muted)] mb-2">
+    {caption}
+  </p>
+  <div class="border-t border-[var(--color-rule-light)]">
+    {
+      rows.map((row) => (
+        <div class="fact-record">
+          {row.map((cell, i) => (
+            <p class={i === 0 ? 'fact-record-value' : 'fact-record-row'}>
+              <span class="fact-record-label">{columns[i]}</span>
+              <span set:html={inline(cell)} />
+            </p>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  /* Scope note: this component owns the inline <code> look for note tables, so
+     the rendering does not depend on a parent page's scoped style. */
+  .note-code {
+    font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+    font-size: 0.82em;
+    background: var(--color-page-alt, #f5f5f4);
+    border: 1px solid var(--color-rule-light, #e7e5e4);
+    border-radius: 3px;
+    padding: 0.05rem 0.28rem;
+    overflow-wrap: anywhere;
+  }
+  /* Long unbreakable tokens (identifiers, paths, code samples) must not push the
+     stacked record wider than a narrow viewport. */
+  .fact-record-value,
+  .fact-record-row {
+    overflow-wrap: anywhere;
+  }
+  .fact-record-value strong {
+    overflow-wrap: anywhere;
+  }
+</style>

@@ -1,0 +1,391 @@
+---
+/**
+ * Figure B — v0.1 → v0.4 Enforcement Ladder.
+ *
+ * Rendered from authority_enforcement_presentation_design_v01/
+ * FIGURE_B_ENFORCEMENT_LADDER_SPEC.md. All slot copy is verbatim from the
+ * frozen spec; nothing here is paraphrased, shortened, or strengthened.
+ *
+ * Implementation note — marking language, not SVG text:
+ *   The spec asks for a vector diagram. Every one of the twenty slots holds a
+ *   full sentence, and SVG <text> does not wrap: reproducing them in SVG would
+ *   require hand-broken <tspan> runs that silently collide whenever the font
+ *   metrics or the viewport change. This figure is therefore built from native
+ *   DOM elements (hairline borders, mono chips, CSS connectors) so that text
+ *   wraps, reflows, and stays selectable. It is still a flat systems diagram:
+ *   no gradients, no shadows, no imagery, no raster assets.
+ *
+ * Claim-bearing invariants enforced here (do not "tidy" them away):
+ *   1. Every stage shows BOTH a supported guarantee and a non-guarantee, at
+ *      identical type size, weight, and padding. Never collapsed, never
+ *      tooltip-only, never fine print, on any viewport.
+ *   2. v0.2 carries the NO CHANGE token — declared replication, not treatment.
+ *   3. v0.3 carries the FALSIFICATION token — it broke v0.2's stronger reading.
+ *   4. v0.4 uses detection language, never "prevented".
+ *   5. The depth axis is a label strip, not a progress bar. No arrowheads
+ *      pointing "up", no completion indicator, no "final" row.
+ *   6. The boundary label is inside the figure, not in the page margin.
+ */
+
+interface Stage {
+  version: string;
+  name: string;
+  token?: 'NO CHANGE' | 'FALSIFICATION';
+  tokenNote?: string;
+  question: string;
+  failure: string;
+  intervention: string;
+  guarantee: string;
+  nonGuarantee: string;
+  raceCell?: boolean;
+}
+
+const stages: Stage[] = [
+  {
+    version: 'v0.1',
+    name: 'Spatial consistency',
+    question: 'Can multiple consumers enforce one canonical authority decision consistently?',
+    failure:
+      'Cross-consumer inconsistency: the same unapproved state blocked by one constructor, admitted by another — 2 disagreeing consumer pairs.',
+    intervention:
+      'Shared enforcement: the existing canonical predicate threaded through all audited behavioral paths. Predicate unchanged.',
+    guarantee:
+      'Spatial consumer consistency within audited paths. 2 → 0 disagreeing pairs; 0 approved false blocks; 0 lost audit visibility.',
+    nonGuarantee: 'Transition freshness and concurrency not established. Not all repository consumers.',
+  },
+  {
+    version: 'v0.2',
+    name: 'Completed-transition freshness',
+    token: 'NO CHANGE',
+    tokenNote: 'Declared replication, not treatment.',
+    question: 'Do completed grant/revoke transitions propagate correctly to new calls?',
+    failure:
+      'No new failure in the normal paths. A stale supplied-state fixture shows stale inputs are observable.',
+    intervention:
+      'Current canonical authority lookup. None — zero implementation change (declared replication, not treatment).',
+    guarantee:
+      'Completed-transition freshness in the tested sequential regime; retained and fresh processes.',
+    nonGuarantee:
+      'Decision–use concurrency not established. No mid-action revocation; no retroactive retraction. The stale-object construct is a calibration fixture, not primary evidence.',
+  },
+  {
+    version: 'v0.3',
+    name: 'Decision–use race',
+    token: 'FALSIFICATION',
+    tokenNote: "v0.2's stronger reading does not hold under interleaving.",
+    question: 'What if authority changes after the decision but before use?',
+    failure:
+      'Stale-allow + stale-block races on unchanged source: 3 + 3 across the three behavioral paths.',
+    intervention:
+      'Atomic decision–use boundary: fresh lookup through construction/emission enclosed in the existing profile lock.',
+    guarantee:
+      'Atomic / revalidated ordering for participating operations with cooperating writers. 6 real writer contentions confirm the ordering.',
+    nonGuarantee:
+      'Locks are not claimed necessary. Distributed semantics, lock failure/recovery, non-cooperating writes not established.',
+    raceCell: true,
+  },
+  {
+    version: 'v0.4',
+    name: 'Mediated entry / bypass detection',
+    question: 'Can authority-sensitive entry paths bypass the mediated contract?',
+    failure:
+      'Undetected bypasses in the declared entry inventory: 3 declared behavioral entries omitted complete protocol participation.',
+    intervention:
+      'Fixed-purpose mediated entry points plus deterministic checks over the frozen inventory.',
+    guarantee:
+      'No undetected bypasses within the frozen seven-entry inventory. Observers and canonical writers preserved.',
+    nonGuarantee:
+      'Repository-wide structural prevention not established. Low-level modules remain callable; bypass_possible = true outside the mediated interface.',
+  },
+];
+
+const depthAxis = [
+  'Consumer consistency',
+  'transition consistency',
+  'temporal integrity',
+  'protocol participation',
+];
+---
+
+<figure class="fig-b" role="group" aria-labelledby="figure-b-title">
+  <figcaption id="figure-b-title" class="fig-b-title">
+    Figure B — v0.1 → v0.4 enforcement ladder · construct / test / falsify / narrow
+  </figcaption>
+
+  <!-- Depth axis: a LABEL STRIP. Not a progress bar, no fill, no completion. -->
+  <div class="depth-axis">
+    <span class="depth-axis-label">Enforcement depth</span>
+    <span class="depth-axis-chain">
+      {
+        depthAxis.map((label, i) => (
+          <span class="depth-axis-item">
+            {label}
+            {i < depthAxis.length - 1 && (
+              <span class="depth-axis-sep" aria-hidden="true">→</span>
+            )}
+          </span>
+        ))
+      }
+    </span>
+  </div>
+
+  {
+    stages.map((s, i) => (
+      <>
+        {i > 0 && <div class="row-connector" aria-hidden="true"></div>}
+        <div class:list={['stage', s.raceCell && 'stage-race']}>
+          <div class="stage-head">
+            <span class="version-chip">{s.version} · {s.name}</span>
+            {s.token === 'FALSIFICATION' && (
+              <span class="token token-falsification">{s.token}</span>
+            )}
+            {s.token === 'NO CHANGE' && (
+              <span class="token token-nochange">{s.token}</span>
+            )}
+          </div>
+
+          {s.tokenNote && <p class="token-note">{s.tokenNote}</p>}
+
+          <p class="stage-question">
+            <span class="slot-label">Question</span>
+            {s.question}
+          </p>
+
+          <div class="stage-grid">
+            <div class:list={['slot', s.raceCell && 'slot-race']}>
+              <span class="slot-label">Failure exposed</span>
+              <p>{s.failure}</p>
+            </div>
+            <div class="slot">
+              <span class="slot-label">Intervention</span>
+              <p>{s.intervention}</p>
+            </div>
+            <div class="slot slot-guarantee">
+              <span class="slot-label">Supported guarantee</span>
+              <p>{s.guarantee}</p>
+            </div>
+            <div class="slot slot-nonguarantee">
+              <span class="slot-label">Non-guarantee</span>
+              <p>{s.nonGuarantee}</p>
+            </div>
+          </div>
+        </div>
+      </>
+    ))
+  }
+
+  <p class="boundary-label">
+    Bounded guarantees under explicit participation and inventory assumptions.
+    <span class="boundary-label-2">
+      Each stage's guarantee holds inside its own regime; no stage establishes generality.
+    </span>
+  </p>
+</figure>
+
+<style>
+  .fig-b {
+    margin: 0;
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule-light);
+    border-radius: var(--radius-lg, 10px);
+    padding: 1.25rem 1rem 1rem;
+  }
+
+  .fig-b-title {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.9rem;
+  }
+
+  /* ---- Depth axis (label strip only) ---- */
+  .depth-axis {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem 0.75rem;
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.9rem;
+    border-bottom: 1px solid var(--color-rule-light);
+  }
+  .depth-axis-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+  }
+  .depth-axis-chain {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--color-text-dim);
+    min-width: 0;
+  }
+  .depth-axis-item {
+    white-space: nowrap;
+  }
+  .depth-axis-sep {
+    color: var(--color-rule);
+    padding: 0 0.3rem;
+  }
+
+  /* ---- Row connector: "next boundary opened", not "improvement" ---- */
+  .row-connector {
+    width: 1px;
+    height: 18px;
+    margin: 0 0 0 1.35rem;
+    background: var(--color-rule);
+  }
+
+  /* ---- Stage row ---- */
+  .stage {
+    border: 1px solid var(--color-rule-light);
+    border-radius: var(--radius-md, 6px);
+    padding: 0.9rem 1rem 1rem;
+  }
+  .stage-race {
+    border-color: var(--color-rule);
+  }
+
+  .stage-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .version-chip {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-brand);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-sm, 3px);
+    padding: 0.1rem 0.45rem;
+    background: var(--color-page-warm);
+  }
+
+  .token {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    border-radius: var(--radius-sm, 3px);
+    padding: 0.1rem 0.45rem;
+    border: 1px solid;
+  }
+  /* Falsification: red-leaning OUTLINE, no fill — distinguishable in greyscale
+     by the outline plus the literal word, not by colour alone. */
+  .token-falsification {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    background: transparent;
+  }
+  /* NO CHANGE is deliberately quiet: it is precision, not a warning. */
+  .token-nochange {
+    color: var(--color-text-muted);
+    border-color: var(--color-rule);
+    background: transparent;
+  }
+
+  .token-note {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--color-text-muted);
+    margin: 0 0 0.6rem;
+  }
+
+  .stage-question {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    line-height: 1.45;
+    margin: 0 0 0.85rem;
+  }
+
+  .stage-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+  @media (min-width: 768px) {
+    .stage-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem 1.1rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .stage-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.9rem 1.15rem;
+    }
+  }
+
+  .slot {
+    padding-left: 0.7rem;
+    border-left: 1px solid var(--color-rule-light);
+  }
+  /* Allowed/authoritative role: thin left rule, never a large fill. */
+  .slot-guarantee {
+    border-left: 3px solid var(--color-secondary);
+  }
+  /* Non-guarantee: NEUTRAL left rule at the same 3px weight. Never red —
+     a non-guarantee is precision, not a warning. */
+  .slot-nonguarantee {
+    border-left: 3px solid var(--color-text-muted);
+  }
+  .slot-race p {
+    color: var(--color-primary);
+  }
+
+  .slot-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.3rem;
+  }
+
+  /* Guarantee and non-guarantee use the SAME declarations object-by-object:
+     equal type size, equal weight, equal line height, equal padding. */
+  .slot p {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--color-text-dim);
+  }
+  .slot-guarantee p,
+  .slot-nonguarantee p {
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* ---- Boundary label (inside the figure) ---- */
+  .boundary-label {
+    margin: 1.4rem 0 0;
+    padding: 0.7rem 0.85rem;
+    border-top: 1px solid var(--color-rule);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+  }
+  .boundary-label-2 {
+    display: block;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+</style>

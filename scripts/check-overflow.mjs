@@ -29,7 +29,12 @@ const VIEWPORTS = [
   { width: 1440, height: 900, label: '1440×900 (desktop)' },
 ];
 
-const ROUTES = ['/', '/demo/', '/demo/interactionkit/', '/demo/checkmycoach/', '/demo/eval-runtime/', '/research/', '/contributions/', '/projects/', '/publications/', '/cv/'];
+// '/research/building-trustworthy-ai/authority-enforcement/' added with the
+// Authority Enforcement project page so the new figure widths are covered by
+// the same overflow gate as the rest of the site.
+// '/research/building-trustworthy-ai/authority-enforcement/note/' added with
+// the public HTML edition of research note v0.1.1 (long prose + five tables).
+const ROUTES = ['/', '/demo/', '/demo/interactionkit/', '/demo/checkmycoach/', '/demo/eval-runtime/', '/research/', '/contributions/', '/projects/', '/publications/', '/cv/', '/research/building-trustworthy-ai/authority-enforcement/', '/research/building-trustworthy-ai/authority-enforcement/note/'];
 
 const MIME_TYPES = {
   '.html': 'text/html',
