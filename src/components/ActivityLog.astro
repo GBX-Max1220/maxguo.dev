@@ -2,7 +2,7 @@
 import records from '../data/contributions.json';
 import { newestFirst, EVENT_LABELS, formatDay } from '../lib/contributions.mjs';
 import ContributionStatus from './ContributionStatus.astro';
-const recent = newestFirst(records).slice(0, 4);
+const recent = newestFirst(records).slice(0, 3);
 ---
 <ol class="contribution-recent">
   {recent.map((record, index) => {

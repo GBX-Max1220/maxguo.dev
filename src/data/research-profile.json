@@ -1,9 +1,90 @@
 {
   "updated": "October 2026",
-  "headline": "Learning from imperfect feedback, with reliability in view.",
+  "headline": "Reliable adaptation from imperfect, endogenous feedback.",
   "question": "How can imperfect human, evaluator, and environment feedback become learning signals that let AI agents adapt without becoming less reliable?",
-  "profile": "I am an Applied Psychology graduate working on human-centered AI, feedback modeling, and agent evaluation. I design evaluation methods, inspect what feedback actually measures, and build reproducible research tools. My current work connects behavioral signals and individual preferences with the reliability of AI decisions.",
+  "profile": "I am Baixin Guo (Max), an independent researcher with a background in Applied Psychology. I study what feedback actually measures, how persistent state and rules are enforced across different paths, and whether adaptation on seen signals transfers to unseen situations. I design evaluations, inspect failure attribution, and build reproducible research tools.",
   "interests": "Human and evaluator feedback; preference learning; human-agent collaboration; reliable adaptation; reproducible AI evaluation.",
+  "selectedResearch": [
+    {
+      "id": "boundary",
+      "title": "What the Score Measured",
+      "subtitle": "Failure attribution in an agent memory evaluation",
+      "status": "Public preprint · with Dino Vitale, Boundary Labs",
+      "question": "When a memory-evaluation task fails, does the outcome score tell us which component failed?",
+      "contribution": "Co-designed an observability map that separates outcomes, available evidence, failure attribution, and judge confidence; co-authored the public preprint.",
+      "result": "Outcome scores alone cannot identify the failing component when traces are missing.",
+      "scope": "LongMemEval-based evaluation; claims are bounded to inspected and collaborator-reported evidence.",
+      "links": [
+        { "label": "Preprint", "url": "https://zenodo.org/records/22980060" }
+      ],
+      "image": "/images/research/boundary-failure-attribution.svg"
+    },
+    {
+      "id": "pmd",
+      "title": "Preference Modeling Diagnostics",
+      "subtitle": "Known-user preference adaptation with identity controls",
+      "status": "Released · frozen diagnostic study",
+      "question": "Does a known user's expressed preference improve predictions on prompts they have never seen?",
+      "contribution": "Designed prompt-disjoint evaluation and identity controls to separate stable individual preference signal from leakage.",
+      "result": "Regularized adaptation reduced equal-user negative log-likelihood by 0.879% on held-out prompts; wrong-user and shuffled-identity controls removed the advantage.",
+      "scope": "CPU-only study across 94 eligible known users; results apply to the tested prompt distribution.",
+      "links": [
+        {
+          "label": "Artifact",
+          "url": "https://github.com/GBX-Max1220/preference-modeling-diagnostics/tree/d232327047a206b8d4f16b5c6f7a5e508ad43146"
+        }
+      ],
+      "image": "/images/research/pmd-identity-controls.svg"
+    },
+    {
+      "id": "authority",
+      "title": "Cross-Consumer Authority Enforcement",
+      "subtitle": "One decision, multiple consumer paths",
+      "status": "Research note v0.1.1 · bounded single-substrate case study",
+      "question": "When one canonical authority decision governs persistent state, do all consumer paths enforce it the same way?",
+      "contribution": "Consolidated existing frozen experimental and system evidence into a public research note; identified cross-consumer enforcement divergence in the audited substrate.",
+      "result": "In one audited substrate, the same authority decision was applied differently by heterogeneous behavioral consumers.",
+      "scope": "Single audited substrate; the note reports no new experiments and makes no cross-system claim.",
+      "links": [
+        {
+          "label": "Research note",
+          "url": "/research/building-trustworthy-ai/authority-enforcement/note/"
+        }
+      ],
+      "image": "/images/research/authority-cross-consumer.svg"
+    }
+  ],
+  "engineeringContributions": [
+    {
+      "id": "reef-runner",
+      "title": "REEF runner lifecycle fix",
+      "status": "Merged upstream · Human-Agent-Society/reef#677",
+      "summary": "Fixed a runner that did not wait for evolution steps triggered by passing reports; added regression coverage and corrected tutorial wording.",
+      "url": "https://github.com/Human-Agent-Society/reef/pull/677"
+    },
+    {
+      "id": "skillrl",
+      "title": "SkillRL SkillBank checkpoint/resume",
+      "status": "Open PR · aiming-lab/SkillRL#69",
+      "summary": "Submitted a checkpoint-resume fix that saves and restores the training SkillBank, with state validation, atomic writes, and legacy-checkpoint compatibility.",
+      "url": "https://github.com/aiming-lab/SkillRL/pull/69"
+    },
+    {
+      "id": "feedback-state",
+      "title": "Stale feedback vectors after edits/deletes",
+      "status": "Open issue · future-agi/future-agi#3278",
+      "summary": "Reproduced stale few-shot evaluator feedback remaining active after feedback edits and deletion, checking whether persistent state follows the source feedback lifecycle.",
+      "url": "https://github.com/future-agi/future-agi/issues/3278"
+    }
+  ],
+  "collaboration": {
+    "pitch": "I am open to research collaboration and RA opportunities in human-centered AI, feedback learning, and agent evaluation.",
+    "services": [
+      "Evaluation design and failure attribution",
+      "Feedback data and representation review",
+      "Controlled experiments, replication, and research engineering"
+    ]
+  },
   "collaborations": [
     {
       "id": "implicit-feedback",
@@ -88,10 +169,7 @@
       "date": "2026",
       "status": "Bounded optimizer-architecture experiment",
       "summary": "A prespecified trainability experiment on a GPT-style model, with source, configurations, logs, and a decision record packaged for reproduction. The conclusion is limited to the tested one-seed configuration.",
-      "bullets": [
-        "Ran a prespecified 6,000-step optimizer comparison on a 162M-parameter GPT-style model with a fixed architecture on an A100 GPU.",
-        "Documented a trainability gap within that one-seed configuration and packaged commands, logs, hashes, and a bounded decision record."
-      ]
+      "bullets": []
     },
     {
       "id": "skillrl",

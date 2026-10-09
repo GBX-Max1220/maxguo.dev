@@ -17,6 +17,7 @@ const academicStatusSchema = z.enum([
   'accepted',
   'published',
   'research_note',
+  'artifact',
   'archived',
 ]);
 

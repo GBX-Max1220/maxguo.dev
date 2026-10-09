@@ -1,0 +1,65 @@
+---
+import profile from '../data/research-profile.json';
+const { collaboration } = profile;
+---
+
+<section id="collaboration" class="mb-14" aria-labelledby="collaboration-heading">
+  <span class="section-kicker">Collaboration</span>
+  <h2 id="collaboration-heading" class="mt-2 mb-4">What I can take on</h2>
+
+  <p class="collaboration-pitch">{collaboration.pitch}</p>
+
+  <ul class="collaboration-services">
+    {collaboration.services.map(service => (
+      <li>{service}</li>
+    ))}
+  </ul>
+
+  <div class="collaboration-links">
+    <a href="mailto:gbx1220max@gmail.com" class="btn btn-primary btn-sm">Email</a>
+    <a href="/cv/" class="btn btn-sm">CV</a>
+  </div>
+</section>
+
+<style>
+  .collaboration-pitch {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    margin: 0 0 1rem;
+    max-width: 42rem;
+  }
+
+  .collaboration-services {
+    list-style: none;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .collaboration-services li {
+    position: relative;
+    padding-left: 1.1rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--color-text-dim);
+  }
+
+  .collaboration-services li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-primary);
+  }
+
+  .collaboration-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+</style>

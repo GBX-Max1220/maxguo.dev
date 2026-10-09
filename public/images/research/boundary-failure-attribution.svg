@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" role="img" aria-label="Outcome score cannot identify which memory-evaluation component failed">
+  <rect width="520" height="320" fill="#F8F6F1"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Title -->
+    <text x="260" y="34" text-anchor="middle" font-family="DM Serif Display, Georgia, serif" font-size="17" fill="#20262D">Outcome score vs. observable failure sources</text>
+
+    <!-- Left: Score box -->
+    <rect x="40" y="110" width="110" height="90" rx="8" fill="#FFFFFF" stroke="#3155D9" stroke-width="2"/>
+    <text x="95" y="145" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#20262D">Final score</text>
+    <text x="95" y="170" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="22" font-weight="600" fill="#E36D5A">0.42</text>
+
+    <!-- Arrow from score -->
+    <line x1="150" y1="155" x2="210" y2="155" stroke="#20262D" stroke-width="2"/>
+    <polygon points="210,155 200,150 200,160" fill="#20262D"/>
+
+    <!-- Observability gap -->
+    <rect x="215" y="105" width="120" height="100" rx="8" fill="#EEF2FF" stroke="#3155D9" stroke-width="1" stroke-dasharray="4 3"/>
+    <text x="275" y="135" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#3155D9">Observability</text>
+    <text x="275" y="152" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#3155D9">gap</text>
+    <text x="275" y="180" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#5D5B55">missing traces</text>
+
+    <!-- Arrow to candidates -->
+    <line x1="335" y1="155" x2="380" y2="155" stroke="#20262D" stroke-width="2"/>
+    <polygon points="380,155 370,150 370,160" fill="#20262D"/>
+
+    <!-- Right: candidate failure sources -->
+    <text x="420" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#20262D">Could be any of</text>
+
+    <rect x="380" y="92" width="110" height="32" rx="6" fill="#FFFFFF" stroke="#E36D5A" stroke-width="1.5"/>
+    <text x="435" y="113" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#20262D">Retrieval</text>
+
+    <rect x="380" y="132" width="110" height="32" rx="6" fill="#FFFFFF" stroke="#E36D5A" stroke-width="1.5"/>
+    <text x="435" y="153" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#20262D">Judgment</text>
+
+    <rect x="380" y="172" width="110" height="32" rx="6" fill="#FFFFFF" stroke="#E36D5A" stroke-width="1.5"/>
+    <text x="435" y="193" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#20262D">Grounding</text>
+
+    <rect x="380" y="212" width="110" height="32" rx="6" fill="#F5E6E2" stroke="#E36D5A" stroke-width="1.5"/>
+    <text x="435" y="233" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#20262D">Trace missing</text>
+
+    <!-- Bottom note -->
+    <text x="260" y="292" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#7C786F">score + missing trace → ambiguous attribution</text>
+  </g>
+</svg>

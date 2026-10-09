@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" role="img" aria-label="Known-user adaptation is tested against wrong-user and shuffled-identity controls">
+  <rect width="360" height="220" fill="#F8F6F1"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="180" y="24" text-anchor="middle" font-family="DM Serif Display, Georgia, serif" font-size="15" fill="#20262D">Identity controls separate signal from leakage</text>
+
+    <!-- Known user -->
+    <rect x="18" y="54" width="100" height="140" rx="8" fill="#FFFFFF" stroke="#3155D9" stroke-width="2"/>
+    <text x="68" y="76" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#20262D">Known user</text>
+    <circle cx="68" cy="98" r="10" fill="#3155D9"/>
+    <text x="68" y="102" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#FFFFFF">A</text>
+    <text x="68" y="125" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#3155D9">-0.879%</text>
+    <text x="68" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#5D5B55">held-out</text>
+    <text x="68" y="156" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#5D5B55">prompts</text>
+
+    <!-- Arrow -->
+    <line x1="130" y1="124" x2="155" y2="124" stroke="#20262D" stroke-width="2"/>
+    <polygon points="155,124 147,119 147,129" fill="#20262D"/>
+
+    <!-- Wrong user -->
+    <rect x="165" y="54" width="100" height="140" rx="8" fill="#FFFFFF" stroke="#E36D5A" stroke-width="1.5"/>
+    <text x="215" y="76" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#20262D">Wrong user</text>
+    <circle cx="190" cy="98" r="10" fill="#3155D9"/>
+    <text x="190" y="102" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#FFFFFF">A</text>
+    <circle cx="240" cy="98" r="10" fill="#E36D5A"/>
+    <text x="240" y="102" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#FFFFFF">B</text>
+    <text x="215" y="128" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#E36D5A">no gain</text>
+    <text x="215" y="145" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#5D5B55">model adapted</text>
+    <text x="215" y="159" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#5D5B55">to wrong identity</text>
+
+    <!-- Shuffled -->
+    <rect x="282" y="54" width="68" height="140" rx="8" fill="#FFFFFF" stroke="#7C786F" stroke-width="1.5"/>
+    <text x="316" y="76" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#20262D">Shuffled</text>
+    <path d="M300 95 L332 105 M300 105 L332 95" stroke="#7C786F" stroke-width="1.5"/>
+    <text x="316" y="128" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7C786F">no gain</text>
+    <text x="316" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#5D5B55">identity</text>
+    <text x="316" y="162" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#5D5B55">removed</text>
+
+    <!-- Bottom note -->
+    <text x="180" y="208" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#7C786F">gain disappears when identity is wrong or shuffled</text>
+  </g>
+</svg>

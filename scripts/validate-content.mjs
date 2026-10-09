@@ -12,7 +12,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const PUBLICATION_DIR = resolve(__dirname, '../src/content/publication');
 const PROJECT_DIR = resolve(__dirname, '../src/content/project');
 
-const VALID_STATUSES = ['draft', 'in_preparation', 'preprint', 'submitted', 'under_review', 'accepted', 'published', 'research_note', 'archived'];
+const VALID_STATUSES = ['draft', 'in_preparation', 'preprint', 'submitted', 'under_review', 'accepted', 'published', 'research_note', 'artifact', 'archived'];
 
 let exitCode = 0;
 
