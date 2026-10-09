@@ -21,11 +21,14 @@ const VIEWPORTS = [
   { width: 1440, height: 900, label: 'desktop' },
 ];
 
-const ROUTES = [
+const ALL_ROUTES = [
   { route: '/', name: 'home' },
   { route: '/research/', name: 'research' },
   { route: '/publications/', name: 'publications' },
 ];
+// Optional filter: `node scripts/screenshot-review.mjs home`
+const only = process.argv[2];
+const ROUTES = only ? ALL_ROUTES.filter((r) => r.name === only) : ALL_ROUTES;
 
 function serveDir(req, res) {
   let urlPath = req.url.split('?')[0];

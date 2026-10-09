@@ -169,7 +169,10 @@
       "date": "2026",
       "status": "Bounded optimizer-architecture experiment",
       "summary": "A prespecified trainability experiment on a GPT-style model, with source, configurations, logs, and a decision record packaged for reproduction. The conclusion is limited to the tested one-seed configuration.",
-      "bullets": []
+      "bullets": [
+        "Ran a prespecified 6,000-step optimizer comparison on a 162M-parameter GPT-style model with a fixed architecture on an A100 GPU.",
+        "Documented a trainability gap within that one-seed configuration and packaged commands, logs, hashes, and a bounded decision record."
+      ]
     },
     {
       "id": "skillrl",

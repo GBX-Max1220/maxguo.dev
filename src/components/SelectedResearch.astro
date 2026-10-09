@@ -64,6 +64,16 @@ const [featured, ...supporting] = profile.selectedResearch;
             </h3>
             <p class="research-subtitle">{item.subtitle}</p>
             <p class="research-summary">{item.question}</p>
+            <dl class="research-mini">
+              <div>
+                <dt>My contribution</dt>
+                <dd>{item.contribution}</dd>
+              </div>
+              <div>
+                <dt>Key result</dt>
+                <dd>{item.result}</dd>
+              </div>
+            </dl>
             <p class="research-scope">{item.scope}</p>
             <div class="research-links">
               {item.links.map(link => (
@@ -260,6 +270,27 @@ const [featured, ...supporting] = profile.selectedResearch;
     line-height: 1.55;
     color: var(--color-text-dim);
     margin: 0 0 0.5rem;
+  }
+
+  .research-mini {
+    margin: 0 0 0.6rem;
+  }
+
+  .research-mini dt {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.15rem;
+  }
+
+  .research-mini dd {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--color-text-dim);
+    margin: 0 0 0.45rem;
   }
 
   .research-scope {
