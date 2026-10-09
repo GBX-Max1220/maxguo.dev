@@ -1,115 +1,157 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import profile from '../data/research-profile.json';
-import SelectedContributions from '../components/SelectedContributions.astro';
+import SelectedResearch from '../components/SelectedResearch.astro';
+import EngineeringList from '../components/EngineeringList.astro';
 import ActivityLog from '../components/ActivityLog.astro';
+import Collaboration from '../components/Collaboration.astro';
 import '../styles/contribution-editorial.css';
 ---
 
-<BaseLayout title="Home" description="Human-centered AI research on imperfect feedback, preference modeling, and reliable agents." ogImage="/og/home.png" hideTopBar>
+<BaseLayout title="Home" description="Baixin Guo (Max) — research on reliable adaptation from imperfect human, evaluator, and environment feedback." ogImage="/og/home.png" hideTopBar>
 
-<!-- ================================================================ -->
-<!-- Hybrid editorial homepage: identity rail + research agenda flow   -->
-<!-- ================================================================ -->
 <div class="container-shell">
-  <div class="flex flex-col lg:flex-row gap-0 lg:gap-16">
+  <!-- Hero: identity + research question -->
+  <section id="intro" class="hero-section" aria-labelledby="hero-name">
+    <div class="hero-text">
+      <p class="hero-kicker">Human-centered AI · Feedback · Reliable agents</p>
+      <p id="hero-name" class="hero-name">Baixin Guo</p>
+      <p class="hero-handle">Max · independent researcher</p>
+      <h1 class="hero-headline">{profile.headline}</h1>
+      <p class="hero-question">{profile.question}</p>
+      <p class="hero-bio">{profile.profile}</p>
 
-    <!-- ============================================================ -->
-    <!-- LEFT — identity rail (sticky on lg+, stacks first on mobile)   -->
-    <!-- ============================================================ -->
-    <div class="w-full lg:w-[380px] lg:min-w-[380px] lg:sticky lg:top-16 lg:self-start py-10 lg:py-16">
-
-      <p class="rail-kicker mb-3">Human-centered AI · Feedback · Reliable agents</p>
-      <p class="rail-name mb-1">Baixin Guo</p>
-      <p class="font-mono text-[0.7rem] text-[var(--color-text-muted)] uppercase tracking-[0.1em] mb-5">Max · independent researcher</p>
-
-      <h1 class="mb-5">
-        {profile.headline}
-      </h1>
-
-      <p class="font-sans text-[0.95rem] text-[var(--color-text-dim)] leading-relaxed mb-4">
-        {profile.profile}
-      </p>
-
-      <!-- Editorial visual (conceptual orientation, not a banner) -->
-      <figure class="hidden sm:block mb-6">
-        <img src={'/images/home-hero.png'} alt="Conceptual overview of human–AI decision calibration research" width="1200" height="500" loading="lazy" class="w-full h-auto rounded-lg border border-[var(--color-rule-light)]" />
-      </figure>
-
-      <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-6">
-        I am open to research collaboration and RA opportunities in human-centered AI, feedback learning, and agent evaluation.
-      </p>
-
-      <!-- Identity links -->
-      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mb-8 font-mono text-[0.75rem]">
-        <a href="https://github.com/GBX-Max1220" target="_blank" rel="noopener" class="text-[var(--color-primary)] hover:text-[var(--color-primary-dim)] transition-colors">GitHub</a>
-        <a href="/cv/" class="text-[var(--color-primary)] hover:text-[var(--color-primary-dim)] transition-colors">CV</a>
-        <a href="mailto:gbx1220max@gmail.com" class="text-[var(--color-primary)] hover:text-[var(--color-primary-dim)] transition-colors">Email</a>
-        <a href="https://www.linkedin.com/in/baixin-guo-681113285/" target="_blank" rel="noopener" class="text-[var(--color-text-muted)] hover:text-[var(--color-ink)] transition-colors">LinkedIn</a>
+      <div class="hero-links">
+        <a href="/cv/" class="btn btn-primary btn-sm">CV</a>
+        <a href="https://github.com/GBX-Max1220" target="_blank" rel="noopener" class="btn btn-sm">GitHub</a>
+        <a href="mailto:gbx1220max@gmail.com" class="btn btn-sm">Email</a>
+        <a href="https://www.linkedin.com/in/baixin-guo-681113285/" target="_blank" rel="noopener" class="btn btn-sm">LinkedIn</a>
       </div>
-
-      <a href="#research" class="link-arrow">Explore the research program ↓</a>
     </div>
 
-    <!-- ============================================================ -->
-    <!-- RIGHT — research agenda flow                                  -->
-    <!-- ============================================================ -->
-    <div class="flex-1 min-w-0 py-10 lg:py-16">
+    <figure class="hero-figure" aria-label="Research agenda overview">
+      <img src="/images/home-hero.png" alt="Conceptual overview of feedback, state, and evaluation in human-AI systems" width="1200" height="500" loading="eager" />
+    </figure>
+  </section>
 
-      <!-- RESEARCH QUESTION (short; full agenda lives on /research/) -->
-      <section id="research" class="mb-14">
-        <span class="section-kicker">Research question</span>
-        <h2 class="mt-2 mb-2">From feedback to reliable decisions</h2>
-        <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">{profile.question}</p>
-        <a href="/research/" class="link-arrow">Read the full research agenda →</a>
-      </section>
+  <!-- Main content flow -->
+  <div class="main-flow">
+    <SelectedResearch />
+    <EngineeringList />
 
-      <!-- SELECTED CONTRIBUTIONS (public evidence) -->
-      <SelectedContributions />
-
-      <!-- SELECTED WORK -->
-      <section id="work" class="mb-14">
-        <span class="section-kicker">Selected work</span>
-        <h2 class="mt-2 mb-5">Selected work</h2>
-
-        <div class="space-y-5">
-          {profile.collaborations.map(work => <article class="card-static"><h3 class="text-[1.1rem] mb-1.5">{work.title}</h3><p class="text-xs text-[var(--color-text-muted)] mb-2">{work.context}</p><p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">{work.summary}</p><p class="work-kind mb-2">{work.status}</p><a href={`/research/#${work.id}`} class="link-arrow">Contribution and scope →</a></article>)}
-          {profile.projects.map(work => <article class="card-static"><h3 class="text-[1.1rem] mb-1.5">{work.title}</h3><p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">{work.summary}</p><p class="work-kind mb-2">{work.status}</p><a href={work.url} class="link-arrow">Explore the artifact →</a></article>)}
+    <section id="latest" class="contribution-latest" aria-labelledby="latest-heading">
+      <div class="flex items-end justify-between mb-4">
+        <div>
+          <span class="section-kicker">Dated evidence</span>
+          <h2 id="latest-heading" class="mt-2">Recent activity</h2>
         </div>
+        <a href="/contributions/" class="link-arrow">Full log →</a>
+      </div>
+      <ActivityLog />
+    </section>
 
-        <div class="mt-5">
-          <a href="/research/" class="link-arrow">View all research →</a>
-        </div>
-      </section>
-
-      <!-- HOW I WORK (working research-selection discipline, not a formal methodology) -->
-      <section id="process" class="mb-14">
-        <span class="section-kicker">Research process</span>
-        <h2 class="mt-2 mb-2">How I work</h2>
-        <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">I use a failure-first, repo-first workflow to decide which questions deserve further experiments.</p>
-        <div class="space-y-0">
-          <div class="arc-item"><span class="arc-index">01 · Observe the failure</span><p class="text-sm text-[var(--color-text-dim)] mt-1">Start from a concrete system behavior, an evaluation failure, or an implementation boundary — not from a novelty claim.</p></div>
-          <div class="arc-item"><span class="arc-index">02 · Reduce and collide</span><p class="text-sm text-[var(--color-text-dim)] mt-1">Test whether the candidate mechanism reduces to adjacent theory or directly collides with prior work.</p></div>
-          <div class="arc-item"><span class="arc-index">03 · Build only if it survives</span><p class="text-sm text-[var(--color-text-dim)] mt-1">Promote a question to a new experiment only when the mechanism remains distinct, testable, and supported by an observed phenomenon.</p></div>
-        </div>
-      </section>
-
-      <!-- RECENT PUBLIC ACTIVITY -->
-      <section id="latest" class="contribution-latest">
-        <div class="flex items-end justify-between mb-4">
-          <div>
-            <span class="section-kicker">Dated evidence</span>
-            <h2 class="mt-2">Recent activity</h2>
-          </div>
-          <a href="/contributions/" class="link-arrow">Full log →</a>
-        </div>
-
-        <ActivityLog />
-      </section>
-
-    </div>
-
+    <Collaboration />
   </div>
 </div>
 
 </BaseLayout>
+
+<style>
+  .hero-section {
+    display: grid;
+    gap: 2rem;
+    padding: 2.5rem 0 3rem;
+    border-bottom: 1px solid var(--color-rule-light);
+  }
+
+  @media (min-width: 1024px) {
+    .hero-section {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      align-items: center;
+      gap: 3rem;
+      padding: 4rem 0 4.5rem;
+    }
+  }
+
+  .hero-text {
+    max-width: 38rem;
+  }
+
+  .hero-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-primary);
+    margin: 0 0 0.75rem;
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.05;
+    color: var(--color-ink);
+    margin: 0 0 0.25rem;
+  }
+
+  .hero-handle {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 1.5rem;
+  }
+
+  .hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 5vw, 3.1rem);
+    line-height: 1.1;
+    color: var(--color-ink);
+    margin: 0 0 0.9rem;
+  }
+
+  .hero-question {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+    line-height: 1.4;
+    color: var(--color-brand);
+    margin: 0 0 1.1rem;
+  }
+
+  .hero-bio {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--color-text-dim);
+    margin: 0 0 1.4rem;
+  }
+
+  .hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .hero-figure {
+    margin: 0;
+  }
+
+  .hero-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-rule-light);
+    background: var(--color-surface);
+  }
+
+  .main-flow {
+    padding: 2.5rem 0 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .main-flow {
+      padding: 3.5rem 0 5rem;
+    }
+  }
+</style>

@@ -1,0 +1,73 @@
+---
+import profile from '../data/research-profile.json';
+const items = profile.engineeringContributions;
+---
+
+<section id="engineering" class="mb-14" aria-labelledby="engineering-heading">
+  <span class="section-kicker">Engineering &amp; open source</span>
+  <h2 id="engineering-heading" class="mt-2 mb-5">Selected engineering contributions</h2>
+
+  <ol class="engineering-list">
+    {items.map(item => (
+      <li class="engineering-item">
+        <p class="engineering-status">{item.status}</p>
+        <h3 class="engineering-title">
+          <a href={item.url}>{item.title}</a>
+        </h3>
+        <p class="engineering-summary">{item.summary}</p>
+        <a href={item.url} class="link-arrow">View evidence →</a>
+      </li>
+    ))}
+  </ol>
+
+  <a href="/contributions/" class="link-arrow mt-5">Full contribution log →</a>
+</section>
+
+<style>
+  .engineering-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--color-rule-light);
+  }
+
+  .engineering-item {
+    padding: 1.15rem 0;
+    border-bottom: 1px solid var(--color-rule-light);
+  }
+
+  .engineering-status {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0 0 0.35rem;
+  }
+
+  .engineering-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1.25;
+    margin: 0 0 0.35rem;
+  }
+
+  .engineering-title a {
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .engineering-title a:hover {
+    color: var(--color-primary-dim);
+  }
+
+  .engineering-summary {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--color-text-dim);
+    margin: 0 0 0.6rem;
+  }
+</style>

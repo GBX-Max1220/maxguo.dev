@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CurrentResearch from '../components/CurrentResearch.astro';
 import profile from '../data/research-profile.json';
 ---
+
 <BaseLayout title="Research" description="Human-centered AI research on imperfect feedback, preference learning, and evaluation reliability.">
   <div class="container-content py-14">
     <div class="max-w-[820px]">
@@ -10,22 +11,61 @@ import profile from '../data/research-profile.json';
       <span class="section-kicker mb-3">Research program · October 2026</span>
       <h1 class="mb-4">Learning from imperfect feedback</h1>
       <p class="lead mb-4">{profile.question}</p>
-      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-10">{profile.profile} These collaborations, studies, and prototypes address different parts of the question. Together they motivate the next experiments; they do not establish a validated end-to-end adaptation system.</p>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-10">{profile.profile} These studies and collaborations address different parts of the question. Together they motivate the next experiments; they do not establish a validated end-to-end adaptation system.</p>
 
-      <!-- Research arc: how the projects connect (organizing frame, not a validated loop) -->
+      <!-- Research agenda: three linked questions -->
       <section id="arc" class="mb-12">
-        <span class="section-kicker mb-2">Research arc</span>
-        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl mb-4">The projects connect as feedback measurement → state update and authorization → outcome evaluation. This is how the agenda is organized; it is not a claim that a complete learning loop has been validated.</p>
+        <span class="section-kicker mb-2">Research agenda</span>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl mb-4">The program is organized around three questions. Each project provides partial evidence; none closes the full loop from measurement to reliable adaptation.</p>
         <div class="space-y-0">
-          <div class="arc-item"><span class="arc-index">01 · Understand the signal</span><p class="arc-question mt-1 mb-2">What does the feedback measure?</p><p class="text-sm text-[var(--color-text-dim)] mb-3">Gaze, mouse behavior, and expressed preferences carry different kinds of evidence. I examine their collection and representation before treating them as learning signals.</p><a href="#collaborations" class="link-arrow">Current collaborations →</a></div>
-          <div class="arc-item"><span class="arc-index">02 · Evaluate the decision</span><p class="arc-question mt-1 mb-2">What can a result establish?</p><p class="text-sm text-[var(--color-text-dim)] mb-3">Memory-agent diagnostics and Evaluation Runtime separate observable failures, uncertain attribution, and evaluator judgments.</p><a href="/demo/eval-runtime/" class="link-arrow">Evaluation Runtime →</a></div>
-          <div class="arc-item"><span class="arc-index">03 · Test adaptation</span><p class="arc-question mt-1 mb-2">Does using the signal help?</p><p class="text-sm text-[var(--color-text-dim)] mb-3">PMD tests known-user preference adaptation on held-out prompts. CheckMyCoach keeps human verification and information preservation in view. A reliable end-to-end learning loop remains a research goal.</p><a href="#projects" class="link-arrow">Studies and prototypes →</a></div>
+          <div class="arc-item">
+            <span class="arc-index">01 · Feedback and scores</span>
+            <p class="arc-question mt-1 mb-2">What do feedback and scores actually measure?</p>
+            <p class="text-sm text-[var(--color-text-dim)] mb-3">Gaze, mouse behavior, and expressed preferences carry different kinds of evidence. Boundary Labs / What the Score Measured and the implicit-feedback collaboration start by asking what the collection mechanism lets us infer.</p>
+            <a href="#collaborations" class="link-arrow">Current collaborations →</a>
+          </div>
+          <div class="arc-item">
+            <span class="arc-index">02 · Persistent state and rules</span>
+            <p class="arc-question mt-1 mb-2">Are persistent state and rules enforced consistently across paths?</p>
+            <p class="text-sm text-[var(--color-text-dim)] mb-3">Evaluation Runtime and the Cross-Consumer Authority Enforcement note separate observable failures, uncertain attribution, and how the same decision is applied by different consumers.</p>
+            <a href="#projects" class="link-arrow">Studies and prototypes →</a>
+          </div>
+          <div class="arc-item">
+            <span class="arc-index">03 · Adaptation transfer</span>
+            <p class="arc-question mt-1 mb-2">Does using feedback improve behavior on unseen situations?</p>
+            <p class="text-sm text-[var(--color-text-dim)] mb-3">Preference Modeling Diagnostics tests known-user preference transfer on held-out prompts with identity controls. CheckMyCoach keeps human verification in view. A reliable end-to-end learning loop remains a research goal.</p>
+            <a href="#projects" class="link-arrow">Studies and prototypes →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Open bridge -->
+      <section id="bridge" class="mb-12">
+        <div class="border-l-2 border-[var(--color-primary)] bg-[var(--color-primary-subtle)]/40 rounded-r-lg px-5 py-4">
+          <p class="font-mono text-[0.62rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-1">Open bridge</p>
+          <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">
+            How do trustworthy feedback measurements become reliable persistent-state updates that improve future behavior? This is an open research question. The projects below provide pieces of evidence; they do not form a validated closed loop.
+          </p>
         </div>
       </section>
 
       <CurrentResearch />
+
       <p class="text-sm mb-12"><a href="/contributions/" class="link-arrow">Public, dated research and engineering contributions →</a></p>
-      <!-- 3. Supporting work -->
+
+      <!-- How I work -->
+      <section id="process" class="mb-12">
+        <span class="section-kicker mb-2">Research process</span>
+        <h2 class="mt-2 mb-3">How I work</h2>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">I use a failure-first, repo-first workflow to decide which questions deserve further experiments.</p>
+        <div class="space-y-0">
+          <div class="arc-item"><span class="arc-index">01 · Observe the failure</span><p class="text-sm text-[var(--color-text-dim)] mt-1">Start from a concrete system behavior, an evaluation failure, or an implementation boundary — not from a novelty claim.</p></div>
+          <div class="arc-item"><span class="arc-index">02 · Reduce and collide</span><p class="text-sm text-[var(--color-text-dim)] mt-1">Test whether the candidate mechanism reduces to adjacent theory or directly collides with prior work.</p></div>
+          <div class="arc-item"><span class="arc-index">03 · Build only if it survives</span><p class="text-sm text-[var(--color-text-dim)] mt-1">Promote a question to a new experiment only when the mechanism remains distinct, testable, and supported by an observed phenomenon.</p></div>
+        </div>
+      </section>
+
+      <!-- Supporting work -->
       <section id="supporting" class="mb-12">
         <span class="section-kicker mb-2">Supporting work</span>
         <div class="related-list">
@@ -39,11 +79,10 @@ import profile from '../data/research-profile.json';
             <span class="text-sm text-[var(--color-text-dim)]">Knowledge Compiler supports typed evidence objects, structural validation, partial provenance recovery, and quarantine of unresolved material. The current artifact exposes where evidence links remain incomplete; it does not establish source fidelity or validated downstream use.</span>
             <a href="/research/building-trustworthy-ai/knowledge-compiler/" class="link-arrow">Knowledge Compiler →</a>
           </div>
-
         </div>
       </section>
 
-      <!-- 4. Historical context -->
+      <!-- Historical context -->
       <section id="historical" class="mb-12">
         <span class="section-kicker mb-2">Historical context</span>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl mb-5">
@@ -65,10 +104,10 @@ import profile from '../data/research-profile.json';
         </div>
       </section>
 
-      <!-- 5. Current focus -->
+      <!-- Current focus -->
       <section id="focus" class="mb-12">
-        <div class="border-l-2 border-[var(--color-primary)] bg-[var(--color-primary-subtle)]/40 rounded-r-lg px-5 py-4">
-          <p class="font-mono text-[0.62rem] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-1">Current focus</p>
+        <div class="border-l-2 border-[var(--color-brand)] bg-[var(--color-brand-subtle)]/40 rounded-r-lg px-5 py-4">
+          <p class="font-mono text-[0.62rem] font-semibold text-[var(--color-brand)] uppercase tracking-wider mb-1">Current focus</p>
           <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-2">
             I am working on feedback representation and evaluation reliability, and exploring controlled tests of adaptation. CheckMyCoach human validation remains in preparation; human evaluation has not yet been conducted.
           </p>
@@ -76,7 +115,7 @@ import profile from '../data/research-profile.json';
         </div>
       </section>
 
-      <!-- 6. Reading the evidence -->
+      <!-- Reading the evidence -->
       <section id="evidence">
         <span class="section-kicker mb-2">Reading the evidence</span>
         <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl">

@@ -1,0 +1,302 @@
+---
+import profile from '../data/research-profile.json';
+const [featured, ...supporting] = profile.selectedResearch;
+---
+
+<section id="selected-research" class="mb-14" aria-labelledby="selected-research-heading">
+  <span class="section-kicker">Selected research</span>
+  <h2 id="selected-research-heading" class="mt-2 mb-6">Research that defines the agenda</h2>
+
+  {featured && (
+    <article class="research-featured" data-research-id={featured.id} aria-labelledby={`featured-title-${featured.id}`}>
+      <div class="research-featured-body">
+        <p class="research-status">{featured.status}</p>
+        <h3 id={`featured-title-${featured.id}`} class="research-featured-title">
+          <a href={featured.links[0]?.url}>{featured.title}</a>
+        </h3>
+        <p class="research-subtitle">{featured.subtitle}</p>
+
+        <div class="research-question-block">
+          <span class="research-question-label">Research question</span>
+          <p class="research-question">{featured.question}</p>
+        </div>
+
+        <dl class="research-details">
+          <div>
+            <dt>My contribution</dt>
+            <dd>{featured.contribution}</dd>
+          </div>
+          <div>
+            <dt>Key result</dt>
+            <dd>{featured.result}</dd>
+          </div>
+          <div>
+            <dt>Scope</dt>
+            <dd>{featured.scope}</dd>
+          </div>
+        </dl>
+
+        <div class="research-links">
+          {featured.links.map(link => (
+            <a href={link.url} class="link-arrow">{link.label} →</a>
+          ))}
+          <a href="/publications/" class="link-arrow">All outputs →</a>
+        </div>
+      </div>
+
+      <figure class="research-featured-figure" aria-label={`${featured.title} illustration`}>
+        <img src={featured.image} alt={`"${featured.title}" research structure`} width="520" height="320" loading="eager" />
+      </figure>
+    </article>
+  )}
+
+  {supporting.length > 0 && (
+    <div class="research-supporting">
+      {supporting.map(item => (
+        <article class="research-supporting-card" data-research-id={item.id} aria-labelledby={`support-title-${item.id}`}>
+          <figure class="research-supporting-figure" aria-label={`${item.title} illustration`}>
+            <img src={item.image} alt={`"${item.title}" research structure`} width="360" height="220" loading="lazy" />
+          </figure>
+          <div class="research-supporting-body">
+            <p class="research-status">{item.status}</p>
+            <h3 id={`support-title-${item.id}`} class="research-supporting-title">
+              <a href={item.links[0]?.url}>{item.title}</a>
+            </h3>
+            <p class="research-subtitle">{item.subtitle}</p>
+            <p class="research-summary">{item.question}</p>
+            <dl class="research-mini">
+              <div>
+                <dt>My contribution</dt>
+                <dd>{item.contribution}</dd>
+              </div>
+              <div>
+                <dt>Key result</dt>
+                <dd>{item.result}</dd>
+              </div>
+            </dl>
+            <p class="research-scope">{item.scope}</p>
+            <div class="research-links">
+              {item.links.map(link => (
+                <a href={link.url} class="link-arrow">{link.label} →</a>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  )}
+
+  <a href="/research/" class="link-arrow mt-6">View the full research program →</a>
+</section>
+
+<style>
+  .research-featured {
+    display: grid;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    margin-bottom: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .research-featured {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 2rem;
+      padding: 2rem;
+      align-items: start;
+    }
+  }
+
+  .research-featured-body {
+    min-width: 0;
+  }
+
+  .research-featured-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.45rem, 3vw, 1.9rem);
+    line-height: 1.15;
+    margin: 0 0 0.25rem;
+  }
+
+  .research-featured-title a {
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .research-featured-title a:hover {
+    color: var(--color-primary-dim);
+  }
+
+  .research-supporting-title a {
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .research-supporting-title a:hover {
+    color: var(--color-primary-dim);
+  }
+
+  .research-status {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0 0 0.5rem;
+  }
+
+  .research-subtitle {
+    font-size: 0.95rem;
+    color: var(--color-text-dim);
+    margin: 0 0 1rem;
+  }
+
+  .research-question-block {
+    padding: 1rem 1.25rem;
+    background: var(--color-brand-subtle);
+    border-radius: var(--radius-md);
+    margin-bottom: 1.25rem;
+  }
+
+  .research-question-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-brand);
+    margin-bottom: 0.35rem;
+  }
+
+  .research-question {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    line-height: 1.45;
+    color: var(--color-ink);
+    margin: 0;
+  }
+
+  .research-details {
+    display: grid;
+    gap: 0.85rem;
+    margin: 0 0 1.25rem;
+  }
+
+  .research-details dt {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.2rem;
+  }
+
+  .research-details dd {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--color-text-dim);
+    margin: 0;
+  }
+
+  .research-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+  }
+
+  .research-featured-figure {
+    margin: 0;
+  }
+
+  .research-featured-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-rule-light);
+    background: var(--color-page-warm);
+  }
+
+  .research-supporting {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .research-supporting {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .research-supporting-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+  }
+
+  .research-supporting-figure {
+    margin: 0;
+    order: -1;
+  }
+
+  .research-supporting-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-rule-light);
+    background: var(--color-page-warm);
+  }
+
+  .research-supporting-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    line-height: 1.25;
+    margin: 0 0 0.2rem;
+  }
+
+  .research-summary {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--color-text-dim);
+    margin: 0 0 0.5rem;
+  }
+
+  .research-mini {
+    margin: 0 0 0.6rem;
+  }
+
+  .research-mini dt {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.15rem;
+  }
+
+  .research-mini dd {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--color-text-dim);
+    margin: 0 0 0.45rem;
+  }
+
+  .research-scope {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+    margin: 0 0 0.75rem;
+  }
+</style>

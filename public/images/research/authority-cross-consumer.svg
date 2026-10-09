@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" role="img" aria-label="The same authority decision is enforced differently by different consumer paths">
+  <rect width="360" height="220" fill="#F8F6F1"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="180" y="24" text-anchor="middle" font-family="DM Serif Display, Georgia, serif" font-size="15" fill="#20262D">One decision, three consumer paths</text>
+
+    <!-- Authority decision -->
+    <rect x="120" y="38" width="120" height="42" rx="8" fill="#3155D9" stroke="#3155D9" stroke-width="2"/>
+    <text x="180" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">Authority decision</text>
+    <text x="180" y="74" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#EEF2FF">ALLOW → state S</text>
+
+    <!-- Lines down -->
+    <line x1="160" y1="80" x2="80" y2="122" stroke="#20262D" stroke-width="2"/>
+    <line x1="180" y1="80" x2="180" y2="122" stroke="#20262D" stroke-width="2"/>
+    <line x1="200" y1="80" x2="280" y2="122" stroke="#20262D" stroke-width="2"/>
+
+    <!-- Consumer 1 -->
+    <rect x="24" y="122" width="112" height="64" rx="8" fill="#FFFFFF" stroke="#3155D9" stroke-width="2"/>
+    <text x="80" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#20262D">Consumer A</text>
+    <text x="80" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5D5B55">enforces ALLOW</text>
+    <text x="80" y="176" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#3155D9">consistent</text>
+
+    <!-- Consumer 2 -->
+    <rect x="152" y="122" width="56" height="64" rx="8" fill="#FFFFFF" stroke="#3155D9" stroke-width="2"/>
+    <text x="180" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#20262D">Audit</text>
+    <text x="180" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5D5B55">read-only</text>
+    <text x="180" y="176" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#3155D9">observer</text>
+
+    <!-- Consumer 3 -->
+    <rect x="224" y="122" width="112" height="64" rx="8" fill="#F5E6E2" stroke="#E36D5A" stroke-width="2"/>
+    <text x="280" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#20262D">Consumer B</text>
+    <text x="280" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5D5B55">allows S despite</text>
+    <text x="280" y="176" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#E36D5A">DENY state</text>
+
+    <!-- Divergence marker -->
+    <circle cx="280" cy="112" r="10" fill="#E36D5A"/>
+    <text x="280" y="116" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">×</text>
+
+    <!-- Bottom note -->
+    <text x="180" y="208" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#7C786F">one audited substrate; paths diverge on enforcement</text>
+  </g>
+</svg>

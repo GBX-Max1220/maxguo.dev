@@ -1,0 +1,22 @@
+{
+  "id": "preference-modeling-diagnostics",
+  "title": "Preference Modeling Diagnostics: Known-User Adaptation with Identity Controls",
+  "authors": ["Baixin Guo"],
+  "year": 2026,
+  "status": "artifact",
+  "workflowState": "frozen",
+  "lastVerified": "2026-10-10",
+  "tags": ["Preference Learning", "Identity Controls", "Diagnostic Study"],
+  "links": {
+    "code": "https://github.com/GBX-Max1220/preference-modeling-diagnostics/tree/d232327047a206b8d4f16b5c6f7a5e508ad43146"
+  },
+  "citation": {
+    "bibtex": "@misc{guo2026pmd,\n  author = {Guo, Baixin},\n  title = {Preference Modeling Diagnostics: Known-User Adaptation with Identity Controls},\n  year = {2026},\n  note = {Frozen research artifact (CPU-only diagnostic study); not a peer-reviewed publication}\n}",
+    "apa": "Guo, B. (2026). Preference modeling diagnostics: Known-user adaptation with identity controls [Frozen research artifact; CPU-only diagnostic study].",
+    "chicago": "Guo, Baixin. \"Preference Modeling Diagnostics: Known-User Adaptation with Identity Controls.\" Frozen research artifact, 2026.",
+    "mla": "Guo, Baixin. Preference Modeling Diagnostics: Known-User Adaptation with Identity Controls. Frozen research artifact, 2026."
+  },
+  "abstract": "A frozen CPU-only diagnostic study that tests whether individual preference signal improves predictions on held-out prompts. It uses prompt-disjoint evaluation and wrong-user / shuffled-identity controls to separate stable signal from leakage. Regularized known-user adaptation reduced equal-user negative log-likelihood by 0.879% across 94 eligible users, while the controls removed the advantage. It is a research artifact, not a peer-reviewed publication.",
+  "featured": true,
+  "projectId": "pmd"
+}

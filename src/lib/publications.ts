@@ -7,6 +7,7 @@ export const PUBLICATION_STATUS = {
   accepted: { label: 'Accepted', shortLabel: 'accepted', className: 'badge-published' },
   published: { label: 'Published', shortLabel: 'published', className: 'badge-published' },
   research_note: { label: 'Research note', shortLabel: 'note', className: '' },
+  artifact: { label: 'Research artifact', shortLabel: 'artifact', className: 'badge-gold' },
   archived: { label: 'Archived', shortLabel: 'archived', className: '' },
 } as const;
 

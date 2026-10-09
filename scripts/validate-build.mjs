@@ -8,6 +8,7 @@ import { join, extname, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SITE, siteUrl } from '../src/config/site.mjs';
 import { newestFirst, selectedContributions } from '../src/lib/contributions.mjs';
+import profile from '../src/data/research-profile.json' with { type: 'json' };
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, '../dist');
@@ -189,8 +190,8 @@ try {
   assertPage(sitemap.includes(`<loc>${siteUrl('contributions/')}</loc>`), 'Contribution route included in sitemap');
   const rendered = [...logHtml.matchAll(/data-contribution-id="([^"]+)"/g)].map(match => match[1]);
   assertPage(JSON.stringify(rendered) === JSON.stringify(newestFirst(contributions).map(record => record.id)), 'Every contribution event rendered exactly once in chronological order');
-  const selected = [...indexHtml.matchAll(/data-selected-id="([^"]+)"/g)].map(match => match[1]);
-  assertPage(JSON.stringify(selected) === JSON.stringify(selectedContributions(contributions).map(record => record.id)), 'Homepage selection matches explicit curation');
+  const selectedResearch = [...indexHtml.matchAll(/data-research-id="([^"]+)"/g)].map(match => match[1]);
+  assertPage(JSON.stringify(selectedResearch) === JSON.stringify(profile.selectedResearch.map(item => item.id)), 'Homepage selected research matches profile curation');
   for (const route of ['index.html', 'research/index.html', 'contributions/index.html']) {
     const html = readFileSync(join(DIST, route), 'utf8');
     for (const match of html.matchAll(/href="([^"#]*)#([^\"]+)"/g)) {

@@ -23,13 +23,14 @@
     --radius-xl: 14px;
 
     /* ---- Palette ---- */
-    /* Structural — ink navy (structure / labels / selected nav) */
-    --color-brand: #183b56;
-    --color-brand-dim: #122f46;
-    /* Signature — terracotta (links, CTA, personal accent; AA on warm bg) */
-    --color-primary: #a8522d;
-    --color-primary-dim: #8f4526;
-    --color-primary-subtle: #f5e3da;
+    /* Structural — blue (structure / labels / selected nav / primary links) */
+    --color-brand: #3155d9;
+    --color-brand-dim: #2543b3;
+    --color-brand-subtle: #eef2ff;
+    /* Signature — coral (graphics, small emphases, personal accent) */
+    --color-primary: #e36d5a;
+    --color-primary-dim: #c85a48;
+    --color-primary-subtle: #f5e6e2;
     /* Semantic — muted steel teal (used only where meaningful) */
     --color-secondary: #2e6f63;
     --color-secondary-dim: #235448;
@@ -41,7 +42,7 @@
     /* Text & surfaces — warm editorial base */
     --color-ink: #20262d;
     --color-ink-light: #39444f;
-    --color-page: #faf6ef;
+    --color-page: #f8f6f1;
     --color-page-alt: #f2ece2;
     --color-page-warm: #f5efe4;
     --color-surface: #ffffff;
