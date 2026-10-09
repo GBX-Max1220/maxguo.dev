@@ -56,28 +56,12 @@ import '../styles/contribution-editorial.css';
     <!-- ============================================================ -->
     <div class="flex-1 min-w-0 py-10 lg:py-16">
 
-      <!-- RESEARCH PROGRAM (editorial argument) -->
+      <!-- RESEARCH QUESTION (short; full agenda lives on /research/) -->
       <section id="research" class="mb-14">
-        <span class="section-kicker">Research program</span>
+        <span class="section-kicker">Research question</span>
         <h2 class="mt-2 mb-2">From feedback to reliable decisions</h2>
-        <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-6">{profile.question}</p>
-        <div class="space-y-0">
-          <div class="arc-item"><span class="arc-index">01 · Understand the signal</span><p class="arc-question mt-1 mb-2">What does the feedback measure?</p><p class="text-sm text-[var(--color-text-dim)] mb-3">Gaze, mouse behavior, and expressed preferences carry different kinds of evidence. I examine their collection and representation before treating them as learning signals.</p><a href="/research/#collaborations" class="link-arrow">Current collaborations →</a></div>
-          <div class="arc-item"><span class="arc-index">02 · Evaluate the decision</span><p class="arc-question mt-1 mb-2">What can a result establish?</p><p class="text-sm text-[var(--color-text-dim)] mb-3">Memory-agent diagnostics and Evaluation Runtime separate observable failures, uncertain attribution, and evaluator judgments.</p><a href="/demo/eval-runtime/" class="link-arrow">Evaluation Runtime →</a></div>
-          <div class="arc-item"><span class="arc-index">03 · Test adaptation</span><p class="arc-question mt-1 mb-2">Does using the signal help?</p><p class="text-sm text-[var(--color-text-dim)] mb-3">PMD tests known-user preference adaptation on held-out prompts. CheckMyCoach keeps human verification and information preservation in view. A reliable end-to-end learning loop remains a research goal.</p><a href="/research/#projects" class="link-arrow">Studies and prototypes →</a></div>
-        </div>
-      </section>
-
-      <!-- HOW I WORK (working research-selection discipline, not a formal methodology) -->
-      <section id="process" class="mb-14">
-        <span class="section-kicker">Research process</span>
-        <h2 class="mt-2 mb-2">How I work</h2>
-        <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">I use a failure-first, repo-first workflow to decide which questions deserve further experiments.</p>
-        <div class="space-y-0">
-          <div class="arc-item"><span class="arc-index">01 · Observe the failure</span><p class="text-sm text-[var(--color-text-dim)] mt-1">Start from a concrete system behavior, an evaluation failure, or an implementation boundary — not from a novelty claim.</p></div>
-          <div class="arc-item"><span class="arc-index">02 · Reduce and collide</span><p class="text-sm text-[var(--color-text-dim)] mt-1">Test whether the candidate mechanism reduces to adjacent theory or directly collides with prior work.</p></div>
-          <div class="arc-item"><span class="arc-index">03 · Build only if it survives</span><p class="text-sm text-[var(--color-text-dim)] mt-1">Promote a question to a new experiment only when the mechanism remains distinct, testable, and supported by an observed phenomenon.</p></div>
-        </div>
+        <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">{profile.question}</p>
+        <a href="/research/" class="link-arrow">Read the full research agenda →</a>
       </section>
 
       <!-- SELECTED CONTRIBUTIONS (public evidence) -->
@@ -95,6 +79,18 @@ import '../styles/contribution-editorial.css';
 
         <div class="mt-5">
           <a href="/research/" class="link-arrow">View all research →</a>
+        </div>
+      </section>
+
+      <!-- HOW I WORK (working research-selection discipline, not a formal methodology) -->
+      <section id="process" class="mb-14">
+        <span class="section-kicker">Research process</span>
+        <h2 class="mt-2 mb-2">How I work</h2>
+        <p class="font-sans text-sm text-[var(--color-text-dim)] leading-relaxed mb-4">I use a failure-first, repo-first workflow to decide which questions deserve further experiments.</p>
+        <div class="space-y-0">
+          <div class="arc-item"><span class="arc-index">01 · Observe the failure</span><p class="text-sm text-[var(--color-text-dim)] mt-1">Start from a concrete system behavior, an evaluation failure, or an implementation boundary — not from a novelty claim.</p></div>
+          <div class="arc-item"><span class="arc-index">02 · Reduce and collide</span><p class="text-sm text-[var(--color-text-dim)] mt-1">Test whether the candidate mechanism reduces to adjacent theory or directly collides with prior work.</p></div>
+          <div class="arc-item"><span class="arc-index">03 · Build only if it survives</span><p class="text-sm text-[var(--color-text-dim)] mt-1">Promote a question to a new experiment only when the mechanism remains distinct, testable, and supported by an observed phenomenon.</p></div>
         </div>
       </section>
 

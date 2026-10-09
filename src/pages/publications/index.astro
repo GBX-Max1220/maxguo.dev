@@ -25,8 +25,11 @@ const venueLabel = (publication) => {
       <span class="section-label mb-4">Research Outputs</span>
       <h1 class="mb-8">Research Outputs</h1>
 
+      {featured.length > 0 && (
       <h2 class="text-[1.15rem] mb-5 font-sans font-semibold text-[var(--color-ink)]">Featured</h2>
+      )}
 
+      {featured.length > 0 && (
       <div class="space-y-4 mb-12">
         {featured.map(({ id, data }) => {
           const projectUrl = projectHref(data.projectId);
@@ -44,6 +47,8 @@ const venueLabel = (publication) => {
                 {projectUrl && <a href={projectUrl} class="btn btn-primary btn-sm">Project →</a>}
                 {data.links.arxiv && <a href={data.links.arxiv} class="btn btn-sm" target="_blank" rel="noopener">arXiv</a>}
                 {data.links.preprint && <a href={data.links.preprint} class="btn btn-sm" target="_blank" rel="noopener">Preprint</a>}
+                {data.links.doi && <a href={'https://doi.org/' + data.links.doi} class="btn btn-sm" target="_blank" rel="noopener">DOI</a>}
+                {data.links.note && <a href={data.links.note} class="btn btn-sm">Note</a>}
                 {data.links.pdf && <a href={data.links.pdf} class="btn btn-sm" target="_blank" rel="noopener">PDF</a>}
                 {data.links.code && <a href={data.links.code} class="btn btn-sm" target="_blank" rel="noopener">Code</a>}
                 {data.links.dataset && <a href={data.links.dataset} class="btn btn-sm" target="_blank" rel="noopener">Data</a>}
@@ -52,6 +57,7 @@ const venueLabel = (publication) => {
           );
         })}
       </div>
+      )}
 
       <h2 class="text-[1.15rem] mb-5 font-sans font-semibold text-[var(--color-ink)]">All Manuscripts</h2>
 

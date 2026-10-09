@@ -1,0 +1,22 @@
+{
+  "id": "authority-enforcement-note",
+  "title": "Cross-Consumer Authority Enforcement in a Persistent Agent System: A Bounded Case Study",
+  "authors": ["Baixin Guo"],
+  "year": 2026,
+  "status": "research_note",
+  "workflowState": "frozen",
+  "lastVerified": "2026-10-10",
+  "tags": ["Agent Authority", "Persistent State", "Bounded Case Study"],
+  "links": {
+    "note": "/research/building-trustworthy-ai/authority-enforcement/note/"
+  },
+  "citation": {
+    "bibtex": "@misc{guo2026authority,\n  author = {Guo, Baixin},\n  title = {Cross-Consumer Authority Enforcement in a Persistent Agent System: A Bounded Case Study},\n  year = {2026},\n  note = {Research note v0.1.1 (bounded single-substrate case study); consolidates existing frozen experimental and system evidence; reports no new experiments; not peer reviewed}\n}",
+    "apa": "Guo, B. (2026). Cross-consumer authority enforcement in a persistent agent system: A bounded case study [Research note v0.1.1; consolidates existing frozen experimental and system evidence; no new experiments].",
+    "chicago": "Guo, Baixin. \"Cross-Consumer Authority Enforcement in a Persistent Agent System: A Bounded Case Study.\" Research note v0.1.1, 2026.",
+    "mla": "Guo, Baixin. Cross-Consumer Authority Enforcement in a Persistent Agent System: A Bounded Case Study. Research note v0.1.1, 2026."
+  },
+  "abstract": "A research note (v0.1.1, bounded single-substrate case study): in one audited persistent-agent substrate, the same canonical authority decision over the same governed state was enforced inconsistently across heterogeneous behavioral consumer paths. The note consolidates existing experimental and system evidence from frozen internal artifacts (v0.1-v0.4, the consumer-consistency audit, an independent adversarial review, and a cross-substrate replication package); it reports no new experiments, and this website update added none. Claims are limited to that recorded frozen evidence, and are stated as inherited rather than freshly replicated findings.",
+  "featured": true,
+  "projectId": "authority-enforcement"
+}

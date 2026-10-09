@@ -1,0 +1,27 @@
+{
+  "id": "what-the-score-measured",
+  "title": "What the Score Measured: Failure Attribution in an Agent Memory Evaluation",
+  "authors": ["Dino Vitale", "Baixin Guo"],
+  "year": 2026,
+  "status": "preprint",
+  "workflowState": "active",
+  "lastVerified": "2026-10-10",
+  "tags": [
+    "Agent Memory Evaluation",
+    "Failure Attribution",
+    "Evaluation Observability"
+  ],
+  "links": {
+    "preprint": "https://zenodo.org/records/22980060",
+    "doi": "10.5281/zenodo.22980060"
+  },
+  "citation": {
+    "bibtex": "@misc{vitale2026score,\n  author = {Vitale, Dino and Guo, Baixin},\n  title = {What the Score Measured: Failure Attribution in an Agent Memory Evaluation},\n  year = {2026},\n  doi = {10.5281/zenodo.22980060},\n  note = {Public preprint (Zenodo, versioned DOI); not peer reviewed}\n}",
+    "apa": "Vitale, D., & Guo, B. (2026). What the score measured: Failure attribution in an agent memory evaluation [Public preprint]. Zenodo. https://doi.org/10.5281/zenodo.22980060",
+    "chicago": "Vitale, Dino, and Baixin Guo. \"What the Score Measured: Failure Attribution in an Agent Memory Evaluation.\" Public preprint. Zenodo, 2026. https://doi.org/10.5281/zenodo.22980060.",
+    "mla": "Vitale, Dino, and Baixin Guo. What the Score Measured: Failure Attribution in an Agent Memory Evaluation. Public preprint, Zenodo, 2026, doi:10.5281/zenodo.22980060."
+  },
+  "abstract": "This public preprint, co-authored with Dino Vitale (Boundary Labs), documents why an outcome score alone cannot identify which component of a LongMemEval-based agent memory evaluation failed. It separates observed outcomes, available evidence, failure attribution, and judge confidence, and shows how missing traces limit what a failed answer can tell us about the memory system. It is a preprint, not a peer-reviewed publication.",
+  "featured": true,
+  "projectId": "boundary-memory-eval"
+}
