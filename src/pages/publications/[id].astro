@@ -79,7 +79,8 @@ const projectUrl = projectHref(data.projectId);
             {data.links.doi && <a href={'https://doi.org/' + data.links.doi} class="btn btn-sm" target="_blank">DOI</a>}
             {data.links.code && <a href={data.links.code} class="btn btn-sm" target="_blank">Code</a>}
             {data.links.dataset && <a href={data.links.dataset} class="btn btn-sm" target="_blank">Data</a>}
-            {!data.links.arxiv && !data.links.preprint && !data.links.pdf && !data.links.doi && !data.links.code && !data.links.dataset && (
+            {data.links.note && <a href={data.links.note} class="btn btn-sm">Note</a>}
+            {!data.links.arxiv && !data.links.preprint && !data.links.pdf && !data.links.doi && !data.links.code && !data.links.dataset && !data.links.note && (
               <span class="text-xs text-[var(--color-text-muted)] italic">Links coming soon</span>
             )}
           </div>

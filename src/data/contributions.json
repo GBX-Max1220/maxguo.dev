@@ -1,5 +1,26 @@
 [
   {
+    "id": "aiming-lab-skillrl-pulls-69",
+    "occurredAt": "2026-10-06T06:17:08Z",
+    "project": "aiming-lab/SkillRL",
+    "kind": "pr",
+    "scope": "external",
+    "event": "submitted",
+    "title": "Preserve SkillBank state across checkpoint resume",
+    "contribution": "Submitted a checkpoint-resume fix that saves and restores the training SkillBank, with checkpoint-state validation, atomic writes, and legacy-checkpoint compatibility.",
+    "whyItMatters": "Prevents a resumed policy from being paired with a SkillBank that never co-evolved with it.",
+    "status": "open",
+    "url": "https://github.com/aiming-lab/SkillRL/pull/69",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-06T06:17:08Z",
+      "verifiedAt": "2026-10-10T01:30:00+08:00",
+      "apiUrl": "https://api.github.com/repos/aiming-lab/SkillRL/pulls/69"
+    },
+    "localDate": "2026-10-06"
+  },
+  {
     "id": "Tencent-SkillHone-pulls-14",
     "occurredAt": "2026-09-26T16:52:55Z",
     "project": "Tencent/SkillHone",

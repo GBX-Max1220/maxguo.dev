@@ -26,11 +26,24 @@
       "summary": "For LongMemEval-based evaluation, I designed a framework that separates observed outcomes, available evidence, failure attribution, and judge confidence. Missing traces limit what a failed answer can tell us about the memory system.",
       "bullets": [
         "Delivered an observability map, failure-attribution framework, five diagnostic tests, and a judge-reliability protocol.",
-        "Distinguished independently inspected traces from collaborator-reported checks; limited attribution claims to the evidence actually available."
+        "Distinguished independently inspected traces from collaborator-reported checks; limited attribution claims to the evidence actually available.",
+        "Co-authored the public preprint \"What the Score Measured: Failure Attribution in an Agent Memory Evaluation\" (Zenodo, October 1, 2026): https://zenodo.org/records/22980060"
       ]
     }
   ],
   "projects": [
+    {
+      "id": "authority-enforcement",
+      "title": "Cross-Consumer Authority Enforcement",
+      "date": "2026",
+      "status": "Research note v0.1.1 · bounded single-substrate case study",
+      "summary": "In one audited persistent-agent substrate, the same canonical authority decision over the same governed state was enforced inconsistently across heterogeneous behavioral consumer paths. I consolidated the existing frozen experimental and system evidence (v0.1-v0.4, consumer-consistency audit, independent adversarial review, cross-substrate replication package) into a public research note; the note reports no new experiments, and this website update added none. Claims are limited to the recorded frozen evidence.",
+      "url": "/research/building-trustworthy-ai/authority-enforcement/",
+      "bullets": [
+        "Consolidated frozen artifacts (v0.1-v0.4, consumer-consistency audit, independent adversarial review, novelty/overlap audit) into public research note v0.1.1.",
+        "Scope is one substrate and recorded evidence: no fresh replication, no residual-authority or prompt-injection result, and no claim about whether the underlying authorization was warranted."
+      ]
+    },
     {
       "id": "pmd",
       "title": "Preference Modeling Diagnostics",
@@ -78,6 +91,18 @@
       "bullets": [
         "Ran a prespecified 6,000-step optimizer comparison on a 162M-parameter GPT-style model with a fixed architecture on an A100 GPU.",
         "Documented a trainability gap within that one-seed configuration and packaged commands, logs, hashes, and a bounded decision record."
+      ]
+    },
+    {
+      "id": "skillrl",
+      "title": "SkillRL contribution",
+      "date": "2026",
+      "status": "Open-source contribution · one PR under review",
+      "summary": "Submitted a checkpoint-resume fix to aiming-lab/SkillRL that preserves the training SkillBank across trainer checkpoints. PR #69 is open and awaiting review; it is not merged.",
+      "url": "https://github.com/aiming-lab/SkillRL/pull/69",
+      "bullets": [
+        "PR #69 (opened October 6, 2026): save and restore the training SkillBank with checkpoint-state validation, atomic writes, and legacy-checkpoint compatibility.",
+        "Verified with CPU-only deterministic checkpoint/resume probes; no full RL training or GPU execution claimed."
       ]
     },
     {

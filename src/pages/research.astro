@@ -11,6 +11,18 @@ import profile from '../data/research-profile.json';
       <h1 class="mb-4">Learning from imperfect feedback</h1>
       <p class="lead mb-4">{profile.question}</p>
       <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-10">{profile.profile} These collaborations, studies, and prototypes address different parts of the question. Together they motivate the next experiments; they do not establish a validated end-to-end adaptation system.</p>
+
+      <!-- Research arc: how the projects connect (organizing frame, not a validated loop) -->
+      <section id="arc" class="mb-12">
+        <span class="section-kicker mb-2">Research arc</span>
+        <p class="text-sm text-[var(--color-text-dim)] leading-relaxed max-w-2xl mb-4">The projects connect as feedback measurement → state update and authorization → outcome evaluation. This is how the agenda is organized; it is not a claim that a complete learning loop has been validated.</p>
+        <div class="space-y-0">
+          <div class="arc-item"><span class="arc-index">01 · Understand the signal</span><p class="arc-question mt-1 mb-2">What does the feedback measure?</p><p class="text-sm text-[var(--color-text-dim)] mb-3">Gaze, mouse behavior, and expressed preferences carry different kinds of evidence. I examine their collection and representation before treating them as learning signals.</p><a href="#collaborations" class="link-arrow">Current collaborations →</a></div>
+          <div class="arc-item"><span class="arc-index">02 · Evaluate the decision</span><p class="arc-question mt-1 mb-2">What can a result establish?</p><p class="text-sm text-[var(--color-text-dim)] mb-3">Memory-agent diagnostics and Evaluation Runtime separate observable failures, uncertain attribution, and evaluator judgments.</p><a href="/demo/eval-runtime/" class="link-arrow">Evaluation Runtime →</a></div>
+          <div class="arc-item"><span class="arc-index">03 · Test adaptation</span><p class="arc-question mt-1 mb-2">Does using the signal help?</p><p class="text-sm text-[var(--color-text-dim)] mb-3">PMD tests known-user preference adaptation on held-out prompts. CheckMyCoach keeps human verification and information preservation in view. A reliable end-to-end learning loop remains a research goal.</p><a href="#projects" class="link-arrow">Studies and prototypes →</a></div>
+        </div>
+      </section>
+
       <CurrentResearch />
       <p class="text-sm mb-12"><a href="/contributions/" class="link-arrow">Public, dated research and engineering contributions →</a></p>
       <!-- 3. Supporting work -->

@@ -16,6 +16,7 @@ const academicStatusSchema = z.enum([
   'under_review',
   'accepted',
   'published',
+  'research_note',
   'archived',
 ]);
 
@@ -99,6 +100,7 @@ const publicationSchema = z.object({
     doi: z.string().optional(),
     code: z.string().optional(),
     dataset: z.string().optional(),
+    note: z.string().optional(),
     bibtex: z.string().optional(),
   }),
   citation: z.object({

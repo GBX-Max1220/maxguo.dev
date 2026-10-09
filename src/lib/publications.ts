@@ -6,6 +6,7 @@ export const PUBLICATION_STATUS = {
   under_review: { label: 'Under Review', shortLabel: 'in review', className: 'badge-under-review' },
   accepted: { label: 'Accepted', shortLabel: 'accepted', className: 'badge-published' },
   published: { label: 'Published', shortLabel: 'published', className: 'badge-published' },
+  research_note: { label: 'Research note', shortLabel: 'note', className: '' },
   archived: { label: 'Archived', shortLabel: 'archived', className: '' },
 } as const;
 
@@ -18,6 +19,8 @@ export function publicationStatusMeta(status: PublicationStatus) {
 const PROJECT_ROUTES: Record<string, string> = {
   'checkmycoach': '/research/building-trustworthy-ai/checkmycoach/',
   'fitcalib-bench': '/research/measuring-ai-reliability/fitcalib-bench/',
+  'authority-enforcement': '/research/building-trustworthy-ai/authority-enforcement/',
+  'boundary-memory-eval': '/research/#longmemeval',
 };
 
 export function projectHref(projectId?: string) {
