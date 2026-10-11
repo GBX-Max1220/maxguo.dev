@@ -34,7 +34,7 @@ const VIEWPORTS = [
 // the same overflow gate as the rest of the site.
 // '/research/building-trustworthy-ai/authority-enforcement/note/' added with
 // the public HTML edition of research note v0.1.1 (long prose + five tables).
-const ROUTES = ['/', '/demo/', '/demo/interactionkit/', '/demo/checkmycoach/', '/demo/eval-runtime/', '/research/', '/contributions/', '/projects/', '/publications/', '/cv/', '/research/building-trustworthy-ai/authority-enforcement/', '/research/building-trustworthy-ai/authority-enforcement/note/'];
+const ROUTES = ['/', '/non-answers/', '/demo/', '/demo/interactionkit/', '/demo/checkmycoach/', '/demo/eval-runtime/', '/research/', '/contributions/', '/projects/', '/publications/', '/cv/', '/research/building-trustworthy-ai/authority-enforcement/', '/research/building-trustworthy-ai/authority-enforcement/note/'];
 
 const MIME_TYPES = {
   '.html': 'text/html',
@@ -211,7 +211,7 @@ try {
           await page.screenshot({ path: join(REVIEW_DIR, `${name}-${vp.width}.png`), fullPage: true });
           await page.screenshot({ path: join(REVIEW_DIR, `${name}-${vp.width}-top.png`) });
           if (route === '/') {
-            await page.locator('#contributions').evaluate(element => window.scrollTo({ top: element.getBoundingClientRect().top + window.scrollY - 80, behavior: 'instant' }));
+            await page.locator('#selected-research').evaluate(element => window.scrollTo({ top: element.getBoundingClientRect().top + window.scrollY - 80, behavior: 'instant' }));
             await page.screenshot({ path: join(REVIEW_DIR, `${name}-${vp.width}-selected.png`) });
           }
         }
