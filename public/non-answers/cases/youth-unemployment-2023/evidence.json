@@ -1,0 +1,138 @@
+{
+  "schema_version": "v1.8-prototype-2026-10-12",
+  "status": "RESEARCH_PROTOTYPE_NOT_RELEASE_APPROVED",
+  "title_zh": "21.3%之后：青年失业率的数字去哪了？",
+  "research_question": "What can be compared after age-disaggregated unemployment publication was suspended and the target population changed?",
+  "scope": {
+    "topic": "China urban surveyed unemployment, ages 16–24",
+    "period": "2023-06 to 2024-01 publication",
+    "not_part_of_v1_7_frozen_sample": true
+  },
+  "observations": [
+    {
+      "value": 21.3,
+      "unit": "percent",
+      "observation_month": "2023-06",
+      "publication_date": "2023-07-17",
+      "population": "Urban labor force 16-24, previous age-group definition",
+      "source_id": "S01"
+    },
+    {
+      "value": 14.9,
+      "unit": "percent",
+      "observation_month": "2023-12",
+      "publication_date": "2024-01-17",
+      "population": "Urban labor force 16-24, published rate excluding enrolled students",
+      "source_id": "S04"
+    }
+  ],
+  "comparison": {
+    "directly_comparable": false,
+    "reasons": [
+      "different_observation_months",
+      "changed_population_inclusion"
+    ],
+    "arithmetic_difference_percentage_points": 6.4,
+    "interpret_as_real_change": false,
+    "interpret_as_definition_effect": false,
+    "chart_policy": "TWO_DISCONNECTED_CARDS_NO_TREND_LINE"
+  },
+  "events": [
+    {
+      "date": "2023-07-17",
+      "type": "published_last_observed_old_definition",
+      "source_ids": [
+        "S01"
+      ]
+    },
+    {
+      "date": "2023-08-15",
+      "type": "age_group_publication_suspended",
+      "source_ids": [
+        "S02"
+      ]
+    },
+    {
+      "date": "2023-09-15",
+      "type": "press_follow_up_about_method_and_timing",
+      "source_ids": [
+        "S03"
+      ]
+    },
+    {
+      "date": "2024-01-17",
+      "type": "new_age_group_publication_and_method_note",
+      "source_ids": [
+        "S04",
+        "S05"
+      ]
+    }
+  ],
+  "qa_2023_08_15": {
+    "questioner": "Bloomberg News",
+    "scope": "Three-part question; housing-price topic retained in the editorial synopsis.",
+    "judgments": [
+      {
+        "question": "When did age-specific release stop?",
+        "response": "Suspension was announced as beginning in August; spokesperson reiterated suspension",
+        "answered": true
+      },
+      {
+        "question": "Does change imply overall 5.3% unemployment rate is inaccurate?",
+        "response": "Spokesperson asserted overall indicator was unaffected",
+        "answered": true,
+        "methodological_proof_in_live_reply": "not independently reproducible from reply alone"
+      },
+      {
+        "question": "How are 70-city property price indices collected?",
+        "response": "Brief description of data collection with follow-up referral",
+        "answered": "partial_with_referral"
+      }
+    ]
+  },
+  "methodology_notes": [
+    "Unemployment rate denominator is labor force, not all people in age category.",
+    "Enrolled students are not automatically unemployed.",
+    "NBS May 2024 reply distinguishes general surveyed unemployment from published nonstudent age-specific rate.",
+    "Source hashes are not proof of semantic truth; external independent crosswalk or microdata not present.",
+    "Cannot infer intentional deception or fabrication from these documents alone."
+  ],
+  "sources": [
+    {
+      "id": "S01",
+      "published": "2023-07-17",
+      "title": "上半年国民经济恢复向好",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202307/t20230715_1941271.html"
+    },
+    {
+      "id": "S02",
+      "published": "2023-08-15",
+      "title": "国家统计局新闻发言人就2023年7月份国民经济运行情况答记者问",
+      "url": "https://www.stats.gov.cn/sj/sjjd/202308/t20230815_1942020.html"
+    },
+    {
+      "id": "S03",
+      "published": "2023-09-15",
+      "title": "国家统计局新闻发言人就2023年8月份国民经济运行情况答记者问",
+      "url": "https://www.stats.gov.cn/sj/sjjd/202309/t20230915_1942890.html"
+    },
+    {
+      "id": "S04",
+      "published": "2024-01-17",
+      "title": "2023年国民经济回升向好 高质量发展扎实推进",
+      "url": "https://www.stats.gov.cn/sj/xwfbh/fbhwd/202401/t20240117_1946624.html"
+    },
+    {
+      "id": "S05",
+      "published": "2024-01-17",
+      "title": "关于完善分年龄组调查失业率有关情况的说明",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202401/t20240117_1946644.html"
+    },
+    {
+      "id": "S06",
+      "published": "2024-05-08",
+      "title": "国家统计局人口和就业统计司劳动力定义答复",
+      "url": "https://www.stats.gov.cn/hd/lyzx/zxgk/202406/t20240619_1955075.html"
+    }
+  ]
+}
