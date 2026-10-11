@@ -1,0 +1,60 @@
+name: Generate Non-Answers cover (one-time)
+
+on:
+  push:
+    branches: [feature/non-answers-editorial-v1-7]
+    paths:
+      - '.github/workflows/non-answers-og-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  create-image-on-draft-branch:
+    if: github.repository == 'GBX-Max1220/maxguo.dev'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/non-answers-editorial-v1-7
+          persist-credentials: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Chromium and Chinese fonts
+        run: |
+          npx playwright install --with-deps chromium-headless-shell
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-cjk
+
+      - name: Generate dedicated OG PNG
+        run: node scripts/generate-non-answers-og.mjs
+
+      - name: Check PNG dimensions
+        run: |
+          file public/non-answers/og-preview.png
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const png = readFileSync('public/non-answers/og-preview.png');
+          const sig = '89504e470d0a1a0a';
+          if (png.subarray(0,8).toString('hex') !== sig ||
+              png.readUInt32BE(16) !== 1200 || png.readUInt32BE(20) !== 630) {
+            throw new Error('Invalid 1200x630 PNG');
+          }
+          console.log('Open Graph PNG signature + dimensions verified');
+          NODE
+
+      - name: Commit PNG to draft branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/non-answers/og-preview.png
+          git diff --cached --quiet && exit 0
+          git commit -m 'assets: add generated Non-Answers OG preview'
+          git push origin HEAD:feature/non-answers-editorial-v1-7
