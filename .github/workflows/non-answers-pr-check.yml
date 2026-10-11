@@ -78,3 +78,6 @@ jobs:
           if (!html.includes(ogCover)) throw new Error('Dedicated OG meta URL missing');
           console.log('Non-Answers artifact, OG cover, canonical and entrypoint checks PASSED');
           NODE
+
+      - name: Verify V1.8 youth-unemployment research prototype
+        run: node scripts/check-non-answers-v1-8.mjs
