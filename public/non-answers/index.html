@@ -126,7 +126,17 @@
 .v15-pilot a{color:#92502f;text-underline-offset:3px}
 .v15-fine{font-size:12px;color:#627063;line-height:1.85;margin-top:12px}
 @media(max-width:700px){.v15-pilot{padding:33px 0}.v15-counts{grid-template-columns:repeat(2,minmax(0,1fr))}.v15-insight{grid-template-columns:1fr}.v15-count strong{font-size:28px}.v15-insight article{padding:17px}}
-</style></head>
+</style><style id="small-screen-nav-fit">
+/* Allow the top language/share controls to fit genuinely narrow (320px) phones. */
+@media (max-width: 359px) {
+  .navinner { gap: 6px; }
+  .brand { font-size: 11px; letter-spacing: 0; }
+  .lang { margin-left: auto; gap: 0; padding: 2px; }
+  .lang button { font-size: 10px; padding: 4px 5px; }
+  .nav-share { padding: 6px 7px; font-size: 10px; margin-left: 0; }
+}
+</style>
+</head>
 <body>
 <div aria-hidden="true" class="grain"></div>
 <header class="nav"><div class="container navinner"><a class="brand" href="#top">NON<span> / </span>ANSWERS</a><nav aria-label="Sections" class="navlinks"><a data-i18n="nav1" href="#act1">起点</a><a data-i18n="nav2" href="#act2">拆解</a><a data-i18n="nav3" href="#act3">追问</a><a data-i18n="nav4" href="#act4">证据</a><a data-i18n="nav5" href="#act5">判断</a><a class="v14-nav-extra" href="#findings" data-v16-zh="新数据" data-v16-en="Research">新数据</a><a class="v14-nav-extra" href="#diplomacy">外交</a><a class="v14-nav-extra" href="#media">媒体</a></nav><div aria-label="Language" class="lang" role="group"><button aria-pressed="true" class="active" id="zhBtn" type="button">简体</button><button aria-pressed="false" id="hantBtn" type="button">繁體</button><button aria-pressed="false" id="enBtn" type="button">EN</button></div><button aria-label="分享这项研究" class="nav-share" id="navShare" type="button">分享 ↗</button></div><div class="progress" id="progress"></div></header>
