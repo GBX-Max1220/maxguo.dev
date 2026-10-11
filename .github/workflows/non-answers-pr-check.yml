@@ -1,0 +1,71 @@
+name: Non-Answers PR verification
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'public/non-answers/**'
+      - 'src/pages/index.astro'
+      - 'src/pages/blog/index.astro'
+      - '.github/workflows/non-answers-pr-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout PR code
+        uses: actions/checkout@v4
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro / verify base paths
+        run: npm run build
+
+      - name: Validate build, content, and project tests
+        run: |
+          npm run validate
+          npm run validate:content
+          npm run test:contributions
+
+      - name: Install Chromium for layout checks
+        run: npx playwright install --with-deps chromium-headless-shell
+
+      - name: Desktop and mobile overflow checks
+        run: npm run check:overflow
+
+      - name: Verify integrated feature and research data
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync, existsSync } from 'node:fs';
+          const html = readFileSync('dist/non-answers/index.html', 'utf8');
+          const required = [
+            'adjudicated_139.csv', 'source_manifest_18.csv',
+            'document_quality_18.csv', 'document_dictionary_counts_18.csv',
+            'dictionary_v0_4_frozen.json', 'FROZEN_SELECTION_PROTOCOL.md',
+            'D2_3_FINDINGS.md', 'CODEBOOK_V0_5.md', 'change_log.csv',
+          ];
+          for (const name of required) {
+            if (!existsSync('dist/non-answers/' + name)) throw new Error('Missing: ' + name);
+            if (!html.includes(name)) throw new Error('Article not linked: ' + name);
+          }
+          const expectedUrl = 'https://gbx-max1220.github.io/maxguo.dev/non-answers/';
+          if (!html.includes(expectedUrl)) throw new Error('Canonical URL missing');
+          const home = readFileSync('dist/index.html', 'utf8');
+          const blog = readFileSync('dist/blog/index.html', 'utf8');
+          for (const [name, text] of [['homepage',home],['blog',blog]]) {
+            if (!text.includes('/maxguo.dev/non-answers/')) throw new Error(name + ' link missing base');
+          }
+          console.log('Non-Answers artifact, canonical and entrypoint checks PASSED');
+          NODE
