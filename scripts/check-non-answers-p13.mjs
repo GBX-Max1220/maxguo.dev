@@ -25,8 +25,9 @@ if(!evidence.limits.some(x=>x.includes('editorial motive')))throw new Error('Edi
 for(const source of evidence.sources){
   if(!source.url.startsWith('https://')||!html.includes('href="'+source.url+'"'))throw new Error('Primary URL missing/mismatch: '+source.id);
 }
-if(!html.includes('content="noindex,nofollow"')||!html.includes('编辑待审'))throw new Error('Draft must be noindex with editorial-review label');
-if(evidence.status!=='NOT_PUBLISHED'||evidence.publication_gate?.main_merged!==false)throw new Error('Draft status corrupted');
+if(!html.includes('content="index,follow,max-image-preview:large"'))throw new Error("Public case must be indexable");
+if(evidence.status!=="PUBLIC_RELEASE_OWNER_APPROVED")throw new Error("Release status mismatch");
+if(evidence.publication_gate?.author_approval_to_publish!==true)throw new Error("Missing publication approval");
 const m=html.match(/<script>([\s\S]*?)<\/script>/);
 if(!m)throw new Error('Inline script missing');
 new Script(m[1],{filename:'nonanswers-p13-inline.js'});
