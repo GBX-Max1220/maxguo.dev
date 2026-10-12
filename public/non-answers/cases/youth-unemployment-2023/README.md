@@ -39,7 +39,7 @@
 S01 https://www.stats.gov.cn/sj/zxfb/202307/t20230715_1941271.html  
 S02 https://www.stats.gov.cn/sj/sjjd/202308/t20230815_1942020.html  
 S03 https://www.stats.gov.cn/sj/sjjd/202309/t20230915_1942890.html  
-S04 https://www.stats.gov.cn/sj/xwfbh/fbhwd/202401/t20240117_1946624.html  
+S04 https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202401/t20240117_1946639.html  
 S05 https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202401/t20240117_1946644.html  
 S06 https://www.stats.gov.cn/hd/lyzx/zxgk/202406/t20240619_1955075.html
 
