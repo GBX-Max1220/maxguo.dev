@@ -79,7 +79,7 @@ jobs:
           console.log('Non-Answers artifact, OG cover, canonical and entrypoint checks PASSED');
           NODE
 
-      - name: Verify V1.8 youth-unemployment research prototype
+      - name: Verify V1.8 youth-unemployment published case
         run: node scripts/check-non-answers-v1-8.mjs
 
       - name: Capture V1.8 mobile and desktop visual QA
