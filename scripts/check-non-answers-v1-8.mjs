@@ -10,6 +10,7 @@ const evidenceFile=resolve(root,'evidence.json');
 if(!existsSync(file)||!existsSync(evidenceFile))throw new Error('V1.8 build output missing');
 const html=readFileSync(file,'utf8'), evidence=JSON.parse(readFileSync(evidenceFile,'utf8'));
 if(!html.includes('noindex,nofollow'))throw new Error('Prototype must not be indexed');
+if(!html.includes('房价走势')||!html.includes('housing-price trend')||!html.includes('房價走勢'))throw new Error('Reporter housing trend must be represented in all three locales');
 if(evidence.status!=='RESEARCH_PROTOTYPE_NOT_RELEASE_APPROVED')throw new Error('Release status changed');
 if(evidence.observations.length!==2)throw new Error('Unexpected observations');
 if(evidence.comparison.directly_comparable!==false||evidence.comparison.chart_policy!=='TWO_DISCONNECTED_CARDS_NO_TREND_LINE')throw new Error('Comparison boundary failed');
@@ -23,7 +24,7 @@ const m=html.match(/<script>([\s\S]*?)<\/script>/);
 if(!m)throw new Error('Inline JS missing');
 new Script(m[1],{filename:'nonanswers-v1-8-inline.js'});
 const keyset=new Set([...html.matchAll(/\bdata-t="([^"]+)"/g)].map(m=>m[1]));
-for(const lang of ['zh','en']){
+for(const lang of ['zh','tw','en']){
  const segment=m[1].match(new RegExp('const '+lang+'=\\{([\\s\\S]*?)\\n\\};'));
  if(!segment)throw new Error('Missing locale dictionary: '+lang);
  const keys=new Set([...segment[1].matchAll(/(?:^|,)([A-Za-z][A-Za-z0-9]*):"/gm)].map(m=>m[1]));
@@ -46,8 +47,12 @@ try{
   await page.locator('[data-lang="en"]').click();
   if(await page.locator('html').getAttribute('lang')!=='en')throw new Error('English switch failed '+width);
   if(!((await page.locator('h1').textContent())||'').includes('21.3%'))throw new Error('English title lost '+width);
+  if(!((await page.locator('[data-t="q3"]').textContent())||'').includes('trend'))throw new Error('English housing trend omitted '+width);
   await page.locator('[data-lang="tw"]').click();
   if(await page.locator('html').getAttribute('lang')!=='zh-Hant')throw new Error('Traditional switch failed '+width);
+  if(!((await page.locator('h1').textContent())||'').includes('數字'))throw new Error('Traditional lexical localization failed '+width);
+  if(!((await page.locator('[data-t="q3"]').textContent())||'').includes('走勢'))throw new Error('Traditional housing trend omitted '+width);
+  if(!((await page.locator('.brand').textContent())||'').includes('正確的廢話'))throw new Error('Traditional brand not localized '+width);
   if(errors.length)throw new Error('Browser JS errors: '+errors.join(' | '));
   await page.close();
  }
