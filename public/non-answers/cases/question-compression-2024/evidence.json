@@ -1,0 +1,90 @@
+{
+  "case_id": "question-compression-2024",
+  "edition": "P13-independent-short-case",
+  "status": "PUBLIC_RELEASE_OWNER_APPROVED",
+  "case_type": "independent_short_case",
+  "date_of_event": "2024-05-08",
+  "author": "Baixin Guo (Max)",
+  "research_question": "What distinct information requests are visible in a full press-briefing transcript versus a short news summary, and how directly are they answered?",
+  "sources": [
+    {
+      "id": "S01",
+      "institution": "Ministry of Foreign Affairs of the PRC",
+      "format": "full press-briefing transcript",
+      "date": "2024-05-08",
+      "time_label": "18:20 website publication label",
+      "url": "https://www.mfa.gov.cn/web/fyrbt_673021/202405/t20240508_11301185.shtml",
+      "evidence_role": "full question and answer"
+    },
+    {
+      "id": "S02",
+      "institution": "CCTV News via CRI",
+      "format": "news brief",
+      "date": "2024-05-08",
+      "time_label": "17:34:43 website publication label",
+      "url": "https://vscs.cri.cn/20240508/6336ab36-83dc-251b-e51a-339fdc275d75.html",
+      "evidence_role": "abridged question"
+    },
+    {
+      "id": "S03",
+      "institution": "Beijing Daily",
+      "format": "news brief",
+      "date": "2024-05-08",
+      "time_label": "15:40 website publication label",
+      "url": "https://xinwen.bjd.com.cn/content/s663b2c50e4b054206479961f.html",
+      "evidence_role": "independent early abridged public version; no copying inference"
+    },
+    {
+      "id": "S04",
+      "institution": "CCTV News",
+      "format": "separate counterexample",
+      "date": "2025-09-22",
+      "time_label": "16:14 website publication label",
+      "url": "https://news.cctv.com/2025/09/22/ARTIhsAqDazHUNTobAn6z8Vo250922.shtml",
+      "evidence_role": "multipart question preserved in a different report"
+    }
+  ],
+  "requests": [
+    {
+      "id": "A",
+      "paraphrase_zh": "是否将公布完整通话录音",
+      "present_as_specific_request_in_S01": true,
+      "present_as_specific_request_in_S02": true,
+      "answer_coverage": "related_without_explicit_future_yes_no",
+      "qualification": "Some audio excerpts reportedly played for selected media; do not imply zero disclosure."
+    },
+    {
+      "id": "B",
+      "paraphrase_zh": "若公布，将在何时公布",
+      "present_as_specific_request_in_S01": true,
+      "present_as_specific_request_in_S02": false,
+      "answer_coverage": "no_release_time_given"
+    },
+    {
+      "id": "C",
+      "paraphrase_zh": "文字稿隐去的人名是谁",
+      "present_as_specific_request_in_S01": true,
+      "present_as_specific_request_in_S02": false,
+      "answer_coverage": "name_not_supplied"
+    }
+  ],
+  "limits": [
+    "All question cards are editorial paraphrases, not verbatim quotation.",
+    "The S02 brief was published before the S01 website transcript; editorial lineage is not established.",
+    "Question omission does not prove an editorial motive or that audiences were misled.",
+    "Response incompleteness does not establish audio authenticity or the existence of a bilateral agreement.",
+    "Do not equate selected-media excerpt playback with general-public release of complete audio.",
+    "The reader interaction is an educational reveal, not a measured causal experiment."
+  ],
+  "publication_gate": {
+    "author_approval_to_publish": true,
+    "author_approval_date": "2026-10-13",
+    "scope": "standalone short case, not flagship",
+    "linked_from_main_article": true,
+    "search_indexing_enabled": true,
+    "editorial_review": "source content, claims and three locales reviewed; no independent native-speaker review",
+    "browser_QA": "15 locale x viewport tests, parent case links and source checks",
+    "CI_requirement": "final PR branch HEAD must have passing GitHub Actions before merge",
+    "deployment_verification": "check actual GitHub Pages run and production URL after merge"
+  }
+}

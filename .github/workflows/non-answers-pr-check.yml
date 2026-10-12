@@ -9,6 +9,7 @@ on:
       - 'src/pages/blog/index.astro'
       - 'scripts/check-overflow.mjs'
       - 'scripts/generate-non-answers-og.mjs'
+      - 'scripts/check-non-answers-p13.mjs'
       - '.github/workflows/non-answers-pr-check.yml'
   workflow_dispatch:
 
@@ -82,6 +83,9 @@ jobs:
       - name: Verify V1.8 youth-unemployment published case
         run: node scripts/check-non-answers-v1-8.mjs
 
+      - name: Verify P13 trilingual question-compression short case
+        run: node scripts/check-non-answers-p13.mjs
+
       - name: Capture V1.8 mobile and desktop visual QA
         run: node scripts/capture-non-answers-v1-8.mjs
 
@@ -90,5 +94,13 @@ jobs:
         with:
           name: non-answers-v1-8-visual-qa
           path: .astro/non-answers-v1-8-review/
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload P13 draft-case visual QA screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: non-answers-p13-draft-visual-qa
+          path: .astro/non-answers-p13-review/
           if-no-files-found: error
           retention-days: 7
