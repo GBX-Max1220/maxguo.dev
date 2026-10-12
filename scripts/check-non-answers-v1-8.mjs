@@ -10,6 +10,17 @@ const evidenceFile=resolve(root,'evidence.json');
 if(!existsSync(file)||!existsSync(evidenceFile))throw new Error('V1.8 build output missing');
 const html=readFileSync(file,'utf8'), evidence=JSON.parse(readFileSync(evidenceFile,'utf8'));
 if(!html.includes('noindex,nofollow'))throw new Error('Prototype must not be indexed');
+const main=readFileSync(resolve('dist/non-answers/index.html'),'utf8');
+const route='/maxguo.dev/non-answers/cases/youth-unemployment-2023/';
+if(!main.includes('id="v18-case-link"')||!main.includes('href="'+route+'"'))throw new Error('Case entrypoint not linked from main article');
+if(!main.includes('data-ed-zh="21.3% 与 14.9%')||!main.includes('data-ed-en="21.3% and 14.9%'))throw new Error('Main article case navigation is not bilingual');
+const canonical='https://gbx-max1220.github.io'+route;
+for(const token of [
+ '<meta property="og:title"','<meta property="og:description"','<meta name="twitter:card"','<meta property="og:image"',
+ 'content="https://gbx-max1220.github.io/maxguo.dev/non-answers/og-preview.png"',
+ 'href="'+canonical+'"'
+])if(!html.includes(token))throw new Error('Case release metadata missing: '+token);
+if(!main.includes('id="v18-case-locale-link"'))throw new Error('Locale-preserving link script missing');
 if(!html.includes('房价走势')||!html.includes('housing-price trend')||!html.includes('房價走勢'))throw new Error('Reporter housing trend must be represented in all three locales');
 if(evidence.status!=='RESEARCH_PROTOTYPE_NOT_RELEASE_APPROVED')throw new Error('Release status changed');
 if(evidence.observations.length!==2)throw new Error('Unexpected observations');
@@ -54,6 +65,12 @@ try{
   if(!((await page.locator('[data-t="q3"]').textContent())||'').includes('走勢'))throw new Error('Traditional housing trend omitted '+width);
   if(!((await page.locator('.brand').textContent())||'').includes('正確的廢話'))throw new Error('Traditional brand not localized '+width);
   if(errors.length)throw new Error('Browser JS errors: '+errors.join(' | '));
+  await page.close();
+ }
+ for(const [requested,expected] of [['?lang=en','en'],['?lang=zh-Hant','zh-Hant']]){
+  const page=await browser.newPage({viewport:{width:390,height:820}});
+  await page.goto(pathToFileURL(file).toString()+requested,{waitUntil:'load'});
+  if(await page.locator('html').getAttribute('lang')!==expected)throw new Error('Deep-link locale not preserved: '+requested);
   await page.close();
  }
  console.log('V1.8 evidence, locale, source, comparison and six viewport checks PASSED');
