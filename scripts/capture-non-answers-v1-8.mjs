@@ -27,13 +27,27 @@ try{
   await page.goto(pathToFileURL(input).toString(),{waitUntil:'load'});
   await page.locator('[data-lang="'+spec.lang+'"]').click();
   await page.evaluate(()=>document.fonts.ready);
-  if(spec.selector) await page.locator(spec.selector).screenshot({path:resolve(out,spec.name+'.png'),animations:'disabled'});
-  else await page.screenshot({path:resolve(out,spec.name+'.png'),animations:'disabled'});
+  if(spec.selector){
+    // Capture the actual viewport after hash navigation. Element screenshots
+    // can composite a sticky header over the target and misrepresent what a reader sees.
+    await page.evaluate(hash=>{location.hash=hash;},spec.selector);
+    await page.waitForTimeout(120);
+    const top=await page.locator(spec.selector).evaluate(el=>el.getBoundingClientRect().top);
+    if(top<55)throw new Error('Anchor top hidden behind sticky nav: '+spec.name+' top='+top);
+  }
+  await page.screenshot({path:resolve(out,spec.name+'.png'),animations:'disabled'});
   const horizontal=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);
   const title=await page.locator('h1').textContent();
   if(horizontal||errors.length)throw new Error(spec.name+' overflow='+horizontal+' errors='+errors.join(','));
   report.push({...spec,title:title.trim(),horizontal,errors});
   await page.close();
+ }
+ for(const width of [390,1366]){
+   const page=await browser.newPage({viewport:{width,height:844},deviceScaleFactor:1});
+   await page.goto(pathToFileURL(input).toString(),{waitUntil:'load'});
+   await page.evaluate(()=>document.fonts.ready);
+   await page.screenshot({path:resolve(out,width===390?'mobile-zh-full.png':'desktop-zh-full.png'),animations:'disabled',fullPage:true});
+   await page.close();
  }
  writeFileSync(resolve(out,'review.json'),JSON.stringify({headless:true,source:'CI built dist HTML',captures:report},null,2));
  console.log('Captured '+captures.length+' QA screenshots; no page exceptions or overflow');
