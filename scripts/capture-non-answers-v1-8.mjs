@@ -57,6 +57,36 @@ try{
    await page.screenshot({path:resolve(out,width===390?'mobile-zh-full.png':'desktop-zh-full.png'),animations:'disabled',fullPage:true});
    await page.close();
  }
+ // The V1.7 main story now links to the V1.8 standalone case. Verify its
+ // new card in both the source language and the translated navigation.
+ const mainFile=resolve('dist/non-answers/index.html');
+ for(const spec of [
+   {name:'main-mobile-zh-case-entry',width:390,lang:'zh'},
+   {name:'main-mobile-trad-case-entry',width:390,lang:'tw'},
+   {name:'main-desktop-en-case-entry',width:1366,lang:'en'}
+ ]){
+   const page=await browser.newPage({viewport:{width:spec.width,height:844},deviceScaleFactor:1});
+   await page.goto(pathToFileURL(mainFile).toString(),{waitUntil:'load'});
+   if(spec.lang==='en')await page.locator('#enBtn').click();
+   if(spec.lang==='tw')await page.locator('#hantBtn').click();
+   await page.evaluate(()=>document.fonts.ready);
+   await page.evaluate(()=>{
+     document.documentElement.style.scrollBehavior='auto';
+     const el=document.getElementById('v18-case');
+     if(!el)throw new Error('New case-entry card missing from main article');
+     window.scrollTo(0,el.getBoundingClientRect().top+scrollY-80);
+   });
+   await page.waitForTimeout(150);
+   const top=await page.locator('#v18-case').evaluate(el=>el.getBoundingClientRect().top);
+   if(top<65||top>105)throw new Error('Main case card not aligned: '+spec.name+' '+top);
+   const label=await page.locator('#v18-case-title').innerText();
+   if(spec.lang==='en'&&!label.includes('no valid downward line'))throw new Error('English main case card not translated');
+   if(spec.lang==='tw'&&!label.includes('數字')&&!label.includes('一條下降線'))throw new Error('Traditional main case card not translated');
+   if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1))throw new Error('Main case entry overflows '+spec.name);
+   await page.screenshot({path:resolve(out,spec.name+'.png'),animations:'disabled'});
+   report.push({...spec,title:label,source:'V1.7 main story case entry',horizontal:false,errors:[]});
+   await page.close();
+ }
  writeFileSync(resolve(out,'review.json'),JSON.stringify({headless:true,source:'CI built dist HTML',captures:report},null,2));
  console.log('Captured '+captures.length+' QA screenshots; no page exceptions or overflow');
 }finally{await browser.close()}
