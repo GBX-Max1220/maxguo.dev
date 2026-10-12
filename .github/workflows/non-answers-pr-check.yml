@@ -86,6 +86,17 @@ jobs:
       - name: Verify P13 trilingual question-compression short case
         run: node scripts/check-non-answers-p13.mjs
 
+      - name: Verify F01 unpublished trilingual evidence flagship
+        run: node scripts/check-non-answers-f01.mjs
+
+      - name: Upload F01 draft-case QA screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: non-answers-f01-draft-visual-qa
+          path: .astro/non-answers-f01-review/
+          if-no-files-found: error
+          retention-days: 7
+
       - name: Capture V1.8 mobile and desktop visual QA
         run: node scripts/capture-non-answers-v1-8.mjs
 
