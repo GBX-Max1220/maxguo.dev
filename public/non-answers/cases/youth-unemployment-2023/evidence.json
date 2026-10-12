@@ -1,6 +1,6 @@
 {
-  "schema_version": "v1.8-prototype-2026-10-12",
-  "status": "RESEARCH_PROTOTYPE_NOT_RELEASE_APPROVED",
+  "schema_version": "v1.8-case-study-2026-10-12",
+  "status": "PUBLIC_RELEASE_OWNER_APPROVED",
   "title_zh": "21.3%之后：青年失业率的数字去哪了？",
   "research_question": "What can be compared after age-disaggregated unemployment publication was suspended and the target population changed?",
   "scope": {
@@ -134,5 +134,15 @@
       "title": "国家统计局人口和就业统计司劳动力定义答复",
       "url": "https://www.stats.gov.cn/hd/lyzx/zxgk/202406/t20240619_1955075.html"
     }
-  ]
+  ],
+  "publication": {
+    "owner_release_approval_date": "2026-10-12",
+    "public_case": true,
+    "editorial_caveats": [
+      "Official statistics are first-party claims, not independently reproduced estimates.",
+      "Traditional copy is provided without a separately commissioned independent translation review.",
+      "No intent or data-fabrication inference is claimed."
+    ],
+    "not_part_of_v1_7_frozen_sample": true
+  }
 }
