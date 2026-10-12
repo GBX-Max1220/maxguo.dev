@@ -82,6 +82,7 @@ try{
    const label=await page.locator('#v18-case-title').innerText();
    if(spec.lang==='en'&&!label.includes('no valid downward line'))throw new Error('English main case card not translated');
    if(spec.lang==='tw'&&!label.includes('數字')&&!label.includes('一條下降線'))throw new Error('Traditional main case card not translated');
+   if(spec.lang==='tw'&&label.includes('画'))throw new Error('Simplified-only glyph 画 leaked into Traditional case title');
    if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1))throw new Error('Main case entry overflows '+spec.name);
    await page.screenshot({path:resolve(out,spec.name+'.png'),animations:'disabled'});
    report.push({...spec,title:label,source:'V1.7 main story case entry',horizontal:false,errors:[]});
