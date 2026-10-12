@@ -1,7 +1,7 @@
 {
   "case_id": "question-compression-2024",
-  "edition": "P13-editorial-draft",
-  "status": "NOT_PUBLISHED",
+  "edition": "P13-independent-short-case",
+  "status": "PUBLIC_RELEASE_OWNER_APPROVED",
   "case_type": "independent_short_case",
   "date_of_event": "2024-05-08",
   "author": "Baixin Guo (Max)",
@@ -77,11 +77,14 @@
     "The reader interaction is an educational reveal, not a measured causal experiment."
   ],
   "publication_gate": {
-    "author_approval_to_publish": false,
-    "main_merged": false,
-    "linked_from_main_article": false,
-    "search_indexing_enabled": false,
-    "tri_language_editorial_check": "awaiting",
-    "browser_QA_on_staged_branch": "awaiting"
+    "author_approval_to_publish": true,
+    "author_approval_date": "2026-10-13",
+    "scope": "standalone short case, not flagship",
+    "linked_from_main_article": true,
+    "search_indexing_enabled": true,
+    "editorial_review": "source content, claims and three locales reviewed; no independent native-speaker review",
+    "browser_QA": "15 locale x viewport tests, parent case links and source checks",
+    "CI_requirement": "final PR branch HEAD must have passing GitHub Actions before merge",
+    "deployment_verification": "check actual GitHub Pages run and production URL after merge"
   }
 }
