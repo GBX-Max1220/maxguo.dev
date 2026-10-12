@@ -71,7 +71,7 @@ footer{padding:38px 0 70px;border-top:1px solid var(--edge)}
 </head>
 <body>
 <header><nav class="wrap">
-<a class="brand" href="/maxguo.dev/non-answers/">← 正确的废话 / Non-Answers</a>
+<a class="brand" data-t="brand" href="/maxguo.dev/non-answers/">← 正确的废话 / Non-Answers</a>
 <div class="langs" role="group" aria-label="Language"><button data-lang="zh" aria-pressed="true">简体</button><button data-lang="tw" aria-pressed="false">繁體</button><button data-lang="en" aria-pressed="false">EN</button></div>
 </nav></header>
 <main>
@@ -174,25 +174,113 @@ footer{padding:38px 0 70px;border-top:1px solid var(--edge)}
 <script>
 (() => {"use strict";
 const en={
+brand:"← Non-Answers",
 kicker:"THE LANGUAGE OF NON-ANSWERS · CASE 01",draft:"V1.8 research prototype · not approved for publication",title:"After 21.3%, where did the number go?",lead:"The reported urban youth unemployment rate for June 2023 was 21.3%. Following a publication pause, the revised rate for December 2023 was 14.9%. Does this show a directly comparable 6.4-point decline?",start:"Make your judgment ↓",
 qCompare:"Can these figures form one downward trend?",compLead:"No line connects these two cards. Decide before seeing the explanation.",old:"Previous age-group definition",oldObs:"Observed: June 2023",oldPub:"Published: July 17, 2023",oldScope:"Urban labor force ages 16–24; old definition",new:"Revised age-group definition",newObs:"Observed: December 2023",newPub:"Published: January 17, 2024",newScope:"Urban labor force ages 16–24; enrolled students excluded",breakLabel:"Not a continuous, same-definition series.",break:"The observation periods differ, and the covered population changed.",choose:"What do you think?",yes:"Directly comparable",no:"Not directly comparable",unsure:"Not sure",answerHead:"Finding: not directly comparable.",answerDetail:"The arithmetic difference is 6.4 percentage points, but it does not establish a 6.4-point same-definition improvement, nor that the entire difference comes from the methodology change. [S01, S04, S05]",
 timeTitle:"Which statistic stopped being published?",timeLead:"The pause concerned age-specific urban surveyed unemployment rates, not every employment statistic. Release dates differ from the observation dates.",e1:"21.3% published",e1b:"Refers to the June 2023 observation.",e2:"Age-group reporting paused",e2b:"Officials cited a need to refine survey methods.",e3:"Follow-up questions",e3b:"Journalists continued asking about revised methods and timing.",e4:"14.9% under revised definition",e4b:"Refers to December 2023; excludes enrolled students.",
 defTitle:"Are students counted as unemployed?",defLead:"Enrolled students are not automatically unemployed, and the denominator is not the entire youth population. Toggle the two definitions.",formulaTitle:"The denominator",formula:"Unemployed ÷ (employed + unemployed)",formulaDesc:"People outside the labor force are excluded. A person must meet employment or unemployment criteria to belong to the labor force.",noFake:"Concept only; no invented microdata or sample sizes.",all:"General labor-force survey",newDef:"Revised published youth group",population:"Urban population ages 16–24",work:"Meeting employment/unemployment criteria → labor force",defAllHead:"Eligible enrolled students can be in the labor force",defAllText:"Enrolled students meeting employment or unemployment criteria can count in the general labor-force survey. Students unable to start work immediately are not automatically unemployed.",defNewHead:"The revised age-specific release excludes enrolled students",defNewText:"The new published 16–24 rate excludes enrolled students; a nonstudent 25–29 age group was also introduced.",defsFoot:"Methodological explanation: NBS January 2024 and May 2024 replies [S05, S06].",
-xTitle:"Did officials refuse to answer the reporter?",xLead:"No. The Bloomberg News question on August 15, 2023 covered three points, including the 70-city housing-price index. We distinguish whether an answer was given from whether its evidence is independently reproducible. These are paraphrases, not verbatim quotes.",q1:"A. Did youth reporting stop in July?",tag1:"Answered",a1:"The opening statement said the pause began in August; the follow-up confirmed that age-group publication was suspended.",q2:"B. Does revising youth figures invalidate the 5.3% overall rate?",tag2:"Conclusion stated; methods open to scrutiny",a2:"The spokesperson said the overall rate was unaffected, but the live response did not provide a detailed independently reproducible validation.",q3:"C. How is the 70-city house-price index collected and calculated?",tag3:"Partial explanation + referral",a3:"The response described survey teams collecting new- and existing-home price inputs and referred detailed implementation questions to the NBS press office.",fullText:"Read full official transcript ↗",xNoteHead:"Giving a response does not settle its evidentiary basis.",xNote:"We can acknowledge a clear official answer while asking for parallel estimates, historical backcasts, or documentation linking old and new definitions.",
+xTitle:"Did officials refuse to answer the reporter?",xLead:"No. The Bloomberg News question on August 15, 2023 covered three groups of points, including housing-price trends and the index methodology. We distinguish whether an answer was given from whether its evidence is independently reproducible. These are paraphrases, not verbatim quotes.",q1:"A. Did youth reporting stop in July?",tag1:"Answered",a1:"The opening statement said the pause began in August; the follow-up confirmed that age-group publication was suspended.",q2:"B. Does revising youth figures invalidate the 5.3% overall rate?",tag2:"Conclusion stated; methods open to scrutiny",a2:"The spokesperson said the overall rate was unaffected, but the live response did not provide a detailed independently reproducible validation.",q3:"C. What is the 70-city house-price trend, and how is the index collected and calculated?",tag3:"Partial explanation + referral",a3:"The response described how survey teams collect new- and existing-home price inputs and referred detailed procedures to the NBS press office, but did not directly address the requested price trend.",fullText:"Read full official transcript ↗",xNoteHead:"Giving a response does not settle its evidentiary basis.",xNote:"We can acknowledge a clear official answer while asking for parallel estimates, historical backcasts, or documentation linking old and new definitions.",
 counterTitle:"Two things can be true at once",fairHead:"Strongest reasonable rationale",fair:"NBS argued that separating enrolled students from graduates entering employment better targets job-search pressures. It also added a 25–29 nonstudent measure. [S05]",criticalHead:"An unresolved transparency question",critical:"Can the public access overlapping estimates, historical backcasts, or a documented bridge between methods? Without these, the two figures cannot establish the real change.",notProvenTitle:"What does this case not establish?",notProven:"It does not prove data fabrication, motive, or any precise real-world change in youth unemployment. Limited independent verifiability is not proof of fabrication.",betterTitle:"How could an answer be clearer?",better:"Researcher-authored example, not an official quotation: specify the affected observation months, precise definitional changes, anticipated resumption, availability of parallel series or backcasts, and comparisons that remain invalid. State unknowns explicitly.",
 sourcesTitle:"Trace each judgment back to primary evidence",sourcesLead:"These six National Bureau of Statistics pages establish what the agency reported and said. They do not independently verify every official statistical claim.",s1:"Economic bulletin: 21.3% for June 2023",s2:"Complete briefing: suspension and Bloomberg question",s3:"Follow-up briefing: methodology status",s4:"Annual economic release: revised 14.9% rate",s5:"NBS explanation of the definition change",s6:"Official answer on students and labor-force classification",scopeHead:"Scope:",scopeText:"Independent V1.8 prototype, not a full independent audit of statistical accuracy. Not added to the frozen V1.7 set of 18 documents and 139 information needs.",correction:"Found an error? Submit a correction with primary evidence:",issue:"GitHub Issues ↗",back:"← Return to Non-Answers",footer:"Baixin Guo (Max) · V1.8 research prototype · Not approved for publication"
 };
 const zh={
+brand:"← 正确的废话 / Non-Answers",
 kicker:"THE LANGUAGE OF NON-ANSWERS · CASE 01",draft:"V1.8研究原型 · 尚未批准正式发布",title:"21.3%之后，数字去哪了？",lead:"2023年7月公布的6月16—24岁城镇劳动力调查失业率为21.3%。此后，分年龄组数据暂停公布；2024年1月公布的2023年12月新口径数字为14.9%。可以直接说“下降了6.4个百分点”吗？",start:"先做判断 ↓",
 qCompare:"两个数字，能不能连成一条下降线？",compLead:"这两张卡片刻意没有用折线相连。先作出判断，再看解释。",old:"旧分年龄组口径",oldObs:"观测月：2023年6月",oldPub:"发布日：2023年7月17日",oldScope:"16—24岁城镇劳动力；旧口径",new:"新分年龄组口径",newObs:"观测月：2023年12月",newPub:"发布日：2024年1月17日",newScope:"16—24岁城镇劳动力；排除在校学生",breakLabel:"这不是连续同口径时间序列。",break:"两个观测月份不同，统计人口定义也发生变化。",choose:"你会怎样判断？",yes:"能直接比较",no:"不能直接比较",unsure:"不确定",answerHead:"研究判断：不能直接比较。",answerDetail:"两个数字在算术上相差6.4个百分点，但无法据此认定青年失业率同口径改善6.4个百分点，也不能推断差异全部来自统计口径变化。[S01, S04, S05]",
 timeTitle:"到底暂停公布了什么？",timeLead:"暂停的是分年龄组的城镇调查失业率，并非所有就业指标。发布时间不等于观测月份。",e1:"公布21.3%",e1b:"对应2023年6月观测值。",e2:"宣布暂停分年龄组公布",e2b:"官方称需要完善调查统计方法。",e3:"记者继续追问",e3b:"关于新方法和恢复时间仍有提问。",e4:"公布新口径14.9%",e4b:"对应2023年12月；新指标排除在校生。",
 defTitle:"“在校学生”究竟进不进失业率？",defLead:"学生不自动等于失业者。失业率的分母也不是所有青年人口。切换两类指标，观察定义区别。",formulaTitle:"先看分母",formula:"失业人数 ÷（就业人数 + 失业人数）",formulaDesc:"非劳动力不进入分母。只有符合就业或失业判定条件的人，才属于劳动力。",noFake:"这是概念示意，没有编造实际样本人数。",all:"通用劳动力调查",newDef:"新公布青年分组",population:"16—24岁城镇人口",work:"符合就业或失业条件 → 劳动力分母",defAllHead:"符合条件的在校生可能计入劳动力",defAllText:"在校生若满足就业或失业条件，也可能计入通用调查；不符合立即开始工作条件者不一定被判为失业。",defNewHead:"新公布的16—24岁分组排除在校生",defNewText:"新的16—24岁发布指标排除在校生，并增加不含在校生的25—29岁分组。",defsFoot:"概念解释来自国家统计局2024年1月说明与2024年5月答复 [S05, S06]。",
-xTitle:"记者追问了，官方真的没有回答吗？",xLead:"不是。2023年8月15日彭博新闻社记者提出三部分问题，包括房价指数。这里逐项区分“有回答”和“论证是否足以独立核验”。以下是研究者概括，不是逐字引文。",q1:"A. 是从7月开始不再公布吗？",tag1:"明确回应",a1:"发布会开头说明从8月起暂停；后续答复再次确认分年龄组数据暂停发布。",q2:"B. 调整青年数据，会影响总体5.3%失业率吗？",tag2:"给出结论；方法仍可追问",a2:"发言人明确说总体调查失业率不受影响，但现场答复没有提供足以独立逐项复算的方法资料。",q3:"C. 70城房价指数怎样采集和计算？",tag3:"部分解释＋转介",a3:"答复介绍了调查队收集新房、二手房基础数据，并建议进一步向统计局新闻办了解实施细节。",fullText:"核对完整官方问答 ↗",xNoteHead:"回答存在 ≠ 解释可以独立核实。",xNote:"我们可以承认官方明确回应某个问题，同时要求历史回算、平行统计或方法细节，以判断新旧口径的影响。",
+xTitle:"记者追问了，官方真的没有回答吗？",xLead:"不是。2023年8月15日彭博新闻社记者提出三组问题，包括房价趋势、指数采集和计算。这里逐项区分“有回答”和“论证是否足以独立核验”。以下是研究者概括，不是逐字引文。",q1:"A. 是从7月开始不再公布吗？",tag1:"明确回应",a1:"发布会开头说明从8月起暂停；后续答复再次确认分年龄组数据暂停发布。",q2:"B. 调整青年数据，会影响总体5.3%失业率吗？",tag2:"给出结论；方法仍可追问",a2:"发言人明确说总体调查失业率不受影响，但现场答复没有提供足以独立逐项复算的方法资料。",q3:"C. 70城房价走势如何，指数怎样采集和计算？",tag3:"部分解释＋转介",a3:"答复介绍调查队收集新房、二手房价格数据及指数编制，并将具体实施细节转介新闻办，但未直接回答房价走势。",fullText:"核对完整官方问答 ↗",xNoteHead:"回答存在 ≠ 解释可以独立核实。",xNote:"我们可以承认官方明确回应某个问题，同时要求历史回算、平行统计或方法细节，以判断新旧口径的影响。",
 counterTitle:"两件事可以同时成立",fairHead:"最强合理解释",fair:"国家统计局认为，区分在校生与实际进入社会的求职青年，有利于更有针对性地观察就业状况；同时增加25—29岁非在校生指标。[S05]",criticalHead:"仍需回答的公开问题",critical:"在发布暂停和定义变化之后，能否获得新旧口径的重叠期估计、历史回算或可复核的桥接方法？没有这些信息，就无法用上述两点推断真实变化幅度。",notProvenTitle:"这个案例不能证明什么？",notProven:"它不能证明官方伪造数字、不能确认主观动机，也不能证明青年失业实际上升或下降了特定幅度。缺乏独立复核材料与证明造假是两回事。",betterTitle:"本来可以怎样更清楚地回答？",better:"研究者构造的示范，而非官方引文：明确说明从哪个观测期起暂停、方法怎样改变、何时可能恢复、会不会公布同口径回算，以及哪些比较目前不成立。未知的事项应直接标明未知。",
 sourcesTitle:"从判断返回原始证据",sourcesLead:"六份国家统计局原始网页支持这里的时间、数字和方法定义。它们是官方陈述的一手来源，不等于所有官方数据已经得到第三方独立验证。",s1:"上半年经济统计：6月青年失业率21.3%",s2:"完整记者会：暂停发布与记者追问",s3:"后续记者会：方法调整进度",s4:"2023年经济运行发布：新口径14.9%",s5:"国家统计局分年龄组口径调整说明",s6:"关于在校生与劳动力统计的正式答复",scopeHead:"研究边界：",scopeText:"本页面是V1.8独立原型，不是统计真实性的完整独立审计；没有并入V1.7冻结的18份文档、139项信息需求。",correction:"发现错误？欢迎提交包含原始来源的纠正：",issue:"GitHub Issues ↗",back:"← 返回《正确的废话》",footer:"Baixin Guo (Max) · V1.8研究原型 · 未批准公开发布"
 };
-const TW_MAP=Object.fromEntries([["统","統"],["计","計"],["数","數"],["发","發"],["布","佈"],["业","業"],["劳","勞"],["动","動"],["实","實"],["后","後"],["开","開"],["关","關"],["经","經"],["济","濟"],["国","國"],["体","體"],["现","現"],["观","觀"],["义","義"],["问","問"],["题","題"],["证","證"],["据","據"],["复","複"],["会","會"],["对","對"],["应","應"],["间","間"],["资","資"],["料","料"],["学","學"],["校","校"],["从","從"],["并","並"],["样","樣"],["额","額"],["历","歷"],["条","條"],["当","當"],["区","區"],["别","別"],["细","細"],["审","審"],["查","查"],["说","說"],["这","這"],["个","個"],["与","與"],["还","還"],["过","過"],["确","確"],["认","認"],["无","無"],["为","為"],["变","變"],["迁","遷"],["时","時"],["来","來"],["总","總"],["导","導"],["测","測"],["较","較"],["转","轉"],["续","續"],["个","個"],["岁","歲"],["龄","齡"],["应","應"],["只","只"],["构","構"],["众","眾"],["属","屬"],["书","書"],["释","釋"],["况","況"],["类","類"],["项","項"],["纳","納"],["标","標"],["准","準"],["设","設"],["标","標"],["对","對"],["问","問"],["点","點"],["错","錯"],["报","報"],["户","戶"],["径","徑"],["异","異"],["导","導"],["万","萬"],["于","於"],["将","將"],["员","員"],["间","間"],["毕","畢"],["毕","畢"],["届","屆"],["查","查"],["进","進"],["较","較"],["断","斷"],["陈","陳"],["边","邊"],["独","獨"],["原","原"],["临","臨"],["订","訂"],["续","續"]]);
-const tw=Object.fromEntries(Object.entries(zh).map(([k,v])=>[k,[...v].map(c=>TW_MAP[c]||c).join("")]));
+const tw={
+  "kicker": "THE LANGUAGE OF NON-ANSWERS · CASE 01",
+  "draft": "V1.8 研究原型 · 尚未核准正式發布",
+  "title": "21.3% 之後，數字去哪了？",
+  "lead": "2023年7月公布的6月16至24歲城鎮勞動力調查失業率為21.3%。此後，按年齡劃分的數據暫停公布；2024年1月公布的2023年12月新口徑數字為14.9%。可以直接說「下降了6.4個百分點」嗎？",
+  "start": "先作判斷 ↓",
+  "qCompare": "兩個數字，能連成一條下降線嗎？",
+  "compLead": "這兩張卡片刻意沒有用折線連接。請先判斷，再看解釋。",
+  "old": "舊年齡組統計口徑",
+  "oldObs": "觀測月份：2023年6月",
+  "oldPub": "發布日期：2023年7月17日",
+  "oldScope": "16至24歲城鎮勞動力；舊統計口徑",
+  "new": "新年齡組統計口徑",
+  "newObs": "觀測月份：2023年12月",
+  "newPub": "發布日期：2024年1月17日",
+  "newScope": "16至24歲城鎮勞動力；不包括在校學生",
+  "breakLabel": "這不是一組定義一致的連續時間序列。",
+  "break": "兩個觀測月份不同，統計對象的界定也有所改變。",
+  "choose": "你會如何判斷？",
+  "yes": "可以直接比較",
+  "no": "不能直接比較",
+  "unsure": "不確定",
+  "answerHead": "研究判斷：不能直接比較。",
+  "answerDetail": "兩個數字的算術差距是6.4個百分點，但不能據此認定同一統計口徑下的青年失業率改善了6.4個百分點，也不能推斷差距全由口徑調整造成。[S01, S04, S05]",
+  "timeTitle": "到底暫停公布了什麼？",
+  "timeLead": "暫停的是按年齡劃分的城鎮調查失業率，而非所有就業統計。發布日期也不等於數據觀測月份。",
+  "e1": "公布21.3%",
+  "e1b": "對應2023年6月的觀測值。",
+  "e2": "宣布暫停公布年齡組數據",
+  "e2b": "官方表示需要完善勞動力調查統計方法。",
+  "e3": "記者繼續追問",
+  "e3b": "有記者繼續詢問新統計方法與恢復發布的安排。",
+  "e4": "公布新口徑14.9%",
+  "e4b": "對應2023年12月；新指標不包括在校學生。",
+  "defTitle": "「在校學生」究竟會否計入失業率？",
+  "defLead": "在校學生不會自動被視為失業者。失業率的分母也不是所有青年人口。切換兩類指標，看看定義有何不同。",
+  "formulaTitle": "先看分母",
+  "formula": "失業人數 ÷（就業人數 + 失業人數）",
+  "formulaDesc": "非勞動力人口不計入分母。只有符合就業或失業判定條件的人，才屬於勞動力。",
+  "noFake": "這是概念示意，沒有虛構實際樣本數。",
+  "all": "一般勞動力調查",
+  "newDef": "新公布的青年年齡組指標",
+  "population": "16至24歲城鎮人口",
+  "work": "符合就業或失業條件 → 計入勞動力分母",
+  "defAllHead": "符合條件的在校學生也可能計入勞動力",
+  "defAllText": "在校學生若符合就業或失業條件，也可能納入一般勞動力調查；不能立即開始工作的人不一定被判定為失業。",
+  "defNewHead": "新公布的16至24歲指標不包括在校學生",
+  "defNewText": "新公布的16至24歲指標排除在校學生，並新增不包括在校學生的25至29歲年齡組。",
+  "defsFoot": "概念解釋參考國家統計局2024年1月的說明與同年5月的答覆。[S05, S06]",
+  "xTitle": "記者追問後，官方真的完全沒有回答嗎？",
+  "xLead": "不是。2023年8月15日，彭博新聞社記者提出三組問題，包括房價指數的走勢、資料蒐集及計算方式。本節逐項區分「是否作答」與「能否獨立驗證論證」。以下是研究者摘要，並非逐字引文。",
+  "q1": "A. 是從7月起不再公布青年失業率嗎？",
+  "tag1": "已有明確回應",
+  "a1": "發布會開場時說明自8月起暫停；其後的答覆再次確認按年齡劃分的數據暫停公布。",
+  "q2": "B. 調整青年數據，會影響整體5.3%的失業率嗎？",
+  "tag2": "已給出結論；方法仍可追問",
+  "a2": "發言人明確表示整體調查失業率不受影響，但現場答覆未提供足以讓外界逐項獨立重算的詳細方法資料。",
+  "q3": "C. 70個城市的房價走勢如何？指數怎樣蒐集及計算？",
+  "tag3": "趨勢未直接說明；方法部分解釋並轉介",
+  "a3": "答覆介紹調查隊如何蒐集新建與二手住宅價格資料，再據此編製指數，並請記者向統計局新聞辦了解詳細方法；但未直接回答所問的房價走勢。",
+  "fullText": "核對完整官方問答 ↗",
+  "xNoteHead": "有作答，不等於其依據可以獨立核實。",
+  "xNote": "我們可以承認官方已明確回應問題，同時要求提供歷史回算、平行統計或方法細節，以判斷口徑改動的影響。",
+  "counterTitle": "兩件事可以同時成立",
+  "fairHead": "最強的合理解釋",
+  "fair": "國家統計局認為，把在校學生與畢業後進入社會的求職青年區分，有利於更有針對性地觀察就業情況；同時新增不包括在校學生的25至29歲指標。[S05]",
+  "criticalHead": "仍待回答的公開問題",
+  "critical": "暫停發布與定義變更之後，公眾能否取得新舊口徑在同一時期的估計、歷史回算或可供核查的銜接方法？缺少這些資料，就不能用上述兩個數字推斷實際變動幅度。",
+  "notProvenTitle": "這個案例不能證明什麼？",
+  "notProven": "它不能證明官方偽造數據、確認調整的主觀動機，也不能證明青年失業率實際上升或下降了多少。缺乏獨立核查資料，不等於已經證實造假。",
+  "betterTitle": "原本可以怎樣解釋得更清楚？",
+  "better": "研究者擬寫的示例，並非官方引文：明確說明從哪個觀測期起暫停、統計方法如何改變、何時可能恢復發布、會否提供同口徑歷史回算，以及目前哪些比較不成立。未知事項應如實標示。",
+  "sourcesTitle": "從判斷返回原始證據",
+  "sourcesLead": "六份國家統計局原始網頁支持這裡的日期、數字及方法定義。它們是官方說法的一手來源，不代表所有統計數據都已經過第三方獨立核實。",
+  "s1": "上半年經濟統計：6月青年失業率21.3%",
+  "s2": "完整記者會：暫停公布與記者追問",
+  "s3": "後續記者會：方法調整進度",
+  "s4": "2023年經濟運行情況：新口徑14.9%",
+  "s5": "國家統計局按年齡劃分失業率的口徑調整說明",
+  "s6": "關於在校學生與勞動力統計的正式答覆",
+  "scopeHead": "研究範圍：",
+  "scopeText": "本頁是V1.8獨立原型，並非統計真實性的完整獨立審計；不併入V1.7已凍結的18份文件及139項資訊需求。",
+  "correction": "發現錯誤？歡迎提交附有原始來源的更正：",
+  "issue": "GitHub Issues ↗",
+  "back": "← 返回《正確的廢話》",
+  "footer": "Baixin Guo (Max) · V1.8研究原型 · 尚未核准正式發布",
+  "brand": "← 正確的廢話 / Non-Answers"
+};
 const dict={zh,tw,en};let locale="zh",which="all";
 function sync(){
   const d=dict[locale];document.documentElement.lang=locale==="tw"?"zh-Hant":locale==="en"?"en":"zh-CN";
