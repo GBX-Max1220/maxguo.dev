@@ -1,0 +1,16 @@
+{
+  "_note": "Authoring-time manifest. verify_inputs.py compares files against these hashes.",
+  "sha256": {
+    "evidence/literature/crossref_10.1002_9781118663219.wbegss183.json": "24791a0bb6dcba445d1d911a4bb6f73131b1221c6b4c559909dad669942850b9",
+    "evidence/literature/crossref_10.1038_s41562-020-0920-z.json": "22bb7990fdb7b341e896c1e670a985ec24321d55ce6b170ff8c4ed389a5bca90",
+    "evidence/literature/crossref_10.1177_0003122419859007.json": "c99b2dd4130827bc55a3a68b0e6f2ab1e32a9e19a1d21ef3961df404599aa66c",
+    "evidence/literature/landing_checks.json": "da4c3cf32b31d1c89103f641395a9313219a374744df76056253f5b9c7c74db2",
+    "evidence/literature/nature_article_type.json": "f6034d65520aa59787f6c2ad66881161c0517c54f758c10796b47c75d33b9539",
+    "evidence/literature/s2_daminger.json": "15834ab6329fcffbbdd714b0b67f6350190da79732286be674e7741125a444de",
+    "evidence/literature/s2_giurge.json": "63b849c7c57cbf7ec92cd7b5fe0d5259e7930f11f7751c1e34ea3157706cfd93",
+    "evidence/nbs/nbs_1957215.html": "505cd91e941eb2e47478153a65f14c0a9b637a0d73e145d77a844bd2a2314c9d",
+    "evidence/nbs/nbs_1957216.html": "a2e0ae93d8721b1d20b06e4d8c0e98913168e45cdcef8d69d52c7cbfea119234",
+    "evidence/nbs/nbs_1957217.html": "8d0d7fb672822109bd874321805b29b6a9376b106a030a0f2d8d0978345cebb2",
+    "evidence/nbs/nbs_1958534.html": "7a059112b16917821cb9a908328ce4514fb7245967c91cf6143037ee8083743b"
+  }
+}

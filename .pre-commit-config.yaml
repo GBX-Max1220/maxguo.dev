@@ -2,6 +2,15 @@
 # Copy this to your project root as .pre-commit-config.yaml
 # Then run: pre-commit install
 
+# The China Time Use 2024 research feature is published as a static drop-in route whose
+# bytes are pinned by its own offline reproduction pack (research-pack/README.md and
+# tools/verify_public_inputs.py hash every shipped file). ruff / ruff-format /
+# end-of-file-fixer / mixed-line-ending / prettier rewrite those files, which after the
+# fact makes the pack's pinned hashes point at bytes that no longer exist — i.e. the
+# reader's reproduction check fails. Treat the route as generated/vendored output and
+# keep it out of the formatters; everything else in this repository is unaffected.
+exclude: ^public/research/china-time-use-2024/
+
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.15.10

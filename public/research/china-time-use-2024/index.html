@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/">
+<link rel="alternate" hreflang="zh-CN" href="https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/">
+<link rel="alternate" hreflang="en" href="https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/en/">
+<link rel="alternate" hreflang="x-default" href="https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/">
+<meta property="og:url" content="https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/og-cover-zh-CN.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/og-cover-zh-CN.png">
+<meta property="og:description" content="五幕交互研究叙事：当无酬劳动被计入统计口径，2024 年中国居民的性别劳动时间排序如何反转，以及这个结果能说明什么、不能说明什么。数据来自国家统计局第三次全国时间利用调查。">
+<title>谁每天花在劳动上的时间更长？｜China Time Use 2024 · 五幕交互研究叙事</title>
+<meta name="description" content="五幕交互研究叙事：当无酬劳动被计入统计口径，2024 年中国居民的性别劳动时间排序如何反转，以及这个结果能说明什么、不能说明什么。数据来自国家统计局第三次全国时间利用调查。">
+<meta name="color-scheme" content="light">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class="site-bar">
+  <div class="shell site-bar-inner">
+    <a href="../../" class="sb-home">maxguo.dev</a>
+    <span class="sb-crumb">/ <a href="../">Research</a> / China Time Use 2024</span>
+    <a class="sb-back" href="../">← 返回研究栏目</a>
+  </div>
+</div>
+
+<a class="skip-link" href="#act-1">跳到第一幕</a>
+
+<!-- ===================== masthead ===================== -->
+<header class="masthead">
+  <div class="shell masthead-grid">
+    <div class="masthead-main">
+      <p class="kicker">交互研究叙事 · China Time Use 2024 · 五幕</p>
+      <p class="lang-line" data-i18n-static>
+        <span class="lang-current" aria-current="true">中文</span>
+        <span class="lang-sep" aria-hidden="true">|</span>
+        <a href="./en/" hreflang="en" lang="en" data-lang-switch="./en/" data-locale="en">English</a>
+      </p>
+      <p class="share-line">
+        <button type="button" class="share-btn" id="share-btn">分享本页</button>
+      </p>
+      <h1 class="display">谁每天花在劳动上的时间更长？</h1>
+      <p class="subtitle display">答案取决于，你把什么算作劳动。</p>
+      <p class="standfirst">2024 年中国居民有酬劳动、无酬劳动与性别时间差异。
+        先切换一次统计口径，再读结论——排序会反过来。</p>
+      <p class="hero-cta">
+        <button type="button" id="start-explore" class="cta">开始探索：切换劳动口径 ↓</button>
+        <a class="cta-alt" href="#act-5">直接看证据与边界</a>
+      </p>
+      <p class="howto">每一幕：一句发现 → 可操作的证据 → 按需展开的定义、公式与来源。
+        全部数值由审计通过的数据层生成，页面无手工录入数字。</p>
+    </div>
+    <div class="masthead-meta">
+      <p class="meta-head">第三次全国时间利用调查</p>
+      <p>国家统计局 · 2024 年 5 月现场</p>
+      <p>全国 6 岁及以上常住居民 · 一周加权日均</p>
+      <p class="dim">描述性研究 · 未作构成调整 · 非因果结论</p>
+      <p class="dim">样本约 <span data-num="sampleHouseholds"></span> 户 / <span data-num="samplePeople"></span> 人（公报四舍五入值）</p>
+    </div>
+  </div>
+</header>
+
+<nav class="act-rail" id="act-rail" aria-label="五幕阅读进度与跳转">
+  <div class="shell act-rail-inner">
+    <span class="rail-label">阅读进度</span>
+    <span class="rail-current" id="rail-current" aria-live="off">第一幕 · 什么算劳动？</span>
+    <ol class="rail-list">
+      <li><a href="#act-1" data-rail="act-1"><span class="rail-num">一</span>什么算劳动？</a></li>
+      <li><a href="#act-2" data-rail="act-2"><span class="rail-num">二</span>排序为何改变？</a></li>
+      <li><a href="#act-3" data-rail="act-3"><span class="rail-num">三</span>平均值由什么组成？</a></li>
+      <li><a href="#act-4" data-rail="act-4"><span class="rail-num">四</span>数字之外的问题</a></li>
+      <li><a href="#act-5" data-rail="act-5"><span class="rail-num">五</span>能说明什么？</a></li>
+    </ol>
+    <div class="rail-progress" aria-hidden="true"><span id="rail-progress-bar"></span></div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ===================== ACT I ===================== -->
+<section class="act" id="act-1" aria-labelledby="act-1-title">
+  <div class="shell">
+    <header class="act-head">
+      <p class="act-num"><span aria-hidden="true">第一幕</span><span class="visually-hidden">第一幕</span> · Act I</p>
+      <h2 id="act-1-title" class="display">什么算劳动？</h2>
+      <p class="act-findings">
+        <strong>一句话发现：</strong>只看有酬劳动，男性居民的群体平均时间更长；把官方口径的无酬劳动一起计入，
+        变成女性更长——<span class="flip">排序反转</span>了。
+      </p>
+    </header>
+
+    <div class="scenario-grid">
+      <div class="lede">
+        <p class="question display">在比较之前，先决定<strong>什么被算作劳动</strong>。</p>
+
+        <!-- ScopeToggle -->
+        <fieldset class="scope-toggle" id="scope-toggle">
+          <legend class="visually-hidden">选择劳动统计范围</legend>
+          <label class="scope-option">
+            <input type="radio" name="scope" value="paid" checked>
+            <span class="scope-chip"><span class="scope-name">仅有酬劳动</span>
+              <span class="scope-sub">就业与经营等计酬活动</span></span>
+          </label>
+          <label class="scope-option">
+            <input type="radio" name="scope" value="both">
+            <span class="scope-chip"><span class="scope-name">有酬 + 无酬劳动</span>
+              <span class="scope-sub">再加上家务、照料、购买服务等</span></span>
+          </label>
+        </fieldset>
+
+        <div class="delta" id="delta-box">
+          <p class="delta-label">女性 − 男性 <span class="unit">分钟/天</span></p>
+          <p class="delta-value"><span id="delta-num">…</span></p>
+          <p class="delta-verdict"><span id="delta-who">…</span></p>
+        </div>
+
+        <div class="state-note" id="state-note">
+          <p id="state-note-main">…</p>
+          <p id="state-note-sub">…</p>
+        </div>
+
+        <ul class="context-chips" aria-label="关键背景">
+          <li>2024 年 5 月 11—31 日现场调查，不是全年连续日记</li>
+          <li>对象为抽中住户中 6 岁及以上常住成员</li>
+          <li>未调整平均值：未控制年龄、就业、婚育、家庭结构</li>
+          <li>描述性差异，不含任何因果结论</li>
+        </ul>
+      </div>
+
+      <div class="chartcol">
+        <!-- FixedScaleGroupBars -->
+        <figure class="chart-frame" id="chart-frame">
+          <div class="chart-legend">
+            <span class="lg"><i class="sw sw-paid" aria-hidden="true"></i>有酬劳动</span>
+            <span class="lg lg-unpaid" id="lg-unpaid"><i class="sw sw-unpaid" aria-hidden="true"></i>无酬劳动<span class="lg-state" id="lg-unpaid-state"></span></span>
+            <span class="lg-note">横轴固定 0–360 分钟/天，不截断基线，切换口径时不变</span>
+          </div>
+          <div id="chart" class="chart-host"></div>
+          <div class="tooltip" id="tooltip" role="status" hidden></div>
+          <figcaption class="chart-caption">
+            群体平均时间（不是任何个人的典型日程）。误差棒与抽样置信区间未绘制：公开汇总表不提供抽样误差估计。
+            数值 <span data-num="malePaid"></span> / <span data-num="femalePaid"></span>（有酬）、
+            <span data-num="maleUnpaid"></span> / <span data-num="femaleUnpaid"></span>（无酬）分钟/天，
+            合计 <span data-num="maleTotal"></span> / <span data-num="femaleTotal"></span>。
+            数据来源：<span class="source-inline" data-source="bulletin_3_by_sex"></span>
+          </figcaption>
+        </figure>
+        <noscript class="noscript-note">
+          <!-- BEGIN:NOJS -->
+<strong>此页面的交互图形需要启用 JavaScript。核心结论（静态文本）：</strong>仅统计有酬劳动时，男性居民日均 243.2 分钟、女性 169.3 分钟，差 −73.9 分钟/天（男性更长）；纳入无酬劳动后，男性 318.8 分钟、女性 344.7 分钟，差 +25.9 分钟/天（女性更长）。无酬劳动差异 99.8 分钟大于有酬劳动差异的绝对值 73.9 分钟，因此合计差的方向随之反转。数据来自国家统计局第三次全国时间利用调查（2024 年 5 月现场，全国 6 岁及以上常住居民，按工作日 5/7、周末 2/7 加权的一周日平均），是未作年龄/就业/婚育构成调整的群体平均，非因果结论。本页无酬劳动的官方定义为公报第二号注释[8]；完整口径、公式与限制见第五幕与研究包文档。
+      <!-- END:NOJS -->
+        </noscript>
+      </div>
+    </div>
+
+    <details class="explainer" id="act1-detail">
+      <summary>这两个数字测的是同一件事吗？<span class="chev" aria-hidden="true"></span></summary>
+      <div class="explainer-body">
+        <p>不是。两种口径统计的是<strong>不同的活动集合</strong>：口径 A 只含有酬劳动，口径 B 含有酬劳动加无酬劳动。
+          切换时没有任何人改变了自己的行为，被改变的只有“什么被计入劳动”这条统计边界。
+          这也是为什么“男性工作更久”和“女性工作更久”这两句话，可能同时出自同一份数据——
+          只要它们默认的口径不同。</p>
+        <p class="fine">本页“有酬 + 无酬”不等于一个人一天里的全部活动时间。生理必需、学习培训、交通等领域另有类目，
+          且这些领域之间互斥；互联网使用是与上述领域重叠的切面指标，不能相加进 24 小时。</p>
+        <details class="nested" id="act1-day">
+          <summary>参考：全国居民一天的六个活动领域（公报第二号公布值）<span class="chev" aria-hidden="true"></span></summary>
+          <div class="explainer-body" id="day-strip-host"></div>
+        </details>
+      </div>
+    </details>
+  </div>
+    <nav class="act-pager" aria-label="幕间导航">
+      <a class="pager next" href="#act-2">下一幕 · 第二幕 · 排序为何改变？ →</a>
+    </nav>
+</section>
+
+<!-- ===================== ACT II ===================== -->
+<section class="act act-alt" id="act-2" aria-labelledby="act-2-title">
+  <div class="shell">
+    <header class="act-head">
+      <p class="act-num"><span aria-hidden="true">第二幕</span><span class="visually-hidden">第二幕</span> · Act II</p>
+      <h2 id="act-2-title" class="display">排序为何改变？</h2>
+      <p class="act-findings"><strong>一句话发现：</strong>反转不需要模型，它是一道加法：
+        有酬差 <span data-num="paidGapSigned"></span> 加上无酬差 <span data-num="unpaidGapSigned"></span>，
+        合计 <span data-num="totalGapSigned"></span>。</p>
+    </header>
+
+    <div class="bridge-grid">
+      <div class="bridge-main">
+        <!-- NonCausalDecomposition (bridge form) -->
+        <div class="bridge-stage-ctl" role="group" aria-label="算术桥接的步骤控制">
+          <button type="button" class="step-btn" data-stage="0" aria-pressed="true">第 1 步 · 有酬差</button>
+          <button type="button" class="step-btn" data-stage="1" aria-pressed="false">第 2 步 · 加入无酬差</button>
+          <button type="button" class="step-btn" data-stage="2" aria-pressed="false">第 3 步 · 合计</button>
+          <button type="button" class="step-btn step-next" id="bridge-next" aria-label="下一步">下一步 →</button>
+        </div>
+        <figure class="bridge-frame">
+          <div id="bridge" class="bridge-host"></div>
+          <div class="bridge-readout" id="bridge-readout" aria-live="polite">
+            <p class="br-kicker" id="br-kicker">第 1 步 · 只算有酬劳动</p>
+            <p class="br-term" id="br-term">有酬劳动差（女 − 男）</p>
+            <p class="br-cap" id="br-cap">计入这些项之后的累计差值</p>
+            <p class="br-value" id="br-value">…</p>
+            <p class="br-note" id="br-note">…</p>
+          </div>
+          <figcaption class="fine">横轴表示女性 − 男性的时间差：左侧负值表示女性平均时间更少，
+            右侧正值表示女性平均时间更多；刻度固定为 −105 至 +105 分钟/天，不随步骤改变。
+            纵向排列的是同一条加法的三个步骤，不是时间顺序，也不是任何个人行为的变化。</figcaption>
+        </figure>
+        <p class="bridge-caveat"><strong>读这张图时请记住：</strong>
+          这是<strong>统计分类范围改变</strong>的结果。它不表示无酬劳动对有酬劳动存在某种此消彼长的因果替代，
+          也不描述任何一个人在一天里把工作时长“变成”了家务时长。</p>
+      </div>
+
+      <aside class="definition-panel" id="unpaid-definition">
+        <h3>“无酬劳动”在官方口径里包括什么？</h3>
+        <p class="fine">不是“家务”的同义词。以下是国家统计局公报第二号的注释原文：</p>
+        <blockquote class="verbatim" id="unpaid-def-quote">…</blockquote>
+        <ul class="category-chips" id="unpaid-cats" aria-label="无酬劳动包含的活动大类">
+          <li>家务劳动</li><li>陪伴照料家人</li><li>购买商品或服务</li>
+          <li>无酬实习等就业活动</li><li>公益志愿活动</li>
+        </ul>
+        <p class="fine">对照：有酬劳动领域的官方定义把无酬实习排除在外——</p>
+        <blockquote class="verbatim" id="paid-def-quote">…</blockquote>
+        <p class="fine">两条定义来自同一注释体系，因此两个口径<strong>互不重叠</strong>，
+          合计才是两类劳动之和（不存在同一分钟被算两次）。</p>
+        <details class="nested">
+          <summary>为什么这个区分重要？<span class="chev" aria-hidden="true"></span></summary>
+          <div class="explainer-body">
+            <p>公共讨论里常见的两种说法都会超出数据：把无酬劳动简化为“做家务”，或把它扩大为“女性全部的负担”。
+              官方类目既包括家务与照料，也包括购物、无酬实习与公益志愿——它们的体验与强度并不相同，
+              而时间日志只记录时长，不记录劳累程度、是否自愿或是否被打断。</p>
+            <p class="fine">另注：公报第三号说明，在实际调查中 6—15 周岁居民没有有酬劳动领域活动；
+              本页使用的全国 6 岁及以上平均值因此包含了没有有酬劳动的儿童与青少年群体。</p>
+          </div>
+        </details>
+      </aside>
+    </div>
+  </div>
+    <nav class="act-pager" aria-label="幕间导航">
+      <a class="pager prev" href="#act-1">← 上一幕 · 第一幕 · 什么算劳动？</a>
+      <a class="pager next" href="#act-3">下一幕 · 第三幕 · 平均值由什么组成？ →</a>
+    </nav>
+</section>
+
+<!-- ===================== ACT III ===================== -->
+<section class="act" id="act-3" aria-labelledby="act-3-title">
+  <div class="shell">
+    <header class="act-head">
+      <p class="act-num"><span aria-hidden="true">第三幕</span><span class="visually-hidden">第三幕</span> · Act III</p>
+      <h2 id="act-3-title" class="display">平均值由什么组成？</h2>
+      <p class="act-findings"><strong>一句话发现：</strong>同一个全体平均值，可以由“更多人在做”或“做的人花更久”构成。
+        两种劳动的性别差异，来自这两个成分的不同组合。</p>
+    </header>
+
+    <div class="comp-grid">
+      <div class="comp-lede">
+        <p class="formula-line">全体平均时间 ≈ 活动参与率 <span class="op">×</span> 参与者平均时间
+          <span class="fine">（公报分别公布这两个量；本页全体平均为推导值）</span></p>
+        <div class="tabs" role="tablist" aria-label="选择要查看的活动领域" id="comp-tabs">
+          <button type="button" role="tab" id="tab-paid" aria-controls="comp-panel" aria-selected="true" data-aid="paid">有酬劳动</button>
+          <button type="button" role="tab" id="tab-unpaid" aria-controls="comp-panel" aria-selected="false" data-aid="unpaid">无酬劳动</button>
+          <button type="button" role="tab" id="tab-discretionary" aria-controls="comp-panel" aria-selected="false" data-aid="discretionary">
+            个人自由支配<span class="tab-tag">进阶</span></button>
+        </div>
+        <div id="comp-panel" role="tabpanel" aria-labelledby="tab-paid" tabindex="0" class="comp-panel"></div>
+        <p class="comp-caveat fine">两个成分各有分母：参与率的分母是该性别的 6 岁及以上居民全体，
+          参与者时长的分母是当天做过该类活动的那部分人。把它们相乘得到的才是全体平均——
+          把参与者时长当作全体平均，是最常见的误读。</p>
+      </div>
+
+      <div class="comp-side">
+        <!-- NonCausalDecomposition (term form) — advanced view -->
+        <details class="explainer advanced" id="decomp-details">
+          <summary>进阶：把这个差额写成两项恒等式<span class="chev" aria-hidden="true"></span></summary>
+          <div class="explainer-body">
+            <p class="formula">Δm = (p<sub>女</sub> − p<sub>男</sub>) × (t<sub>女</sub> + t<sub>男</sub>)/2
+              + (t<sub>女</sub> − t<sub>男</sub>) × (p<sub>女</sub> + p<sub>男</sub>)/2</p>
+            <p>这是一个<strong>完全对称的算术恒等式</strong>：两项之和精确等于全体平均差额 Δm，与展开顺序无关。
+              它把差额分配到“参与人数比例不同”和“参与者的时长不同”两个维度上，
+              但<strong>不表示</strong>“参与率造成了多少分钟、时长造成了多少分钟”。</p>
+            <div id="decomp-host" class="decomp-host"></div>
+            <div class="table-scroll">
+              <table class="data-table" id="decomp-table">
+                <caption>两项分解与原始差额（分钟/天，女性 − 男性）</caption>
+                <thead><tr><th scope="col">活动</th><th scope="col">参与率项</th><th scope="col">参与者时长项</th>
+                  <th scope="col">两项之和</th><th scope="col">原始差额</th></tr></thead>
+                <tbody id="decomp-table-body"><!-- JS 填充 --></tbody>
+              </table>
+            </div>
+            <p class="fine">舍入说明：分项与合计分别按未舍入数值计算，展示值之和可能因四舍五入相差 0.1 分钟
+              （例如 <span data-num="paidPartTerm"></span> 与 <span data-num="paidDurTerm"></span> 的展示和为
+              <span data-num="paidTermsSumText"></span>，而原始差额为 <span data-num="paidGapSigned"></span>）。</p>
+            <p class="decomp-caveat"><strong>恒等式不是因果贡献。</strong>它没有控制任何混杂，也不解决男女两组在年龄、
+              就业、婚育与家庭结构上的构成差异；它只是把一个已经存在的差额换一种写法。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+    <nav class="act-pager" aria-label="幕间导航">
+      <a class="pager prev" href="#act-2">← 上一幕 · 第二幕 · 排序为何改变？</a>
+      <a class="pager next" href="#act-4">下一幕 · 第四幕 · 数字之外的问题 →</a>
+    </nav>
+</section>
+
+<!-- ===================== ACT IV ===================== -->
+<section class="act act-alt" id="act-4" aria-labelledby="act-4-title">
+  <div class="shell">
+    <header class="act-head">
+      <p class="act-num"><span aria-hidden="true">第四幕</span><span class="visually-hidden">第四幕</span> · Act IV</p>
+      <h2 id="act-4-title" class="display">数字之外的问题</h2>
+      <p class="act-findings"><strong>一句话发现：</strong>这份数据能显示差异，不能解释差异。
+        三个心理学与社会学视角各自提出一个可检验的问题——而这三件事，本次调查都没有测量。</p>
+    </header>
+
+    <div class="lens-toolbar">
+      <button type="button" id="lens-compare" class="step-btn" aria-pressed="false">
+        只看证据边界</button>
+      <p class="fine">三张卡片的「一句话」与「证据边界」始终可见；这个开关只是把每张卡的边界框进一步强调，
+        不折叠、不压暗任何文字。</p>
+    </div>
+
+    <div class="lens-grid" id="lens-grid">
+      <!-- TheoryLens: 三层阅读 —— 一句话 → 解释框架（可展开）→ 当前证据边界 → 未来检验（可展开）→ 文献 -->
+      <article class="lens" data-lens="eagly_wood_2016">
+        <div class="lens-top">
+          <span class="lens-index display">01</span>
+          <h3 class="lens-title">社会角色理论</h3>
+          <p class="lens-en">Social Role Theory of Sex Differences</p>
+          <svg class="lens-glyph" viewBox="0 0 64 40" role="img" aria-label="示意图：两条由位置分出的路径">
+            <rect x="2" y="4" width="28" height="12" class="gl-a"/><rect x="34" y="4" width="28" height="12" class="gl-b"/>
+            <rect x="2" y="24" width="28" height="12" class="gl-b"/><rect x="34" y="24" width="28" height="12" class="gl-a"/>
+            <path d="M16 16v8M48 16v8" class="gl-line"/>
+          </svg>
+          <p class="lens-oneline">社会角色、家庭结构、机会与规范<strong>可能</strong>与劳动分配相关；
+            这份数据能显示分配的结果，不能验证这些机制。</p>
+          <div class="lens-status" data-status-host></div>
+        </div>
+
+        <details class="lens-read">
+          <summary>解释框架：理论提出了什么<span class="chev" aria-hidden="true"></span></summary>
+          <div class="lens-body">
+            <section class="lens-sec"><h4>理论提出</h4>
+              <p>该框架把与性别相关的行为差异追溯到<strong>劳动分工所产生的角色位置</strong>：
+                承担家庭照料责任的人被期待发展关照与协调的能力，参与有偿劳动的人被期待发展工具性能力，
+                这些期待再反过来影响时间的分配。它描述的是位置与期待的后果，不是某种固定的天性。</p></section>
+            <section class="lens-sec"><h4>由此可检验的预测</h4>
+              <p>如果差异主要来自角色与机会，它应当随角色分布的变化而变化——在不同地区、时期、
+                家庭结构或就业状态下大小不同；如果差异不随这些条件改变，该框架的解释力就应被削弱。
+                这就是它能被推翻的方式。</p></section>
+            <section class="lens-sec"><h4>文献性质</h4>
+              <p>本页引用的是该理论的一篇百科式概述条目（3 页），用于说明理论框架本身；
+                不引用任何具体效应量，也不把该框架的实证结论移植到中国样本上。</p></section>
+          </div>
+        </details>
+
+        <div class="lens-boundary">
+          <section class="lens-sec"><h4>本次调查实际测到</h4>
+            <p>分工的结果：两类活动领域的参与率与参与者时长，以及由此得到的全体平均差异。</p>
+            <p class="lens-metric" data-slot="metric-eagly"></p></section>
+          <section class="lens-sec"><h4>现有数据还不能证明</h4>
+            <p>公报没有测量角色信念、角色期待、家庭内协商或机会结构，也没有同时控制年龄、就业、
+              婚育与家庭组成。因此无法判断观察到的差异是否由角色机制产生，
+              <strong>不能把该理论当作已识别的因果解释</strong>。</p></section>
+        </div>
+
+        <details class="lens-read">
+          <summary>如果要检验它，需要什么数据<span class="chev" aria-hidden="true"></span></summary>
+          <div class="lens-body"><p>需要在同一批人群中同时测量角色态度与实际照料／就业安排，
+            并在控制人口构成后检验两者与时间分配的关系；或者比较角色分布明显不同的群体与时点，
+            看差异是否随之改变。这些都不在公开的汇总表里。</p></div>
+        </details>
+
+        <footer class="lens-cite" data-cite="eagly_wood_2016"></footer>
+      </article>
+
+      <article class="lens" data-lens="daminger_2019">
+        <div class="lens-top">
+          <span class="lens-index display">02</span>
+          <h3 class="lens-title">家庭劳动的认知维度</h3>
+          <p class="lens-en">The Cognitive Dimension of Household Labor</p>
+          <svg class="lens-glyph" viewBox="0 0 64 40" role="img" aria-label="示意图：可见的分钟之下还有未被记录的四层">
+            <rect x="2" y="26" width="60" height="10" class="gl-a"/>
+            <rect x="8" y="18" width="48" height="6" class="gl-b"/>
+            <rect x="14" y="11" width="36" height="6" class="gl-b"/>
+            <rect x="20" y="4" width="24" height="6" class="gl-b"/>
+          </svg>
+          <p class="lens-oneline">家务之中还包含<strong>预判、规划、决策与监督</strong>的认知成分；
+            活动日志记录做了多久的哪件事，未必记得到底是谁在操心。</p>
+          <div class="lens-status" data-status-host></div>
+        </div>
+
+        <details class="lens-read">
+          <summary>解释框架：理论提出了什么<span class="chev" aria-hidden="true"></span></summary>
+          <div class="lens-body">
+            <section class="lens-sec"><h4>理论提出</h4>
+              <p>这项研究主张：认知劳动<strong>不是与家务并列的另一类活动，而是家庭劳动的一个维度</strong>——
+                同一件做饭、就医或接送的背后，包含预判需求、寻找可选方案、做出决定与监督进度几个环节。
+                它常常对做的人和伴侣都不可见，也因此成为冲突的来源。</p></section>
+            <section class="lens-sec"><h4>既有文献发现了什么</h4>
+              <p>原研究基于 <strong>35 对伴侣共 70 次深度访谈</strong>（美国双职工家庭），
+                发现认知劳动总量与其中的预判、监督环节更多由女性承担，而决策环节的参与度在两性之间大致相当。
+                <strong>这是该研究在其样本中的发现，不是本次中国时间利用调查的结果。</strong></p></section>
+          </div>
+        </details>
+
+        <div class="lens-boundary">
+          <section class="lens-sec"><h4>本次调查实际测到</h4>
+            <p>以 15 分钟为单位记录「正在进行」的活动时长。无酬劳动领域包含家务劳动、陪伴照料家人、
+              购买商品或服务等大类，但没有与「想着、计划着、盯着」对应的类目。</p>
+            <p class="lens-metric" data-slot="metric-daminger"></p></section>
+          <section class="lens-sec"><h4>现有数据还不能证明</h4>
+            <p>无法估计认知劳动的量，也不能说女性多出的分钟数中有多少属于这一维度；
+              同样不能因为日志里没有它，就推断它不存在或不重要。</p></section>
+        </div>
+
+        <details class="lens-read">
+          <summary>如果要检验它，需要什么数据<span class="chev" aria-hidden="true"></span></summary>
+          <div class="lens-body"><p>需要在时间日志之外加入可计量的认知与管理责任工具
+            （任务归属清单、决策责任、心理负载量表），并与同一批可比较人群一起施测，
+            才能检验它是否系统性地落在某一性别上。</p></div>
+        </details>
+
+        <footer class="lens-cite" data-cite="daminger_2019"></footer>
+      </article>
+
+      <article class="lens" data-lens="giurge_whillans_west_2020">
+        <div class="lens-top">
+          <span class="lens-index display">03</span>
+          <h3 class="lens-title">时间贫困与时间自主</h3>
+          <p class="lens-en">Why time poverty matters for individuals, organisations and nations</p>
+          <svg class="lens-glyph" viewBox="0 0 64 40" role="img" aria-label="示意图：客观时长与主观充裕感之间的缺口">
+            <rect x="2" y="10" width="30" height="10" class="gl-a"/>
+            <rect x="2" y="24" width="18" height="10" class="gl-b"/>
+            <path d="M34 15h26M22 29h38" class="gl-line"/>
+          </svg>
+          <p class="lens-oneline">「有多少可支配时间」与「觉得有没有时间、能不能自己决定怎么用」
+            不是同一件事；这份数据只在前一侧。</p>
+          <div class="lens-status" data-status-host></div>
+        </div>
+
+        <details class="lens-read">
+          <summary>解释框架：文章提出了什么<span class="chev" aria-hidden="true"></span></summary>
+          <div class="lens-body">
+            <section class="lens-sec"><h4>文章主题</h4>
+              <p>这是 <em>Nature Human Behaviour</em> 上的一篇 <strong>Perspective（观点文章）</strong>，
+                把时间贫困作为对个人、组织与国家都重要的议题来讨论，并区分客观上的时间稀缺与
+                主观上「感觉没时间」。文献类型标签由数据层按出版商页面生成。</p></section>
+            <section class="lens-sec"><h4>本页用到它的限度</h4>
+              <p>本页只用它提出一个测量上的区分：客观时长与主观充裕感不是同一个构念。
+                文章的具体论证与结论未在本包内逐字核对，因此不引用其中的效应、数据或政策建议。</p></section>
+          </div>
+        </details>
+
+        <div class="lens-boundary">
+          <section class="lens-sec"><h4>本次调查实际测到</h4>
+            <p>只有客观一侧：个人自由支配活动领域（运动健身、文化休闲娱乐等）的时长。</p>
+            <p class="lens-metric" data-slot="metric-giurge"></p></section>
+          <section class="lens-sec"><h4>现有数据还不能证明</h4>
+            <p>公报没有主观时间充裕感、时间压力或控制感的题项；活动类目也无法区分自愿与非自愿。
+              所以不能把自由支配时间的差值读作「自主权」的差值。</p></section>
+        </div>
+
+        <details class="lens-read">
+          <summary>如果要检验它，需要什么数据<span class="chev" aria-hidden="true"></span></summary>
+          <div class="lens-body"><p>需要在同一份样本中同时施测客观时间日志与主观时间感受量表，
+            才能检验「时间的量」与「时间的感受」是否一致，以及它们与哪些生活条件相关。</p></div>
+        </details>
+
+        <footer class="lens-cite" data-cite="giurge_whillans_west_2020"></footer>
+      </article>
+    </div>
+
+    <aside class="disc-strip" id="discretionary-strip">
+      <p class="disc-lead">同一份调查还显示：女性的个人自由支配活动平均比男性少
+        <strong data-num="discGapAbs"></strong> 分钟/天（男 <span data-num="maleDisc"></span> / 女 <span data-num="femaleDisc"></span>）。</p>
+      <p class="disc-limit"><strong>这不是“自主权少 <span data-num="discGapAbs"></span> 分钟”。</strong>
+        官方类目按活动内容划分，一个人看视频可能是自愿，也可能是因为其他生活条件不允许；
+        活动分钟数无法区分两者，也无法据此断言它由无酬劳动差异造成。
+        自由支配只是 24 小时中互斥领域之一，其余时间还分配在生理必需、学习培训与交通等领域。</p>
+    </aside>
+  </div>
+    <nav class="act-pager" aria-label="幕间导航">
+      <a class="pager prev" href="#act-3">← 上一幕 · 第三幕 · 平均值由什么组成？</a>
+      <a class="pager next" href="#act-5">下一幕 · 第五幕 · 能说明什么？ →</a>
+    </nav>
+</section>
+
+<!-- ===================== ACT V ===================== -->
+<section class="act" id="act-5" aria-labelledby="act-5-title">
+  <div class="shell">
+    <header class="act-head">
+      <p class="act-num"><span aria-hidden="true">第五幕</span><span class="visually-hidden">第五幕</span> · Act V</p>
+      <h2 id="act-5-title" class="display">这个结果能说明什么？</h2>
+      <p class="act-findings"><strong>一句话总结：</strong><span id="dossier-summary">…</span></p>
+    </header>
+
+    <!-- ClaimLimitPair -->
+    <div class="claim-pair" id="claim-pair">
+      <section class="claim yes">
+        <h3><span class="mark" aria-hidden="true">✓</span>可以推断</h3>
+        <ul>
+          <li>在官方活动分类下，6 岁及以上全国居民的<strong>群体平均时间</strong>存在性别差异，
+            且差值方向随“什么被算作劳动”的定义而改变。</li>
+          <li>合计差的方向对公报已公布数值的四舍五入是稳健的：在纯舍入边界
+            [<span data-num="totalBoundLo"></span>, <span data-num="totalBoundHi"></span>] 内仍为正（女性更多）。</li>
+          <li>差异同时对应女性更高的无酬活动参与率，与参与者中更长的记录时长。</li>
+          <li>任何人都可以用页面上给出的公式与公开数值复算出同样的结果。</li>
+        </ul>
+      </section>
+      <section class="claim no">
+        <h3><span class="mark" aria-hidden="true">✕</span>不能推断</h3>
+        <ul>
+          <li>“每位女性比每位男性多劳动 <span data-num="totalGapSigned"></span> 分钟”——这是群体均值，
+            不是个体分布、成对比较或普遍命题。</li>
+          <li>“性别本身造成了这一差异”——没有年龄、就业、婚育、地区与家庭组成的联合分布，
+            也没有因果识别设计。</li>
+          <li>“女性的全部生活负担更多”——学习、交通、照护强度、多任务重叠与主观压力都不在这个和数里。</li>
+          <li>“自由支配时间＝自由/幸福/自主权”——官方类目不是心理测量。</li>
+          <li>显著性、跨年趋势、群体交叉（如“城镇青年女性”）——公开表未提供可报告抽样方差与微观联合数据。</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="dossier-grid">
+      <!-- EvidenceAccordion -->
+      <section class="dossier" id="evidence-dossier" aria-label="证据档案">
+        <h3 class="h-rule">证据链与来源</h3>
+
+        <details class="ev" open>
+          <summary>来源链：这四个页面各自供给什么<span class="chev" aria-hidden="true"></span></summary>
+          <div class="ev-body"><div id="source-chain"></div>
+            <p class="fine">本页的分性别数值取自第三号公报附表（参与者日均时间与活动参与率），活动领域定义取自第二号公报注释；2025 年发布的分组汇总表专题页汇总同一批数据，作为补充核对入口。每条来源都附带本机的抓取快照与哈希，可离线复核。</p>
+          </div>
+        </details>
+
+        <details class="ev">
+          <summary>公式、精度与舍入<span class="chev" aria-hidden="true"></span></summary>
+          <div class="ev-body">
+            <p class="formula">全体平均 m ≈ p × t（参与率按比例代入：60.2% 计为 0.602）</p>
+            <p class="formula">Δm = (p<sub>女</sub> − p<sub>男</sub>)(t<sub>女</sub> + t<sub>男</sub>)/2 + (t<sub>女</sub> − t<sub>男</sub>)(p<sub>女</sub> + p<sub>男</sub>)/2</p>
+            <div class="table-scroll"><table class="data-table" id="precision-table">
+              <caption>本页用到的公布值、推导值与展示值</caption>
+              <thead><tr><th scope="col">活动 · 群体</th><th scope="col">参与率<span class="th-note">公布值</span></th>
+                <th scope="col">参与者日均<span class="th-note">公布值（整数分钟）</span></th>
+                <th scope="col">全体平均<span class="th-note">推导值（3 位）</span></th>
+                <th scope="col">页面展示<span class="th-note">1 位小数</span></th></tr></thead>
+              <tbody id="precision-body"></tbody></table></div>
+            <p class="fine" id="precision-note">…</p>
+            <div class="table-scroll"><table class="data-table" id="bounds-table">
+              <caption>纯舍入边界（由公布精度推出，<strong>不是抽样置信区间</strong>）</caption>
+              <thead><tr><th scope="col">差值（女 − 男）</th><th scope="col">点估计</th>
+                <th scope="col">下界</th><th scope="col">上界</th></tr></thead>
+              <tbody id="bounds-body"></tbody></table></div>
+            <p class="fine">这三行只回答“如果公报的取整方式不同，结果会移动多少”。
+              它不代表抽样误差，也不代表测量误差，且本页图表中不绘制任何误差棒。</p>
+          </div>
+        </details>
+
+        <details class="ev">
+          <summary>研究范围、加权方式与未控制项<span class="chev" aria-hidden="true"></span></summary>
+          <div class="ev-body"><ul class="scope-list" id="scope-list"></ul>
+            <p class="fine">公报原文（第一号）关于对象与样本的说明：</p>
+            <blockquote class="verbatim" id="sample-quote">…</blockquote>
+            <p class="fine">一周加权口径（第二号注释原文）：</p>
+            <blockquote class="verbatim" id="weight-quote">…</blockquote>
+          </div>
+        </details>
+
+        <details class="ev">
+          <summary>数据与代码：复现路径<span class="chev" aria-hidden="true"></span></summary>
+          <div class="ev-body">
+            <p>随本页发布的唯一统计输入（未修改，与研究包逐字节相同）：</p>
+            <ul class="file-list" id="file-list"></ul>
+            <p class="fine">离线复现（把复现包解压到新目录后按顺序执行；只需 Python 3.9+ 与 Node 18+，
+              不需要联网，也不需要本站源码）：</p>
+            <pre class="code-block" id="repro-block">python tools/verify_public_inputs.py   # 只读：核对包内每个文件的 SHA-256
+python tools/recompute_statistics.py   # 由冻结输入独立重算全部数值（Python）
+node tools/parity_check.mjs            # 用页面自身的 derive.js 再算一遍并逐项对照
+python tools/self_test.py              # 篡改测试：证明这道门禁真的会失败</pre>
+            <p class="fine">复现包：<a href="./research-pack/README.md">在线浏览 research-pack/</a> ·
+              <a href="./research-pack.zip" download>下载 research-pack.zip</a>
+              <span class="fine" id="pack-sha">SHA-256 <code>e0ef680675cc4b58efb75266b46aaadd10dd2baf480f20b8ca5dc76143d1e292</code></span></p>
+            <p class="fine">官方公报的 HTML 快照属第三方内容，不随站分发；页面逐字引用的官方定义及其
+              出处 URL、抓取日期与快照哈希见
+              <code>research-pack/data/audited/official_notes.json</code>，
+              在线核对方式与局限见复现包 README §2。</p>
+            <p class="fine">研究稿公开版：
+              <a href="./report/index.html" rel="noopener">report/index.html</a> ·
+              <a href="./docs/ERRATA_AND_EDITS.md" rel="noopener">勘误与编辑说明</a>。
+              上游原稿含内部协作注记，不公开发布，其哈希与两处编辑性差异记录在该勘误中。
+              数据下载入口即国家统计局公报页面（见上方来源链）；本叙事不含任何非公开微观数据。</p>
+          </div>
+        </details>
+
+        <details class="ev">
+          <summary>校验状态：内部一致性 ≠ 来源核验<span class="chev" aria-hidden="true"></span></summary>
+          <div class="ev-body">
+            <div class="audit-line" id="audit-line">…</div>
+            <p class="fine">上面的 ✔ 是<strong>内部算术一致性检查</strong>：数据模块自洽、
+              每个交互状态的数值与标签闭合。它<strong>不等于</strong>对照公报原文的独立来源核验；
+              后者需要对照上方四个官方页面逐格核对——本页附带抓取快照及其哈希，
+              使这一步可以离线完成；上游研究阶段的校验脚本与结果一并随包提供。</p>
+            <ul class="check-list" id="check-list"></ul>
+          </div>
+        </details>
+      </section>
+
+      <aside class="dossier-side">
+        <h3 class="h-rule">一句话给不同读者</h3>
+        <ul class="audience-list">
+          <li><strong>给第一次来的读者：</strong>先决定统计范围，再谈谁工作更久。</li>
+          <li><strong>给想做结论的人：</strong>这里的每一项都不能替换成因果句。</li>
+          <li><strong>给要复核的人：</strong>数字只来自 <code>data/audited/</code> 两个文件，公式在 Act III。</li>
+        </ul>
+        <div class="stamp">
+          <p class="stamp-line">China Time Use 2024 · 五幕交互研究叙事</p>
+          <p class="fine">研究：Baixin Guo（Max）· 数据：国家统计局第三次全国时间利用调查公报
+            · 独立研究专题：<strong>数据、方法与来源公开可查，可离线复算</strong></p>
+          <p class="fine">无障碍与动效：全部控件可用键盘操作；尊重
+            <code>prefers-reduced-motion</code>（关闭动效时数值直接落终态）；
+            图形均为 SVG 并提供文字替代；正文灰字对比度按 WCAG AA 目标校核。</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+    <nav class="act-pager" aria-label="幕间导航">
+      <a class="pager prev" href="#act-4">← 上一幕 · 第四幕 · 数字之外的问题</a>
+      <span class="pager end">已是最后一幕 · <a href="#act-1">回到第一幕</a></span>
+    </nav>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot-grid">
+    <p>研究：China Time Use 2024 — Gender Differences in Paid and Unpaid Labor（Baixin Guo / Max）</p>
+    <p id="foot-sources">数据：国家统计局《第三次全国时间利用调查》公报 ·
+      <span data-source="bulletin_1_overview"></span> ·
+      <span data-source="bulletin_2_national"></span> ·
+      <span data-source="bulletin_3_by_sex"></span> ·
+      <span data-source="group_tables"></span></p>
+    <p class="dim">数值以未舍入值计算后展示（1 位小数）· 本页不做因果解释</p>
+  </div>
+</footer>
+
+<script type="module" src="./main.js"></script>
+</body>
+</html>

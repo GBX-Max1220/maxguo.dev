@@ -1,0 +1,224 @@
+{
+  "dataset": "cn_2024_nbs_time_use_v1",
+  "type": "descriptive group marginals; all 6+; 2024 May field period; 5/7 weekday and 2/7 weekend weighted",
+  "source_url_1": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957217.html",
+  "source_url_2": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957216.html",
+  "source_url_3": "https://www.stats.gov.cn/zt_18555/zthd/lhfw/2025/2025_qgsjlydc/202501/t20250127_1958534.html",
+  "national_daily_minutes": {
+    "essential": 747,
+    "paid": 207,
+    "unpaid": 125,
+    "discretionary": 204,
+    "study": 107,
+    "transport": 50,
+    "internet": 337
+  },
+  "groups": [
+    {
+      "group_id": "overall",
+      "group_label": "全国居民",
+      "group_dimension": "overall",
+      "essential_min": 747,
+      "paid_min": 207,
+      "unpaid_min": 125,
+      "discretionary_min": 204,
+      "study_min": 107,
+      "transport_min": 50,
+      "internet_min": 337,
+      "total_labor_min": 332,
+      "six_domain_total_min": 1440,
+      "difference_from_1440_min": 0
+    },
+    {
+      "group_id": "male",
+      "group_label": "男性",
+      "group_dimension": "sex",
+      "essential_min": 743.0,
+      "paid_min": 243.208,
+      "unpaid_min": 75.6,
+      "discretionary_min": 211.792,
+      "study_min": 113.535,
+      "transport_min": 51.597,
+      "internet_min": 346.885,
+      "total_labor_min": 318.808,
+      "six_domain_total_min": 1438.732,
+      "difference_from_1440_min": -1.268
+    },
+    {
+      "group_id": "female",
+      "group_label": "女性",
+      "group_dimension": "sex",
+      "essential_min": 751.0,
+      "paid_min": 169.335,
+      "unpaid_min": 175.351,
+      "discretionary_min": 196.142,
+      "study_min": 100.858,
+      "transport_min": 47.46,
+      "internet_min": 327.096,
+      "total_labor_min": 344.686,
+      "six_domain_total_min": 1440.146,
+      "difference_from_1440_min": 0.146
+    },
+    {
+      "group_id": "urban",
+      "group_label": "城镇居民",
+      "group_dimension": "residence",
+      "essential_min": 746.0,
+      "paid_min": 199.543,
+      "unpaid_min": 124.64,
+      "discretionary_min": 208.008,
+      "study_min": 107.272,
+      "transport_min": 53.76,
+      "internet_min": 379.086,
+      "total_labor_min": 324.183,
+      "six_domain_total_min": 1439.223,
+      "difference_from_1440_min": -0.777
+    },
+    {
+      "group_id": "rural",
+      "group_label": "农村居民",
+      "group_dimension": "residence",
+      "essential_min": 749.0,
+      "paid_min": 221.178,
+      "unpaid_min": 124.168,
+      "discretionary_min": 195.4,
+      "study_min": 107.748,
+      "transport_min": 42.009,
+      "internet_min": 255.266,
+      "total_labor_min": 345.346,
+      "six_domain_total_min": 1439.503,
+      "difference_from_1440_min": -0.497
+    },
+    {
+      "group_id": "age_6_17",
+      "group_label": "6–17岁",
+      "group_dimension": "age",
+      "essential_min": 764.0,
+      "paid_min": 3.132,
+      "unpaid_min": 12.132,
+      "discretionary_min": 134.274,
+      "study_min": 484.128,
+      "transport_min": 42.45,
+      "internet_min": 111.24,
+      "total_labor_min": 15.264,
+      "six_domain_total_min": 1440.116,
+      "difference_from_1440_min": 0.116
+    },
+    {
+      "group_id": "age_18_59",
+      "group_label": "18–59岁",
+      "group_dimension": "age",
+      "essential_min": 732.0,
+      "paid_min": 296.352,
+      "unpaid_min": 133.974,
+      "discretionary_min": 182.548,
+      "study_min": 38.656,
+      "transport_min": 56.034,
+      "internet_min": 433.293,
+      "total_labor_min": 430.326,
+      "six_domain_total_min": 1439.564,
+      "difference_from_1440_min": -0.436
+    },
+    {
+      "group_id": "age_60_up",
+      "group_label": "60岁及以上",
+      "group_dimension": "age",
+      "essential_min": 776.0,
+      "paid_min": 119.79,
+      "unpaid_min": 187.579,
+      "discretionary_min": 317.814,
+      "study_min": 1.044,
+      "transport_min": 38.468,
+      "internet_min": 248.784,
+      "total_labor_min": 307.369,
+      "six_domain_total_min": 1440.695,
+      "difference_from_1440_min": 0.695
+    }
+  ],
+  "contrasts": {
+    "female_minus_male": {
+      "essential": 8.0,
+      "paid": -73.873,
+      "unpaid": 99.751,
+      "discretionary": -15.65,
+      "study": -12.677,
+      "transport": -4.137,
+      "internet": -19.789
+    },
+    "urban_minus_rural": {
+      "essential": -3.0,
+      "paid": -21.635,
+      "unpaid": 0.472,
+      "discretionary": 12.608,
+      "study": -0.476,
+      "transport": 11.751,
+      "internet": 123.82
+    },
+    "age60up_minus_age18to59": {
+      "essential": 44.0,
+      "paid": -176.562,
+      "unpaid": 53.605,
+      "discretionary": 135.266,
+      "study": -37.612,
+      "transport": -17.566,
+      "internet": -184.509
+    }
+  },
+  "gender_gap_decomposition_noncausal": {
+    "paid": {
+      "mean_gap_min": -73.873,
+      "participation_margin_min": -47.437,
+      "participant_duration_margin_min": -26.435
+    },
+    "unpaid": {
+      "mean_gap_min": 99.751,
+      "participation_margin_min": 26.322,
+      "participant_duration_margin_min": 73.429
+    },
+    "discretionary": {
+      "mean_gap_min": -15.65,
+      "participation_margin_min": -1.048,
+      "participant_duration_margin_min": -14.603
+    }
+  },
+  "rounding_only_gender_gaps_min": {
+    "paid": {
+      "point_estimate_min": -73.873,
+      "published_rounding_only_lower_min": -74.792,
+      "published_rounding_only_upper_min": -72.954
+    },
+    "unpaid": {
+      "point_estimate_min": 99.751,
+      "published_rounding_only_lower_min": 98.834,
+      "published_rounding_only_upper_min": 100.669
+    },
+    "discretionary": {
+      "point_estimate_min": -15.65,
+      "published_rounding_only_lower_min": -16.833,
+      "published_rounding_only_upper_min": -14.467
+    },
+    "total_labor": {
+      "point_estimate_min": 25.878,
+      "published_rounding_only_lower_min": 24.042,
+      "published_rounding_only_upper_min": 27.714
+    }
+  },
+  "validation": {
+    "source_table_cells_crosschecked": 112,
+    "published_national_means_crosschecked": 7,
+    "published_national_six_domain_sum_min": 1440,
+    "group_six_domain_max_abs_deviation_min": 1.268,
+    "all_checks_passed": true
+  },
+  "limits": [
+    "Rounding-only intervals do not represent sampling uncertainty",
+    "National figures are published whole-minute resident means; groups are approximate rates × participant duration",
+    "Cannot infer intersectional groups, standard errors, change over time, individual trajectories or causal effects",
+    "All-resident averages are not participant-only durations",
+    "Internet usage overlaps other domains and does not add to 24 hours",
+    "Time-use category for discretionary activities is not perceived time autonomy",
+    "Commute not isolated: transport includes all trip purposes",
+    "Sample is residents age six and above; no 18+ generalizations",
+    "Survey field period was May 2024; not repeated full-year diaries"
+  ]
+}

@@ -1,0 +1,8 @@
+DATA LAYER BUILD
+built_at: 2026-10-12T10:04:53Z
+built_by: tools/build_data_layer.py
+dataset.json  sha256 7d310646c6a35ba355242fd76882b646f6d01e1477dab533d85345a409963095
+gate2_results.json  sha256 f986faaf6ea2409eff75fcce4619473ba9292e1a98670954c4254e8327009d55
+payload sha256 (this build): 3788f87d270d05fb0946aa14dff82aaa2d43a97d994be336b246c9f699418996
+note: the payload contains no timestamp, so rebuilding from the same inputs
+      reproduces data/time-use-data.js byte-for-byte.

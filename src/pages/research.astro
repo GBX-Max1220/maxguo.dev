@@ -49,6 +49,27 @@ import profile from '../data/research-profile.json';
         </div>
       </section>
 
+      {Array.isArray(profile.social_research) && profile.social_research.length > 0 && (
+        <section id="society-and-technology" class="mb-12">
+          <span class="section-kicker mb-2">Society &amp; Technology</span>
+          <h2 class="text-2xl mb-5">Computational social science features</h2>
+          <div class="space-y-5">
+            {profile.social_research.map(work => (
+              <article id={work.id} class="card-static">
+                <p class="work-kind mb-2">{work.status}</p>
+                <h3 class="text-lg mb-2">{work.title}</h3>
+                <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-3">{work.summary}</p>
+                <ul class="list-disc pl-5 text-sm text-[var(--color-text-dim)] space-y-2 mb-3">
+                  {work.bullets.map(item => <li>{item}</li>)}
+                </ul>
+                <p class="text-sm mb-1"><a href={work.url} class="link-arrow inline-flex items-center min-h-[44px]">Interactive research feature →</a></p>
+                <p class="text-sm"><a href={work.reportUrl} class="link-arrow inline-flex items-center min-h-[44px]">Research report (public reading version) →</a></p>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
       <CurrentResearch />
 
       <p class="text-sm mb-12"><a href="/contributions/" class="link-arrow">Public, dated research and engineering contributions →</a></p>
