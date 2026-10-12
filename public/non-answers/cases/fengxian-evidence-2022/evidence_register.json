@@ -21,10 +21,10 @@
       "id": "S03",
       "published": "2022-02-07",
       "title": "徐州市联合调查组调查进展",
-      "carrier_note": "人民网江苏频道同期报道徐州联合调查组公开进展；非调查组发布账号。",
-      "url": "https://js.people.com.cn/n2/2022/0207/c360303-35124696.html",
+      "carrier_note": "凤凰网2022年2月7日刊载完整通报，页面署名徐州发布；人民网江苏频道同期报道佐证；非官方发布账号",
+      "url": "https://news.ifeng.com/c/v0022kyQJ08uya4RH8Nd59tE7wPNGPG2BBCeAYtMweVVhdQ__",
       "alternate_urls": [
-        "https://news.ifeng.com/c/v002VIygSdtYrx5CrfCEC7I4CQMzYrd69y3e---_V0f-_aMZgA__"
+        "https://js.people.com.cn/n2/2022/0207/c360303-35124696.html"
       ]
     },
     {
@@ -131,6 +131,6 @@
     "Public disclosure date is not internal discovery date",
     "Do not claim reader comprehension gains without tests"
   ],
-  "revision": "Gate4 editorial RC v0.4 / 2026-10-13",
-  "sources_review_note": "S01/S02 use media reproductions; S03 is contemporaneous secondary reporting, not a complete authenticated transcript; S05 is a government-domain copy that identifies Junction News as the carrier; S07 is a reproduction of a first-instance court notice, not final judgment proof."
+  "revision": "Gate4 v0.4 / provenance correction 2026-10-13",
+  "sources_review_note": "S01/S02 use media reproductions; S03 full contemporaneous reproduction is attributed to Xuzhou Release on Phoenix; original government-account URL not independently authenticated; S05 is a government-domain copy that identifies Junction News as the carrier; S07 is a reproduction of a first-instance court notice, not final judgment proof."
 }

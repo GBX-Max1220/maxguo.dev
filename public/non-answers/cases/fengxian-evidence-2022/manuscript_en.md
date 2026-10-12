@@ -55,7 +55,7 @@ We have neither the internal drafting files behind the first notice nor the comp
 
 - [S01] 2022-01-28 · First Feng County publicity-department statement. Contemporaneous full reproduction by The Paper; original WeChat post not independently authenticated: https://m.thepaper.cn/newsDetail_forward_16497879
 - [S02] 2022-01-30 · Second Feng County joint-investigation notice. Reproduced by The Paper on 31 January from the notice issued late on 30 January: https://www.thepaper.cn/newsDetail_forward_16544274
-- [S03] 2022-02-07 · Xuzhou joint inquiry update. Contemporaneous report from People’s Daily Online Jiangsu; not an authenticated original institutional post: https://js.people.com.cn/n2/2022/0207/c360303-35124696.html
+- [S03] 2022-02-07 · Xuzhou joint inquiry update. Phoenix News reproduction of the full 7 February notice, bylined “Xuzhou Release”; not the authenticated original official post. Contemporaneous People’s Daily Online Jiangsu coverage provides a secondary cross-check: https://news.ifeng.com/c/v0022kyQJ08uya4RH8Nd59tE7wPNGPG2BBCeAYtMweVVhdQ__
 - [S04] 2022-02-10 · Xuzhou investigation update. Xinhua reprinted the release posted on the Xuzhou official Weibo account: https://www.xinhuanet.com/local/2022-02/10/c_1128353709.htm
 - [S05] 2022-02-23 · Jiangsu provincial investigation report. Full text on the Jiangsu government cyberspace website, credited to Junction News; cross-checked with Xinhua: https://www.jswx.gov.cn/yw/202202/t20220223_2951816.shtml
 - [S06] 2022-02-23 · Xinhua’s contemporaneous investigative coverage. Relevant prior reporting and counterevidence; no claim of first discovery: https://www.xinhuanet.com/2022-02/23/c_1128408829.htm

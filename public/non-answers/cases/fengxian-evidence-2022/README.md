@@ -2,7 +2,7 @@
 
 **Status:** `EDITORIAL_RC_V0_4 / AUTOMATED_QA_PASS / PUBLICATION_HOLD`
 
-This is an **offline, draft-only** trilingual research artifact by Baixin Guo (Max), not an online release.
+This is a **draft-only** trilingual artifact by Baixin Guo (Max) staged in GitHub PR #15, not a public release.
 
 ## Files
 
@@ -24,4 +24,4 @@ Extract all contents and open `index.html` in a local browser (do not detach it 
 
 All seven sources are public documents or publication carriers, not authenticated access to full official investigative records. In particular, S01/S02 are media reproductions, S03 a contemporaneous media report, S05 a government-hosted reproduction, and S07 a Xinhua report of a first-instance judgment. The project cannot infer intentional deceit or an unverified final appellate disposition. The first-instance ruling is not described as a verified final judgment.
 
-**No changes were made to GitHub or the deployed website.** This is not permission to merge, index, or release.
+**Changes are staged on GitHub Draft PR #15 only; main and the deployed website remain unchanged.** This is not permission to merge, index, or release.
