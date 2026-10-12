@@ -91,4 +91,4 @@
 3. 国家统计局，《第三次全国时间利用调查公报（第三号）》，2024-10-31：<https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957215.html>。
 4. 国家统计局，第三次全国时间利用调查分组汇总表专题页（2025-01-27 发布）：<https://www.stats.gov.cn/zt_18555/zthd/lhfw/2025/2025_qgsjlydc/202501/t20250127_1958534.html>。该专题页汇总分性别、分城乡、分年龄组数据，作为补充核对入口。
 
-本研究的数据是上述公开公报的汇总统计，不包括原始个体记录。所有分组数值为公布的参与者时间×参与率推导的近似值。为保证复核，提供 `dataset.json`、`time_budget_by_group.csv`、`gate2_results.json` 与独立校验脚本；研究图表以这些文件为单一统计输入，不允许单独录入一套“美化后”的数字。
+本研究的数据是上述公开公报的汇总统计，不包括原始个体记录。所有分组数值为公布的参与者时间×参与率推导的近似值。为保证复核，提供 `data/audited/dataset.json`、`data/audited/gate2_results.json`、由前两者生成的数据层 `data/time-use-data.js`，以及四个独立校验脚本（`tools/verify_public_inputs.py`、`tools/recompute_statistics.py`、`tools/parity_check.mjs`、`tools/self_test.py`；均随复现包 `research-pack/` 发布）；研究图表以这些文件为单一统计输入，不允许单独录入一套“美化后”的数字。

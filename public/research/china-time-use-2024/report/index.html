@@ -41,7 +41,7 @@
       <p class="howto"><a href="../index.html">← 返回五幕交互叙事</a> ·
         <a href="../docs/ERRATA_AND_EDITS.md">勘误与编辑说明（公开）</a> ·
         <a href="../research-pack/README.md">研究复现包</a> ·
-        <a href="../research-pack.zip" download>下载 research-pack.zip</a>（SHA-256 <code>e0ef680675cc4b58efb75266b46aaadd10dd2baf480f20b8ca5dc76143d1e292</code>）</p>
+        <a href="../research-pack.zip" download>下载 research-pack.zip</a>（SHA-256 <code>3084dd21e55f0cc335820c39729aeb05988171afdbd5a07ed0e00af81087786a</code>）</p>
     </div>
     <div class="masthead-meta">
       <p class="meta-head">描述性研究 V1</p>
@@ -89,7 +89,7 @@
 <p>对于公共数据论证，最有价值的习惯可能是：<strong>在问一个结论是否正确之前，先问它衡量了什么、漏掉了什么，以及什么证据足以改变我们的判断。</strong></p>
 <h2>数据来源与复现</h2>
 <ol><li>国家统计局，《第三次全国时间利用调查公报（第一号）》，2024-10-31：<a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957217.html" rel="noopener" target="_blank">https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957217.html</a>。</li><li>国家统计局，《第三次全国时间利用调查公报（第二号）》，2024-10-31：<a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957216.html" rel="noopener" target="_blank">https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957216.html</a>。</li><li>国家统计局，《第三次全国时间利用调查公报（第三号）》，2024-10-31：<a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957215.html" rel="noopener" target="_blank">https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957215.html</a>。</li><li>国家统计局，第三次全国时间利用调查分组汇总表专题页（2025-01-27 发布）：<a href="https://www.stats.gov.cn/zt_18555/zthd/lhfw/2025/2025_qgsjlydc/202501/t20250127_1958534.html" rel="noopener" target="_blank">https://www.stats.gov.cn/zt_18555/zthd/lhfw/2025/2025_qgsjlydc/202501/t20250127_1958534.html</a>。该专题页汇总分性别、分城乡、分年龄组数据，作为补充核对入口。</li></ol>
-<p>本研究的数据是上述公开公报的汇总统计，不包括原始个体记录。所有分组数值为公布的参与者时间×参与率推导的近似值。为保证复核，提供 <code>dataset.json</code>、<code>time_budget_by_group.csv</code>、<code>gate2_results.json</code> 与独立校验脚本；研究图表以这些文件为单一统计输入，不允许单独录入一套“美化后”的数字。</p>
+<p>本研究的数据是上述公开公报的汇总统计，不包括原始个体记录。所有分组数值为公布的参与者时间×参与率推导的近似值。为保证复核，提供 <code>data/audited/dataset.json</code>、<code>data/audited/gate2_results.json</code>、由前两者生成的数据层 <code>data/time-use-data.js</code>，以及四个独立校验脚本（<code>tools/verify_public_inputs.py</code>、<code>tools/recompute_statistics.py</code>、<code>tools/parity_check.mjs</code>、<code>tools/self_test.py</code>；均随复现包 <code>research-pack/</code> 发布）；研究图表以这些文件为单一统计输入，不允许单独录入一套“美化后”的数字。</p>
 <section class="report-notes">
   <h2>版本说明</h2>
   <ul>
@@ -102,11 +102,12 @@
       <a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957215.html" rel="noopener" target="_blank"><code>t20241031_1957215.html</code></a>
       （分性别、分城乡、分年龄组的参与者日均时间与活动参与率）；该专题页在本版中改列为
       第 4 条补充来源。更正依据：2026-10-11 本机抓取三个 <code>t20241031_19572xx</code> 页面，
-      正文分别自述为第一号、第二号、第三号（快照与哈希见 <code>evidence/nbs/</code>）。
+      正文分别自述为第一号、第二号、第三号（快照哈希记录在复现包的
+      <code>evidence/EVIDENCE_MANIFEST.json</code>；快照本体属第三方内容，不随站分发）。
       统计数据本身未作任何改动。</li>
     <li><strong>删除一条流程性注记：</strong>第 4 节结果表下方原有 1 行关于稿件修订往来的说明，
       属于制作过程记录而非研究方法，故不在公开版出现；与之相邻的舍入方法说明属于方法内容，已保留。</li>
-    <li>本页由 <code>tools/build_report.py</code> 生成，上述两处差异均由该脚本按固定规则产生，
+    <li>本页由复现包内的 <code>tools/maintainer/build_report.py</code> 生成，上述两处差异均由该脚本按固定规则产生，
       重新生成不会恢复原标注。</li>
   </ul>
 </section>

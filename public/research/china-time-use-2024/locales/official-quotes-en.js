@@ -11,26 +11,33 @@ export const OFFICIAL_EN = {
   unpaid_definition:
     "Footnote [8]: the unpaid-work domain covers the activity categories of housework, "
     + "accompanying and caring for family members, and buying goods or services; it also covers "
-    + "unpaid internship within the employment category, and voluntary work within the social "
-    + "interaction category.",
+    + "unpaid internship and similar employment activities within the employment activity "
+    + "category, and voluntary work within the social interaction category.",
   paid_definition:
     "Footnote [7]: the paid-work domain covers all categories within the employment activity "
-    + "category except unpaid internship and similar activities.",
+    + "category except unpaid internship and similar employment activities.",
   discretionary_definition:
-    "Footnote [9]: the personal discretionary-activities domain covers exercise and fitness, "
-    + "leisure and entertainment, and similar activity categories.",
+    "Footnote [9]: the personal discretionary-activities domain covers the activity categories "
+    + "of exercise and fitness, culture, leisure and entertainment, and similar categories, as "
+    + "well as all other categories within the social interaction category except voluntary work.",
   week_weighting:
-    "When calculating the time residents spent on a type of activity, a week is weighted as "
-    + "five weekdays and two rest days (5/7 and 2/7).",
+    "To calculate the time residents took part in a type of activity, the time-use data for that "
+    + "activity in diary table 1 and diary table 2 are aggregated weighted by 5/7 and 2/7 "
+    + "respectively, producing the main indicators calculated over a seven-day week, namely the "
+    + "daily average time of residents, the daily average time of participants and the "
+    + "activity participation rate.",
   six_domains:
-    "Residents' daily time is divided into six mutually exclusive activity domains: personal "
-    + "necessities, paid work, unpaid work, personal discretionary activities, education and "
-    + "training, and transport.",
+    "Footnote [2]: residents' main activity domains include six domains: personal necessities, "
+    + "paid work, unpaid work, personal discretionary activities, education and training, and "
+    + "transport.",
   sample_scope:
-    "The survey covers usual residents aged 6 and over in sampled households; the field period "
-    + "was 11–31 May 2024.",
+    "The subjects of the Third National Time Use Survey were the sampled households and their "
+    + "usual residents aged 6 and over. Nationwide the survey covered 38,500 households and "
+    + "107,000 people, of whom about 53,000 were men and about 54,000 were women; about 64,000 "
+    + "were in urban areas and about 43,000 were in rural areas.",
   age_paid_caution:
-    "Respondents aged 6–15 are not counted as having engaged in paid activity.",
+    "Footnote [1]: in the actual survey, residents aged 6-15 had no activities in the paid-work "
+    + "domain.",
 };
 
 export const TRANSLATION_NOTE = {

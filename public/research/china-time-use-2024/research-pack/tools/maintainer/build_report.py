@@ -140,6 +140,49 @@ def hard_breaks_to_backslash(md: str) -> tuple[str, int, int]:
     return "\n".join(out) + "\n", breaks, singles
 
 
+# ------------------------------------------------- deliverables claim (PR review §4)
+# The upstream manuscript's closing section promises `time_budget_by_group.csv` as one of the
+# verification files. No such file was ever produced: the group-level tables live inside
+# data/audited/dataset.json and the audited contrasts inside gate2_results.json. A published page
+# must not offer a file the reader cannot download, so the public version replaces the claim with
+# the names that are actually shipped. The internal manuscript copy stays byte-for-byte untouched;
+# the public erratum records this as EDIT 4.
+CSV_CLAIM = re.compile(r"`dataset\.json`、`time_budget_by_group\.csv`、`gate2_results\.json` 与独立校验脚本")
+DELIVERABLES_ZH = (
+    "`data/audited/dataset.json`、`data/audited/gate2_results.json`、由前两者生成的数据层 "
+    "`data/time-use-data.js`，以及四个独立校验脚本（`tools/verify_public_inputs.py`、"
+    "`tools/recompute_statistics.py`、`tools/parity_check.mjs`、`tools/self_test.py`；"
+    "均随复现包 `research-pack/` 发布）")
+CSV_CLAIM_EN = re.compile(
+    r"`dataset\.json`, `time_budget_by_group\.csv`, `gate2_results\.json` and the independent "
+    "checking scripts")
+DELIVERABLES_EN = (
+    "`data/audited/dataset.json`, `data/audited/gate2_results.json`, the data layer "
+    "`data/time-use-data.js` generated from those two, and four independent checking scripts "
+    "(`tools/verify_public_inputs.py`, `tools/recompute_statistics.py`, `tools/parity_check.mjs`, "
+    "`tools/self_test.py`; all published inside the reproduction pack `research-pack/`)")
+
+
+def fix_deliverables_claim(md: str, lang: str, strict: bool = True) -> tuple[str, list[str]]:
+    """Replace the promise of a CSV that does not exist with the files actually shipped.
+
+    strict=True is used on the upstream-derived Chinese text, whose wording is frozen by hash:
+    if the sentence is not found there, the manuscript changed and the build must stop.
+    strict=False is used on the English text authored in this repository, where the important
+    invariant is the one asserted below - no undeclared file may be promised.
+    """
+    pat, repl = (CSV_CLAIM, DELIVERABLES_ZH) if lang == "zh" else (CSV_CLAIM_EN, DELIVERABLES_EN)
+    out, n = pat.subn(repl, md, count=1)
+    if n != 1 and strict:
+        raise SystemExit("FATAL: the expected deliverables sentence is missing from the "
+                         + lang + " manuscript; the upstream text may have changed - refusing "
+                         "to ship a claim this round did not verify")
+    if "time_budget_by_group" in out:
+        raise SystemExit("FATAL: time_budget_by_group.csv is still promised in the public version")
+    return out, ["deliverables list: dropped the never-delivered `time_budget_by_group.csv`; "
+                 "named the two JSON inputs, the generated data layer and the four check scripts"]
+
+
 def inline(s: str) -> str:
     s = htmlmod.escape(s, quote=False)
     s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
@@ -292,6 +335,8 @@ def build_en_report(docs: Path) -> int:
             print(f"FATAL: untranslated line in the English report: {line[:70]}")
             return 1
 
+    md, en_deliver_notes = fix_deliverables_claim(md, "en", strict=False)
+    notes += en_deliver_notes
     out_dir = ROOT / "en" / "report"
     md, en_hard_breaks, en_lone_spaces = hard_breaks_to_backslash(md)
     print(f"     en line hygiene: {en_hard_breaks} two-space hard break(s) rewritten as "
@@ -387,6 +432,7 @@ def main() -> int:
 
     public, removed = strip_internal_notes(original)
     public, source_notes = fix_source_mapping(public)
+    public, deliver_notes = fix_deliverables_claim(public, "zh")
     public, hard_breaks, lone_spaces = hard_breaks_to_backslash(public)
     print(f"     zh line hygiene: {hard_breaks} two-space hard break(s) rewritten as "
           f"backslash breaks, {lone_spaces} lone line-end space(s) stripped")
@@ -435,7 +481,7 @@ def main() -> int:
 | 补充（分组汇总表专题页，2025-01-27） | https://www.stats.gov.cn/zt_18555/zthd/lhfw/2025/2025_qgsjlydc/202501/t20250127_1958534.html |
 
 公开版据此把第 3 条参考改为真正的第三号公报，并把专题页列为第 4 条补充来源。
-本更正写在生成器 `tools/build_report.py` 里，因此重新构建不会把它改回去。
+本更正写在生成器里（复现包内 `tools/maintainer/build_report.py`），因此重新构建不会把它改回去。
 
 ## 编辑 3 · 强制换行改写为反斜杠形式（不改变渲染）
 
@@ -453,6 +499,30 @@ def main() -> int:
 本站报告渲染器 `md_to_html()` 过去就忽略行尾空格、现在同样忽略行尾反斜杠，
 因此 `report/index.html` 与 `en/report/index.html` **逐字节不变**。
 数字、公式、表格与结论未作任何改动，上游原稿的内部副本也未改写。
+
+## 编辑 4 · 撤回一项从未交付过的文件承诺，并把读者按不到的路径改为发布面上的真实位置
+
+上游原稿的「数据来源与复现」一节把 `time_budget_by_group.csv` 列为随研究提供的复核文件。
+本研究所交付的分组数值实际位于 `data/audited/dataset.json`，对照与分解结果位于
+`data/audited/gate2_results.json`，页面与报告使用的数据层 `data/time-use-data.js` 由前两者生成；
+`time_budget_by_group.csv` 从未存在，因此公开版不再承诺该文件，改为按复现包内的真实布局点名：
+`data/audited/` 下的两份 JSON、`data/time-use-data.js`，以及 `tools/` 下的
+`verify_public_inputs.py`、`recompute_statistics.py`、`parity_check.mjs`、`self_test.py`。
+
+同一次核查还发现三处「读者按不到」的路径写法，一并改为发布面上真实存在的位置：
+
+- 公开报告页原写「快照与哈希见 `evidence/nbs/`」。该目录是仓库内部的证据留存，属第三方内容、
+  不随站发布；改为指向复现包的 `evidence/EVIDENCE_MANIFEST.json`（其中逐条记录了四份快照的
+  SHA-256），并说明快照本体不分发。
+- 公开报告页与本勘误原把生成器写作 `tools/build_report.py`；复现包内的实际路径是
+  `tools/maintainer/build_report.py`，两处均已改正。
+
+这些都属于指位与承诺的文字更正：没有新增第二套数据来源，没有临时造文件来迁就旧句子。
+本更正写在生成器里（复现包内 `tools/maintainer/build_report.py` 的 `fix_deliverables_claim()`）：
+中文侧若找不到原句会直接让构建失败（上游文本被改动时不允许静默放行），并在替换后断言公开版
+不再出现该文件名；公开文档引用的每个包内路径再由 `tools/maintainer/qa_data.mjs` 逐条解析，
+解析不到即门禁失败。
+**统计输入、公式、数值与结论未作任何改动。**
 
 ## 文献类型更正（同一研究专题）
 
@@ -520,11 +590,12 @@ Semantic Scholar `publicationTypes=["Review", …]`）的取值作为二级记�
       <a href="{BULLETIN_3_URL}" rel="noopener" target="_blank"><code>t20241031_1957215.html</code></a>
       （分性别、分城乡、分年龄组的参与者日均时间与活动参与率）；该专题页在本版中改列为
       第 4 条补充来源。更正依据：2026-10-11 本机抓取三个 <code>t20241031_19572xx</code> 页面，
-      正文分别自述为第一号、第二号、第三号（快照与哈希见 <code>evidence/nbs/</code>）。
+      正文分别自述为第一号、第二号、第三号（快照哈希记录在复现包的
+      <code>evidence/EVIDENCE_MANIFEST.json</code>；快照本体属第三方内容，不随站分发）。
       统计数据本身未作任何改动。</li>
     <li><strong>删除一条流程性注记：</strong>第 4 节结果表下方原有 1 行关于稿件修订往来的说明，
       属于制作过程记录而非研究方法，故不在公开版出现；与之相邻的舍入方法说明属于方法内容，已保留。</li>
-    <li>本页由 <code>tools/build_report.py</code> 生成，上述两处差异均由该脚本按固定规则产生，
+    <li>本页由复现包内的 <code>tools/maintainer/build_report.py</code> 生成，上述两处差异均由该脚本按固定规则产生，
       重新生成不会恢复原标注。</li>
   </ul>
 </section>

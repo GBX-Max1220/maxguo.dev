@@ -286,6 +286,175 @@ if (idx) {
   console.log("[SKIP] prose audit — index.html not built yet");
 }
 
+/* ---------------------------------- 7. official English renderings are faithful
+ * Every line in locales/official-quotes-en.js is presented to readers as OUR TRANSLATION of a
+ * quoted official Chinese footnote, so it has to carry the whole information content of that
+ * footnote. An English rendering that quietly drops a clause (or adds a fact the original does
+ * not state, e.g. a field date) is a misattribution to the National Bureau of Statistics.
+ * The required-token lists below are read off the Chinese originals in DATA.definitions. */
+{
+  const { OFFICIAL_EN, TRANSLATION_NOTE } = await import(
+    pathToFileURL(path.join(ROOT, "locales/official-quotes-en.js")).href);
+  const REQ = {
+    unpaid_definition: ["[8]", "housework", "caring for family", "buying goods or services",
+      "unpaid internship", "voluntary work", "social interaction"],
+    paid_definition: ["[7]", "employment activity", "except unpaid internship"],
+    discretionary_definition: ["[9]", "exercise and fitness", "leisure and entertainment",
+      "social interaction", "except voluntary work"],
+    week_weighting: ["diary table 1", "diary table 2", "5/7", "2/7", "participants",
+      "participation rate"],
+    six_domains: ["six", "personal necessities", "paid work", "unpaid work", "discretionary",
+      "education and training", "transport"],
+    sample_scope: ["sampled households", "aged 6 and over", "38,500", "107,000", "53,000",
+      "54,000", "64,000", "43,000", "urban", "rural"],
+    age_paid_caution: ["[1]", "6-15", "no activities", "paid-work"],
+  };
+  const zhKeys = Object.keys(DATA.definitions);
+  check("official English renderings exist for exactly the quoted Chinese originals",
+    JSON.stringify(Object.keys(OFFICIAL_EN).sort()) === JSON.stringify(zhKeys.sort()),
+    Object.keys(OFFICIAL_EN).join(", "));
+  for (const [key, tokens] of Object.entries(REQ)) {
+    const en = String(OFFICIAL_EN[key] || "");
+    const missing = tokens.filter(t => !en.toLowerCase().includes(t.toLowerCase()));
+    check(`English rendering carries the ${key} original's information (${tokens.length} tokens)`,
+      en.length > 0 && missing.length === 0, missing.length ? "missing: " + missing.join(", ") : "");
+  }
+  // the sample-scope footnote states no dates; a date inside its translation would be
+  // attributed to the bulletin. The field period still appears in our own prose (checked below).
+  check("sample_scope translation states no survey date",
+    !/20\d{2}|\bMay\b|\bJune\b|field period|11\s*[–-]\s*31/i.test(OFFICIAL_EN.sample_scope),
+    OFFICIAL_EN.sample_scope.slice(0, 60) + "…");
+  check("the field period is still stated in our own (non-quoted) copy",
+    /11.31 May 2024|May 2024/.test(readFileSync(path.join(ROOT, "locales/en.js"), "utf8")), "");
+  check("the Chinese originals keep the numbers the translation must carry",
+    ["3.85", "10.7", "5.3", "5.4", "6.4", "4.3"].every(n => DATA.definitions.sample_scope.text.includes(n)),
+    DATA.definitions.sample_scope.text.slice(0, 24) + "…");
+  check("the translator-attribute note is present in both languages",
+    /译文/.test(TRANSLATION_NOTE.zh) && /our translation/i.test(TRANSLATION_NOTE.en), "");
+  // no build-time placeholder may be authored into a shipped page either
+  for (const f of ["index.html", "en/index.html"]) {
+    const t = existsSync(path.join(ROOT, f)) ? readFileSync(path.join(ROOT, f), "utf8") : "";
+    if (f === "en/index.html") {
+      check("en/index.html keeps the #pack-sha marker as a placeholder (injected at integration)",
+        /id="pack-sha"/.test(t), "");
+    }
+  }
+}
+
+/* ---------------------------------- 8. no published file promises something undeliverable
+ * A research page that names a data file the reader cannot download is a false claim about the
+ * artifact, in the same family as an unreplaced build placeholder. Two checks:
+ *   (a) the withdrawn CSV name may appear only in the erratum, and only where it is described
+ *       as never delivered;
+ *   (b) every file name quoted inside the two public manuscripts' verification sentence must
+ *       exist either in this tree or in the reproduction pack that is built from it. */
+{
+  const withdrawn = "time_budget_by_group";
+  const published = ["index.html", "en/index.html", "report/index.html", "en/report/index.html",
+    "docs/RESEARCH_MANUSCRIPT_PUBLIC.md", "docs/RESEARCH_MANUSCRIPT_PUBLIC_EN.md",
+    "docs/LITERATURE_EVIDENCE_MAP.md", "data/time-use-data.js", "main.js", "README.md"].filter(existsSync);
+  for (const f of published) {
+    const t = readFileSync(path.join(ROOT, f), "utf8");
+    check(`published file never promises ${withdrawn}.csv  (${f})`, !t.includes(withdrawn), "");
+  }
+  if (existsSync(path.join(ROOT, "docs/ERRATA_AND_EDITS.md"))) {
+    const err = readFileSync(path.join(ROOT, "docs/ERRATA_AND_EDITS.md"), "utf8");
+    // the name may appear in the erratum, but only inside EDIT 4, which has to state plainly that
+    // the file never existed. Anywhere else in the published tree it would be a live promise.
+    const before = err.split("## 编辑 4")[0];
+    const section = (err.split("## 编辑 4")[1] || "").split("\n## ")[0];
+    check("the erratum confines the withdrawn CSV to the edit that revokes it",
+      section.includes(withdrawn) && /从未存在/.test(section) && /不再承诺/.test(section)
+      && !before.includes(withdrawn),
+      `section=${section.includes(withdrawn)} never existed=${/从未存在/.test(section)} `
+      + `revoked=${/不再承诺/.test(section)} elsewhere=${before.includes(withdrawn)}`);
+  }
+  // (b) the names quoted in the verification sentence must resolve
+  const md = existsSync(path.join(ROOT, "docs/RESEARCH_MANUSCRIPT_PUBLIC.md"))
+    ? readFileSync(path.join(ROOT, "docs/RESEARCH_MANUSCRIPT_PUBLIC.md"), "utf8") : "";
+  const sentence = (md.split("\n").find(l => l.includes("为保证复核")) || "");
+  const quoted = [...sentence.matchAll(/`([^`]+\.(?:json|js|mjs|py|csv|md|txt))`/g)].map(m => m[1]);
+  const packRoot = path.join(ROOT, "..", "pack_staging", "research-pack");
+  const resolves = (name) => {
+    const c = name.replace(/^tools\//, "");
+    return [path.join(ROOT, name), path.join(ROOT, "data", name),
+      path.join(ROOT, "data", "audited", name), path.join(ROOT, "tools", c),
+      path.join(packRoot, name), path.join(packRoot, "data", name),
+      path.join(packRoot, "data", "audited", name), path.join(packRoot, "tools", c),
+      path.join(packRoot, "tools", "maintainer", name.replace(/^tools\//, ""))]
+      .some(p => existsSync(p));
+  };
+  check("the verification sentence quotes only files that exist",
+    quoted.length >= 4 && quoted.every(resolves),
+    quoted.filter(p => !resolves(p)).join(", ") || `${quoted.length} names`);
+  check("no unreplaced build-time placeholder in published HTML",
+    (() => {
+      // In the story tree the marker is still a marker: integration fills it later, and the
+      // integration script refuses to publish one that survived. What must hold HERE is that the
+      // placeholder phrase can only ever occur inside the #pack-sha element - anywhere else on a
+      // page it would be a reader-visible lie with nothing scheduled to replace it.
+      const rx = /<span class="fine" id="pack-sha">[\s\S]*?<\/span>/g;
+      for (const f of ["index.html", "en/index.html", "report/index.html", "en/report/index.html"]) {
+        if (!existsSync(path.join(ROOT, f))) continue;
+        const t = readFileSync(path.join(ROOT, f), "utf8");
+        const allowed = (t.match(rx) || []).join("\n");
+        const stripped = t.replace(rx, "");
+        if (/injected at build time|由构建注入|待构建注入/.test(stripped)) return false;
+        if (f === "en/index.html" && !/(injected at build time|由构建注入)/.test(allowed)) return false;
+      }
+      return true;
+    })(),
+    "the placeholder phrase may live only inside #pack-sha, and only before integration fills it");
+}
+
+/* ---------------------------------- 9. every path a public document points a reader at resolves
+ * Extended from EDIT 4: a name inside backticks that looks like a repo path is a promise the
+ * published tree has to keep. Scope is the four reader-facing documents plus the erratum -
+ * deliberately NOT data/time-use-data.js, js/dossier.js and the study pages, where evidence/nbs/…
+ * strings are provenance identifiers (the file a number was read from) and those pages already
+ * disclose that the snapshots themselves are third-party content that is not distributed.
+ * docs/internal/… is the one path a public document may name without shipping, and only where the
+ * same sentence says it is not published - so that exemption is itself asserted, not assumed. */
+{
+  const PREFIX = "(?:data|docs|tools|js|locales|evidence|manifest|src|public)";
+  const PATHRX = PREFIX + "/[A-Za-z0-9_.\\-/]+\\.(?:json|js|mjs|py|md|txt|html|csv)";
+  const packRoot = path.join(ROOT, "..", "pack_staging", "research-pack");
+  const resolves = (name) => {
+    const collapsed = name.replace(/^tools\/maintainer\//, "tools/");   // story layout
+    return [ROOT, packRoot].some(base => [name, collapsed]
+      .some(n => existsSync(path.join(base, n))));
+  };
+  const docs = ["docs/ERRATA_AND_EDITS.md", "docs/RESEARCH_MANUSCRIPT_PUBLIC.md",
+    "docs/RESEARCH_MANUSCRIPT_PUBLIC_EN.md", "report/index.html", "en/report/index.html"];
+  const claims = [];
+  for (const f of docs) {
+    if (!existsSync(path.join(ROOT, f))) continue;
+    const t = readFileSync(path.join(ROOT, f), "utf8");
+    const rx = f.endsWith(".html")
+      ? new RegExp("<code>(" + PATHRX + ")</code>", "g")
+      : new RegExp("`(" + PATHRX + ")`", "g");
+    for (const m of t.matchAll(rx)) {
+      const name = m[1], i = m.index;
+      // the sentence that carries the reference, not just the physical line: markdown wraps, and
+      // an explanation may well sit on the line above the path it describes.
+      const start = Math.max(0, t.lastIndexOf("\n", t.lastIndexOf("\n", i) - 1) + 1);
+      const stop = t.indexOf("\n", i);
+      const next = stop < 0 ? t.length : t.indexOf("\n", stop + 1);
+      const ctx = t.slice(start, next < 0 ? t.length : next);
+      if (name.startsWith("docs/internal/")) {
+        check(`internal path named in ${f} is disclosed as unpublished`,
+          /不随站点发布|not published with the site|不随站发布/.test(ctx), ctx.trim().slice(0, 70));
+        continue;
+      }
+      claims.push([f, name, resolves(name)]);
+    }
+  }
+  const missing = claims.filter(c => !c[2]);
+  check("every pack path quoted in a public document resolves to a shipped file",
+    claims.length >= 8 && missing.length === 0,
+    missing.map(m => `${m[0]} -> ${m[1]}`).join(", ") || `${claims.length} path references checked`);
+}
+
 console.log(`\n${results.filter(r => r.ok).length}/${results.length} passed`);
 const failed = results.filter(r => !r.ok);
 if (failed.length) { console.log("FAILED: " + failed.map(f => f.name).join(" | ")); process.exit(1); }
