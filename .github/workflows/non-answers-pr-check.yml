@@ -81,3 +81,14 @@ jobs:
 
       - name: Verify V1.8 youth-unemployment research prototype
         run: node scripts/check-non-answers-v1-8.mjs
+
+      - name: Capture V1.8 mobile and desktop visual QA
+        run: node scripts/capture-non-answers-v1-8.mjs
+
+      - name: Upload V1.8 visual QA screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: non-answers-v1-8-visual-qa
+          path: .astro/non-answers-v1-8-review/
+          if-no-files-found: error
+          retention-days: 7
