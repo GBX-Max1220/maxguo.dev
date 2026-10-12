@@ -7,7 +7,7 @@
 - `index.html`：简体、繁体、英文三语完整交互；先读媒体摘要再揭示外交部完整问句；分别核对三个信息需求的答复覆盖情况。
 - `evidence.json`：来源 S01–S04、三项需求、各渠道是否明示和应严格遵守的证据限制。
 - 页面顶部加入返回《正确的废话》主页的站内链接；补上独立短案例的 canonical 和分享元数据。
-- 本分支页面仍然带有 `noindex,nofollow`、编辑待审标记，不加入 `public/non-answers/index.html` 正式目录，不进入 `main`。
+- 本分支页面仍然带有 `noindex,nofollow`、编辑待审标记；已在**仅存在于 Draft 分支**的 `public/non-answers/index.html` 中增加独立短案例三语入口。尚未合并至 `main`，公网目录仍未更新。
 
 ## 证据边界
 
@@ -25,10 +25,11 @@
 - [x] S01–S04 出处、文本差异及反向样本已在 P13 阶段审计。
 - [x] 新仓库路径已通过 GitHub Actions PR CI（run #38285765527；当次 HEAD `8b61d0e`）。
 - [x] 使用和 PR 代码 Git blob `2d0e19371019e6a8af33cb4d0e91985c23b00f5a` 完全一致的 HTML，完成本地 Chromium 专项回归：320/390/768/1366/1440px × 简体/繁体/英文，共 15 组 PASS；验证揭示、评分变化 3/3→2/3、重置、站内链接、noindex 和无横向溢出。
-- [ ] 若后续再次变更页面 HTML，重新运行页面专项回归；本次结果仅针对上述 blob。
+- [x] CI 已新增 `scripts/check-non-answers-p13.mjs`，直接验证本案例的三个信息需求、15 组语种×视口交互、三语主文章入口和深链接，并保存核查截图；**以最终分支 HEAD 的 GitHub Actions 结果为准**。
 - [ ] 完成最终三语文字校对，确认标题、分享元数据、返回导航。
 - [ ] 作者明确授权**正式发布、从首页提供入口和合并 PR**。
-- [ ] 获授权后更新 noindex→index,follow，移除编辑待审标记，再为主文章增加三语入口，复核目标分支 HEAD CI。
+- [x] 已在 Draft 分支主文章新增三语短案例入口，且保留原有青年失业率案例。
+- [ ] 获正式发布授权后更新 noindex→index,follow、移除编辑待审标记，并在目标 HEAD 完成完整 CI 复核；不得仅凭早期成功 run 认定最后提交已通过。
 - [ ] 合并后核实 Pages 部署及线上响应。
 
 **预期网址（目前不是已上线页）：** https://gbx-max1220.github.io/maxguo.dev/non-answers/cases/question-compression-2024/
@@ -41,3 +42,9 @@
 - 2025-09-22 央视新闻的反向样本确实保留了 H-1B 与人才政策方面的多个提问。
 - 上述专项回归在**未合并的 Draft 分支 HTML** 上进行，不代表已完成公网部署、第三方缓存或生产环境验证。
 - **本次用户同意的是继续审查与独立短案例的编辑方向；正式发布/合并授权仍另行确认。**
+
+## 主文章入口与 CI 变更
+
+- `public/non-answers/index.html`：在青年失业率专题卡片下新增短案例入口；原有 V1.7 研究正文和冻结样本数据不变；主文章和案例页仍处于未合并的 Draft 分支。
+- `scripts/check-non-answers-p13.mjs`：对 `dist/` 中实际构建页面进行内容、交互、三语和响应式验证，并输出两张案例及三张入口截图。
+- `.github/workflows/non-answers-pr-check.yml`：在既有的 V1.8 回归之外增加上述 P13 专项核验并上传新截图。等待最终 HEAD 的 CI 完成后才能确定是否全部通过。
