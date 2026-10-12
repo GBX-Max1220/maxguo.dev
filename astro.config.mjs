@@ -9,7 +9,14 @@ export default defineConfig({
   base: SITE.base,
   integrations: [
     mdx(),
-    sitemap(),
+    sitemap({
+    customPages: [
+      'https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/',
+      'https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/report/',
+      'https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/en/',
+      'https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/en/report/'
+    ],
+  }),
     tailwind({ applyBaseStyles: false }),
   ],
 });

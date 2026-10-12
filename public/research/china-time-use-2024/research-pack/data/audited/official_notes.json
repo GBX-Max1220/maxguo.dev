@@ -1,0 +1,70 @@
+{
+  "schema": "china-time-use-2024/official-notes/v1",
+  "what": "Verbatim official definitions exactly as the page renders them.",
+  "why_hashed": "A reader can compare these strings against the live bulletin; byte-level snapshot re-verification is optional and may differ after a site restyle.",
+  "notes": [
+    {
+      "key": "age_paid_caution",
+      "text": "[1]在实际调查中，6—15周岁居民无有酬劳动领域活动。",
+      "source_url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957215.html",
+      "source_label": "公报第三号（分性别、分城乡、分年龄组参与者时间与参与率）",
+      "source_snapshot_sha256": "505cd91e941eb2e47478153a65f14c0a9b637a0d73e145d77a844bd2a2314c9d",
+      "snapshot_compiled": "2026-10-11",
+      "note": "the snapshot itself is not redistributed; see README §3"
+    },
+    {
+      "key": "discretionary_definition",
+      "text": "[9]个人自由支配活动领域包括运动健身、文化休闲娱乐等活动大类以及社会交往大类中除公益志愿活动外的其他活动类别。",
+      "source_url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957216.html",
+      "source_label": "公报第二号（全国居民分领域/分大类时间利用）",
+      "source_snapshot_sha256": "a2e0ae93d8721b1d20b06e4d8c0e98913168e45cdcef8d69d52c7cbfea119234",
+      "snapshot_compiled": "2026-10-11",
+      "note": "the snapshot itself is not redistributed; see README §3"
+    },
+    {
+      "key": "paid_definition",
+      "text": "[7]有酬劳动领域包括劳动就业活动大类中除无酬实习等就业活动外的其他活动类别。",
+      "source_url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957216.html",
+      "source_label": "公报第二号（全国居民分领域/分大类时间利用）",
+      "source_snapshot_sha256": "a2e0ae93d8721b1d20b06e4d8c0e98913168e45cdcef8d69d52c7cbfea119234",
+      "snapshot_compiled": "2026-10-11",
+      "note": "the snapshot itself is not redistributed; see README §3"
+    },
+    {
+      "key": "sample_scope",
+      "text": "第三次全国时间利用调查的调查对象为抽中调查户和该户中 6 周岁及以上常住成员，全国共调查 3.85 万户家庭、 10.7 万人，其中，男性 5.3 万人，女性 5.4 万人；城镇 6.4 万人，农村 4.3 万人。",
+      "source_url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957217.html",
+      "source_label": "公报第一号（调查主要结果）",
+      "source_snapshot_sha256": "8d0d7fb672822109bd874321805b29b6a9376b106a030a0f2d8d0978345cebb2",
+      "snapshot_compiled": "2026-10-11",
+      "note": "the snapshot itself is not redistributed; see README §3"
+    },
+    {
+      "key": "six_domains",
+      "text": "[2]居民主要活动领域包括个人生理必需活动领域、有酬劳动领域、无酬劳动领域、个人自由支配活动领域、学习培训领域、交通活动领域等6个领域。",
+      "source_url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957217.html",
+      "source_label": "公报第一号（调查主要结果）",
+      "source_snapshot_sha256": "8d0d7fb672822109bd874321805b29b6a9376b106a030a0f2d8d0978345cebb2",
+      "snapshot_compiled": "2026-10-11",
+      "note": "the snapshot itself is not redistributed; see README §3"
+    },
+    {
+      "key": "unpaid_definition",
+      "text": "[8]无酬劳动领域包括家务劳动、陪伴照料家人、购买商品或服务等活动大类以及劳动就业活动大类中的无酬实习等就业活动、社会交往大类中的公益志愿活动。",
+      "source_url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957216.html",
+      "source_label": "公报第二号（全国居民分领域/分大类时间利用）",
+      "source_snapshot_sha256": "a2e0ae93d8721b1d20b06e4d8c0e98913168e45cdcef8d69d52c7cbfea119234",
+      "snapshot_compiled": "2026-10-11",
+      "note": "the snapshot itself is not redistributed; see README §3"
+    },
+    {
+      "key": "week_weighting",
+      "text": "在计算居民参与某类活动的时间时，需对日志表1和日志表2中该类活动的时间利用数据分别按照5/7和2/7进行加权汇总，得出按一周7天计算的某类活动的居民每日平均时间、参与者每日平均时间、活动参与率等主要指标。",
+      "source_url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957216.html",
+      "source_label": "公报第二号（全国居民分领域/分大类时间利用）",
+      "source_snapshot_sha256": "a2e0ae93d8721b1d20b06e4d8c0e98913168e45cdcef8d69d52c7cbfea119234",
+      "snapshot_compiled": "2026-10-11",
+      "note": "the snapshot itself is not redistributed; see README §3"
+    }
+  ]
+}

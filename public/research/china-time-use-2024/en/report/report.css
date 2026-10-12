@@ -1,0 +1,22 @@
+/* report page: reading column + numeric alignment for the research tables */
+.report-shell { max-width: 78ch; padding-block: 40px 56px; }
+.report-page main h1 { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.25; }
+.report-page main h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem;
+  margin: 34px 0 10px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+.report-page main h3 { font-size: 1.08rem; margin: 26px 0 8px; }
+.report-page main p { margin: 12px 0; font-size: 16px; line-height: 1.78; color: var(--ink); }
+.report-page main strong { color: var(--ink); }
+.report-page main ul, .report-page main ol { padding-left: 22px; }
+.report-page main li { margin: 7px 0; font-size: 15.5px; color: var(--ink-light); }
+.report-page blockquote { margin: 16px 0; padding: 10px 14px; background: var(--page);
+  border-left: 3px solid var(--unpaid); border-radius: 0 6px 6px 0; font-size: 14.5px; }
+.report-page .report-table { min-width: 0; width: 100%; font-size: 13.5px; margin: 16px 0; }
+.report-page .report-table td.num, .report-page .report-table th.num { text-align: right;
+  font-variant-numeric: tabular-nums; font-family: var(--font-num); }
+.report-page a, .report-page code, .report-page li, .report-page p { overflow-wrap: anywhere; }
+.report-page hr { border: 0; border-top: 1px solid var(--rule); margin: 30px 0; }
+.report-page code { font-size: .88em; }
+.report-notes { margin-top: 40px; padding-top: 18px; border-top: 2px solid var(--ink); }
+.report-notes h2 { margin-top: 0; }
+.report-notes li { font-size: 14px; }
+@media (max-width: 640px) { .report-shell { padding-inline: 20px; } .report-page main p { font-size: 15.5px; } }

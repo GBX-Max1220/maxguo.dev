@@ -1,0 +1,21 @@
+{
+  "_note": "Resolution check of each DOI link, observed from this machine. A 403 from the publisher reflects bot/cookie blocking, not a broken DOI.",
+  "accessed": "2026-10-11",
+  "checks": [
+    {
+      "doi": "10.1002/9781118663219.wbegss183",
+      "http_status": "403",
+      "final_url": "https://onlinelibrary.wiley.com/doi/10.1002/9781118663219.wbegss183"
+    },
+    {
+      "doi": "10.1177/0003122419859007",
+      "http_status": "200",
+      "final_url": "https://sage.cnpereading.com/doi/10.1177/0003122419859007"
+    },
+    {
+      "doi": "10.1038/s41562-020-0920-z",
+      "http_status": "200",
+      "final_url": "https://www.nature.com/articles/s41562-020-0920-z?error=cookies_not_supported&code=4c040a08-1f16-42a4-95a2-6c3ba61ca306"
+    }
+  ]
+}

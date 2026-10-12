@@ -1,0 +1,33 @@
+# China Time Use 2024 — bilingual five-act research feature.
+#
+# Why these lines exist: the published reproduction pack pins the SHA-256 of the exact
+# bytes it ships, and `tools/verify_public_inputs.py` hashes whatever bytes a reader
+# actually has. A checkout made under `core.autocrlf=true` rewrites every text file to
+# CRLF, so the same integrity check passed from the ZIP and failed from the repository.
+# LF is the canonical representation for this feature (fixed 2026-10-12).
+#
+# Scope, deliberately narrow:
+#   * every rule is anchored at `/public/research/china-time-use-2024/`, the directory this
+#     feature adds; no other path in the repository is matched, so the line-ending behaviour
+#     of all existing site files (Astro, MDX, CSS, JSON, docs) is unchanged;
+#   * only the text extensions this feature actually publishes are listed;
+#   * `research-pack.zip`, `og-cover-*.png` and any other asset are NOT matched, so binaries
+#     stay byte-for-byte exactly as committed.
+/public/research/china-time-use-2024/**/*.html text eol=lf
+/public/research/china-time-use-2024/**/*.css  text eol=lf
+/public/research/china-time-use-2024/**/*.js   text eol=lf
+/public/research/china-time-use-2024/**/*.mjs  text eol=lf
+/public/research/china-time-use-2024/**/*.json text eol=lf
+/public/research/china-time-use-2024/**/*.py   text eol=lf
+/public/research/china-time-use-2024/**/*.md   text eol=lf
+/public/research/china-time-use-2024/**/*.txt  text eol=lf
+
+# The five paths outside that directory which this release also touches are pinned the same
+# way, so a checkout under core.autocrlf=true lays down exactly the LF bytes the repository
+# already stores (the repo's own mixed-line-ending hook enforces --fix=lf). Only these five
+# explicit paths: no wildcard over the repository, and the stored blobs do not change.
+/.gitattributes                 text eol=lf
+/.pre-commit-config.yaml        text eol=lf
+/astro.config.mjs              text eol=lf
+/src/data/research-profile.json text eol=lf
+/src/pages/research.astro      text eol=lf

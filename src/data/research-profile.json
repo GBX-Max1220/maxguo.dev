@@ -206,5 +206,22 @@
       "summary": "Prepared a read-only code and metric audit for an initial discussion with Jungtaek Kim. Proposed controlled tree-search baselines; no experiments or API calls were run.",
       "bullets": []
     }
+  ],
+  "social_research": [
+    {
+      "id": "china-time-use-2024",
+      "title": "谁每天花在劳动上的时间更长？",
+      "date": "2026-10",
+      "kind": "Society & Technology · computational social science",
+      "status": "Interactive research feature · five acts · audited public data",
+      "summary": "用 2024 年全国时间利用调查的公开汇总表，展示「什么被算作劳动」这一统计定义如何改变性别劳动时间比较的结论方向：有酬劳动女−男 −73.9 分钟/天，计入无酬劳动后两类劳动合计 +25.9 分钟/天。",
+      "bullets": [
+        "读者自己切换统计口径，看到排序反转，并读出它的算术由来（参与率 × 参与者时长与对称恒等式）。",
+        "三个心理学与社会学视角作为待检验假说呈现，页面明确标出本调查未测量的构念；不做因果解释。",
+        "数据、公式、来源链、复现脚本与公开研究稿随页面一并发布，全部数值由冻结的审计输入派生。"
+      ],
+      "url": "/research/china-time-use-2024/",
+      "reportUrl": "/research/china-time-use-2024/report/"
+    }
   ]
 }

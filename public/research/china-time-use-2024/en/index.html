@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en" data-locale="en" data-locale="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/en/">
+<link rel="alternate" hreflang="en" href="https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/en/">
+<link rel="alternate" hreflang="zh-CN" href="https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/">
+<link rel="alternate" hreflang="x-default" href="https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/">
+<meta property="og:url" content="https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/en/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/og-cover-en.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/og-cover-en.png">
+<meta property="og:description" content="A five-act interactive study of how the statistical definition of work reverses the gender ranking in China's 2024 national time-use survey — what the numbers show, and what they cannot. Data: National Bureau of Statistics, 3rd Survey on Residents' Time Use.">
+<title>Who works longer every day? | China Time Use 2024 · a five-act interactive study</title>
+<meta name="description" content="A five-act interactive study of how the statistical definition of work reverses the gender ranking in China's 2024 national time-use survey — what the numbers show, and what they cannot. Data: National Bureau of Statistics, 3rd Survey on Residents' Time Use.">
+<meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div class="site-bar">
+  <div class="shell site-bar-inner">
+    <a href="../../../" class="sb-home">maxguo.dev</a>
+    <span class="sb-crumb">/ <a href="../../../research/">Research</a> / China Time Use 2024</span>
+    <a class="sb-back" href="../../../research/">&larr; Back to research</a>
+  </div>
+</div>
+
+<a class="skip-link" href="#act-1">Skip to Act I</a>
+
+<!-- ===================== masthead ===================== -->
+<header class="masthead">
+  <div class="shell masthead-grid">
+    <div class="masthead-main">
+      <p class="kicker">Interactive study · China Time Use 2024 · five acts</p>
+      <p class="lang-line" data-i18n-static>
+        <a href="../" hreflang="zh-CN" lang="zh-CN" data-lang-switch="../" data-locale="zh-CN">中文</a>
+        <span class="lang-sep" aria-hidden="true">|</span>
+        <span class="lang-current" aria-current="true">English</span>
+      </p>
+      <p class="share-line">
+        <button type="button" class="share-btn" id="share-btn">Share this page</button><span class="visually-hidden" role="status"></span>
+      </p>
+      <h1 class="display">Who works longer every day?</h1>
+      <p class="subtitle display">The answer depends on what you count as work.</p>
+      <p class="standfirst">Paid work, unpaid work and gendered time among residents of China in 2024. Change the statistical scope once, then read the conclusion — the ranking turns around.</p>
+      <p class="hero-cta">
+        <button type="button" id="start-explore" class="cta">Start exploring: change what counts as work ↓</button>
+        <a class="cta-alt" href="#act-5">Go straight to the evidence and the limits</a>
+      </p>
+      <p class="howto">Each act: one finding → evidence you can operate → definitions, formulas and sources on demand. Every figure is generated from the audited data layer; nothing on this page is typed in by hand.</p>
+    </div>
+    <div class="masthead-meta">
+      <p class="meta-head">Third Survey on Residents' Time Use</p>
+      <p>National Bureau of Statistics · field work May 2024</p>
+      <p>Usual residents aged 6 and over nationwide · one-week weighted daily average</p>
+      <p class="dim">Descriptive study · no composition adjustment · not a causal finding</p>
+      <p class="dim">sample of about  <span data-num="sampleHouseholds">38,500</span> households /  <span data-num="samplePeople">107,000</span>  people (rounded figures as published)</p>
+    </div>
+  </div>
+</header>
+
+<nav class="act-rail" id="act-rail" aria-label="Reading progress across the five acts, with jump links" style="--rail-f: 0;">
+  <div class="shell act-rail-inner">
+    <span class="rail-label">Progress</span>
+    <span class="rail-current" id="rail-current" aria-live="off" data-current="act-1"><span class="rail-count">1/5</span> What counts as work?</span>
+    <ol class="rail-list">
+      <li><a href="#act-1" data-rail="act-1" aria-current="step"><span class="rail-num">I</span> What counts as work?</a></li>
+      <li><a href="#act-2" data-rail="act-2"><span class="rail-num">II</span> Why does the ranking change?</a></li>
+      <li><a href="#act-3" data-rail="act-3"><span class="rail-num">III</span> What makes up the average?</a></li>
+      <li><a href="#act-4" data-rail="act-4"><span class="rail-num">IV</span> Beyond the numbers</a></li>
+      <li><a href="#act-5" data-rail="act-5"><span class="rail-num">V</span> What can this support?</a></li>
+    </ol>
+    <div class="rail-progress" aria-hidden="true"><span id="rail-progress-bar" style="width: 0%;"></span></div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ===================== ACT I ===================== -->
+<section class="act" id="act-1" aria-labelledby="act-1-title">
+  <div class="shell">
+    <header class="act-head">
+      <p class="act-num"><span aria-hidden="true">Act I</span><span class="visually-hidden">Act I</span> · Act I</p>
+      <h2 id="act-1-title" class="display">What counts as work?</h2>
+      <p class="act-findings">
+        <strong>The finding in one sentence:</strong>Counting paid work only, men's population average is longer; add the official unpaid-work domain and women become longer —<span class="flip">the ranking reverses</span>
+       </p>
+    </header>
+
+    <div class="scenario-grid">
+      <div class="lede">
+        <p class="question display">Before comparing, decide <strong>what counts as work</strong> .</p>
+
+        <!-- ScopeToggle -->
+        <fieldset class="scope-toggle" id="scope-toggle">
+          <legend class="visually-hidden">Choose the statistical scope of work</legend>
+          <label class="scope-option">
+            <input type="radio" name="scope" value="paid" checked="">
+            <span class="scope-chip"><span class="scope-name">Paid work only</span>
+              <span class="scope-sub">Activity that is paid, including employment and operating a business</span></span>
+          </label>
+          <label class="scope-option">
+            <input type="radio" name="scope" value="both">
+            <span class="scope-chip"><span class="scope-name">Paid + unpaid work</span>
+              <span class="scope-sub">plus housework, care, shopping and similar categories</span></span>
+          </label>
+        </fieldset>
+
+        <div class="delta" id="delta-box">
+          <p class="delta-label">women − men <span class="unit">min/day</span></p>
+          <p class="delta-value"><span id="delta-num">−73.9</span></p>
+          <p class="delta-verdict"><span id="delta-who">▼ men longer</span></p>
+        </div>
+
+        <div class="state-note" id="state-note">
+          <p id="state-note-main">Counting paid work only, the male population average is longer (−73.9 min/day).</p>
+          <p id="state-note-sub">Switching scope changes which activities are counted — not what anyone did that day.</p>
+        <p class="visually-hidden" role="status" aria-live="polite">Current scope: paid work only. Men's paid-work average is 73.9 minutes per day higher than women's.</p></div>
+
+        <ul class="context-chips" aria-label="Key context">
+          <li>Field work 11–31 May 2024 — not a year-round diary record</li>
+          <li>usual residents aged 6 and over in the sampled households</li>
+          <li>unadjusted averages: age, employment, marital and childbearing status and household structure are not controlled</li>
+          <li>a descriptive difference; no causal claim is made</li>
+        </ul>
+      </div>
+
+      <div class="chartcol">
+        <!-- FixedScaleGroupBars -->
+        <figure class="chart-frame" id="chart-frame" data-scope="paid">
+          <div class="chart-legend">
+            <span class="lg"><i class="sw sw-paid" aria-hidden="true"></i>Paid work</span>
+            <span class="lg lg-unpaid is-excluded" id="lg-unpaid"><i class="sw sw-unpaid" aria-hidden="true"></i>Unpaid work<span class="lg-state" id="lg-unpaid-state">· not counted in this scope</span></span>
+            <span class="lg-note">The axis is fixed at 0–360 min/day, the baseline is not truncated, and it does not change when you switch scope</span>
+          </div>
+          <div id="chart" class="chart-host"><svg viewBox="0 0 555 214" width="555" height="214" role="img" aria-label="Horizontal bar chart, x axis fixed from 0 to 360 minutes per day. Men: paid 243.2, unpaid 75.6. Women: paid 169.3, unpaid 175.4. Combined totals men 318.8, women 344.7 minutes per day."><line x1="46" x2="46" y1="6" y2="188" stroke="#c9c1b2" stroke-width="1.2"></line><text x="46" y="206" fill="#6d6a63" font-size="10.5" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="axis-tick" style="font-variant-numeric: tabular-nums">0</text><line x1="120.16666666666666" x2="120.16666666666666" y1="6" y2="188" stroke="#efe8da" stroke-width="1"></line><text x="120.16666666666666" y="206" fill="#6d6a63" font-size="10.5" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="axis-tick" style="font-variant-numeric: tabular-nums">60</text><line x1="194.33333333333331" x2="194.33333333333331" y1="6" y2="188" stroke="#efe8da" stroke-width="1"></line><text x="194.33333333333331" y="206" fill="#6d6a63" font-size="10.5" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="axis-tick" style="font-variant-numeric: tabular-nums">120</text><line x1="268.5" x2="268.5" y1="6" y2="188" stroke="#efe8da" stroke-width="1"></line><text x="268.5" y="206" fill="#6d6a63" font-size="10.5" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="axis-tick" style="font-variant-numeric: tabular-nums">180</text><line x1="342.66666666666663" x2="342.66666666666663" y1="6" y2="188" stroke="#efe8da" stroke-width="1"></line><text x="342.66666666666663" y="206" fill="#6d6a63" font-size="10.5" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="axis-tick" style="font-variant-numeric: tabular-nums">240</text><line x1="416.83333333333337" x2="416.83333333333337" y1="6" y2="188" stroke="#efe8da" stroke-width="1"></line><text x="416.83333333333337" y="206" fill="#6d6a63" font-size="10.5" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="axis-tick" style="font-variant-numeric: tabular-nums">300</text><line x1="491" x2="491" y1="6" y2="188" stroke="#efe8da" stroke-width="1"></line><text x="491" y="206" fill="#6d6a63" font-size="10.5" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="axis-tick" style="font-variant-numeric: tabular-nums">360</text><text x="555" y="10" fill="#726e64" font-size="10.5" font-weight="400" text-anchor="end" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">Unit: minutes per day</text><text x="0" y="56" fill="#20262d" font-size="14" font-weight="650" text-anchor="start" font-family="var(--font-body)" class="" style="font-variant-numeric: tabular-nums">Men</text><rect x="46" y="34" width="300.6321111111111" height="34" fill="var(--paid)" rx="1.5" class="seg" role="img" tabindex="0" aria-label="Men · Paid work: 243.2 minutes per day, counted in this scope."></rect><rect x="346.6321111111111" y="34" width="0" height="34" fill="var(--unpaid)" rx="1.5" class="seg" role="img" tabindex="-1" aria-label="Men · Unpaid work: 75.6 minutes per day, not counted in this scope."></rect><line x1="346.6321111111111" x2="346.6321111111111" y1="29" y2="73" stroke="var(--ink)" stroke-width="1.6"></line><text x="360.6321111111111" y="27" fill="#20262d" font-size="13.5" font-weight="600" text-anchor="end" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums; paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round">243.2</text><text x="0" y="148" fill="#20262d" font-size="14" font-weight="650" text-anchor="start" font-family="var(--font-body)" class="" style="font-variant-numeric: tabular-nums">Women</text><rect x="46" y="126" width="209.316875" height="34" fill="var(--paid)" rx="1.5" class="seg" role="img" tabindex="0" aria-label="Women · Paid work: 169.3 minutes per day, counted in this scope."></rect><rect x="255.316875" y="126" width="0" height="34" fill="var(--unpaid)" rx="1.5" class="seg" role="img" tabindex="-1" aria-label="Women · Unpaid work: 175.4 minutes per day, not counted in this scope."></rect><line x1="255.316875" x2="255.316875" y1="121" y2="165" stroke="var(--ink)" stroke-width="1.6"></line><text x="269.316875" y="119" fill="#20262d" font-size="13.5" font-weight="600" text-anchor="end" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums; paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round">169.3</text></svg></div>
+          <div class="tooltip" id="tooltip" role="status" hidden=""></div>
+          <figcaption class="chart-caption">
+            Population averages — not any individual's typical day. No error bars and no sampling confidence intervals are drawn: the published tables provide no sampling error estimate. Values:  <span data-num="malePaid">243.2</span> / <span data-num="femalePaid">169.3</span>(paid),
+             <span data-num="maleUnpaid">75.6</span> / <span data-num="femaleUnpaid">175.4</span>(unpaid) min/day; combined:  <span data-num="maleTotal">318.8</span> / <span data-num="femaleTotal">344.7</span> . Source: <a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957215.html" rel="noopener" target="_blank" data-source-key="bulletin_3_by_sex">Bulletin no. 3 (participation and participant averages by sex)</a>
+          </figcaption>
+        </figure>
+        <noscript class="noscript-note">This page's interactive graphics need JavaScript. The core findings, as static text: counting paid work only, men average 243.2 minutes per day and women 169.3, a difference of −73.9 minutes per day (men longer). Including unpaid work, men total 318.8 and women 344.7 minutes per day, a difference of 25.9 minutes per day (women longer). The unpaid difference (99.8) is larger in absolute terms than the paid difference (73.9), so the direction of the comparison reverses. Data: National Bureau of Statistics, Third Survey on Residents' Time Use (field work May 2024; usual residents aged 6 and over; weekdays weighted 5/7 and rest days 2/7). Every figure is derived from the published tables.</noscript>
+      </div>
+    </div>
+
+    <details class="explainer" id="act1-detail">
+      <summary>Do these two figures measure the same thing?<span class="chev" aria-hidden="true"></span></summary>
+      <div class="explainer-body">
+        <p>No. The two scopes count <strong>different sets of activities</strong> : scope A counts paid work only, scope B counts paid plus unpaid work. Nobody changed their behaviour when you switched; only the statistical boundary of what is counted as work changed. That is why “men work longer” and “women work longer” can both come from the same data — as long as each assumes a different scope.</p>
+        <p class="fine">“Paid + unpaid” on this page is not all of a person's waking day. Personal necessities, education and training, transport and the rest have their own categories, and the six domains are mutually exclusive; internet use is a cross-cutting measure that overlaps them and cannot be added into 24 hours.</p>
+        <details class="nested" id="act1-day">
+          <summary>Reference: the six activity domains of a national average day (figures published in bulletin no. 2)<span class="chev" aria-hidden="true"></span></summary>
+          <div class="explainer-body" id="day-strip-host"><svg viewBox="0 0 620 90" width="100%" role="img" aria-label="Stacked bar of the six activity domains in a national average day: Personal necessities 747 min, Paid work 207 min, Unpaid work 125 min, Discretionary activities 204 min, Education &amp; training 107 min, Transport 50 min, totalling 1440 minutes."><rect x="0" y="0" width="321.625" height="46" fill="#cfc6b6"></rect><text x="160.8125" y="27" fill="#20262d" font-size="10.5" font-weight="600" text-anchor="middle" font-family="var(--font-body)" class="" style="font-variant-numeric: tabular-nums">Personal necessities</text><text x="160.8125" y="60" fill="#6d6a63" font-size="10.5" font-weight="600" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">747</text><rect x="321.625" y="0" width="89.125" height="46" fill="var(--paid)"></rect><text x="366.1875" y="27" fill="#fdf8f1" font-size="10.5" font-weight="600" text-anchor="middle" font-family="var(--font-body)" class="" style="font-variant-numeric: tabular-nums">Paid work</text><text x="366.1875" y="60" fill="#6d6a63" font-size="10.5" font-weight="600" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">207</text><rect x="410.75" y="0" width="53.81944444444444" height="46" fill="var(--unpaid)"></rect><text x="437.65972222222223" y="27" fill="#fdf8f1" font-size="10.5" font-weight="600" text-anchor="middle" font-family="var(--font-body)" class="" style="font-variant-numeric: tabular-nums">Unpaid work</text><text x="437.65972222222223" y="60" fill="#6d6a63" font-size="10.5" font-weight="600" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">125</text><rect x="464.56944444444446" y="0" width="87.83333333333333" height="46" fill="var(--female-longer)"></rect><text x="508.48611111111114" y="27" fill="#fdf8f1" font-size="10.5" font-weight="600" text-anchor="middle" font-family="var(--font-body)" class="" style="font-variant-numeric: tabular-nums">Discretionary activities</text><text x="508.48611111111114" y="60" fill="#6d6a63" font-size="10.5" font-weight="600" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">204</text><rect x="552.4027777777778" y="0" width="46.06944444444444" height="46" fill="var(--gold)"></rect><text x="575.4375" y="27" fill="#fdf8f1" font-size="10.5" font-weight="600" text-anchor="middle" font-family="var(--font-body)" class="" style="font-variant-numeric: tabular-nums">Education &amp; training</text><text x="575.4375" y="60" fill="#6d6a63" font-size="10.5" font-weight="600" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">107</text><rect x="598.4722222222223" y="0" width="21.52777777777778" height="46" fill="#8b98a5"></rect><text x="609.2361111111112" y="60" fill="#6d6a63" font-size="10.5" font-weight="600" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">50</text></svg><p class="scale-note">National population averages published in bulletin no. 2 (minutes per day; the six domains are mutually exclusive and sum to 1440 minutes, the gap to 1,440 coming from published rounding). Internet use (337 min) is a cross-cutting measure that overlaps those domains and is never added into 24 hours. This is not a by-sex figure and not the comparison this page analyses — it is here only to show how much room the two work categories take in a day.</p></div>
+        </details>
+      </div>
+    </details>
+  </div>
+    <nav class="act-pager" aria-label="Act navigation">
+      <a class="pager next" href="#act-2">Next act · Act II · Why does the ranking change? →</a>
+    </nav>
+</section>
+
+<!-- ===================== ACT II ===================== -->
+<section class="act act-alt" id="act-2" aria-labelledby="act-2-title">
+  <div class="shell">
+    <header class="act-head">
+      <p class="act-num"><span aria-hidden="true">Act II</span><span class="visually-hidden">Act II</span> · Act II</p>
+      <h2 id="act-2-title" class="display">Why does the ranking change?</h2>
+      <p class="act-findings"><strong>The finding in one sentence:</strong>The reversal needs no model, only addition: the paid gap  <span data-num="paidGapSigned">−73.9</span>  plus the unpaid gap  <span data-num="unpaidGapSigned">+99.8</span>, giving a combined  <span data-num="totalGapSigned">+25.9</span> .</p>
+    </header>
+
+    <div class="bridge-grid">
+      <div class="bridge-main">
+        <!-- NonCausalDecomposition (bridge form) -->
+        <div class="bridge-stage-ctl" role="group" aria-label="Arithmetic bridge step controls">
+          <button type="button" class="step-btn" data-stage="0" aria-pressed="true">Step 1 · paid gap</button>
+          <button type="button" class="step-btn" data-stage="1" aria-pressed="false">Step 2 · add the unpaid gap</button>
+          <button type="button" class="step-btn" data-stage="2" aria-pressed="false">Step 3 · combined</button>
+          <button type="button" class="step-btn step-next" id="bridge-next" aria-label="Next step">Next step →</button>
+        </div>
+        <figure class="bridge-frame">
+          <div id="bridge" class="bridge-host"><svg viewBox="0 0 566 166" width="566" height="166" role="img" aria-label="Arithmetic bridge, step 1 of 3: Paid-work gap (women − men) −73.9 minutes per day; the combined difference counted so far is −73.9 minutes per day, men longer. The axis is fixed from −105 to +105 minutes per day with 0 at the centre line."><line x1="73.71428571428571" x2="73.71428571428571" y1="22" y2="136" stroke="#efe8da" stroke-width="1"></line><text x="73.71428571428571" y="158" fill="#6d6a63" font-size="10.5" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">−100</text><line x1="190.85714285714286" x2="190.85714285714286" y1="22" y2="136" stroke="#efe8da" stroke-width="1"></line><text x="190.85714285714286" y="158" fill="#6d6a63" font-size="10.5" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">−50</text><line x1="308" x2="308" y1="22" y2="136" stroke="#c9c1b2" stroke-width="1.4"></line><text x="308" y="158" fill="#6d6a63" font-size="10.5" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">0</text><line x1="425.14285714285717" x2="425.14285714285717" y1="22" y2="136" stroke="#efe8da" stroke-width="1"></line><text x="425.14285714285717" y="158" fill="#6d6a63" font-size="10.5" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">+50</text><line x1="542.2857142857142" x2="542.2857142857142" y1="22" y2="136" stroke="#efe8da" stroke-width="1"></line><text x="542.2857142857142" y="158" fill="#6d6a63" font-size="10.5" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">+100</text><text x="566" y="12" fill="#726e64" font-size="10.5" font-weight="400" text-anchor="end" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">min/day (women − men)</text><text x="0" y="65" fill="#6d6a63" font-size="11" font-weight="400" text-anchor="start" font-family="var(--font-body)" class="" style="font-variant-numeric: tabular-nums">Parts</text><text x="0" y="110" fill="#6d6a63" font-size="11" font-weight="400" text-anchor="start" font-family="var(--font-body)" class="" style="font-variant-numeric: tabular-nums">Running total</text><text x="0" y="124" fill="#726e64" font-size="10" font-weight="400" text-anchor="start" font-family="var(--font-body)" class="" style="font-variant-numeric: tabular-nums">(current scope)</text><rect x="134.92611428571428" y="44" width="173.07388571428572" height="34" fill="var(--paid)" rx="2" opacity="1"></rect><rect x="134.92611428571428" y="44" width="233.7023428571428" height="34" fill="var(--unpaid)" rx="2" opacity="0.25"></rect><text x="127.92611428571428" y="65" fill="#f4f1ea" font-size="11.5" font-weight="600" text-anchor="end" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">−73.9</text><text x="361.6284571428571" y="65" fill="#6d6a63" font-size="11.5" font-weight="600" text-anchor="end" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums; paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round">+99.8</text><rect x="134.92611428571428" y="96" width="173.07388571428572" height="34" fill="var(--paid)" rx="2" opacity="1"></rect><line x1="134.92611428571428" x2="134.92611428571428" y1="88" y2="138" stroke="var(--ink)" stroke-width="1.6"></line><text x="125.92611428571428" y="117" fill="var(--paid)" font-size="12.5" font-weight="600" text-anchor="end" font-family="var(--font-body)" class="" style="font-variant-numeric: tabular-nums; paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round">−73.9</text></svg></div>
+          <div class="bridge-readout" id="bridge-readout" aria-live="polite" data-stage="0" data-running="-73.873">
+            <p class="br-kicker" id="br-kicker">Step 1 · paid work only</p>
+            <p class="br-term" id="br-term">Paid-work gap (women − men): −73.9 min/day</p>
+            <p class="br-cap" id="br-cap">Running difference once these parts are counted</p>
+            <p class="br-value" id="br-value" data-color="paid" style="color: var(--paid);">−73.9</p>
+            <p class="br-note" id="br-note">Paid work only: women's population average is 73.9 minutes per day lower than men's.</p>
+          </div>
+          <figcaption class="fine">The horizontal axis is the women-minus-men time difference: negative values on the left mean women's average is smaller, positive values on the right mean it is larger. The scale is fixed at −105 to +105 min/day and does not change between steps. The rows are three steps of one and the same addition — not a sequence in time, and not a change in anyone's behaviour.</figcaption>
+        </figure>
+        <p class="bridge-caveat"><strong>When you read this chart, remember:</strong>
+          This is the result of <strong>a change in statistical coverage</strong> . It does not imply any causal trade-off in which unpaid work displaces paid work, and it does not describe anyone converting work hours into housework hours during a day.</p>
+      </div>
+
+      <aside class="definition-panel" id="unpaid-definition">
+        <h3>What does the official definition of unpaid work include?</h3>
+        <p class="fine">It is not a synonym for “housework”. Below is the official footnote from bulletin no. 2, verbatim:</p>
+        <blockquote class="verbatim has-translation" id="unpaid-def-quote" data-quote-key="unpaid_definition"><span class="quote-original">[8]无酬劳动领域包括家务劳动、陪伴照料家人、购买商品或服务等活动大类以及劳动就业活动大类中的无酬实习等就业活动、社会交往大类中的公益志愿活动。</span><cite class="fine">— 公报第二号（全国居民分领域/分大类时间利用）, <a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957216.html" rel="noopener" target="_blank">original text</a></cite><span class="quote-translation">Footnote [8]: the unpaid-work domain covers the activity categories of housework, accompanying and caring for family members, and buying goods or services; it also covers unpaid internship and similar employment activities within the employment activity category, and voluntary work within the social interaction category.</span><span class="fine quote-note">The official bulletins exist in Chinese only. The English lines below are our translation of the quoted official footnotes, not an official English version.</span></blockquote>
+        <ul class="category-chips" id="unpaid-cats" aria-label="Activity categories included in unpaid work">
+          <li>Housework</li><li>Accompanying and caring for family members</li><li>Buying goods or services</li>
+          <li>Unpaid internships and similar employment activity</li><li>Voluntary and community work</li>
+        </ul>
+        <p class="fine">For contrast, the official paid-work definition excludes unpaid internships —</p>
+        <blockquote class="verbatim has-translation" id="paid-def-quote" data-quote-key="paid_definition"><span class="quote-original">[7]有酬劳动领域包括劳动就业活动大类中除无酬实习等就业活动外的其他活动类别。</span><cite class="fine">— 公报第二号（全国居民分领域/分大类时间利用）, <a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957216.html" rel="noopener" target="_blank">original text</a></cite><span class="quote-translation">Footnote [7]: the paid-work domain covers all categories within the employment activity category except unpaid internship and similar employment activities.</span><span class="fine quote-note">The official bulletins exist in Chinese only. The English lines below are our translation of the quoted official footnotes, not an official English version.</span></blockquote>
+        <p class="fine">Both footnotes belong to one classification system, so the two scopes <strong>do not overlap</strong> ; adding them is a true sum of the two categories (no minute is counted twice).</p>
+        <details class="nested">
+          <summary>Why does this distinction matter?<span class="chev" aria-hidden="true"></span></summary>
+          <div class="explainer-body">
+            <p>Two claims common in public discussion both overreach the data: reducing unpaid work to “housework”, or expanding it to “everything women carry”. The official categories cover housework and care, but also shopping, unpaid internships and voluntary work — experiences of very different intensity — and the diary records duration only: not how tiring it was, whether it was chosen, or whether it was interrupted.</p>
+            <p class="fine">Note also: bulletin no. 3 states that in the field work no resident aged 6–15 reported any activity in the paid-work domain, so the national averages for ages 6 and over used here include children and adolescents who do no paid work.</p>
+          </div>
+        </details>
+      </aside>
+    </div>
+  </div>
+    <nav class="act-pager" aria-label="Act navigation">
+      <a class="pager prev" href="#act-1">← Previous act · Act I · What counts as work?</a>
+      <a class="pager next" href="#act-3">Next act · Act III · What makes up the average? →</a>
+    </nav>
+</section>
+
+<!-- ===================== ACT III ===================== -->
+<section class="act" id="act-3" aria-labelledby="act-3-title">
+  <div class="shell">
+    <header class="act-head">
+      <p class="act-num"><span aria-hidden="true">Act III</span><span class="visually-hidden">Act III</span> · Act III</p>
+      <h2 id="act-3-title" class="display">What makes up the average?</h2>
+      <p class="act-findings"><strong>The finding in one sentence:</strong>The same population average can come from more people doing it, or from those who do it spending longer. The gender difference in the two work categories comes from different combinations of these two components.</p>
+    </header>
+
+    <div class="comp-grid">
+      <div class="comp-lede">
+        <p class="formula-line">Population-average time ≈ participation rate <span class="op">×</span> × average time among participants
+          <span class="fine">(the bulletin publishes the two quantities separately; the population averages on this page are derived)</span></p>
+        <div class="tabs" role="tablist" aria-label="Choose the activity domain to inspect" id="comp-tabs">
+          <button type="button" role="tab" id="tab-paid" aria-controls="comp-panel" aria-selected="true" data-aid="paid" tabindex="0">Paid work</button>
+          <button type="button" role="tab" id="tab-unpaid" aria-controls="comp-panel" aria-selected="false" data-aid="unpaid" tabindex="-1">Unpaid work</button>
+          <button type="button" role="tab" id="tab-discretionary" aria-controls="comp-panel" aria-selected="false" data-aid="discretionary" tabindex="-1">
+            Discretionary<span class="tab-tag">advanced</span></button>
+        </div>
+        <div id="comp-panel" role="tabpanel" aria-labelledby="tab-paid" tabindex="0" class="comp-panel" aria-label="Paid work: the population average is the participation rate times the average among participants." data-aid="paid" data-gap="-73.873"><div class="comp-row">
+      <p class="comp-who">Men</p>
+      <div class="comp-bars">
+        <div class="minibar" role="img" aria-label="Participation rate: 60.2% (denominator: all residents aged 6 and over in that group)">
+    <div class="minibar-head"><span class="minibar-label">Participation rate</span>
+      <span class="minibar-val">60.2%</span></div>
+    <div class="minibar-track"><span class="minibar-fill" style="width:60.20%;background:var(--paid-soft)"></span></div>
+    <div class="mini-axis"><span>0</span><span>100%</span></div>
+    <p class="minibar-denom">Denominator: all residents aged 6 and over in that group (share, 0–100%)</p>
+  </div>
+        <div class="minibar" role="img" aria-label="Average among participants: 404 minutes (denominator: participants who did this activity that day)">
+    <div class="minibar-head"><span class="minibar-label">Average among participants</span>
+      <span class="minibar-val">404 min</span></div>
+    <div class="minibar-track"><span class="minibar-fill" style="width:96.19%;background:var(--unpaid-soft)"></span></div>
+    <div class="mini-axis"><span>0</span><span>420 min</span></div>
+    <p class="minibar-denom">Denominator: only the participants who did this kind of activity that day (0–420 min — a different scale from the 0–360 population-average axis in Act I)</p>
+  </div>
+        <p class="comp-total">Population average ≈ <b>0.602 × 404 = 243.2</b> min/day
+          <span class="fine">(derived value; shown to 1 decimal place)</span></p>
+      </div></div><div class="comp-row">
+      <p class="comp-who">Women</p>
+      <div class="comp-bars">
+        <div class="minibar" role="img" aria-label="Participation rate: 47.7% (denominator: all residents aged 6 and over in that group)">
+    <div class="minibar-head"><span class="minibar-label">Participation rate</span>
+      <span class="minibar-val">47.7%</span></div>
+    <div class="minibar-track"><span class="minibar-fill" style="width:47.70%;background:var(--paid-soft)"></span></div>
+    <div class="mini-axis"><span>0</span><span>100%</span></div>
+    <p class="minibar-denom">Denominator: all residents aged 6 and over in that group (share, 0–100%)</p>
+  </div>
+        <div class="minibar" role="img" aria-label="Average among participants: 355 minutes (denominator: participants who did this activity that day)">
+    <div class="minibar-head"><span class="minibar-label">Average among participants</span>
+      <span class="minibar-val">355 min</span></div>
+    <div class="minibar-track"><span class="minibar-fill" style="width:84.52%;background:var(--unpaid-soft)"></span></div>
+    <div class="mini-axis"><span>0</span><span>420 min</span></div>
+    <p class="minibar-denom">Denominator: only the participants who did this kind of activity that day (0–420 min — a different scale from the 0–360 population-average axis in Act I)</p>
+  </div>
+        <p class="comp-total">Population average ≈ <b>0.477 × 355 = 169.3</b> min/day
+          <span class="fine">(derived value; shown to 1 decimal place)</span></p>
+      </div></div><p class="comp-total"><strong>Paid work</strong>: women − men <b>−73.9</b> min/day (men longer).<span class="fine"> Participation axis 0–100%, participant-duration axis 0–420 min; the two scales differ and cannot be length-compared with the 0–360 population-average axis of Act I.</span></p></div>
+        <p class="comp-caveat fine">Each component has its own denominator: the participation rate is taken over all residents aged 6 and over of that sex, while the participant duration is taken over only those who did this kind of activity that day. Only their product is the population average — reading participant duration as a population average is the most common misreading.</p>
+      </div>
+
+      <div class="comp-side">
+        <!-- NonCausalDecomposition (term form) — advanced view -->
+        <details class="explainer advanced" id="decomp-details">
+          <summary>Advanced: writing the difference as a two-term identity<span class="chev" aria-hidden="true"></span></summary>
+          <div class="explainer-body">
+            <p class="formula">Δm = (p<sub>♀</sub> − p<sub>♂</sub>) × (t<sub>♀</sub> + t<sub>♂</sub>)/2
+              + (t<sub>♀</sub> − t<sub>♂</sub>) × (p<sub>♀</sub> + p<sub>♂</sub>)/2</p>
+            <p>This is a <strong>fully symmetric arithmetic identity</strong> : the two terms sum exactly to the population-average difference Δm, whatever the order of expansion. It allocates the difference across “fewer/more people participating” and “participants spending longer/shorter”, but it <strong>does not mean</strong> “the participation rate caused this many minutes and the duration caused that many”.</p>
+            <div id="decomp-host" class="decomp-host" data-aid="paid" data-gap="-73.873" data-terms="-47.437,-26.435"><svg viewBox="0 0 398 176" width="398" height="176" role="img" aria-label="Symmetric arithmetic decomposition of Paid work: participation term −47.4 min/day, duration term −26.4 min/day, sum of the two terms −73.9, original difference −73.9 min/day (dashed reference, spanning only this activity's two rows). This is an arithmetical allocation of an identity, not a causal contribution."><line x1="199" x2="199" y1="22" y2="150" stroke="#c9c1b2" stroke-width="1.4"></line><text x="199" y="166" fill="#6d6a63" font-size="10" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">0</text><line x1="241.95454545454547" x2="241.95454545454547" y1="22" y2="150" stroke="#efe8da" stroke-width="1"></line><line x1="284.90909090909093" x2="284.90909090909093" y1="22" y2="150" stroke="#efe8da" stroke-width="1"></line><text x="284.90909090909093" y="166" fill="#6d6a63" font-size="10" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">+50</text><line x1="327.8636363636364" x2="327.8636363636364" y1="22" y2="150" stroke="#efe8da" stroke-width="1"></line><line x1="370.8181818181818" x2="370.8181818181818" y1="22" y2="150" stroke="#efe8da" stroke-width="1"></line><text x="370.8181818181818" y="166" fill="#6d6a63" font-size="10" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">+100</text><line x1="156.04545454545453" x2="156.04545454545453" y1="22" y2="150" stroke="#efe8da" stroke-width="1"></line><line x1="113.09090909090908" x2="113.09090909090908" y1="22" y2="150" stroke="#efe8da" stroke-width="1"></line><text x="113.09090909090908" y="166" fill="#6d6a63" font-size="10" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">−50</text><line x1="70.13636363636363" x2="70.13636363636363" y1="22" y2="150" stroke="#efe8da" stroke-width="1"></line><line x1="27.181818181818183" x2="27.181818181818183" y1="22" y2="150" stroke="#efe8da" stroke-width="1"></line><text x="27.181818181818183" y="166" fill="#6d6a63" font-size="10" font-weight="400" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">−100</text><text x="10" y="14" fill="#20262d" font-size="11.5" font-weight="600" text-anchor="start" font-family="var(--font-body)" class="" style="font-variant-numeric: tabular-nums">Two-term decomposition of Paid work</text><text x="10" y="39" fill="#39444f" font-size="11.5" font-weight="600" text-anchor="start" font-family="var(--font-body)" class="" style="font-variant-numeric: tabular-nums">Participation term</text><rect x="117.49460909090911" y="46" width="81.50539090909089" height="22" fill="var(--paid)" rx="2" class="seg" role="img" tabindex="0" aria-label="Paid work · Participation term −47.4 min/day, formula (p♀ − p♂) × (t♀ + t♂)/2"></rect><text x="158.24730454545454" y="61" fill="#f4f1ea" font-size="11.5" font-weight="600" text-anchor="middle" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums">−47.4</text><text x="10" y="91" fill="#39444f" font-size="11.5" font-weight="600" text-anchor="start" font-family="var(--font-body)" class="" style="font-variant-numeric: tabular-nums">Participant-duration term</text><rect x="153.57986363636363" y="98" width="45.420136363636374" height="22" fill="var(--unpaid)" rx="2" class="seg" role="img" tabindex="0" aria-label="Paid work · Participant-duration term −26.4 min/day, formula (t♀ − t♂) × (p♀ + p♂)/2"></rect><text x="205" y="113" fill="var(--ink)" font-size="11.5" font-weight="600" text-anchor="start" font-family="var(--font-num)" class="" style="font-variant-numeric: tabular-nums; paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round">−26.4</text><line x1="72.07275454545453" x2="72.07275454545453" y1="46" y2="120" stroke="var(--ink)" stroke-width="1.4" stroke-dasharray="4 3"></line><line x1="67.07275454545453" x2="77.07275454545453" y1="46" y2="46" stroke="var(--ink)" stroke-width="1.4"></line><line x1="67.07275454545453" x2="77.07275454545453" y1="120" y2="120" stroke="var(--ink)" stroke-width="1.4"></line><text x="72.07275454545453" y="134" fill="var(--ink)" font-size="10.5" font-weight="600" text-anchor="middle" font-family="var(--font-body)" class="" style="font-variant-numeric: tabular-nums; paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round">Original difference, reference line −73.9</text></svg><p class="fine">The dashed line is only this activity's original difference (−73.9 min/day), drawn across the two decomposition rows; it is not an error bar and not an uncertainty interval. The displayed terms sum to −73.8, which differs from the displayed difference −73.9 by 0.1 minutes purely through rounding; the unrounded identity closes exactly.</p></div>
+            <div class="table-scroll">
+              <table class="data-table" id="decomp-table">
+                <caption>Two-term decomposition and the original difference (min/day, women − men)</caption>
+                <thead><tr><th scope="col">Activity</th><th scope="col">Participation term</th><th scope="col">Participant-duration term</th>
+                  <th scope="col">Sum of terms</th><th scope="col">Original gap</th></tr></thead>
+                <tbody id="decomp-table-body"><tr><th scope="row">Paid work</th>
+      <td>−47.4</td>
+      <td>−26.4</td>
+      <td>−73.9</td>
+      <td class="derived">−73.9</td></tr><tr><th scope="row">Unpaid work</th>
+      <td>+26.3</td>
+      <td>+73.4</td>
+      <td>+99.8</td>
+      <td class="derived">+99.8</td></tr><tr><th scope="row">Discretionary activities</th>
+      <td>−1.0</td>
+      <td>−14.6</td>
+      <td>−15.7</td>
+      <td class="derived">−15.7</td></tr></tbody>
+              </table>
+            </div>
+            <p class="fine">Rounding note: terms and totals are computed from unrounded values, so displayed terms can sum to 0.1 minute away from the displayed gap (for example the <span data-num="paidPartTerm">−47.4</span> and <span data-num="paidDurTerm">−26.4</span> display a sum of
+              <span data-num="paidTermsSumText">−73.8</span>, while the original gap is  <span data-num="paidGapSigned">−73.9</span> ).</p>
+            <p class="decomp-caveat"><strong>The identity is not a causal contribution.</strong>It controls for no confounder and does not resolve the compositional differences between the male and female groups in age, employment, marital and childbearing status or household structure; it rewrites a difference that is already there.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+    <nav class="act-pager" aria-label="Act navigation">
+      <a class="pager prev" href="#act-2">← Previous act · Act II · Why does the ranking change?</a>
+      <a class="pager next" href="#act-4">Next act · Act IV · Beyond the numbers →</a>
+    </nav>
+</section>
+
+<!-- ===================== ACT IV ===================== -->
+<section class="act act-alt" id="act-4" aria-labelledby="act-4-title">
+  <div class="shell">
+    <header class="act-head">
+      <p class="act-num"><span aria-hidden="true">Act IV</span><span class="visually-hidden">Act IV</span> · Act IV</p>
+      <h2 id="act-4-title" class="display">Beyond the numbers</h2>
+      <p class="act-findings"><strong>The finding in one sentence:</strong>These data can show a difference; they cannot explain it. Three psychological and sociological lenses each pose a testable question — and on none of the three did this survey collect a measure.</p>
+    </header>
+
+    <div class="lens-toolbar">
+      <button type="button" id="lens-compare" class="step-btn" aria-pressed="false">
+        Show evidence boundaries only</button>
+      <p class="fine">Each card's one-sentence summary and evidence boundary are always visible; this control only emphasises the boundary boxes further. Nothing is collapsed and no text is dimmed.</p>
+    </div>
+
+    <div class="lens-grid" id="lens-grid">
+      <!-- TheoryLens: 三层阅读 —— 一句话 → 解释框架（可展开）→ 当前证据边界 → 未来检验（可展开）→ 文献 -->
+      <article class="lens" data-lens="eagly_wood_2016">
+        <div class="lens-top">
+          <span class="lens-index display">01</span>
+          <h3 class="lens-title">Social Role Theory</h3>
+          <p class="lens-en">Social Role Theory of Sex Differences</p>
+          <svg class="lens-glyph" viewBox="0 0 64 40" role="img" aria-label="Diagram: two paths diverging from positions">
+            <rect x="2" y="4" width="28" height="12" class="gl-a"></rect><rect x="34" y="4" width="28" height="12" class="gl-b"></rect>
+            <rect x="2" y="24" width="28" height="12" class="gl-b"></rect><rect x="34" y="24" width="28" height="12" class="gl-a"></rect>
+            <path d="M16 16v8M48 16v8" class="gl-line"></path>
+          </svg>
+          <p class="lens-oneline">Social roles, family structure, opportunities and norms <strong>may</strong> be related to how work is divided; these data show the outcome of that division, but cannot test the mechanisms.</p>
+          <div class="lens-status" data-status-host=""><span class="status-chip is-external">Article type: Encyclopaedia entry</span><span class="status-chip is-external">external theory</span><span class="status-chip ">supplies a testable hypothesis</span><span class="status-chip is-not">role beliefs not measured</span></div>
+        </div>
+
+        <details class="lens-read">
+          <summary>The framework: what the theory proposes<span class="chev" aria-hidden="true"></span></summary>
+          <div class="lens-body">
+            <section class="lens-sec"><h4>What the theory proposes</h4>
+              <p>This framework traces sex-related differences in behaviour back to <strong>the positions created by the division of labour</strong> : people who carry household and care responsibilities are expected to develop skills of caring and coordination, people engaged in paid work are expected to develop instrumental skills, and those expectations in turn shape how time is allocated. It describes the consequences of positions and expectations, not a fixed nature.</p></section>
+            <section class="lens-sec"><h4>The prediction it makes testable</h4>
+              <p>If the difference comes mainly from roles and opportunities, it should vary as the distribution of roles varies — larger or smaller across regions, periods, family structures or employment states; if it does not move with those conditions, the framework's explanatory claim is weakened. That is how it can be disconfirmed.</p></section>
+            <section class="lens-sec"><h4>What kind of source this is</h4>
+              <p>The page cites a short encyclopaedia entry (3 pages) describing the framework itself. No effect size is quoted, and none of the framework's empirical findings are transplanted onto the Chinese sample.</p></section>
+          </div>
+        </details>
+
+        <div class="lens-boundary">
+          <section class="lens-sec"><h4>What this survey actually measured</h4>
+            <p>The outcome of the division of labour: participation rates and participant durations in the two activity domains, and the population-average difference derived from them.</p>
+            <p class="lens-metric" data-slot="metric-eagly">What is observable here is the division of outcomes: paid work women − men −73.9, unpaid work +99.8 min/day.</p></section>
+          <section class="lens-sec"><h4>What these data cannot yet show</h4>
+            <p>The bulletin measured no role beliefs, role expectations, intra-household bargaining or opportunity structure, and it does not jointly control age, employment, marital and childbearing status or household composition. So it cannot be determined whether the observed difference arises from a role mechanism —
+              <strong>the theory must not be read as an identified causal explanation</strong> .</p></section>
+        </div>
+
+        <details class="lens-read">
+          <summary>What a test would require<span class="chev" aria-hidden="true"></span></summary>
+          <div class="lens-body"><p>One would need role attitudes and actual care/employment arrangements measured in the same population, and an association with time allocation estimated after controlling for population composition; or a comparison across groups and periods whose role distributions differ markedly, to see whether the gap moves with them. None of that is in the published tables.</p></div>
+        </details>
+
+        <footer class="lens-cite" data-cite="eagly_wood_2016"><span class="cite-title">Social Role Theory of Sex Differences</span><br>Alice H. Eagly, Wendy Wood(2016) · <em>The Wiley Blackwell Encyclopedia of Gender and Sexuality Studies</em>: 1-3<br>DOI <a href="https://doi.org/10.1002/9781118663219.wbegss183" rel="noopener" target="_blank">10.1002/9781118663219.wbegss183</a><span class="fine"> · link checked locally, HTTP 403 (the publisher returns 403 to automated fetches; DOI resolution itself is valid) · bibliographic record hash 24791a0bb6dc…</span></footer>
+      </article>
+
+      <article class="lens" data-lens="daminger_2019">
+        <div class="lens-top">
+          <span class="lens-index display">02</span>
+          <h3 class="lens-title">The cognitive dimension of household labour</h3>
+          <p class="lens-en">The Cognitive Dimension of Household Labor</p>
+          <svg class="lens-glyph" viewBox="0 0 64 40" role="img" aria-label="Diagram: beneath the visible minutes lie four unrecorded layers">
+            <rect x="2" y="26" width="60" height="10" class="gl-a"></rect>
+            <rect x="8" y="18" width="48" height="6" class="gl-b"></rect>
+            <rect x="14" y="11" width="36" height="6" class="gl-b"></rect>
+            <rect x="20" y="4" width="24" height="6" class="gl-b"></rect>
+          </svg>
+          <p class="lens-oneline">Housework also contains <strong>anticipating, planning, deciding and monitoring</strong> components; an activity diary records which activity lasted how long, and does not necessarily capture who was carrying the worry.</p>
+          <div class="lens-status" data-status-host=""><span class="status-chip is-external">Article type: Journal article</span><span class="status-chip is-external">external theory</span><span class="status-chip is-external">interviews with 35 couples · not this survey</span><span class="status-chip is-not">cognitive dimension not measured</span></div>
+        </div>
+
+        <details class="lens-read">
+          <summary>The framework: what the theory proposes<span class="chev" aria-hidden="true"></span></summary>
+          <div class="lens-body">
+            <section class="lens-sec"><h4>What the theory proposes</h4>
+              <p>This research proposes that cognitive labour is <strong>not another activity category alongside housework, but a dimension of household labour</strong> — behind a single meal, medical visit or school run there are the phases of anticipating needs, finding options, deciding and monitoring progress. It is often invisible to both the person doing it and their partner, which is one reason it becomes a source of conflict.</p></section>
+            <section class="lens-sec"><h4>What the existing study found</h4>
+              <p>The original study is based on  <strong>70 in-depth interviews with 35 couples</strong> in US dual-earner households, and reports that the overall amount of cognitive labour and its anticipating and monitoring phases fell more often on women, while participation in the deciding phase was broadly similar between the sexes.
+                <strong>That is a finding about that sample, not a result of this Chinese time-use survey.</strong></p></section>
+          </div>
+        </details>
+
+        <div class="lens-boundary">
+          <section class="lens-sec"><h4>What this survey actually measured</h4>
+            <p>The diary records the duration of the activity in progress, in 15-minute units. The unpaid-work domain covers housework, accompanying and caring for family members, and buying goods or services, but contains no category corresponding to thinking about, planning or keeping track of.</p>
+            <p class="lens-metric" data-slot="metric-daminger">Activity diaries record observable durations: unpaid work averages 175.4 min among women and 75.6 min among men, with no category corresponding to its cognitive dimension.</p></section>
+          <section class="lens-sec"><h4>What these data cannot yet show</h4>
+            <p>The amount of cognitive labour cannot be estimated, nor can any share of women's extra minutes be attributed to this dimension; equally, its absence from the diary does not license a conclusion that it does not exist or does not matter.</p></section>
+        </div>
+
+        <details class="lens-read">
+          <summary>What a test would require<span class="chev" aria-hidden="true"></span></summary>
+          <div class="lens-body"><p>A test would need measurable instruments for cognitive and managerial responsibility (task inventories, decision responsibility, psychological-load scales) administered alongside the diary in the same comparable population, before one could examine whether it falls systematically on one sex.</p></div>
+        </details>
+
+        <footer class="lens-cite" data-cite="daminger_2019"><span class="cite-title">The Cognitive Dimension of Household Labor</span><br>Allison Daminger(2019) · <em>American Sociological Review</em> 84(4): 609-633<br>DOI <a href="https://doi.org/10.1177/0003122419859007" rel="noopener" target="_blank">10.1177/0003122419859007</a><span class="fine"> · link checked locally, HTTP 200 (reachable) · bibliographic record hash c99b2dd41308…</span></footer>
+      </article>
+
+      <article class="lens" data-lens="giurge_whillans_west_2020">
+        <div class="lens-top">
+          <span class="lens-index display">03</span>
+          <h3 class="lens-title">Time poverty and temporal autonomy</h3>
+          <p class="lens-en">Why time poverty matters for individuals, organisations and nations</p>
+          <svg class="lens-glyph" viewBox="0 0 64 40" role="img" aria-label="Diagram: the gap between objective duration and felt time affluence">
+            <rect x="2" y="10" width="30" height="10" class="gl-a"></rect>
+            <rect x="2" y="24" width="18" height="10" class="gl-b"></rect>
+            <path d="M34 15h26M22 29h38" class="gl-line"></path>
+          </svg>
+          <p class="lens-oneline">“How much discretionary time you have” and “whether you feel short of time, or can decide how to use it” are not the same thing; these data speak only to the first.</p>
+          <div class="lens-status" data-status-host=""><span class="status-chip is-external">Article type: Perspective</span><span class="status-chip is-not">subjective time feelings not measured</span></div>
+        </div>
+
+        <details class="lens-read">
+          <summary>The framework: what the article proposes<span class="chev" aria-hidden="true"></span></summary>
+          <div class="lens-body">
+            <section class="lens-sec"><h4>What the article is about</h4>
+              <p>Giurge, Whillans and West (2020) wrote this article in  <em>Nature Human Behaviour</em> . The article is a  <strong>Perspective (viewpoint article)</strong>, which discusses time poverty as a question that matters for individuals, organisations and nations, and separates objective time scarcity from the subjective feeling of having no time. It is a viewpoint article, not an empirical analysis of China's 2024 survey; the article-type label is generated from the publisher's own page.</p></section>
+            <section class="lens-sec"><h4>How far this page uses it</h4>
+              <p>This page uses it only to pose a measurement distinction: objective duration and felt time affluence are not the same construct. The article's specific arguments and conclusions have not been checked word by word within this pack, so no effect, datum or policy recommendation of theirs is quoted here.</p></section>
+          </div>
+        </details>
+
+        <div class="lens-boundary">
+          <section class="lens-sec"><h4>What this survey actually measured</h4>
+            <p>Only the objective side: duration in the personal discretionary-activities domain (sport and fitness, cultural and leisure entertainment, and similar).</p>
+            <p class="lens-metric" data-slot="metric-giurge">Objective discretionary time: women − men −15.7 min/day; there is no corresponding psychometric column.</p></section>
+          <section class="lens-sec"><h4>What these data cannot yet show</h4>
+            <p>The bulletin has no item on felt time affluence, time pressure or sense of control, and activity categories cannot separate voluntary from involuntary. So the discretionary-time difference must not be read as a difference in autonomy.</p></section>
+        </div>
+
+        <details class="lens-read">
+          <summary>What a test would require<span class="chev" aria-hidden="true"></span></summary>
+          <div class="lens-body"><p>One would need an objective time diary and a subjective time-feelings scale administered to the same sample, to test whether the amount of time and the feeling about it agree, and which living conditions each is associated with.</p></div>
+        </details>
+
+        <footer class="lens-cite" data-cite="giurge_whillans_west_2020"><span class="cite-title">Why time poverty matters for individuals, organisations and nations</span><br>Laura M. Giurge, Ashley V. Whillans, Colin West(2020) · <em>Nature Human Behaviour</em> 4(10): 993-1003<br>DOI <a href="https://doi.org/10.1038/s41562-020-0920-z" rel="noopener" target="_blank">10.1038/s41562-020-0920-z</a><span class="fine"> · link checked locally, HTTP 200 (reachable) · bibliographic record hash 22bb7990fdb7…</span></footer>
+      </article>
+    </div>
+
+    <aside class="disc-strip" id="discretionary-strip">
+      <p class="disc-lead">The same survey also shows that women's average time in discretionary activities is lower than men's by
+         <strong data-num="discGapAbs">15.7</strong> min/day (men  <span data-num="maleDisc">211.8</span> / women  <span data-num="femaleDisc">196.1</span> ).</p>
+      <p class="disc-limit"><strong>This is not “  <span data-num="discGapAbs">15.7</span>  less autonomy”.</strong>
+        The official categories are defined by activity content. Watching video may be a choice, or it may be all that other conditions allow; minutes of activity cannot tell the two apart, and cannot support a claim that the gap is caused by unpaid work. Discretionary time is only one of the mutually exclusive domains of a day; the rest goes to personal necessities, education and training, transport and so on.</p>
+    </aside>
+  </div>
+    <nav class="act-pager" aria-label="Act navigation">
+      <a class="pager prev" href="#act-3">← Previous act · Act III · What makes up the average?</a>
+      <a class="pager next" href="#act-5">Next act · Act V · What can this show? →</a>
+    </nav>
+</section>
+
+<!-- ===================== ACT V ===================== -->
+<section class="act" id="act-5" aria-labelledby="act-5-title">
+  <div class="shell">
+    <header class="act-head">
+      <p class="act-num"><span aria-hidden="true">Act V</span><span class="visually-hidden">Act V</span> · Act V</p>
+      <h2 id="act-5-title" class="display">What can this result support?</h2>
+      <p class="act-findings"><strong>In one sentence:</strong><span id="dossier-summary">Unadjusted population averages from the May 2024 field work among usual residents aged 6 and over nationwide (weekdays weighted 5/7, rest days 2/7): paid work women − men −73.9 min/day, unpaid work +99.8 min/day, both categories combined +25.9 min/day.</span></p>
+    </header>
+
+    <!-- ClaimLimitPair -->
+    <div class="claim-pair" id="claim-pair">
+      <section class="claim yes">
+        <h3><span class="mark" aria-hidden="true">✓</span>What it does support</h3>
+        <ul>
+          <li>Under the official activity classification, the <strong>population-average time</strong> of residents aged 6 and over differs by sex, and the direction of the difference changes with the definition of what counts as work.</li>
+          <li>The direction of the combined gap is robust to the rounding of the published figures: it stays positive (women more) within the rounding-only bounds [<span data-num="totalBoundLo">+24.0</span>, <span data-num="totalBoundHi">+27.7</span> ].</li>
+          <li>The difference coincides with women's higher participation in unpaid activity and their longer recorded duration among participants.</li>
+          <li>Anyone can recompute the same result from the formulas and published figures given on this page.</li>
+        </ul>
+      </section>
+      <section class="claim no">
+        <h3><span class="mark" aria-hidden="true">✕</span>What it does not support</h3>
+        <ul>
+          <li>“Every woman works <span data-num="totalGapSigned">+25.9</span>  minutes more than every man” — this is a group mean, not an individual distribution, a paired comparison or a universal statement.</li>
+          <li>“Sex itself causes the difference” — there is no joint distribution over age, employment, marital status, region and household composition, and no causal identification design.</li>
+          <li>“Women carry more of life overall” — study, transport, the intensity of care, multitasking and subjective pressure are all outside this sum.</li>
+          <li>“Discretionary time equals freedom, wellbeing or autonomy” — the official categories are not a psychometric.</li>
+          <li>Significance, trends across years, or cross-classified groups such as “young urban women” — the published tables give neither reportable sampling variance nor micro-level joint data.</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="dossier-grid">
+      <!-- EvidenceAccordion -->
+      <section class="dossier" id="evidence-dossier" aria-label="Evidence dossier">
+        <h3 class="h-rule">Evidence chain and sources</h3>
+
+        <details class="ev">
+          <summary>Source chain: what each of these four pages supplies<span class="chev" aria-hidden="true"></span></summary>
+          <div class="ev-body"><div id="source-chain"><div class="src-item">
+      <p class="src-role">Bulletin no. 1</p>
+      <p class="src-supply">Survey scope and population (usual residents aged 6 and over), field period 11–31 May 2024, sample size, and the six activity domains.</p>
+      <p class="src-meta"><a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957217.html" rel="noopener" target="_blank">https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957217.html</a><br>
+        Snapshot fetched locally: <code>evidence/nbs/nbs_1957217.html</code> · SHA-256 8d0d7fb672822109…</p>
+    </div><div class="src-item">
+      <p class="src-role">Bulletin no. 2</p>
+      <p class="src-supply">National time use by domain and category (the source of the six-domain day strip on this page), plus the official footnote definitions of paid, unpaid and discretionary domains and the 5/7 + 2/7 weighting note.</p>
+      <p class="src-meta"><a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957216.html" rel="noopener" target="_blank">https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957216.html</a><br>
+        Snapshot fetched locally: <code>evidence/nbs/nbs_1957216.html</code> · SHA-256 a2e0ae93d8721b1d…</p>
+    </div><div class="src-item">
+      <p class="src-role">Bulletin no. 3 (participation and participant averages by sex)</p>
+      <p class="src-supply">Average time among participants and participation rates by sex (and by urban/rural and age group) — the original source of every by-sex figure on this page.</p>
+      <p class="src-meta"><a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957215.html" rel="noopener" target="_blank">https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957215.html</a><br>
+        Snapshot fetched locally: <code>evidence/nbs/nbs_1957215.html</code> · SHA-256 505cd91e941eb2e4…</p>
+    </div><div class="src-item">
+      <p class="src-role">Group tables page (2025)</p>
+      <p class="src-supply">The 2025 grouped-tables page, used to cross-check the same participation rates and participant averages; this page does not rely on it as a sole source.</p>
+      <p class="src-meta"><a href="https://www.stats.gov.cn/zt_18555/zthd/lhfw/2025/2025_qgsjlydc/202501/t20250127_1958534.html" rel="noopener" target="_blank">https://www.stats.gov.cn/zt_18555/zthd/lhfw/2025/2025_qgsjlydc/202501/t20250127_1958534.html</a><br>
+        Snapshot fetched locally: <code>evidence/nbs/nbs_1958534.html</code> · SHA-256 7a059112b1691782…</p>
+    </div></div>
+            <p class="fine">The by-sex figures come from the tables of bulletin no. 3 (participant daily averages and participation rates); the activity-domain definitions come from the footnotes of bulletin no. 2; the grouped-tables page published in 2025 assembles the same batch of data and serves as a supplementary cross-check. Each source is accompanied by a locally fetched snapshot and its hash, so the check can be done offline.</p>
+          </div>
+        </details>
+
+        <details class="ev">
+          <summary>Formulas, precision and rounding<span class="chev" aria-hidden="true"></span></summary>
+          <div class="ev-body">
+            <p class="formula">Population average m ≈ p × t (the participation rate enters as a proportion: 60.2% is used as 0.602)</p>
+            <p class="formula">Δm = (p<sub>♀</sub> − p<sub>♂</sub>)(t<sub>♀</sub> + t<sub>♂</sub>)/2 + (t<sub>♀</sub> − t<sub>♂</sub>)(p<sub>♀</sub> + p<sub>♂</sub>)/2</p>
+            <div class="table-scroll"><table class="data-table" id="precision-table">
+              <caption>Published, derived and displayed values used on this page</caption>
+              <thead><tr><th scope="col">Activity · group</th><th scope="col">Participation <span class="th-note">published</span></th>
+                <th scope="col">Participant mean <span class="th-note">published (whole minutes)</span></th>
+                <th scope="col">Population average <span class="th-note">derived (3 dp)</span></th>
+                <th scope="col">Displayed <span class="th-note">1 decimal</span></th></tr></thead>
+              <tbody id="precision-body"><tr><th scope="row">Paid work · Men</th>
+        <td>60.2%</td>
+        <td>404 min</td>
+        <td class="derived">243.208</td>
+        <td>243.2</td></tr><tr><th scope="row">Paid work · Women</th>
+        <td>47.7%</td>
+        <td>355 min</td>
+        <td class="derived">169.335</td>
+        <td>169.3</td></tr><tr><th scope="row">Unpaid work · Men</th>
+        <td>67.5%</td>
+        <td>112 min</td>
+        <td class="derived">75.600</td>
+        <td>75.6</td></tr><tr><th scope="row">Unpaid work · Women</th>
+        <td>83.9%</td>
+        <td>209 min</td>
+        <td class="derived">175.351</td>
+        <td>175.4</td></tr><tr><th scope="row">Discretionary activities · Men</th>
+        <td>97.6%</td>
+        <td>217 min</td>
+        <td class="derived">211.792</td>
+        <td>211.8</td></tr><tr><th scope="row">Discretionary activities · Women</th>
+        <td>97.1%</td>
+        <td>202 min</td>
+        <td class="derived">196.142</td>
+        <td>196.1</td></tr></tbody></table></div>
+            <p class="fine" id="precision-note">participant_mean_min and participation_rate_pct are the published figures (participant averages in whole minutes, rates to 0.1 percentage points); all_resident_mean_min is reconstructed as p×t and kept to three decimals; the display layer rounds once more to one decimal. Terms and totals are computed from unrounded values, so displayed terms can sum 0.1 minute away from a displayed total.</p>
+            <div class="table-scroll"><table class="data-table" id="bounds-table">
+              <caption>Rounding-only bounds (from the published precision,<strong>not a sampling confidence interval</strong> )</caption>
+              <thead><tr><th scope="col">Difference (women − men)</th><th scope="col">Point</th>
+                <th scope="col">Lower</th><th scope="col">Upper</th></tr></thead>
+              <tbody id="bounds-body"><tr><th scope="row">Paid-work gap</th><td>−73.9</td>
+      <td>−74.8</td>
+      <td>−73.0</td></tr><tr><th scope="row">Unpaid-work gap</th><td>+99.8</td>
+      <td>+98.8</td>
+      <td>+100.7</td></tr><tr><th scope="row">Combined paid + unpaid gap</th><td>+25.9</td>
+      <td>+24.0</td>
+      <td>+27.7</td></tr><tr><th scope="row">Discretionary-activities gap</th><td>−15.7</td>
+      <td>−16.8</td>
+      <td>−14.5</td></tr></tbody></table></div>
+            <p class="fine">These rows answer only “how far would the result move under a different rounding of the published figures”. They are not sampling error, not measurement error, and no error bar is drawn anywhere on this page.</p>
+          </div>
+        </details>
+
+        <details class="ev">
+          <summary>Scope, weighting and what is not controlled<span class="chev" aria-hidden="true"></span></summary>
+          <div class="ev-body"><ul class="scope-list" id="scope-list"><li>Field period: 2024-05-11/2024-05-31 — a single cross-sectional survey, not a year-round diary panel.</li><li>Population: 6 years and older, usual residents of sampled households; sample of 38,500 households / 107,000 people (figures rounded in the bulletin).</li><li>Recording: one weekday and one rest day per person (one weekday and one weekend day per respondent), in 15-minute units.</li><li>Weighting: a seven-day week, weekday 5/7, weekend 2/7.</li><li>Not controlled for: differences in population composition such as age, employment status, marital and childbearing status, household structure; every figure here is an unadjusted marginal average.</li><li>Not available: no individual micro-data, and the published tables provide no standard errors or reportable sampling confidence intervals.</li><li>Not cross-classifiable: sex × urban/rural × age cells cannot be derived from separate marginal tables.</li><li>Not comparable over time: the 2008 and 2018 surveys differ in coverage and classification, so this page makes no trend claim.</li></ul>
+            <p class="fine">The official wording on the population and sample (bulletin no. 1):</p>
+            <blockquote class="verbatim has-translation" id="sample-quote" data-quote-key="sample_scope"><span class="quote-original">第三次全国时间利用调查的调查对象为抽中调查户和该户中 6 周岁及以上常住成员，全国共调查 3.85 万户家庭、 10.7 万人，其中，男性 5.3 万人，女性 5.4 万人；城镇 6.4 万人，农村 4.3 万人。</span><cite class="fine">— 公报第一号（调查主要结果）, <a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957217.html" rel="noopener" target="_blank">original text</a></cite><span class="quote-translation">The subjects of the Third National Time Use Survey were the sampled households and their usual residents aged 6 and over. Nationwide the survey covered 38,500 households and 107,000 people, of whom about 53,000 were men and about 54,000 were women; about 64,000 were in urban areas and about 43,000 were in rural areas.</span><span class="fine quote-note">The official bulletins exist in Chinese only. The English lines below are our translation of the quoted official footnotes, not an official English version.</span></blockquote>
+            <p class="fine">The one-week weighting (official footnote, bulletin no. 2):</p>
+            <blockquote class="verbatim has-translation" id="weight-quote" data-quote-key="week_weighting"><span class="quote-original">在计算居民参与某类活动的时间时，需对日志表1和日志表2中该类活动的时间利用数据分别按照5/7和2/7进行加权汇总，得出按一周7天计算的某类活动的居民每日平均时间、参与者每日平均时间、活动参与率等主要指标。</span><cite class="fine">— 公报第二号（全国居民分领域/分大类时间利用）, <a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957216.html" rel="noopener" target="_blank">original text</a></cite><span class="quote-translation">To calculate the time residents took part in a type of activity, the time-use data for that activity in diary table 1 and diary table 2 are aggregated weighted by 5/7 and 2/7 respectively, producing the main indicators calculated over a seven-day week, namely the daily average time of residents, the daily average time of participants and the activity participation rate.</span><span class="fine quote-note">The official bulletins exist in Chinese only. The English lines below are our translation of the quoted official footnotes, not an official English version.</span></blockquote>
+          </div>
+        </details>
+
+        <details class="ev">
+          <summary>Data and code: how to reproduce<span class="chev" aria-hidden="true"></span></summary>
+          <div class="ev-body">
+            <p>The only statistical inputs published with this page (unmodified, byte-identical to the research package):</p>
+            <ul class="file-list" id="file-list"><li><code>data/audited/dataset.json</code><br>SHA-256 <code>7d310646c6a35ba355242fd76882b646f6d01e1477dab533d85345a409963095</code></li><li><code>data/audited/gate2_results.json</code><br>SHA-256 <code>f986faaf6ea2409eff75fcce4619473ba9292e1a98670954c4254e8327009d55</code></li><li><code>data/time-use-data.js</code> — generated by <code>tools/build_data_layer.py</code>; the page's only source of numbers</li><li><code>docs/RESEARCH_MANUSCRIPT_PUBLIC.md</code> — public research report<br><code>docs/ERRATA_AND_EDITS.md</code> — editorial differences from the upstream manuscript, and its hash</li></ul>
+            <p class="fine">Offline reproduction (unpack the pack into a new directory and run these in order; Python 3.9+ and Node 18+ only — no network access and no site source code needed):</p>
+            <pre class="code-block" id="repro-block">python tools/verify_public_inputs.py   # 只读：核对包内每个文件的 SHA-256
+python tools/recompute_statistics.py   # 由冻结输入独立重算全部数值（Python）
+node tools/parity_check.mjs            # 用页面自身的 derive.js 再算一遍并逐项对照
+python tools/self_test.py              # 篡改测试：证明这道门禁真的会失败</pre>
+            <p class="fine">Reproduction pack:<a href="../research-pack/README.md">browse research-pack/ online</a> ·
+              <a href="../research-pack.zip" download="">download research-pack.zip</a>
+              <span class="fine" id="pack-sha">SHA-256 <code>3084dd21e55f0cc335820c39729aeb05988171afdbd5a07ed0e00af81087786a</code></span></p>
+            <p class="fine">The HTML snapshots of the official bulletins are third-party content and are not redistributed here. The verbatim official definitions used by the page, with their source URL, fetch date and snapshot hash, are in
+               <code>research-pack/data/audited/official_notes.json</code> ; §2 of the pack README explains how to check the sources online and what that check can and cannot establish.</p>
+            <p class="fine">Public research report:
+               <a href="./report/index.html" rel="noopener">report/index.html</a> ·
+              <a href="../docs/ERRATA_AND_EDITS.md" rel="noopener">erratum and editorial notes</a> . The upstream manuscript contains an internal collaboration note and is not published; its hash and the two editorial differences are recorded in that erratum. The data entry point is the NBS bulletin pages listed in the source chain above; this study uses no non-public micro-data.</p>
+          </div>
+        </details>
+
+        <details class="ev">
+          <summary>Check status: internal consistency is not source verification<span class="chev" aria-hidden="true"></span></summary>
+          <div class="ev-body">
+            <div class="audit-line" id="audit-line">✔ Internal arithmetic consistency passed: p×t reconstruction, totals in both scopes, the bridge identity (−73.9 + +99.8 = +25.9), the three symmetric decompositions closing, and every interactive state's values and labels agreeing. (This is not an independent verification of the bulletin text — see the note below.)</div>
+            <p class="fine">The ✔ above is an <strong>internal arithmetic consistency check</strong> : the data module is self-consistent and every interactive state's values and labels close. It <strong>is not</strong> an independent verification against the bulletin text; that requires checking cell by cell against the four official pages above. This page ships the snapshots and their hashes so the step can be done offline, and the upstream verification scripts and results are included in the pack.</p>
+            <ul class="check-list" id="check-list"><li><code>bridge_identity</code> — paid gap + unpaid gap = combined gap (tol 1e-9)</li><li><code>total_identity</code> — paid + unpaid = total labour minutes for both sexes (tol 5e-4)</li><li><code>gate2_crosscheck</code> — all gaps match the audited contrast table (tol 5e-4)</li><li><code>derived_crosscheck</code> — rate/100 × participant mean = audited population average (tol 1e-3)</li><li><code>decomposition_crosscheck</code> — symmetric terms recomputed from p,t match the audited decomposition (tol 1e-3)</li><li><code>national_six_domain</code> — published national six-domain sum ≈ 1440 minutes (tol 3 min)</li></ul>
+          </div>
+        </details>
+      </section>
+
+      <aside class="dossier-side">
+        <h3 class="h-rule">One line for each kind of reader</h3>
+        <ul class="audience-list">
+          <li><strong>If you are here for the first time:</strong>Decide what is counted before asking who works longer.</li>
+          <li><strong>If you want to draw a conclusion:</strong>None of these statements can be replaced by a causal one.</li>
+          <li><strong>If you intend to check the work:</strong>Every number comes from just  <code>data/audited/</code> two files; the formulas are in Act III.</li>
+        </ul>
+        <div class="stamp">
+          <p class="stamp-line">China Time Use 2024 · a five-act interactive study</p>
+          <p class="fine">Study: Baixin Guo (Max) · Data: National Bureau of Statistics, Third Survey on Residents' Time Use bulletins · Independent study:<strong>data, method and sources are public and can be recomputed offline</strong></p>
+          <p class="fine">Accessibility and motion: every control is keyboard operable; the page honours
+             <code>prefers-reduced-motion</code> (with motion off, values jump straight to their final state); all graphics are SVG with textual alternatives; grey body text is checked against WCAG AA.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+    <nav class="act-pager" aria-label="Act navigation">
+      <a class="pager prev" href="#act-4">← Previous act · Act IV · Beyond the numbers</a>
+      <span class="pager end">Last act · <a href="#act-1">back to Act I</a></span>
+    </nav>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot-grid">
+    <p>Study: China Time Use 2024 — Gender Differences in Paid and Unpaid Labor (Baixin Guo / Max)</p>
+    <p id="foot-sources">Data: National Bureau of Statistics, Third Survey on Residents' Time Use bulletins ·
+       <a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957217.html" rel="noopener" target="_blank" data-source-key="bulletin_1_overview">Bulletin no. 1</a> ·
+      <a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957216.html" rel="noopener" target="_blank" data-source-key="bulletin_2_national">Bulletin no. 2</a> ·
+      <a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241031_1957215.html" rel="noopener" target="_blank" data-source-key="bulletin_3_by_sex">Bulletin no. 3 (participation and participant averages by sex)</a> ·
+      <a href="https://www.stats.gov.cn/zt_18555/zthd/lhfw/2025/2025_qgsjlydc/202501/t20250127_1958534.html" rel="noopener" target="_blank" data-source-key="group_tables">Group tables page (2025)</a></p>
+    <p class="dim">Figures computed from unrounded values and displayed to one decimal · this page makes no causal claim</p>
+  </div>
+</footer>
+
+<script type="module" src="../main.js"></script>
+
+
+</body></html>
