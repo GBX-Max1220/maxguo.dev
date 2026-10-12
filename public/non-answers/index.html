@@ -420,4 +420,15 @@ document.querySelectorAll('.v16-tab').forEach(b=>b.addEventListener('click',()=>
 locale();window.__V16_TEST__={select(k){kind=k;renderBars()},state:()=>({kind,locale:english()?'en':'zh',count:raw.length,direct:total(kind).DIRECT,N:total(kind).N})};
 })();
 </script>
+<script id="v18-case-locale-link">
+(function(){
+ const a=document.getElementById('v18-case-link');
+ if(!a)return;
+ a.addEventListener('click',function(){
+   const lang=document.documentElement.lang;
+   const suffix=lang==='en'?'?lang=en':lang==='zh-Hant'?'?lang=zh-Hant':'';
+   a.href='/maxguo.dev/non-answers/cases/youth-unemployment-2023/'+suffix;
+ });
+})();
+</script>
 </body></html>
