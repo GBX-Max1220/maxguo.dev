@@ -30,10 +30,18 @@ try{
   if(spec.selector){
     // Capture the actual viewport after hash navigation. Element screenshots
     // can composite a sticky header over the target and misrepresent what a reader sees.
-    await page.evaluate(hash=>{location.hash=hash;},spec.selector);
-    await page.waitForTimeout(120);
+    await page.evaluate(selector=>{
+      // Disable smooth scrolling for the screenshot; hash navigation alone may
+      // still be in-flight when the image is taken.
+      document.documentElement.style.scrollBehavior='auto';
+      const target=document.querySelector(selector);
+      if(!target)throw new Error('Missing target '+selector);
+      const desired=target.getBoundingClientRect().top+window.scrollY-80;
+      window.scrollTo(0,desired);
+    },spec.selector);
+    await page.waitForTimeout(80);
     const top=await page.locator(spec.selector).evaluate(el=>el.getBoundingClientRect().top);
-    if(top<55)throw new Error('Anchor top hidden behind sticky nav: '+spec.name+' top='+top);
+    if(top<65||top>105)throw new Error('Screenshot not aligned with target: '+spec.name+' top='+top);
   }
   await page.screenshot({path:resolve(out,spec.name+'.png'),animations:'disabled'});
   const horizontal=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);
