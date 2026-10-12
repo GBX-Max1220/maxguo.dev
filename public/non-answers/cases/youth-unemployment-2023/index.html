@@ -299,6 +299,7 @@ const tw={
   "brand": "← 正確的廢話 / Non-Answers"
 };
 const dict={zh,tw,en};let locale="zh",which="all";
+try { const requested=new URLSearchParams(location.search).get("lang"); if(requested==="en")locale="en"; else if(requested==="zh-Hant"||requested==="tw")locale="tw"; } catch(_error) { /* keep Simplified default */ }
 function sync(){
   const d=dict[locale];document.documentElement.lang=locale==="tw"?"zh-Hant":locale==="en"?"en":"zh-CN";
   document.querySelectorAll("[data-t]").forEach(x=>{const value=d[x.dataset.t];if(value!==undefined)x.textContent=value;});
