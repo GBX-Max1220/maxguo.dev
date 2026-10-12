@@ -7,11 +7,11 @@
 ## What was added
 
 - A standalone static, responsive case study; V1.7 longform is preserved without edits.
-- Simplified Chinese, English and initial Traditional Chinese localization; Traditional text uses a partial character-map conversion and **must undergo native-language editorial QA**.
+- Simplified Chinese and English translations plus manually authored Traditional Chinese copy, replacing the initial incomplete character-map conversion; **native-reader editorial review remains required**.
 - A comparison judgment that reveals why the 21.3% and 14.9% observations cannot form a same-definition trend.
 - Chronology distinguishing observation month, publication day, disclosure interruption and definition change.
 - A denominator/definition toggle that does **not** invent population microdata or synthetic rate estimates.
-- An answer X-ray of three parts of the August 15, 2023 Bloomberg exchange; explicitly recognizes actual official answers.
+- An answer X-ray of the August 15, 2023 Bloomberg exchange, including the reporter's omitted housing-price trend sub-question; explicitly recognizes actual official answers and the unresolved portion.
 - Both the strongest plausible methodological rationale and outstanding requests for bridge/backcast evidence.
 - Six first-party NBS source URLs and a machine-readable `evidence.json` with interpretation boundaries.
 - A regression script plus six viewport/three locale checks, wired into the existing read-only PR workflow.
@@ -27,8 +27,8 @@
 ## Publication blockers
 
 - [ ] GitHub Actions `Non-Answers PR verification` passes at exact PR head SHA, including the new Playwright script.
-- [ ] Independent source check on full original 2023-08-15 question and response and the September follow-up.
-- [ ] Native-language review of Traditional Chinese (partial glyph conversion is not publication quality).
+- [x] Cross-read the complete 2023-08-15 question and answer and September follow-up against official NBS transcripts; corrected a missing housing-trend request. Independent factual verification of the statistics remains outside current scope.
+- [ ] Native-reader editorial review of Traditional Chinese, despite manual replacement of the character-map fallback.
 - [ ] Browser review of all six viewport widths and 3 languages.
 - [ ] Editorial sign-off for labels, potential overclaiming, and corrections link.
 - [ ] Before release: decide whether to remove `noindex,nofollow` and add public navigation / share preview.
