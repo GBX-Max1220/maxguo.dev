@@ -70,7 +70,7 @@
   ],
   "qa_2023_08_15": {
     "questioner": "Bloomberg News",
-    "scope": "Three-part question; housing-price topic retained in the editorial synopsis.",
+    "scope": "The reporter asked about the youth data publication start date; credibility of the overall unemployment rate; and the 70-city price trend, index data collection and calculation. Housing trend not dropped.",
     "judgments": [
       {
         "question": "When did age-specific release stop?",
@@ -84,9 +84,9 @@
         "methodological_proof_in_live_reply": "not independently reproducible from reply alone"
       },
       {
-        "question": "How are 70-city property price indices collected?",
-        "response": "Brief description of data collection with follow-up referral",
-        "answered": "partial_with_referral"
+        "question": "What is the trend of the 70-city property price index, and how are inputs collected and calculated?",
+        "response": "Described survey-team collection of new and existing home-price data, referred detailed implementation to the NBS press office; did not directly address the asked price trend.",
+        "answered": "trend_not_directly_answered_method_partially_described_with_referral"
       }
     ]
   },
