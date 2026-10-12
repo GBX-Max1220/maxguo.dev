@@ -27,7 +27,7 @@ const keyset=new Set([...html.matchAll(/\bdata-t="([^"]+)"/g)].map(m=>m[1]));
 for(const lang of ['zh','tw','en']){
  const segment=m[1].match(new RegExp('const '+lang+'=\\{([\\s\\S]*?)\\n\\};'));
  if(!segment)throw new Error('Missing locale dictionary: '+lang);
- const keys=new Set([...segment[1].matchAll(/(?:^|,)([A-Za-z][A-Za-z0-9]*):"/gm)].map(m=>m[1]));
+ const keys=new Set([...segment[1].matchAll(/(?:^|,)\s*"?([A-Za-z][A-Za-z0-9]*)"?\s*:\s*"/g)].map(m=>m[1]));
  const missing=[...keyset].filter(k=>!keys.has(k));
  if(missing.length)throw new Error(lang+' missing translations: '+missing.join(', '));
 }
