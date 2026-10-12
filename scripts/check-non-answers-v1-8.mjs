@@ -9,7 +9,8 @@ const file=resolve(root,'index.html');
 const evidenceFile=resolve(root,'evidence.json');
 if(!existsSync(file)||!existsSync(evidenceFile))throw new Error('V1.8 build output missing');
 const html=readFileSync(file,'utf8'), evidence=JSON.parse(readFileSync(evidenceFile,'utf8'));
-if(!html.includes('noindex,nofollow'))throw new Error('Prototype must not be indexed');
+if(!html.includes('<meta name="robots" content="index,follow,max-image-preview:large">'))throw new Error('Public case must be indexable');
+if(/noindex,nofollow|not approved for publication|尚未批准正式发布|尚未核准正式發布/.test(html))throw new Error('Draft-only text persisted in released case');
 const main=readFileSync(resolve('dist/non-answers/index.html'),'utf8');
 const route='/maxguo.dev/non-answers/cases/youth-unemployment-2023/';
 if(!main.includes('id="v18-case-link"')||!main.includes('href="'+route+'"'))throw new Error('Case entrypoint not linked from main article');
@@ -22,7 +23,7 @@ for(const token of [
 ])if(!html.includes(token))throw new Error('Case release metadata missing: '+token);
 if(!main.includes('id="v18-case-locale-link"'))throw new Error('Locale-preserving link script missing');
 if(!html.includes('房价走势')||!html.includes('housing-price trend')||!html.includes('房價走勢'))throw new Error('Reporter housing trend must be represented in all three locales');
-if(evidence.status!=='RESEARCH_PROTOTYPE_NOT_RELEASE_APPROVED')throw new Error('Release status changed');
+if(evidence.status!=='PUBLIC_RELEASE_OWNER_APPROVED'||evidence.publication?.public_case!==true)throw new Error('Public release status missing');
 if(evidence.observations.length!==2)throw new Error('Unexpected observations');
 if(evidence.comparison.directly_comparable!==false||evidence.comparison.chart_policy!=='TWO_DISCONNECTED_CARDS_NO_TREND_LINE')throw new Error('Comparison boundary failed');
 if(evidence.observations[0].observation_month!=='2023-06'||evidence.observations[1].observation_month!=='2023-12')throw new Error('Observation dates incorrect');
