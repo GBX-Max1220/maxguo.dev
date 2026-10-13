@@ -16,6 +16,27 @@ const html = readFileSync(htmlPath,'utf8');
 const index = readFileSync(indexPath,'utf8');
 const manifest = JSON.parse(readFileSync(evidencePath,'utf8'));
 assert.match(html,/<meta name="robots" content="noindex,nofollow"/,'Unreleased F01 must remain noindex');
+
+function linear(c) { c /= 255; return c <= 0.04045 ? c/12.92 : ((c+0.055)/1.055)**2.4; }
+function luminance(hex) {
+  assert.match(hex,/^#[0-9a-f]{6}$/i);
+  const ch=[1,3,5].map(p=>linear(parseInt(hex.slice(p,p+2),16)));
+  return 0.2126*ch[0]+0.7152*ch[1]+0.0722*ch[2];
+}
+function contrastRatio(a,b) {
+  const x=luminance(a),y=luminance(b);
+  return (Math.max(x,y)+0.05)/(Math.min(x,y)+0.05);
+}
+// The 11px uppercase section eyebrow is ordinary text, not large text.
+// Test the actual lightest card and background/hero colors; global --orange
+// also serves as a focus indicator, whose minimum alone would be 3:1.
+const accent=html.match(/--orange:(#[0-9a-f]{6})/i)?.[1];
+assert.ok(accent,'F01 accessible accent token missing');
+for(const bg of ['#f6f2e8','#fffdf7','#f4eee4','#e7eee5']) {
+  assert.ok(contrastRatio(accent,bg)>=4.5,
+    'F01 small text contrast below WCAG AA: '+accent+' on '+bg);
+}
+
 assert.ok(!index.includes(route),'Unpublished F01 must have no live main-article entry');
 assert.equal(manifest.status,'PREPUBLICATION_REVIEW_ONLY');
 assert.equal(manifest.case_id,'F01-fengxian');
