@@ -73,6 +73,23 @@ try {
       await page.goto(pathToFileURL(htmlPath).href,{waitUntil:'load'});
       await page.locator('[data-lang="'+lang+'"]').click();
       assert.equal(await page.locator('html').getAttribute('lang'),htmlLang);
+
+      assert.equal(await page.locator('.langs').getAttribute('aria-label'),{
+        zh:'选择页面语言',tw:'選擇頁面語言',en:'Choose page language'
+      }[lang],'Incorrect language-selector accessible name');
+      const sourceLinks=page.locator('.src-card a[data-source-url]');
+      assert.equal(await sourceLinks.count(),7);
+      const sourceNames=[];
+      for(const link of await sourceLinks.all()){
+        const sid=await link.getAttribute('data-source-url');
+        const title=await page.locator('#source-'+sid+' h3').innerText();
+        const aria=await link.getAttribute('aria-label');
+        assert.ok(aria?.includes(sid) && aria.includes(title.slice(title.indexOf(' · ',title.indexOf(' · ')+3)+3)),
+          'External link missing distinct source title '+sid+'/'+lang);
+        sourceNames.push(aria);
+      }
+      assert.equal(new Set(sourceNames).size,7,'Seven source links need distinct names');
+
       const labels = {
         zh: ['6 个公开时点','7 组公开来源','不上传数据','当前时点已公开的资料','读者笔记与编辑参考解释','引用来源'],
         tw: ['6 個公開時點','7 組公開來源','不會上傳資料','目前時點已公開的資料','讀者筆記與編輯參考解釋','引用來源'],
@@ -136,6 +153,13 @@ try {
       await page.close();
     }
   }
+  const keyboardPage=await browser.newPage();
+  await keyboardPage.goto(pathToFileURL(htmlPath).href,{waitUntil:'load'});
+  await keyboardPage.keyboard.press('Tab');
+  assert.equal(await keyboardPage.evaluate(()=>document.activeElement?.id),'skip-workspace','First Tab does not reach skip link');
+  await keyboardPage.keyboard.press('Enter');
+  assert.equal(await keyboardPage.evaluate(()=>document.activeElement?.id),'workspace','Skip link does not focus workspace');
+  await keyboardPage.close();
   const page=await browser.newPage();
   for (const [query,language] of [['?lang=en','en'],['?lang=zh-Hant','zh-Hant']]) {
     await page.goto(pathToFileURL(htmlPath).href+query,{waitUntil:'load'});
