@@ -52,6 +52,29 @@ try {
       await page.goto(pathToFileURL(htmlPath).href,{waitUntil:'load'});
       await page.locator('[data-lang="'+lang+'"]').click();
       assert.equal(await page.locator('html').getAttribute('lang'),htmlLang);
+      const labels = {
+        zh: ['6 个公开时点','7 组公开来源','不上传数据','当前时点已公开的资料','读者笔记与编辑参考解释','引用来源'],
+        tw: ['6 個公開時點','7 組公開來源','不會上傳資料','目前時點已公開的資料','讀者筆記與編輯參考解釋','引用來源'],
+        en: ['6 public checkpoints','7 documented sources','No data uploads','Public record at selected date','Reader notes and editorial interpretation','Cited source'],
+      }[lang];
+      for (const [selector,expected] of [
+        ['#kicker-checkpoints',labels[0]],['#kicker-sources-label',labels[1]],['#kicker-uploads',labels[2]],
+      ]) assert.equal(await page.locator(selector).innerText(),expected,'Untranslated visible label: '+selector+'/'+lang);
+      assert.equal(await page.locator('#timeline').getAttribute('aria-label'),{
+        zh:'依公开日期切换的六个时点',tw:'依公開日期切換的六個時點',en:'Six public-disclosure checkpoints'
+      }[lang],'Untranslated timeline label '+lang);
+      assert.equal(await page.locator('#record-panel').getAttribute('aria-label'),labels[3]);
+      assert.equal(await page.locator('#notes-panel').getAttribute('aria-label'),labels[4]);
+      assert.equal(await page.locator('#skip-workspace').innerText(),{
+        zh:'跳到证据交互',tw:'跳至證據互動',en:'Skip to evidence interaction'
+      }[lang]);
+      const citations=page.locator('.article-language:not([hidden]) a[href^="#source-"]');
+      assert.ok(await citations.count()>0,'Missing visible citations');
+      for(const a of await citations.all()){
+        const sid=(await a.getAttribute('href')).match(/S\d\d/)?.[0];
+        assert.equal(await a.getAttribute('aria-label'),labels[5]+' '+sid,'Untranslated citation aria-label');
+      }
+
       assert.equal(await page.locator('.article-language:not([hidden])').count(),1);
       assert.equal(await page.locator('#timeline button').count(),6);
       for (const f of ['01','02']) {
