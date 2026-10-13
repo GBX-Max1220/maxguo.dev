@@ -61,7 +61,7 @@ try {
         ['#kicker-checkpoints',labels[0]],['#kicker-sources-label',labels[1]],['#kicker-uploads',labels[2]],
       ]) assert.equal(await page.locator(selector).innerText(),expected,'Untranslated visible label: '+selector+'/'+lang);
       assert.equal(await page.locator('#timeline').getAttribute('aria-label'),{
-        zh:'依公开日期切换的六个时点',tw:'依公開日期切換的六個時點',en:'Six public-disclosure checkpoints'
+        zh:'依公开日期切换的六个时点',tw:'依公開日期切換的六個時點',en:'Six publication-date checkpoints'
       }[lang],'Untranslated timeline label '+lang);
       assert.equal(await page.locator('#record-panel').getAttribute('aria-label'),labels[3]);
       assert.equal(await page.locator('#notes-panel').getAttribute('aria-label'),labels[4]);
