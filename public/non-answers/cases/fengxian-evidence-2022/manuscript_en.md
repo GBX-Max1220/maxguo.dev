@@ -45,7 +45,7 @@ This standard neither demands omniscience at the outset nor encourages silence. 
 
 Illustrative editorial rewrite. It is not an actual official statement or a reconstruction of the agency’s undisclosed knowledge.
 
-“The circumstances are still under investigation. We have obtained some registration and interview records, but the person’s identity, the marriage registration process, and whether trafficking was involved require further evidence. We cannot rule it out at this stage. We will publish updates and explicitly correct any previous errors.”
+“The circumstances remain under investigation. We will further verify the person’s identity, how the marriage registration was processed, and whether trafficking was involved. Until the relevant evidence has been adequately checked, we will not categorically rule trafficking out. We will publish updates and explicitly correct any earlier inaccuracies.”
 
 ## What this project cannot establish
 
