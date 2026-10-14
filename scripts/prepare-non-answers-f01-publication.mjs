@@ -5,6 +5,7 @@
  */
 import {readFileSync,writeFileSync,mkdirSync,copyFileSync} from 'node:fs';
 import {resolve,join,dirname} from 'node:path';
+import {pathToFileURL} from 'node:url';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
@@ -118,6 +119,23 @@ assert.equal(readFileSync(resolve('astro.config.mjs'),'utf8'),configOriginal,
 
 mkdirSync(join(caseDir,'assets'),{recursive:true});
 mkdirSync(join(root,'non-answers'),{recursive:true});
+// Copy every SVG that the dynamic language selector can request; checking only
+// the two initial zh <img> tags leaves English and Traditional figures broken.
+const figureFiles=[];
+for(const figure of ['01','02'])for(const language of ['zh','tw','en']){
+  const name='figure-'+figure+'-'+language+'.svg';
+  const original=join(sourceDir,'assets',name);
+  const target=join(caseDir,'assets',name);
+  copyFileSync(original,target);
+  const data=readFileSync(target,'utf8');
+  assert.ok(data.includes('<svg')&&data.includes('</svg>')&&data.length>3500,'Missing or malformed copied SVG '+name);
+  assert.ok(data===readFileSync(original,'utf8'),'SVG copy mismatch '+name);
+  figureFiles.push('non-answers/cases/fengxian-evidence-2022/assets/'+name);
+}
+copyFileSync(join(sourceDir,'evidence_register.json'),join(caseDir,'evidence_register.json'));
+const evidenceCopy=JSON.parse(readFileSync(join(caseDir,'evidence_register.json'),'utf8'));
+assert.equal(evidenceCopy.case_id,'F01-fengxian');
+assert.equal(evidenceCopy.sources.length,7);
 writeFileSync(join(caseDir,'index.html'),prepared,'utf8');
 writeFileSync(join(root,'non-answers/index.html'),withEntry,'utf8');
 
@@ -152,6 +170,25 @@ try{
    assert.deepEqual(links,['f01-link-'+expected[1]],'F01 link must show only selected locale');
  }
  await checkPage.close();
+ // Open the *generated* publication preview as an actual browser document, not
+ // merely render the isolated index-card fragment. Detect missing SVG assets.
+ const preparedPage=await browser.newPage({viewport:{width:900,height:700}});
+ const errors=[];
+ preparedPage.on('pageerror',e=>errors.push(e.message));
+ await preparedPage.goto(pathToFileURL(join(caseDir,'index.html')).href,{waitUntil:'load'});
+ const localeSet=[['zh','zh-CN'],['tw','zh-Hant'],['en','en']];
+ for(const [language,htmlLanguage] of localeSet){
+   await preparedPage.locator('[data-lang="'+language+'"]').click();
+   assert.equal(await preparedPage.locator('html').getAttribute('lang'),htmlLanguage);
+   for(const figure of ['01','02']){
+     const img=preparedPage.locator('#figure'+figure+'-image');
+     assert.ok((await img.getAttribute('src')).endsWith('figure-'+figure+'-'+language+'.svg'));
+     assert.equal(await img.evaluate(n=>n.complete&&n.naturalWidth>0),true,
+       'Broken publication preview SVG '+language+'/'+figure);
+   }
+ }
+ assert.deepEqual(errors,[],'Published-preview JS errors');
+ await preparedPage.close();
 
 }finally{await browser.close()}
 const png=readFileSync(join(caseDir,'assets/og-f01.png'));
@@ -171,12 +208,13 @@ const report={
  og_size:'1200x630',
  title,
  locale_deep_links:{zh:caseUrl,tw:caseUrl+'?lang=zh-Hant',en:caseUrl+'?lang=en'},
- generated:['non-answers/index.html','non-answers/cases/fengxian-evidence-2022/index.html','non-answers/cases/fengxian-evidence-2022/assets/og-f01.png','proposed/astro.config.mjs'],
+ generated:['non-answers/index.html','non-answers/cases/fengxian-evidence-2022/index.html','non-answers/cases/fengxian-evidence-2022/assets/og-f01.png','non-answers/cases/fengxian-evidence-2022/evidence_register.json',...figureFiles,'proposed/astro.config.mjs'],
  source_sha256:sources.map(p=>createHash('sha256').update(readFileSync(p)).digest('hex')),
  warnings:[
   'These are build-time release previews under .astro, NOT actual public source pages or a deployed site.',
   'Release requires explicit owner approval and a new actual source commit.',
   'Generated release preview has indexable metadata; do not serve it on a public URL before approval.',
+  'Evidence register retains PREPUBLICATION_REVIEW_ONLY and must be explicitly reconciled if published.',
   'A single dynamic trilingual page uses one canonical; separate SEO-indexable language routes are not claimed.',
   'Independent English/Traditional/source and hands-on screen-reader sign-offs are still pending.'
  ]
@@ -186,4 +224,4 @@ writeFileSync(join(root,'README_FIRST.txt'),
 'F01 RELEASE PREPARATION ONLY. Not published. Do NOT deploy this generated indexable HTML.\n'
 +'Source code remains noindex and unlinked. This ZIP is for editor review of future metadata, image and main-case entry.\n'
 +'Approved case URL: '+caseUrl+'\nSitemap proposal on publication: '+caseUrl+'\n');
-console.log('F01 publication preparation PASS: canonical / OG 1200x630 / 3-language entry / source unchanged / not published');
+console.log('F01 publication preparation PASS: canonical / OG 1200x630 / 3-language entry / six SVG assets & 3 locale browser loads / source unchanged / not published');
