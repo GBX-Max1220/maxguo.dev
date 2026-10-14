@@ -73,10 +73,13 @@ assert.match(prepared,/robots" content="index,follow/);
 const styles=['<style id="f01-release-entry-styles">',
  '.f01-entry{margin-top:-18px;background:#edf0e7;border-color:#b7c7b6}',
  '.f01-entry .v18-eyebrow{color:#265948}',
- '.f01-locale{display:none}',
- 'html[lang="en"] .f01-locale-en{display:inline}',
- 'html[lang="zh-Hant"] .f01-locale-tw{display:inline}',
- 'html:not([lang="en"]):not([lang="zh-Hant"]) .f01-locale-zh{display:inline}',
+ '.f01-entry .f01-locale,.f01-entry a.v18-action.f01-locale{display:none}',
+ 'html[lang="en"] .f01-entry .f01-locale-en{display:inline}',
+ 'html[lang="en"] .f01-entry a.f01-locale-en{display:inline-flex}',
+ 'html[lang="zh-Hant"] .f01-entry .f01-locale-tw{display:inline}',
+ 'html[lang="zh-Hant"] .f01-entry a.f01-locale-tw{display:inline-flex}',
+ 'html:not([lang="en"]):not([lang="zh-Hant"]) .f01-entry .f01-locale-zh{display:inline}',
+ 'html:not([lang="en"]):not([lang="zh-Hant"]) .f01-entry a.f01-locale-zh{display:inline-flex}',
  '</style>'].join('\n');
 const card=['<aside class="v18-case-entry f01-entry" id="f01-case-entry" aria-labelledby="f01-entry-heading">',
   '<div><span class="v18-eyebrow">FLAGSHIP EVIDENCE CASE · 2022–2023 · F01</span>',
@@ -123,6 +126,17 @@ try{
  await page.setContent(poster,{waitUntil:'load'});
  await page.evaluate(async()=>document.fonts.ready);
  await page.screenshot({path:join(caseDir,'assets/og-f01.png'),animations:'disabled'});
+ const checkPage=await browser.newPage({viewport:{width:1080,height:650}});
+ await checkPage.setContent('<!doctype html><html lang="zh-CN"><head><style>.v18-case-entry a.v18-action{display:inline-flex}</style>'+styles+'</head><body>'+card+'</body></html>',{waitUntil:'load'});
+ for(const expected of [['zh-CN','zh'],['zh-Hant','tw'],['en','en']]){
+   await checkPage.evaluate(language=>{document.documentElement.lang=language},expected[0]);
+   const shown=await checkPage.locator('#f01-entry-heading .f01-locale').evaluateAll(items=>items.filter(x=>getComputedStyle(x).display!=='none').map(x=>x.className));
+   const links=await checkPage.locator('#f01-case-entry a.f01-locale').evaluateAll(items=>items.filter(x=>getComputedStyle(x).display!=='none').map(x=>x.id));
+   assert.equal(shown.length,1,'F01 title must show one locale');
+   assert.deepEqual(links,['f01-link-'+expected[1]],'F01 link must show only selected locale');
+ }
+ await checkPage.close();
+
 }finally{await browser.close()}
 const png=readFileSync(join(caseDir,'assets/og-f01.png'));
 assert.equal(png.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
