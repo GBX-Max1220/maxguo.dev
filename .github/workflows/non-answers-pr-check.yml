@@ -123,6 +123,17 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
+      - name: Prepare F01 future release metadata and OG (artifact only)
+        run: node scripts/prepare-non-answers-f01-publication.mjs --preview
+
+      - name: Upload F01 publication preparation artifact (NOT DEPLOYED)
+        uses: actions/upload-artifact@v4
+        with:
+          name: f01-publication-preparation-only
+          path: .astro/f01-publication-preparation/
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Capture V1.8 mobile and desktop visual QA
         run: node scripts/capture-non-answers-v1-8.mjs
 
