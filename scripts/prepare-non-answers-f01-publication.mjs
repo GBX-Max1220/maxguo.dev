@@ -100,6 +100,22 @@ const anchor='<aside class="v18-case-entry" id="v18-case"';
 assert.ok(index.includes(anchor));
 const withEntry=index.replace(anchor,card+'\n'+anchor).replace('</head>',styles+'\n</head>');
 assert.ok(withEntry.includes('id="f01-case-entry"'));
+// Astro does not automatically sitemap static files copied from public/.
+// Stage the exact sitemap config change as an offline proposal, never modify it here.
+const configOriginal=readFileSync(resolve('astro.config.mjs'),'utf8');
+const sitemapAnchor='    customPages: [';
+assert.ok(configOriginal.includes(sitemapAnchor),'Expected Astro sitemap integration missing');
+assert.ok(!configOriginal.includes("'"+caseUrl+"'"),'F01 sitemap entry was already activated');
+const sitemapCandidate=configOriginal.replace(
+  sitemapAnchor,
+  sitemapAnchor+'\n      '+"'"+caseUrl+"',"
+);
+assert.ok(sitemapCandidate.includes("'"+caseUrl+"'"));
+mkdirSync(join(root,'proposed'),{recursive:true});
+writeFileSync(join(root,'proposed/astro.config.mjs'),sitemapCandidate,'utf8');
+assert.equal(readFileSync(resolve('astro.config.mjs'),'utf8'),configOriginal,
+  'Published Astro sitemap config must remain unchanged in Draft');
+
 mkdirSync(join(caseDir,'assets'),{recursive:true});
 mkdirSync(join(root,'non-answers'),{recursive:true});
 writeFileSync(join(caseDir,'index.html'),prepared,'utf8');
@@ -155,7 +171,7 @@ const report={
  og_size:'1200x630',
  title,
  locale_deep_links:{zh:caseUrl,tw:caseUrl+'?lang=zh-Hant',en:caseUrl+'?lang=en'},
- generated:['non-answers/index.html','non-answers/cases/fengxian-evidence-2022/index.html','non-answers/cases/fengxian-evidence-2022/assets/og-f01.png'],
+ generated:['non-answers/index.html','non-answers/cases/fengxian-evidence-2022/index.html','non-answers/cases/fengxian-evidence-2022/assets/og-f01.png','proposed/astro.config.mjs'],
  source_sha256:sources.map(p=>createHash('sha256').update(readFileSync(p)).digest('hex')),
  warnings:[
   'These are build-time release previews under .astro, NOT actual public source pages or a deployed site.',
