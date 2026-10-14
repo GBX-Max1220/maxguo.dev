@@ -86,6 +86,54 @@ jobs:
       - name: Verify P13 trilingual question-compression short case
         run: node scripts/check-non-answers-p13.mjs
 
+      - name: Verify F01 unpublished trilingual evidence flagship
+        run: node scripts/check-non-answers-f01.mjs
+
+      - name: Upload F01 draft-case QA screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: non-answers-f01-draft-visual-qa
+          path: .astro/non-answers-f01-review/
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Verify F01 isolated HTTP preview
+        run: node scripts/check-non-answers-f01-http-preview.mjs
+
+      - name: Package isolated F01 preview artifact — no deployment
+        run: |
+          mkdir -p .astro/f01-isolated-artifact
+          cp -a dist/non-answers/cases/fengxian-evidence-2022 .astro/f01-isolated-artifact/f01
+          printf '%s\n' \
+            'F01 PR #15 — STANDALONE REVIEW ONLY — NOT PUBLISHED' \
+            "GitHub CI revision: $GITHUB_SHA" \
+            'Extract the ZIP. Open f01/index.html in a browser. Figures require the assets directory.' \
+            'HTTP browser-test screenshots and JSON receipt are in browser-evidence/.' \
+            'This job does not deploy a hosted preview or touch main/production.' \
+            > .astro/f01-isolated-artifact/README.txt
+          (cd .astro/f01-isolated-artifact && zip -qr F01_PR15_Isolated_Review.zip f01)
+          (cd .astro/f01-isolated-artifact && sha256sum F01_PR15_Isolated_Review.zip > SHA256SUMS.txt)
+          cp -a .astro/non-answers-f01-http-preview .astro/f01-isolated-artifact/browser-evidence
+
+      - name: Upload F01 HTTP review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: f01-pr15-isolated-http-preview
+          path: .astro/f01-isolated-artifact/
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Prepare F01 future release metadata and OG (artifact only)
+        run: node scripts/prepare-non-answers-f01-publication.mjs --preview
+
+      - name: Upload F01 publication preparation artifact (NOT DEPLOYED)
+        uses: actions/upload-artifact@v4
+        with:
+          name: f01-publication-preparation-only
+          path: .astro/f01-publication-preparation/
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Capture V1.8 mobile and desktop visual QA
         run: node scripts/capture-non-answers-v1-8.mjs
 

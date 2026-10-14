@@ -1,0 +1,69 @@
+{
+  "checks": [
+    {
+      "width": 320,
+      "lang": "zh",
+      "status": "PASS"
+    },
+    {
+      "width": 320,
+      "lang": "tw",
+      "status": "PASS"
+    },
+    {
+      "width": 320,
+      "lang": "en",
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "lang": "zh",
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "lang": "tw",
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "lang": "en",
+      "status": "PASS"
+    },
+    {
+      "width": 768,
+      "lang": "zh",
+      "status": "PASS"
+    },
+    {
+      "width": 768,
+      "lang": "tw",
+      "status": "PASS"
+    },
+    {
+      "width": 768,
+      "lang": "en",
+      "status": "PASS"
+    },
+    {
+      "width": 1366,
+      "lang": "zh",
+      "status": "PASS"
+    },
+    {
+      "width": 1366,
+      "lang": "tw",
+      "status": "PASS"
+    },
+    {
+      "width": 1366,
+      "lang": "en",
+      "status": "PASS"
+    },
+    {
+      "cross_locale_note_preservation": "PASS"
+    }
+  ],
+  "errors": [],
+  "browser_method": "Chromium set_content; figures inlined only in testing copy; not an end-to-end local-file or remote Pages test"
+}
