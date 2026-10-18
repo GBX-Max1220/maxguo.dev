@@ -1,0 +1,136 @@
+{
+  "case_id": "F01-fengxian",
+  "status": "PUBLIC_EVIDENCE_REPORT",
+  "evidence_basis": "public disclosure by date",
+  "sources": [
+    {
+      "id": "S01",
+      "published": "2022-01-28",
+      "title": "丰县县委宣传部首次通报",
+      "carrier_note": "澎湃新闻同期转载；原微信发布页面尚未独立认证",
+      "url": "https://m.thepaper.cn/newsDetail_forward_16497879"
+    },
+    {
+      "id": "S02",
+      "published": "2022-01-30",
+      "title": "丰县联合调查组第二次通报",
+      "carrier_note": "澎湃新闻1月31日转载1月30日晚间发布的通报",
+      "url": "https://www.thepaper.cn/newsDetail_forward_16544274"
+    },
+    {
+      "id": "S03",
+      "published": "2022-02-07",
+      "title": "徐州市联合调查组调查进展",
+      "carrier_note": "凤凰网2022年2月7日刊载完整通报，页面署名徐州发布；人民网江苏频道同期报道佐证；非官方发布账号",
+      "url": "https://news.ifeng.com/c/v0022kyQJ08uya4RH8Nd59tE7wPNGPG2BBCeAYtMweVVhdQ__",
+      "alternate_urls": [
+        "https://js.people.com.cn/n2/2022/0207/c360303-35124696.html"
+      ]
+    },
+    {
+      "id": "S04",
+      "published": "2022-02-10",
+      "title": "徐州市联合调查组通报",
+      "carrier_note": "新华网转载徐州发布微博文稿",
+      "url": "https://www.xinhuanet.com/local/2022-02/10/c_1128353709.htm"
+    },
+    {
+      "id": "S05",
+      "published": "2022-02-23",
+      "title": "江苏省委省政府调查组完整通报",
+      "carrier_note": "江苏网信网政府网站刊载全文（来源注明交汇点）；新华网亦转载同日全文。",
+      "url": "https://www.jswx.gov.cn/yw/202202/t20220223_2951816.shtml",
+      "alternate_urls": [
+        "https://www.xinhuanet.com/politics/2022-02/23/c_1128407989.htm"
+      ]
+    },
+    {
+      "id": "S06",
+      "published": "2022-02-23",
+      "title": "新华社既有调查报道",
+      "carrier_note": "作为先前研究与反向证据，不声称本项目首次揭示错误",
+      "url": "https://www.xinhuanet.com/2022-02/23/c_1128408829.htm"
+    },
+    {
+      "id": "S07",
+      "published": "2023-04-07",
+      "title": "徐州市中级人民法院一审报道",
+      "carrier_note": "新华社同期报道徐州中院一审，不是原始判决书；未核实后续上诉、生效状态。",
+      "url": "https://www.xinhuanet.com/2023-04/07/c_1129501525.htm",
+      "alternate_urls": [
+        "https://js.people.com.cn/n2/2023/0407/c360303-40367785.html"
+      ]
+    }
+  ],
+  "checkpoints": [
+    {
+      "date": "2022-01-28",
+      "source_ids": [
+        "S01"
+      ],
+      "label_kind": "quote"
+    },
+    {
+      "date": "2022-01-30",
+      "source_ids": [
+        "S01",
+        "S02"
+      ],
+      "label_kind": "quote"
+    },
+    {
+      "date": "2022-02-07",
+      "source_ids": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "label_kind": "paraphrase"
+    },
+    {
+      "date": "2022-02-10",
+      "source_ids": [
+        "S01",
+        "S02",
+        "S03",
+        "S04"
+      ],
+      "label_kind": "paraphrase"
+    },
+    {
+      "date": "2022-02-23",
+      "source_ids": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "label_kind": "paraphrase"
+    },
+    {
+      "date": "2023-04-07",
+      "source_ids": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "label_kind": "paraphrase"
+    }
+  ],
+  "guardrails": [
+    "No inference of individual deliberate deception",
+    "Do not present first-instance judgment as confirmed final",
+    "No inference from database nonmatch to global absence",
+    "A cited carrier is not a certified original institutional post",
+    "Public disclosure date is not internal discovery date",
+    "Do not claim reader comprehension gains without tests"
+  ],
+  "revision": "Release source candidate / evidence provenance preserved 2026-10-18",
+  "sources_review_note": "S01/S02 use media reproductions; S03 full contemporaneous reproduction is attributed to Xuzhou Release on Phoenix; original government-account URL not independently authenticated; S05 is a government-domain copy that identifies Junction News as the carrier; S07 is a reproduction of a first-instance court notice, not final judgment proof."
+}
