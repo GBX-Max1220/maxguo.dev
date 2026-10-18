@@ -10,6 +10,9 @@ on:
       - 'scripts/check-overflow.mjs'
       - 'scripts/generate-non-answers-og.mjs'
       - 'scripts/check-non-answers-p13.mjs'
+      - 'scripts/check-non-answers-f01.mjs'
+      - 'scripts/check-non-answers-f01-http-preview.mjs'
+      - 'scripts/check-non-answers-f01-publication-route.mjs'
       - '.github/workflows/non-answers-pr-check.yml'
   workflow_dispatch:
 
@@ -86,7 +89,7 @@ jobs:
       - name: Verify P13 trilingual question-compression short case
         run: node scripts/check-non-answers-p13.mjs
 
-      - name: Verify F01 unpublished trilingual evidence flagship
+      - name: Verify F01 publishable-source trilingual evidence flagship
         run: node scripts/check-non-answers-f01.mjs
 
       - name: Upload F01 draft-case QA screenshots
@@ -123,17 +126,14 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
-      - name: Prepare F01 future release metadata and OG (artifact only)
-        run: node scripts/prepare-non-answers-f01-publication.mjs --preview
-
-      - name: Verify F01 publication candidate site navigation (loopback only)
+      - name: Verify F01 release-source case navigation (localhost only)
         run: node scripts/check-non-answers-f01-publication-route.mjs
 
-      - name: Upload F01 publication preparation artifact (NOT DEPLOYED)
+      - name: Upload F01 release-source QA evidence (NOT DEPLOYED)
         uses: actions/upload-artifact@v4
         with:
-          name: f01-publication-preparation-only
-          path: .astro/f01-publication-preparation/
+          name: f01-release-source-qa
+          path: .astro/f01-release-source-qa/
           if-no-files-found: error
           retention-days: 14
 

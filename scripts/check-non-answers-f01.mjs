@@ -15,7 +15,13 @@ for (const p of [htmlPath,evidencePath,indexPath]) assert.ok(existsSync(p),'Miss
 const html = readFileSync(htmlPath,'utf8');
 const index = readFileSync(indexPath,'utf8');
 const manifest = JSON.parse(readFileSync(evidencePath,'utf8'));
-assert.match(html,/<meta name="robots" content="noindex,nofollow"/,'Unreleased F01 must remain noindex');
+assert.match(html,/<meta name="robots" content="index,follow,max-image-preview:large"/,'Publication source must have release robots');
+assert.ok(html.includes('<link rel="canonical" href="https://gbx-max1220.github.io/maxguo.dev/non-answers/cases/fengxian-evidence-2022/">'),'Published canonical missing');
+assert.ok(html.includes('<meta property="og:image" content="https://gbx-max1220.github.io/maxguo.dev/non-answers/cases/fengxian-evidence-2022/assets/og-f01.png">'),'Dedicated social cover missing');
+const cover = readFileSync(resolve(dir,'assets/og-f01.png'));
+assert.equal(cover.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
+assert.equal(cover.readUInt32BE(16),1200);
+assert.equal(cover.readUInt32BE(20),630);
 
 function linear(c) { c /= 255; return c <= 0.04045 ? c/12.92 : ((c+0.055)/1.055)**2.4; }
 function luminance(hex) {
@@ -37,8 +43,9 @@ for(const bg of ['#f6f2e8','#fffdf7','#f4eee4','#e7eee5']) {
     'F01 small text contrast below WCAG AA: '+accent+' on '+bg);
 }
 
-assert.ok(!index.includes(route),'Unpublished F01 must have no live main-article entry');
-assert.equal(manifest.status,'PREPUBLICATION_REVIEW_ONLY');
+assert.ok(index.includes('id="f01-case-entry"') && index.includes(route),'F01 release entry missing');
+assert.ok(readFileSync('astro.config.mjs','utf8').includes('https://gbx-max1220.github.io/maxguo.dev/non-answers/cases/fengxian-evidence-2022/'),'Sitemap F01 customPage missing');
+assert.equal(manifest.status,'PUBLIC_EVIDENCE_REPORT');
 assert.equal(manifest.case_id,'F01-fengxian');
 assert.deepEqual(manifest.checkpoints.map(x=>x.date),dates);
 assert.equal(manifest.sources.length,7);

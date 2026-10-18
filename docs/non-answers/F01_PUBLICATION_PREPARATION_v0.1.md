@@ -33,3 +33,7 @@
 5. 只有获得合并／生产部署的单独授权，且最终 release commit CI 通过后才进行操作；完毕后验证站点可达、图片可达、robots、canonical、站内入口、生产 Worker 版本。
 
 **当前不执行第 2 至第 5 步；以上仅是准备工作。**
+
+## 2026-10-18 Release-source candidate amendment (still Draft)
+
+The actual Draft source now contains a F01 sitemap entry, a multilingual feature card, the case page's release-state title, canonical and Open Graph, and a dedicated 1200×630 PNG. This is **pre-merge code**, not an authorized publication. The evidence register's status is now the time-independent descriptor `PUBLIC_EVIDENCE_REPORT` (not a false claim that the site has already launched). Publication-state source tests supersede the original noindex/unlinked draft-only tests. The old `--preview` generator remains an archival preparation tool and is **not invoked by release-source CI**. Live deployment is a separate, explicitly authorized step.

@@ -6,8 +6,10 @@ import {chromium} from 'playwright';
 const prefix='/maxguo.dev/non-answers/cases/fengxian-evidence-2022/';
 const root=resolve('dist/non-answers/cases/fengxian-evidence-2022');
 const register=JSON.parse(readFileSync(join(root,'evidence_register.json'),'utf8'));
-assert.equal(register.status,'PREPUBLICATION_REVIEW_ONLY');
-const types={'.html':'text/html; charset=utf-8','.svg':'image/svg+xml','.json':'application/json'};
+assert.equal(register.status,'PUBLIC_EVIDENCE_REPORT');
+const types={'.html':'text/html; charset=utf-8','.svg':'image/svg+xml','.json':'application/json','.png':'image/png'};
+const html=readFileSync(join(root,'index.html'),'utf8');
+assert.match(html,/<meta name="robots" content="index,follow/,'Release-source robots directive missing');
 const server=createServer((req,res)=>{
   const path=new URL(req.url,'http://127.0.0.1').pathname;
   if(!path.startsWith(prefix)){res.writeHead(404).end();return}
@@ -40,6 +42,8 @@ try{
     assert.equal(await page.locator('#timeline button').count(),6);
     const sourceNames=await page.locator('.src-card a').evaluateAll(ns=>ns.map(n=>n.getAttribute('aria-label')));
     assert.equal(sourceNames.length,7);assert.equal(new Set(sourceNames).size,7);
+    const og=await fetch(url+'assets/og-f01.png');
+    assert.equal(og.status,200);assert.match(og.headers.get('content-type'),/image\/png/);
     for(const n of ['01','02']){
       const img=page.locator('#figure'+n+'-image');
       assert.equal(await img.evaluate(i=>i.complete&&i.naturalWidth>0),true);

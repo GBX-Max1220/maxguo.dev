@@ -8,7 +8,7 @@ import {resolve,join,sep,extname} from 'node:path';
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 
-const root=resolve('.astro/f01-publication-preparation');
+const root=resolve('dist');
 const prefix='/maxguo.dev/';
 const casePath='non-answers/cases/fengxian-evidence-2022/';
 const fullCasePath=prefix+casePath;
@@ -36,13 +36,13 @@ const server=createServer((req,res)=>{
 });
 await new Promise((accept,reject)=>server.listen(0,'127.0.0.1',err=>err?reject(err):accept()));
 const base='http://127.0.0.1:'+server.address().port+'/maxguo.dev/';
-const output=join(root,'route-evidence');
+const output=resolve('.astro/f01-release-source-qa');
 mkdirSync(output,{recursive:true});
 const browser=await chromium.launch({headless:true});
 const report={
- kind:'F01 staged future-release, loopback-only navigation QA',
- source:'generated .astro/f01-publication-preparation',
- publication_executed:false,
+ kind:'F01 actual release-source Draft branch, loopback-only navigation QA',
+ source:'actual dist/ release-source candidate on unmerged Draft branch',
+ production_deployment_executed:false,
  scenarios:[],failures:[]
 };
 try{
@@ -99,10 +99,11 @@ try{
    report.scenarios.push({locale:test.key,index_status:indexResponse.status(),case_status:navResponse.status(),article_lang:test.html,source_count:7,stage_count:6,figures_loaded:2,og_http_ok:true,local_x_robots_tag:'noindex',status:'PASS',screenshot:screen});
    await page.close();
  }
- const sitemap=readFileSync(join(root,'proposed/astro.config.mjs'),'utf8');
+ const sitemap=readFileSync(resolve('astro.config.mjs'),'utf8');
  assert.ok(sitemap.includes("'"+baseUrl+"'"));
- const original=readFileSync('astro.config.mjs','utf8');
- assert.ok(!original.includes("'"+baseUrl+"'"),'Real sitemap was changed before release authorization');
+ assert.ok(sitemap.includes("'"+baseUrl+"'"),'Tracked Astro release sitemap config missing');
+ const generated=readFileSync(resolve('dist/sitemap-0.xml'),'utf8');
+ assert.ok(generated.includes(baseUrl),'Built sitemap missing F01');
  console.log('F01 future-release NAVIGATION PASS: 3 locale entry→case HTTP routes, figures, OG, sitemap, never deployed.');
 }catch(e){report.failures.push(String(e.stack||e));throw e}
 finally{

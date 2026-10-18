@@ -1,6 +1,6 @@
 {
   "case_id": "F01-fengxian",
-  "status": "PREPUBLICATION_REVIEW_ONLY",
+  "status": "PUBLIC_EVIDENCE_REPORT",
   "evidence_basis": "public disclosure by date",
   "sources": [
     {
@@ -131,6 +131,6 @@
     "Public disclosure date is not internal discovery date",
     "Do not claim reader comprehension gains without tests"
   ],
-  "revision": "Gate4 v0.4 / provenance correction 2026-10-13",
+  "revision": "Release source candidate / evidence provenance preserved 2026-10-18",
   "sources_review_note": "S01/S02 use media reproductions; S03 full contemporaneous reproduction is attributed to Xuzhou Release on Phoenix; original government-account URL not independently authenticated; S05 is a government-domain copy that identifies Junction News as the carrier; S07 is a reproduction of a first-instance court notice, not final judgment proof."
 }
