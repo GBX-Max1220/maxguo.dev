@@ -126,6 +126,9 @@ jobs:
       - name: Prepare F01 future release metadata and OG (artifact only)
         run: node scripts/prepare-non-answers-f01-publication.mjs --preview
 
+      - name: Verify F01 publication candidate site navigation (loopback only)
+        run: node scripts/check-non-answers-f01-publication-route.mjs
+
       - name: Upload F01 publication preparation artifact (NOT DEPLOYED)
         uses: actions/upload-artifact@v4
         with:
