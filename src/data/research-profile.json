@@ -9,13 +9,17 @@
       "id": "boundary",
       "title": "What the Score Measured",
       "subtitle": "Failure attribution in an agent memory evaluation",
-      "status": "Public preprint · with Dino Vitale, Boundary Labs",
+      "status": "Joint public preprint + my methods report · with Dino Vitale, Boundary Labs",
       "question": "When a memory-evaluation task fails, does the outcome score tell us which component failed?",
-      "contribution": "Co-designed an observability map that separates outcomes, available evidence, failure attribution, and judge confidence; co-authored the public preprint.",
+      "contribution": "Co-designed an observability map that separates outcomes, available evidence, failure attribution, and judge confidence; authored the companion methods report (rubric, test matrix, judging protocol) as its own deposit, and co-authored the public preprint.",
       "result": "Outcome scores alone cannot identify the failing component when traces are missing.",
       "scope": "LongMemEval-based evaluation; claims are bounded to inspected and collaborator-reported evidence.",
       "links": [
-        { "label": "Preprint", "url": "https://zenodo.org/records/22980060" }
+        { "label": "Preprint", "url": "https://zenodo.org/records/22980060" },
+        {
+          "label": "Methods report",
+          "url": "https://zenodo.org/records/23273896"
+        }
       ],
       "image": "/images/research/boundary-failure-attribution.svg"
     },
@@ -56,6 +60,13 @@
   ],
   "engineeringContributions": [
     {
+      "id": "rai-judge-data-boundary",
+      "title": "W&B rai-toolkit judge prompt data boundary",
+      "status": "Merged upstream · wandb/rai-toolkit#114",
+      "summary": "Merged fix that keeps trusted grading rules and the text being scored in separate halves of every LLM-judge prompt: rule prose stays in the system message, row values travel as one structured JSON message, and a scorer whose rule text is missing now stops with an error instead of scoring without rules. Covers 12 scorers with 73 new offline test cases; it narrows where scored text can read as an instruction, and does not claim prompt injection is solved.",
+      "url": "https://github.com/wandb/rai-toolkit/pull/114"
+    },
+    {
       "id": "reef-runner",
       "title": "REEF runner lifecycle fix",
       "status": "Merged upstream · Human-Agent-Society/reef#677",
@@ -68,13 +79,6 @@
       "status": "Open PR · aiming-lab/SkillRL#69",
       "summary": "Submitted a checkpoint-resume fix that saves and restores the training SkillBank, with state validation, atomic writes, and legacy-checkpoint compatibility.",
       "url": "https://github.com/aiming-lab/SkillRL/pull/69"
-    },
-    {
-      "id": "feedback-state",
-      "title": "Stale feedback vectors after edits/deletes",
-      "status": "Open issue · future-agi/future-agi#3278",
-      "summary": "Reproduced stale few-shot evaluator feedback remaining active after feedback edits and deletion, checking whether persistent state follows the source feedback lifecycle.",
-      "url": "https://github.com/future-agi/future-agi/issues/3278"
     }
   ],
   "collaboration": {
@@ -91,24 +95,31 @@
       "title": "Implicit human feedback",
       "context": "Research collaboration with Haw-Shiuan Chang, University of Arizona",
       "date": "Sep 2026 - present",
-      "status": "Ongoing collaboration · data and representation audit",
+      "status": "Ongoing collaboration · correspondence patched, outputs verified",
       "summary": "I audit gaze and mouse logs and compare sequence representations before they are used as implicit feedback. The first question is what the collection mechanism lets us infer about behavior.",
       "bullets": [
         "Audited missing and duplicate events, coordinate validity, temporal gaps, and query-trajectory-response alignment.",
-        "Compared word-run and fixation-proxy representations and examined how preprocessing choices change the signal. Learning improvements have not yet been established."
+        "Compared word-run and fixation-proxy representations and examined how preprocessing choices change the signal. Learning improvements have not yet been established.",
+        "October round: tied each claim back to its four coordinates at once — the timestamp, the word position, the exact version of the displayed text that position indexes into, and the interface region — so a summary cannot cite a word number taken from a different rendering of the same screen.",
+        "Re-checked the drafted summaries with a second, independent implementation rather than the code that produced them: 361 machine-checkable statements, all of which hold, every quoted timestamp landing on the 0.5-second bin grid and every cited word index falling inside its own text.",
+        "Read the recorded model calls back against the trajectories they describe — 28 calls in the current rounds, 27 of them checked with the model identifier each response echoed, and one empty response retried rather than counted.",
+        "Limits: region correspondence holds at token level only and the geometric regions behind it remain unverified; nothing here shows that denoising works or that preference prediction improved. The audited material includes participant logs and collaborator correspondence, so it stays within the collaboration and this entry carries no public code link."
       ]
     },
     {
       "id": "longmemeval",
       "title": "Memory-agent evaluation reliability",
       "context": "Research collaboration with Dino Vitale, Boundary Labs",
-      "date": "Sep 2026",
-      "status": "Delivered evaluation framework · bounded trace review",
+      "date": "Sep 2026 - Oct 2026",
+      "status": "Delivered evaluation framework · two public Zenodo deposits",
       "summary": "For LongMemEval-based evaluation, I designed a framework that separates observed outcomes, available evidence, failure attribution, and judge confidence. Missing traces limit what a failed answer can tell us about the memory system.",
       "bullets": [
         "Delivered an observability map, failure-attribution framework, five diagnostic tests, and a judge-reliability protocol.",
         "Distinguished independently inspected traces from collaborator-reported checks; limited attribution claims to the evidence actually available.",
-        "Co-authored the public preprint \"What the Score Measured: Failure Attribution in an Agent Memory Evaluation\" (Zenodo, October 1, 2026): https://zenodo.org/records/22980060"
+        "Co-authored the public preprint \"What the Score Measured: Failure Attribution in an Agent Memory Evaluation\" (Zenodo, October 1, 2026): https://zenodo.org/records/22980060",
+        "The methods half is now a deposit of its own — \"Failure Attribution and Evaluation Reliability Framework for LongMemEval\" (Zenodo v2.0 RC3, October 11, 2026), sole-authored and registered as the supplement to that preprint, so the two records share one research background instead of reading as separate studies: https://zenodo.org/records/23273896",
+        "Division of labour as stated by the joint preprint: the source reconstruction, the harness repair, the rerun and the write-up are Dino Vitale's; the audit of public materials, the attribution rubric, the test matrix and the judging protocol are mine.",
+        "The judging protocol was applied to 150 predictions, which are 25 cases scored under six conditions — not 150 distinct questions. Both records are Zenodo deposits: neither is peer reviewed, and no submission or acceptance is claimed."
       ]
     }
   ],

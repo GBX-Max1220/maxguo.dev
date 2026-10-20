@@ -5,7 +5,7 @@
   "year": 2026,
   "status": "preprint",
   "workflowState": "active",
-  "lastVerified": "2026-10-10",
+  "lastVerified": "2026-10-21",
   "tags": [
     "Agent Memory Evaluation",
     "Failure Attribution",
@@ -21,7 +21,7 @@
     "chicago": "Vitale, Dino, and Baixin Guo. \"What the Score Measured: Failure Attribution in an Agent Memory Evaluation.\" Public preprint. Zenodo, 2026. https://doi.org/10.5281/zenodo.22980060.",
     "mla": "Vitale, Dino, and Baixin Guo. What the Score Measured: Failure Attribution in an Agent Memory Evaluation. Public preprint, Zenodo, 2026, doi:10.5281/zenodo.22980060."
   },
-  "abstract": "This public preprint, co-authored with Dino Vitale (Boundary Labs), documents why an outcome score alone cannot identify which component of a LongMemEval-based agent memory evaluation failed. It separates observed outcomes, available evidence, failure attribution, and judge confidence, and shows how missing traces limit what a failed answer can tell us about the memory system. It is a preprint, not a peer-reviewed publication.",
+  "abstract": "This public preprint, co-authored with Dino Vitale (Boundary Labs), documents why an outcome score alone cannot identify which component of a LongMemEval-based agent memory evaluation failed. It separates observed outcomes, available evidence, failure attribution, and judge confidence, and shows how missing traces limit what a failed answer can tell us about the memory system. The reconstruction, harness repair, rerun and write-up are Dino Vitale's; the audit of public materials, the attribution rubric, the test matrix and the judging protocol are Baixin Guo's. The instrument itself is deposited separately as a standalone methods report (DOI 10.5281/zenodo.23273896), so both records describe one study rather than two unrelated ones. Its four-rater blind protocol was applied to 150 predictions, which are 25 cases scored under six conditions rather than 150 distinct questions. It is a preprint, not a peer-reviewed publication.",
   "featured": true,
   "projectId": "boundary-memory-eval"
 }

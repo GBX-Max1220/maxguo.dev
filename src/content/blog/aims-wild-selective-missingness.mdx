@@ -1,0 +1,198 @@
+---
+id: "aims-wild-selective-missingness"
+title: "When the Missing Responses Are the Interesting Ones: Selective Missingness and Rasch Fit Diagnostics on Real WILD Panels"
+date: 2026-10-19
+type: "research-note"
+tags: ["Educational Measurement", "Rasch Fit", "Missing Data", "Evaluation Diagnostics"]
+excerpt: "Draft note: on fixed real WILD response panels, artificially imposed selective missingness moves Rasch infit/outfit item diagnostics, and inverse-propensity weighting recovers part of that distance only under the mechanism it assumes. Counterfactual sensitivity, not a claim about WILD or about anomaly detection."
+draft: true
+---
+
+## Status of this note
+
+Draft. Not public, not listed in the site navigation, and not sent to AIMS.
+
+This note is separate from the engineering contribution recorded on the
+contribution log. Upstream `aims-foundations/torch_measure` issue #52 and pull
+request #53 concern one bug — masked responses propagating `NaN` through infit
+and outfit item statistics — and PR #53 is open and unreviewed. Nothing here is
+attached to that PR, and no research conclusion has been published to the
+upstream project. Reaching this stage does not establish a formal research
+collaboration with AIMS; the work so far is an internal pre-flight on public
+benchmark data.
+
+## What question this tries to answer
+
+Diagnostic statistics that flag misfitting items are usually computed on the
+responses a benchmark actually observed. If some items are systematically less
+observed for some respondents — in WILD the respondents are models — does the
+*ranking* of items by misfit survive? And if we weight observed responses by the
+inverse of their estimated probability of being observed (inverse-propensity
+weighting, IPW), does the ranking come back?
+
+Concretely: can IPW applied to item-level fit-score estimating ratios, holding
+the Rasch predicted probabilities frozen, reduce the sensitivity to selective
+observation that an earlier stage documented on fixed real response panels?
+
+Three things are explicitly **not** the question, and the note does not claim
+them:
+
+1. whether WILD is naturally missing-not-at-random (MNAR);
+2. whether genuinely abnormal items are detected;
+3. whether this proposes a new IPW estimator.
+
+## How it was set up
+
+- **Data.** Two fixed response panels from the WILD benchmark
+  (`kensho/WILD`), pinned by source SHA-256 `a05b8203…cd4aca`: IFEval/general,
+  65 models × 528 items, and Winogrande/general, 65 models × 1,261 items. Rows
+  are *models*, not people — WILD records model-by-item responses, and the models
+  take the person role in the Rasch fit statistic. Each panel is a complete,
+  non-constant subset (541 and 1,267 items before filtering), and the run record
+  itself flags it as `not_representative_of_all_WILD_items`. The raw response
+  file is not redistributed here.
+- **Missingness.** Masks were generated from an already observed, dense panel at
+  70% retained coverage, under MCAR, MAR and MNAR regimes at severities 0, 1.6
+  and 2.8. Because the panels start out fully observed, these are *imposed*
+  mechanisms: the recorded scope is "artificial selection with known pi", so the
+  design measures counterfactual sensitivity, not which values are actually
+  absent in the source data.
+- **Instrument.** Rasch infit and outfit mean-square estimating ratios, with
+  item difficulty from marginal maximum likelihood (MML). The estimand is the
+  full-panel item-fit score conditional on frozen complete-data cross-fit
+  predictions; a second arm re-estimates them on each masked panel instead.
+- **Weighting arms.** `unweighted` (complete-case item mean-square ratio),
+  `oracle_ipw` (inverse of the known artificial selection probability),
+  `estimated_ipw` (a logistic response indicator fitted on synthetic index
+  covariates only), and `oracle_ipw_clip10` (the oracle propensity floored at
+  0.1).
+- **Outcome measures.** Three readings of the same comparison, each against the
+  complete-data run: the median absolute log shift of the fit ratios (oriented
+  `unweighted − corrected`), the Spearman correlation of item severity ranks
+  (`corrected − unweighted`), and the overlap of the top 10% flagged items
+  (`corrected − unweighted`). Positive means the corrected ranking sits closer to
+  the reference.
+- **Replication.** 30 seeded mask draws per cell, seed basis 20261019, with a
+  paired per-replication audit at the primary cells. A separate boundary series
+  (10 draws, coverage 0.5 and 0.9, severities 0, 2.8 and 5.0) and a 3-draw refit
+  arm are reported alongside.
+
+## What the panels showed
+
+Every number below is read from `stage7_primary_audit/stage7_paired_effects.csv`
+and `stage7_refit_audit/stage7_paired_effects.csv` (30 paired replications per
+cell, or 3 for the refit arm). The audit orients the shift as
+`unweighted − corrected` and the other two as `corrected − unweighted`, so
+positive means the corrected ranking sits closer to the complete-data reference.
+
+| Cell | Median absolute log shift | Severity-rank Spearman | Top-10% overlap |
+| --- | --- | --- | --- |
+| Winogrande, MNAR 2.8, frozen, oracle IPW, infit | **+0.0977** (0.0951, 0.1002) · 30/30 improved | **+0.3484** (0.3390, 0.3577) · 30/30 | **+0.1480** (0.1368, 0.1593) · 30/30 |
+| IFEval, same cell | +0.0386 (0.0351, 0.0420) · 30/30 | +0.2488 (0.2376, 0.2600) · 30/30 | +0.0503 (0.0383, 0.0624) · 28 improved, 2 tied |
+| IFEval, MNAR 2.8, estimated IPW | −0.00020 (−0.00051, +0.00012) · 13 improved, 17 worsened | +0.00005 · 14 improved, 16 worsened | −0.0006 · 1 worsened, 29 tied |
+| IFEval, MAR 2.8, oracle IPW | −0.0046 (−0.0062, −0.0030) · 5 improved, 25 worsened | **−0.0394** (−0.0492, −0.0295) · 2 improved, 28 worsened | +0.0195 · 19 improved, 4 worsened, 7 tied |
+| Winogrande, MAR 2.8, oracle IPW | −0.0086 (−0.0096, −0.0076) · 0 improved, 30 worsened | **−0.0761** (−0.0816, −0.0706) · 0 improved, 30 worsened | −0.1273 · 0 improved, 30 worsened |
+| Both panels, MCAR, oracle IPW | **0.0** (0, 0) · 30 ties | 0.0 · 30 ties | 0.0 · 30 ties |
+
+Five things stand out:
+
+- **Oracle weighting helps where the mechanism is the one it assumes.** On the
+  Winogrande panel under MNAR, the median absolute log shift falls from 0.2090
+  unweighted to 0.1113 weighted, and the severity ranking moves 0.348 closer to
+  the complete-data ordering in every one of the 30 replications. IFEval moves in
+  the same direction but about 40% as far, so the size of the gain is a property
+  of the panel, not a universal constant.
+- **Estimated propensities bought nothing.** Under the same MNAR regime the
+  estimated-IPW arm sits at −0.00020 on the shift, with 13 replications improved
+  and 17 worsened — indistinguishable from doing nothing. The clipped oracle arm
+  is numerically identical to the unclipped one at this severity, so clipping
+  never activated where it might have mattered. Knowing the mechanism is not the
+  same as being able to estimate it from the observed panel.
+- **Under MAR the same correction is a net harm, but not uniformly.** On
+  Winogrande all three readings move away from the reference and not one of the
+  30 replications improves. On IFEval the shift and the severity ranking worsen —
+  25 and 28 of 30 replications respectively — while the top-10% overlap actually
+  improves in 19 of 30. A weighting tuned to repair one mechanism biases the
+  ranking when the missingness depends on something else, and which reading you
+  look at can change the sign of the verdict.
+- **The MCAR control is exactly zero, not approximately zero**: 30 ties in every
+  reading on both panels. When the missingness does not depend on the item, there
+  is nothing for the weights to undo, and the pipeline reports that rather than
+  manufacturing a gain.
+- **Refitting the probabilities instead of freezing them reverses the result.**
+  On IFEval MNAR the refit arm moves the shift by −0.1543 (−0.1787, −0.1298),
+  with 0 of 3 replications improved, and the severity ranking by −0.1853. Weight
+  at the score layer does not repair a pipeline whose predicted probabilities were
+  themselves re-estimated on the masked panel. This arm ran 3 replications and is
+  reported as exploratory, not as a confirmatory result.
+
+## Limits that matter more than the numbers
+
+These are carried from the run records themselves, not added after the fact.
+
+- **Reference, not truth.** "Diagnostic stability relative to the full-data
+  baseline is not misfit-detection accuracy." The complete-data cross-fit is an
+  empirical reference; no real misfit labels exist here and none were measured,
+  so a smaller top-10% overlap is not evidence of worse anomaly detection.
+- **Imposed mechanisms.** "No inference about whether natural WILD missingness is
+  MNAR." The result describes how the diagnostic responds when such a mechanism
+  is imposed on a dense panel.
+- **The oracle is not deployable.** The MNAR oracle propensity uses target
+  responses that a deployed correction could not observe, and "estimating logistic
+  pi from response indicators alone cannot identify MNAR pi" — which is exactly
+  what the flat estimated-IPW arm shows.
+- **Synthetic covariates.** The MAR arm's covariates are synthetic index
+  identifiers, not scientific predictor measurements, so its MAR regime is a
+  structural convenience rather than a claim about observable predictors.
+- **Finite-sample caution.** IPW fit scores are ratio estimators; unbiasedness is
+  not guaranteed in finite samples, and no correction of the MML/JML
+  parameter-estimation stage is claimed — the refit arm is the direct evidence
+  for that limit.
+- **Two panels, 65 models each.** Small, fixed, from one source, and selected as
+  complete non-constant subsets. "Repeated masks on fixed matrices do not
+  establish population generalization." The intervals cover mask draws
+  conditional on each fixed panel only.
+- **Exploratory comparisons.** Severities, panels and arms were compared without
+  adjustment for multiple comparisons; the three-draw refit arm is exploratory on
+  its replication count alone.
+- **Null and negative results are the point.** No new estimator is claimed, and
+  the MAR degradation and the reversed refit arm are reported with the same
+  prominence as the MNAR gain.
+
+## Rights and redistribution
+
+The WILD dataset page labels the release Apache-2.0, while noting that original
+source tasks may still carry task-level rights, and the permitted treatment on
+record excludes redistribution of benchmark prompts. The AIMS measurement
+database is gated behind acceptance of terms. Raw response files were therefore
+kept out of every packaged stage; only shapes, hashes and aggregate statistics
+appear here.
+
+## What has to exist before this can go public
+
+The note stays a draft until these are in hand. Each item is currently **absent**:
+
+1. The consolidated final report. `AIMS / WILD Final Research Release v1.0` is
+   named only as a forward-looking step in the Stage 7 plan; no report file,
+   abstract, or narrative exists on disk.
+2. `AIMS_COLLABORATION_BRIEF_EN.md` — not found.
+3. `RESEARCH_CONTRIBUTION_ASSESSMENT_CN.md` — not found.
+4. An author/credit and citation line for the release; none of the stage
+   documents carries one.
+5. A LICENSE or data-use statement inside the release package itself. Neither
+   results archive ships one.
+6. A source file for the result figure. No figure asset exists anywhere in the
+   stage tree, so the planned public chart has nothing to render from.
+7. A handoff record naming which stage outputs are final.
+8. A reconciled Stage 7 archive. As bundled, it ships the pre-fix IFEval and
+   Winogrande boundary runs (stage code SHA-256 `7cd0eb6a…`) next to the fixed
+   Winogrande boundary run (`807dcefc…`), and includes only the fixed boundary
+   audit. No re-run of the IFEval boundary series under the fixed code exists on
+   disk, so the archive alone does not tell a reader which boundary numbers are
+   current.
+
+Code, SHA-256 manifests, per-replication CSVs, the three audit tables, the
+methods document and the limitation statements are all present and verified. The
+missing items are the consolidated report, the figure source and the
+rights/credit block — that is, the material a reader would need to check the
+note independently, which is exactly why it is not published.

@@ -1,0 +1,30 @@
+{
+  "id": "longmemeval-failure-attribution-framework",
+  "title": "Failure Attribution and Evaluation Reliability Framework for LongMemEval",
+  "authors": ["Baixin Guo"],
+  "year": 2026,
+  "status": "preprint",
+  "venue": "Zenodo · methodology report v2.0 RC3",
+  "workflowState": "active",
+  "lastVerified": "2026-10-21",
+  "tags": [
+    "Failure Attribution",
+    "Evaluation Reliability",
+    "Agent Memory Evaluation",
+    "Judge Protocol"
+  ],
+  "links": {
+    "preprint": "https://zenodo.org/records/23273896",
+    "doi": "10.5281/zenodo.23273896",
+    "pdf": "https://zenodo.org/records/23273896/files/LongMemEval_Failure_Attribution_Framework_v2_RC3.pdf"
+  },
+  "citation": {
+    "bibtex": "@misc{guo2026framework,\n  author = {Guo, Baixin},\n  title = {Failure Attribution and Evaluation Reliability Framework for LongMemEval},\n  year = {2026},\n  version = {2.0 RC3},\n  doi = {10.5281/zenodo.23273896},\n  note = {Public methodology report (versioned Zenodo deposit), supplement to doi:10.5281/zenodo.22980060; not peer reviewed}\n}",
+    "apa": "Guo, B. (2026). Failure attribution and evaluation reliability framework for LongMemEval (Version 2.0 RC3) [Methodology report]. Zenodo. https://doi.org/10.5281/zenodo.23273896",
+    "chicago": "Guo, Baixin. \"Failure Attribution and Evaluation Reliability Framework for LongMemEval.\" Methodology report, Version 2.0 RC3. Zenodo, 2026. https://doi.org/10.5281/zenodo.23273896.",
+    "mla": "Guo, Baixin. Failure Attribution and Evaluation Reliability Framework for LongMemEval. Version 2.0 RC3, Zenodo, 2026, doi:10.5281/zenodo.23273896."
+  },
+  "abstract": "The methods half of the Boundary Labs collaboration, deposited on its own and registered on Zenodo as the supplement to the joint preprint \"What the Score Measured\" (DOI 10.5281/zenodo.22980060), which reports the reconstruction, the repaired harness and the rerun. This report carries the instrument rather than the run. It reads one failed answer along four separate scales: outcome correctness (O-C, O-I, O-D, O-U), what evidence is actually available (E0 to E4), how far a failure can be attributed to a stage (A0 to A3), and how much confidence the judgment itself carries (J0 to J3). It adds a T1-T5 diagnostic test matrix naming the claim each test can support, and a blind four-rater judging protocol applied to 150 prediction-judgment instances - 25 cases scored under six conditions, not 150 distinct questions. Retrieval and reader-context validation are marked collaborator-reported and were not independently recomputed; the fixed-transcript reader replay (T4) is left unexecuted, so no new E4, A2 or A3 conclusions come from it. Original benchmark scores and hand judgments are preserved unchanged. A public versioned report, not a peer-reviewed publication; no conference submission or acceptance is claimed.",
+  "featured": true,
+  "projectId": "boundary-memory-eval"
+}
