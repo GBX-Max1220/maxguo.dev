@@ -3,8 +3,8 @@
   "title": "Failure Attribution and Evaluation Reliability Framework for LongMemEval",
   "authors": ["Baixin Guo"],
   "year": 2026,
-  "status": "preprint",
-  "venue": "Zenodo · methodology report v2.0 RC3",
+  "status": "research_note",
+  "venue": "Zenodo · Methodology report v2.0 RC3",
   "workflowState": "active",
   "lastVerified": "2026-10-21",
   "tags": [
@@ -14,7 +14,6 @@
     "Judge Protocol"
   ],
   "links": {
-    "preprint": "https://zenodo.org/records/23273896",
     "doi": "10.5281/zenodo.23273896",
     "pdf": "https://zenodo.org/records/23273896/files/LongMemEval_Failure_Attribution_Framework_v2_RC3.pdf"
   },

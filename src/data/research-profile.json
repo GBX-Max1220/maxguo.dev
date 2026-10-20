@@ -95,15 +95,11 @@
       "title": "Implicit human feedback",
       "context": "Research collaboration with Haw-Shiuan Chang, University of Arizona",
       "date": "Sep 2026 - present",
-      "status": "Ongoing collaboration · correspondence patched, outputs verified",
-      "summary": "I audit gaze and mouse logs and compare sequence representations before they are used as implicit feedback. The first question is what the collection mechanism lets us infer about behavior.",
+      "status": "Ongoing collaboration · no denoising or prediction gain shown yet",
+      "summary": "Before gaze and mouse logs can serve as implicit feedback, what does the collection mechanism actually let us infer about behavior?",
       "bullets": [
-        "Audited missing and duplicate events, coordinate validity, temporal gaps, and query-trajectory-response alignment.",
-        "Compared word-run and fixation-proxy representations and examined how preprocessing choices change the signal. Learning improvements have not yet been established.",
-        "October round: tied each claim back to its four coordinates at once — the timestamp, the word position, the exact version of the displayed text that position indexes into, and the interface region — so a summary cannot cite a word number taken from a different rendering of the same screen.",
-        "Re-checked the drafted summaries with a second, independent implementation rather than the code that produced them: 361 machine-checkable statements, all of which hold, every quoted timestamp landing on the 0.5-second bin grid and every cited word index falling inside its own text.",
-        "Read the recorded model calls back against the trajectories they describe — 28 calls in the current rounds, 27 of them checked with the model identifier each response echoed, and one empty response retried rather than counted.",
-        "Limits: region correspondence holds at token level only and the geometric regions behind it remain unverified; nothing here shows that denoising works or that preference prediction improved. The audited material includes participant logs and collaborator correspondence, so it stays within the collaboration and this entry carries no public code link."
+        "Audited missing and duplicate events, coordinate validity, temporal gaps and query-trajectory-response alignment, and compared word-run with fixation-proxy representations; this round each drafted summary was tied back to its four coordinates at once — timestamp, word position, the exact displayed-text version that position indexes into, and interface region — so a claim cannot cite a word number taken from a different rendering of the same screen.",
+        "Re-checked those summaries with a second, independent implementation rather than the code that produced them: 361 machine-checkable statements, all of which hold, with every quoted timestamp landing on the 0.5-second bin grid and every cited word index falling inside its own text."
       ]
     },
     {
