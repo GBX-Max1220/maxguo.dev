@@ -616,5 +616,446 @@
       "verifiedAt": "2026-10-04T12:45:06Z",
       "apiUrl": "https://api.github.com/repos/GBX-Max1220/CheckMyCoach/git/tags/9146829c8f2f1f833d0e3803ae6c73afa3a5dfa9"
     }
+  },
+  {
+    "id": "tencent-hunyuan-unirl-pulls-621",
+    "occurredAt": "2026-10-20T18:56:37Z",
+    "project": "Tencent-Hunyuan/UniRL",
+    "kind": "pr",
+    "scope": "external",
+    "event": "submitted",
+    "title": "Validate reward graphs before loading models",
+    "contribution": "UniRL trains models with configurable reward backends. Submitted a two-phase reward lifecycle: construct and validate the complete graph, then explicitly load models; composite backends forward the load hook. The PR reports CPU-only RED/GREEN checks through both the Worker and Hydra construction paths.",
+    "whyItMatters": "Invalid reward configurations should fail before checkpoint reads or GPU allocation. Real-model numerics and GPU training were not tested; the PR remains unmerged.",
+    "status": "open",
+    "url": "https://github.com/Tencent-Hunyuan/UniRL/pull/621",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-20T18:56:37Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/Tencent-Hunyuan/UniRL/pulls/621"
+    },
+    "localDate": "2026-10-21"
+  },
+  {
+    "id": "lenskit-lkpy-pulls-1236",
+    "occurredAt": "2026-10-09T20:59:20Z",
+    "project": "lenskit/lkpy",
+    "kind": "pr",
+    "scope": "external",
+    "event": "submitted",
+    "title": "Stable log-domain RBP and log-mean aggregation",
+    "contribution": "LensKit provides recommender-system evaluation tools. Submitted LogRBP and log-mean aggregation to keep very small rank-biased precision values representable and distinguish log(mean RBP) from mean(log RBP). Added regression coverage for deep ranks, zero values and undefined results.",
+    "whyItMatters": "Numerical underflow can erase distinctions in ranking evaluation. This is a historical backfill dated to the original submission, not a newly merged change or a complete resolution of the broader tuning request.",
+    "status": "open",
+    "url": "https://github.com/lenskit/lkpy/pull/1236",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-09T20:59:20Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/lenskit/lkpy/pulls/1236"
+    },
+    "localDate": "2026-10-10"
+  },
+  {
+    "id": "claw-eval-claw-eval-issues-61",
+    "occurredAt": "2026-10-17T20:49:55Z",
+    "project": "claw-eval/claw-eval",
+    "kind": "issue",
+    "scope": "external",
+    "event": "opened",
+    "title": "Audit merged-result summaries after error reruns",
+    "contribution": "Claw-Eval evaluates agent tasks over repeated trials. Traced the --rerun-errors path: recovered task results are merged, while summary counters can still describe only the rerun subset. Documented a minimal three-task example and a fresh-versus-recovered regression contract.",
+    "whyItMatters": "Recovery should preserve the denominator and statistics of the final result set. This public issue records a read-only source audit, not a full harness reproduction or an upstream code fix.",
+    "status": "open",
+    "url": "https://github.com/claw-eval/claw-eval/issues/61",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-17T20:49:55Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/claw-eval/claw-eval/issues/61"
+    },
+    "localDate": "2026-10-18"
+  },
+  {
+    "id": "zoher15-plurule-issues-1",
+    "occurredAt": "2026-10-18T07:14:20Z",
+    "project": "Zoher15/PluRule",
+    "kind": "issue",
+    "scope": "external",
+    "event": "opened",
+    "title": "Audit cross-split discussion and target identities",
+    "contribution": "PluRule evaluates rule-following in online discussions. Audited 13,371 released thread pairs, finding shared submission and target-comment IDs across splits; traced the pair-level split and optional RAG self-exclusion logic. Reported exact counts and found no direct role flips or answer-option mapping inconsistencies.",
+    "whyItMatters": "Dataset independence depends on underlying discussion identity, not only row identity. No models were run, and the audit does not establish inflated published accuracy.",
+    "status": "open",
+    "url": "https://github.com/Zoher15/PluRule/issues/1",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-18T07:14:20Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/Zoher15/PluRule/issues/1"
+    },
+    "localDate": "2026-10-18"
+  },
+  {
+    "id": "traceelephant-traceelephant-issues-2",
+    "occurredAt": "2026-10-19T21:22:50Z",
+    "project": "TraceElephant/TraceElephant",
+    "kind": "issue",
+    "scope": "external",
+    "event": "opened",
+    "title": "Report substring matching in step-attribution accuracy",
+    "contribution": "TraceElephant evaluates agent failure attribution. Identified a string-containment check under which predicted step 10 can count as correct for reference step 1; documented the asymmetric counterexample and proposed an explicit single-step or multi-step parsing contract.",
+    "whyItMatters": "An evaluator's matching rule can change which failure localizations count as correct. The report does not recompute published results or claim an accepted fix.",
+    "status": "open",
+    "url": "https://github.com/TraceElephant/TraceElephant/issues/2",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-19T21:22:50Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/TraceElephant/TraceElephant/issues/2"
+    },
+    "localDate": "2026-10-20"
+  },
+  {
+    "id": "ruc-nlpir-agent-reflex-issues-3",
+    "occurredAt": "2026-10-20T18:57:59Z",
+    "project": "RUC-NLPIR/Agent-Reflex",
+    "kind": "issue",
+    "scope": "external",
+    "event": "opened",
+    "title": "Audit reflection skills against executable tool schemas",
+    "contribution": "Agent-Reflex releases reflection skills for agent training. Statically checked its 51-entry environment-skill catalog and found two environments whose skill text refers to unavailable tools: ten unresolved function references in total. Asked whether the catalog entries propagate into released training records.",
+    "whyItMatters": "Textual guidance should match the tools an environment actually exposes. Training-data exposure and any effect on learning remain unverified; this is a catalog audit.",
+    "status": "open",
+    "url": "https://github.com/RUC-NLPIR/Agent-Reflex/issues/3",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-20T18:57:59Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/RUC-NLPIR/Agent-Reflex/issues/3"
+    },
+    "localDate": "2026-10-21"
+  },
+  {
+    "id": "autolearnmem-automem-issues-2",
+    "occurredAt": "2026-10-18T19:46:54Z",
+    "project": "autoLearnMem/AutoMem",
+    "kind": "issue",
+    "scope": "external",
+    "event": "opened",
+    "title": "Check evaluation completeness before ledger comparisons",
+    "contribution": "AutoMem's Loop 2 pipeline records evaluation progression for successive training iterations. Traced aggregation over available episode files without an expected-seed completeness gate, and illustrated how a missing low-scoring seed can change the reported mean.",
+    "whyItMatters": "Partial and complete evaluations need explicit coverage before they can support model selection. The finding is source-level with an isolated scoring example, not an end-to-end pipeline failure.",
+    "status": "open",
+    "url": "https://github.com/autoLearnMem/AutoMem/issues/2",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-18T19:46:54Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/autoLearnMem/AutoMem/issues/2"
+    },
+    "localDate": "2026-10-19"
+  },
+  {
+    "id": "lmarena-search-arena-issues-3",
+    "occurredAt": "2026-10-18T19:36:59Z",
+    "project": "lmarena/search-arena",
+    "kind": "issue",
+    "scope": "external",
+    "event": "opened",
+    "title": "Trace citation judgments into missing aggregation columns",
+    "contribution": "Search Arena analyzes search-model responses and their citations. Compared emitted URL-level citation judgments with the final aggregation schema and reproduced a missing-column KeyError using a minimal DataFrame. Proposed reconstruction back to conversation rows and model sides.",
+    "whyItMatters": "Intermediate evidence needs an explicit mapping to the unit being scored. This was an isolated schema check, not a reproduction of the Gemini annotation run or an audit of published scores.",
+    "status": "open",
+    "url": "https://github.com/lmarena/search-arena/issues/3",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-18T19:36:59Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/lmarena/search-arena/issues/3"
+    },
+    "localDate": "2026-10-19"
+  },
+  {
+    "id": "az1326-advisor-models-issues-2",
+    "occurredAt": "2026-10-18T19:33:19Z",
+    "project": "az1326/advisor-models",
+    "kind": "issue",
+    "scope": "external",
+    "event": "opened",
+    "title": "Expose inconsistent denominators for empty student responses",
+    "contribution": "Advisor-models evaluates advice through downstream student responses. Compared two review evaluators: one excludes empty responses from its accuracy denominator while another retains failures. Supplied an isolated comparison showing how response completion can alter apparent model ordering.",
+    "whyItMatters": "Conditional accuracy and completion coverage answer different questions. The report asks for a consistent reporting contract without asserting an effect on the paper's results.",
+    "status": "open",
+    "url": "https://github.com/az1326/advisor-models/issues/2",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-18T19:33:19Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/az1326/advisor-models/issues/2"
+    },
+    "localDate": "2026-10-19"
+  },
+  {
+    "id": "stanford-iris-lab-meta-harness-issues-19",
+    "occurredAt": "2026-10-18T19:22:20Z",
+    "project": "stanford-iris-lab/meta-harness",
+    "kind": "issue",
+    "scope": "external",
+    "event": "opened",
+    "title": "Audit incomplete validation in frontier admission",
+    "contribution": "Meta-Harness evolves candidate harnesses and compares validation performance. Traced means computed from observed datasets and frontier recomputation after failed benchmark jobs; supplied an isolated example where incomplete coverage makes one candidate appear stronger.",
+    "whyItMatters": "Selection should distinguish missing evaluation evidence from demonstrated improvement. This is a source audit and scoring check, not an end-to-end reproduction or a submitted implementation.",
+    "status": "open",
+    "url": "https://github.com/stanford-iris-lab/meta-harness/issues/19",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-18T19:22:20Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/stanford-iris-lab/meta-harness/issues/19"
+    },
+    "localDate": "2026-10-19"
+  },
+  {
+    "id": "microsoft-fara-issues-95",
+    "occurredAt": "2026-10-19T09:23:00Z",
+    "project": "microsoft/fara",
+    "kind": "issue",
+    "scope": "external",
+    "event": "opened",
+    "title": "Reconstruct human outcome labels and inspect tie handling",
+    "contribution": "Fara releases CUAVerifierBench annotations for computer-use verification. Reconstructed UV-informed judgments across 106 trajectories and 215 annotation records; majority voting with ties mapped to zero reproduces every released final label. Asked how third-reviewer adjudication is represented for the 17 tied trajectories.",
+    "whyItMatters": "Reference-label provenance matters when evaluating verifiers. The reconstruction does not establish that the paper is wrong or that these judgments are UV-blind human references.",
+    "status": "open",
+    "url": "https://github.com/microsoft/fara/issues/95",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-19T09:23:00Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/microsoft/fara/issues/95"
+    },
+    "localDate": "2026-10-19"
+  },
+  {
+    "id": "salesforceairesearch-beagle-issues-11",
+    "occurredAt": "2026-10-20T20:02:42Z",
+    "project": "SalesforceAIResearch/Beagle",
+    "kind": "issue",
+    "scope": "external",
+    "event": "opened",
+    "title": "Probe task dependence in bootstrap-based evolution evidence",
+    "contribution": "Beagle supports DarwinX agent evolution. Built a CPU-only synthetic sensitivity check around a vendored task-wise resampling helper, comparing independent-task resampling with family-level resampling when tasks within a family are perfectly correlated.",
+    "whyItMatters": "Repeated-run noise and dependence across benchmark tasks are distinct sources of uncertainty. This deliberately extreme synthetic pilot does not establish a DarwinX failure or that this helper controls its current promotion path.",
+    "status": "open",
+    "url": "https://github.com/SalesforceAIResearch/Beagle/issues/11",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-20T20:02:42Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/SalesforceAIResearch/Beagle/issues/11"
+    },
+    "localDate": "2026-10-21"
+  },
+  {
+    "id": "alibaba-nlp-qqr-issues-16",
+    "occurredAt": "2026-10-20T20:14:30Z",
+    "project": "Alibaba-NLP/qqr",
+    "kind": "issue",
+    "scope": "external",
+    "event": "opened",
+    "title": "Trace RTI admission when the LLM post-check is unavailable",
+    "contribution": "QQR's RTI pipeline checks corrective trajectories before downstream use. Identified a post-check fallback that returns ok=true when the LLM check is unavailable or unparseable, allowing otherwise eligible corrections to proceed to later gates. Proposed separating unavailable verification from an affirmative check.",
+    "whyItMatters": "Other gates, including task success, still apply. This records a source-level observation and a proposed experiment; no invalid training admission or learning effect has been demonstrated.",
+    "status": "open",
+    "url": "https://github.com/Alibaba-NLP/qqr/issues/16",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-20T20:14:30Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/Alibaba-NLP/qqr/issues/16"
+    },
+    "localDate": "2026-10-21"
+  },
+  {
+    "id": "alibaba-aacr-bench-issues-17",
+    "occurredAt": "2026-10-16T18:13:18Z",
+    "project": "alibaba/aacr-bench",
+    "kind": "issue",
+    "scope": "external",
+    "event": "opened",
+    "title": "Identify ordering sensitivity in semantic coverage precision",
+    "contribution": "AACR-Bench evaluates code-review findings against reference comments. Derived a two-reference counterexample in the greedy novel-coverage calculation: permuting identical generated findings changes precision while recall stays fixed. Asked whether this ordering dependence is intentional.",
+    "whyItMatters": "An evaluation contract can depend on presentation order even when semantic matches are unchanged. No dataset-level experiment or effect on published model comparisons is claimed.",
+    "status": "open",
+    "url": "https://github.com/alibaba/aacr-bench/issues/17",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-16T18:13:18Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/alibaba/aacr-bench/issues/17"
+    },
+    "localDate": "2026-10-17"
+  },
+  {
+    "id": "itamarrocha-prefix-rl-issues-2",
+    "occurredAt": "2026-10-17T21:18:45Z",
+    "project": "ItamarRocha/Prefix-RL",
+    "kind": "issue",
+    "scope": "external",
+    "event": "opened",
+    "title": "Separate incorrect answers from reward-verification failures",
+    "contribution": "Prefix-RL uses reward feedback for mathematical responses. Traced an offline reward path that returns the same numeric zero for incorrect answers and some parsing or verification exceptions, then proposed a separate diagnostic status without changing reward behavior.",
+    "whyItMatters": "A zero reward alone cannot identify why evaluation failed. This is code inspection and a diagnostic proposal; training effects and the frequency of these paths were not measured.",
+    "status": "open",
+    "url": "https://github.com/ItamarRocha/Prefix-RL/issues/2",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-17T21:18:45Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/ItamarRocha/Prefix-RL/issues/2"
+    },
+    "localDate": "2026-10-18"
+  },
+  {
+    "id": "hoyant-su-agentic-rl-a3-comment-6201556844",
+    "occurredAt": "2026-10-15T20:25:10Z",
+    "project": "Hoyant-Su/Agentic-RL-A3",
+    "kind": "discussion",
+    "scope": "external",
+    "event": "clarified",
+    "title": "Reproduce ShellOps and probe delayed consequences of an edit",
+    "contribution": "A³ studies structured credit assignment for agent actions. Reproduced the ShellOps demo and used hand-designed continuations to compare an early workspace edit with no-edit and wrong-content controls: zero immediate reward need not mean no effect on later commands.",
+    "whyItMatters": "This is a bounded environment-level counterfactual check, not a policy-generated rollout study or evidence that A³'s credit estimator improves learning.",
+    "status": "open",
+    "url": "https://github.com/Hoyant-Su/Agentic-RL-A3/issues/1#issuecomment-6201556844",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-15T20:25:10Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/Hoyant-Su/Agentic-RL-A3/issues/comments/6201556844"
+    },
+    "localDate": "2026-10-16"
+  },
+  {
+    "id": "zju-real-agent-g2-comment-6171317406",
+    "occurredAt": "2026-10-14T14:57:52Z",
+    "project": "ZJU-REAL/Agent-G2",
+    "kind": "discussion",
+    "scope": "external",
+    "event": "clarified",
+    "title": "Probe guidance-scheduler sensitivity with synthetic feedback",
+    "contribution": "Agent-G² adapts guidance using historical rollout outcomes. Completed a CPU-only synthetic pilot at a pinned revision, checking trajectory deduplication, rollout-level success accounting and the Gaussian scheduler's response to persistent false-positive feedback.",
+    "whyItMatters": "The pilot isolates scheduler mechanics and evidence units. It does not train a policy, establish an optimal guidance depth or measure downstream task performance.",
+    "status": "open",
+    "url": "https://github.com/ZJU-REAL/Agent-G2/issues/3#issuecomment-6171317406",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-14T14:57:52Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/ZJU-REAL/Agent-G2/issues/comments/6171317406"
+    },
+    "localDate": "2026-10-14"
+  },
+  {
+    "id": "the-ai-disclosures-project-open-memory-protocol-comment-6200943222",
+    "occurredAt": "2026-10-15T19:51:19Z",
+    "project": "The-AI-Disclosures-Project/Open-Memory-Protocol",
+    "kind": "discussion",
+    "scope": "external",
+    "event": "clarified",
+    "title": "Specify which memory revision a verification checked",
+    "contribution": "Open Memory Protocol defines portable memory records and provenance. Supplied worked examples for known and unknown checked revisions, showing why a verification timestamp alone should not imply that the current memory body was checked.",
+    "whyItMatters": "Revision identity prevents old verification from being read as support for changed content. A maintainer subsequently reported incorporating the rule and review case into the versioning draft; this is a review contribution, not authorship or merger of PR #13.",
+    "status": "open",
+    "url": "https://github.com/The-AI-Disclosures-Project/Open-Memory-Protocol/pull/13#issuecomment-6200943222",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-15T19:51:19Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/The-AI-Disclosures-Project/Open-Memory-Protocol/issues/comments/6200943222"
+    },
+    "localDate": "2026-10-16"
+  },
+  {
+    "id": "marin-community-marin-comment-6112854839",
+    "occurredAt": "2026-10-11T19:30:56Z",
+    "project": "marin-community/marin",
+    "kind": "discussion",
+    "scope": "external",
+    "event": "clarified",
+    "title": "Prototype evidence gates for local preference-pair admission",
+    "contribution": "Marin's BFCL recovery work retains local preference pairs. Built a standalone synthetic validator with 42 passing checks, distinguishing exact token-history and schema matching from verified pre-action environment equivalence; missing evidence stays unverified.",
+    "whyItMatters": "Parser-level matching should not silently qualify examples for execution-level preference learning. The prototype does not modify Marin or rely on private BFCL traces; this backfill uses the original public update date.",
+    "status": "open",
+    "url": "https://github.com/marin-community/marin/issues/10042#issuecomment-6112854839",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-11T19:30:56Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/marin-community/marin/issues/comments/6112854839"
+    },
+    "localDate": "2026-10-12"
+  },
+  {
+    "id": "raina-sid-inspect-evals-uncertainty-comment-6237791869",
+    "occurredAt": "2026-10-17T17:37:21Z",
+    "project": "raina-sid/inspect-evals-uncertainty",
+    "kind": "discussion",
+    "scope": "external",
+    "event": "clarified",
+    "title": "Complete BBQ grouping and duplicate-definition reconciliation",
+    "contribution": "The Inspect Evals uncertainty audit examines dependence between benchmark items. Audited BBQ's scenario structure, reconciled full-record versus prompt-content duplicate definitions, and verified exact group-membership agreement for both context and alternative grouping keys after a public correction.",
+    "whyItMatters": "This completes the structural reconciliation, not an uncertainty-effect estimate. Per-item model scores were unavailable, so no empirical standard-error ratio or new inference result is claimed.",
+    "status": "open",
+    "url": "https://github.com/raina-sid/inspect-evals-uncertainty/issues/1#issuecomment-6237791869",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-17T17:37:21Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/raina-sid/inspect-evals-uncertainty/issues/comments/6237791869"
+    },
+    "localDate": "2026-10-18"
+  },
+  {
+    "id": "microsoft-pyrit-comment-6254253625",
+    "occurredAt": "2026-10-18T19:37:39Z",
+    "project": "microsoft/PyRIT",
+    "kind": "discussion",
+    "scope": "external",
+    "event": "clarified",
+    "title": "Locate dropped scorer-coverage fields in the GUI path",
+    "contribution": "PyRIT evaluates AI red-teaming outcomes. Traced saved scorer metrics through the scenario progress projection to the GUI: scored-response and input-response counts existed upstream but were omitted before accuracy rendering. Proposed exposing coverage with conditional accuracy.",
+    "whyItMatters": "Accuracy on scored responses can hide unevaluated inputs. This entry records the public diagnosis; it does not claim that the locally discussed patch is an upstream PR or merged fix.",
+    "status": "open",
+    "url": "https://github.com/microsoft/PyRIT/issues/3325#issuecomment-6254253625",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-18T19:37:39Z",
+      "verifiedAt": "2026-10-21T07:20:21.225Z",
+      "apiUrl": "https://api.github.com/repos/microsoft/PyRIT/issues/comments/6254253625"
+    },
+    "localDate": "2026-10-19"
   }
 ]
