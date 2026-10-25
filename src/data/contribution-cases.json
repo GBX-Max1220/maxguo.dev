@@ -1,0 +1,24 @@
+[
+  {
+    "slug": "cje-label-selection",
+    "title": "When label selection changes the preference estimate",
+    "project": "CJE · cimo-labs/cje",
+    "context": "CJE is a toolkit for preference modeling and analysis. This contribution asks whether estimates remain stable when the examples selected for human labels change.",
+    "contribution": "I added an offline sensitivity experiment with six label-selection conditions, 60 labels per policy, and 100 repetitions by default. The notebook reports bias, RMSE, fixed-pool interval coverage, mean interval width, and diagnostic checks.",
+    "result": "The reviewed run executed 600 analyze_dataset calls and produced 18 summary rows. The maintainer independently rebuilt the prompts and values, reran the experiment, and requested follow-up changes; the PR remains open.",
+    "boundary": "Positive-propensity conditions are oracle-assisted best cases. The fixed-strata interval procedure is conservative; this is a sensitivity-analysis contribution, not a new estimator or a paper.",
+    "url": "https://github.com/cimo-labs/cje/pull/88",
+    "evidence": "Open pull request · experiment notebook · maintainer review"
+  },
+  {
+    "slug": "lenskit-logrbp",
+    "title": "Keeping ranking scores meaningful at extreme ranks",
+    "project": "LensKit · lenskit/lkpy",
+    "context": "LensKit is a Python toolkit for recommender-system research. Its ordinary rank-biased precision calculation can underflow for relevant items at very deep ranks, and averaging logarithms is not the same as taking the logarithm of the mean score.",
+    "contribution": "I implemented LogRBP and a log-mean accumulator, with tests covering deep ranks, zero scores, undefined cases, and agreement with ordinary RBP where the latter remains representable. During review, I removed an experimental normalization option at the maintainer’s request.",
+    "result": "The pull request was merged on October 22, 2026. The accepted implementation preserves the distinction between a defined zero and an undefined score.",
+    "boundary": "The change does not integrate the new summary into lenskit.tuning, so it is a bounded metric and aggregation contribution rather than a complete resolution of the broader tuning request.",
+    "url": "https://github.com/lenskit/lkpy/pull/1236",
+    "evidence": "Merged pull request · implementation and tests · review discussion"
+  }
+]

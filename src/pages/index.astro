@@ -15,18 +15,19 @@ import '../styles/contribution-editorial.css';
   <section id="intro" class="hero-section" aria-labelledby="hero-name">
     <div class="hero-text">
       <p class="hero-kicker">Human-centered AI · Feedback · Reliable agents</p>
-      <p id="hero-name" class="hero-name">Baixin Guo</p>
-      <p class="hero-handle">Max · independent researcher</p>
+      <p id="hero-name" class="hero-name">Baixin Guo <span class="hero-max">(Max)</span></p>
+      <p class="hero-name-cn" lang="zh-Hans">郭佰鑫</p>
+      <p class="hero-pronunciation"><span>Pronounced</span> “bye-shin gwo” <details><summary>Mandarin pronunciation</summary><span lang="zh-Latn-pinyin">Bǎixīn Guō</span> · <span lang="zh-Latn-fonipa">[paɪ̯˨˩˦ ɕin˥ ku̯ɔ˥]</span></details></p>
+      <p class="hero-handle">Independent researcher</p>
+      <nav class="hero-links" aria-label="Contact and profiles">
+        <a href="mailto:gbx1220max@gmail.com" aria-label="Email Baixin Guo"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M2 3.5h12v9H2zM2.5 4l5.5 4.5L13.5 4" /></svg>Email</a>
+        <a href="https://github.com/GBX-Max1220" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 0 0-2.05 12.67c.33.06.45-.14.45-.32v-1.2c-1.83.4-2.22-.78-2.22-.78-.3-.76-.73-.96-.73-.96-.6-.41.05-.4.05-.4.66.05 1.01.68 1.01.68.59 1.01 1.54.72 1.91.55.06-.43.23-.72.42-.89-1.46-.17-3-.73-3-3.24 0-.72.26-1.3.68-1.76-.07-.17-.3-.84.07-1.74 0 0 .55-.18 1.79.67A6.2 6.2 0 0 1 8 4.56c.56 0 1.12.08 1.64.22 1.24-.85 1.79-.67 1.79-.67.37.9.14 1.57.07 1.74.42.46.68 1.04.68 1.76 0 2.52-1.54 3.07-3.01 3.23.24.21.45.61.45 1.23v1.78c0 .18.12.39.46.32A6.5 6.5 0 0 0 8 1.5Z" /></svg>GitHub</a>
+        <a href="https://www.linkedin.com/in/baixin-guo-681113285/" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M3 5.5v7M3 3.2v.1M6.5 12.5v-4a2 2 0 0 1 4 0v4M6.5 7v5.5M2 2h12v12H2z" /></svg>LinkedIn</a>
+        <a href="/cv/"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M4 1.5h5l3 3v10H4zM9 1.5v3h3M6 8h4M6 10.5h4" /></svg>CV</a>
+      </nav>
       <h1 class="hero-headline">{profile.headline}</h1>
       <p class="hero-question">{profile.question}</p>
       <p class="hero-bio">{profile.profile}</p>
-
-      <div class="hero-links">
-        <a href="/cv/" class="btn btn-primary btn-sm">CV</a>
-        <a href="https://github.com/GBX-Max1220" target="_blank" rel="noopener" class="btn btn-sm">GitHub</a>
-        <a href="mailto:gbx1220max@gmail.com" class="btn btn-sm">Email</a>
-        <a href="https://www.linkedin.com/in/baixin-guo-681113285/" target="_blank" rel="noopener" class="btn btn-sm">LinkedIn</a>
-      </div>
     </div>
 
     <figure class="hero-figure" aria-label="Research agenda overview">
@@ -72,6 +73,14 @@ import '../styles/contribution-editorial.css';
 </BaseLayout>
 
 <style>
+  @font-face {
+    font-family: "Noto Name Subset";
+    src: url('../assets/noto-name-subset.otf') format('opentype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    unicode-range: U+90ED, U+4F70, U+946B;
+  }
   .hero-section {
     display: grid;
     gap: 2rem;
@@ -110,6 +119,14 @@ import '../styles/contribution-editorial.css';
     margin: 0 0 0.25rem;
   }
 
+  .hero-max { font-family: var(--font-sans); font-size: .48em; font-weight: 500; color: var(--color-text-muted); }
+  .hero-name-cn { margin: -.05rem 0 .25rem; font: 400 1rem/1.5 "Noto Name Subset", "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", sans-serif; letter-spacing: .08em; color: var(--color-text-dim); }
+  .hero-pronunciation { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem; margin: 0 0 .65rem; color: var(--color-text-muted); font-size: .75rem; }
+  .hero-pronunciation > span:first-child { font-family: var(--font-mono); font-size: .65rem; text-transform: uppercase; letter-spacing: .08em; }
+  .hero-pronunciation details { display: inline; }
+  .hero-pronunciation summary { display: inline; cursor: pointer; color: var(--color-brand); }
+  .hero-pronunciation details span { margin-left: .4rem; }
+
   .hero-handle {
     font-family: var(--font-mono);
     font-size: 0.7rem;
@@ -145,7 +162,17 @@ import '../styles/contribution-editorial.css';
   .hero-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.4rem 1rem;
+    margin: 0 0 1.5rem;
+    font: 600 .72rem/1.5 var(--font-mono);
+  }
+  .hero-links a { color: var(--color-brand); text-decoration: none; border-bottom: 1px solid var(--color-rule); }
+  .hero-links a { display: inline-flex; align-items: center; gap: .3rem; }
+  .hero-links svg { width: .9rem; height: .9rem; fill: none; stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+  .hero-links a:nth-child(2) svg { fill: currentColor; stroke: none; }
+  .hero-links a:hover, .hero-links a:focus-visible { border-color: currentColor; }
+  .hero-handle { margin-bottom: .55rem; }
+  .hero-headline { margin-top: 0;
   }
 
   .hero-figure {

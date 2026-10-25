@@ -3,14 +3,73 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContributionLog from '../../components/ContributionLog.astro';
 import '../../styles/contribution-editorial.css';
 ---
-<BaseLayout title="Research Engineering Log" description="Public, dated research artifacts and engineering contributions by Baixin Guo, with evidence links, current statuses, and separate lifecycle events.">
+<BaseLayout title="Contributions" description="Research, evaluation, and engineering contributions by Baixin Guo, linked to dated public evidence and upstream records.">
   <div class="container-content py-14">
     <div class="max-w-[820px]">
-      <span class="section-kicker mb-3">Public research &amp; engineering evidence</span>
-      <h1 class="mb-4">Research Engineering Log</h1>
-      <p class="lead mb-4">Public, dated research artifacts, reproducible reports, upstream issues, and engineering contributions.</p>
-      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-10">Entries link to the underlying evidence and distinguish open reports, discussions, releases, and merged work. Dates use Asia/Shanghai (UTC+8); later lifecycle events keep their own dates. Statuses reflect the public sources checked most recently on October 21, 2026, and an unmerged PR is listed as unmerged.</p>
+      <span class="section-kicker mb-3">Research · Engineering · Evidence</span>
+      <h1 class="mb-4">Contributions</h1>
+      <p class="lead mb-4">A record of how I investigate, test, and improve AI research systems and tools.</p>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-6">These entries are dated events, not a count of separate projects. Each one links to public evidence and distinguishes my own work from collaborative research and upstream maintainer work.</p>
+      <div class="contribution-lenses mb-8" aria-label="Contribution areas">
+        <section><h2>Research artifacts</h2><p>Reports, releases, and public analysis that make methods, results, and limitations inspectable.</p></section>
+        <section><h2>Open-source engineering</h2><p>Code changes carried through tests and review, with upstream status shown separately from the work itself.</p></section>
+        <section><h2>Evaluation &amp; audits</h2><p>Checks of what benchmarks, agent systems, and reported results actually measure.</p></section>
+        <section><h2>Technical review</h2><p>Public issue and discussion work clarifying behavior, interfaces, and evidence requirements.</p></section>
+      </div>
+      <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-10">The timeline below preserves the sequence of work. Status describes the public artifact or upstream process; it does not by itself indicate research quality or impact. Dates use Asia/Shanghai (UTC+8), and each entry links to its source so its current state can be checked directly.</p>
+      <nav class="contribution-filters" aria-label="Filter contributions by area">
+        <button type="button" data-filter="all" aria-pressed="true">All work</button>
+        <button type="button" data-filter="research-artifacts" aria-pressed="false">Research artifacts</button>
+        <button type="button" data-filter="open-source-engineering" aria-pressed="false">Open-source engineering</button>
+        <button type="button" data-filter="evaluation-audits" aria-pressed="false">Evaluation &amp; audits</button>
+        <button type="button" data-filter="technical-review" aria-pressed="false">Technical review</button>
+        <span class="sr-only" id="contribution-filter-status" aria-live="polite"></span>
+      </nav>
       <ContributionLog />
     </div>
   </div>
 </BaseLayout>
+
+<style>
+  .contribution-lenses {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+    gap: .75rem;
+  }
+  .contribution-lenses section {
+    padding: 1rem 1.1rem;
+    border-top: 2px solid var(--color-primary);
+    background: var(--color-surface);
+  }
+  .contribution-lenses section:nth-child(2) { border-color: var(--color-brand); }
+  .contribution-lenses section:nth-child(3) { border-color: var(--color-accent, var(--color-primary)); }
+  .contribution-lenses section:nth-child(4) { border-color: var(--color-text-muted); }
+  .contribution-lenses h2 { margin: 0 0 .45rem; font: 600 .74rem/1.4 var(--font-mono); color: var(--color-ink); }
+  .contribution-lenses p { margin: 0; font-size: .8rem; line-height: 1.6; color: var(--color-text-dim); }
+  :global(.contribution-area) { display: inline-block; margin-left: .35rem; padding: .08rem .38rem; border: 1px solid var(--color-rule); border-radius: 999px; font: 500 .58rem/1.4 var(--font-mono); color: var(--color-primary); vertical-align: .08em; }
+  .contribution-filters { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 1.5rem; }
+  :global(.contribution-day[hidden]) { display: none !important; }
+  .contribution-filters button { padding: .38rem .65rem; border: 1px solid var(--color-rule); border-radius: 999px; background: transparent; color: var(--color-text-dim); font: 500 .62rem/1.4 var(--font-mono); cursor: pointer; }
+  .contribution-filters button[aria-pressed="true"] { border-color: var(--color-primary); background: var(--color-primary); color: white; }
+</style>
+
+<script>
+  const controls = [...document.querySelectorAll<HTMLButtonElement>('.contribution-filters [data-filter]')];
+  const entries = [...document.querySelectorAll<HTMLElement>('[data-contribution-id][data-category]')];
+  const status = document.querySelector<HTMLElement>('#contribution-filter-status');
+  controls.forEach((button) => button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    let visible = 0;
+    entries.forEach((entry) => {
+      const show = filter === 'all' || entry.dataset.category === filter;
+      const listItem = entry.closest('li');
+      if (listItem) listItem.hidden = !show;
+      if (show) visible += 1;
+    });
+    document.querySelectorAll<HTMLElement>('.contribution-day').forEach((day) => {
+      day.hidden = day.querySelectorAll('.contribution-day-events > li:not([hidden])').length === 0;
+    });
+    controls.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+    if (status) status.textContent = `${visible} contribution events shown`;
+  }));
+</script>

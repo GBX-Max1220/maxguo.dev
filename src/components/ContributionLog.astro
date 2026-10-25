@@ -2,6 +2,16 @@
 import records from '../data/contributions.json';
 import { groupByDay, storyEvents, EVENT_LABELS, formatDay, evidenceCta, eventMaturity } from '../lib/contributions.mjs';
 import ContributionStatus from './ContributionStatus.astro';
+const CATEGORY_LABELS = {
+  'research-artifacts': 'Research artifacts',
+  'open-source-engineering': 'Open-source engineering',
+  'evaluation-audits': 'Evaluation & audits',
+  'technical-review': 'Technical review & specifications',
+};
+const CASE_STUDIES = {
+  'cimo-labs/cje': 'cje-label-selection',
+  'lenskit/lkpy': 'lenskit-logrbp',
+};
 ---
 <div class="contribution-timeline">
   {groupByDay(records).map(({ day, entries }) => {
@@ -22,14 +32,15 @@ import ContributionStatus from './ContributionStatus.astro';
           const related = [story[storyPosition - 1], story[storyPosition + 1]].filter(Boolean);
           const isEstablished = ['merged', 'released', 'preprint', 'published', 'public', 'fixed_upstream'].includes(record.status);
           return <li>
-            <article id={record.id} data-contribution-id={record.id} class="contribution-entry scroll-mt-20" data-maturity={isEstablished ? 'established' : 'developing'}>
-              <p class="contribution-project">{record.project} <span aria-hidden="true">·</span> {EVENT_LABELS[record.event]}</p>
+            <article id={record.id} data-contribution-id={record.id} data-category={record.category} class="contribution-entry scroll-mt-20" data-maturity={isEstablished ? 'established' : 'developing'}>
+              <p class="contribution-project">{record.project} <span aria-hidden="true">·</span> {EVENT_LABELS[record.event]} <span class="contribution-area">{CATEGORY_LABELS[record.category]}</span></p>
               <h3 class="contribution-entry-title"><a href={record.url}>{record.title}</a></h3>
               <ContributionStatus record={record} />
               <p class="contribution-entry-summary">{record.contribution}</p>
               <p class="contribution-entry-context"><span>Why it matters</span>{record.whyItMatters}</p>
               <div class="contribution-entry-links">
                 <a href={record.url} class="link-arrow">{evidenceCta(record)}</a>
+                {CASE_STUDIES[record.project] && <a href={`/contributions/cases/${CASE_STUDIES[record.project]}/`} class="link-arrow">Read the case →</a>}
                 {related.length > 0 && <nav class="contribution-story" aria-label={`${record.project} related lifecycle events`}>
                   <span>Story</span>
                   <ol>{related.map(event => <li data-maturity={eventMaturity(event)}><a href={`#${event.id}`}>{EVENT_LABELS[event.event]} · {formatDay(event.localDate)}</a></li>)}</ol>

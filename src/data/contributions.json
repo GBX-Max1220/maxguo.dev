@@ -19,7 +19,8 @@
       "verifiedAt": "2026-10-20T20:50:36Z",
       "apiUrl": "https://api.github.com/repos/wandb/rai-toolkit/pulls/114"
     },
-    "localDate": "2026-10-12"
+    "localDate": "2026-10-12",
+    "category": "open-source-engineering"
   },
   {
     "id": "wandb-rai-toolkit-pr114-merged",
@@ -43,7 +44,8 @@
       "verifiedAt": "2026-10-20T20:50:36Z",
       "apiUrl": "https://api.github.com/repos/wandb/rai-toolkit/pulls/114"
     },
-    "localDate": "2026-10-16"
+    "localDate": "2026-10-16",
+    "category": "open-source-engineering"
   },
   {
     "id": "wandb-rai-toolkit-issues-115",
@@ -68,7 +70,8 @@
       "verifiedAt": "2026-10-20T20:50:36Z",
       "apiUrl": "https://api.github.com/repos/wandb/rai-toolkit/issues/115"
     },
-    "localDate": "2026-10-14"
+    "localDate": "2026-10-14",
+    "category": "technical-review"
   },
   {
     "id": "longmemeval-methods-report",
@@ -84,14 +87,17 @@
     "url": "https://zenodo.org/records/23273896",
     "selected": false,
     "source": {
-      "authors": ["Guo, Baixin"],
+      "authors": [
+        "Guo, Baixin"
+      ],
       "doi": "10.5281/zenodo.23273896",
       "publicationDate": "2026-10-11",
       "version": "2.0 RC3",
       "verifiedAt": "2026-10-20T20:50:36Z",
       "apiUrl": "https://zenodo.org/api/records/23273896"
     },
-    "localDate": "2026-10-12"
+    "localDate": "2026-10-12",
+    "category": "research-artifacts"
   },
   {
     "id": "aims-foundations-torch-measure-issues-52",
@@ -112,7 +118,8 @@
       "verifiedAt": "2026-10-20T20:50:36Z",
       "apiUrl": "https://api.github.com/repos/aims-foundations/torch_measure/issues/52"
     },
-    "localDate": "2026-10-19"
+    "localDate": "2026-10-19",
+    "category": "technical-review"
   },
   {
     "id": "aims-foundations-torch-measure-pulls-53",
@@ -134,7 +141,8 @@
       "verifiedAt": "2026-10-20T20:50:36Z",
       "apiUrl": "https://api.github.com/repos/aims-foundations/torch_measure/pulls/53"
     },
-    "localDate": "2026-10-19"
+    "localDate": "2026-10-19",
+    "category": "open-source-engineering"
   },
   {
     "id": "aiming-lab-skillrl-pulls-69",
@@ -155,7 +163,8 @@
       "verifiedAt": "2026-10-10T01:30:00+08:00",
       "apiUrl": "https://api.github.com/repos/aiming-lab/SkillRL/pulls/69"
     },
-    "localDate": "2026-10-06"
+    "localDate": "2026-10-06",
+    "category": "open-source-engineering"
   },
   {
     "id": "Tencent-SkillHone-pulls-14",
@@ -176,7 +185,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://api.github.com/repos/Tencent/SkillHone/pulls/14"
     },
-    "localDate": "2026-09-27"
+    "localDate": "2026-09-27",
+    "category": "open-source-engineering"
   },
   {
     "id": "Tencent-SkillHone-pulls-15",
@@ -197,7 +207,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://api.github.com/repos/Tencent/SkillHone/pulls/15"
     },
-    "localDate": "2026-09-27"
+    "localDate": "2026-09-27",
+    "category": "open-source-engineering"
   },
   {
     "id": "Tencent-SkillHone-pulls-16",
@@ -218,7 +229,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://api.github.com/repos/Tencent/SkillHone/pulls/16"
     },
-    "localDate": "2026-09-28"
+    "localDate": "2026-09-28",
+    "category": "open-source-engineering"
   },
   {
     "id": "Human-Agent-Society-reef-pulls-677",
@@ -242,7 +254,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://api.github.com/repos/Human-Agent-Society/reef/pulls/677"
     },
-    "localDate": "2026-09-29"
+    "localDate": "2026-09-29",
+    "category": "open-source-engineering"
   },
   {
     "id": "Human-Agent-Society-reef-issues-663",
@@ -264,7 +277,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://api.github.com/repos/Human-Agent-Society/reef/issues/663"
     },
-    "localDate": "2026-09-28"
+    "localDate": "2026-09-28",
+    "category": "technical-review"
   },
   {
     "id": "warpdotdev-oz-for-oss-issues-504",
@@ -285,7 +299,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://api.github.com/repos/warpdotdev/oz-for-oss/issues/504"
     },
-    "localDate": "2026-09-29"
+    "localDate": "2026-09-29",
+    "category": "technical-review"
   },
   {
     "id": "future-agi-future-agi-issues-3278",
@@ -307,7 +322,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://api.github.com/repos/future-agi/future-agi/issues/3278"
     },
-    "localDate": "2026-10-04"
+    "localDate": "2026-10-04",
+    "category": "technical-review"
   },
   {
     "id": "Arc-Computer-atlas-sdk-issues-147",
@@ -329,7 +345,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://api.github.com/repos/Arc-Computer/atlas-sdk/issues/147"
     },
-    "localDate": "2026-10-04"
+    "localDate": "2026-10-04",
+    "category": "evaluation-audits"
   },
   {
     "id": "SourceShift-ContextNest-issues-205",
@@ -350,7 +367,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://api.github.com/repos/SourceShift/ContextNest/issues/205"
     },
-    "localDate": "2026-10-04"
+    "localDate": "2026-10-04",
+    "category": "technical-review"
   },
   {
     "id": "FerroxLabs-ijfw-issues-48",
@@ -372,7 +390,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://api.github.com/repos/FerroxLabs/ijfw/issues/48"
     },
-    "localDate": "2026-10-04"
+    "localDate": "2026-10-04",
+    "category": "technical-review"
   },
   {
     "id": "StanfordHCI-GPTCoach-CHI2025-issues-1",
@@ -393,7 +412,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://api.github.com/repos/StanfordHCI/GPTCoach-CHI2025/issues/1"
     },
-    "localDate": "2026-03-07"
+    "localDate": "2026-03-07",
+    "category": "evaluation-audits"
   },
   {
     "id": "reef-runner-merged",
@@ -418,7 +438,8 @@
       "apiUrl": "https://api.github.com/repos/Human-Agent-Society/reef/pulls/677"
     },
     "selectedOrder": 2,
-    "localDate": "2026-10-01"
+    "localDate": "2026-10-01",
+    "category": "open-source-engineering"
   },
   {
     "id": "reef-runner-issue-closed",
@@ -441,7 +462,8 @@
       "apiUrl": "https://api.github.com/repos/Human-Agent-Society/reef/issues/663"
     },
     "parentId": "reef-runner-merged",
-    "localDate": "2026-10-01"
+    "localDate": "2026-10-01",
+    "category": "technical-review"
   },
   {
     "id": "caura-recall-use-semantics",
@@ -461,7 +483,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://github.com/caura-ai/caura/discussions/1822"
     },
-    "localDate": "2026-10-04"
+    "localDate": "2026-10-04",
+    "category": "technical-review"
   },
   {
     "id": "plur-feedback-evaluation-discussion",
@@ -481,7 +504,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://github.com/plur-ai/plur/discussions/1233"
     },
-    "localDate": "2026-09-28"
+    "localDate": "2026-09-28",
+    "category": "technical-review"
   },
   {
     "id": "what-the-score-measured",
@@ -498,13 +522,17 @@
     "selected": true,
     "selectedOrder": 1,
     "source": {
-      "authors": ["Vitale, Dino", "Guo, Baixin"],
+      "authors": [
+        "Vitale, Dino",
+        "Guo, Baixin"
+      ],
       "doi": "10.5281/zenodo.22980060",
       "publicationDate": "2026-10-01",
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://zenodo.org/api/records/22980060"
     },
-    "localDate": "2026-10-01"
+    "localDate": "2026-10-01",
+    "category": "research-artifacts"
   },
   {
     "id": "ced-v1-0-0",
@@ -526,7 +554,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://api.github.com/repos/GBX-Max1220/causal-estimation-diagnostics/releases"
     },
-    "localDate": "2026-09-23"
+    "localDate": "2026-09-23",
+    "category": "research-artifacts"
   },
   {
     "id": "pmd-public-artifact",
@@ -549,7 +578,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://api.github.com/repos/GBX-Max1220/preference-modeling-diagnostics/commits/d232327047a206b8d4f16b5c6f7a5e508ad43146"
     },
-    "localDate": "2026-09-22"
+    "localDate": "2026-09-22",
+    "category": "research-artifacts"
   },
   {
     "id": "evaluation-runtime-public-artifact",
@@ -571,7 +601,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://api.github.com/repos/GBX-Max1220/evaluation-runtime/commits/8d1582b328791a8baa59ecfcdd2200c4fedc7294"
     },
-    "localDate": "2026-09-18"
+    "localDate": "2026-09-18",
+    "category": "research-artifacts"
   },
   {
     "id": "interactionkit-v1-0-0",
@@ -593,7 +624,8 @@
       "verifiedAt": "2026-10-04T12:37:17Z",
       "apiUrl": "https://api.github.com/repos/GBX-Max1220/InteractionKit/git/tags/8aa4a985cba5ca762850d6dd51152df7926c1d34"
     },
-    "localDate": "2026-08-02"
+    "localDate": "2026-08-02",
+    "category": "research-artifacts"
   },
   {
     "id": "checkmycoach-v2-2-frozen",
@@ -615,7 +647,8 @@
       "dateBasis": "annotated tag timestamp",
       "verifiedAt": "2026-10-04T12:45:06Z",
       "apiUrl": "https://api.github.com/repos/GBX-Max1220/CheckMyCoach/git/tags/9146829c8f2f1f833d0e3803ae6c73afa3a5dfa9"
-    }
+    },
+    "category": "research-artifacts"
   },
   {
     "id": "tencent-hunyuan-unirl-pulls-621",
@@ -636,7 +669,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/Tencent-Hunyuan/UniRL/pulls/621"
     },
-    "localDate": "2026-10-21"
+    "localDate": "2026-10-21",
+    "category": "open-source-engineering"
   },
   {
     "id": "lenskit-lkpy-pulls-1236",
@@ -647,7 +681,7 @@
     "event": "submitted",
     "title": "Stable log-domain RBP and log-mean aggregation",
     "contribution": "LensKit provides recommender-system evaluation tools. Submitted LogRBP and log-mean aggregation to keep very small rank-biased precision values representable and distinguish log(mean RBP) from mean(log RBP). Added regression coverage for deep ranks, zero values and undefined results.",
-    "whyItMatters": "Numerical underflow can erase distinctions in ranking evaluation. This is a historical backfill dated to the original submission, not a newly merged change or a complete resolution of the broader tuning request.",
+    "whyItMatters": "Numerical underflow can erase distinctions in ranking evaluation. The contribution was later merged upstream; it does not claim to complete the broader tuning integration requested in issue #1159.",
     "status": "open",
     "url": "https://github.com/lenskit/lkpy/pull/1236",
     "selected": false,
@@ -657,7 +691,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/lenskit/lkpy/pulls/1236"
     },
-    "localDate": "2026-10-10"
+    "localDate": "2026-10-10",
+    "category": "open-source-engineering"
   },
   {
     "id": "claw-eval-claw-eval-issues-61",
@@ -678,7 +713,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/claw-eval/claw-eval/issues/61"
     },
-    "localDate": "2026-10-18"
+    "localDate": "2026-10-18",
+    "category": "evaluation-audits"
   },
   {
     "id": "zoher15-plurule-issues-1",
@@ -699,7 +735,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/Zoher15/PluRule/issues/1"
     },
-    "localDate": "2026-10-18"
+    "localDate": "2026-10-18",
+    "category": "evaluation-audits"
   },
   {
     "id": "traceelephant-traceelephant-issues-2",
@@ -720,7 +757,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/TraceElephant/TraceElephant/issues/2"
     },
-    "localDate": "2026-10-20"
+    "localDate": "2026-10-20",
+    "category": "evaluation-audits"
   },
   {
     "id": "ruc-nlpir-agent-reflex-issues-3",
@@ -741,7 +779,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/RUC-NLPIR/Agent-Reflex/issues/3"
     },
-    "localDate": "2026-10-21"
+    "localDate": "2026-10-21",
+    "category": "evaluation-audits"
   },
   {
     "id": "autolearnmem-automem-issues-2",
@@ -762,7 +801,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/autoLearnMem/AutoMem/issues/2"
     },
-    "localDate": "2026-10-19"
+    "localDate": "2026-10-19",
+    "category": "evaluation-audits"
   },
   {
     "id": "lmarena-search-arena-issues-3",
@@ -783,7 +823,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/lmarena/search-arena/issues/3"
     },
-    "localDate": "2026-10-19"
+    "localDate": "2026-10-19",
+    "category": "evaluation-audits"
   },
   {
     "id": "az1326-advisor-models-issues-2",
@@ -804,7 +845,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/az1326/advisor-models/issues/2"
     },
-    "localDate": "2026-10-19"
+    "localDate": "2026-10-19",
+    "category": "evaluation-audits"
   },
   {
     "id": "stanford-iris-lab-meta-harness-issues-19",
@@ -825,7 +867,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/stanford-iris-lab/meta-harness/issues/19"
     },
-    "localDate": "2026-10-19"
+    "localDate": "2026-10-19",
+    "category": "evaluation-audits"
   },
   {
     "id": "microsoft-fara-issues-95",
@@ -846,7 +889,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/microsoft/fara/issues/95"
     },
-    "localDate": "2026-10-19"
+    "localDate": "2026-10-19",
+    "category": "evaluation-audits"
   },
   {
     "id": "salesforceairesearch-beagle-issues-11",
@@ -867,7 +911,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/SalesforceAIResearch/Beagle/issues/11"
     },
-    "localDate": "2026-10-21"
+    "localDate": "2026-10-21",
+    "category": "evaluation-audits"
   },
   {
     "id": "alibaba-nlp-qqr-issues-16",
@@ -888,7 +933,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/Alibaba-NLP/qqr/issues/16"
     },
-    "localDate": "2026-10-21"
+    "localDate": "2026-10-21",
+    "category": "evaluation-audits"
   },
   {
     "id": "alibaba-aacr-bench-issues-17",
@@ -909,7 +955,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/alibaba/aacr-bench/issues/17"
     },
-    "localDate": "2026-10-17"
+    "localDate": "2026-10-17",
+    "category": "evaluation-audits"
   },
   {
     "id": "itamarrocha-prefix-rl-issues-2",
@@ -930,7 +977,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/ItamarRocha/Prefix-RL/issues/2"
     },
-    "localDate": "2026-10-18"
+    "localDate": "2026-10-18",
+    "category": "technical-review"
   },
   {
     "id": "hoyant-su-agentic-rl-a3-comment-6201556844",
@@ -951,7 +999,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/Hoyant-Su/Agentic-RL-A3/issues/comments/6201556844"
     },
-    "localDate": "2026-10-16"
+    "localDate": "2026-10-16",
+    "category": "evaluation-audits"
   },
   {
     "id": "zju-real-agent-g2-comment-6171317406",
@@ -972,7 +1021,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/ZJU-REAL/Agent-G2/issues/comments/6171317406"
     },
-    "localDate": "2026-10-14"
+    "localDate": "2026-10-14",
+    "category": "evaluation-audits"
   },
   {
     "id": "the-ai-disclosures-project-open-memory-protocol-comment-6200943222",
@@ -993,7 +1043,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/The-AI-Disclosures-Project/Open-Memory-Protocol/issues/comments/6200943222"
     },
-    "localDate": "2026-10-16"
+    "localDate": "2026-10-16",
+    "category": "technical-review"
   },
   {
     "id": "marin-community-marin-comment-6112854839",
@@ -1014,7 +1065,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/marin-community/marin/issues/comments/6112854839"
     },
-    "localDate": "2026-10-12"
+    "localDate": "2026-10-12",
+    "category": "evaluation-audits"
   },
   {
     "id": "raina-sid-inspect-evals-uncertainty-comment-6237791869",
@@ -1035,7 +1087,8 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/raina-sid/inspect-evals-uncertainty/issues/comments/6237791869"
     },
-    "localDate": "2026-10-18"
+    "localDate": "2026-10-18",
+    "category": "evaluation-audits"
   },
   {
     "id": "microsoft-pyrit-comment-6254253625",
@@ -1056,6 +1109,118 @@
       "verifiedAt": "2026-10-21T07:20:21.225Z",
       "apiUrl": "https://api.github.com/repos/microsoft/PyRIT/issues/comments/6254253625"
     },
+    "localDate": "2026-10-19",
+    "category": "evaluation-audits"
+  },
+  {
+    "id": "lenskit-lkpy-pr1236-merged",
+    "occurredAt": "2026-10-22T19:56:09Z",
+    "project": "lenskit/lkpy",
+    "kind": "pr",
+    "scope": "external",
+    "event": "merged",
+    "title": "Stable log-domain RBP and log-mean aggregation merged upstream",
+    "contribution": "Merged upstream after review. The accepted change adds LogRBP and log-mean aggregation, preserves the distinction between zero and undefined scores, and removes the experimental normalize option at the maintainer’s request. It does not integrate the summary into lenskit.tuning.",
+    "whyItMatters": "Numerical underflow can erase distinctions in ranking evaluation. The contribution was later merged upstream; it does not claim to complete the broader tuning integration requested in issue #1159.",
+    "status": "merged",
+    "url": "https://github.com/lenskit/lkpy/pull/1236",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-09T20:59:20Z",
+      "verifiedAt": "2026-10-26T00:00:00Z",
+      "apiUrl": "https://api.github.com/repos/lenskit/lkpy/pulls/1236",
+      "mergedAt": "2026-10-22T19:56:09Z"
+    },
+    "localDate": "2026-10-23",
+    "category": "open-source-engineering",
+    "parentId": "lenskit-lkpy-pulls-1236"
+  },
+  {
+    "id": "cimo-labs-cje-pr88",
+    "occurredAt": "2026-10-24T10:29:42Z",
+    "project": "cimo-labs/cje",
+    "kind": "pr",
+    "scope": "external",
+    "event": "submitted",
+    "title": "Add label-selection sensitivity notebook",
+    "contribution": "Added a reproducible offline experiment for six label-selection conditions, with 60 labels per policy and 100 repetitions by default. The notebook reports bias, RMSE, fixed-pool interval coverage, and diagnostic checks; the measured run used 600 analyze_dataset calls and produced 18 summary rows.",
+    "whyItMatters": "Makes the sensitivity of a preference estimate to label-selection policy inspectable. The positive-propensity conditions are oracle-assisted best cases, and the fixed-strata intervals are conservative; this is an open PR and an experiment contribution, not a paper.",
+    "status": "open",
+    "url": "https://github.com/cimo-labs/cje/pull/88",
+    "selected": false,
+    "category": "evaluation-audits",
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-24T10:29:42Z",
+      "verifiedAt": "2026-10-26T00:00:00Z",
+      "apiUrl": "https://api.github.com/repos/cimo-labs/cje/pulls/88"
+    },
+    "localDate": "2026-10-24"
+  },
+  {
+    "id": "xlang-ai-cua-gym-issue12",
+    "occurredAt": "2026-10-21T18:49:08Z",
+    "project": "xlang-ai/CUA-Gym",
+    "kind": "issue",
+    "scope": "external",
+    "event": "opened",
+    "title": "Audit finds empty and syntax-invalid reward source files",
+    "contribution": "Audited the published archive of 10,910 tasks and reported 152 empty reward.py files and 11 syntax-invalid files; all 163 corresponding task configurations point the Python evaluator to ./reward.py.",
+    "whyItMatters": "Documents a source-package integrity issue in the released task archive. The counts describe files in the pinned public archive, not runtime failure rates, reward hacking, or measured agent performance.",
+    "status": "open",
+    "url": "https://github.com/xlang-ai/CUA-Gym/issues/12",
+    "selected": false,
+    "category": "evaluation-audits",
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-21T18:49:08Z",
+      "verifiedAt": "2026-10-26T00:00:00Z",
+      "apiUrl": "https://api.github.com/repos/xlang-ai/CUA-Gym/issues/12"
+    },
+    "localDate": "2026-10-22"
+  },
+  {
+    "id": "microsoft-pyrit-coverage-comment-3325",
+    "occurredAt": "2026-10-18T19:37:39Z",
+    "project": "microsoft/PyRIT",
+    "kind": "discussion",
+    "scope": "external",
+    "event": "clarified",
+    "title": "Trace scorer coverage fields through the GUI projection",
+    "contribution": "In the public issue discussion, traced a coverage mismatch between the scorer metrics saved by the backend and the GUI projection: num_responses and num_input_responses were omitted before ObjectiveScorerDetails rendered accuracy. Proposed a focused backend/type/UI change with partial-coverage and legacy-metric regression tests.",
+    "whyItMatters": "Accuracy without its denominator can hide incomplete scoring coverage. This entry records the diagnosis and proposed scope only; no upstream code change or merge is claimed.",
+    "status": "open",
+    "url": "https://github.com/microsoft/PyRIT/issues/3325",
+    "selected": false,
+    "category": "technical-review",
+    "source": {
+      "author": "GBX-Max1220",
+      "verifiedAt": "2026-10-26T00:00:00Z",
+      "apiUrl": "https://api.github.com/repos/microsoft/PyRIT/issues/comments/6254253625"
+    },
     "localDate": "2026-10-19"
+  },
+  {
+    "id": "microsoft-thinkingbox-training-issue26",
+    "occurredAt": "2026-10-20T20:22:49Z",
+    "project": "microsoft/thinkingbox-training",
+    "kind": "issue",
+    "scope": "external",
+    "event": "opened",
+    "title": "Ask whether ThinkingBox RL changes reliability and task coverage differently",
+    "contribution": "Raised a research question about published before/after evaluation summaries: average success and all-20-attempt reliability increased, while the share of tasks passed at least once decreased slightly. Proposed paired per-task analysis of the 507-task, 20-trial results before considering a training-method change.",
+    "whyItMatters": "Aggregate summaries cannot establish whether the observed coverage difference is meaningful or caused by training. The issue asks for the underlying paired evidence and is an exploratory research question, not a demonstrated regression or a completed analysis.",
+    "status": "open",
+    "url": "https://github.com/microsoft/thinkingbox-training/issues/26",
+    "selected": false,
+    "category": "evaluation-audits",
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-10-20T20:22:49Z",
+      "verifiedAt": "2026-10-26T00:00:00Z",
+      "apiUrl": "https://api.github.com/repos/microsoft/thinkingbox-training/issues/26"
+    },
+    "localDate": "2026-10-21"
   }
 ]
