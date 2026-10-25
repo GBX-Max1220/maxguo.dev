@@ -26,6 +26,9 @@ test('Unsupported kinds and statuses rejected, including cross-kind status', () 
   reject({ status: 'confirmed' }, /Unsupported status/);
   reject({ kind: 'issue', status: 'merged' }, /Unsupported status/);
 });
+test('Contribution categories are explicit and constrained', () => {
+  reject({ category: 'miscellaneous' }, /Unsupported contribution category/);
+});
 test('Selection is explicit and editorially ordered', () => {
   reject({ selected: undefined }, /selected must be explicit/);
   reject({ selectedOrder: undefined }, /selectedOrder/);

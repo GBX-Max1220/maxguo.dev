@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import cases from '../../../data/contribution-cases.json';
+
+export function getStaticPaths() {
+  return cases.map((item) => ({ params: { slug: item.slug }, props: { item } }));
+}
+
+const { item } = Astro.props;
+---
+
+<BaseLayout title={item.title} description={`${item.project}: project context, my contribution, result, and evidence boundary.`}>
+  <article class="container-content py-14 case-page">
+    <a href="/contributions/" class="link-arrow">← Contributions</a>
+    <header class="case-header">
+      <span class="section-kicker">Research engineering case</span>
+      <p class="case-project">{item.project}</p>
+      <h1>{item.title}</h1>
+      <p class="lead">{item.context}</p>
+    </header>
+    <section>
+      <h2>What I did</h2>
+      <p>{item.contribution}</p>
+    </section>
+    <section>
+      <h2>What happened</h2>
+      <p>{item.result}</p>
+    </section>
+    <aside class="case-boundary">
+      <h2>Scope and boundary</h2>
+      <p>{item.boundary}</p>
+    </aside>
+    <footer class="case-footer">
+      <span>{item.evidence}</span>
+      <a class="btn btn-primary btn-sm" href={item.url} target="_blank" rel="noopener">Inspect the public evidence →</a>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .case-page { max-width: 780px; }
+  .case-header { margin: 2rem 0 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--color-rule-light); }
+  .case-project { margin: .8rem 0 .5rem; color: var(--color-brand); font: 600 .72rem/1.5 var(--font-mono); }
+  .case-header h1 { max-width: 20ch; margin: 0 0 1rem; }
+  .case-page section { margin: 0 0 2rem; }
+  .case-page section h2, .case-boundary h2 { margin: 0 0 .6rem; font: 600 .78rem/1.4 var(--font-mono); color: var(--color-primary); }
+  .case-page section p, .case-boundary p { margin: 0; max-width: 70ch; line-height: 1.75; color: var(--color-text-dim); }
+  .case-boundary { margin: 2.5rem 0; padding: 1.1rem 1.25rem; border-left: 3px solid var(--color-brand); background: var(--color-surface); }
+  .case-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1.4rem; border-top: 1px solid var(--color-rule-light); }
+  .case-footer span { color: var(--color-text-muted); font: .65rem/1.5 var(--font-mono); }
+</style>

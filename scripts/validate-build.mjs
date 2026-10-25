@@ -183,7 +183,7 @@ try {
     results.push([condition ? 'PASS' : 'FAIL', message]);
     if (!condition) exitCode = 1;
   };
-  assertPage(logHtml.includes('<title>Research Engineering Log — Baixin Guo</title>'), 'Contribution page title');
+  assertPage(logHtml.includes('<title>Contributions — Baixin Guo</title>'), 'Contribution page title');
   assertPage(/<meta name="description" content="[^"]{50,180}"/.test(logHtml), 'Contribution meta description');
   assertPage(logHtml.includes(`<link rel="canonical" href="${siteUrl('contributions/')}"`), 'Contribution canonical includes the site base exactly once');
   const sitemap = walk(DIST).filter(file => /sitemap.*\.xml$/.test(file)).map(file => readFileSync(file, 'utf8')).join('');

@@ -1,5 +1,6 @@
 export const KIND_LABELS = Object.freeze({ issue: 'Issue', pr: 'PR', discussion: 'Discussion', release: 'Release', paper: 'Paper', artifact: 'Artifact' });
 export const EVENT_LABELS = Object.freeze({ opened: 'Opened', submitted: 'Submitted', merged: 'Merged', closed: 'Closed', clarified: 'Clarified', released: 'Released', published: 'Published' });
+export const CONTRIBUTION_CATEGORIES = Object.freeze(['research-artifacts', 'open-source-engineering', 'evaluation-audits', 'technical-review']);
 const COMPACT_STATUSES = Object.freeze({
   issue: { open: 'Open', closed: 'Closed', fixed_upstream: 'Closed · fixed upstream' },
   pr: { open: 'Open', merged: 'Merged', closed: 'Closed' },
@@ -128,6 +129,7 @@ export function validateContributions(records) {
     for (const field of ['project', 'title', 'contribution', 'whyItMatters']) {
       if (typeof record[field] !== 'string' || !record[field].trim()) error(`Missing ${field}`);
     }
+    if (!CONTRIBUTION_CATEGORIES.includes(record.category)) error('Unsupported contribution category');
     if (!Object.hasOwn(KIND_LABELS, record.kind)) error('Unsupported kind');
     if (!Object.hasOwn(STATUSES[record.kind] ?? {}, record.status)) error('Unsupported status for kind');
     if (!EVENTS[record.kind]?.includes(record.event)) error('Unsupported lifecycle event for kind');
