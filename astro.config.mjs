@@ -11,6 +11,7 @@ export default defineConfig({
     mdx(),
     sitemap({
     customPages: [
+      'https://gbx-max1220.github.io/maxguo.dev/non-answers/cases/fengxian-evidence-2022/',
       'https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/',
       'https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/report/',
       'https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/en/',
