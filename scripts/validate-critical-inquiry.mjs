@@ -104,6 +104,30 @@ assert.ok(data.claims.some(c=>c.id==='C09' && c.type==='analyst_temporal_inferen
 assert.ok(data.time_model && data.time_model.date_timezone==='Asia/Shanghai');
 
 
+
+// Source-dependence and actor-role audits prevent media copies from being
+// counted as independent proof or anonymous interviewees as police suspects.
+assert.ok(data.actor_role_register.length >= 6);
+const actorIDs=new Set(data.actor_role_register.map(a=>a.id));
+assert.equal(actorIDs.size,data.actor_role_register.length);
+for (const a of data.actor_role_register) {
+  assert.ok(a.role && a.not_established && a.source_ids.length>0);
+  for (const id of a.source_ids) assert.ok(byId.has(id),'invalid actor source '+id);
+}
+const Y=data.actor_role_register.find(a=>a.id==='A03');
+const suspects=data.actor_role_register.find(a=>a.id==='A02');
+assert.ok(Y && suspects && Y.role!==suspects.role);
+assert.match(Y.not_established,/link to two police investigation subjects/i);
+assert.ok(!Y.source_ids.includes('S02') && !Y.source_ids.includes('S11'),
+  'interview actor may not be silently assigned police material');
+assert.ok(data.source_relations.length >= 6);
+for (const edge of data.source_relations) {
+  assert.ok(byId.has(edge.from) && byId.has(edge.to),'missing source in relation');
+  assert.ok(edge.relation && edge.claim_scope && edge.limit);
+}
+assert.ok(data.source_relations.some(x=>x.from==='S11' && x.to==='S02'));
+assert.ok(data.source_relations.some(x=>x.from==='S07' && x.to==='S12'));
+
 const zh = read('src/pages/critical-inquiry/index.astro');
 const en = read('src/pages/critical-inquiry/en/index.astro');
 const draft = read('docs/critical-inquiry/prototypes/shanghai_2022_case_page.astro.txt');
