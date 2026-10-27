@@ -28,6 +28,13 @@ import '../styles/contribution-editorial.css';
       <h1 class="hero-headline">{profile.headline}</h1>
       <p class="hero-question">{profile.question}</p>
       <p class="hero-bio">{profile.profile}</p>
+      <div class="hero-methods-callout">
+        <span class="hero-methods-eyebrow">New interactive methods lab · Recommender systems</span>
+        <a class="hero-methods-link" href="/research/offline-policy-improvement/">
+          <span lang="zh-Hans">离线评价何时误导我们？</span>
+          <span class="hero-methods-en">When Offline Evaluation Misleads <span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
     </div>
 
     <figure class="hero-figure" aria-label="Research agenda overview">
@@ -38,7 +45,6 @@ import '../styles/contribution-editorial.css';
   <!-- Main content flow -->
   <div class="main-flow">
     <SelectedResearch />
-    <EngineeringList />
 
     <!-- Interactive methods: synthetic, reproducible teaching labs. -->
     <section id="interactive-methods" class="public-writing-section" aria-labelledby="interactive-methods-heading">
@@ -54,6 +60,8 @@ import '../styles/contribution-editorial.css';
         <span class="public-writing-link">Explore the lab / 进入实验 →</span>
       </a>
     </section>
+
+    <EngineeringList />
 
     <!-- Public essays: standalone, evidence-led communication projects. -->
     <section id="public-writing" aria-labelledby="public-writing-title" class="public-writing-section">
@@ -189,6 +197,35 @@ import '../styles/contribution-editorial.css';
   .hero-handle { margin-bottom: .55rem; }
   .hero-headline { margin-top: 0;
   }
+
+  .hero-methods-callout {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin: 0.1rem 0 1.5rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--color-rule);
+    border-left: 3px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+  }
+  .hero-methods-eyebrow {
+    color: var(--color-primary);
+    font: 600 0.62rem/1.5 var(--font-mono);
+    letter-spacing: 0.035em;
+  }
+  .hero-methods-link {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.15rem 0.7rem;
+    color: var(--color-brand);
+    font-weight: 650;
+    text-decoration: none;
+  }
+  .hero-methods-link:hover,
+  .hero-methods-link:focus-visible { text-decoration: underline; }
+  .hero-methods-en { font-size: 0.8rem; color: var(--color-text-dim); }
 
   .hero-figure {
     margin: 0;
