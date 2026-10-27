@@ -36,13 +36,17 @@ for (const snapshot of data.snapshots) {
 }
 
 const claimIds = new Set();
-const observedTypes = new Set(['republication_of_viral_claim', 'policy_announcement']);
+const observedTypes = new Set(['republication_of_viral_claim', 'police_attributed_circulating_claim', 'policy_announcement']);
 for (const claim of data.claims) {
   assert.ok(!claimIds.has(claim.id), 'duplicate claim ID');
   claimIds.add(claim.id);
   assert.ok(claim.source_ids.length, claim.id + ': missing sources');
   for (const id of claim.source_ids) assert.ok(byId.has(id), claim.id + ': missing source ' + id);
-  if (!observedTypes.has(claim.type)) {
+  if (observedTypes.has(claim.type)) {
+    assert.ok(claim.date_first_observed, claim.id + ': historical claim needs earliest documented date');
+    const earliest = claim.source_ids.map(id => byId.get(id).date).sort()[0];
+    assert.equal(claim.date_first_observed, earliest, claim.id + ': first documented date must follow sources');
+  } else {
     assert.equal(claim.date_first_observed, null, claim.id + ': inferred proposition must not pose as historical post');
   }
 }
