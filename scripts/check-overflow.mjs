@@ -37,7 +37,7 @@ const VIEWPORTS = [
 // '/publications/longmemeval-failure-attribution-framework/' added with the
 // Boundary Labs methods report entry: its abstract carries four-axis level codes
 // and two DOIs, so the detail page is checked like the rest of the site.
-const ROUTES = ['/', '/non-answers/', '/non-answers/cases/youth-unemployment-2023/', '/demo/', '/demo/interactionkit/', '/demo/checkmycoach/', '/demo/eval-runtime/', '/research/', '/contributions/', '/projects/', '/publications/', '/publications/longmemeval-failure-attribution-framework/', '/cv/', '/research/building-trustworthy-ai/authority-enforcement/', '/research/building-trustworthy-ai/authority-enforcement/note/'];
+const ROUTES = ['/', '/non-answers/', '/non-answers/cases/youth-unemployment-2023/', '/demo/', '/demo/interactionkit/', '/demo/checkmycoach/', '/demo/eval-runtime/', '/research/', '/contributions/', '/projects/', '/publications/', '/publications/longmemeval-failure-attribution-framework/', '/cv/', '/research/building-trustworthy-ai/authority-enforcement/', '/research/building-trustworthy-ai/authority-enforcement/note/', '/critical-inquiry/', '/critical-inquiry/en/'];
 
 const MIME_TYPES = {
   '.html': 'text/html',
@@ -206,6 +206,22 @@ try {
           exitCode = 1;
         } else {
           console.log(`  ✅ ${vp.label}: no overflow`);
+        }
+        // Dedicated editorial visual QA: retain both locales, full page and first viewport.
+        if (['/critical-inquiry/', '/critical-inquiry/en/'].includes(route) && [390, 1440].includes(vp.width)) {
+          mkdirSync(REVIEW_DIR, { recursive: true });
+          const locale = route === '/critical-inquiry/en/' ? 'en' : 'zh';
+          await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+          await page.screenshot({ path: join(REVIEW_DIR, `critical-inquiry-${locale}-${vp.width}-full.png`), fullPage: true });
+          await page.screenshot({ path: join(REVIEW_DIR, `critical-inquiry-${locale}-${vp.width}-hero.png`) });
+          const pageLang = await page.locator('html').getAttribute('lang');
+          if (pageLang !== (locale === 'zh' ? 'zh-CN' : 'en')) {
+            throw new Error(`Critical Inquiry page language wrong: ${pageLang}`);
+          }
+          const h1 = await page.locator('main h1').count();
+          if (h1 !== 1) throw new Error(`Critical Inquiry expected one main h1, got ${h1}`);
+          const switcher = page.locator('.ci-language a');
+          if (await switcher.count() !== 2) throw new Error('Critical Inquiry language switcher missing');
         }
         if (['/', '/research/', '/contributions/'].includes(route) && [390, 1440].includes(vp.width)) {
           mkdirSync(REVIEW_DIR, { recursive: true });
