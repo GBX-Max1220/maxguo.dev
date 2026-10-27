@@ -7,8 +7,8 @@ const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 const data = JSON.parse(read('src/data/critical-inquiry/shanghai2022.json'));
 
 assert.equal(data.status, 'DRAFT_REVIEW_REQUIRED', 'unreviewed exhibit must be marked draft');
-assert.ok(data.sources.length >= 6);
-assert.ok(data.snapshots.length >= 4);
+assert.ok(data.sources.length >= 9);
+assert.ok(data.snapshots.length >= 7);
 
 const byId = new Map(data.sources.map(s => [s.id, s]));
 assert.equal(byId.size, data.sources.length, 'duplicate source ID');
@@ -50,6 +50,30 @@ for (const claim of data.claims) {
     assert.equal(claim.date_first_observed, null, claim.id + ': inferred proposition must not pose as historical post');
   }
 }
+
+
+// Date-aware statement histories are editorial state transitions, not binary truth scores.
+assert.ok(data.claim_status_history.length >= 10, 'missing claim status history');
+const knownClaims = new Set(data.claims.map(c => c.id));
+for (const h of data.claim_status_history) {
+  assert.ok(knownClaims.has(h.claim_id), 'history points to unknown claim');
+  assert.match(h.as_of, /^\d{4}-\d{2}-\d{2}$/);
+  assert.ok(h.source_ids.length > 0, 'history needs direct evidence');
+  for (const id of h.source_ids) {
+    const src = byId.get(id);
+    assert.ok(src, 'missing historical state source: '+id);
+    assert.ok(src.date <= h.as_of, 'future evidence leaked into historical status: '+h.claim_id);
+  }
+}
+assert.equal(data.snapshots.at(-1).date, '2022-04-05');
+assert.ok(data.legal_element_audit.length >= 4);
+for (const element of data.legal_element_audit) {
+  assert.ok(element.independent_evidence_status && element.institutional_assertion);
+  for (const id of element.source_ids) assert.ok(byId.has(id), 'invalid legal audit source');
+}
+assert.equal(byId.get('S07').date, '2022-04-04');
+assert.equal(byId.get('S07').container_publication_date, '2022-04-05');
+assert.ok(data.sources.some(s => s.id === 'S06' && s.url.includes('shio.gov.cn')));
 
 const zh = read('src/pages/critical-inquiry/index.astro');
 const en = read('src/pages/critical-inquiry/en/index.astro');
