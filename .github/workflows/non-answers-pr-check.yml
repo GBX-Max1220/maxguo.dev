@@ -8,6 +8,16 @@ on:
       - 'src/pages/index.astro'
       - 'src/pages/blog/index.astro'
       - 'scripts/check-overflow.mjs'
+      - 'src/pages/critical-inquiry/**'
+      - 'src/styles/critical-inquiry.css'
+      - 'src/data/critical-inquiry/**'
+      - 'src/pages/research.astro'
+      - 'src/components/Footer.astro'
+      - 'src/layouts/BaseLayout.astro'
+      - 'astro.config.mjs'
+      - 'package.json'
+      - 'scripts/validate-critical-inquiry.mjs'
+      - 'docs/critical-inquiry/**'
       - 'scripts/generate-non-answers-og.mjs'
       - 'scripts/check-non-answers-p13.mjs'
       - '.github/workflows/non-answers-pr-check.yml'
@@ -42,11 +52,23 @@ jobs:
           npm run validate:content
           npm run test:contributions
 
+      - name: Validate critical inquiry evidence and publication gates
+        run: npm run test:critical-inquiry
+
       - name: Install Chromium for layout checks
         run: npx playwright install --with-deps chromium-headless-shell
 
       - name: Desktop and mobile overflow checks
         run: npm run check:overflow
+
+      - name: Upload critical inquiry visual QA screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: critical-inquiry-visual-qa
+          path: |
+            .astro/contribution-review/critical-inquiry*.png
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Verify integrated feature and research data
         run: |
