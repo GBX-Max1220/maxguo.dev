@@ -19,9 +19,10 @@ export interface Props {
   hideNav?: boolean;
   lang?: string;
   noindex?: boolean;
+  alternates?: Array<{ hreflang: string; path: string }>;
 }
 
-const { title, description, ogImage, ogType, hideNav, lang = 'en', noindex = false } = Astro.props;
+const { title, description, ogImage, ogType, hideNav, lang = 'en', noindex = false, alternates = [] } = Astro.props;
 const defaultDesc = SITE.description;
 const absTitle = `${title} — Baixin Guo`;
 const absDesc = description || defaultDesc;
@@ -51,6 +52,7 @@ const ogImageUrl = siteUrl(ogImage || '/og-default.svg');
 
     <!-- Canonical -->
     <link rel="canonical" href={Astro.url} />
+    {alternates.map(({ hreflang, path }) => <link rel="alternate" hreflang={hreflang} href={siteUrl(path)} />)}
 
     <!-- Schema.org Person -->
     <script type="application/ld+json" set:html={JSON.stringify({
