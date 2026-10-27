@@ -18,9 +18,10 @@ export interface Props {
   ogType?: string;
   hideNav?: boolean;
   lang?: string;
+  noindex?: boolean;
 }
 
-const { title, description, ogImage, ogType, hideNav, lang = 'en' } = Astro.props;
+const { title, description, ogImage, ogType, hideNav, lang = 'en', noindex = false } = Astro.props;
 const defaultDesc = SITE.description;
 const absTitle = `${title} — Baixin Guo`;
 const absDesc = description || defaultDesc;
@@ -34,6 +35,7 @@ const ogImageUrl = siteUrl(ogImage || '/og-default.svg');
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{absTitle}</title>
     <meta name="description" content={absDesc} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
 
     <!-- Open Graph -->
     <meta property="og:title" content={absTitle} />
