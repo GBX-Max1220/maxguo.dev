@@ -2,7 +2,7 @@
   "id": "shanghai-lockdown-2022",
   "title": "上海封控传言：事实判断与政策变化",
   "scope": "2022-03-22—2022-04-05",
-  "revision": "research-draft-v0.3",
+  "revision": "research-draft-v0.4",
   "status": "DRAFT_REVIEW_REQUIRED",
   "asOfConvention": "Each view includes public reporting dated on or before the displayed day's endpoint; it does not reconstruct the exact minute information was accessible to every resident.",
   "sources": [
@@ -119,6 +119,40 @@
       "url": "https://www.kankanews.com/detail/xey0knPE62J",
       "independence_group": "dongfang_zongxiang_interview_Y_mar23",
       "note": "采访以Y先生匿名呈现，记录他对自己转发行为的叙述。该人并未被可靠证据对应到警方通报的两名被立案人员；其传播规模、恐惧与传播动机均为受访者自述，不能外推全体网民。转载方称文字来源东方网。"
+    },
+    {
+      "id": "S10",
+      "date": "2022-03-31",
+      "published_at_local": "2022-03-31T22:51:59+08:00",
+      "source_type": "contemporaneous_news_of_government_notice",
+      "publisher": "新华社／新华网",
+      "title": "上海：4月1日5时起对浦东、浦南及毗邻区域实行分区分类、网格化管理",
+      "url": "https://www.xinhuanet.com/local/2022-03/31/c_1128521854.htm",
+      "independence_group": "shanghai_policy_revision_mar31",
+      "note": "3月31日晚正式通告获得新华社即时记录；其中已载有14天封闭与7+7方案。后续4月1日发布会(S06)为解释而非首次宣告。",
+      "role_in_timeline": "earliest_verified_public_notice_of_post_four_day_zonal_control"
+    },
+    {
+      "id": "S11",
+      "date": "2022-03-23",
+      "published_at_local": "2022-03-23T18:10:00+08:00",
+      "source_type": "contemporaneous_police_notice_report",
+      "publisher": "人民网-上海频道",
+      "title": "两人编造散播“上海封城”等不实信息，已被警方立案侦查",
+      "url": "https://sh.people.com.cn/n2/2022/0323/c134768-35188846.html",
+      "independence_group": "shanghai_police_notice_mar23",
+      "note": "同一警方通报的更早同期媒体版本（18:10），不是相对S02的独立案件取证。通过这一时间锚点证实14:02 Y先生采访发表在警方通报报道之前。"
+    },
+    {
+      "id": "S12",
+      "date": "2022-04-04",
+      "published_at_local": "2022-04-04T19:42:00+08:00",
+      "source_type": "independent_news_report_on_official_announcement",
+      "publisher": "台湾中央社 CNA",
+      "title": "上海完成全市核酸採樣 繼續封控足不出戶",
+      "url": "https://www.cna.com.tw/news/acn/202204040212.aspx",
+      "independence_group": "shanghai_policy_extension_apr04",
+      "note": "4月4日19:42独立媒体同时期报道官方19:09公告，确认该消息当日晚已公开；对公告内容的转述仍来自同一官方通知，不是独立验证封控执行。"
     }
   ],
   "snapshots": [
@@ -143,6 +177,30 @@
       "question": "当一项面向未来的政策预测被辟谣，官方解释针对的是预测的内容、消息来源，还是传播行为？"
     },
     {
+      "id": "mar23_1402",
+      "date": "2022-03-23",
+      "cutoff_local": "2022-03-23T14:02:36+08:00",
+      "label": "3月23日14:02",
+      "heading": "转发者自述已公开，警方立案通报尚未出现",
+      "available_sources": [
+        "S05",
+        "S00",
+        "S01",
+        "S09"
+      ],
+      "known": [
+        "新华网与人民网转载的官方辟谣内容已公开，仍无法查验流传消息的首发帖。",
+        "14:02:36发布的东方网·纵相新闻匿名采访经看看新闻转载。Y先生回忆此前一晚看到辟谣后感到不安、担忧家人受牵连并试图停止转发。",
+        "此时尚无本研究已核实发表于18:10及18:26的警方立案通报报道。"
+      ],
+      "not_known": [
+        "不能由受访者的心理自述推断辟谣造成恐惧的因果效应或全体网民的普遍反应。",
+        "不能将匿名受访者Y先生等同于随后警方通报涉及的两名当事人。",
+        "媒体的14:02发表时间不等于被访者3月22日所述行为经过独立计时或认证。"
+      ],
+      "question": "在刑事立案信息公开以前，当事人已如何描述对权威辟谣、传播风险与家庭连带影响的主观预期？"
+    },
+    {
       "id": "mar23",
       "date": "2022-03-23",
       "label": "3月23日晚",
@@ -152,14 +210,16 @@
         "S00",
         "S01",
         "S02",
-        "S09"
+        "S09",
+        "S11"
       ],
       "known": [
         "媒体记录了关于“督查组到沪后将封城7天”的网络说法；尚未取得可认证的原始发布帖。",
         "上海官方否认流传的具体封城说法，同时说明正在采用分区、网格化筛查。",
         "警方通报两名传播者因涉嫌相关罪名被立案侦查；这不是最终司法裁判。",
         "警方通报经媒体转述包含“马上封城7天”“全封4天”等不同版本；原帖与发帖人的对应关系尚未独立验证。",
-        "同日14:02的同期媒体转载保留了一名匿名转发者的采访：受访者称因为信任群里的消息来源而转发，随后担忧家人受到牵连并呼吁停止传播；此为受访者自述，不是独立的传播链取证。"
+        "同日14:02的同期媒体转载保留了一名匿名转发者的采访：受访者称因为信任群里的消息来源而转发，随后担忧家人受到牵连并呼吁停止传播；此为受访者自述，不是独立的传播链取证。",
+        "更早的14:02匿名采访在18:10警方立案通报新闻发布之前；这排除了由后续警方公开通报直接引发该受访者先前担忧的时间顺序。"
       ],
       "not_known": [
         "3月27日分区分批封控方案尚未公开。",
@@ -179,7 +239,8 @@
         "S01",
         "S02",
         "S03",
-        "S09"
+        "S09",
+        "S11"
       ],
       "known": [
         "官方宣布以黄浦江为界分批实施核酸筛查；第一批自3月28日5时开始，第二批自4月1日3时开始。",
@@ -204,7 +265,8 @@
         "S02",
         "S03",
         "S04",
-        "S09"
+        "S09",
+        "S11"
       ],
       "known": [
         "新闻发布会确认了两批四天的计划及相关区域安排。",
@@ -216,6 +278,34 @@
         "未获得可验证的最终司法处理结果，不能把“立案侦查”写成“定罪”。"
       ],
       "question": "一项公共事实标签在后续信息出现时，是否应有明确的复核和更正程序？"
+    },
+    {
+      "id": "mar31",
+      "date": "2022-03-31",
+      "cutoff_local": "2022-03-31T23:59:59+08:00",
+      "label": "3月31日晚",
+      "heading": "分类延续管控措施已在4月1日前公开",
+      "available_sources": [
+        "S05",
+        "S00",
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S09",
+        "S10",
+        "S11"
+      ],
+      "known": [
+        "22:51:59新华社刊发：上海3月31日晚公布4月1日起浦东等区域分类管理通告，部分区域有14天封闭或7天封闭加7天社区健康管理安排。",
+        "这一安排当晚已经公开，不能在时间机器中推迟到4月1日才供读者阅读。",
+        "新政策说明原先公布的两批四天安排不是完整的最终封控执行说明。"
+      ],
+      "not_known": [
+        "发布公告不等于所有街道、住户执行情况完全一致。",
+        "不能从3月31日晚公开内容追认3月22日晚传播者的内部消息来源。"
+      ],
+      "question": "公共政策预告的公布时间如何影响后来对早期辟谣的历史评估？"
     },
     {
       "id": "apr01",
@@ -230,9 +320,12 @@
         "S03",
         "S04",
         "S06",
-        "S09"
+        "S09",
+        "S10",
+        "S11"
       ],
       "known": [
+        "关于浦东、浦南分类延续管控的关键安排早在3月31日晚已经公开；4月1日官方新闻发布会补充说明实施逻辑。",
         "4月1日官方新闻发布会说明浦东、浦南第一批筛查结束，但继续按封控区、管控区、防范区分级管理。",
         "官方公布部分封控区实施从3月28日开始计算的14天封闭，或7天封闭加7天社区健康管理。",
         "“3月27日宣布的每批四天计划”已不足以完整描述后续实际实行的措施。"
@@ -257,7 +350,10 @@
         "S04",
         "S06",
         "S07",
-        "S09"
+        "S09",
+        "S10",
+        "S11",
+        "S12"
       ],
       "known": [
         "上海疫情防控工作领导小组办公室4月4日晚宣布：检测复核与研判完成前，全市继续实施封控管理，除就医等情况外仍要求足不出户。",
@@ -285,7 +381,10 @@
         "S06",
         "S07",
         "S08",
-        "S09"
+        "S09",
+        "S10",
+        "S11",
+        "S12"
       ],
       "known": [
         "上海高级人民法院发布的法律适用说明列出相关犯罪的法定要求，包括虚假的疫情信息、故意传播以及严重扰乱社会秩序等。",
@@ -387,6 +486,32 @@
       "as_of_23": "interviewee_self_report",
       "after_27": "interviewee_self_report",
       "note": "采访由东方网·纵相新闻完成、看看新闻Knews转载；不能将Y先生等同于警方通报的任何涉案人员，也不能由单例自述直接推出社会普遍恐惧或删帖效果。"
+    },
+    {
+      "id": "C08",
+      "claim": "3月31日晚已宣布浦东部分地区自4月1日起实施14天封闭或7+7分级管控计划",
+      "type": "policy_announcement",
+      "date_first_observed": "2022-03-31",
+      "source_ids": [
+        "S10",
+        "S06"
+      ],
+      "as_of_23": "not_yet_public",
+      "after_27": "later_related_policy_announced",
+      "note": "新华社3月31日22:51发布的记录早于4月1日发布会。这里仅指当时公布的政策安排，不等于后来执行的完整覆盖范围。"
+    },
+    {
+      "id": "C09",
+      "claim": "匿名转发者的受访报道发表于警方立案通报公开报道之前",
+      "type": "analyst_temporal_inference",
+      "date_first_observed": null,
+      "source_ids": [
+        "S09",
+        "S11"
+      ],
+      "as_of_23": "chronology_requires_intraday_cutoff",
+      "after_27": "supported_source_publication_order",
+      "note": "比较14:02与18:10两个公开页面的发布时间。这是研究者的跨来源时间判断，不是受访者提出的原始消息；不能据此推断恐惧产生原因。"
     }
   ],
   "methodological_limits": [
@@ -400,7 +525,9 @@
     "4月4日晚官方公告通过新华社和4月5日人民日报刊发，同一消息具有决策日、转发日和承载页面日期；as-of状态使用最早核实公开时间，注明转发链。",
     "刑法构成要件审计是对公开证据充分性的研究，不是法律意见、无罪判断或针对具体个人的定罪评议。",
     "Y先生是媒体报道中的匿名转发受访者，现有来源未证明其为警方立案通报的两人之一；两种材料绝不可合并进行个体指认。",
-    "单次匿名采访只能证明当时有记录的风险感知与表达调整自述，不能直接证明强制性自我审查的普遍性、警方威慑效应或后续行为变化的因果机制。"
+    "单次匿名采访只能证明当时有记录的风险感知与表达调整自述，不能直接证明强制性自我审查的普遍性、警方威慑效应或后续行为变化的因果机制。",
+    "2022-03-23 14:02匿名转发者采访的公开时间早于本研究已知18:10警方立案通报新闻。不能把该受访者3月22日晚的担忧归因于3月23日晚警方立案通报。",
+    "政策公告的3月31日晚首发时间(S10)与4月1日发布会解释(S06)必须分别显示；不得把政策存在延长控制的最早可知日误写为4月1日。"
   ],
   "evidence_lineage": {
     "prior_bundle": "China_Information_Control_Joint_Pilot_v1.0_20261028.zip",
@@ -507,6 +634,34 @@
       "source_ids": [
         "S09"
       ]
+    },
+    {
+      "claim_id": "C08",
+      "as_of": "2022-03-31",
+      "state": "officially_announced",
+      "why": "新华社当晚记录4月1日生效的分级措施，包含14天及7+7。",
+      "source_ids": [
+        "S10"
+      ]
+    },
+    {
+      "claim_id": "C09",
+      "as_of": "2022-03-23",
+      "state": "publication_order_supported_not_causality",
+      "why": "14:02采访转载早于18:10警方通报新闻；不证明受访者心理反应的来源。",
+      "source_ids": [
+        "S09",
+        "S11"
+      ]
+    },
+    {
+      "claim_id": "C01",
+      "as_of": "2022-03-31",
+      "state": "later_extended_controls_announced_not_authenticated",
+      "why": "3月31日晚已公布部分区域14天及7+7管理方案，不可后移到4月1日。",
+      "source_ids": [
+        "S10"
+      ]
     }
   ],
   "legal_element_audit": [
@@ -587,5 +742,12 @@
       ],
       "caveat": "原始采访由东方网进行，转载不提供独立第二次采访"
     }
-  ]
+  ],
+  "time_model": {
+    "date_timezone": "Asia/Shanghai",
+    "date_only_cutoff": "23:59:59",
+    "source_timestamp_rule": "published_at_local if confirmed; else the full stated publication date only; never infer exact clock time from an interview about events",
+    "event_time_vs_publication_time": "An interviewee's recollection of an event is not a contemporaneous observed time-stamped post.",
+    "note": "A historical cut-off sees publicly released source objects, not facts whose events happened by that cut-off."
+  }
 }
