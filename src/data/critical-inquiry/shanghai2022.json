@@ -7,6 +7,16 @@
   "asOfConvention": "Each view includes public reporting dated on or before the displayed day's endpoint; it does not reconstruct the exact minute information was accessible to every resident.",
   "sources": [
     {
+      "id": "S00",
+      "legacy_source_id": "SH01",
+      "date": "2022-03-23",
+      "source_type": "official_statement_contemporaneous_copy",
+      "title": "上海“封城”传言不实！已有部分街镇解除封控",
+      "publisher": "上海市政府新闻办公室官方微博／新华网原文转载",
+      "url": "https://www.xinhuanet.com/politics/2022-03/23/c_1128494505.htm",
+      "note": "保留3月23日官方辟谣文字和微博截图，仍非原微博帖文的独立元数据存档；原文没有逐字列出全部网传变体。"
+    },
+    {
       "id": "S01",
       "date": "2022-03-23",
       "source_type": "contemporaneous_republication",
@@ -22,7 +32,8 @@
       "title": "上海警方通报两人因有关传言被立案侦查",
       "publisher": "人民网-上海频道（转述警方通报）",
       "url": "https://sh.people.com.cn/n2/2022/0323/c134768-35188846.html",
-      "note": "证明当时存在警方立案侦查的公开通报；不等于最终定罪。"
+      "note": "证明当时存在警方立案侦查的公开通报；不等于最终定罪。",
+      "legacy_source_id": "SH02"
     },
     {
       "id": "S03",
@@ -31,7 +42,8 @@
       "title": "关于做好全市新一轮核酸筛查工作的通告",
       "publisher": "上海市政府网站／上海发布",
       "url": "https://www.shanghai.gov.cn/sjzccs/20220327/613eda924f814a4ab4b25642f0e668c5.html",
-      "note": "公开的正式政策方案：3月28日起以黄浦江为界分批实施筛查与封控。"
+      "note": "公开的正式政策方案：3月28日起以黄浦江为界分批实施筛查与封控。",
+      "legacy_source_id": "SH04"
     },
     {
       "id": "S04",
@@ -40,7 +52,8 @@
       "title": "市政府新闻发布会问答实录",
       "publisher": "上海市人民政府",
       "url": "https://www.shanghai.gov.cn/nw9820/20220328/5626487ef53e4c288bf9ac5cf70a56e7.html",
-      "note": "解释两批次实施安排及决策的公共卫生理由；仅代表公开说明。"
+      "note": "解释两批次实施安排及决策的公共卫生理由；仅代表公开说明。",
+      "legacy_source_id": "SH05"
     }
   ],
   "snapshots": [
@@ -50,6 +63,7 @@
       "label": "3月23日晚",
       "heading": "当时已有官方辟谣与警方通报",
       "available_sources": [
+        "S00",
         "S01",
         "S02"
       ],
@@ -71,6 +85,7 @@
       "label": "3月27日",
       "heading": "正式政策公布，证据状态发生变化",
       "available_sources": [
+        "S00",
         "S01",
         "S02",
         "S03"
@@ -92,6 +107,7 @@
       "label": "3月28日",
       "heading": "发布会补充了官方解释",
       "available_sources": [
+        "S00",
         "S01",
         "S02",
         "S03",
@@ -115,6 +131,7 @@
       "claim": "上海将全市同时封闭7天",
       "date_first_observed": "2022-03-23",
       "source_ids": [
+        "S00",
         "S01"
       ],
       "as_of_23": "reported_unverified",
@@ -166,5 +183,11 @@
     "资料的公开发布日期不等于所有人实际获知该信息的时刻。",
     "正式政策变化不能自动归因于此前辟谣或行政执法。",
     "对政策真伪、发言责任及执法比例性的评价需要不同证据，不作单一总分。"
-  ]
+  ],
+  "evidence_lineage": {
+    "prior_bundle": "China_Information_Control_Joint_Pilot_v1.0_20261028.zip",
+    "prior_case_id": "SH22",
+    "prior_table": "v10_verified_source_register.csv",
+    "note": "Current site model is an editorial refinement, not a verbatim republication of the full v1.0 research bundle."
+  }
 }
