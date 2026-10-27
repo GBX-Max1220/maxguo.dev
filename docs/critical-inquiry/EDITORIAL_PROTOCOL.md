@@ -52,7 +52,7 @@ G4 — Privacy, copyright, translation parity and factual copy edit.
 G5 — Keyboard-accessible interaction, readable typography and six-viewpoint responsive QA.  
 G6 — Explicit editorial release approval, change log and published archive snapshot.
 
-A draft PR, a noindex meta tag, or a hidden link is NOT an access restriction. The currently unlinked Shanghai case must not be merged into a public deploy without editorial review and acceptance of public exposure.
+A draft PR, a noindex meta tag, or a hidden link is NOT an access restriction. The Shanghai case page is archived under docs/critical-inquiry/prototypes/ and is not an Astro route. Its underlying research data remain in src/data for validation, but no case page is emitted by the build. Restore public routing only after an explicit editorial release.
 
 ### Editorial practice
 
