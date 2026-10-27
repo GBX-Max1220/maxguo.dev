@@ -17,9 +17,10 @@ export interface Props {
   ogImage?: string;
   ogType?: string;
   hideNav?: boolean;
+  lang?: string;
 }
 
-const { title, description, ogImage, ogType, hideNav } = Astro.props;
+const { title, description, ogImage, ogType, hideNav, lang = 'en' } = Astro.props;
 const defaultDesc = SITE.description;
 const absTitle = `${title} — Baixin Guo`;
 const absDesc = description || defaultDesc;
@@ -27,7 +28,7 @@ const ogImageUrl = siteUrl(ogImage || '/og-default.svg');
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
