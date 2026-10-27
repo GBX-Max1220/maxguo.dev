@@ -1,8 +1,8 @@
 {
   "id": "shanghai-lockdown-2022",
   "title": "上海封控传言：事实判断与政策变化",
-  "scope": "2022-03-22—2022-03-28",
-  "revision": "research-draft-v0.2",
+  "scope": "2022-03-22—2022-04-05",
+  "revision": "research-draft-v0.3",
   "status": "DRAFT_REVIEW_REQUIRED",
   "asOfConvention": "Each view includes public reporting dated on or before the displayed day's endpoint; it does not reconstruct the exact minute information was accessible to every resident.",
   "sources": [
@@ -76,6 +76,38 @@
       "note": "解释两批次实施安排及决策的公共卫生理由；仅代表公开说明。",
       "legacy_source_id": "SH05",
       "independence_group": "shanghai_official_press_qa_mar28"
+    },
+    {
+      "id": "S06",
+      "date": "2022-04-01",
+      "source_type": "official_press_qa",
+      "publisher": "上海市人民政府新闻办公室",
+      "title": "2022年4月1日市政府新闻发布会问答实录",
+      "url": "https://www.shio.gov.cn/TrueCMS/shxwbgs/2022n_4y_wdsl/content/e2bbd1d3-b4fd-49f9-a324-0f9bb471af2d.html",
+      "independence_group": "shanghai_policy_revision_apr01",
+      "note": "第一批筛查完成后，官方宣布浦东、浦南按封控区／管控区／防范区分类；封控区部分单元采取7天封闭加7天社区健康管理或14天封闭。属于4月1日新增政策，而非3月22日事先公开的计划。"
+    },
+    {
+      "id": "S07",
+      "date": "2022-04-04",
+      "source_type": "official_announcement_syndicated",
+      "publisher": "上海疫情防控领导小组办公室／新华社／人民日报海外版",
+      "title": "上海4日核酸采样完成，相关工作结束前继续封控",
+      "url": "https://paper.people.com.cn/hwbwap/html/2022-04/05/content_25910900.htm",
+      "independence_group": "shanghai_policy_extension_apr04",
+      "note": "消息发布于4月4日晚；该人民日报页面署2022-04-05，为次日刊登的同期官方消息。来源日期记的是通告发布日而非承载网页发行日；双重日期必须保留。",
+      "reported_publication_date": "2022-04-04",
+      "container_publication_date": "2022-04-05"
+    },
+    {
+      "id": "S08",
+      "date": "2022-04-05",
+      "source_type": "judicial_guidance",
+      "publisher": "上海市高级人民法院／上海市人民政府网站",
+      "title": "关于涉新冠肺炎疫情案件法律适用问题的系列问答之二（2022年修订版）",
+      "url": "https://www.shanghai.gov.cn/sjzccs/20220405/24f19542c5c04140a91bca5004c03e2e.html",
+      "independence_group": "shanghai_high_court_legal_guidance_apr05",
+      "note": "后发的法律适用说明：刑法第二百九十一条之一第二款涉及编造虚假疫情信息、主观明知及严重扰乱社会秩序等构成要求。它不证明警方3月23日案件中的构成要件已经满足，更不是判决。"
     }
   ],
   "snapshots": [
@@ -169,6 +201,84 @@
         "未获得可验证的最终司法处理结果，不能把“立案侦查”写成“定罪”。"
       ],
       "question": "一项公共事实标签在后续信息出现时，是否应有明确的复核和更正程序？"
+    },
+    {
+      "id": "apr01",
+      "date": "2022-04-01",
+      "label": "4月1日",
+      "heading": "四天计划之后：浦东开始分类延续管理",
+      "available_sources": [
+        "S05",
+        "S00",
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S06"
+      ],
+      "known": [
+        "4月1日官方新闻发布会说明浦东、浦南第一批筛查结束，但继续按封控区、管控区、防范区分级管理。",
+        "官方公布部分封控区实施从3月28日开始计算的14天封闭，或7天封闭加7天社区健康管理。",
+        "“3月27日宣布的每批四天计划”已不足以完整描述后续实际实行的措施。"
+      ],
+      "not_known": [
+        "不能据4月1日新增分级措施反推3月22日两名传播者掌握该细节。",
+        "不能把浦东部分区域的14天管控概括为上海所有人从同一天起封闭14天。"
+      ],
+      "question": "政策新增与政策原计划之间的差异，应当如何进入对早期辟谣的事后核查？"
+    },
+    {
+      "id": "apr04",
+      "date": "2022-04-04",
+      "label": "4月4日晚",
+      "heading": "全市继续封控，最初两个四天解封节点不再涵盖完整政策",
+      "available_sources": [
+        "S05",
+        "S00",
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S06",
+        "S07"
+      ],
+      "known": [
+        "上海疫情防控工作领导小组办公室4月4日晚宣布：检测复核与研判完成前，全市继续实施封控管理，除就医等情况外仍要求足不出户。",
+        "新华社在4月4日报道这一决定；人民日报海外版4月5日刊载对应消息。",
+        "4月5日3时解封的原计划不能再当作完整的实际政策结局。"
+      ],
+      "not_known": [
+        "未取得细至街道、楼栋的全市统一解封日期数据库，因此不能据此计算每位居民实际经历的天数。",
+        "不能仅凭延长封控证明3月22日的传言来自内部消息或由警方错误定罪。"
+      ],
+      "question": "当政策变更使公众的事后记忆更接近早期传言，官方应如何公开区分过去的虚假消息认定与后续政策变化？"
+    },
+    {
+      "id": "apr05",
+      "date": "2022-04-05",
+      "label": "4月5日",
+      "heading": "法律解释材料补上了独立审查层次",
+      "available_sources": [
+        "S05",
+        "S00",
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S06",
+        "S07",
+        "S08"
+      ],
+      "known": [
+        "上海高级人民法院发布的法律适用说明列出相关犯罪的法定要求，包括虚假的疫情信息、故意传播以及严重扰乱社会秩序等。",
+        "这些是法律适用规范和解释，不是两名涉案人员的判决书。",
+        "4月4日继续封控决定与4月5日法律解释分别属于政策版本和法律规范两个不同证据维度。"
+      ],
+      "not_known": [
+        "仍未找到可以核对两名涉案人员后续司法结局的可靠公开文书。",
+        "警方对“严重扰乱社会秩序”的通报性描述尚缺独立的损害证据和司法认定。"
+      ],
+      "question": "如果一次关于未来政策的表述面临刑事调查，相关构成要件由谁证明、如何接受对抗性审查？"
     }
   ],
   "claims": [
@@ -235,6 +345,18 @@
       "as_of_23": "police_reported_unverified",
       "after_27": "overlapping_duration_different_schedule",
       "note": "3月23日报道转述警方称流传内容之一为“全封4天”。3月27日公布的是分批各四天计划，既不能追认为原帖准确，也不能忽略两者在时长上的表面重合。缺少原帖完整上下文。"
+    },
+    {
+      "id": "C06",
+      "claim": "4月4日晚官方宣布原计划结束后仍将全市继续封控",
+      "type": "policy_announcement",
+      "date_first_observed": "2022-04-04",
+      "source_ids": [
+        "S07"
+      ],
+      "as_of_23": "not_yet_public",
+      "after_27": "not_yet_public",
+      "note": "用于区分3月27日公布的计划与4月4日出现的调整；人民日报承载页4月5日发行，消息本身4月4日已公布。"
     }
   ],
   "methodological_limits": [
@@ -243,12 +365,144 @@
     "资料的公开发布日期不等于所有人实际获知该信息的时刻。",
     "正式政策变化不能自动归因于此前辟谣或行政执法。",
     "对政策真伪、发言责任及执法比例性的评价需要不同证据，不作单一总分。",
-    "警方同期通报包含至少两种不同的封控预测（七天、四天）；仅凭官方或媒体概括不能证明它们出自同一传播者或属于同一条原帖。"
+    "警方同期通报包含至少两种不同的封控预测（七天、四天）；仅凭官方或媒体概括不能证明它们出自同一传播者或属于同一条原帖。",
+    "4月1日公布的7天/14天分类管控，以及4月4日继续封控，都是早期辟谣之后新增的官方措施；不能把政策后续变化当作3月22日传播内容在当时已具真实来源的证明。",
+    "4月4日晚官方公告通过新华社和4月5日人民日报刊发，同一消息具有决策日、转发日和承载页面日期；as-of状态使用最早核实公开时间，注明转发链。",
+    "刑法构成要件审计是对公开证据充分性的研究，不是法律意见、无罪判断或针对具体个人的定罪评议。"
   ],
   "evidence_lineage": {
     "prior_bundle": "China_Information_Control_Joint_Pilot_v1.0_20261028.zip",
     "prior_case_id": "SH22",
     "prior_table": "v10_verified_source_register.csv",
     "note": "Current site model is an editorial refinement, not a verbatim republication of the full v1.0 research bundle."
-  }
+  },
+  "claim_status_history": [
+    {
+      "claim_id": "C01",
+      "as_of": "2022-03-22",
+      "state": "contemporaneously_rebutted",
+      "why": "当日晚同期报道记录具体七天说法被否认；原始网络发帖缺失。",
+      "source_ids": [
+        "S05"
+      ]
+    },
+    {
+      "claim_id": "C01",
+      "as_of": "2022-03-27",
+      "state": "not_equivalent_to_announced_plan",
+      "why": "后续方案为分批四天，具体对象、起止时间和“督查组带来七天政策”不同。",
+      "source_ids": [
+        "S03"
+      ]
+    },
+    {
+      "claim_id": "C01",
+      "as_of": "2022-04-01",
+      "state": "later_longer_controls_announced_not_authenticated",
+      "why": "部分地区公布七天及十四天分类管控安排，但不能据此认证早期传播者的原帖或内部来源。",
+      "source_ids": [
+        "S06"
+      ]
+    },
+    {
+      "claim_id": "C01",
+      "as_of": "2022-04-04",
+      "state": "later_citywide_extension_not_authentication",
+      "why": "全市继续封控，前述四天公告并非实际最终时间线；仍不能追溯确认3月22日的具体七天传言。",
+      "source_ids": [
+        "S07"
+      ]
+    },
+    {
+      "claim_id": "C05",
+      "as_of": "2022-03-23",
+      "state": "police_reported_original_unavailable",
+      "why": "警方转述“全封4天”，未取得原始贴文与作者配对。",
+      "source_ids": [
+        "S02"
+      ]
+    },
+    {
+      "claim_id": "C05",
+      "as_of": "2022-03-27",
+      "state": "duration_overlap_but_not_equivalent",
+      "why": "分批各四天与全市同时封四天不同。",
+      "source_ids": [
+        "S03"
+      ]
+    },
+    {
+      "claim_id": "C05",
+      "as_of": "2022-04-04",
+      "state": "later_extension",
+      "why": "原计划之后继续全市封控，更不能按日期与时长简单判断旧传言真伪。",
+      "source_ids": [
+        "S07"
+      ]
+    },
+    {
+      "claim_id": "C04",
+      "as_of": "2022-03-27",
+      "state": "announced_schedule",
+      "why": "官方3月27日公告计划分两批四天。",
+      "source_ids": [
+        "S03"
+      ]
+    },
+    {
+      "claim_id": "C04",
+      "as_of": "2022-04-04",
+      "state": "superseded_as_complete_actual_account",
+      "why": "4月4日官方继续封控，意味着原计划不足以说明完整执行历史。",
+      "source_ids": [
+        "S07"
+      ]
+    },
+    {
+      "claim_id": "C06",
+      "as_of": "2022-04-04",
+      "state": "officially_announced",
+      "why": "上海领导小组办公室明确提出继续实施封控。",
+      "source_ids": [
+        "S07"
+      ]
+    }
+  ],
+  "legal_element_audit": [
+    {
+      "element": "信息客观虚假：具体事实内容及时间限定",
+      "institutional_assertion": "警方3月23日将两种传言称为不实信息",
+      "independent_evidence_status": "无法取得原帖及事前政策决策文书，不能独立完成真实性要件判断",
+      "source_ids": [
+        "S02",
+        "S08"
+      ]
+    },
+    {
+      "element": "编造或明知虚假仍故意传播",
+      "institutional_assertion": "警方称相关人员为博取关注自行编造",
+      "independent_evidence_status": "没有原始聊天、当事人陈述、证人证言或法院事实认定",
+      "source_ids": [
+        "S02",
+        "S08"
+      ]
+    },
+    {
+      "element": "严重扰乱社会秩序",
+      "institutional_assertion": "警方称传播规模大、社会影响恶劣",
+      "independent_evidence_status": "未取得具体传播规模、现实秩序损害以及司法评判的独立材料",
+      "source_ids": [
+        "S02",
+        "S08"
+      ]
+    },
+    {
+      "element": "程序与最终结果",
+      "institutional_assertion": "警方公开说明已立案侦查",
+      "independent_evidence_status": "尚无可靠的检察处分或法院生效裁判材料；不得写成有罪",
+      "source_ids": [
+        "S02"
+      ]
+    }
+  ]
 }
