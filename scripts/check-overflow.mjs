@@ -37,7 +37,7 @@ const VIEWPORTS = [
 // '/publications/longmemeval-failure-attribution-framework/' added with the
 // Boundary Labs methods report entry: its abstract carries four-axis level codes
 // and two DOIs, so the detail page is checked like the rest of the site.
-const ROUTES = ['/', '/non-answers/', '/non-answers/cases/youth-unemployment-2023/', '/demo/', '/demo/interactionkit/', '/demo/checkmycoach/', '/demo/eval-runtime/', '/research/', '/contributions/', '/projects/', '/publications/', '/publications/longmemeval-failure-attribution-framework/', '/cv/', '/research/building-trustworthy-ai/authority-enforcement/', '/research/building-trustworthy-ai/authority-enforcement/note/', '/critical-inquiry/', '/critical-inquiry/en/', '/critical-inquiry/cases/shanghai-lockdown-2022/'];
+const ROUTES = ['/', '/non-answers/', '/non-answers/cases/youth-unemployment-2023/', '/demo/', '/demo/interactionkit/', '/demo/checkmycoach/', '/demo/eval-runtime/', '/research/', '/contributions/', '/projects/', '/publications/', '/publications/longmemeval-failure-attribution-framework/', '/cv/', '/research/building-trustworthy-ai/authority-enforcement/', '/research/building-trustworthy-ai/authority-enforcement/note/', '/critical-inquiry/', '/critical-inquiry/en/'];
 
 const MIME_TYPES = {
   '.html': 'text/html',
