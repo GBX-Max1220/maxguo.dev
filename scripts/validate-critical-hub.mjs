@@ -25,7 +25,7 @@ for(const source of [zh,en]){
  assert.match(source,/critical-inquiry\/'/,'Chinese language link missing');
 }
 assert.match(zh,/已发布 \/ PUBLISHED/);
-assert.match(zh,/研究中|研究中 \/ RESEARCH IN PROGRESS/);
+assert.match(zh,/RESEARCH IN PROGRESS/);
 assert.match(en,/RESEARCH IN PROGRESS/);
 assert.match(text('src/pages/index.astro'),/critical-inquiry\//);
 assert.match(text('src/pages/research.astro'),/critical-inquiry\//);
