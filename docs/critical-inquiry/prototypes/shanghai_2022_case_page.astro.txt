@@ -13,6 +13,8 @@ const sources = new Map(evidence.sources.map(source => [source.id, source]));
 const states = evidence.snapshots;
 const stateLabels = {
   reported_unverified: '同期记载：未经独立核验',
+  police_reported_unverified: '警方转述的传播内容：原帖未认证',
+  overlapping_duration_different_schedule: '后来出现四天分批计划，但与全封版本不同',
   unconfirmed_forecast: '当时未确认的预测',
   unsupported_conclusion: '没有来源支持',
   not_yet_public: '当时尚未公开',
