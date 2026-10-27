@@ -119,30 +119,33 @@
       ],
       "as_of_23": "reported_unverified",
       "after_27": "not_matching_announced_specific_schedule",
-      "note": "3月27日公告采用分区域分批次安排，并非该具体说法。"
+      "note": "3月27日公告采用分区域分批次安排，并非该具体说法。",
+      "type": "republication_of_viral_claim"
     },
     {
       "id": "C02",
       "claim": "上海将实施影响全市的大规模筛查与区域封控",
-      "date_first_observed": "2022-03-23",
+      "date_first_observed": null,
       "source_ids": [
         "S01",
         "S03"
       ],
       "as_of_23": "unconfirmed_forecast",
       "after_27": "later_related_policy_announced",
-      "note": "概括性描述与后续方案存在重叠；不能追认其早期消息来源。"
+      "note": "概括性描述与后续方案存在重叠；不能追认其早期消息来源。 这不是已经取得原帖的独立传播命题。",
+      "type": "analytical_generalization"
     },
     {
       "id": "C03",
-      "claim": "传播两类封城说法的两人已被定罪",
-      "date_first_observed": "2022-03-23",
+      "claim": "不能从立案侦查直接推出已经定罪",
+      "date_first_observed": null,
       "source_ids": [
         "S02"
       ],
       "as_of_23": "unsupported_conclusion",
       "after_27": "unsupported_conclusion",
-      "note": "同期材料仅说明立案侦查。"
+      "note": "这是研究者设置的推断边界，并非已核实曾在2022年3月23日传播的原始主张。",
+      "type": "inference_to_avoid"
     },
     {
       "id": "C04",
@@ -154,7 +157,8 @@
       ],
       "as_of_23": "not_yet_public",
       "after_27": "supported_by_official_notice",
-      "note": "这是对正式政策公告内容的记录，不是独立评价其后续执行。"
+      "note": "这是对正式政策公告内容的记录，不是独立评价其后续执行。",
+      "type": "policy_announcement"
     }
   ],
   "methodological_limits": [
