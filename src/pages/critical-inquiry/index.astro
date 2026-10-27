@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/critical-inquiry.css';
+
+const published = [
+  {
+    number: '01',
+    kind: '测量权力 / MEASUREMENT',
+    title: '谁的时间被计算？',
+    subtitle: 'China Time Use 2024',
+    description: '统计口径不是社会现实本身。追问有酬与无酬劳动的界限，如何改变我们对日常生活的理解。',
+    href: '/research/china-time-use-2024/',
+    status: '已发布 / PUBLISHED'
+  },
+  {
+    number: '02',
+    kind: '回答与回避 / ANSWERABILITY',
+    title: '正确的废话',
+    subtitle: 'The Language of Non-Answers',
+    description: '公共回答说了什么、绕开了什么，又凭什么让读者认为问题已经得到解释？',
+    href: '/non-answers/',
+    status: '已发布 / PUBLISHED'
+  }
+];
+
+const inProgress = [
+  {
+    number: '03',
+    kind: '事实定性 / AUTHORITY',
+    title: '谁有权定义谣言？',
+    subtitle: 'Who Defines a Rumor?',
+    description: '追踪一项说法的原始含义、辟谣证据、机构权力与后来的事实更新；区分未经证实、被证伪与政策变化。',
+    status: '证据审计中 / RESEARCH IN PROGRESS'
+  },
+  {
+    number: '04',
+    kind: '叙事与归因 / NARRATIVE',
+    title: '解释的边界',
+    subtitle: 'The Boundaries of Explanation',
+    description: '同一公共事件为何会有不同的责任归因和因果解释？哪些差异来自新增证据，哪些来自编辑选择？',
+    status: '案例核验中 / RESEARCH IN PROGRESS'
+  }
+];
+
+const lenses = [
+  ['01', '审查与沉默', 'Censorship & Silence', '谁可以表达？什么被限制、删除或迫使改写？'],
+  ['02', '宣传与解释权', 'Propaganda & Narrative Power', '谁决定问题如何被提出，原因如何被解释？'],
+  ['03', '历史与记忆', 'History & Collective Memory', '什么被保存下来？什么在版本更新中消失？'],
+  ['04', '认知与服从', 'Cognition & Conformity', '信息与风险环境如何影响表达和判断？'],
+  ['05', '数字权力与 AI', 'Digital Power & AI', '当工具成为知识入口，信息边界如何被重新生产？']
+];
+---
+<BaseLayout
+  alternates={[
+    { hreflang: 'zh-CN', path: '/critical-inquiry/' },
+    { hreflang: 'en', path: '/critical-inquiry/en/' },
+    { hreflang: 'x-default', path: '/critical-inquiry/' },
+  ]}
+  lang="zh-CN"
+  title="言说的边界 · Critical Inquiry"
+  description="独立批判性研究：追问中国的信息审查、政治宣传、叙事权力、历史记忆与公共知识。"
+>
+  <div class="ci-root" lang="zh-CN">
+    <header class="ci-hero">
+      <div class="ci-wrap">
+        <nav class="ci-language" aria-label="语言 / Language"><a href="/critical-inquiry/" aria-current="page">简体中文</a><a href="/critical-inquiry/en/" lang="en">English</a></nav>
+        <p class="ci-eyebrow">独立批判性研究 / INDEPENDENT CRITICAL INQUIRY</p>
+        <h1>言说的边界<span class="ci-title-en">The Boundaries of the Sayable</span></h1>
+        <p class="ci-hero-lede">谁定义事实？谁书写历史？<br />谁决定什么值得被解释，又有什么不必被回答？</p>
+        <p class="ci-hero-desc">
+          以中国为主要研究对象，追问信息审查、政治宣传、社会叙事与公共权力如何影响知识的生产、流通和记忆。
+          我们不以“平衡双方”为目标，也不把质疑当作事实。<strong>批判性决定追问什么；证据决定能够断言什么。</strong>
+        </p>
+        <div class="ci-hero-nav">
+          <a href="#works">进入研究专题 <span aria-hidden="true">↗</span></a>
+          <a href="#method">研究原则 <span aria-hidden="true">↘</span></a>
+        </div>
+      </div>
+      <div class="ci-hero-number" aria-hidden="true">01—05</div>
+    </header>
+
+    <div class="ci-wrap ci-main">
+      <section class="ci-manifesto" aria-labelledby="ci-manifesto-heading">
+        <div class="ci-section-side"><span>POSITION / 立场</span></div>
+        <div>
+          <h2 id="ci-manifesto-heading">公共权力不应免于追问。</h2>
+          <p>与其只问一条信息是真是假，我们还追问：谁拥有为它贴标签的权力？谁的解释成为通用版本？纠错发生时，原先的判断和后果是否还被记得？</p>
+          <p>对权力的审查并不要求预设每项官方声明都不正确。它要求更清楚地标出<strong>证据、程序、责任与不确定性</strong>，并允许研究本身被复核和更正。</p>
+        </div>
+      </section>
+
+      <section class="ci-section" id="works" aria-labelledby="ci-works-title">
+        <div class="ci-heading-line"><span>RESEARCH / 研究</span><span>已发布与研究中</span></div>
+        <h2 id="ci-works-title">从统计口径到解释权</h2>
+        <p class="ci-intro">各专题独立回答问题，共用一条方法底线：不以后见之明替代当时的信息，不把文本差异直接当作审查意图。</p>
+        <div class="ci-card-grid">
+          {published.map((work) => (
+            <a class="ci-card ci-card-link" href={work.href}>
+              <div class="ci-card-head"><span>{work.number} · {work.kind}</span><span class="ci-ready">{work.status}</span></div>
+              <h3>{work.title}</h3><p class="ci-subtitle">{work.subtitle}</p>
+              <p class="ci-card-copy">{work.description}</p>
+              <span class="ci-card-cta">阅读已发布研究 <span aria-hidden="true">↗</span></span>
+            </a>
+          ))}
+          {inProgress.map((work) => (
+            <article class="ci-card ci-card-pending">
+              <div class="ci-card-head"><span>{work.number} · {work.kind}</span></div>
+              <h3>{work.title}</h3><p class="ci-subtitle">{work.subtitle}</p>
+              <p class="ci-card-copy">{work.description}</p>
+              <span class="ci-pending-label">{work.status} · 暂不公开未审定案例</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="ci-section" aria-labelledby="ci-lenses-title">
+        <div class="ci-heading-line"><span>RESEARCH LENSES / 研究视角</span><span>长期议题</span></div>
+        <h2 id="ci-lenses-title">研究信息，也研究权力</h2>
+        <div class="ci-lenses">
+          {lenses.map(([number, title, subtitle, question]) => (
+            <div class="ci-lens">
+              <span class="ci-lens-number">{number}</span>
+              <div><h3>{title}</h3><span>{subtitle}</span></div>
+              <p>{question}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="ci-feature" aria-labelledby="ci-feature-title">
+        <span class="ci-feature-kicker">ARCHIVE IN DEVELOPMENT / 历史证据档案 · 内部研究中</span>
+        <h2 id="ci-feature-title">当时，人们能够知道什么？</h2>
+        <p>疫情时期的信息争议提供了一个方法试验场：同一项说法如何被提出、核查、限制传播、调整判断或纳入历史记录？</p>
+        <div class="ci-steps">
+          <span>当时可得资料</span><span aria-hidden="true">→</span><span>当时的公共判断</span><span aria-hidden="true">→</span><span>后续证据与纠错</span>
+        </div>
+        <p class="ci-small">研究档案尚在核验。页面暂不展示未经二次审定的原始社交媒体截图、私人身份信息、事件传播规模或因果结论。</p>
+      </section>
+
+      <section class="ci-section ci-method" id="method" aria-labelledby="ci-method-title">
+        <div class="ci-heading-line"><span>METHOD / 方法与责任</span><span>可反驳、可更正</span></div>
+        <h2 id="ci-method-title">我们的批判也必须接受审查</h2>
+        <div class="ci-method-grid">
+          <div><span>01</span><h3>原始材料优先</h3><p>明确区分原始页面、同期转载、记者转述、后期回忆和研究者解释。</p></div>
+          <div><span>02</span><h3>证据必须带时间</h3><p>后来的调查只能检验早期判断，不能证明当时的个人或机构必然已掌握相同信息。</p></div>
+          <div><span>03</span><h3>区分权力与真伪</h3><p>机构有权力不意味着其陈述必然错误；主张未获证实也不等于它已被证伪。</p></div>
+          <div><span>04</span><h3>保护普通人的隐私</h3><p>原则上不重新暴露普通社交媒体用户的身份、联系方式、面容和无关个人信息。</p></div>
+          <div><span>05</span><h3>公开修改理由</h3><p>研究结论更新时标出版本、修改日期、证据新增和撤回的断言。</p></div>
+          <div><span>06</span><h3>承认方法边界</h3><p>文本分析不能独自证明政治指令、个体动机、全国性普遍程度或公众实际心理变化。</p></div>
+        </div>
+      </section>
+      <footer class="ci-local-footer">
+        <p>这是 Baixin Guo（郭佰鑫）的个人兴趣研究线，与 AI/ML 研究议程并行；不以论文发表或申请履历作为立项门槛。</p>
+        <a href="/research/">返回个人研究页 <span aria-hidden="true">↗</span></a>
+      </footer>
+    </div>
+  </div>
+</BaseLayout>
+
