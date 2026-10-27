@@ -14,9 +14,10 @@
     "test:contributions": "node --test scripts/contributions.test.mjs",
     "test:cloudflare-runtime": "node scripts/validate-cloudflare-runtime.mjs",
     "validate:cloudflare": "npm run build && npm run test:worker && npm run test:cloudflare-runtime && npx --yes wrangler@4.118.0 deploy --dry-run --outdir .wrangler-dry-run",
-    "ci": "npm run build && npm run validate && npm run validate:content && npm run test:contributions && npm run check:overflow && npm run test:worker",
+    "ci": "npm run build && npm run validate && npm run validate:content && npm run test:contributions && npm run check:overflow && npm run test:worker && npm run test:critical-inquiry",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:critical-inquiry": "node scripts/validate-critical-inquiry.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.0.0",

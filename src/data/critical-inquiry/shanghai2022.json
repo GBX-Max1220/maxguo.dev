@@ -1,0 +1,254 @@
+{
+  "id": "shanghai-lockdown-2022",
+  "title": "上海封控传言：事实判断与政策变化",
+  "scope": "2022-03-22—2022-03-28",
+  "revision": "research-draft-v0.2",
+  "status": "DRAFT_REVIEW_REQUIRED",
+  "asOfConvention": "Each view includes public reporting dated on or before the displayed day's endpoint; it does not reconstruct the exact minute information was accessible to every resident.",
+  "sources": [
+    {
+      "id": "S05",
+      "date": "2022-03-22",
+      "published_at_local": "2022-03-22T23:21:00+08:00",
+      "source_type": "contemporaneous_news_republication",
+      "title": "官方辟谣：“上海封城”传言不实",
+      "publisher": "北京日报客户端报道／新浪新闻转载",
+      "url": "https://news.sina.com.cn/o/2022-03-22/doc-imcwipih9980616.shtml",
+      "independence_group": "shanghai_mar22_official_fact_check",
+      "accessible_evidence": "Article explicitly reports the rumor of a seven-day citywide lockdown following a State Council inspection visit, and a contemporaneous rebuttal.",
+      "note": "已确认3月22日23:21的同期新闻转载。尚未获得被引述网传消息的原发帖及完整传播元数据。"
+    },
+    {
+      "id": "S00",
+      "legacy_source_id": "SH01",
+      "date": "2022-03-23",
+      "source_type": "official_statement_contemporaneous_copy",
+      "title": "上海“封城”传言不实！已有部分街镇解除封控",
+      "publisher": "上海市政府新闻办公室官方微博／新华网原文转载",
+      "url": "https://www.xinhuanet.com/politics/2022-03/23/c_1128494505.htm",
+      "note": "保留3月23日官方辟谣文字和微博截图，仍非原微博帖文的独立元数据存档；原文没有逐字列出全部网传变体。",
+      "independence_group": "shanghai_official_mar22_statement",
+      "published_at_local": "2022-03-23T08:10:40+08:00",
+      "accessible_evidence": "Xinhua copy of Shanghai government press office Weibo statement"
+    },
+    {
+      "id": "S01",
+      "date": "2022-03-23",
+      "source_type": "contemporaneous_republication",
+      "title": "上海“封城”传言不实：官方回应",
+      "publisher": "东方网；人民网转载",
+      "url": "https://sh.people.com.cn/n2/2022/0323/c138654-35187691.html",
+      "note": "东方网原报道经人民网转载；3月23日材料中包括具体传言和官方回应，并非网传原帖。直接打开该网址时出现间歇性502，搜索索引可见全文。",
+      "independence_group": "shanghai_mar22_official_fact_check",
+      "published_at_local": "2022-03-23T09:07:00+08:00",
+      "access_check": "Text indexed in search results; direct open returned intermittent 502 during this audit"
+    },
+    {
+      "id": "S02",
+      "date": "2022-03-23",
+      "source_type": "police_statement_republication",
+      "title": "两男子编造“上海封城”谣言，发布在同事群、业主群，现已被立案侦查",
+      "publisher": "每日经济新闻（转述上海发布与警方通报）",
+      "url": "https://www.nbd.com.cn/articles/2022-03-23/2182043.html",
+      "note": "报道转述警方立案通报；并非独立取证的犯罪事实或最终司法裁判。使用可直接检索全文的同期媒体版本取代偶发502页面。",
+      "legacy_source_id": "SH02",
+      "published_at_local": "2022-03-23T18:26:10+08:00",
+      "independence_group": "shanghai_police_notice_mar23"
+    },
+    {
+      "id": "S03",
+      "date": "2022-03-27",
+      "source_type": "official_notice",
+      "title": "关于做好全市新一轮核酸筛查工作的通告",
+      "publisher": "上海市政府网站／上海发布",
+      "url": "https://www.shanghai.gov.cn/sjzccs/20220327/613eda924f814a4ab4b25642f0e668c5.html",
+      "note": "公开的正式政策方案：3月28日起以黄浦江为界分批实施筛查与封控。",
+      "legacy_source_id": "SH04",
+      "independence_group": "shanghai_official_policy_mar27"
+    },
+    {
+      "id": "S04",
+      "date": "2022-03-28",
+      "source_type": "official_press_qa",
+      "title": "市政府新闻发布会问答实录",
+      "publisher": "上海市人民政府",
+      "url": "https://www.shanghai.gov.cn/nw9820/20220328/5626487ef53e4c288bf9ac5cf70a56e7.html",
+      "note": "解释两批次实施安排及决策的公共卫生理由；仅代表公开说明。",
+      "legacy_source_id": "SH05",
+      "independence_group": "shanghai_official_press_qa_mar28"
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "mar22",
+      "date": "2022-03-22",
+      "label": "3月22日晚",
+      "heading": "一项关于未来封控的具体说法已被公开否认",
+      "available_sources": [
+        "S05"
+      ],
+      "known": [
+        "同期报道记录：“国务院督查组到上海后，将封城7天”这一网络说法，已被上海网络辟谣平台向有关部门求证并否认。",
+        "该报道的发布页面标注为3月22日23:21；这是目前检索到的较早可核实公开报道，而非流传信息的原帖。",
+        "截至这一截点，尚未出现3月23日公开的警方立案侦查通报。"
+      ],
+      "not_known": [
+        "无法复原网传消息最初由谁、在什么时间、以何种原文形式发布。",
+        "不能确认3月27日将公布何种新的政策安排。",
+        "不能凭这份新闻报道知道政策制定机关当时的内部讨论或定稿状态。"
+      ],
+      "question": "当一项面向未来的政策预测被辟谣，官方解释针对的是预测的内容、消息来源，还是传播行为？"
+    },
+    {
+      "id": "mar23",
+      "date": "2022-03-23",
+      "label": "3月23日晚",
+      "heading": "当时已有官方辟谣与警方通报",
+      "available_sources": [
+        "S05",
+        "S00",
+        "S01",
+        "S02"
+      ],
+      "known": [
+        "媒体记录了关于“督查组到沪后将封城7天”的网络说法；尚未取得可认证的原始发布帖。",
+        "上海官方否认流传的具体封城说法，同时说明正在采用分区、网格化筛查。",
+        "警方通报两名传播者因涉嫌相关罪名被立案侦查；这不是最终司法裁判。",
+        "警方通报经媒体转述包含“马上封城7天”“全封4天”等不同版本；原帖与发帖人的对应关系尚未独立验证。"
+      ],
+      "not_known": [
+        "3月27日分区分批封控方案尚未公开。",
+        "无法依据现有公开材料确定具体传播者是否掌握真实的未来政策。",
+        "尚未取得与两名当事人对应的完整原始消息记录和后续司法文书。"
+      ],
+      "question": "否认未经证实的未来安排，与有权处罚传播行为，在证据要求上应如何区分？"
+    },
+    {
+      "id": "mar27",
+      "date": "2022-03-27",
+      "label": "3月27日",
+      "heading": "正式政策公布，证据状态发生变化",
+      "available_sources": [
+        "S05",
+        "S00",
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "known": [
+        "官方宣布以黄浦江为界分批实施核酸筛查；第一批自3月28日5时开始，第二批自4月1日3时开始。",
+        "通告同时规定封控区域的居家、交通与物资保障措施。",
+        "新的政策公告与早前关于“大范围封控”的讨论存在主题重叠，但与“全市同时封闭7天”的具体版本并不相同。"
+      ],
+      "not_known": [
+        "不能据后来出台的政策推断传播者在3月22日拥有可靠内部消息。",
+        "不能仅凭两份公开文件确定3月23日至27日期间内部政策何时定稿。"
+      ],
+      "question": "后续出现相关政策，应当怎样修正对早期预测的事实评价，而不是机械地判为“完全正确”或“完全错误”？"
+    },
+    {
+      "id": "mar28",
+      "date": "2022-03-28",
+      "label": "3月28日",
+      "heading": "发布会补充了官方解释",
+      "available_sources": [
+        "S05",
+        "S00",
+        "S01",
+        "S02",
+        "S03",
+        "S04"
+      ],
+      "known": [
+        "新闻发布会确认了两批四天的计划及相关区域安排。",
+        "官方解释政策调整出于风险评估与降低人员流动的考虑；这是可核对的公开解释，不是对内部决策过程的独立验证。",
+        "封控时间、区域及实施方式可以与此前流传的不同说法逐条比较。"
+      ],
+      "not_known": [
+        "现有来源仍不足以确认最初网传文字的完整传播链。",
+        "未获得可验证的最终司法处理结果，不能把“立案侦查”写成“定罪”。"
+      ],
+      "question": "一项公共事实标签在后续信息出现时，是否应有明确的复核和更正程序？"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C01",
+      "claim": "国务院督查组到上海后将实行全市封城7天",
+      "date_first_observed": "2022-03-22",
+      "source_ids": [
+        "S05",
+        "S00",
+        "S01"
+      ],
+      "as_of_23": "reported_unverified",
+      "after_27": "not_matching_announced_specific_schedule",
+      "note": "3月22日晚同期报道记载此具体传言；3月27日公告则采用分区域、分批次四天计划，与该具体表述不一致。原始发布帖仍未认证。",
+      "type": "republication_of_viral_claim"
+    },
+    {
+      "id": "C02",
+      "claim": "上海将实施影响全市的大规模筛查与区域封控",
+      "date_first_observed": null,
+      "source_ids": [
+        "S01",
+        "S03"
+      ],
+      "as_of_23": "unconfirmed_forecast",
+      "after_27": "later_related_policy_announced",
+      "note": "概括性描述与后续方案存在重叠；不能追认其早期消息来源。 这不是已经取得原帖的独立传播命题。",
+      "type": "analytical_generalization"
+    },
+    {
+      "id": "C03",
+      "claim": "不能从立案侦查直接推出已经定罪",
+      "date_first_observed": null,
+      "source_ids": [
+        "S02"
+      ],
+      "as_of_23": "unsupported_conclusion",
+      "after_27": "unsupported_conclusion",
+      "note": "这是研究者设置的推断边界，并非已核实曾在2022年3月23日传播的原始主张。",
+      "type": "inference_to_avoid"
+    },
+    {
+      "id": "C04",
+      "claim": "3月27日公布的方案分两批实施封控筛查",
+      "date_first_observed": "2022-03-27",
+      "source_ids": [
+        "S03",
+        "S04"
+      ],
+      "as_of_23": "not_yet_public",
+      "after_27": "supported_by_official_notice",
+      "note": "这是对正式政策公告内容的记录，不是独立评价其后续执行。",
+      "type": "policy_announcement"
+    },
+    {
+      "id": "C05",
+      "claim": "上海马上全封4天",
+      "type": "police_attributed_circulating_claim",
+      "date_first_observed": "2022-03-23",
+      "source_ids": [
+        "S02"
+      ],
+      "as_of_23": "police_reported_unverified",
+      "after_27": "overlapping_duration_different_schedule",
+      "note": "3月23日报道转述警方称流传内容之一为“全封4天”。3月27日公布的是分批各四天计划，既不能追认为原帖准确，也不能忽略两者在时长上的表面重合。缺少原帖完整上下文。"
+    }
+  ],
+  "methodological_limits": [
+    "最早可取得的是媒体转述的网传说法，不是认证过的原始发布帖；3月22日23:21的报道时间不能替代网传首次发布时间。",
+    "原始社交媒体账号、原帖及编辑历史未获独立认证。",
+    "资料的公开发布日期不等于所有人实际获知该信息的时刻。",
+    "正式政策变化不能自动归因于此前辟谣或行政执法。",
+    "对政策真伪、发言责任及执法比例性的评价需要不同证据，不作单一总分。",
+    "警方同期通报包含至少两种不同的封控预测（七天、四天）；仅凭官方或媒体概括不能证明它们出自同一传播者或属于同一条原帖。"
+  ],
+  "evidence_lineage": {
+    "prior_bundle": "China_Information_Control_Joint_Pilot_v1.0_20261028.zip",
+    "prior_case_id": "SH22",
+    "prior_table": "v10_verified_source_register.csv",
+    "note": "Current site model is an editorial refinement, not a verbatim republication of the full v1.0 research bundle."
+  }
+}

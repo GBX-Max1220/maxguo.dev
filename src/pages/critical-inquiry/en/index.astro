@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import '../../../styles/critical-inquiry.css';
+
+const published = [
+  {
+    number: '01',
+    kind: 'MEASUREMENT & POWER',
+    title: 'Whose Time Counts?',
+    subtitle: 'China Time Use 2024',
+    description: 'Statistical definitions shape what becomes visible as work. Examine how counting paid and unpaid labor changes the comparison of daily work time.',
+    href: '/research/china-time-use-2024/en/'
+  },
+  {
+    number: '02',
+    kind: 'ANSWERABILITY',
+    title: 'The Language of Non-Answers',
+    subtitle: '正确的废话',
+    description: 'What is said, what is left unanswered, and which omissions are disguised by fluent, seemingly relevant public responses?',
+    href: '/non-answers/'
+  }
+];
+const emerging = [
+  {
+    number: '03',
+    kind: 'TRUTH CLAIMS & AUTHORITY',
+    title: 'Who Defines a Rumor?',
+    subtitle: '谁有权定义谣言？',
+    description: 'How do institutions classify public claims, justify their judgments, and respond when later evidence changes the epistemic status of a claim?'
+  },
+  {
+    number: '04',
+    kind: 'NARRATIVE POWER',
+    title: 'The Boundaries of Explanation',
+    subtitle: '解释的边界',
+    description: 'When accounts of the same public event evolve, which facts, responsible actors, and causal explanations remain visible? What changes with new evidence, and what changes through editorial framing?'
+  }
+];
+const lenses = [
+  ['01','Censorship & Silence','审查与沉默','How do constraints on publication, circulation and sanction affect which information remains visible?'],
+  ['02','Propaganda & Narrative Power','宣传与解释权','Who establishes the accepted frame of an event—and with what evidence?'],
+  ['03','History & Collective Memory','历史与记忆','Which records survive deletion, revision, or selective archiving?'],
+  ['04','Cognition & Conformity','认知与服从','What can existing data tell us about perceived risk, self-censorship, and the boundaries of public discourse?'],
+  ['05','Digital Power & AI','数字权力与 AI','How do platforms, administrative technologies and AI systems mediate public knowledge?']
+];
+---
+<BaseLayout
+  alternates={[
+    { hreflang: 'zh-CN', path: '/critical-inquiry/' },
+    { hreflang: 'en', path: '/critical-inquiry/en/' },
+    { hreflang: 'x-default', path: '/critical-inquiry/' },
+  ]}
+  lang="en"
+  title="The Boundaries of the Sayable · Critical Inquiry"
+  description="Independent critical research into censorship, propaganda, narrative power, collective memory and the politics of public knowledge in China."
+>
+  <div class="ci-root">
+    <header class="ci-hero">
+      <div class="ci-wrap">
+        <nav class="ci-language" aria-label="Language / 语言">
+          <a href="/critical-inquiry/" lang="zh-CN">简体中文</a>
+          <a href="/critical-inquiry/en/" aria-current="page">English</a>
+        </nav>
+        <p class="ci-eyebrow">INDEPENDENT CRITICAL INQUIRY / CHINA</p>
+        <h1>The Boundaries<br />of the Sayable<span class="ci-title-en">言说的边界</span></h1>
+        <p class="ci-hero-lede">Who defines facts? Who writes history?<br />Who decides what may be questioned?</p>
+        <p class="ci-hero-desc">
+          An independent research space focused on information control, political propaganda, public narratives, historical memory, and the exercise of power in China.
+          <strong> Critical inquiry shapes the questions. Evidence constrains the answers.</strong>
+        </p>
+        <div class="ci-hero-nav">
+          <a href="#works">Explore the research ↗</a>
+          <a href="#method">Methods and accountability ↘</a>
+        </div>
+      </div>
+      <div class="ci-hero-number" aria-hidden="true">01—05</div>
+    </header>
+    <div class="ci-wrap ci-main">
+      <section class="ci-manifesto" aria-labelledby="ci-manifesto-heading">
+        <div class="ci-section-side"><span>POSITION / PURPOSE</span></div>
+        <div>
+          <h2 id="ci-manifesto-heading">Public power should never be exempt from scrutiny.</h2>
+          <p>Fact-checking alone is not enough. We also ask who can attach authoritative labels to public claims, whose version becomes the default account, and whether the consequences of an erroneous decision remain visible after a correction.</p>
+          <p>Questioning authority does not mean assuming that every official statement is false. It means insisting on <strong>inspectable evidence, procedural accountability, precise historical context, and the possibility of correction.</strong></p>
+        </div>
+      </section>
+      <section class="ci-section" id="works" aria-labelledby="ci-works-title">
+        <div class="ci-heading-line"><span>RESEARCH & PUBLIC WORK</span><span>Published / In progress</span></div>
+        <h2 id="ci-works-title">From measurement to narrative power</h2>
+        <p class="ci-intro">These projects have distinct research questions. They share a method: do not replace what was knowable at the time with later hindsight, and do not infer deliberate suppression from a textual difference alone.</p>
+        <div class="ci-card-grid">
+          {published.map((work) => (
+            <a class="ci-card ci-card-link" href={work.href}>
+              <div class="ci-card-head"><span>{work.number} · {work.kind}</span><span class="ci-ready">PUBLISHED</span></div>
+              <h3>{work.title}</h3><p class="ci-subtitle">{work.subtitle}</p>
+              <p class="ci-card-copy">{work.description}</p>
+              <span class="ci-card-cta">Read the published work ↗</span>
+            </a>
+          ))}
+          {emerging.map((work) => (
+            <article class="ci-card ci-card-pending">
+              <div class="ci-card-head"><span>{work.number} · {work.kind}</span></div>
+              <h3>{work.title}</h3><p class="ci-subtitle">{work.subtitle}</p>
+              <p class="ci-card-copy">{work.description}</p>
+              <span class="ci-pending-label">RESEARCH IN PROGRESS · Not yet released</span>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section class="ci-section" aria-labelledby="ci-lenses-title">
+        <div class="ci-heading-line"><span>RESEARCH LENSES</span><span>Long-term themes</span></div>
+        <h2 id="ci-lenses-title">Studying information means studying power.</h2>
+        <div class="ci-lenses">
+          {lenses.map(([number, title, subtitle, question]) => (
+            <div class="ci-lens">
+              <span class="ci-lens-number">{number}</span>
+              <div><h3>{title}</h3><span>{subtitle}</span></div>
+              <p>{question}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section class="ci-feature" aria-labelledby="ci-feature-title">
+        <span class="ci-feature-kicker">HISTORICAL EVIDENCE ARCHIVE / IN DEVELOPMENT</span>
+        <h2 id="ci-feature-title">What could people have known at the time?</h2>
+        <p>China's pandemic years offer a demanding test case. We study the lifecycle of public claims: how warnings and reports emerged, how they were labeled or restricted, which judgments were revised, and what survived in historical archives.</p>
+        <div class="ci-steps">
+          <span>Evidence available then</span><span aria-hidden="true">→</span><span>Contemporaneous judgments</span><span aria-hidden="true">→</span><span>New evidence & corrections</span>
+        </div>
+        <p class="ci-small">The archive remains under review. Unverified social-media records, private personal data, unsupported counts and untested causal claims are not presented as published findings.</p>
+      </section>
+      <section class="ci-section ci-method" id="method" aria-labelledby="ci-method-title">
+        <div class="ci-heading-line"><span>METHOD & ACCOUNTABILITY</span><span>Open to correction</span></div>
+        <h2 id="ci-method-title">Our criticism must also be open to scrutiny.</h2>
+        <div class="ci-method-grid">
+          <div><span>01</span><h3>Preserve provenance</h3><p>Distinguish original posts, contemporaneous copies, reporting, later recollections and our own interpretations.</p></div>
+          <div><span>02</span><h3>Time-index the evidence</h3><p>A later inquiry can revise an earlier judgment; it cannot by itself establish what someone knew earlier.</p></div>
+          <div><span>03</span><h3>Separate power from truth</h3><p>Authority does not guarantee accuracy, but lack of independent confirmation is not the same as proven falsity.</p></div>
+          <div><span>04</span><h3>Protect private individuals</h3><p>Do not republish identifying details of ordinary social-media users without a compelling and justified reason.</p></div>
+          <div><span>05</span><h3>Document corrections</h3><p>When claims change, explain what evidence changed, what was withdrawn, and when.</p></div>
+          <div><span>06</span><h3>State inferential limits</h3><p>Text differences alone cannot establish political directives, intentions, prevalence, or psychological effects.</p></div>
+        </div>
+      </section>
+      <footer class="ci-local-footer">
+        <p>An independent, curiosity-driven research program by Baixin Guo (郭佰鑫), separate from the AI/ML research agenda and not organized around degree applications or publication targets.</p>
+        <a href="/research/">Return to research ↗</a>
+      </footer>
+    </div>
+  </div>
+</BaseLayout>

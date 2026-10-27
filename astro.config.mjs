@@ -17,6 +17,8 @@ export default defineConfig({
       'https://gbx-max1220.github.io/maxguo.dev/research/china-time-use-2024/en/report/',
       'https://gbx-max1220.github.io/maxguo.dev/research/offline-policy-improvement/'
     ],
+    // Research drafts may be browsable on review branches but must never be promoted by sitemap discovery.
+    filter: (page) => !page.includes('/critical-inquiry/cases/'),
   }),
     tailwind({ applyBaseStyles: false }),
   ],

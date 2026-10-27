@@ -1,0 +1,173 @@
+<!--
+UNRELEASED ASTRO PAGE PROTOTYPE. NOT ROUTED / NOT BUILT INTO WEBSITE.
+Provenance: archived from src/pages/critical-inquiry/cases/shanghai-lockdown-2022/index.astro
+Re-enable only after independent human source review, privacy review, and explicit editorial release.
+To restore, move to src/pages/critical-inquiry/cases/shanghai-lockdown-2022/index.astro
+and adjust path imports only if repository structure has changed.
+-->
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import evidence from '../../../../data/critical-inquiry/shanghai2022.json';
+
+const sources = new Map(evidence.sources.map(source => [source.id, source]));
+const states = evidence.snapshots;
+const stateLabels = {
+  reported_unverified: '同期记载：未经独立核验',
+  police_reported_unverified: '警方转述的传播内容：原帖未认证',
+  overlapping_duration_different_schedule: '后来出现四天分批计划，但与全封版本不同',
+  unconfirmed_forecast: '当时未确认的预测',
+  unsupported_conclusion: '没有来源支持',
+  not_yet_public: '当时尚未公开',
+  not_matching_announced_specific_schedule: '后续公告与该具体安排不一致',
+  later_related_policy_announced: '后来出台了内容相关但并不相同的措施',
+  supported_by_official_notice: '有正式政策文件支持'
+};
+---
+<BaseLayout
+  title="上海封控传言｜历史证据时间机器（研究草稿）"
+  lang="zh-CN"
+  noindex={true}
+  description="试验性历史证据重建：区分2022年3月上海封控传言的同期定性、正式公告与后续解释。研究草稿，尚未公开发布。"
+>
+<div class="ev" lang="zh-CN">
+  <div class="ev-wrap">
+    <nav class="ev-breadcrumb" aria-label="当前位置"><a href="/critical-inquiry/">言说的边界</a><span aria-hidden="true">/</span><span>历史证据实验</span></nav>
+    <div class="ev-alert"><strong>研究草稿 · 未通过第二人复核</strong><span>此页为方法原型，不是最终事实核查结论。禁止以此页面推断传播者主观意图或最终司法结果。</span></div>
+
+    <header class="ev-hero">
+      <p class="ev-kicker">HISTORICAL EVIDENCE / TIME-INDEXED REVIEW</p>
+      <h1>上海封控传言：<br/>一个公共判断的时间边界</h1>
+      <p class="ev-sub">2022年3月22—28日 · 四个历史截点</p>
+      <p class="ev-lead">3月22日晚，有关未来七天封控的说法已遭公开否认；3月23日，警方公布了立案侦查情况；3月27日，上海发布了正式的分区分批封控筛查方案。两者究竟哪里相同、哪里不同？<strong>最重要的是：分别站在两个日期，人们能够核验哪些材料？</strong></p>
+    </header>
+
+    <section class="ev-main" aria-labelledby="asof-title">
+      <p class="ev-section-label">01 / AS-OF VIEWER</p>
+      <h2 id="asof-title">让证据停留在当时</h2>
+      <p>选择一个历史截点。切换后，只展示截至该日结束时已发表的收录资料。若资料能够核实小时与分钟，来源登记会单独注明。此功能依据文献公开日期重建资料边界，不能代表所有当事人的实时知识。</p>
+      <div class="ev-tabs" role="group" aria-label="选择证据截止日期">
+        {states.map((state, index) => <button type="button" data-asof-button data-target={state.id} aria-controls={'panel-'+state.id} aria-pressed={index===0?'true':'false'}>{state.label}</button>)}
+      </div>
+      <div class="ev-snapshots">
+      {states.map((state,index) => (
+        <section class="ev-snapshot" id={'panel-'+state.id} data-asof-panel={state.id} hidden={index!==0} aria-label={'截至'+state.label+'的证据'}>
+          <p class="ev-date">截至 {state.label}</p>
+          <h3>{state.heading}</h3>
+          <div class="ev-two-col">
+            <div><h4>当时公开可核的内容</h4><ul>{state.known.map(item => <li>{item}</li>)}</ul></div>
+            <div><h4>仍然不能据此得出的结论</h4><ul>{state.not_known.map(item => <li>{item}</li>)}</ul></div>
+          </div>
+          <div class="ev-question"><span>关键追问</span><p>{state.question}</p></div>
+          <div class="ev-source-line"><span>截至该日可用的来源</span>{state.available_sources.map(id => {
+            const source = sources.get(id);
+            return source && <a href={source.url} target="_blank" rel="noopener noreferrer">{source.id} · {source.publisher} ↗</a>;
+          })}</div>
+        </section>
+      ))}
+      </div>
+    </section>
+
+    <section class="ev-main" aria-labelledby="claims-title">
+      <p class="ev-section-label">02 / CLAIM-LEVEL AUDIT</p>
+      <h2 id="claims-title">“封城”不是一个足够精确的命题</h2>
+      <p>下表将同期转载的原始传言、研究者归纳的相近问题，以及应当避免的推断明确区分。标签记录的是证据状态，不是政治立场评分。</p>
+      <div class="ev-table-scroll">
+        <table>
+          <thead><tr><th>命题／推断</th><th>截至3月23日</th><th>3月27日后</th><th>证据性质</th></tr></thead>
+          <tbody>{evidence.claims.map(claim=><tr>
+            <th scope="row"><strong>{claim.claim}</strong><small>{claim.note}</small></th>
+            <td>{stateLabels[claim.as_of_23]}</td>
+            <td>{stateLabels[claim.after_27]}</td>
+            <td>{claim.type === 'republication_of_viral_claim' ? '同期报道的网络说法' : claim.type === 'policy_announcement' ? '正式公告中的内容' : claim.type === 'analytical_generalization' ? '研究者概括，并非已取得原帖' : '用于防止过度推断'}</td>
+          </tr>)}</tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="ev-main" aria-labelledby="sources-title">
+      <p class="ev-section-label">03 / SOURCE REGISTER</p>
+      <h2 id="sources-title">证据来源与层级</h2>
+      <div class="ev-sources">
+      {evidence.sources.map(source => <article>
+        <div class="ev-source-meta"><span>{source.id}</span><time datetime={source.date}>{source.date}</time><span>{source.source_type.replaceAll('_',' ')}</span></div>
+        <h3><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a></h3>
+        <p>{source.publisher}</p>
+        <p>{source.note}</p>
+      </article>)}
+      </div>
+    </section>
+
+    <section class="ev-main ev-limits" aria-labelledby="limits-title">
+      <p class="ev-section-label">04 / UNCERTAINTY & EDITORIAL RESPONSIBILITY</p>
+      <h2 id="limits-title">尚无法确认什么</h2>
+      <ul>{evidence.methodological_limits.map(limit => <li>{limit}</li>)}</ul>
+      <p>本页不会把“3月27日出现了相关措施”直接翻译成“3月22日原传言完全正确”；也不会把早期信息不确定性自动转换为对任何行政处罚的正当性认可。对<strong>预测准确性、证据充分性、执法程序与比例原则</strong>应分别展开调查。</p>
+      <p class="ev-version">数据版本：{evidence.revision} · {evidence.status} · 原始社交媒体帖子未获独立认证</p>
+    </section>
+    <footer class="ev-footer"><a href="/critical-inquiry/">返回《言说的边界》研究入口 ↗</a></footer>
+  </div>
+</div>
+<script>
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-asof-button]')];
+  const panels = [...document.querySelectorAll<HTMLElement>('[data-asof-panel]')];
+  buttons.forEach(button => button.addEventListener('click', () => {
+    const target = button.dataset.target;
+    buttons.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+    panels.forEach(p => { p.hidden = p.dataset.asofPanel !== target; });
+  }));
+</script>
+<style>
+  .ev {font-family:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:#1b2c35;background:#fbfaf8}
+  .ev-wrap{max-width:1060px;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
+  .ev-breadcrumb{display:flex;gap:.6rem;font-size:.76rem;padding:1.5rem 0;color:#526570}
+  .ev-breadcrumb a,.ev-footer a{color:#8a432e;text-decoration:underline;text-underline-offset:3px}
+  .ev-alert{padding:1rem 1.2rem;border:1px solid #ddc9a9;background:#fcf4e8;display:flex;gap:1rem;flex-wrap:wrap;font-size:.79rem}
+  .ev-alert strong{color:#7f4227}.ev-alert span{color:#645f56}
+  .ev-hero{padding:3.3rem 0 3.8rem;border-bottom:1px solid #cfd9dc}
+  .ev-kicker,.ev-section-label{font:600 .7rem/1.5 var(--font-mono,monospace);letter-spacing:.12em;color:#8b432e}
+  .ev-hero h1{font-size:clamp(2.3rem,5vw,4.3rem);line-height:1.2;letter-spacing:-.04em;margin:1rem 0 1.2rem}
+  .ev-sub{font:.84rem var(--font-mono,monospace);color:#5d717b;margin-bottom:1.5rem}
+  .ev-lead{font-size:1.03rem;line-height:2;max-width:860px;color:#435861}
+  .ev-lead strong{color:#1a2c35}
+  .ev-main{padding:3.5rem 0;border-bottom:1px solid #ced8db}
+  .ev-main h2{font-size:clamp(1.5rem,3vw,2.2rem);margin:.65rem 0 1rem}
+  .ev-main>p{font-size:.88rem;line-height:1.85;color:#4d616a;max-width:850px}
+  .ev-tabs{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.8rem 0 1rem}
+  .ev-tabs button{cursor:pointer;min-height:44px;padding:.6rem 1rem;border:1px solid #9baab0;background:transparent;color:#263945;border-radius:3px;font-weight:600}
+  .ev-tabs button[aria-pressed=true]{background:#1c3240;border-color:#1c3240;color:#fff}
+  .ev-tabs button:focus-visible{outline:3px solid #be7552;outline-offset:3px}
+  .ev-snapshot{border:1px solid #ccd6da;padding:clamp(1.15rem,3vw,2rem);background:#fff}
+  .ev-snapshot[hidden]{display:none}
+  .ev-date{font:600 .7rem var(--font-mono,monospace);color:#85442f}
+  .ev-snapshot h3{font-size:1.35rem;margin:.6rem 0 1.4rem}
+  .ev-two-col{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+  .ev-two-col>div{border-top:2px solid #273f4a;padding-top:1rem}
+  .ev-two-col>div:last-child{border-top-color:#a8724e}
+  .ev-two-col h4{font-size:.91rem;margin:0 0 1rem}
+  .ev ul{padding-left:1.25rem}
+  .ev li{line-height:1.8;font-size:.86rem;color:#52656e;margin-bottom:.65rem}
+  .ev-question{margin-top:1.8rem;background:#edf2f1;border-left:3px solid #8a432e;padding:1rem 1.2rem}
+  .ev-question span{font:.67rem var(--font-mono,monospace);color:#89513e}
+  .ev-question p{margin:.5rem 0 0;line-height:1.75;font-weight:600}
+  .ev-source-line{display:flex;gap:.65rem 1rem;flex-wrap:wrap;align-items:center;margin-top:1.6rem;font-size:.75rem}
+  .ev-source-line>span{color:#667984}
+  .ev-source-line a{color:#8b432e;text-decoration:underline;text-underline-offset:3px}
+  .ev-table-scroll{overflow-x:auto;border:1px solid #d1d9dc;margin-top:1.5rem}
+  .ev table{border-collapse:collapse;width:100%;min-width:750px;font-size:.78rem}
+  .ev th,.ev td{padding:1rem .9rem;text-align:left;vertical-align:top;border-bottom:1px solid #dbe1e3;line-height:1.65}
+  .ev th{font-weight:600}
+  .ev thead{background:#e9eeef}
+  .ev tbody tr:nth-child(even){background:#f5f7f7}
+  .ev tbody th{width:35%}
+  .ev tbody small{display:block;font-size:.72rem;color:#627781;font-weight:400;margin-top:.5rem}
+  .ev-sources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.5rem}
+  .ev-sources article{padding:1.2rem;border:1px solid #cbd5d9;background:#fff}
+  .ev-source-meta{display:flex;gap:.7rem;flex-wrap:wrap;font:.62rem var(--font-mono,monospace);color:#8b432e}
+  .ev-sources h3{font-size:.98rem;margin:.8rem 0}
+  .ev-sources h3 a{color:#263b46}
+  .ev-sources p{font-size:.78rem;line-height:1.7;color:#5c7078}
+  .ev-limits>ul{margin:1.2rem 0}.ev-limits .ev-version{font:.69rem var(--font-mono,monospace);color:#7b6260;margin-top:1.5rem}
+  .ev-footer{padding:2.5rem 0 5rem;font-size:.84rem}
+  @media(max-width:690px){.ev-two-col,.ev-sources{grid-template-columns:1fr}.ev-hero{padding:2.3rem 0}.ev-main{padding:2.5rem 0}}
+</style>
+</BaseLayout>
