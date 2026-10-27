@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="交互式合成推荐系统研究：当离线策略估计被稀疏曝光、错误奖励模型与错误 propensity 误导时，点估计与保守决策会发生什么？含可复现 Python 实验。">
+<meta property="og:type" content="article"><meta property="og:title" content="离线评价何时误导我们？｜When Offline Evaluation Misleads">
+<meta property="og:description" content="Interactive counterfactual policy evaluation lab · Synthetic contextual bandits · Reproducible evidence">
+<link rel="canonical" href="https://gbx-max1220.github.io/maxguo.dev/research/offline-policy-improvement/">
+<title>离线评价何时误导我们？｜When Offline Evaluation Misleads</title>
+<link rel="stylesheet" href="./styles.css"><script defer src="./data.js"></script><script defer src="./app.js"></script>
+</head>
+<body>
+<a class="skip" href="#experiment">Skip to experiment / 跳至实验</a>
+<div class="topbar"><div class="wrap topinner"><a class="brand" href="../../">MAX / RESEARCH</a><span class="crumb">/ <span data-t="crumb">交互研究实验室</span> / 06</span><button id="langToggle" class="lang" type="button" aria-label="Switch language">ENGLISH ↗</button></div></div>
+<main>
+<header class="hero wrap">
+ <div class="hero-main"><p class="eyebrow"><span class="dot"></span> <span data-t="eyebrow">推荐系统 · 因果评价 · 交互实验</span> <span class="hero-no">LAB / 006</span></p>
+  <h1 data-t="title">离线评价<br><em>何时误导我们？</em></h1>
+  <p class="hero-en">When Offline Evaluation Misleads</p>
+  <p class="lead" data-t="lead">当历史日志只记录被推荐过的内容，收益最高的估计值，是否足以授权新策略上线？</p>
+  <div class="hero-cta"><a href="#experiment" class="action" data-t="start">进入可交互实验 <span aria-hidden="true">↘</span></a><a href="#methods" class="textlink" data-t="methodsLink">查看方法与边界 ↓</a></div>
+ </div>
+ <aside class="hero-aside"><div class="orbit"><div class="orbit-inner"><div class="orbit-kicker" data-t="decision">THE DECISION</div><div class="orbit-head">estimate<br><span>≠</span> evidence</div><div class="orbit-note" data-t="orbit">高分估计<br>不是上线许可</div></div></div><div class="hero-metadata"><span>SYNTHETIC / CPU ONLY</span><span>100 × 12 RUNS</span><span>REPRODUCIBLE</span></div></aside>
+</header>
+<section class="notice"><div class="wrap noticeinner"><span class="notice-label" data-t="noticeLabel">研究边界</span><p data-t="notice">这是合成的一步 Contextual Bandit 实验，不是真实平台测试、长期强化学习实验，也不提供正式的安全部署保证。模拟器知道真值；策略选择器不知道。</p></div></section>
+<section class="wrap narrative" id="problem"><div class="section-index">01 / <span data-t="problemEyebrow">问题</span></div><div class="narrative-main"><h2 data-t="problemTitle">同一份历史日志，<br>四种不同的可信度。</h2><p data-t="problemBody">旧策略只展示过部分内容。新策略的收益必须从这些不完整的反馈中推断。我们分别破坏动作覆盖、propensity 记录，以及奖励模型，并检查决策如何变化。</p><div class="scenario-grid" id="scenarioCards"><!-- populated --></div></div></section>
+<section class="lab-zone" id="experiment"><div class="wrap"><div class="section-index">02 / <span data-t="labEyebrow">交互实验</span></div><div class="lab-title-row"><div><h2 data-t="labTitle">先做决策，再看真值。</h2><p data-t="labDescription">每个种子对应一批独立用户的随机历史日志。控制数据条件，比较奖励模型、DR 点估计与保守门槛。</p></div><div class="audit-stamp">OFFLINE<br>POLICY<br>LAB</div></div>
+<div class="workbench"><div class="control-row">
+ <div class="control-group large"><label for="scenario" data-t="scenarioLabel">历史日志条件</label><select id="scenario"><option value="balanced">01 — Balanced exposure</option><option value="weak">02 — Rare exploration</option><option value="mislogged">03 — Wrong propensities</option><option value="zero">04 — Zero support</option></select></div>
+ <div class="control-group"><label for="n" data-t="sampleLabel">样本量 / Users</label><select id="n"><option value="300">300</option><option value="900" selected>900</option><option value="3000">3,000</option></select></div>
+ <div class="control-group"><label for="seed" data-t="seedLabel">随机重复编号</label><select id="seed"></select></div>
+ </div>
+ <div class="control-row control-row-second"><div class="control-group"><label for="z" data-t="zLabel">保守门槛系数 z</label><select id="z"><option value="0">0.00 · Point only</option><option value="1.64">1.64 · Exploratory</option><option value="2.33" selected>2.33 · Strict heuristic</option><option value="3">3.00 · More strict</option></select></div><div class="control-group"><label for="ess" data-t="essLabel">最小有效权重样本量 ESS</label><select id="ess"><option value="0">0</option><option value="30" selected>30</option><option value="75">75</option><option value="150">150</option></select></div><div class="control-group truth-control"><label data-t="truthLabel">模拟真值（研究者视角）</label><button id="truthToggle" class="truth-button" type="button" aria-pressed="false"><span class="eye" aria-hidden="true">◉</span><span id="truthButtonLabel">揭示真值</span></button></div></div>
+ <div class="caveat" id="scenarioWarning" role="status"></div>
+ <div class="mini-kicker">A / <span data-t="decisionResult">三种策略选择规则</span></div><div class="decision-grid" id="decisionGrid" aria-live="polite"></div>
+ <div class="mini-kicker table-top">B / <span data-t="measurement">四种候选策略的离线估计</span></div><div class="table-scroll"><table class="metrics-table"><thead><tr><th data-t="thPolicy">策略</th><th>DM</th><th>IPS</th><th>DR</th><th>ESS</th><th data-t="thTruth">真值</th><th data-t="thStatus">识别状态</th></tr></thead><tbody id="metricsBody"></tbody></table></div>
+ <div class="formula-strip"><code>LCB(Δ) = mean(DR<sub>candidate</sub> − reward<sub>logged</sub>) − z · SE</code><span data-t="formulaCaption">探索性正态近似门槛；非选择后有效的置信保证</span></div>
+ </div>
+</div></section>
+<section class="wrap evidence" id="replicates"><div class="section-index">03 / <span data-t="replicateEyebrow">100 次重复</span></div><div class="evidence-heading"><h2 data-t="replicateTitle">一次运行可能幸运。<br>重复以后呢？</h2><p data-t="replicateBody">在同一配置下重复 100 个预设随机种子，统计被选择策略的真实表现。颜色显示选择结果：改善、退回基线、或实际伤害。</p></div><div class="repeat-grid" id="repeatGrid"></div><p class="footnote" data-t="repeatNote">统计来自生成模型的已知真值，而不是从日志推断的可观察线上收益。门槛用同一批数据估计并选择，未作多重比较或策略选择后校正。</p></section>
+<section class="dark-panel" id="finding"><div class="wrap finding-grid"><div><div class="section-index light">04 / <span data-t="findingEyebrow">关键发现</span></div><h2 data-t="findingTitle">更多数据<br>可能带来<br><em>更强的错误确信。</em></h2></div><div class="finding-body"><p data-t="findingBody">如果记录的 propensity 是错的，而奖励模型同样有误，增加样本量只会让有偏估计更精确。一个看似严格的 LCB 门槛也可能错误地批准更差的策略。</p><div class="finding-fig"><div><span class="figure-caption" data-t="findingFig1">错误 propensity · N=300</span><strong id="harm300">—</strong></div><div><span class="figure-caption" data-t="findingFig2">错误 propensity · N=3,000</span><strong id="harm3000">—</strong></div></div><p class="finding-note" data-t="findingNote">显示默认 z=2.33、ESS≥30 时，保守规则在 100 次重复中选择了实际更差策略的比例。不要把它解释为现实产品的损失率。</p></div></div></section>
+<section class="wrap methodology" id="methods"><div class="section-index">05 / <span data-t="methodsEyebrow">方法与审计</span></div><div class="method-heading"><h2 data-t="methodTitle">证据来自哪里？<br>结论止于哪里？</h2><p data-t="methodIntro">这里没有声称提出新的 OPE 算法。实验将经典估计方法放在一个可控的失效场景中，展示“点估计 → 策略选择 → 已知真值检验”的完整链条。</p></div><div class="method-grid"><article><span class="method-n">01</span><h3 data-t="m1title">数据生成</h3><p data-t="m1">单次独立交互，每名用户一个二元上下文、一个动作和一次 Bernoulli 点击。真实奖励概率在四个场景中保持相同，只修改历史策略与 propensity 记录。</p></article><article><span class="method-n">02</span><h3 data-t="m2title">估计与选择</h3><p data-t="m2">DM 使用预先设定、故意失准的奖励模型；IPS 和 DR 使用日志中记录的 propensity。三种决策规则在同一批数据上选策略；保守规则需要 ESS 和正态近似差值下界过线。</p></article><article><span class="method-n">03</span><h3 data-t="m3title">验证与限制</h3><p data-t="m3">模拟器解析计算各策略真实价值。若历史策略根本不会选择目标动作，则把 IPS/DR 标为不可识别。缺失的覆盖无法靠神奇的模型外推得到保证。</p></article></div>
+<div class="reference-panel"><div><p class="eyebrow">OPEN RESEARCH PACKAGE</p><h3 data-t="packageTitle">检验每一个数字。</h3><p data-t="packageText">Python 3 标准库可重跑所有实验；下载包含生成脚本、预设种子的逐次结果、选择审计表、验证测试和方法说明。</p><div class="download-links"><a href="./research-pack.zip" download data-t="download">下载研究包 ZIP ↗</a><a href="./selection_audit.csv" download data-t="csv">下载选择结果 CSV ↗</a></div></div><div class="reproduce-cmd"><span>REPRODUCE / PYTHON 3</span><code>python reproduce.py --export-site</code><code>python -m unittest test_reproduce.py</code><small>0 external dependencies · deterministic seeds</small></div></div>
+<div class="sources"><h3 data-t="sources">文献与背景</h3><p><a href="https://arxiv.org/abs/1103.4601" target="_blank" rel="noopener">Dudík, Langford & Li (2011) — Doubly Robust Policy Evaluation and Learning ↗</a></p><p><a href="https://proceedings.mlr.press/v37/thomas15.html" target="_blank" rel="noopener">Thomas, Theocharous & Ghavamzadeh (2015) — High Confidence Policy Improvement ↗</a></p><p><a href="https://proceedings.mlr.press/v97/laroche19a.html" target="_blank" rel="noopener">Laroche et al. (2019) — Safe Policy Improvement with Baseline Bootstrapping ↗</a></p></div></section>
+</main>
+<footer class="footer"><div class="wrap footer-inner"><div><strong>Baixin Guo (Max) / 郭佰鑫</strong><span data-t="footerText">可复现方法研究 · 交互式学习实验</span></div><div class="footer-links"><a href="../../">Home ↗</a><a href="https://github.com/GBX-Max1220" target="_blank" rel="noopener">GitHub ↗</a><a href="#experiment" data-t="backTop">返回实验 ↑</a></div></div></footer>
+</body></html>
