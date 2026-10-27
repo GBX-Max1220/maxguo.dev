@@ -49,7 +49,7 @@ for (const claim of data.claims) {
 
 const zh = read('src/pages/critical-inquiry/index.astro');
 const en = read('src/pages/critical-inquiry/en/index.astro');
-const draft = read('src/pages/critical-inquiry/cases/shanghai-lockdown-2022/index.astro');
+const draft = read('docs/critical-inquiry/prototypes/shanghai_2022_case_page.astro.txt');
 assert.match(zh, /lang="zh-CN"/);
 assert.match(zh, /critical-inquiry\/en\//);
 assert.match(en, /lang="en"/);
@@ -57,6 +57,7 @@ assert.match(en, /critical-inquiry\//);
 assert.match(draft, /noindex=\{true\}/);
 assert.match(draft, /data-asof-panel/);
 assert.match(draft, /DRAFT|研究草稿/);
+assert.match(draft, /NOT ROUTED \/ NOT BUILT INTO WEBSITE/);
 assert.match(read('src/styles/critical-inquiry.css'), /ci-hero/);
 
 assert.equal(data.snapshots[0].date, '2022-03-22', 'must retain earliest documented late-evening rebuttal');
@@ -74,10 +75,11 @@ if (fs.existsSync(dist)) {
   };
   const zhHtml = findBuiltPage('critical-inquiry');
   const enHtml = findBuiltPage('critical-inquiry/en');
-  const draftHtml = findBuiltPage('critical-inquiry/cases/shanghai-lockdown-2022');
+  const draftFile = path.join(dist, 'critical-inquiry', 'cases', 'shanghai-lockdown-2022', 'index.html');
+  assert.ok(!fs.existsSync(draftFile), 'unreviewed draft must not be emitted by Astro build');
   assert.match(zhHtml, /<html[^>]*lang="zh-CN"/i);
   assert.match(enHtml, /<html[^>]*lang="en"/i);
-  assert.match(draftHtml, /<meta[^>]*name="robots"[^>]*content="noindex,nofollow"/i);
+  assert.match(draft, /noindex=\{true\}/);
   for (const sitemap of fs.readdirSync(dist).filter(x => /^sitemap.*\.xml$/.test(x))) {
     const xml = fs.readFileSync(path.join(dist, sitemap), 'utf8');
     assert.ok(!xml.includes('/critical-inquiry/cases/'), 'draft case leaked to sitemap ' + sitemap);
