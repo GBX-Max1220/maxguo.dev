@@ -28,14 +28,14 @@ const stateLabels = {
     <header class="ev-hero">
       <p class="ev-kicker">HISTORICAL EVIDENCE / TIME-INDEXED REVIEW</p>
       <h1>上海封控传言：<br/>一个公共判断的时间边界</h1>
-      <p class="ev-sub">2022年3月22—28日</p>
-      <p class="ev-lead">3月23日，一种有关未来封控安排的说法被公开否认，并出现警方立案通报；3月27日，上海公布了正式的分区分批筛查和封控方案。两者究竟哪里相同、哪里不同？<strong>最重要的是：分别站在两个日期，人们能够核验哪些材料？</strong></p>
+      <p class="ev-sub">2022年3月22—28日 · 四个历史截点</p>
+      <p class="ev-lead">3月22日晚，有关未来七天封控的说法已遭公开否认；3月23日，警方公布了立案侦查情况；3月27日，上海发布了正式的分区分批封控筛查方案。两者究竟哪里相同、哪里不同？<strong>最重要的是：分别站在两个日期，人们能够核验哪些材料？</strong></p>
     </header>
 
     <section class="ev-main" aria-labelledby="asof-title">
       <p class="ev-section-label">01 / AS-OF VIEWER</p>
       <h2 id="asof-title">让证据停留在当时</h2>
-      <p>选择一个历史截点。切换后，只展示在该日期或此前发表的已收录资料。此功能依据文献公开日期重建资料边界，不能代表所有当事人的实时知识。</p>
+      <p>选择一个历史截点。切换后，只展示截至该日结束时已发表的收录资料。若资料能够核实小时与分钟，来源登记会单独注明。此功能依据文献公开日期重建资料边界，不能代表所有当事人的实时知识。</p>
       <div class="ev-tabs" role="group" aria-label="选择证据截止日期">
         {states.map((state, index) => <button type="button" data-asof-button data-target={state.id} aria-controls={'panel-'+state.id} aria-pressed={index===0?'true':'false'}>{state.label}</button>)}
       </div>
