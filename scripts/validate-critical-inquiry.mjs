@@ -7,8 +7,8 @@ const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 const data = JSON.parse(read('src/data/critical-inquiry/shanghai2022.json'));
 
 assert.equal(data.status, 'DRAFT_REVIEW_REQUIRED', 'unreviewed exhibit must be marked draft');
-assert.ok(data.sources.length >= 4);
-assert.ok(data.snapshots.length >= 3);
+assert.ok(data.sources.length >= 6);
+assert.ok(data.snapshots.length >= 4);
 
 const byId = new Map(data.sources.map(s => [s.id, s]));
 assert.equal(byId.size, data.sources.length, 'duplicate source ID');
@@ -16,6 +16,8 @@ for (const source of data.sources) {
   assert.match(source.date, /^\d{4}-\d{2}-\d{2}$/);
   assert.ok(!Number.isNaN(Date.parse(source.date)), source.id + ': bad date');
   assert.ok(source.url.startsWith('https://'), source.id + ': source URL must be HTTPS');
+  assert.ok(source.independence_group, source.id + ': missing origin/independence group');
+  if (source.published_at_local) assert.match(source.published_at_local, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+08:00$/);
 }
 let prevDate = '';
 for (const snapshot of data.snapshots) {
@@ -56,4 +58,30 @@ assert.match(draft, /noindex=\{true\}/);
 assert.match(draft, /data-asof-panel/);
 assert.match(draft, /DRAFT|研究草稿/);
 assert.match(read('src/styles/critical-inquiry.css'), /ci-hero/);
+
+assert.equal(data.snapshots[0].date, '2022-03-22', 'must retain earliest documented late-evening rebuttal');
+assert.equal(data.snapshots[0].available_sources.length, 1, 'first as-of state must only use contemporaneous sources');
+assert.equal(data.sources.find(s => s.id === 'S05').published_at_local, '2022-03-22T23:21:00+08:00');
+
+const config = read('astro.config.mjs');
+assert.match(config, /filter: \(page\) => !page\.includes\('\/critical-inquiry\/cases\/'\)/);
+const dist = path.join(root, 'dist');
+if (fs.existsSync(dist)) {
+  const findBuiltPage = (page) => {
+    const file = path.join(dist, page, 'index.html');
+    assert.ok(fs.existsSync(file), 'missing built page: ' + file);
+    return fs.readFileSync(file, 'utf8');
+  };
+  const zhHtml = findBuiltPage('critical-inquiry');
+  const enHtml = findBuiltPage('critical-inquiry/en');
+  const draftHtml = findBuiltPage('critical-inquiry/cases/shanghai-lockdown-2022');
+  assert.match(zhHtml, /<html[^>]*lang="zh-CN"/i);
+  assert.match(enHtml, /<html[^>]*lang="en"/i);
+  assert.match(draftHtml, /<meta[^>]*name="robots"[^>]*content="noindex,nofollow"/i);
+  for (const sitemap of fs.readdirSync(dist).filter(x => /^sitemap.*\.xml$/.test(x))) {
+    const xml = fs.readFileSync(path.join(dist, sitemap), 'utf8');
+    assert.ok(!xml.includes('/critical-inquiry/cases/'), 'draft case leaked to sitemap ' + sitemap);
+  }
+}
+
 console.log('Critical Inquiry: source chronology, claim types, draft controls, locales PASS');
