@@ -749,5 +749,119 @@
     "source_timestamp_rule": "published_at_local if confirmed; else the full stated publication date only; never infer exact clock time from an interview about events",
     "event_time_vs_publication_time": "An interviewee's recollection of an event is not a contemporaneous observed time-stamped post.",
     "note": "A historical cut-off sees publicly released source objects, not facts whose events happened by that cut-off."
-  }
+  },
+  "actor_role_register": [
+    {
+      "id": "A01",
+      "role": "network_claim_originator_unknown",
+      "public_identification": "none",
+      "evidence": "S05/S01 report a circulating seven-day claim, without authenticated original post",
+      "source_ids": [
+        "S05",
+        "S01"
+      ],
+      "not_established": "Original first poster, exact full message, intent, or access to internal policy"
+    },
+    {
+      "id": "A02",
+      "role": "alleged_information_fabricators_in_police_notice",
+      "public_identification": "anonymized_as_two_individuals",
+      "evidence": "Police described two men as originators of specific four/seven-day variants, as attributed allegations",
+      "source_ids": [
+        "S11",
+        "S02"
+      ],
+      "not_established": "Judicial finding, mapping to Y interviewee, full source material, or ultimate disposition"
+    },
+    {
+      "id": "A03",
+      "role": "self_identified_forwarder_in_anonymized_interview",
+      "public_identification": "Y先生_only",
+      "evidence": "An interviewed individual described forwarding a message on March 22, worrying about family, requesting deletion, and discouraging reposting",
+      "source_ids": [
+        "S09"
+      ],
+      "not_established": "Independently validated chat history; link to two police investigation subjects; representativeness"
+    },
+    {
+      "id": "A04",
+      "role": "official_factual_labeler",
+      "public_identification": "Shanghai government information office / rumor-refutation platform",
+      "evidence": "The municipal information office and rumor-refutation reports described circulating lockdown narratives as false",
+      "source_ids": [
+        "S05",
+        "S00",
+        "S01"
+      ],
+      "not_established": "Complete internal information available to the decision makers or a guarantee of future policies"
+    },
+    {
+      "id": "A05",
+      "role": "police_enforcement_announcer",
+      "public_identification": "Shanghai police",
+      "evidence": "Public statement announces initiation of criminal investigation",
+      "source_ids": [
+        "S11",
+        "S02"
+      ],
+      "not_established": "Court verdict or independently verified crime elements"
+    },
+    {
+      "id": "A06",
+      "role": "policymaker_announcing_revision",
+      "public_identification": "Shanghai pandemic control leadership and local government",
+      "evidence": "March 27 and March 31 policy announcements, April 1 briefing and April 4 continued-control announcement",
+      "source_ids": [
+        "S03",
+        "S10",
+        "S06",
+        "S07"
+      ],
+      "not_established": "Policy intent or internal state at March 22; equal enforcement for every resident"
+    }
+  ],
+  "source_relations": [
+    {
+      "from": "S05",
+      "to": "S01",
+      "relation": "different contemporaneous news versions of fact-check account",
+      "claim_scope": "rebuttal was issued",
+      "limit": "not independent verification that the circulated prediction had no factual basis"
+    },
+    {
+      "from": "S00",
+      "to": "S01",
+      "relation": "press report quotes official account also reproduced by Xinhua",
+      "claim_scope": "municipal information office assertion",
+      "limit": "a source relay, not two separate independent truth determinations"
+    },
+    {
+      "from": "S11",
+      "to": "S02",
+      "relation": "two contemporary outlets repeat the same police announcement",
+      "claim_scope": "police announced criminal investigation",
+      "limit": "not two independent verifications of motive, damage or guilt"
+    },
+    {
+      "from": "S10",
+      "to": "S06",
+      "relation": "Mar31 announcement followed by Apr1 explanatory press conference",
+      "claim_scope": "zonal controls planned",
+      "limit": "not two independent observations of actual implementation"
+    },
+    {
+      "from": "S07",
+      "to": "S12",
+      "relation": "same Apr4 official continuation notice reported by national and Taiwan news sources",
+      "claim_scope": "announcement public on Apr4",
+      "limit": "external contemporaneous reporting corroborates publication timing, not implementation across individual households"
+    },
+    {
+      "from": "S09",
+      "to": "S11",
+      "relation": "publication order only, no shared actor identity established",
+      "claim_scope": "interview 14:02 is earlier than police-announcement report 18:10",
+      "limit": "must never merge Y and police subjects, nor infer causal chilling effect"
+    }
+  ]
 }
