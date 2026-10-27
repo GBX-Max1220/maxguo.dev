@@ -17,9 +17,12 @@ export interface Props {
   ogImage?: string;
   ogType?: string;
   hideNav?: boolean;
+  lang?: string;
+  noindex?: boolean;
+  alternates?: Array<{ hreflang: string; path: string }>;
 }
 
-const { title, description, ogImage, ogType, hideNav } = Astro.props;
+const { title, description, ogImage, ogType, hideNav, lang = 'en', noindex = false, alternates = [] } = Astro.props;
 const defaultDesc = SITE.description;
 const absTitle = `${title} — Baixin Guo`;
 const absDesc = description || defaultDesc;
@@ -27,12 +30,13 @@ const ogImageUrl = siteUrl(ogImage || '/og-default.svg');
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{absTitle}</title>
     <meta name="description" content={absDesc} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
 
     <!-- Open Graph -->
     <meta property="og:title" content={absTitle} />
@@ -48,6 +52,7 @@ const ogImageUrl = siteUrl(ogImage || '/og-default.svg');
 
     <!-- Canonical -->
     <link rel="canonical" href={Astro.url} />
+    {alternates.map(({ hreflang, path }) => <link rel="alternate" hreflang={hreflang} href={siteUrl(path)} />)}
 
     <!-- Schema.org Person -->
     <script type="application/ld+json" set:html={JSON.stringify({
