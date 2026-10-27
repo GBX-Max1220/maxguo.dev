@@ -7,7 +7,7 @@ const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 const data = JSON.parse(read('src/data/critical-inquiry/shanghai2022.json'));
 
 assert.equal(data.status, 'DRAFT_REVIEW_REQUIRED', 'unreviewed exhibit must be marked draft');
-assert.ok(data.sources.length >= 9);
+assert.ok(data.sources.length >= 10);
 assert.ok(data.snapshots.length >= 7);
 
 const byId = new Map(data.sources.map(s => [s.id, s]));
@@ -36,7 +36,7 @@ for (const snapshot of data.snapshots) {
 }
 
 const claimIds = new Set();
-const observedTypes = new Set(['republication_of_viral_claim', 'police_attributed_circulating_claim', 'policy_announcement']);
+const observedTypes = new Set(['republication_of_viral_claim', 'police_attributed_circulating_claim', 'policy_announcement', 'attributed_interview_statement']);
 for (const claim of data.claims) {
   assert.ok(!claimIds.has(claim.id), 'duplicate claim ID');
   claimIds.add(claim.id);
@@ -53,7 +53,7 @@ for (const claim of data.claims) {
 
 
 // Date-aware statement histories are editorial state transitions, not binary truth scores.
-assert.ok(data.claim_status_history.length >= 10, 'missing claim status history');
+assert.ok(data.claim_status_history.length >= 11, 'missing claim status history');
 const knownClaims = new Set(data.claims.map(c => c.id));
 for (const h of data.claim_status_history) {
   assert.ok(knownClaims.has(h.claim_id), 'history points to unknown claim');
@@ -71,6 +71,17 @@ for (const element of data.legal_element_audit) {
   assert.ok(element.independent_evidence_status && element.institutional_assertion);
   for (const id of element.source_ids) assert.ok(byId.has(id), 'invalid legal audit source');
 }
+
+assert.ok(Array.isArray(data.circulation_trace) && data.circulation_trace.length >= 4);
+for(const record of data.circulation_trace){
+  assert.ok(record.evidence_role && record.caveat);
+  for (const id of record.source_ids) assert.ok(byId.has(id));
+}
+const yClaim = data.claims.find(c=>c.id === 'C07');
+assert.ok(yClaim && yClaim.type === 'attributed_interview_statement');
+assert.deepEqual(yClaim.source_ids,['S09']);
+assert.match(yClaim.note,/不能将Y先生等同于警方通报的任何涉案人员/);
+
 assert.equal(byId.get('S07').date, '2022-04-04');
 assert.equal(byId.get('S07').container_publication_date, '2022-04-05');
 assert.ok(data.sources.some(s => s.id === 'S06' && s.url.includes('shio.gov.cn')));
