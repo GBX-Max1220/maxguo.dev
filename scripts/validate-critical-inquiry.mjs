@@ -7,8 +7,8 @@ const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 const data = JSON.parse(read('src/data/critical-inquiry/shanghai2022.json'));
 
 assert.equal(data.status, 'DRAFT_REVIEW_REQUIRED', 'unreviewed exhibit must be marked draft');
-assert.ok(data.sources.length >= 10);
-assert.ok(data.snapshots.length >= 7);
+assert.ok(data.sources.length >= 13);
+assert.ok(data.snapshots.length >= 9);
 
 const byId = new Map(data.sources.map(s => [s.id, s]));
 assert.equal(byId.size, data.sources.length, 'duplicate source ID');
@@ -19,21 +19,33 @@ for (const source of data.sources) {
   assert.ok(source.independence_group, source.id + ': missing origin/independence group');
   if (source.published_at_local) assert.match(source.published_at_local, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+08:00$/);
 }
-let prevDate = '';
+const dayEnd = (date) => date + 'T23:59:59+08:00';
+const publicationCutoff = (source) => source.published_at_local ?? dayEnd(source.date);
+let prevCutoff = '';
 for (const snapshot of data.snapshots) {
-  assert.ok(snapshot.date > prevDate, 'as-of snapshots must be chronological');
-  prevDate = snapshot.date;
+  const cutoff = snapshot.cutoff_local ?? dayEnd(snapshot.date);
+  assert.ok(cutoff > prevCutoff, 'as-of snapshots must be in strictly chronological order');
+  prevCutoff = cutoff;
   assert.ok(snapshot.available_sources.length > 0);
   assert.equal(new Set(snapshot.available_sources).size, snapshot.available_sources.length);
-  const expected = data.sources.filter(source => source.date <= snapshot.date).map(source => source.id).sort();
+  const expected = data.sources.filter(source => publicationCutoff(source) <= cutoff).map(source => source.id).sort();
   assert.deepEqual([...snapshot.available_sources].sort(), expected,
-    snapshot.id + ': as-of view includes future evidence or omits recorded public evidence');
+    snapshot.id + ': includes not-yet-public evidence or excludes already-public evidence');
   for (const id of snapshot.available_sources) {
     const source = byId.get(id);
     assert.ok(source, snapshot.id + ': nonexistent source ' + id);
-    assert.ok(source.date <= snapshot.date, snapshot.id + ': future source present');
+    assert.ok(publicationCutoff(source) <= cutoff, snapshot.id + ': future source present ' + id);
   }
 }
+const interview = data.snapshots.find(s => s.id === 'mar23_1402');
+assert.ok(interview, 'missing the March 23 intraday checkpoint');
+assert.ok(interview.available_sources.includes('S09'), 'interview not visible at its publication time');
+assert.ok(!interview.available_sources.includes('S11'), 'police 18:10 notice leaked into 14:02 state');
+assert.ok(!interview.available_sources.includes('S02'), 'police 18:26 report leaked into 14:02 state');
+const mar31 = data.snapshots.find(s => s.id === 'mar31');
+assert.ok(mar31 && mar31.available_sources.includes('S10'), '3/31 22:51 policy notice missing');
+assert.ok(!mar31.available_sources.includes('S06'), 'April 1 press Q&A leaked into March 31');
+assert.equal(data.snapshots.at(-1).date,'2022-04-05');
 
 const claimIds = new Set();
 const observedTypes = new Set(['republication_of_viral_claim', 'police_attributed_circulating_claim', 'policy_announcement', 'attributed_interview_statement']);
@@ -53,7 +65,7 @@ for (const claim of data.claims) {
 
 
 // Date-aware statement histories are editorial state transitions, not binary truth scores.
-assert.ok(data.claim_status_history.length >= 11, 'missing claim status history');
+assert.ok(data.claim_status_history.length >= 14, 'missing claim status history');
 const knownClaims = new Set(data.claims.map(c => c.id));
 for (const h of data.claim_status_history) {
   assert.ok(knownClaims.has(h.claim_id), 'history points to unknown claim');
@@ -85,6 +97,12 @@ assert.match(yClaim.note,/不能将Y先生等同于警方通报的任何涉案�
 assert.equal(byId.get('S07').date, '2022-04-04');
 assert.equal(byId.get('S07').container_publication_date, '2022-04-05');
 assert.ok(data.sources.some(s => s.id === 'S06' && s.url.includes('shio.gov.cn')));
+assert.equal(byId.get('S10').published_at_local, '2022-03-31T22:51:59+08:00');
+assert.equal(byId.get('S09').published_at_local, '2022-03-23T14:02:36+08:00');
+assert.equal(byId.get('S11').published_at_local, '2022-03-23T18:10:00+08:00');
+assert.ok(data.claims.some(c=>c.id==='C09' && c.type==='analyst_temporal_inference' && c.date_first_observed===null));
+assert.ok(data.time_model && data.time_model.date_timezone==='Asia/Shanghai');
+
 
 const zh = read('src/pages/critical-inquiry/index.astro');
 const en = read('src/pages/critical-inquiry/en/index.astro');
