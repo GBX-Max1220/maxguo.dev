@@ -83,6 +83,15 @@ if (fs.existsSync(dist)) {
   assert.ok(!fs.existsSync(draftFile), 'unreviewed draft must not be emitted by Astro build');
   assert.match(zhHtml, /<html[^>]*lang="zh-CN"/i);
   assert.match(enHtml, /<html[^>]*lang="en"/i);
+
+  for (const html of [zhHtml, enHtml]) {
+    assert.match(html, /hreflang="zh-CN"/);
+    assert.match(html, /hreflang="en"/);
+    assert.match(html, /hreflang="x-default"/);
+    assert.match(html, /href="https:\/\/gbx-max1220\.github\.io\/maxguo\.dev\/critical-inquiry\/en\/"/);
+    assert.match(html, /href="https:\/\/gbx-max1220\.github\.io\/maxguo\.dev\/critical-inquiry\/"/);
+  }
+
   assert.match(draft, /noindex=\{true\}/);
   for (const sitemap of fs.readdirSync(dist).filter(x => /^sitemap.*\.xml$/.test(x))) {
     const xml = fs.readFileSync(path.join(dist, sitemap), 'utf8');
