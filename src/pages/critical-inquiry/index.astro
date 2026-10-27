@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/critical-inquiry.css';
 
 const published = [
   {
@@ -50,12 +51,14 @@ const lenses = [
 ];
 ---
 <BaseLayout
+  lang="zh-CN"
   title="言说的边界 · Critical Inquiry"
   description="独立批判性研究：追问中国的信息审查、政治宣传、叙事权力、历史记忆与公共知识。"
 >
   <div class="ci-root" lang="zh-CN">
     <header class="ci-hero">
       <div class="ci-wrap">
+        <nav class="ci-language" aria-label="语言 / Language"><a href="/critical-inquiry/" aria-current="page">简体中文</a><a href="/critical-inquiry/en/" lang="en">English</a></nav>
         <p class="ci-eyebrow">独立批判性研究 / INDEPENDENT CRITICAL INQUIRY</p>
         <h1>言说的边界<span class="ci-title-en">The Boundaries of the Sayable</span></h1>
         <p class="ci-hero-lede">谁定义事实？谁书写历史？<br />谁决定什么值得被解释，又有什么不必被回答？</p>
@@ -149,77 +152,3 @@ const lenses = [
   </div>
 </BaseLayout>
 
-<style>
-  .ci-root { --ci-ink:#192935; --ci-dim:#536575; --ci-rule:#d0d8dc; --ci-accent:#8b402b; font-family: "Noto Sans CJK SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif; color:var(--ci-ink); }
-  .ci-wrap {max-width:1100px;margin:0 auto;padding:0 clamp(1.15rem,4vw,2.5rem)}
-  .ci-hero {background:#162731;color:#f5f1eb;position:relative;overflow:hidden;padding:clamp(4.5rem,9vw,7.5rem) 0 clamp(4rem,7vw,6rem)}
-  .ci-eyebrow,.ci-heading-line,.ci-feature-kicker {font-family:var(--font-mono,monospace);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase}
-  .ci-eyebrow{color:#d9ad8e;margin:0 0 1.7rem}
-  .ci-hero h1{font-size:clamp(2.75rem,7.5vw,6.1rem);line-height:1.13;letter-spacing:-.04em;margin:0;font-weight:700;max-width:900px;color:#fff}
-  .ci-title-en{display:block;font-family:Georgia,serif;font-size:clamp(1rem,2vw,1.45rem);font-weight:400;letter-spacing:.02em;color:#b5c5cb;margin-top:1rem}
-  .ci-hero-lede{font-size:clamp(1.25rem,3vw,2.1rem);line-height:1.6;font-weight:600;margin:2.25rem 0 1.25rem;color:#fff}
-  .ci-hero-desc{max-width:770px;color:#c7d3d6;font-size:.96rem;line-height:1.95;margin:0}
-  .ci-hero-desc strong{color:#fff}
-  .ci-hero-nav{display:flex;gap:1.8rem;flex-wrap:wrap;margin-top:2.2rem}
-  .ci-hero-nav a{color:#f7d5bf;border-bottom:1px solid #b9795e;padding-bottom:.28rem;font-size:.85rem;text-decoration:none}
-  .ci-hero-number{position:absolute;right:2vw;bottom:-4rem;font-size:clamp(6rem,16vw,16rem);font-family:Georgia,serif;color:#ffffff08;pointer-events:none}
-  .ci-main{padding-top:3.75rem;padding-bottom:3rem}
-  .ci-manifesto{display:grid;grid-template-columns:200px minmax(0,1fr);gap:2rem;border-bottom:1px solid var(--ci-rule);padding-bottom:4rem}
-  .ci-section-side{font:600 .68rem var(--font-mono,monospace);letter-spacing:.1em;color:var(--ci-accent)}
-  .ci-manifesto h2{font-size:clamp(1.6rem,3vw,2.45rem);margin:0 0 1.5rem;letter-spacing:-.025em}
-  .ci-manifesto p{font-size:1rem;line-height:1.92;color:var(--ci-dim);max-width:750px;margin:0 0 .85rem}
-  .ci-manifesto strong{color:var(--ci-ink)}
-  .ci-section{padding:4.3rem 0;border-bottom:1px solid var(--ci-rule)}
-  .ci-heading-line{display:flex;justify-content:space-between;gap:1rem;color:var(--ci-accent);margin-bottom:1.15rem}
-  .ci-heading-line span:last-child{color:#70808a}
-  .ci-section h2{font-size:clamp(1.7rem,3vw,2.7rem);letter-spacing:-.035em;margin:0 0 1rem}
-  .ci-intro{line-height:1.85;color:var(--ci-dim);max-width:750px;margin-bottom:1.8rem}
-  .ci-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
-  .ci-card{border:1px solid var(--ci-rule);padding:1.8rem;display:flex;flex-direction:column;min-height:320px;text-decoration:none;background:#fff;border-radius:3px;transition:border-color .15s}
-  .ci-card-link:hover,.ci-card-link:focus-visible{border-color:var(--ci-accent)}
-  .ci-card-pending{background:#f7f7f5}
-  .ci-card-head{font:600 .58rem/1.6 var(--font-mono,monospace);letter-spacing:.04em;color:var(--ci-accent);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-  .ci-ready{color:#446e64}
-  .ci-card h3{font-size:clamp(1.45rem,2.6vw,1.95rem);line-height:1.35;color:var(--ci-ink);margin:1.4rem 0 .15rem;font-weight:650}
-  .ci-subtitle{font:italic .85rem Georgia,serif;color:#74848e;margin:.1rem 0 1.1rem}
-  .ci-card-copy{font-size:.89rem;line-height:1.85;color:var(--ci-dim);margin:0 0 2rem}
-  .ci-card-cta,.ci-pending-label{margin-top:auto;font-size:.72rem;font-weight:600;color:var(--ci-accent)}
-  .ci-pending-label{color:#687983;font-weight:400}
-  .ci-lenses{margin-top:2rem;border-top:1px solid var(--ci-rule)}
-  .ci-lens{display:grid;grid-template-columns:50px minmax(180px,1fr) minmax(0,1.35fr);gap:1.2rem;padding:1.55rem .1rem;border-bottom:1px solid var(--ci-rule);align-items:start}
-  .ci-lens-number{font:700 .68rem var(--font-mono,monospace);color:var(--ci-accent);padding-top:.35rem}
-  .ci-lens h3{font-size:1.1rem;margin:0 0 .25rem}
-  .ci-lens div span{font:italic .78rem Georgia,serif;color:#687983}
-  .ci-lens p{margin:0;line-height:1.8;color:var(--ci-dim);font-size:.86rem}
-  .ci-feature{margin-top:4rem;padding:2.5rem;background:#e9eeed;border-left:4px solid #8b402b;border-radius:2px}
-  .ci-feature-kicker{color:#7b493d}
-  .ci-feature h2{font-size:clamp(1.7rem,3vw,2.3rem);margin:1rem 0}
-  .ci-feature>p{color:var(--ci-dim);line-height:1.85;max-width:760px}
-  .ci-steps{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;font-size:.8rem;margin:1.5rem 0;color:var(--ci-ink)}
-  .ci-steps span:nth-child(even){color:var(--ci-accent)}
-  .ci-feature .ci-small{font-size:.76rem;color:#64757e;margin-bottom:0}
-  .ci-method-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem 1.9rem;margin-top:2rem}
-  .ci-method-grid>div{border-top:2px solid var(--ci-ink);padding-top:.9rem}
-  .ci-method-grid span{font:.72rem var(--font-mono,monospace);color:var(--ci-accent)}
-  .ci-method-grid h3{font-size:1rem;margin:.55rem 0}
-  .ci-method-grid p{font-size:.82rem;line-height:1.8;color:var(--ci-dim)}
-  .ci-local-footer{display:flex;justify-content:space-between;gap:1.5rem;align-items:start;padding:2rem 0}
-  .ci-local-footer p{font-size:.75rem;line-height:1.75;color:var(--ci-dim);max-width:630px;margin:0}
-  .ci-local-footer a{font-size:.76rem;color:var(--ci-accent);white-space:nowrap}
-  @media(max-width:750px){
-    .ci-manifesto{grid-template-columns:1fr;gap:1rem}
-    .ci-card-grid{grid-template-columns:1fr}
-    .ci-card{min-height:auto}
-    .ci-lens{grid-template-columns:34px 1fr;gap:.6rem}
-    .ci-lens p{grid-column:2}
-    .ci-method-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .ci-local-footer{flex-direction:column}
-  }
-  @media(max-width:480px){
-    .ci-hero{padding:4rem 0 3.5rem}
-    .ci-method-grid{grid-template-columns:1fr}
-    .ci-card{padding:1.3rem}
-    .ci-feature{padding:1.5rem}
-    .ci-heading-line{font-size:.59rem}
-  }
-</style>
