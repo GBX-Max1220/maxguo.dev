@@ -24,10 +24,18 @@ try {
    assert.ok(options.includes(date),'missing checkpoint '+date);
    await checkpoint.selectOption({label:date});
   }
+  const order=await checkpoint.locator('option').allTextContents();
+  assert.ok(order.indexOf('2020-01-29 15:00')<order.indexOf('2020-01-29'),'intraday checkpoint must precede that date end');
+  assert.match(await page.locator('.warning').innerText(),/现存页面又显示后来更新/,'edition-time caution must be visible');
   await choose('2020-01-31 12:00');
   assert.match(await page.locator('#heading').innerText(),/1月31|采访|训诫/);
   assert.ok((await page.locator('#sources a').allTextContents()).some(t=>t.includes('新京报')) ||
             (await page.locator('#known').innerText()).includes('1月31'));
+  await checkpoint.focus();
+  await page.keyboard.press('ArrowDown');
+  await page.keyboard.press('Tab');
+  assert.equal(await checkpoint.locator('option:checked').innerText(),'2020-01-31 20:00','native select must be keyboard-operable');
+  assert.match(await page.locator('#heading').innerText(),/两篇个人采访/,'keyboard change must update view');
   await choose('2020-01-31 20:00');
   assert.ok((await page.locator('#sources a').count())>=2,'both Jan31 interviews must be available by 20:00');
   await choose('2020-03-19 19:10');
