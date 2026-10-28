@@ -7,7 +7,7 @@
     "DIRECT_OPEN_PARTIAL": 1,
     "DIRECT_OPEN_502": 2
   },
-  "reliability_warning": "Dates are publisher page timestamps, not first observed distribution of underlying rumors; government Q&A current edition cannot be substituted for 2022 archived original. Web tool results may vary by subsequent availability.",
+  "reliability_warning": "Dates are publisher page timestamps, not first observed distribution of underlying rumors; government Q&A current edition cannot be substituted for 2022 archived original. Web tool results may vary by subsequent availability. An issuer-hosted government document can be directly authenticated as today's hosted text without proving its original 2022 edition was byte-identical.",
   "records": [
     {
       "source_id": "S05",
@@ -17,9 +17,10 @@
       "role": "contemporaneous_news_republication",
       "publisher": "北京日报客户端报道／新浪新闻转载",
       "independence_group": "shanghai_mar22_official_fact_check",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Contemporaneous newsroom account quoting earlier circulating message, NOT original social-media post"
+      "audit_note": "Contemporaneous newsroom account quoting earlier circulating message, NOT original social-media post",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S00",
@@ -29,9 +30,10 @@
       "role": "official_statement_contemporaneous_copy",
       "publisher": "上海市政府新闻办公室官方微博／新华网原文转载",
       "independence_group": "shanghai_official_mar22_statement",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions."
+      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions.",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S01",
@@ -41,9 +43,10 @@
       "role": "contemporaneous_republication",
       "publisher": "东方网；人民网转载",
       "independence_group": "shanghai_mar22_official_fact_check",
-      "original_record_authenticated": false,
       "content_claim_status": "UNCONFIRMED_DIRECT_TEXT",
-      "audit_note": "Current web direct open returned 502; search index has a matching title/summary; treat quotation fidelity as pending"
+      "audit_note": "Current web direct open returned 502; search index has a matching title/summary; treat quotation fidelity as pending",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S02",
@@ -53,9 +56,10 @@
       "role": "police_statement_republication",
       "publisher": "每日经济新闻（转述上海发布与警方通报）",
       "independence_group": "shanghai_police_notice_mar23",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions."
+      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions.",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S03",
@@ -65,9 +69,10 @@
       "role": "official_notice",
       "publisher": "上海市政府网站／上海发布",
       "independence_group": "shanghai_official_policy_mar27",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions."
+      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions.",
+      "hosted_on_issuing_institution_site": true,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S04",
@@ -77,9 +82,10 @@
       "role": "official_press_qa",
       "publisher": "上海市人民政府",
       "independence_group": "shanghai_official_press_qa_mar28",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions."
+      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions.",
+      "hosted_on_issuing_institution_site": true,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S06",
@@ -89,9 +95,10 @@
       "role": "official_press_qa",
       "publisher": "上海市人民政府新闻办公室",
       "independence_group": "shanghai_policy_revision_apr01",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions."
+      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions.",
+      "hosted_on_issuing_institution_site": true,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S07",
@@ -101,9 +108,10 @@
       "role": "official_announcement_syndicated",
       "publisher": "上海疫情防控领导小组办公室／新华社／人民日报海外版",
       "independence_group": "shanghai_policy_extension_apr04",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions."
+      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions.",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S08",
@@ -113,9 +121,10 @@
       "role": "judicial_guidance",
       "publisher": "上海市高级人民法院／上海市人民政府网站",
       "independence_group": "shanghai_high_court_legal_guidance_apr05",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions."
+      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions.",
+      "hosted_on_issuing_institution_site": true,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S09",
@@ -125,9 +134,10 @@
       "role": "reporter_interview_syndicated",
       "publisher": "东方网·纵相新闻采访；看看新闻Knews转载",
       "independence_group": "dongfang_zongxiang_interview_Y_mar23",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Interview report is a secondary syndicated transcript of anonymized interview, not authenticated chat logs"
+      "audit_note": "Interview report is a secondary syndicated transcript of anonymized interview, not authenticated chat logs",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S10",
@@ -137,9 +147,10 @@
       "role": "contemporaneous_news_of_government_notice",
       "publisher": "新华社／新华网",
       "independence_group": "shanghai_policy_revision_mar31",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions."
+      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions.",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S11",
@@ -149,9 +160,10 @@
       "role": "contemporaneous_police_notice_report",
       "publisher": "人民网-上海频道",
       "independence_group": "shanghai_police_notice_mar23",
-      "original_record_authenticated": false,
       "content_claim_status": "UNCONFIRMED_DIRECT_TEXT",
-      "audit_note": "Current web direct open returned 502; indexed article and mirror media confirm police notice, but direct page verification pending"
+      "audit_note": "Current web direct open returned 502; indexed article and mirror media confirm police notice, but direct page verification pending",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S12",
@@ -161,9 +173,10 @@
       "role": "independent_news_report_on_official_announcement",
       "publisher": "台湾中央社 CNA",
       "independence_group": "shanghai_policy_extension_apr04",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions."
+      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions.",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S13",
@@ -173,9 +186,10 @@
       "role": "official_press_transcript_existing_version",
       "publisher": "上海市人民政府／市政府新闻办",
       "independence_group": "mar26_press_event",
-      "original_record_authenticated": false,
       "content_claim_status": "CURRENT_EDITION_ONLY",
-      "audit_note": "Existing government text available; historical 2022 webpage bytes or captured initial edition NOT independently authenticated"
+      "audit_note": "Existing government text available; historical 2022 webpage bytes or captured initial edition NOT independently authenticated",
+      "hosted_on_issuing_institution_site": true,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S14",
@@ -185,9 +199,10 @@
       "role": "contemporaneous_report_press_event",
       "publisher": "澎湃新闻·陈斯斯",
       "independence_group": "mar26_press_event",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions."
+      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions.",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S15",
@@ -197,9 +212,10 @@
       "role": "contemporaneous_video_news_report_press_event",
       "publisher": "文汇报",
       "independence_group": "mar26_press_event",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_ONLY_MEDIA_NOT_PLAYED",
-      "audit_note": "Wenhui video-story webpage and quote verified; media file not separately replayed"
+      "audit_note": "Wenhui video-story webpage and quote verified; media file not separately replayed",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S16",
@@ -209,9 +225,10 @@
       "role": "contemporaneous_radio_news_report_press_event",
       "publisher": "央广网·林馥榆",
       "independence_group": "mar26_press_event",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions."
+      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions.",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S17",
@@ -221,9 +238,10 @@
       "role": "independent_contemporaneous_reporting",
       "publisher": "财新·蒋模婷、包志明",
       "independence_group": "caixin_mar23_independent_reporting",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Caixin article metadata and accessible text can be inspected, but complete article may require subscription"
+      "audit_note": "Caixin article metadata and accessible text can be inspected, but complete article may require subscription",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S18",
@@ -233,9 +251,10 @@
       "role": "contemporaneous_police_notice_report",
       "publisher": "上观新闻／第一财经转载",
       "independence_group": "shanghai_police_notice_mar23",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions."
+      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions.",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S19",
@@ -245,9 +264,10 @@
       "role": "contemporaneous_state_broadcast_news_report",
       "publisher": "央视新闻客户端记者／上海证券报·中国证券网转载",
       "independence_group": "mar26_press_event",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions."
+      "audit_note": "Webpage opened and displayed relevant headline/document or contemporaneous content; access is not independent confirmation of underlying factual assertions.",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S20",
@@ -257,9 +277,10 @@
       "role": "video_news_page_not_full_recording_authenticated",
       "publisher": "第一财经·一手",
       "independence_group": "mar26_press_event",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_ONLY_MEDIA_NOT_PLAYED",
-      "audit_note": "Yicai video-story webpage and caption verified; raw video not independently replayed"
+      "audit_note": "Yicai video-story webpage and caption verified; raw video not independently replayed",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     },
     {
       "source_id": "S21",
@@ -269,9 +290,10 @@
       "role": "official_police_weibo_syndication",
       "publisher": "中国互联网联合辟谣平台（转载上海市公安局官方微博）",
       "independence_group": "shanghai_police_notice_mar23",
-      "original_record_authenticated": false,
       "content_claim_status": "WEBPAGE_CONTENT_CHECKED_WITH_SCOPE_LIMITS",
-      "audit_note": "Republished text attributes police statement to official Weibo; this is not the originating Weibo URL"
+      "audit_note": "Republished text attributes police statement to official Weibo; this is not the originating Weibo URL",
+      "hosted_on_issuing_institution_site": false,
+      "historical_initial_edition_byte_authenticated": false
     }
   ]
 }
