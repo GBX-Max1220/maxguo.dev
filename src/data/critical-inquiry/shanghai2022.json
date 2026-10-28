@@ -1265,10 +1265,12 @@
       "date": "2020-02-06",
       "document": "Supreme People's Court, Supreme People's Procuratorate, Ministry of Public Security and Ministry of Justice COVID-crime guidance",
       "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/202002/t20200211_1627613.html",
-      "publication_observed": "2020-02-11",
+      "publication_observed": "2020-02-10",
       "role": "normative_legal_guidance_not_case_outcome",
       "verified_key_point": "Guidance calls for precise and appropriate handling of false epidemic information; those who spread out of mistaken belief and cause little harm are not to be treated as criminals.",
-      "limit": "Does NOT prove the Shanghai 2022 suspects acted only out of mistaken belief or caused little harm."
+      "limit": "Does NOT prove the Shanghai 2022 suspects acted only out of mistaken belief or caused little harm.",
+      "document_date_type": "signed_2020_02_06_published_2020_02_10",
+      "note": "Government register itself lists document issuance date 2020-02-06 and publication 2020-02-10; neither date is inferred from URL slug."
     },
     {
       "id": "L02",
@@ -1288,7 +1290,9 @@
       "publication_observed": "2022-04-29",
       "role": "comparative_adjudicated_case_not_shanghai",
       "verified_key_point": "Court reports actual adjudicated criminal information fabricating concrete fictitious infection and case details, plus claimed mass circulation and disruption.",
-      "limit": "A different defendant, time, place and content; cannot infer Shanghai case outcome. Published later than primary March-April timeline; retrospective comparison only."
+      "limit": "A different defendant, time, place and content; cannot infer Shanghai case outcome. Published later than primary March-April timeline; retrospective comparison only.",
+      "retrospective_only": true,
+      "not_an_original_case": "Supreme Court comparator defendant Pan, not Shanghai March 2022 subjects"
     }
   ]
 }
