@@ -329,6 +329,16 @@
       ],
       "status": "signed_opinion_publicly_reported",
       "caution": "Not a judgment, binding interpretation or institutional ruling of the Supreme People's Court."
+    },
+    {
+      "id": "LWC09",
+      "kind": "official_retrospective_intent_finding",
+      "claim": "In March 19 Q&A, National Supervisory Commission official said Li had no subjective intention to disrupt public order in sending his December warning",
+      "source_ids": [
+        "LW08"
+      ],
+      "status": "attributed_commission_investigation_not_independently_reconstructed_intent",
+      "caution": "Distinguish official determination of intent from independently established psychological state; not a blanket judgment on all eight unnamed people."
     }
   ],
   "unresolved": [
@@ -346,5 +356,49 @@
     "G4_privacy_licensing": "HOLD",
     "G5_technical_visual": "NOT_APPLICABLE_NO_SITE_ROUTE",
     "G6_editorial_approval": "HOLD"
-  }
+  },
+  "correction_dimensions": [
+    {
+      "dimension": "message accuracy",
+      "status": "mixed_and_time_dependent",
+      "evidence_ids": [
+        "LWC01"
+      ],
+      "limit": "SARS diagnostic identification inaccurate, alert of real unexplained pneumonia and later coronavirus clarification important"
+    },
+    {
+      "dimension": "coercive act occurrence",
+      "status": "documented_retrospectively",
+      "evidence_ids": [
+        "LWC03"
+      ],
+      "limit": "Written admonition received Jan3; not a statutory fine or detention"
+    },
+    {
+      "dimension": "administrative reversal",
+      "status": "formal_withdrawal",
+      "evidence_ids": [
+        "LWC05",
+        "LWC06"
+      ],
+      "limit": "Commission recommendation and police execution distinct"
+    },
+    {
+      "dimension": "official individual accountability",
+      "status": "two_officer_disciplinary_measures",
+      "evidence_ids": [
+        "LWC07"
+      ],
+      "limit": "Administrative measures against officers, not original speaker"
+    },
+    {
+      "dimension": "public knowledge timing",
+      "status": "documented_at_source_date",
+      "evidence_ids": [
+        "LWC02",
+        "LWC04"
+      ],
+      "limit": "Early bulletin and clarification do not provide complete individual roster"
+    }
+  ]
 }
