@@ -92,11 +92,27 @@ for (const dim of evidence.correction_dimensions) {
 
 assert.equal(evidence.release_gates.G3_second_human_review,'HOLD');
 
+const sourceAudit=JSON.parse(fs.readFileSync(path.join(root,'research/critical-inquiry/li-wenliang-2020/SOURCE_ACCESS_AUDIT_V02.json'),'utf8'));
+assert.equal(sourceAudit.records.length,evidence.sources.length);
+assert.equal(sourceAudit.counts.readable,evidence.sources.length);
+assert.equal(sourceAudit.counts.independence_groups,new Set(evidence.sources.map(s=>s.independence_group)).size);
+for(const rec of sourceAudit.records){
+ const source=src.get(rec.source_id);
+ assert.ok(source,'unknown source audit ID');
+ assert.equal(rec.url,source.url,'source audit URL drift');
+ assert.equal(rec.claim_true_independently_established,false);
+ assert.equal(rec.original_social_or_administrative_records_authenticated,false);
+}
+assert.match(sourceAudit.records.find(x=>x.source_id==='LW05').evidence_limit,/ABRIDGED/);
+
 const protoPath=path.join(root,'research/critical-inquiry/prototypes/dual-asof-comparison-v01.html');
 const proto=fs.readFileSync(protoPath,'utf8');
 assert.match(proto,/<meta name="robots" content="noindex,nofollow">/);
 assert.match(proto,/<html lang="zh-CN">/);
-assert.match(proto,/2020-03-19/);
+assert.match(proto,/2020-03-19 19:20/);
+assert.match(proto,/2020-03-19 20:00/);
+assert.match(proto,/2020-03-19 21:50/);
+assert.match(proto,/2020-01-29 15:00/);
 assert.match(proto,/2022-03-23 14:02/);
 assert.match(proto,/2022-03-23 17:59/);
 assert.match(proto,/不能把2020年3月19日披露的训诫书/);
