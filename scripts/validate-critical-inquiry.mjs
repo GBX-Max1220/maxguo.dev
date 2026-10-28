@@ -7,7 +7,7 @@ const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 const data = JSON.parse(read('src/data/critical-inquiry/shanghai2022.json'));
 
 assert.equal(data.status, 'DRAFT_REVIEW_REQUIRED', 'unreviewed exhibit must be marked draft');
-assert.ok(data.sources.length >= 20);
+assert.ok(data.sources.length >= 22);
 assert.ok(data.snapshots.length >= 11);
 
 const byId = new Map(data.sources.map(s => [s.id, s]));
@@ -133,7 +133,7 @@ assert.ok(!data.snapshots.find(s=>s.id==='mar26').available_sources.includes('S1
   'unverified 2022 version of present-day government transcript must be retrospective only');
 assert.equal(byId.get('S13').asof_eligible,false);
 assert.ok(data.press_transcript_comparison && data.press_transcript_comparison.govt_transcript_source==='S13');
-assert.deepEqual([...data.press_transcript_comparison.journalistic_sources].sort(),['S14','S15','S16','S19']);
+assert.deepEqual([...data.press_transcript_comparison.journalistic_sources].sort(),['S14','S15','S16','S19','S20']);
 assert.ok(Array.isArray(data.retrospective_audits) && data.retrospective_audits.length>=2);
 assert.ok(!data.claim_status_history.some(h=>h.claim_id==='C10'),
   'today-observed text difference must not be represented as an event in March 2022');
@@ -148,6 +148,27 @@ assert.ok(mar23Police && mar23Police.available_sources.includes('S18'));
 assert.ok(!mar23Police.available_sources.includes('S11') && !mar23Police.available_sources.includes('S02'));
 const mar26 = data.snapshots.find(s=>s.id==='mar26');
 assert.ok(mar26 && ['S14','S15','S16'].every(id=>mar26.available_sources.includes(id)));
+
+
+const accessAudit = JSON.parse(read('docs/critical-inquiry/SOURCE_ACCESS_AUDIT_20261029.json'));
+assert.equal(accessAudit.records.length,data.sources.length,'all source links need an access audit entry');
+assert.deepEqual(accessAudit.records.map(r=>r.source_id).sort(),[...byId.keys()].sort(),'source audit IDs must cover all registered sources');
+const auditedStatuses=new Set(['DIRECT_OPEN_TEXT','DIRECT_OPEN_PARTIAL','DIRECT_OPEN_502']);
+for(const rec of accessAudit.records){
+  assert.ok(auditedStatuses.has(rec.access_status),'unrecognized access condition');
+  assert.equal(rec.url,byId.get(rec.source_id).url,'URL in source audit is stale');
+  assert.ok(typeof rec.historical_initial_edition_byte_authenticated === 'boolean');
+}
+assert.equal(accessAudit.records.filter(x=>x.access_status==='DIRECT_OPEN_502').length,2);
+assert.ok(data.legal_comparison_register.length>=3);
+const legalById=new Map(data.legal_comparison_register.map(x=>[x.id,x]));
+assert.equal(legalById.get('L01').publication_observed,'2020-02-10');
+assert.equal(legalById.get('L01').date,'2020-02-06');
+assert.equal(legalById.get('L03').retrospective_only,true);
+assert.equal(byId.get('S20').source_type,'video_news_page_not_full_recording_authenticated');
+assert.equal(byId.get('S21').source_type,'official_police_weibo_syndication');
+assert.ok(!data.legal_comparison_register.some(x=>x.role==='shanghai_case_judgment'),
+  'a legal comparison must not be misrepresented as the target case verdict');
 
 const zh = read('src/pages/critical-inquiry/index.astro');
 const en = read('src/pages/critical-inquiry/en/index.astro');
