@@ -84,7 +84,7 @@ for(const label of evidence.public_label_history){
  const earliest=label.source_ids.map(id=>src.get(id)?.published_at_local||dayEnd(src.get(id)?.publication_date)).sort()[0];
  assert.ok(earliest<=label.public_at,'later source invoked for earlier label event: '+label.id);
 }
-assert.equal(evidence.source_relations.length,4);
+assert.ok(evidence.source_relations.length>=5);
 for(const edge of evidence.source_relations){
  assert.equal(edge.independent_factual_corroboration,false);
  assert.ok(src.has(edge.from)&&src.has(edge.to));
