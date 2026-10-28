@@ -16,6 +16,7 @@ on:
       - 'scripts/validate-critical-hub.mjs'
       - 'research/critical-inquiry/**'
       - 'scripts/validate-li-wenliang-research.mjs'
+      - 'scripts/check-dual-asof-prototype.mjs'
       - 'package.json'
       - 'scripts/generate-non-answers-og.mjs'
       - 'scripts/check-non-answers-p13.mjs'
@@ -59,6 +60,17 @@ jobs:
 
       - name: Install Chromium for layout checks
         run: npx playwright install --with-deps chromium-headless-shell
+
+      - name: Browser-test the offline two-case historical time machine
+        run: node scripts/check-dual-asof-prototype.mjs
+
+      - name: Upload offline historical viewer QA screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: offline-historical-viewer-qa
+          path: .astro/critical-inquiry-offline-review/
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Desktop and mobile overflow checks
         run: npm run check:overflow
