@@ -162,7 +162,9 @@
       "title": "市政府新闻发布会问答实录（2022年3月26日）",
       "url": "https://www.shanghai.gov.cn/nw9820/20220326/62e454513fbf4b37a48d9b9d769887ef.html",
       "independence_group": "mar26_press_event",
-      "note": "现存官方完整问答实录：吴凡谈病毒传播和城市特点之后直接转为呼吁认真检测，未包含多家同期媒体记录的关于城市停摆与国际货轮的解释段。该观察仅是现存版本的文本差异，不证明曾在某天删改。"
+      "note": "现存官方完整问答实录：吴凡谈病毒传播和城市特点之后直接转为呼吁认真检测，未包含多家同期媒体记录的关于城市停摆与国际货轮的解释段。该观察仅是现存版本的文本差异，不证明曾在某天删改。",
+      "historical_version_verified": false,
+      "version_scope": "current_online_transcript_observed_in_2026; not proven identical to March 26 first publication"
     },
     {
       "id": "S14",
@@ -194,7 +196,8 @@
       "title": "吴凡：上海承载全国经济社会发展重要功能",
       "url": "https://www.cnr.cn/shanghai/tt/20220326/t20220326_525777069.shtml",
       "independence_group": "mar26_press_event",
-      "note": "另一个当天记者报道，包含城市对全国经济和航运影响的解释。与S14/S15为同一场发布会，不应计为三场不同事件。"
+      "note": "另一个当天记者报道，包含城市对全国经济和航运影响的解释。与S14/S15为同一场发布会，不应计为三场不同事件。",
+      "published_at_local": "2022-03-26T12:33:33+08:00"
     },
     {
       "id": "S17",
@@ -340,14 +343,14 @@
         "S18"
       ],
       "known": [
-        "上海市政府现存3月26日文字问答实录保留了吴凡关于城市特点、重点/非重点区域筛查的解释。",
-        "澎湃新闻当天11:01报道她解释全城封控三至七天为何不可行，提及上海对全国经济与全球航运的影响。",
-        "文汇视频与央广网同日报道这一回答，现存政府文字实录没有呈现完整相关段落。"
+        "当天11:01的澎湃新闻报道公开了吴凡解释为什么不宜让全城同时停摆三至七天的理由，包括经济与城市运行功能。",
+        "当天12:33的央广网和17:26的文汇视频报道记录了同一发布会对该问题的回应。",
+        "这些同期媒体记录的是同一场发布会，而不是三项不同政策决策。"
       ],
       "not_known": [
-        "尚未证明政府网站最早发布版本与如今版本完全相同；不能说“当天原文被删除”。",
-        "该差异可能由摘要、编辑取舍或后期修订造成；没有证据确定编辑者的意图。",
-        "3月26日表述所否定的是全城同时停摆方案，不等于否认次日分区分批封控方案。"
+        "当时读者可能接触到哪一种政府新闻实录版本，尚无2022年3月26日的网页捕获证据。",
+        "从吴凡的公开陈述不能推断3月27日正式分批封控决策在3月26日已定稿或尚未定稿。",
+        "没有当年观众的接触数据；同场发布会多篇报道不代表受众普遍知晓。"
       ],
       "question": "官方问答实录选择呈现哪些文字，是否需要对遗漏重要政策理由提供编辑说明？"
     },
@@ -685,7 +688,7 @@
       ],
       "as_of_23": "not_yet_public",
       "after_27": "observable_current_version_difference",
-      "note": "这是一项对目前可访问文字版本的对比观察，不能证明在2022年某日发生过删除、编审指令或政治审查。"
+      "note": "这是一项对目前可访问文字版本的对比观察，不能证明在2022年某日发生过删除、编审指令或政治审查。 审计发现日期为2026年10月29日，非2022年同期读者发现删改；请参见retrospective_audits。"
     },
     {
       "id": "C11",
@@ -851,18 +854,6 @@
       "why": "3月31日晚已公布部分区域14天及7+7管理方案，不可后移到4月1日。",
       "source_ids": [
         "S10"
-      ]
-    },
-    {
-      "claim_id": "C10",
-      "as_of": "2022-03-26",
-      "state": "contemporaneous_content_vs_current_text_diff",
-      "why": "这不是历史上已被公众观察到的修改时刻，而是后来的研究者以同期报道对照现存政府文稿得出的版本差异；不应误标为2022年3月26日发现删除。",
-      "source_ids": [
-        "S13",
-        "S14",
-        "S15",
-        "S16"
       ]
     },
     {
@@ -1140,6 +1131,43 @@
       "Whether the reasons reported at the event described the whole internal policymaking deliberation",
       "Any intentional suppression directive"
     ],
-    "source_independence_limit": "The Paper, Wenhui and CNR report one press conference, not three independent policy decisions. Video story merits future audiovisual source verification."
-  }
+    "source_independence_limit": "The Paper, Wenhui and CNR report one press conference, not three independent policy decisions. Video story merits future audiovisual source verification.",
+    "audit_date": "2026-10-29",
+    "historical_asof_status": "current_archive_text_not_authenticated_as_same_as_2022_page",
+    "journalistic_timestamp_notes": "S14 published 11:01, S16 12:33:33, S15 17:26:53 on 2022-03-26. No exact posting time claimed for current government transcript."
+  },
+  "retrospective_audits": [
+    {
+      "id": "A_V01",
+      "audited_on": "2026-10-29",
+      "claim_id": "C10",
+      "source_ids": [
+        "S13",
+        "S14",
+        "S15",
+        "S16"
+      ],
+      "observation": "Current official Q&A transcript omits the intervening city-shutdown feasibility explanation reported in multiple March 26 news outlets.",
+      "auditable_anchor": "Government transcript passes from 'city characteristics' directly into a call for careful screening; contemporary reports insert the 3/5/7 day shutdown argument and national/global economic role.",
+      "supported_level": "existing_webpage_text_difference",
+      "not_supported": "allegation of a deletion on March 26, later political revision, a censorship directive, or attributed intent",
+      "historical_asof_visibility": "NOT_ESTABLISHED: current 2026 version must not be presented as authenticated March 2022 snapshot",
+      "next_evidence": "contemporaneous March 2022 government-page archive capture and full press-conference audio or video"
+    },
+    {
+      "id": "A_V02",
+      "audited_on": "2026-10-29",
+      "claim_id": "C03",
+      "source_ids": [
+        "S02",
+        "S11",
+        "S18"
+      ],
+      "observation": "Multiple contemporaneous outlets report the same initial police investigation announcement; later legally dispositive records are not currently confirmed by the sources checked.",
+      "supported_level": "police_announcement_only",
+      "not_supported": "a claim that the two men were convicted, detained for a specific duration, acquitted, or formally exonerated",
+      "historical_asof_visibility": "Original March 23 notice publicly observed",
+      "next_evidence": "case-specific prosecutorial decision, court judgment, authoritative status correction, or responsible agency response"
+    }
+  ]
 }
