@@ -8,7 +8,7 @@ const evidence=JSON.parse(fs.readFileSync(path.join(root,'research/critical-inqu
 assert.equal(evidence.status,'RESEARCH_DRAFT_HUMAN_REVIEW_PENDING');
 const src=new Map(evidence.sources.map(s=>[s.id,s]));
 assert.equal(src.size,evidence.sources.length,'unique source ids');
-assert.ok(src.size>=13);
+assert.ok(src.size>=14);
 for(const s of evidence.sources){
  assert.match(s.publication_date,/^\d{4}-\d\d-\d\d$/);
  assert.ok(s.url.startsWith('https://'));
@@ -50,6 +50,10 @@ assert.ok(!reprimand.contemporaneous_sources,'Jan31 interview is not Jan3 police
 const jan1500=evidence.public_asof.find(x=>x.id==='LW_ASOF_0129_1500');
 assert.ok(jan1500.public_sources.includes('LW10'),'14:45 Caixin report must be visible by 15:00');
 assert.ok(!jan1500.public_sources.includes('LW02'),'16:32 Xinhua report must be excluded at 15:00');
+const march1910=evidence.public_asof.find(x=>x.id==='LW_ASOF_0319_1910');
+assert.ok(march1910 && march1910.public_sources.includes('LW14'),'19:04 CLS bulletin visible by 19:10');
+assert.ok(!march1910.public_sources.includes('LW05')&&!march1910.public_sources.includes('LW04'),'19:14 and 19:28 sources cannot appear by 19:10');
+assert.equal(src.get('LW14').published_at_local,'2020-03-19T19:04:01+08:00');
 const march1920=evidence.public_asof.find(x=>x.id==='LW_ASOF_0319_1920');
 assert.ok(march1920.public_sources.includes('LW05'),'19:14 commission summary should be visible by 19:20');
 assert.ok(!march1920.public_sources.includes('LW04'),'19:28 full text must not be backfilled into 19:20');
@@ -76,7 +80,7 @@ assert.match(commentary.caution,/Not a judgment/i);
 const correction=evidence.atomic_claims.find(x=>x.id==='LWC06');
 assert.equal(correction.status,'institutional_revocation_documented');
 assert.ok(evidence.atomic_claims.length>=13);
-assert.equal(evidence.public_label_history.length,7);
+assert.equal(evidence.public_label_history.length,8);
 const targetKinds=new Set(evidence.public_label_history.map(x=>x.target));
 assert.ok(targetKinds.has('unnamed_eight') && targetKinds.has('li_admonition') && targetKinds.has('responsible_officers'));
 for(const label of evidence.public_label_history){
@@ -119,11 +123,13 @@ for(const rec of sourceAudit.records){
  assert.equal(rec.original_social_or_administrative_records_authenticated,false);
 }
 assert.match(sourceAudit.records.find(x=>x.source_id==='LW05').evidence_limit,/ABRIDGED/);
+assert.match(sourceAudit.records.find(x=>x.source_id==='LW14').evidence_limit,/19:04:01/);
 
 const protoPath=path.join(root,'research/critical-inquiry/prototypes/dual-asof-comparison-v01.html');
 const proto=fs.readFileSync(protoPath,'utf8');
 assert.match(proto,/<meta name="robots" content="noindex,nofollow">/);
 assert.match(proto,/<html lang="zh-CN">/);
+assert.match(proto,/2020-03-19 19:10/);
 assert.match(proto,/2020-03-19 19:20/);
 assert.match(proto,/2020-03-19 20:00/);
 assert.match(proto,/2020-03-19 21:50/);
