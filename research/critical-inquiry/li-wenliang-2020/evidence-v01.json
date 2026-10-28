@@ -1,7 +1,7 @@
 {
   "id": "li-wenliang-2020-admonition-correction",
   "title": "李文亮信息定性、警方训诫与撤销的时间证据链",
-  "revision": "research-draft-v0.3",
+  "revision": "research-draft-v0.4",
   "status": "RESEARCH_DRAFT_HUMAN_REVIEW_PENDING",
   "timezone": "Asia/Shanghai",
   "source_rule": "An event described in a March 19 retrospective report was not necessarily publicly knowable at the event date. Preserve report_publication_date separately.",
@@ -147,6 +147,17 @@
       "role": "contemporaneous interview and attributed photograph of Li reprimand",
       "note": "Syndicated interview with Li and photograph caption identifying Jan3 written reprimand as provided by interviewee. Li says he did not know whether he was among public Jan1 eight and might be '8+n'. This is publicly available prior to March19 official inquiry.",
       "independence_group": "li_personal_interview_jan30_31"
+    },
+    {
+      "id": "LW14",
+      "publication_date": "2020-03-19",
+      "published_time": "19:04:01",
+      "published_at_local": "2020-03-19T19:04:01+08:00",
+      "url": "https://www.cls.cn/detail/461600",
+      "publisher": "财联社",
+      "role": "contemporaneous short bulletin of supervisory findings and requested correction",
+      "note": "Article timestamp shown as 19:04:01. Briefly reports improper reprimand/procedure and recommended withdrawal, without complete evidentiary account. Earliest verified public copy in this research register, NOT necessarily the earliest official first release.",
+      "independence_group": "national_supervisory_commission_mar19"
     }
   ],
   "event_history": [
@@ -320,6 +331,24 @@
       "not_publicly_documented_in_registered_sources": "The comprehensive official Commission inquiry, procedural fault finding, March19 withdrawal and officer discipline had not yet been publicly issued."
     },
     {
+      "id": "LW_ASOF_0319_1910",
+      "cutoff_date": "2020-03-19",
+      "cutoff_local": "2020-03-19T19:10:00+08:00",
+      "label": "3月19日19:10",
+      "public_sources": [
+        "LW01",
+        "LW02",
+        "LW03",
+        "LW09",
+        "LW10",
+        "LW12",
+        "LW13",
+        "LW14"
+      ],
+      "publicly_documented": "19:04 CLS short bulletin publicly reports Commission recommendation to withdraw improper Li reprimand and correct irregular procedure. This is a brief, not the full authorized investigative report.",
+      "not_publicly_documented_in_registered_sources": "19:14 CNEB edited report, 19:28 Xinhua detailed investigation, 21:47 police formal revocation and 22:09 officer sanctions were not yet published."
+    },
+    {
       "id": "LW_ASOF_0319_1920",
       "cutoff_date": "2020-03-19",
       "cutoff_local": "2020-03-19T19:20:00+08:00",
@@ -332,7 +361,8 @@
         "LW09",
         "LW10",
         "LW12",
-        "LW13"
+        "LW13",
+        "LW14"
       ],
       "publicly_documented": "19:14 national emergency broadcaster had reported an abridged account of the commission inquiry and recommended correction. The 19:28 fuller authorized report not yet published.",
       "not_publicly_documented_in_registered_sources": "Detailed Xinhua investigative narrative and police formal revocation not yet publicly available by this time."
@@ -350,7 +380,8 @@
         "LW09",
         "LW10",
         "LW12",
-        "LW13"
+        "LW13",
+        "LW14"
       ],
       "publicly_documented": "19:28 official investigation published; Commission recommends undoing the admonition.",
       "not_publicly_documented_in_registered_sources": "Police 21:47 withdrawal, 22:09 personnel measures and later 20:07 Q&A not yet published.",
@@ -371,7 +402,8 @@
         "LW10",
         "LW11",
         "LW12",
-        "LW13"
+        "LW13",
+        "LW14"
       ],
       "publicly_documented": "The Commission report and Q&A were public, and 21:47 Wuhan police revocation and apology copy was available.",
       "not_publicly_documented_in_registered_sources": "Two officer sanctions in Xinhua 22:09 and subsequent 22:38 duplicate report were not yet published.",
@@ -393,7 +425,8 @@
         "LW10",
         "LW11",
         "LW12",
-        "LW13"
+        "LW13",
+        "LW14"
       ],
       "publicly_documented": "Official investigation, written reprimand, formal reversal, apology and individual officer sanctions are all recorded.",
       "not_publicly_documented_in_registered_sources": "These later findings cannot be imputed to what every reader knew on Dec30 or Jan3."
@@ -550,7 +583,8 @@
     "March19 commission scope and motives should not be inferred solely from the text; this package evaluates public documents and decisions.",
     "The strongest initial '依法查处' public characterization and later '仅教育、批评' are two official public texts; causal reasons for the difference are not established by textual comparison alone.",
     "Earliest verified dissemination of the Commission conclusion in this package is the 19:14 shortened report; an earlier press/agency release may exist. Distinguish first found summary from authorized full transcript.",
-    "The published reprimand photograph is attributed to Li by reporters; source archive holds no independently authenticated original physical document scan, and no identifying document fields should be copied into this site's public data."
+    "The published reprimand photograph is attributed to Li by reporters; source archive holds no independently authenticated original physical document scan, and no identifying document fields should be copied into this site's public data.",
+    "19:04 CLS is the earliest publicly readable source found in this register for the Commission conclusion, not verified as the Commission's original first release or an authenticated full-document publication."
   ],
   "release_gates": {
     "G0_document_links": "PARTIAL",
@@ -661,6 +695,18 @@
       "meaning_limit": "Police assertion in a journalist-attributed document image; not independent judicial finding that Li's actions actually caused serious disruption."
     },
     {
+      "id": "PL03B",
+      "public_at": "2020-03-19T19:04:01+08:00",
+      "actor": "National Supervisory Commission conclusion as relayed by CLS",
+      "target": "li_admonition",
+      "source_ids": [
+        "LW14"
+      ],
+      "label": "训诫不当、执法程序不规范、建议纠正（即时简讯）",
+      "speech_act": "contemporaneous news bulletin conveying official recommendation",
+      "meaning_limit": "Brief describes commission recommendation and does not contain full evidentiary text or indicate completed police revocation."
+    },
+    {
       "id": "PL03A",
       "public_at": "2020-03-19T19:14:00+08:00",
       "actor": "National Supervisory Commission / contemporary editorial report",
@@ -739,6 +785,18 @@
       "from": "LW12",
       "to": "LW13",
       "relation": "separate Jan31 newsrooms and interviews of same person, with varying presentation of eight-person membership",
+      "independent_factual_corroboration": false
+    },
+    {
+      "from": "LW14",
+      "to": "LW05",
+      "relation": "same supervisory investigation, different abridged public news summaries at 19:04 and 19:14",
+      "independent_factual_corroboration": false
+    },
+    {
+      "from": "LW14",
+      "to": "LW04",
+      "relation": "early 19:04 bulletin compared with longer 19:28 published investigation",
       "independent_factual_corroboration": false
     }
   ]
