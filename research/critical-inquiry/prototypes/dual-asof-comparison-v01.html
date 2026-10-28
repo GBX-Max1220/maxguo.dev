@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>言说的边界｜双案例证据时间机器 · 研究原型</title>
+<style>
+:root{font-family:system-ui,-apple-system,"PingFang SC","Microsoft Yahei",sans-serif;color:#e8e5de;background:#14232b;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0}a{color:#f2bd9b;text-underline-offset:3px}.wrap{max-width:1050px;margin:0 auto;padding:0 24px}
+header{padding:58px 0 35px;border-bottom:1px solid #52616a}.eyebrow{font:600 11px/1.4 ui-monospace,monospace;letter-spacing:.14em;color:#c7a891}
+h1{font-size:clamp(34px,5vw,58px);line-height:1.18;letter-spacing:-.03em;margin:18px 0}header p{color:#bfd0d3;line-height:1.85;max-width:820px}
+.warning{color:#f3dcc7;background:#553c31;padding:14px 17px;margin:23px 0;font-size:13px;line-height:1.65;border-left:3px solid #e8b18c}
+controls,main{display:block}main{padding:25px 0 100px}.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+.controls label{display:flex;flex-direction:column;gap:7px;flex:1;min-width:220px;font-size:12px;color:#a8b9c0}
+select{width:100%;font:600 15px system-ui,sans-serif;border:1px solid #687983;background:#1d313c;color:#fff;border-radius:3px;min-height:46px;padding:9px}
+.switches{display:flex;gap:7px;margin-top:28px;flex-wrap:wrap}button{font:600 12px/1.4 system-ui,sans-serif;border:1px solid #657984;padding:11px 15px;background:transparent;color:#c5d5d9;cursor:pointer;border-radius:2px}
+button[aria-pressed=true]{background:#eed5c3;color:#152b36;border-color:#eed5c3}button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #e8b18c;outline-offset:3px}
+.summary{padding:28px 0 12px;border-top:1px solid #52616a;margin-top:24px}.summary h2{font-size:clamp(23px,3vw,34px);margin:8px 0}.summary .sub{color:#f1bf9e;font:600 11px ui-monospace,monospace}
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0}.panel{background:#1c303a;padding:24px;border-top:3px solid #698a8a}.panel:last-child{border-top-color:#bb8d69}
+.panel h3{margin:0 0 16px;font-size:17px}.panel li{line-height:1.82;font-size:14px;color:#d6e1df;margin:0 0 12px}.panel ul{padding-left:20px;margin:0}
+footer{border-top:1px solid #52616a;padding-top:24px}.sources{display:flex;gap:10px;flex-wrap:wrap}.sources a{font-size:13px;padding:6px 10px;border:1px solid #637882;text-decoration:none}
+.question{margin:28px 0;padding:17px 22px;border-left:3px solid #b98464;background:#20333d;line-height:1.8}.question strong{color:#f5d3bd}
+aside{color:#b4c7ca;font-size:13px;line-height:1.9;margin-top:22px}
+@media(max-width:650px){header{padding-top:40px}.columns{grid-template-columns:1fr}.panel{padding:17px}.controls label{min-width:100%}}
+</style>
+</head>
+<body>
+<header class="wrap">
+ <p class="eyebrow">THE BOUNDARIES OF THE SAYABLE · TIME-INDEXED PUBLIC KNOWLEDGE</p>
+ <h1>当时，可以知道什么？</h1>
+ <p>两个案例，一种研究方法：把事件发生时间、官方公开判断、后续纠错以及研究者今天才知道的材料区分开来。<strong>时间切换改变的是可援引的当时公开材料，不会自动给出某人“说对了／说错了”的评分。</strong></p>
+ <div class="warning" role="note"><strong>研究原型 · 尚未通过第二名人类审阅</strong>。所有信息来自标明来源的公开材料或后来调查；文献发布日期不代表每位居民当时都接触到它。本页面是独立 HTML 草稿，不在个人网站正式导航中发布。</div>
+</header>
+<main class="wrap">
+ <div class="controls">
+  <label for="case">选择案例 / CASE
+   <select id="case">
+    <option value="li">李文亮｜2020年训诫与正式撤销</option>
+    <option value="sh">上海｜2022年封控传言与立案通报</option>
+   </select>
+  </label>
+  <label for="checkpoint">历史截点 / AS-OF
+   <select id="checkpoint"></select>
+  </label>
+ </div>
+ <div class="summary" aria-live="polite">
+  <span class="sub" id="date"></span>
+  <h2 id="heading"></h2>
+  <p id="scope" style="color:#bdcdd0;line-height:1.8"></p>
+ </div>
+ <div class="columns">
+  <section class="panel" aria-labelledby="known-title">
+   <h3 id="known-title">当时已可公开核验</h3>
+   <ul id="known"></ul>
+  </section>
+  <section class="panel" aria-labelledby="unknown-title">
+   <h3 id="unknown-title">仍不能据此断言</h3>
+   <ul id="unknown"></ul>
+  </section>
+ </div>
+ <div class="question"><strong>本截点的关键追问：</strong> <span id="question"></span></div>
+ <footer>
+  <h3 style="font-size:15px">本截点公开材料链接</h3><div class="sources" id="sources"></div>
+  <aside><strong>事后证据不得倒灌：</strong>李文亮12月30日和1月3日的精确细节，主要来自3月19日国家监委后来发布的调查，因此不在更早的“公众当时已知”中提前出现。上海3月27日后发生的政策变化也不能被放回3月22日的证据截点。</aside>
+ </footer>
+</main>
+<script>
+const cases={
+ li:[
+ {date:"2020-01-01",name:"警方对8人的公开通报",scope:"事件不是判决：当时的警情通报并未列出8人的完整个人名单。",
+ known:["武汉警方表示8名传播相关肺炎信息者已被调查和处理。"],unknown:["李文亮12月30日发了哪些完整内容、1月3日将受到什么具体处置，无法由这份公告得知。","不能根据后来调查把当时未公开的私人谈话与具体名单倒填进这份公告。"],question:"一项‘不实信息’的权威标签，其具体命题和处理程序究竟公开到了什么程度？",links:[["武汉市政府保存的同期公告","https://www.wuhan.gov.cn/hdjl/rdhy/202004/t20200419_1023462.shtml"]]},
+ {date:"2020-01-03",name:"训诫确实发生，但完整事实当时并未公开",scope:"研究者今天可以通过3月19日调查回溯核验1月3日警方行为；这一信息在本来源包内不是1月3日当时已公开的独立材料。",
+ known:["至本截点，可引用的现有同期来源仍是1月1日关于8人的通报。"],unknown:["不能把2020年3月19日披露的训诫书与完整讯问过程，冒充1月3日已正式公开的政府记录。","训诫书不是行政拘留、罚款或法定行政警告。"],question:"行政行为‘确实发生’与它在什么时间‘对公众可核验’，为何必须分开？",links:[["1月1日公告","https://www.wuhan.gov.cn/hdjl/rdhy/202004/t20200419_1023462.shtml"]]},
+ {date:"2020-01-29",name:"警方澄清八人并未受法定警告、罚款或拘留",scope:"在这一天，警方的补充说明和法院相关媒体所载署名评论已可被公众阅读。",
+ known:["新华社报道警方称八人的处置是教育和批评，没有给予法定警告、罚款或拘留。","署名法治评论呼吁对基本属实、无重大恶意、危害有限的信息适用宽容标准。"],unknown:["这不是对李文亮1月3日书面训诫的正式撤销。","署名法律评论不是最高法院具有约束力的司法裁判。"],question:"一句‘依法处理’后来被限定为教育、批评，公众是否拥有充分机会核对原始处理类别？",links:[["新华社1月29日报道","https://www.xinhuanet.com/politics/2020-01/29/c_1125510476.htm"],["唐兴华署名法治评论","https://www.thepaper.cn/newsDetail_forward_5672644"]]},
+ {date:"2020-02-07",name:"死亡通告公开，具体训诫纠错尚未宣布",scope:"武汉市卫健委在2月7日发布李文亮死亡公告；国家监委调查和警方撤销随后才公开。",
+ known:["武汉卫健委发布李文亮因感染新冠肺炎不幸去世的公告。","警方1月29日关于8人处置类别的澄清此前已公开。"],unknown:["此时还没有本研究来源库所收录的3月19日国家监委调查及警方撤销决定。"],question:"公众关注与正式程序纠错之间，隔着哪些调查和行政步骤？",links:[["武汉市卫健委2月7日公告","https://wjw.wuhan.gov.cn/ztzl_28/fk/yqtb/202004/t20200430_1197011.shtml"]]},
+ {date:"2020-03-19",name:"国家监委调查，警方撤销训诫、道歉及处分",scope:"到此日结束，后来调查、警方正式纠错和相关警务人员处分有明确公开文本。",
+ known:["国家监委公开详细调查，认定训诫不当、程序不规范，建议纠正。","武汉警方正式撤销训诫，向家属道歉；另公布对两名警务人员的行政纪律处分。","调查组负责人称李文亮发布信息没有扰乱公共秩序的主观故意。这是官方调查结论。"],unknown:["不能把3月19日的调查细节重新标成12月30日公众当时已知。","不能仅凭这一例得出所有医护人员实际心理变化的因果结论。"],question:"由谁宣布错误、撤销什么、处分谁，能否形成可查验的制度纠错记录？",links:[["国家监委调查原文","https://www.xinhuanet.com/politics/2020-03/19/c_1125737457.htm"],["警方撤销与道歉","https://www.thepaper.cn/newsDetail_forward_6600938"],["警务人员处分","https://www.xinhuanet.com/politics/2020-03/19/c_1125737967.htm"]]}
+ ],
+ sh:[
+ {date:"2022-03-22",name:"有关未来封控的具体传言遭否认",scope:"截至当晚的新闻报道能说明七天传言已被转述、辟谣，但不能认证原始微信消息。",
+ known:["3月22日晚的同期报道记载‘督查组到上海后封城7天’的说法遭公开否认。"],unknown:["不能确认最早发布者、原帖全文或信息来源。","3月27日分批封控政策尚未公开。"],question:"否认一项未来预测，究竟是在否认消息来源、具体内容，还是政策已经定稿？",links:[["3月22日晚报道","https://news.sina.com.cn/o/2022-03-22/doc-imcwipih9980616.shtml"]]},
+ {date:"2022-03-23 14:02",name:"匿名转发者采访已公开，警方立案新闻尚未出现",scope:"这只是两个同期新闻页面的发表顺序，不是对受访者的心理因果识别。",
+ known:["匿名受访者Y先生谈及转发、看到辟谣后担忧家庭受牵连并试图阻止继续扩散；这是受访者自述。"],unknown:["不能认为Y先生就是后来两名被警方立案者之一。","不能把他此前的担忧归因于17:59以后才公开的警方通报。"],question:"在刑事立案新闻尚未公开时，普通人怎样叙述对表达风险的预期？",links:[["14:02采访同期转载","https://www.kankanews.com/detail/xey0knPE62J"]]},
+ {date:"2022-03-23 17:59",name:"警方立案通报的较早公开媒体记录",scope:"警方声称两人涉嫌编造和故意传播不实消息、社会影响恶劣；不是法院已经认定犯罪。",
+ known:["17:59的同期媒体报道转载上海警方对两人的立案侦查通报。","通报涉及‘封城7天’与‘全封4天’不同表述。"],unknown:["不能依据立案推断已经定罪、撤案、起诉或无罪。","目前没有独立的具体行为证据和最终司法处理记录。"],question:"当事实标签引发刑事程序，哪些构成要件必须由国家证明？",links:[["警方通报17:59转载","https://www.yicai.com/news/101358444.html"]]},
+ {date:"2022-03-27",name:"上海正式公布分区分批封控筛查",scope:"早期广义封控猜测与新政策存在主题交集，但具体区域和时长不同。",
+ known:["官方公告宣布黄浦江两侧分批实施封控筛查，原计划各四天。"],unknown:["无法以3月27日政策逆向证明3月22日传言者掌握内部决定。","也不能因此将当初否认标签和立案责任一笔带过。"],question:"政策调整后，政府有无清晰的公共事实标签复核机制？",links:[["3月27日官方通告","https://www.shanghai.gov.cn/sjzccs/20220327/613eda924f814a4ab4b25642f0e668c5.html"]]},
+ {date:"2022-04-04",name:"原先四天计划已无法描述后续管控",scope:"3月31日晚已有分级延长管控消息，4月4日晚宣布全市继续封控。",
+ known:["3月31日晚新华社报道部分区域14天或7+7分级管控。","4月4日当晚新公告要求全市继续封控、等待进一步检测与研判。"],unknown:["这仍不能证明最初具体传言完全准确或传播者拥有可靠内部消息。","当事人最终刑事处理结果仍未获得可核验的公开文书。"],question:"政府改变政策之后，旧的‘谣言’判断究竟应该如何修订，谁有权要求公开更正？",links:[["3月31日晚公告","https://www.xinhuanet.com/local/2022-03/31/c_1128521854.htm"],["4月4日后续通告转载","https://paper.people.com.cn/hwbwap/html/2022-04/05/content_25910900.htm"]]}
+ ]
+};
+const list=document.getElementById('checkpoint'),caseSelect=document.getElementById('case');
+function display(){
+ const selected=cases[caseSelect.value],point=selected[Number(list.value)||0];
+ document.getElementById('date').textContent='AS-OF / '+point.date;
+ document.getElementById('heading').textContent=point.name;
+ document.getElementById('scope').textContent=point.scope;
+ for(const [id,items] of [['known',point.known],['unknown',point.unknown]]){
+  const ul=document.getElementById(id);ul.replaceChildren();
+  for(const str of items){const li=document.createElement('li');li.textContent=str;ul.append(li);}
+ }
+ document.getElementById('question').textContent=point.question;
+ const target=document.getElementById('sources');target.replaceChildren();
+ for(const [label,url] of point.links){const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=label+' ↗';target.append(link);}
+}
+function selectCase(){list.replaceChildren();for(const [i,item] of cases[caseSelect.value].entries()){const opt=document.createElement('option');opt.value=i;opt.textContent=item.date;list.append(opt);}list.value='0';display();}
+caseSelect.addEventListener('change',selectCase);list.addEventListener('change',display);selectCase();
+</script>
+</body></html>
