@@ -1,7 +1,7 @@
 {
   "id": "li-wenliang-2020-admonition-correction",
   "title": "李文亮信息定性、警方训诫与撤销的时间证据链",
-  "revision": "research-draft-v0.2",
+  "revision": "research-draft-v0.3",
   "status": "RESEARCH_DRAFT_HUMAN_REVIEW_PENDING",
   "timezone": "Asia/Shanghai",
   "source_rule": "An event described in a March 19 retrospective report was not necessarily publicly knowable at the event date. Preserve report_publication_date separately.",
@@ -125,6 +125,28 @@
       "role": "earlier contemporaneous police revocation publication",
       "note": "Police withdrawal and apology reproduced 21:47, earlier than 22:38 Paper summary. Institutional decision is documented, not an independent judge's verdict.",
       "independence_group": "wuhan_police_correction_mar19"
+    },
+    {
+      "id": "LW12",
+      "publication_date": "2020-01-31",
+      "published_time": "11:29:00",
+      "published_at_local": "2020-01-31T11:29:00+08:00",
+      "url": "https://m.bjnews.com.cn/detail/158044099415716.html",
+      "publisher": "新京报记者刘名洋（采访李文亮）",
+      "role": "contemporaneous direct interview of admonished individual with displayed original-message screenshots",
+      "note": "Interview was conducted Jan30 and published Jan31 11:29. Li personally describes Jan3 reprimand and no detention/fine. Newspaper images include excerpts of chat, not independently obtained original chat server data. Article asserts Li as one of 'eight'; another interview says Li did not know. Treat roster identity as disputed.",
+      "independence_group": "li_personal_interview_jan30_31"
+    },
+    {
+      "id": "LW13",
+      "publication_date": "2020-01-31",
+      "published_time": "19:35:00",
+      "published_at_local": "2020-01-31T19:35:00+08:00",
+      "url": "https://www.thepaper.cn/newsDetail_forward_5716857",
+      "publisher": "上游新闻采访／澎湃新闻号转载",
+      "role": "contemporaneous interview and attributed photograph of Li reprimand",
+      "note": "Syndicated interview with Li and photograph caption identifying Jan3 written reprimand as provided by interviewee. Li says he did not know whether he was among public Jan1 eight and might be '8+n'. This is publicly available prior to March19 official inquiry.",
+      "independence_group": "li_personal_interview_jan30_31"
     }
   ],
   "event_history": [
@@ -168,8 +190,12 @@
         "LW08",
         "LW06"
       ],
-      "first_publicly_established_date_in_this_register": "2020-03-19",
-      "caution": "This event occurred Jan3 but the source for its exact sequence in this register was published March19. No formal statutory warning, fine or detention established."
+      "first_publicly_established_date_in_this_register": "2020-01-31",
+      "caution": "Written reprimand privately occurred Jan3; first public personal account located in this register Jan31, with interviewee-provided photo; detailed official police procedural investigation only released Mar19. Not a statutory fine, detention or warning.",
+      "contemporaneous_sources": [
+        "LW12",
+        "LW13"
+      ]
     },
     {
       "id": "LE05",
@@ -260,7 +286,22 @@
         "LW10"
       ],
       "publicly_documented": "Police's no-statutory-punishment clarification, alongside a signed legal commentary urging proportionality.",
-      "not_publicly_documented_in_registered_sources": "Formal March19 withdrawal and findings had not yet been published."
+      "not_publicly_documented_in_registered_sources": "The Jan31 interviews and document photo were not yet in the registered public source set; later Commission correction was not available."
+    },
+    {
+      "id": "LW_ASOF_0131_1200",
+      "cutoff_date": "2020-01-31",
+      "cutoff_local": "2020-01-31T12:00:00+08:00",
+      "label": "1月31日12:00",
+      "public_sources": [
+        "LW01",
+        "LW02",
+        "LW09",
+        "LW10",
+        "LW12"
+      ],
+      "publicly_documented": "Jan31 11:29 Beijing News interview now public: Li described the Jan3 admonition and absence of detention; public message screenshots shown in news report.",
+      "not_publicly_documented_in_registered_sources": "19:35 later syndicated Upstream News interview and the full March19 Commission investigation not yet published."
     },
     {
       "id": "LW_ASOF_0207",
@@ -270,10 +311,12 @@
         "LW02",
         "LW03",
         "LW09",
-        "LW10"
+        "LW10",
+        "LW12",
+        "LW13"
       ],
-      "publicly_documented": "Health authority issued Li's death notice, while public characterization of eight-person handling had already been clarified.",
-      "not_publicly_documented_in_registered_sources": "Independent March19 commission findings and police apology not yet available."
+      "publicly_documented": "By Feb7 Li's admonition and excerpts of his Dec30 warnings were already discussed in Jan31 published personal interviews and an interviewee-provided reprimand photograph; Feb7 health authority issued death announcement.",
+      "not_publicly_documented_in_registered_sources": "The comprehensive official Commission inquiry, procedural fault finding, March19 withdrawal and officer discipline had not yet been publicly issued."
     },
     {
       "id": "LW_ASOF_0319_1920",
@@ -286,7 +329,9 @@
         "LW03",
         "LW05",
         "LW09",
-        "LW10"
+        "LW10",
+        "LW12",
+        "LW13"
       ],
       "publicly_documented": "19:14 national emergency broadcaster had reported an abridged account of the commission inquiry and recommended correction. The 19:28 fuller authorized report not yet published.",
       "not_publicly_documented_in_registered_sources": "Detailed Xinhua investigative narrative and police formal revocation not yet publicly available by this time."
@@ -302,7 +347,9 @@
         "LW04",
         "LW05",
         "LW09",
-        "LW10"
+        "LW10",
+        "LW12",
+        "LW13"
       ],
       "publicly_documented": "19:28 official investigation published; Commission recommends undoing the admonition.",
       "not_publicly_documented_in_registered_sources": "Police 21:47 withdrawal, 22:09 personnel measures and later 20:07 Q&A not yet published.",
@@ -321,7 +368,9 @@
         "LW08",
         "LW09",
         "LW10",
-        "LW11"
+        "LW11",
+        "LW12",
+        "LW13"
       ],
       "publicly_documented": "The Commission report and Q&A were public, and 21:47 Wuhan police revocation and apology copy was available.",
       "not_publicly_documented_in_registered_sources": "Two officer sanctions in Xinhua 22:09 and subsequent 22:38 duplicate report were not yet published.",
@@ -341,7 +390,9 @@
         "LW08",
         "LW09",
         "LW10",
-        "LW11"
+        "LW11",
+        "LW12",
+        "LW13"
       ],
       "publicly_documented": "Official investigation, written reprimand, formal reversal, apology and individual officer sanctions are all recorded.",
       "not_publicly_documented_in_registered_sources": "These later findings cannot be imputed to what every reader knew on Dec30 or Jan3."
@@ -375,10 +426,12 @@
       "claim": "Police made Li sign/receive a reprimand on Jan3",
       "source_ids": [
         "LW04",
-        "LW06"
+        "LW06",
+        "LW12",
+        "LW13"
       ],
-      "status": "retrospectively_confirmed_by_commission_and_police",
-      "caution": "Written reprimand differs from administrative fine, detention or statutory administrative warning."
+      "status": "documented_by_contemporaneous_interviews_then_officially_confirmed",
+      "caution": "Li discussed Jan3 admonition publicly Jan31; later March19 commission confirmed the procedure. Newsroom interview does not independently authenticate the raw original police archives."
     },
     {
       "id": "LWC04",
@@ -452,12 +505,35 @@
       ],
       "status": "distinct_official_public_characterizations_at_two_dates",
       "caution": "This is a public-language comparison about unnamed eight, NOT a judicial finding or proof that every one was formally punished."
+    },
+    {
+      "id": "LWC11",
+      "kind": "contemporaneous_self_report",
+      "claim": "Li publicly discussed his Jan3 written admonition before Mar19 and said he was not detained, fined or given a statutory warning",
+      "source_ids": [
+        "LW12",
+        "LW13"
+      ],
+      "status": "reporter_interview_and_issued_document_photo",
+      "caution": "Do not confuse interview statements with independent confirmation of every police case fact; the published picture contains some personal identifiers and should not be copied into public UI."
+    },
+    {
+      "id": "LWC12",
+      "kind": "actor_identity_uncertainty",
+      "claim": "The Jan1 eight-person bulletin did not publicly list names; Jan31 reports differ in assuming or questioning whether Li was among those eight",
+      "source_ids": [
+        "LW01",
+        "LW12",
+        "LW13"
+      ],
+      "status": "conflicting_public_identification_not_adjudicated",
+      "caution": "One interview uses phrasing that presupposes membership; Li separately says he is unsure. Avoid definitive identity matching."
     }
   ],
   "unresolved": [
     "Did the public one-Jan 'eight' roster include Li? Historical sources connect the broader event, but the first bulletin is unnamed; no categorical mapping asserted.",
     "Independent original copies/hashes of Li's entire Dec30 chat stream, image and 11s CT video are not in this package; March19 commission is retrospective report.",
-    "Date and circumstances of first public release of Li's individual reprimand before March19 not established in this scoped register.",
+    "The first source located here discussing Li's personal reprimand is a Jan31 11:29 interview, followed by a 19:35 syndicated interview with an interviewee-provided photograph. Earlier independent publication cannot be excluded.",
     "Extent of any chilling effect on healthcare warnings requires independent empirical evidence, not only a single outcome.",
     "March19 commission scope and motives should not be inferred solely from the text; this package evaluates public documents and decisions.",
     "The strongest initial '依法查处' public characterization and later '仅教育、批评' are two official public texts; causal reasons for the difference are not established by textual comparison alone.",
@@ -483,9 +559,10 @@
     },
     {
       "dimension": "coercive act occurrence",
-      "status": "documented_retrospectively",
+      "status": "public_personal_account_jan31_and_official_confirmation_mar19",
       "evidence_ids": [
-        "LWC03"
+        "LWC03",
+        "LWC11"
       ],
       "limit": "Written admonition received Jan3; not a statutory fine or detention"
     },
@@ -622,6 +699,12 @@
       "from": "LW04",
       "to": "LW08",
       "relation": "investigation summary and same institution's press Q&A, distinct texts but not independent institution",
+      "independent_factual_corroboration": false
+    },
+    {
+      "from": "LW12",
+      "to": "LW13",
+      "relation": "separate Jan31 newsrooms and interviews of same person, with varying presentation of eight-person membership",
       "independent_factual_corroboration": false
     }
   ]
