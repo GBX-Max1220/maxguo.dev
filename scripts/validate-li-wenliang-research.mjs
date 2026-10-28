@@ -25,15 +25,27 @@ for(const e of evidence.event_history){
     'later finding is incorrectly treated as contemporaneous publication');
  }
 }
+const dayEnd=(date)=>date+'T23:59:59+08:00';
+const sourcePublication=(source)=>source.published_at_local??dayEnd(source.publication_date);
 let last='';
 for(const snap of evidence.public_asof){
- assert.ok(snap.cutoff_date>last,'as-of dates must increase');
- last=snap.cutoff_date;
+ const cutoff=snap.cutoff_local??dayEnd(snap.cutoff_date);
+ assert.ok(cutoff>last,'as-of cutoffs must increase strictly');
+ last=cutoff;
  const actual=[...snap.public_sources].sort();
- const expected=evidence.sources.filter(s=>s.publication_date<=snap.cutoff_date).map(s=>s.id).sort();
+ const expected=evidence.sources.filter(s=>sourcePublication(s)<=cutoff).map(s=>s.id).sort();
  assert.deepEqual(actual,expected,'as-of contains future publication or misses dated source '+snap.id);
 }
 assert.equal(evidence.public_asof.at(-1).cutoff_date,'2020-03-19');
+const jan1500=evidence.public_asof.find(x=>x.id==='LW_ASOF_0129_1500');
+assert.ok(jan1500.public_sources.includes('LW10'),'14:45 Caixin report must be visible by 15:00');
+assert.ok(!jan1500.public_sources.includes('LW02'),'16:32 Xinhua report must be excluded at 15:00');
+const march2000=evidence.public_asof.find(x=>x.id==='LW_ASOF_0319_2000');
+assert.ok(march2000.public_sources.includes('LW04'),'19:28 report visible at 20:00');
+assert.ok(!march2000.public_sources.includes('LW08')&&!march2000.public_sources.includes('LW11'),'20:07 QA or 21:47 withdrawal leaked to 20:00');
+const march2150=evidence.public_asof.find(x=>x.id==='LW_ASOF_0319_2150');
+assert.ok(march2150.public_sources.includes('LW11'),'21:47 formal withdrawal should be visible at 21:50');
+assert.ok(!march2150.public_sources.includes('LW07'),'22:09 officer sanctions must be excluded at 21:50');
 const jan=evidence.public_asof.find(x=>x.cutoff_date==='2020-01-03');
 assert.ok(!jan.public_sources.includes('LW04')&&!jan.public_sources.includes('LW06'));
 const allClaims=new Set();
@@ -49,7 +61,21 @@ assert.equal(commentary.kind,'legal_opinion_not_binding');
 assert.match(commentary.caution,/Not a judgment/i);
 const correction=evidence.atomic_claims.find(x=>x.id==='LWC06');
 assert.equal(correction.status,'institutional_revocation_documented');
-assert.ok(evidence.atomic_claims.length>=9);
+assert.ok(evidence.atomic_claims.length>=10);
+assert.equal(evidence.public_label_history.length,5);
+const targetKinds=new Set(evidence.public_label_history.map(x=>x.target));
+assert.ok(targetKinds.has('unnamed_eight') && targetKinds.has('li_admonition') && targetKinds.has('responsible_officers'));
+for(const label of evidence.public_label_history){
+ assert.ok(label.actor&&label.speech_act&&label.meaning_limit);
+ const earliest=label.source_ids.map(id=>src.get(id)?.published_at_local||dayEnd(src.get(id)?.publication_date)).sort()[0];
+ assert.ok(earliest<=label.public_at,'later source invoked for earlier label event: '+label.id);
+}
+assert.equal(evidence.source_relations.length,4);
+for(const edge of evidence.source_relations){
+ assert.equal(edge.independent_factual_corroboration,false);
+ assert.ok(src.has(edge.from)&&src.has(edge.to));
+}
+
 const commissionIntent=evidence.atomic_claims.find(c=>c.id==='LWC09');
 assert.equal(commissionIntent.kind,'official_retrospective_intent_finding');
 assert.equal(commissionIntent.status,'attributed_commission_investigation_not_independently_reconstructed_intent');
