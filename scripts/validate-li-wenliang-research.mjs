@@ -8,7 +8,7 @@ const evidence=JSON.parse(fs.readFileSync(path.join(root,'research/critical-inqu
 assert.equal(evidence.status,'RESEARCH_DRAFT_HUMAN_REVIEW_PENDING');
 const src=new Map(evidence.sources.map(s=>[s.id,s]));
 assert.equal(src.size,evidence.sources.length,'unique source ids');
-assert.ok(src.size>=9);
+assert.ok(src.size>=13);
 for(const s of evidence.sources){
  assert.match(s.publication_date,/^\d{4}-\d\d-\d\d$/);
  assert.ok(s.url.startsWith('https://'));
@@ -17,7 +17,7 @@ for(const s of evidence.sources){
 const events=new Set();
 for(const e of evidence.event_history){
  assert.ok(!events.has(e.id));events.add(e.id);
- for(const id of [...(e.contemporaneous_sources??[]),...(e.retrospectively_established_by??[])])
+ for(const id of [...(e.contemporaneous_sources??[]),...(e.early_public_reports??[]),...(e.retrospectively_established_by??[])])
   assert.ok(src.has(id),'event cites missing source: '+id);
  if(e.retrospectively_established_by){
   for(const id of e.retrospectively_established_by)
@@ -37,6 +37,16 @@ for(const snap of evidence.public_asof){
  assert.deepEqual(actual,expected,'as-of contains future publication or misses dated source '+snap.id);
 }
 assert.equal(evidence.public_asof.at(-1).cutoff_date,'2020-03-19');
+const jan31noon=evidence.public_asof.find(x=>x.id==='LW_ASOF_0131_1200');
+assert.ok(jan31noon && jan31noon.public_sources.includes('LW12'));
+assert.ok(!jan31noon.public_sources.includes('LW13'),'19:35 interview/photo cannot appear at 12:00');
+const feb7=evidence.public_asof.find(x=>x.id==='LW_ASOF_0207');
+assert.ok(feb7.public_sources.includes('LW12')&&feb7.public_sources.includes('LW13'),
+ 'Jan31 public discussion of admonition must be known by Feb7');
+const reprimand=evidence.event_history.find(x=>x.id==='LE04');
+assert.equal(reprimand.first_publicly_established_date_in_this_register,'2020-01-31');
+assert.deepEqual(reprimand.early_public_reports,['LW12','LW13']);
+assert.ok(!reprimand.contemporaneous_sources,'Jan31 interview is not Jan3 police original record');
 const jan1500=evidence.public_asof.find(x=>x.id==='LW_ASOF_0129_1500');
 assert.ok(jan1500.public_sources.includes('LW10'),'14:45 Caixin report must be visible by 15:00');
 assert.ok(!jan1500.public_sources.includes('LW02'),'16:32 Xinhua report must be excluded at 15:00');
@@ -65,7 +75,7 @@ assert.equal(commentary.kind,'legal_opinion_not_binding');
 assert.match(commentary.caution,/Not a judgment/i);
 const correction=evidence.atomic_claims.find(x=>x.id==='LWC06');
 assert.equal(correction.status,'institutional_revocation_documented');
-assert.ok(evidence.atomic_claims.length>=10);
+assert.ok(evidence.atomic_claims.length>=12);
 assert.equal(evidence.public_label_history.length,6);
 const targetKinds=new Set(evidence.public_label_history.map(x=>x.target));
 assert.ok(targetKinds.has('unnamed_eight') && targetKinds.has('li_admonition') && targetKinds.has('responsible_officers'));
