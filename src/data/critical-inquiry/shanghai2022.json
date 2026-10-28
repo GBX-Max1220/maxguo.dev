@@ -681,9 +681,9 @@
         "S15",
         "S16"
       ],
-      "as_of_23": "not_yet_public",
-      "after_27": "observable_current_version_difference",
-      "note": "这是一项对目前可访问文字版本的对比观察，不能证明在2022年某日发生过删除、编审指令或政治审查。 审计发现日期为2026年10月29日，非2022年同期读者发现删改；请参见retrospective_audits。"
+      "as_of_23": "not_applicable_retrospective_only",
+      "after_27": "not_applicable_retrospective_only",
+      "note": "这是一项对目前可访问文字版本的对比观察，不能证明在2022年某日发生过删除、编审指令或政治审查。 审计发现日期为2026年10月29日，非2022年同期读者发现删改；请参见retrospective_audits。 C10不得在2022历史视图中显示为当时可知的政策命题。"
     },
     {
       "id": "C11",
@@ -1129,7 +1129,8 @@
     "source_independence_limit": "The Paper, Wenhui and CNR report one press conference, not three independent policy decisions. Video story merits future audiovisual source verification.",
     "audit_date": "2026-10-29",
     "historical_asof_status": "current_archive_text_not_authenticated_as_same_as_2022_page",
-    "journalistic_timestamp_notes": "S14 published 11:01, S16 12:33:33, S15 17:26:53 on 2022-03-26. No exact posting time claimed for current government transcript."
+    "journalistic_timestamp_notes": "S14 published 11:01, S16 12:33:33, S15 17:26:53 on 2022-03-26. No exact posting time claimed for current government transcript.",
+    "publication_gate": "HOLD: verify historical government page version and full press-conference recording before calling this censorship or a later deletion"
   },
   "retrospective_audits": [
     {
@@ -1147,7 +1148,8 @@
       "supported_level": "existing_webpage_text_difference",
       "not_supported": "allegation of a deletion on March 26, later political revision, a censorship directive, or attributed intent",
       "historical_asof_visibility": "NOT_ESTABLISHED: current 2026 version must not be presented as authenticated March 2022 snapshot",
-      "next_evidence": "contemporaneous March 2022 government-page archive capture and full press-conference audio or video"
+      "next_evidence": "contemporaneous March 2022 government-page archive capture and full press-conference audio or video",
+      "available_to_historical_reader": false
     },
     {
       "id": "A_V02",
