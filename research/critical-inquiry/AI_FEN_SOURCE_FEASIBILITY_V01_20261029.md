@@ -19,6 +19,14 @@
 | AF07 | 2020年8月25日 | Citizen Lab 实证研究 https://citizenlab.ca/research/censored-contagion-ii-a-timeline-of-information-control-on-chinese-social-media-during-covid-19/ | 研究使用主动测量描述疫情期间微信/YY的关键词过滤；提供审查机制的对照方法 | 不能从其总体数据直接推断**这篇具体文章**某次删除由谁下令 |
 | AF08 | 后来转载 | Cofacts 提到 archive.is/OLdHs https://cofacts.tw/article/chtr3b9cy0t9 | 指向原微信文章的存档候选 | 本轮 archive.is 链接不可访问；未核实存档对象、日期或原始URL |
 
+## 二点一、新发现的原刊载体线索（尚未完成版本认证）
+
+本轮进一步找到被学术和历史资料引用的**具体微博长文 ID**：`2309404480863474679890`，候选原文 URL 为 https://www.weibo.com/ttarticle/p/show?id=2309404480863474679890 。另有2020年整理者列出一个候选 Wayback 快照：`20200310051416`（如时间戳确为 UTC，则对应2020-03-10 13:14:16 中国标准时间），链接为 https://web.archive.org/web/20200310051416/https://www.weibo.com/ttarticle/p/show?id=2309404480863474679890 。
+
+**本轮两处均无法直接读取，故不是已认证的快照证据。** 但这将下一次查找从“不知道原始地址”推进到**明确的平台、文章 ID 与候选抓取时间**。微博版和微信公众号版是两个不同载体；即使某个微博链接13:14仍被抓取，也不能反推11:40前微信的删除传闻是假的。先区分两种平台的可访问性和版本关系。
+
+2020年资料整理索引：https://pincong.rocks/article/id-18252__sort_key-add_time__sort-ASC （第63项，属于社区提供的候选索引，不作为独立时间见证）。另一2022年学术资料也将该微博链接列为其2020-03-10查询的访问信息，但仍未给出本轮可验证的首版字节。
+
 ## 三、目前观察与政治解释的分界
 
 - **观察：** 同期媒体对原文从主账号消失、转载遭限制及变形传播有记录；CDT保存了若干版本入口。
