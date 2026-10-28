@@ -54,9 +54,11 @@
       "publication_date": "2020-03-19",
       "url": "https://www.cneb.gov.cn/2020/03/19/ARTI1584615924612215.shtml",
       "publisher": "国家应急广播网／国家监委同一份调查报告",
-      "role": "same-report transcript alternative host",
-      "note": "Same underlying commission report as LW04, NOT independent investigative finding.",
-      "independence_group": "national_supervisory_commission_mar19"
+      "role": "contemporaneous editorially abridged news account of commission investigation",
+      "note": "CNEB/CCTV source from 19:14 reproduces selected paragraphs and conclusion, not full 19:28 Xinhua authorized text. Earlier public visibility of summary findings DOES NOT mean full evidence text was available at 19:14.",
+      "independence_group": "national_supervisory_commission_mar19",
+      "published_time": "19:14:00",
+      "published_at_local": "2020-03-19T19:14:00+08:00"
     },
     {
       "id": "LW06",
@@ -274,6 +276,22 @@
       "not_publicly_documented_in_registered_sources": "Independent March19 commission findings and police apology not yet available."
     },
     {
+      "id": "LW_ASOF_0319_1920",
+      "cutoff_date": "2020-03-19",
+      "cutoff_local": "2020-03-19T19:20:00+08:00",
+      "label": "3月19日19:20",
+      "public_sources": [
+        "LW01",
+        "LW02",
+        "LW03",
+        "LW05",
+        "LW09",
+        "LW10"
+      ],
+      "publicly_documented": "19:14 national emergency broadcaster had reported an abridged account of the commission inquiry and recommended correction. The 19:28 fuller authorized report not yet published.",
+      "not_publicly_documented_in_registered_sources": "Detailed Xinhua investigative narrative and police formal revocation not yet publicly available by this time."
+    },
+    {
       "id": "LW_ASOF_0319_2000",
       "cutoff_date": "2020-03-19",
       "cutoff_local": "2020-03-19T20:00:00+08:00",
@@ -282,6 +300,7 @@
         "LW02",
         "LW03",
         "LW04",
+        "LW05",
         "LW09",
         "LW10"
       ],
@@ -298,6 +317,7 @@
         "LW02",
         "LW03",
         "LW04",
+        "LW05",
         "LW08",
         "LW09",
         "LW10",
@@ -440,7 +460,8 @@
     "Date and circumstances of first public release of Li's individual reprimand before March19 not established in this scoped register.",
     "Extent of any chilling effect on healthcare warnings requires independent empirical evidence, not only a single outcome.",
     "March19 commission scope and motives should not be inferred solely from the text; this package evaluates public documents and decisions.",
-    "The strongest initial '依法查处' public characterization and later '仅教育、批评' are two official public texts; causal reasons for the difference are not established by textual comparison alone."
+    "The strongest initial '依法查处' public characterization and later '仅教育、批评' are two official public texts; causal reasons for the difference are not established by textual comparison alone.",
+    "Earliest verified dissemination of the Commission conclusion in this package is the 19:14 shortened report; an earlier press/agency release may exist. Distinguish first found summary from authorized full transcript."
   ],
   "release_gates": {
     "G0_document_links": "PARTIAL",
@@ -529,6 +550,18 @@
       "meaning_limit": "No statutory warning/fine/detention does not rule out Li's separate written admonition."
     },
     {
+      "id": "PL03A",
+      "public_at": "2020-03-19T19:14:00+08:00",
+      "actor": "National Supervisory Commission / contemporary editorial report",
+      "target": "li_admonition",
+      "source_ids": [
+        "LW05"
+      ],
+      "label": "训诫不当、程序不规范、建议撤销（摘要）",
+      "speech_act": "commission findings made public via an abbreviated news account",
+      "meaning_limit": "A source abridgment is not the full 19:28 investigation document; news dissemination and police's formal withdrawal are separate."
+    },
+    {
       "id": "PL03",
       "public_at": "2020-03-19T19:28:31+08:00",
       "actor": "National Supervisory Commission",
@@ -582,7 +615,7 @@
     {
       "from": "LW04",
       "to": "LW05",
-      "relation": "one National Supervisory Commission report, two republication hosts",
+      "relation": "same supervisory inquiry, CNEB 19:14 abridged reporting versus Xinhua 19:28 detailed authorized publication",
       "independent_factual_corroboration": false
     },
     {
