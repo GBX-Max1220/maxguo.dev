@@ -7,7 +7,7 @@ const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 const data = JSON.parse(read('src/data/critical-inquiry/shanghai2022.json'));
 
 assert.equal(data.status, 'DRAFT_REVIEW_REQUIRED', 'unreviewed exhibit must be marked draft');
-assert.ok(data.sources.length >= 19);
+assert.ok(data.sources.length >= 20);
 assert.ok(data.snapshots.length >= 11);
 
 const byId = new Map(data.sources.map(s => [s.id, s]));
@@ -133,7 +133,7 @@ assert.ok(!data.snapshots.find(s=>s.id==='mar26').available_sources.includes('S1
   'unverified 2022 version of present-day government transcript must be retrospective only');
 assert.equal(byId.get('S13').asof_eligible,false);
 assert.ok(data.press_transcript_comparison && data.press_transcript_comparison.govt_transcript_source==='S13');
-assert.deepEqual([...data.press_transcript_comparison.journalistic_sources].sort(),['S14','S15','S16']);
+assert.deepEqual([...data.press_transcript_comparison.journalistic_sources].sort(),['S14','S15','S16','S19']);
 assert.ok(Array.isArray(data.retrospective_audits) && data.retrospective_audits.length>=2);
 assert.ok(!data.claim_status_history.some(h=>h.claim_id==='C10'),
   'today-observed text difference must not be represented as an event in March 2022');
