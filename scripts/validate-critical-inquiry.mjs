@@ -7,8 +7,8 @@ const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 const data = JSON.parse(read('src/data/critical-inquiry/shanghai2022.json'));
 
 assert.equal(data.status, 'DRAFT_REVIEW_REQUIRED', 'unreviewed exhibit must be marked draft');
-assert.ok(data.sources.length >= 13);
-assert.ok(data.snapshots.length >= 9);
+assert.ok(data.sources.length >= 19);
+assert.ok(data.snapshots.length >= 11);
 
 const byId = new Map(data.sources.map(s => [s.id, s]));
 assert.equal(byId.size, data.sources.length, 'duplicate source ID');
@@ -28,7 +28,7 @@ for (const snapshot of data.snapshots) {
   prevCutoff = cutoff;
   assert.ok(snapshot.available_sources.length > 0);
   assert.equal(new Set(snapshot.available_sources).size, snapshot.available_sources.length);
-  const expected = data.sources.filter(source => publicationCutoff(source) <= cutoff).map(source => source.id).sort();
+  const expected = data.sources.filter(source => source.asof_eligible !== false && publicationCutoff(source) <= cutoff).map(source => source.id).sort();
   assert.deepEqual([...snapshot.available_sources].sort(), expected,
     snapshot.id + ': includes not-yet-public evidence or excludes already-public evidence');
   for (const id of snapshot.available_sources) {
@@ -48,7 +48,7 @@ assert.ok(!mar31.available_sources.includes('S06'), 'April 1 press Q&A leaked in
 assert.equal(data.snapshots.at(-1).date,'2022-04-05');
 
 const claimIds = new Set();
-const observedTypes = new Set(['republication_of_viral_claim', 'police_attributed_circulating_claim', 'policy_announcement', 'attributed_interview_statement']);
+const observedTypes = new Set(['republication_of_viral_claim', 'police_attributed_circulating_claim', 'policy_announcement', 'attributed_interview_statement', 'attributed_press_conference_statement']);
 for (const claim of data.claims) {
   assert.ok(!claimIds.has(claim.id), 'duplicate claim ID');
   claimIds.add(claim.id);
@@ -65,7 +65,7 @@ for (const claim of data.claims) {
 
 
 // Date-aware statement histories are editorial state transitions, not binary truth scores.
-assert.ok(data.claim_status_history.length >= 14, 'missing claim status history');
+assert.ok(data.claim_status_history.length >= 16, 'missing claim status history');
 const knownClaims = new Set(data.claims.map(c => c.id));
 for (const h of data.claim_status_history) {
   assert.ok(knownClaims.has(h.claim_id), 'history points to unknown claim');
@@ -127,6 +127,27 @@ for (const edge of data.source_relations) {
 }
 assert.ok(data.source_relations.some(x=>x.from==='S11' && x.to==='S02'));
 assert.ok(data.source_relations.some(x=>x.from==='S07' && x.to==='S12'));
+
+
+assert.ok(!data.snapshots.find(s=>s.id==='mar26').available_sources.includes('S13'),
+  'unverified 2022 version of present-day government transcript must be retrospective only');
+assert.equal(byId.get('S13').asof_eligible,false);
+assert.ok(data.press_transcript_comparison && data.press_transcript_comparison.govt_transcript_source==='S13');
+assert.deepEqual([...data.press_transcript_comparison.journalistic_sources].sort(),['S14','S15','S16']);
+assert.ok(Array.isArray(data.retrospective_audits) && data.retrospective_audits.length>=2);
+assert.ok(!data.claim_status_history.some(h=>h.claim_id==='C10'),
+  'today-observed text difference must not be represented as an event in March 2022');
+for (const a of data.retrospective_audits){
+  assert.ok(a.audited_on>='2026-10-29' && a.source_ids.length>0);
+  for(const id of a.source_ids) assert.ok(byId.has(id),'invalid audit source '+id);
+}
+const mar23Early = data.snapshots.find(s=>s.id==='mar23_1402');
+assert.ok(mar23Early && !mar23Early.available_sources.includes('S18'));
+const mar23Police = data.snapshots.find(s=>s.id==='mar23_1759');
+assert.ok(mar23Police && mar23Police.available_sources.includes('S18'));
+assert.ok(!mar23Police.available_sources.includes('S11') && !mar23Police.available_sources.includes('S02'));
+const mar26 = data.snapshots.find(s=>s.id==='mar26');
+assert.ok(mar26 && ['S14','S15','S16'].every(id=>mar26.available_sources.includes(id)));
 
 const zh = read('src/pages/critical-inquiry/index.astro');
 const en = read('src/pages/critical-inquiry/en/index.astro');
