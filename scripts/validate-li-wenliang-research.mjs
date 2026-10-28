@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import path from 'node:path';
+import vm from 'node:vm';
 
 const root=process.cwd();
 const evidence=JSON.parse(fs.readFileSync(path.join(root,'research/critical-inquiry/li-wenliang-2020/evidence-v01.json'),'utf8'));
@@ -60,6 +61,22 @@ for (const dim of evidence.correction_dimensions) {
 }
 
 assert.equal(evidence.release_gates.G3_second_human_review,'HOLD');
+
+const protoPath=path.join(root,'research/critical-inquiry/prototypes/dual-asof-comparison-v01.html');
+const proto=fs.readFileSync(protoPath,'utf8');
+assert.match(proto,/<meta name="robots" content="noindex,nofollow">/);
+assert.match(proto,/<html lang="zh-CN">/);
+assert.match(proto,/2020-03-19/);
+assert.match(proto,/2022-03-23 14:02/);
+assert.match(proto,/2022-03-23 17:59/);
+assert.match(proto,/不能把2020年3月19日披露的训诫书/);
+assert.match(proto,/不能把他此前的担忧归因于17:59/);
+assert.ok(!fs.existsSync(path.join(root,'src/pages/critical-inquiry/cases/li-wenliang/index.astro')),
+ 'unreviewed Li case must not be accidentally published');
+const scripts=[...proto.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m=>m[1]);
+assert.equal(scripts.length,1,'offline prototype should have a single inline script');
+new vm.Script(scripts[0],{filename:'dual-asof-comparison-v01.html:inline'});
+
 console.log('Li Wenliang research validation PASS:',
  evidence.sources.length,'sources,',evidence.event_history.length,'events,',
  evidence.public_asof.length,'public-as-of snapshots,',
