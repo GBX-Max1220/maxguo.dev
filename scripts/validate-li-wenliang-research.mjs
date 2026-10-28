@@ -48,6 +48,17 @@ assert.equal(commentary.kind,'legal_opinion_not_binding');
 assert.match(commentary.caution,/Not a judgment/i);
 const correction=evidence.atomic_claims.find(x=>x.id==='LWC06');
 assert.equal(correction.status,'institutional_revocation_documented');
+assert.ok(evidence.atomic_claims.length>=9);
+const commissionIntent=evidence.atomic_claims.find(c=>c.id==='LWC09');
+assert.equal(commissionIntent.kind,'official_retrospective_intent_finding');
+assert.equal(commissionIntent.status,'attributed_commission_investigation_not_independently_reconstructed_intent');
+assert.deepEqual(commissionIntent.source_ids,['LW08']);
+assert.equal(evidence.correction_dimensions.length,5);
+for (const dim of evidence.correction_dimensions) {
+ assert.ok(dim.dimension && dim.status && dim.limit && dim.evidence_ids.length);
+ for(const id of dim.evidence_ids) assert.ok(allClaims.has(id),'unknown correction dimension claim');
+}
+
 assert.equal(evidence.release_gates.G3_second_human_review,'HOLD');
 console.log('Li Wenliang research validation PASS:',
  evidence.sources.length,'sources,',evidence.event_history.length,'events,',
