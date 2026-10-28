@@ -75,8 +75,8 @@ assert.equal(commentary.kind,'legal_opinion_not_binding');
 assert.match(commentary.caution,/Not a judgment/i);
 const correction=evidence.atomic_claims.find(x=>x.id==='LWC06');
 assert.equal(correction.status,'institutional_revocation_documented');
-assert.ok(evidence.atomic_claims.length>=12);
-assert.equal(evidence.public_label_history.length,6);
+assert.ok(evidence.atomic_claims.length>=13);
+assert.equal(evidence.public_label_history.length,7);
 const targetKinds=new Set(evidence.public_label_history.map(x=>x.target));
 assert.ok(targetKinds.has('unnamed_eight') && targetKinds.has('li_admonition') && targetKinds.has('responsible_officers'));
 for(const label of evidence.public_label_history){
@@ -94,11 +94,16 @@ const commissionIntent=evidence.atomic_claims.find(c=>c.id==='LWC09');
 assert.equal(commissionIntent.kind,'official_retrospective_intent_finding');
 assert.equal(commissionIntent.status,'attributed_commission_investigation_not_independently_reconstructed_intent');
 assert.deepEqual(commissionIntent.source_ids,['LW08']);
-assert.equal(evidence.correction_dimensions.length,5);
+assert.equal(evidence.correction_dimensions.length,6);
 for (const dim of evidence.correction_dimensions) {
  assert.ok(dim.dimension && dim.status && dim.limit && dim.evidence_ids.length);
  for(const id of dim.evidence_ids) assert.ok(allClaims.has(id),'unknown correction dimension claim');
 }
+
+const disruptionContrast=evidence.atomic_claims.find(x=>x.id==='LWC13');
+assert.equal(disruptionContrast.kind,'institutional_evidence_contrast');
+assert.ok(disruptionContrast.source_ids.includes('LW13')&&disruptionContrast.source_ids.includes('LW08'));
+assert.match(disruptionContrast.caution,/Objective disturbance and subjective intent are distinct/);
 
 assert.equal(evidence.release_gates.G3_second_human_review,'HOLD');
 
@@ -123,6 +128,8 @@ assert.match(proto,/2020-03-19 19:20/);
 assert.match(proto,/2020-03-19 20:00/);
 assert.match(proto,/2020-03-19 21:50/);
 assert.match(proto,/2020-01-29 15:00/);
+assert.match(proto,/2020-01-31 12:00/);
+assert.match(proto,/1月31日媒体报道中已公开/);
 assert.match(proto,/2022-03-23 14:02/);
 assert.match(proto,/2022-03-23 17:59/);
 assert.match(proto,/不能把2020年3月19日披露的训诫书/);
