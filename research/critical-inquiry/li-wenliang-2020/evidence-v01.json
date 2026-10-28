@@ -1,7 +1,7 @@
 {
   "id": "li-wenliang-2020-admonition-correction",
   "title": "李文亮信息定性、警方训诫与撤销的时间证据链",
-  "revision": "research-draft-v0.1",
+  "revision": "research-draft-v0.2",
   "status": "RESEARCH_DRAFT_HUMAN_REVIEW_PENDING",
   "timezone": "Asia/Shanghai",
   "source_rule": "An event described in a March 19 retrospective report was not necessarily publicly knowable at the event date. Preserve report_publication_date separately.",
@@ -14,7 +14,8 @@
       "publisher": "武汉市政府转载长江网／平安武汉通报",
       "role": "contemporaneous police public labeling",
       "note": "Municipal page carries Jan 1 11:36 publication label despite archive URL containing 202004; content reports 8 'handled' without individual identity list.",
-      "independence_group": "wuhan_police_eight_jan1"
+      "independence_group": "wuhan_police_eight_jan1",
+      "published_at_local": "2020-01-01T11:36:00+08:00"
     },
     {
       "id": "LW02",
@@ -24,7 +25,8 @@
       "publisher": "新华社／武汉警方1月29日通报",
       "role": "official clarification attributed to police",
       "note": "Police says eight received education and criticism; no statutory warning, fine or detention; this is NOT a finding that Dr. Li was not issued a reprimand letter.",
-      "independence_group": "wuhan_police_eight_jan29"
+      "independence_group": "wuhan_police_eight_jan29",
+      "published_at_local": "2020-01-29T16:32:16+08:00"
     },
     {
       "id": "LW03",
@@ -34,7 +36,8 @@
       "publisher": "武汉市卫生健康委员会",
       "role": "contemporaneous public death notice",
       "note": "Official notice says Li died 02:58 on Feb7. Archival URL slug date is Apr30; web page labels release Feb7 03:57.",
-      "independence_group": "wuhan_health_commission_feb7"
+      "independence_group": "wuhan_health_commission_feb7",
+      "published_at_local": "2020-02-07T03:57:00+08:00"
     },
     {
       "id": "LW04",
@@ -43,7 +46,8 @@
       "publisher": "国家监察委员会调查组／新华社受权全文",
       "role": "retrospective official investigation report",
       "note": "Documents Dec30 17:43 and 18:42 messages, Jan3 police talk and reprimand, and recommends correction. FIRST PUBLICATION 2020-03-19: earlier event details must not appear as contemporaneous verified sources.",
-      "independence_group": "national_supervisory_commission_mar19"
+      "independence_group": "national_supervisory_commission_mar19",
+      "published_at_local": "2020-03-19T19:28:31+08:00"
     },
     {
       "id": "LW05",
@@ -62,7 +66,8 @@
       "publisher": "武汉市公安局官方微博／澎湃同期转载",
       "role": "official police withdrawal and apology",
       "note": "Revoked Jan3 reprimand and apologized to family; same article also reports personnel discipline. Police source is institutionally interested and should be attributed, but institutional revocation is directly documentable.",
-      "independence_group": "wuhan_police_correction_mar19"
+      "independence_group": "wuhan_police_correction_mar19",
+      "published_at_local": "2020-03-19T22:38:00+08:00"
     },
     {
       "id": "LW07",
@@ -72,7 +77,8 @@
       "publisher": "武汉市公安局官方微博／新华社转载",
       "role": "official personnel discipline",
       "note": "Police announced an administrative demerit for deputy police-station chief and administrative warning for officer; these are measures against officials, NOT against Dr. Li.",
-      "independence_group": "wuhan_police_discipline_mar19"
+      "independence_group": "wuhan_police_discipline_mar19",
+      "published_at_local": "2020-03-19T22:09:58+08:00"
     },
     {
       "id": "LW08",
@@ -82,7 +88,8 @@
       "publisher": "国家监委调查组负责人／新华社答记者问",
       "role": "official response on rumor characterization and police handling",
       "note": "Provides additional explanation about Li's distinct message versions and policy judgment; institutional interview, not independently collected source of original WeChat log.",
-      "independence_group": "national_supervisory_commission_qa_mar19"
+      "independence_group": "national_supervisory_commission_qa_mar19",
+      "published_at_local": "2020-03-19T20:07:00+08:00"
     },
     {
       "id": "LW09",
@@ -92,7 +99,30 @@
       "publisher": "人民法院新闻传媒总社撰稿人唐兴华／澎湃号转载",
       "role": "signed legal opinion not binding court judgment",
       "note": "Law-court-affiliated media commentary (original on judicial platform Jan28), published in this accessible copy Jan29 09:06. Must NOT claim 'Supreme Court ruled Li's reprimand illegal'.",
-      "independence_group": "signed_legal_commentary_jan28"
+      "independence_group": "signed_legal_commentary_jan28",
+      "published_at_local": "2020-01-29T09:06:00+08:00"
+    },
+    {
+      "id": "LW10",
+      "publication_date": "2020-01-29",
+      "published_time": "14:45:29",
+      "published_at_local": "2020-01-29T14:45:29+08:00",
+      "url": "https://china.caixin.com/2020-01-29/101509309.html",
+      "publisher": "财新网／武汉警方官方微博",
+      "role": "earlier contemporaneous report of Jan29 police clarification",
+      "note": "14:45 earlier observed source than 16:32 Xinhua copy. Reprints same Jan29 police message and does not independently verify all police assertions.",
+      "independence_group": "wuhan_police_eight_jan29"
+    },
+    {
+      "id": "LW11",
+      "publication_date": "2020-03-19",
+      "published_time": "21:47:00",
+      "published_at_local": "2020-03-19T21:47:00+08:00",
+      "url": "https://news.youth.cn/gn/202003/t20200319_12247566.htm",
+      "publisher": "中国青年网／平安武汉警方微博",
+      "role": "earlier contemporaneous police revocation publication",
+      "note": "Police withdrawal and apology reproduced 21:47, earlier than 22:38 Paper summary. Institutional decision is documented, not an independent judge's verdict.",
+      "independence_group": "wuhan_police_correction_mar19"
     }
   ],
   "event_history": [
@@ -206,12 +236,26 @@
       "not_publicly_documented_in_registered_sources": "Do not backfill March19 investigation transcripts into Jan3 public knowledge."
     },
     {
+      "id": "LW_ASOF_0129_1500",
+      "cutoff_date": "2020-01-29",
+      "cutoff_local": "2020-01-29T15:00:00+08:00",
+      "public_sources": [
+        "LW01",
+        "LW09",
+        "LW10"
+      ],
+      "publicly_documented": "Caixin had republished official 'eight only criticized/educated' statement at 14:45; Xinhua's 16:32 version not yet published.",
+      "not_publicly_documented_in_registered_sources": "No later March investigation report or police revocation was public at this time.",
+      "label": "1月29日15:00"
+    },
+    {
       "id": "LW_ASOF_0129",
       "cutoff_date": "2020-01-29",
       "public_sources": [
         "LW01",
         "LW02",
-        "LW09"
+        "LW09",
+        "LW10"
       ],
       "publicly_documented": "Police's no-statutory-punishment clarification, alongside a signed legal commentary urging proportionality.",
       "not_publicly_documented_in_registered_sources": "Formal March19 withdrawal and findings had not yet been published."
@@ -223,10 +267,45 @@
         "LW01",
         "LW02",
         "LW03",
-        "LW09"
+        "LW09",
+        "LW10"
       ],
       "publicly_documented": "Health authority issued Li's death notice, while public characterization of eight-person handling had already been clarified.",
       "not_publicly_documented_in_registered_sources": "Independent March19 commission findings and police apology not yet available."
+    },
+    {
+      "id": "LW_ASOF_0319_2000",
+      "cutoff_date": "2020-03-19",
+      "cutoff_local": "2020-03-19T20:00:00+08:00",
+      "public_sources": [
+        "LW01",
+        "LW02",
+        "LW03",
+        "LW04",
+        "LW09",
+        "LW10"
+      ],
+      "publicly_documented": "19:28 official investigation published; Commission recommends undoing the admonition.",
+      "not_publicly_documented_in_registered_sources": "Police 21:47 withdrawal, 22:09 personnel measures and later 20:07 Q&A not yet published.",
+      "label": "3月19日20:00"
+    },
+    {
+      "id": "LW_ASOF_0319_2150",
+      "cutoff_date": "2020-03-19",
+      "cutoff_local": "2020-03-19T21:50:00+08:00",
+      "public_sources": [
+        "LW01",
+        "LW02",
+        "LW03",
+        "LW04",
+        "LW08",
+        "LW09",
+        "LW10",
+        "LW11"
+      ],
+      "publicly_documented": "The Commission report and Q&A were public, and 21:47 Wuhan police revocation and apology copy was available.",
+      "not_publicly_documented_in_registered_sources": "Two officer sanctions in Xinhua 22:09 and subsequent 22:38 duplicate report were not yet published.",
+      "label": "3月19日21:50"
     },
     {
       "id": "LW_ASOF_0319",
@@ -240,7 +319,9 @@
         "LW06",
         "LW07",
         "LW08",
-        "LW09"
+        "LW09",
+        "LW10",
+        "LW11"
       ],
       "publicly_documented": "Official investigation, written reprimand, formal reversal, apology and individual officer sanctions are all recorded.",
       "not_publicly_documented_in_registered_sources": "These later findings cannot be imputed to what every reader knew on Dec30 or Jan3."
@@ -339,6 +420,18 @@
       ],
       "status": "attributed_commission_investigation_not_independently_reconstructed_intent",
       "caution": "Distinguish official determination of intent from independently established psychological state; not a blanket judgment on all eight unnamed people."
+    },
+    {
+      "id": "LWC10",
+      "kind": "public_label_change",
+      "claim": "January 1 police used unlawfulness/rumor enforcement language; January 29 police described the eight as minimally serious education-and-criticism cases",
+      "source_ids": [
+        "LW01",
+        "LW10",
+        "LW02"
+      ],
+      "status": "distinct_official_public_characterizations_at_two_dates",
+      "caution": "This is a public-language comparison about unnamed eight, NOT a judicial finding or proof that every one was formally punished."
     }
   ],
   "unresolved": [
@@ -346,7 +439,8 @@
     "Independent original copies/hashes of Li's entire Dec30 chat stream, image and 11s CT video are not in this package; March19 commission is retrospective report.",
     "Date and circumstances of first public release of Li's individual reprimand before March19 not established in this scoped register.",
     "Extent of any chilling effect on healthcare warnings requires independent empirical evidence, not only a single outcome.",
-    "March19 commission scope and motives should not be inferred solely from the text; this package evaluates public documents and decisions."
+    "March19 commission scope and motives should not be inferred solely from the text; this package evaluates public documents and decisions.",
+    "The strongest initial '依法查处' public characterization and later '仅教育、批评' are two official public texts; causal reasons for the difference are not established by textual comparison alone."
   ],
   "release_gates": {
     "G0_document_links": "PARTIAL",
@@ -399,6 +493,103 @@
         "LWC04"
       ],
       "limit": "Early bulletin and clarification do not provide complete individual roster"
+    }
+  ],
+  "time_model": {
+    "timezone": "Asia/Shanghai",
+    "calendar_snapshots": "date end 23:59:59+08:00",
+    "intraday_snapshots": "published_at_local when verified, otherwise exclude undated-hour sources until end of publication day",
+    "first_publication": "article timestamp is first presently verified public source, not guaranteed to be first post everywhere",
+    "historical_knowledge": "publicly available by cutoff, not necessarily seen or believed by all"
+  },
+  "public_label_history": [
+    {
+      "id": "PL01",
+      "public_at": "2020-01-01T11:36:00+08:00",
+      "actor": "Wuhan police",
+      "target": "unnamed_eight",
+      "source_ids": [
+        "LW01"
+      ],
+      "label": "违法人员、散布谣言、依法查处",
+      "speech_act": "initial public characterization and claim of action",
+      "meaning_limit": "Press bulletin lists no names; it does not establish a later court conviction or identify Li individually."
+    },
+    {
+      "id": "PL02",
+      "public_at": "2020-01-29T14:45:29+08:00",
+      "actor": "Wuhan police",
+      "target": "unnamed_eight",
+      "source_ids": [
+        "LW10",
+        "LW02"
+      ],
+      "label": "情节特别轻微、教育批评、未给予警告罚款拘留",
+      "speech_act": "public clarification of the eight-person handling",
+      "meaning_limit": "No statutory warning/fine/detention does not rule out Li's separate written admonition."
+    },
+    {
+      "id": "PL03",
+      "public_at": "2020-03-19T19:28:31+08:00",
+      "actor": "National Supervisory Commission",
+      "target": "li_admonition",
+      "source_ids": [
+        "LW04"
+      ],
+      "label": "训诫书不当、执法程序不规范",
+      "speech_act": "retrospective official investigation finding and recommendation to withdraw",
+      "meaning_limit": "Commission report is a recommended remedy, not police's completed withdrawal at the same moment."
+    },
+    {
+      "id": "PL04",
+      "public_at": "2020-03-19T21:47:00+08:00",
+      "actor": "Wuhan police",
+      "target": "li_admonition",
+      "source_ids": [
+        "LW11",
+        "LW06"
+      ],
+      "label": "撤销训诫书、向家属道歉",
+      "speech_act": "police correction implemented",
+      "meaning_limit": "This specific correction should not be silently generalized to all eight unspecified persons."
+    },
+    {
+      "id": "PL05",
+      "public_at": "2020-03-19T22:09:58+08:00",
+      "actor": "Wuhan police",
+      "target": "responsible_officers",
+      "source_ids": [
+        "LW07"
+      ],
+      "label": "行政记过、行政警告",
+      "speech_act": "police personnel disciplinary announcement",
+      "meaning_limit": "Applies to the officers, not Li; distinct from earlier January reference to no warning for eight."
+    }
+  ],
+  "source_relations": [
+    {
+      "from": "LW10",
+      "to": "LW02",
+      "relation": "same police January clarification, different outlets and published times",
+      "independent_factual_corroboration": false
+    },
+    {
+      "from": "LW11",
+      "to": "LW06",
+      "relation": "same Wuhan police March correction, different outlets and published times",
+      "independent_factual_corroboration": false
+    },
+    {
+      "from": "LW04",
+      "to": "LW05",
+      "relation": "one National Supervisory Commission report, two republication hosts",
+      "independent_factual_corroboration": false
+    },
+    {
+      "from": "LW04",
+      "to": "LW08",
+      "relation": "investigation summary and same institution's press Q&A, distinct texts but not independent institution",
+      "independent_factual_corroboration": false
     }
   ]
 }
