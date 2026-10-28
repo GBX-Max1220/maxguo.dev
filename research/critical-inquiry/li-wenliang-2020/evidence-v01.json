@@ -529,6 +529,17 @@
       ],
       "status": "conflicting_public_identification_not_adjudicated",
       "caution": "One interview uses phrasing that presupposes membership; Li separately says he is unsure. Avoid definitive identity matching."
+    },
+    {
+      "id": "LWC13",
+      "kind": "institutional_evidence_contrast",
+      "claim": "The published photo of the Jan3 reprimand invokes serious disruption of social order; the Mar19 Commission Q&A finds no subjective intent to disrupt public order in Li's messaging",
+      "source_ids": [
+        "LW13",
+        "LW08"
+      ],
+      "status": "document_text_versus_later_official_investigative_conclusion",
+      "caution": "The former is an initial police document allegation; the latter concerns subjective intent. Objective disturbance and subjective intent are distinct legal or evidentiary propositions. The document photo is journalist-attributed, not a forensic original."
     }
   ],
   "unresolved": [
@@ -538,7 +549,8 @@
     "Extent of any chilling effect on healthcare warnings requires independent empirical evidence, not only a single outcome.",
     "March19 commission scope and motives should not be inferred solely from the text; this package evaluates public documents and decisions.",
     "The strongest initial '依法查处' public characterization and later '仅教育、批评' are two official public texts; causal reasons for the difference are not established by textual comparison alone.",
-    "Earliest verified dissemination of the Commission conclusion in this package is the 19:14 shortened report; an earlier press/agency release may exist. Distinguish first found summary from authorized full transcript."
+    "Earliest verified dissemination of the Commission conclusion in this package is the 19:14 shortened report; an earlier press/agency release may exist. Distinguish first found summary from authorized full transcript.",
+    "The published reprimand photograph is attributed to Li by reporters; source archive holds no independently authenticated original physical document scan, and no identifying document fields should be copied into this site's public data."
   ],
   "release_gates": {
     "G0_document_links": "PARTIAL",
@@ -592,6 +604,15 @@
         "LWC04"
       ],
       "limit": "Early bulletin and clarification do not provide complete individual roster"
+    },
+    {
+      "dimension": "police document allegation vs later subjective-intent assessment",
+      "status": "documented_but_propositions_differ",
+      "evidence_ids": [
+        "LWC13",
+        "LWC09"
+      ],
+      "limit": "Do not treat objective-disruption allegation and subjective-intent finding as identical factual claims; both are institutional statements with different evidentiary bases."
     }
   ],
   "time_model": {
@@ -626,6 +647,18 @@
       "label": "情节特别轻微、教育批评、未给予警告罚款拘留",
       "speech_act": "public clarification of the eight-person handling",
       "meaning_limit": "No statutory warning/fine/detention does not rule out Li's separate written admonition."
+    },
+    {
+      "id": "PL01A",
+      "public_at": "2020-01-31T19:35:00+08:00",
+      "actor": "Wuhan Zhongnan Road Police Station via Li-provided document image in press",
+      "target": "li_admonition",
+      "source_ids": [
+        "LW13"
+      ],
+      "label": "训诫书中的严重扰乱社会秩序说法",
+      "speech_act": "document photograph's originally issued police characterization, publicly viewed in Jan31 media",
+      "meaning_limit": "Police assertion in a journalist-attributed document image; not independent judicial finding that Li's actions actually caused serious disruption."
     },
     {
       "id": "PL03A",
