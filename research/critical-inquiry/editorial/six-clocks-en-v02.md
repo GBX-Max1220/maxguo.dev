@@ -1,0 +1,89 @@
+# Six Clocks for Studying Rumors About Future Policy
+
+*The Boundaries of the Sayable — English editorial draft v0.2, October 29, 2026. Not yet published or independently reviewed.*
+
+What if a “rumor” is not a statement about an existing fact but a prediction about what the government is about to do?
+
+During Shanghai's March 2022 COVID-19 outbreak, online accounts suggested that the city would shortly be locked down for seven days or entirely closed for four. Authorities publicly rejected the reports, and police announced investigations into two individuals. On March 27 the municipality announced a phased lockdown-and-testing program; on March 31 it introduced longer restrictions for some areas, and on April 4 it said citywide controls would continue while further testing and assessments were completed.
+
+Neither “the rumor was true all along” nor “the original denial was perfectly vindicated” tells the whole story. Each collapses several distinct questions: *What exactly was claimed? What evidence existed then? What did the government announce? What coercive action followed? What changed afterwards?*
+
+A historical inquiry needs at least six clocks.
+
+## 1. The clock of the original utterance
+
+The first version we can actually inspect may be a reporter's account of a circulating claim, not the original message.
+
+A news report published at 23:21 on March 22 described a circulating claim that a State Council inspection visit would be followed by a seven-day Shanghai lockdown, along with a rebuttal. This establishes that the claim had entered contemporaneous reporting by then. It does **not** authenticate the original WeChat post, the first sender, or its creation time.
+
+[Contemporaneous March 22 report](https://news.sina.com.cn/o/2022-03-22/doc-imcwipih9980616.shtml).
+
+## 2. The clock of what a statement predicts
+
+“Shanghai will all shut down for seven days,” “the entire city will shut down for four days,” and “different parts of the city will face sequential four-day restrictions” are different propositions.
+
+The March 27 official notice established a two-phase plan divided by the Huangpu River. Later extensions changed the policy's implementation, but they did not retroactively verify every detail of the earlier accounts.
+
+Assess the **start date, geography, duration, degree of certainty, and purported source** of each precise claim before attempting to classify its accuracy.
+
+[March 27 municipal notice](https://www.shanghai.gov.cn/sjzccs/20220327/613eda924f814a4ab4b25642f0e668c5.html).
+
+## 3. The clock of official labeling
+
+By March 23 the Shanghai government information office had publicly rejected circulating citywide-lockdown reports while explaining its ongoing grid-based screening. Official fact labels are assertions with unusual practical reach: they are distributed through authoritative channels by institutions that also possess privileged access to policy deliberations.
+
+A denial of a future policy proposal might mean the proposal was unfounded, had not been decided, or was not the policy *at that moment*. It does not automatically promise that no later policy will resemble the prediction.
+
+This distinction is not an argument that all official denials are false. It is an argument that public authorities should be precise about the evidence supporting them.
+
+[March 23 official statement republished by Xinhua](https://www.xinhuanet.com/politics/2022-03/23/c_1128494505.htm).
+
+## 4. The clock of enforcement
+
+On March 23, police reported that two people were under criminal investigation for allegedly fabricating and deliberately spreading false information. That publicly documents an **investigation announcement**. It does not independently establish a conviction, the subjects' motive, the actual degree of disruption, or the eventual disposition.
+
+Chinese joint judicial guidance issued in February 2020 distinguished malicious fabrication from mistaken circulation that caused little harm. A subsequent Shanghai High Court advisory discussed the legal requirements for the offense. Whether specific elements were met in the March 2022 case cannot be determined without the original messages and case evidence.
+
+[Police announcement as reported contemporaneously](https://sh.people.com.cn/n2/2022/0323/c134768-35188846.html) · [Joint judicial guidance](https://www.beijing.gov.cn/zhengce/zhengcefagui/202002/t20200211_1627613.html).
+
+## 5. The clock of subsequent policy change
+
+At 22:51 on March 31, Xinhua had already reported newly announced graded controls for parts of eastern Shanghai, including some 14-day or seven-plus-seven-day arrangements. This cannot be accurately described as information that first became public at the April 1 press conference.
+
+On April 4 the city announced continued restrictions pending follow-up testing and assessment. Thus the March 27 four-day phases cannot serve as a complete retrospective account of what every resident experienced.
+
+But a policy announced in April is not evidence that a person spreading a message in March had access to the eventual decision.
+
+[March 31 report](https://www.xinhuanet.com/local/2022-03/31/c_1128521854.htm) · [April 4 continuation reported in April 5 print edition](https://paper.people.com.cn/hwbwap/html/2022-04/05/content_25910900.htm).
+
+## 6. The clock of retrospective archive inspection
+
+A reader comparing today's online Shanghai government transcript of the March 26 press conference with press reports published *on March 26* can observe a significant difference.
+
+The extant government Q&A does not fully include Wu Fan's explanation that an indiscriminate three-, five-, or seven-day shutdown would affect national and international economic activity. Contemporary reporting from The Paper and other newsrooms contains that explanation.
+
+This raises an important question about completeness and institutional recordkeeping. Yet today's government webpage has **not** been authenticated as byte-identical to its first edition in 2022. Without an archived edition or an audited recording, we cannot say whether the passage was omitted initially, edited later, or censored intentionally.
+
+[Current government transcript](https://www.shanghai.gov.cn/nw9820/20220326/62e454513fbf4b37a48d9b9d769887ef.html) · [The Paper, March 26](https://www.thepaper.cn/newsDetail_forward_17315665).
+
+## A comparison with a documented correction: Li Wenliang
+
+The Li Wenliang case follows a different procedural path. On December 30, 2019, he shared an early warning about unexplained pneumonia among medical classmates. His description of seven cases as “SARS” was not an accurate identification of the emerging pathogen; a message later the same day referred to coronavirus infection and ongoing typing. Police questioned him and issued a written reprimand on January 3.
+
+The records of **correction**, not just the initial warnings, are crucial. On March 19, 2020, the National Supervisory Commission publicly identified the reprimand as improper and its procedure as irregular. Wuhan police withdrew it, apologized to Li's family, and announced disciplinary measures against two responsible officers.
+
+The earlier police announcement about “eight” information spreaders did not publish a complete individualized roster. The January 29 clarification that the eight received no statutory warnings, fines or detention does not erase Li's separate written reprimand. Nor do March 19 retrospective findings become information that the public knew on January 3.
+
+[Supervisory Commission report](https://www.xinhuanet.com/politics/2020-03/19/c_1125737457.htm) · [Police withdrawal and disciplinary notices](https://www.thepaper.cn/newsDetail_forward_6600938).
+
+The comparison does not show that every case of alleged misinformation has the same outcome. It shows why a study of institutional accountability must record the **identity of the correcting body, what it corrected, its reasons, and what concrete actions followed**.
+
+## The politics of the clocks
+
+A citizen estimating future risks and a public agency labeling information false do not operate with equal authority, access to information or coercive power. That imbalance does not make a citizen's prediction automatically accurate. It creates a stronger responsibility for an institution to preserve its reasons, specify the limits of its claims, justify enforcement through evidence, and make corrections traceable.
+
+The purpose of critical history is not to replace one indisputable narrative with another. It is to keep visible **what could be known at each moment, who had the power to label that knowledge, and which decisions later had to be revised**.
+
+---
+
+**Editorial status and evidence limitations:** This is a critical methods essay under review, not a judicial determination of anyone's guilt or innocence. The original circulating Shanghai messages, the investigated individuals' final legal disposition, and an authenticated March 26 government transcript version are not available in this research package. March 19, 2020 investigative findings about Li Wenliang must never be backdated into his December 2019 public evidence environment. Translation parity, source checking and independent human review remain outstanding.
