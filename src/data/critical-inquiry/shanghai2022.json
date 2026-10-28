@@ -2,7 +2,7 @@
   "id": "shanghai-lockdown-2022",
   "title": "上海封控传言：事实判断与政策变化",
   "scope": "2022-03-22—2022-04-05",
-  "revision": "research-draft-v0.4",
+  "revision": "research-draft-v0.5",
   "status": "DRAFT_REVIEW_REQUIRED",
   "asOfConvention": "Each view includes public reporting dated on or before the displayed day's endpoint; it does not reconstruct the exact minute information was accessible to every resident.",
   "sources": [
@@ -153,6 +153,70 @@
       "url": "https://www.cna.com.tw/news/acn/202204040212.aspx",
       "independence_group": "shanghai_policy_extension_apr04",
       "note": "4月4日19:42独立媒体同时期报道官方19:09公告，确认该消息当日晚已公开；对公告内容的转述仍来自同一官方通知，不是独立验证封控执行。"
+    },
+    {
+      "id": "S13",
+      "date": "2022-03-26",
+      "source_type": "official_press_transcript_existing_version",
+      "publisher": "上海市人民政府／市政府新闻办",
+      "title": "市政府新闻发布会问答实录（2022年3月26日）",
+      "url": "https://www.shanghai.gov.cn/nw9820/20220326/62e454513fbf4b37a48d9b9d769887ef.html",
+      "independence_group": "mar26_press_event",
+      "note": "现存官方完整问答实录：吴凡谈病毒传播和城市特点之后直接转为呼吁认真检测，未包含多家同期媒体记录的关于城市停摆与国际货轮的解释段。该观察仅是现存版本的文本差异，不证明曾在某天删改。"
+    },
+    {
+      "id": "S14",
+      "date": "2022-03-26",
+      "published_at_local": "2022-03-26T11:01:00+08:00",
+      "source_type": "contemporaneous_report_press_event",
+      "publisher": "澎湃新闻·陈斯斯",
+      "title": "上海为何不能封城？吴凡：城市承载全国乃至全球重要功能",
+      "url": "https://www.thepaper.cn/newsDetail_forward_17315665",
+      "independence_group": "mar26_press_event",
+      "note": "当天独立记者的同期报道，记录吴凡对全城短期封控建议的否定性回答及经济、航运理由。与官方现存文字实录属于同场讲话的不同公开文本版本。"
+    },
+    {
+      "id": "S15",
+      "date": "2022-03-26",
+      "published_at_local": "2022-03-26T17:26:53+08:00",
+      "source_type": "contemporaneous_video_news_report_press_event",
+      "publisher": "文汇报",
+      "title": "视频｜上海能否下定决心封城一周？吴凡：不行！",
+      "url": "https://wenhui.whb.cn/zhuzhan/shipinzy/20220326/456909.html",
+      "independence_group": "mar26_press_event",
+      "note": "当天视频报道及标题也记录了不宜全城停摆的回答。视频线索较文字复述更接近现场，尚未逐帧验证完整问答录音。"
+    },
+    {
+      "id": "S16",
+      "date": "2022-03-26",
+      "source_type": "contemporaneous_radio_news_report_press_event",
+      "publisher": "央广网·林馥榆",
+      "title": "吴凡：上海承载全国经济社会发展重要功能",
+      "url": "https://www.cnr.cn/shanghai/tt/20220326/t20220326_525777069.shtml",
+      "independence_group": "mar26_press_event",
+      "note": "另一个当天记者报道，包含城市对全国经济和航运影响的解释。与S14/S15为同一场发布会，不应计为三场不同事件。"
+    },
+    {
+      "id": "S17",
+      "date": "2022-03-23",
+      "published_at_local": "2022-03-23T10:10:38+08:00",
+      "source_type": "independent_contemporaneous_reporting",
+      "publisher": "财新·蒋模婷、包志明",
+      "title": "上海连夜辟谣“封城”传言，对部分区域封控开展全员筛查",
+      "url": "https://www.caixin.com/2022-03-23/101859763.html",
+      "independence_group": "caixin_mar23_independent_reporting",
+      "note": "当天原创媒体报道记录：针对当时全市封控传言，地方继续区分重点区域与非重点区域的封控/筛查；不能用该报道来证明官方掌握或不掌握未来政策方案。"
+    },
+    {
+      "id": "S18",
+      "date": "2022-03-23",
+      "published_at_local": "2022-03-23T17:59:14+08:00",
+      "source_type": "contemporaneous_police_notice_report",
+      "publisher": "上观新闻／第一财经转载",
+      "title": "上海警方：编造“上海封城”谣言，两名男子被立案侦查",
+      "url": "https://www.yicai.com/news/101358444.html",
+      "independence_group": "shanghai_police_notice_mar23",
+      "note": "已核实的警方通报较早公开转载时间17:59:14；早于18:01:33《文汇报》、18:10人民网和18:26每日经济新闻。证实公开立案信息时间锚点，不独立证明指控真实。"
     }
   ],
   "snapshots": [
@@ -186,7 +250,8 @@
         "S05",
         "S00",
         "S01",
-        "S09"
+        "S09",
+        "S17"
       ],
       "known": [
         "新华网与人民网转载的官方辟谣内容已公开，仍无法查验流传消息的首发帖。",
@@ -201,6 +266,31 @@
       "question": "在刑事立案信息公开以前，当事人已如何描述对权威辟谣、传播风险与家庭连带影响的主观预期？"
     },
     {
+      "id": "mar23_1759",
+      "date": "2022-03-23",
+      "label": "3月23日17:59",
+      "heading": "上观新闻刊发警方立案通报，公开强制性权力介入的时间锚点",
+      "available_sources": [
+        "S05",
+        "S00",
+        "S01",
+        "S09",
+        "S17",
+        "S18"
+      ],
+      "known": [
+        "上观新闻报道于17:59:14，记录警方已对两名涉嫌传播封控传言者立案侦查；这是本研究新查到的较早公开文本。",
+        "该报道晚于14:02:36发表的匿名转发者采访；不能将早先采访中的担忧归因于这篇后发新闻。",
+        "警方通报将动机、传播规模和社会秩序影响定性为警方调查结论，不是独立的司法终局事实。"
+      ],
+      "not_known": [
+        "无法证明这就是警方公告在所有渠道的绝对最早发布时间。",
+        "没有获知刑事案件是否起诉、撤案或进入法院程序的可核验文书。"
+      ],
+      "question": "什么具体材料才能支持基于封控预测而启动刑事侦查的要件判断？",
+      "cutoff_local": "2022-03-23T17:59:14+08:00"
+    },
+    {
       "id": "mar23",
       "date": "2022-03-23",
       "label": "3月23日晚",
@@ -211,7 +301,9 @@
         "S01",
         "S02",
         "S09",
-        "S11"
+        "S11",
+        "S17",
+        "S18"
       ],
       "known": [
         "媒体记录了关于“督查组到沪后将封城7天”的网络说法；尚未取得可认证的原始发布帖。",
@@ -229,6 +321,37 @@
       "question": "否认未经证实的未来安排，与有权处罚传播行为，在证据要求上应如何区分？"
     },
     {
+      "id": "mar26",
+      "date": "2022-03-26",
+      "label": "3月26日晚",
+      "heading": "不同公开版本呈现出发布会讲话的选择性摘要",
+      "available_sources": [
+        "S05",
+        "S00",
+        "S01",
+        "S02",
+        "S09",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S18"
+      ],
+      "known": [
+        "上海市政府现存3月26日文字问答实录保留了吴凡关于城市特点、重点/非重点区域筛查的解释。",
+        "澎湃新闻当天11:01报道她解释全城封控三至七天为何不可行，提及上海对全国经济与全球航运的影响。",
+        "文汇视频与央广网同日报道这一回答，现存政府文字实录没有呈现完整相关段落。"
+      ],
+      "not_known": [
+        "尚未证明政府网站最早发布版本与如今版本完全相同；不能说“当天原文被删除”。",
+        "该差异可能由摘要、编辑取舍或后期修订造成；没有证据确定编辑者的意图。",
+        "3月26日表述所否定的是全城同时停摆方案，不等于否认次日分区分批封控方案。"
+      ],
+      "question": "官方问答实录选择呈现哪些文字，是否需要对遗漏重要政策理由提供编辑说明？"
+    },
+    {
       "id": "mar27",
       "date": "2022-03-27",
       "label": "3月27日",
@@ -240,7 +363,13 @@
         "S02",
         "S03",
         "S09",
-        "S11"
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S18"
       ],
       "known": [
         "官方宣布以黄浦江为界分批实施核酸筛查；第一批自3月28日5时开始，第二批自4月1日3时开始。",
@@ -266,7 +395,13 @@
         "S03",
         "S04",
         "S09",
-        "S11"
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S18"
       ],
       "known": [
         "新闻发布会确认了两批四天的计划及相关区域安排。",
@@ -294,7 +429,13 @@
         "S04",
         "S09",
         "S10",
-        "S11"
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S18"
       ],
       "known": [
         "22:51:59新华社刊发：上海3月31日晚公布4月1日起浦东等区域分类管理通告，部分区域有14天封闭或7天封闭加7天社区健康管理安排。",
@@ -322,7 +463,13 @@
         "S06",
         "S09",
         "S10",
-        "S11"
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S18"
       ],
       "known": [
         "关于浦东、浦南分类延续管控的关键安排早在3月31日晚已经公开；4月1日官方新闻发布会补充说明实施逻辑。",
@@ -353,7 +500,13 @@
         "S09",
         "S10",
         "S11",
-        "S12"
+        "S12",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S18"
       ],
       "known": [
         "上海疫情防控工作领导小组办公室4月4日晚宣布：检测复核与研判完成前，全市继续实施封控管理，除就医等情况外仍要求足不出户。",
@@ -384,7 +537,13 @@
         "S09",
         "S10",
         "S11",
-        "S12"
+        "S12",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S18"
       ],
       "known": [
         "上海高级人民法院发布的法律适用说明列出相关犯罪的法定要求，包括虚假的疫情信息、故意传播以及严重扰乱社会秩序等。",
@@ -512,6 +671,35 @@
       "as_of_23": "chronology_requires_intraday_cutoff",
       "after_27": "supported_source_publication_order",
       "note": "比较14:02与18:10两个公开页面的发布时间。这是研究者的跨来源时间判断，不是受访者提出的原始消息；不能据此推断恐惧产生原因。"
+    },
+    {
+      "id": "C10",
+      "claim": "3月26日现存政府问答实录没有完整收录多家同期媒体报道的“全城封控不可行”理由段落",
+      "type": "analyst_text_version_comparison",
+      "date_first_observed": null,
+      "source_ids": [
+        "S13",
+        "S14",
+        "S15",
+        "S16"
+      ],
+      "as_of_23": "not_yet_public",
+      "after_27": "observable_current_version_difference",
+      "note": "这是一项对目前可访问文字版本的对比观察，不能证明在2022年某日发生过删除、编审指令或政治审查。"
+    },
+    {
+      "id": "C11",
+      "claim": "3月26日吴凡曾就建议封城3至7天回应，强调同时全城停摆的经济与城市运行影响",
+      "type": "attributed_press_conference_statement",
+      "date_first_observed": "2022-03-26",
+      "source_ids": [
+        "S14",
+        "S15",
+        "S16"
+      ],
+      "as_of_23": "not_yet_public",
+      "after_27": "supported_by_multiple_contemporaneous_reports",
+      "note": "现场同一讲话的不同媒体记录。政府现存实录保留相关上下文但未呈现完整论证段；尚待核实原始视频/录音。"
     }
   ],
   "methodological_limits": [
@@ -527,7 +715,9 @@
     "Y先生是媒体报道中的匿名转发受访者，现有来源未证明其为警方立案通报的两人之一；两种材料绝不可合并进行个体指认。",
     "单次匿名采访只能证明当时有记录的风险感知与表达调整自述，不能直接证明强制性自我审查的普遍性、警方威慑效应或后续行为变化的因果机制。",
     "2022-03-23 14:02匿名转发者采访的公开时间早于本研究已知18:10警方立案通报新闻。不能把该受访者3月22日晚的担忧归因于3月23日晚警方立案通报。",
-    "政策公告的3月31日晚首发时间(S10)与4月1日发布会解释(S06)必须分别显示；不得把政策存在延长控制的最早可知日误写为4月1日。"
+    "政策公告的3月31日晚首发时间(S10)与4月1日发布会解释(S06)必须分别显示；不得把政策存在延长控制的最早可知日误写为4月1日。",
+    "3月26日现存官方实录与媒体报道不同，不能在缺失历史网页版本或发布会完整音视频时断言发生过政治审查或事后删改。",
+    "3月23日17:59:14是本轮找到的较早警方通报新闻发布时间，不保证是所有传播平台的首发时间。"
   ],
   "evidence_lineage": {
     "prior_bundle": "China_Information_Control_Joint_Pilot_v1.0_20261028.zip",
@@ -661,6 +851,39 @@
       "why": "3月31日晚已公布部分区域14天及7+7管理方案，不可后移到4月1日。",
       "source_ids": [
         "S10"
+      ]
+    },
+    {
+      "claim_id": "C10",
+      "as_of": "2022-03-26",
+      "state": "contemporaneous_content_vs_current_text_diff",
+      "why": "这不是历史上已被公众观察到的修改时刻，而是后来的研究者以同期报道对照现存政府文稿得出的版本差异；不应误标为2022年3月26日发现删除。",
+      "source_ids": [
+        "S13",
+        "S14",
+        "S15",
+        "S16"
+      ]
+    },
+    {
+      "claim_id": "C11",
+      "as_of": "2022-03-26",
+      "state": "contemporaneous_journalistic_account",
+      "why": "三家媒体同日均记录不宜全城同时停摆的解释，尚无完整发布会影音独立转录。",
+      "source_ids": [
+        "S14",
+        "S15",
+        "S16"
+      ]
+    },
+    {
+      "claim_id": "C01",
+      "as_of": "2022-03-26",
+      "state": "press_conference_argument_against_simultaneous_citywide_pause",
+      "why": "吴凡解释为什么不采用全城同时封闭三至七天的方案，但不能由此推断次日分批封控的决策是否尚未作出。",
+      "source_ids": [
+        "S14",
+        "S15"
       ]
     }
   ],
@@ -818,6 +1041,19 @@
         "S07"
       ],
       "not_established": "Policy intent or internal state at March 22; equal enforcement for every resident"
+    },
+    {
+      "id": "A07",
+      "role": "public_health_expert_press_briefing_speaker",
+      "public_identification": "Wu Fan, Shanghai epidemic expert group / Fudan University",
+      "evidence": "Multiple reporters quote explanation on economic and operational impact of an indiscriminate full-city shutdown",
+      "source_ids": [
+        "S13",
+        "S14",
+        "S15",
+        "S16"
+      ],
+      "not_established": "Authority to finalize citywide policy, access to all internal decision records, or authorship of the official Q&A transcript"
     }
   ],
   "source_relations": [
@@ -862,6 +1098,48 @@
       "relation": "publication order only, no shared actor identity established",
       "claim_scope": "interview 14:02 is earlier than police-announcement report 18:10",
       "limit": "must never merge Y and police subjects, nor infer causal chilling effect"
+    },
+    {
+      "from": "S13",
+      "to": "S14",
+      "relation": "different public text renderings of the same press-conference response",
+      "claim_scope": "some contemporaneous media material is missing from current official text",
+      "limit": "cannot infer if omission was initial, subsequently edited, politically motivated, or simply abridged"
+    },
+    {
+      "from": "S14",
+      "to": "S15",
+      "relation": "independent media accounts and video page of same oral event",
+      "claim_scope": "Wu Fan public response on city shutdown feasibility",
+      "limit": "not two independent policy decisions; audiovisual record not yet separately audited"
+    },
+    {
+      "from": "S18",
+      "to": "S11",
+      "relation": "same Shanghai police public announcement at 17:59 vs 18:10 reports",
+      "claim_scope": "earlier verifiable publication of police notice",
+      "limit": "not independent corroboration of criminal allegations"
     }
-  ]
+  ],
+  "press_transcript_comparison": {
+    "event_date": "2022-03-26",
+    "event": "Shanghai municipal pandemic-control press conference",
+    "method": "Compare the existing government-authored Q&A transcript with contemporaneous journalist reports and a video-report page; one event with multiple editorial witnesses, not four distinct events.",
+    "govt_transcript_source": "S13",
+    "journalistic_sources": [
+      "S14",
+      "S15",
+      "S16"
+    ],
+    "adjacent_official_context": "Current official transcript moves from the second characteristic of the city's situation / decision context directly to a call for careful testing.",
+    "journalistic_intervening_segment": "Contemporaneous reports describe Wu Fan's response to a question about shutting down the city for three, five, or seven days; she argued against this simultaneous citywide shutdown because Shanghai played important national and international economic roles.",
+    "direct_text_comparison_status": "observable_omission_in_existing_transcript",
+    "not_established": [
+      "Whether the original government transcript in March 2022 contained the paragraph",
+      "Whether the present difference arose from initial shortening, later edit, publication format, or censorship",
+      "Whether the reasons reported at the event described the whole internal policymaking deliberation",
+      "Any intentional suppression directive"
+    ],
+    "source_independence_limit": "The Paper, Wenhui and CNR report one press conference, not three independent policy decisions. Video story merits future audiovisual source verification."
+  }
 }
