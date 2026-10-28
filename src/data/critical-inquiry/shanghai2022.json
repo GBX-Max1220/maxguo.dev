@@ -2,7 +2,7 @@
   "id": "shanghai-lockdown-2022",
   "title": "上海封控传言：事实判断与政策变化",
   "scope": "2022-03-22—2022-04-05",
-  "revision": "research-draft-v0.5",
+  "revision": "research-draft-v0.6",
   "status": "DRAFT_REVIEW_REQUIRED",
   "asOfConvention": "Each view includes public reporting dated on or before the displayed day's endpoint; it does not reconstruct the exact minute information was accessible to every resident. The extant official 2022-03-26 transcript is excluded as a historical-version object because its 2022 text version has not been authenticated; it is displayed only in 2026 retrospective audit.",
   "sources": [
@@ -233,6 +233,27 @@
       "url": "https://news.cnstock.com/news%2Cyw-202203-4852153.htm",
       "independence_group": "mar26_press_event",
       "note": "央视新闻客户端记者记录吴凡答复，含“全城停摆三五天或一周为何不可行”的经济和国际航运理由。它仍是同一场发布会的又一采编版本，不是新的决策或完整音视频证据。"
+    },
+    {
+      "id": "S20",
+      "date": "2022-03-26",
+      "published_at_local": "2022-03-26T13:08:17+08:00",
+      "source_type": "video_news_page_not_full_recording_authenticated",
+      "publisher": "第一财经·一手",
+      "title": "专家详解上海为何不能封城｜一手",
+      "url": "https://www.yicai.com/video/101361718.html",
+      "independence_group": "mar26_press_event",
+      "note": "2022年3月26日13:08视频栏目页面及配文明确记载全城停摆3/5/7天理由。已验证网页及摘要，尚未独立读取视频媒体字节、核对时长或是否为完整发布会，不能据页面标题认定取得了完整视频。"
+    },
+    {
+      "id": "S21",
+      "date": "2022-03-24",
+      "source_type": "official_police_weibo_syndication",
+      "publisher": "中国互联网联合辟谣平台（转载上海市公安局官方微博）",
+      "title": "造谣“上海封城”，两人被警方立案侦查！",
+      "url": "https://www.piyao.org.cn/2022-03/24/c_1211619707.htm",
+      "independence_group": "shanghai_police_notice_mar23",
+      "note": "3月24日国家互联网辟谣平台标注源自上海市公安局官方微博的全文转载。其内容和3月23日警方通报一致，适合鉴别警方原话，不构成新的独立案件调查。"
     }
   ],
   "snapshots": [
@@ -353,7 +374,9 @@
         "S16",
         "S17",
         "S18",
-        "S19"
+        "S19",
+        "S20",
+        "S21"
       ],
       "known": [
         "当天11:01的澎湃新闻报道公开了吴凡解释为什么不宜让全城同时停摆三至七天的理由，包括经济与城市运行功能。",
@@ -385,7 +408,9 @@
         "S16",
         "S17",
         "S18",
-        "S19"
+        "S19",
+        "S20",
+        "S21"
       ],
       "known": [
         "官方宣布以黄浦江为界分批实施核酸筛查；第一批自3月28日5时开始，第二批自4月1日3时开始。",
@@ -417,7 +442,9 @@
         "S16",
         "S17",
         "S18",
-        "S19"
+        "S19",
+        "S20",
+        "S21"
       ],
       "known": [
         "新闻发布会确认了两批四天的计划及相关区域安排。",
@@ -451,7 +478,9 @@
         "S16",
         "S17",
         "S18",
-        "S19"
+        "S19",
+        "S20",
+        "S21"
       ],
       "known": [
         "22:51:59新华社刊发：上海3月31日晚公布4月1日起浦东等区域分类管理通告，部分区域有14天封闭或7天封闭加7天社区健康管理安排。",
@@ -485,7 +514,9 @@
         "S16",
         "S17",
         "S18",
-        "S19"
+        "S19",
+        "S20",
+        "S21"
       ],
       "known": [
         "关于浦东、浦南分类延续管控的关键安排早在3月31日晚已经公开；4月1日官方新闻发布会补充说明实施逻辑。",
@@ -522,7 +553,9 @@
         "S16",
         "S17",
         "S18",
-        "S19"
+        "S19",
+        "S20",
+        "S21"
       ],
       "known": [
         "上海疫情防控工作领导小组办公室4月4日晚宣布：检测复核与研判完成前，全市继续实施封控管理，除就医等情况外仍要求足不出户。",
@@ -559,7 +592,9 @@
         "S16",
         "S17",
         "S18",
-        "S19"
+        "S19",
+        "S20",
+        "S21"
       ],
       "known": [
         "上海高级人民法院发布的法律适用说明列出相关犯罪的法定要求，包括虚假的疫情信息、故意传播以及严重扰乱社会秩序等。",
@@ -698,7 +733,8 @@
         "S14",
         "S15",
         "S16",
-        "S19"
+        "S19",
+        "S20"
       ],
       "as_of_23": "not_applicable_retrospective_only",
       "after_27": "not_applicable_retrospective_only",
@@ -713,7 +749,8 @@
         "S14",
         "S15",
         "S16",
-        "S19"
+        "S19",
+        "S20"
       ],
       "as_of_23": "not_yet_public",
       "after_27": "supported_by_multiple_contemporaneous_reports",
@@ -736,7 +773,9 @@
     "政策公告的3月31日晚首发时间(S10)与4月1日发布会解释(S06)必须分别显示；不得把政策存在延长控制的最早可知日误写为4月1日。",
     "3月26日现存官方实录与媒体报道不同，不能在缺失历史网页版本或发布会完整音视频时断言发生过政治审查或事后删改。",
     "3月23日17:59:14是本轮找到的较早警方通报新闻发布时间，不保证是所有传播平台的首发时间。",
-    "央视新闻客户端的2022年3月26日同期采编报道亦记录吴凡的封城可行性回答，但与其他记者报道仍属于同一场活动，不应将来源数量作为独立政策决策次数。"
+    "央视新闻客户端的2022年3月26日同期采编报道亦记录吴凡的封城可行性回答，但与其他记者报道仍属于同一场活动，不应将来源数量作为独立政策决策次数。",
+    "第一财经、文汇报的视频栏目页面已核查到标题与文字描述，但未独立查看/校验完整视频媒体字节；不得声称原始发布会无剪辑录像已取得。",
+    "2020四部门疫情司法指导明确区分恶意编造和轻信低危传播，但不能以Y先生的采访推定警方调查的两名对象也属于轻信转发。"
   ],
   "evidence_lineage": {
     "prior_bundle": "China_Information_Control_Joint_Pilot_v1.0_20261028.zip",
@@ -881,7 +920,8 @@
         "S14",
         "S15",
         "S16",
-        "S19"
+        "S19",
+        "S20"
       ]
     },
     {
@@ -903,7 +943,8 @@
       "source_ids": [
         "S02",
         "S08"
-      ]
+      ],
+      "referral_comparison": "See legal_comparison_register L01-L03; distinguish actual knowingly fabricated infection reports from future policy forecasts and attributed forwards; elements are case-specific."
     },
     {
       "element": "编造或明知虚假仍故意传播",
@@ -912,7 +953,8 @@
       "source_ids": [
         "S02",
         "S08"
-      ]
+      ],
+      "referral_comparison": "See legal_comparison_register L01-L03; distinguish actual knowingly fabricated infection reports from future policy forecasts and attributed forwards; elements are case-specific."
     },
     {
       "element": "严重扰乱社会秩序",
@@ -921,7 +963,8 @@
       "source_ids": [
         "S02",
         "S08"
-      ]
+      ],
+      "referral_comparison": "See legal_comparison_register L01-L03; distinguish actual knowingly fabricated infection reports from future policy forecasts and attributed forwards; elements are case-specific."
     },
     {
       "element": "程序与最终结果",
@@ -929,7 +972,8 @@
       "independent_evidence_status": "尚无可靠的检察处分或法院生效裁判材料；不得写成有罪",
       "source_ids": [
         "S02"
-      ]
+      ],
+      "referral_comparison": "See legal_comparison_register L01-L03; distinguish actual knowingly fabricated infection reports from future policy forecasts and attributed forwards; elements are case-specific."
     }
   ],
   "circulation_trace": [
@@ -1134,6 +1178,20 @@
       "relation": "contemporaneous state broadcast report contrasted with current government press transcript",
       "claim_scope": "one event's spoken shutdown-feasibility rationale is reported in media but not fully present in existing government text",
       "limit": "same conference, no archival government version proof or proof of omission's cause"
+    },
+    {
+      "from": "S20",
+      "to": "S14",
+      "relation": "separate contemporary video-page account of same spoken press-conference response",
+      "claim_scope": "published quote of feasibility explanation",
+      "limit": "video media bytes, editing and full recording not independently inspected; cannot establish document-removal history"
+    },
+    {
+      "from": "S21",
+      "to": "S02",
+      "relation": "police official Weibo reproduced a day later vs same announcement at contemporaneous media",
+      "claim_scope": "attributed police claim of investigation",
+      "limit": "police message itself does not prove the crime elements or disposition"
     }
   ],
   "press_transcript_comparison": {
@@ -1145,7 +1203,8 @@
       "S14",
       "S15",
       "S16",
-      "S19"
+      "S19",
+      "S20"
     ],
     "adjacent_official_context": "Current official transcript moves from the second characteristic of the city's situation / decision context directly to a call for careful testing.",
     "journalistic_intervening_segment": "Contemporaneous reports describe Wu Fan's response to a question about shutting down the city for three, five, or seven days; she argued against this simultaneous citywide shutdown because Shanghai played important national and international economic roles.",
@@ -1160,7 +1219,8 @@
     "audit_date": "2026-10-29",
     "historical_asof_status": "current_archive_text_not_authenticated_as_same_as_2022_page",
     "journalistic_timestamp_notes": "S14 published 11:01, S16 12:33:33, S15 17:26:53 on 2022-03-26. No exact posting time claimed for current government transcript.",
-    "publication_gate": "HOLD: verify historical government page version and full press-conference recording before calling this censorship or a later deletion"
+    "publication_gate": "HOLD: verify historical government page version and full press-conference recording before calling this censorship or a later deletion",
+    "audiovisual_status": "Wenhui and Yicai pages exist and contain video-related headings and quotes; raw audiovisual footage NOT independently inspected, and completeness unproven"
   },
   "retrospective_audits": [
     {
@@ -1172,7 +1232,8 @@
         "S14",
         "S15",
         "S16",
-        "S19"
+        "S19",
+        "S20"
       ],
       "observation": "Current official Q&A transcript omits the intervening city-shutdown feasibility explanation reported in multiple March 26 news outlets.",
       "auditable_anchor": "Government transcript passes from 'city characteristics' directly into a call for careful screening; contemporary reports insert the 3/5/7 day shutdown argument and national/global economic role.",
@@ -1196,6 +1257,38 @@
       "not_supported": "a claim that the two men were convicted, detained for a specific duration, acquitted, or formally exonerated",
       "historical_asof_visibility": "Original March 23 notice publicly observed",
       "next_evidence": "case-specific prosecutorial decision, court judgment, authoritative status correction, or responsible agency response"
+    }
+  ],
+  "legal_comparison_register": [
+    {
+      "id": "L01",
+      "date": "2020-02-06",
+      "document": "Supreme People's Court, Supreme People's Procuratorate, Ministry of Public Security and Ministry of Justice COVID-crime guidance",
+      "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/202002/t20200211_1627613.html",
+      "publication_observed": "2020-02-11",
+      "role": "normative_legal_guidance_not_case_outcome",
+      "verified_key_point": "Guidance calls for precise and appropriate handling of false epidemic information; those who spread out of mistaken belief and cause little harm are not to be treated as criminals.",
+      "limit": "Does NOT prove the Shanghai 2022 suspects acted only out of mistaken belief or caused little harm."
+    },
+    {
+      "id": "L02",
+      "date": "2022-04-05",
+      "document": "Shanghai High Court COVID-case legal application Q&A no. 2, question 3",
+      "url": "https://www.shanghai.gov.cn/sjzccs/20220405/24f19542c5c04140a91bca5004c03e2e.html",
+      "publication_observed": "2022-04-05",
+      "role": "normative_legal_requirements_not_case_outcome",
+      "verified_key_point": "Criminal offense includes fabricating or knowingly spreading false epidemic information and seriously disrupting social order, under Criminal Law 291-1(2).",
+      "limit": "It is NOT an adjudication of two persons mentioned in police notice."
+    },
+    {
+      "id": "L03",
+      "date": "2022-04-29",
+      "document": "Supreme People's Court 2022 pandemic-crime typical case no. 5 (Pan)",
+      "url": "https://www.court.gov.cn/zixun/xiangqing/357481.html",
+      "publication_observed": "2022-04-29",
+      "role": "comparative_adjudicated_case_not_shanghai",
+      "verified_key_point": "Court reports actual adjudicated criminal information fabricating concrete fictitious infection and case details, plus claimed mass circulation and disruption.",
+      "limit": "A different defendant, time, place and content; cannot infer Shanghai case outcome. Published later than primary March-April timeline; retrospective comparison only."
     }
   ]
 }
