@@ -1,7 +1,7 @@
 {
   "id": "li-wenliang-2020-admonition-correction",
   "title": "李文亮信息定性、警方训诫与撤销的时间证据链",
-  "revision": "research-draft-v0.4",
+  "revision": "research-draft-v0.5",
   "status": "RESEARCH_DRAFT_HUMAN_REVIEW_PENDING",
   "timezone": "Asia/Shanghai",
   "source_rule": "An event described in a March 19 retrospective report was not necessarily publicly knowable at the event date. Preserve report_publication_date separately.",
@@ -316,6 +316,22 @@
       "not_publicly_documented_in_registered_sources": "19:35 later syndicated Upstream News interview and the full March19 Commission investigation not yet published."
     },
     {
+      "id": "LW_ASOF_0131_2000",
+      "cutoff_date": "2020-01-31",
+      "cutoff_local": "2020-01-31T20:00:00+08:00",
+      "label": "1月31日20:00",
+      "public_sources": [
+        "LW01",
+        "LW02",
+        "LW09",
+        "LW10",
+        "LW12",
+        "LW13"
+      ],
+      "publicly_documented": "Both Li interview reports had been published, including his description of being admonished and differing contextual answers about workplace fear versus overall effect.",
+      "not_publicly_documented_in_registered_sources": "Commission procedural conclusions and the subsequent police revocation remained unpublished until March19."
+    },
+    {
       "id": "LW_ASOF_0207",
       "cutoff_date": "2020-02-07",
       "public_sources": [
@@ -573,6 +589,17 @@
       ],
       "status": "document_text_versus_later_official_investigative_conclusion",
       "caution": "The former is an initial police document allegation; the latter concerns subjective intent. Objective disturbance and subjective intent are distinct legal or evidentiary propositions. The document photo is journalist-attributed, not a forensic original."
+    },
+    {
+      "id": "LWC14",
+      "kind": "attributed_interview_frame_contrast",
+      "claim": "Two Jan31 Li interviews report different emphases: general report of little lasting impact versus acknowledged fear of detention and workplace retaliation",
+      "source_ids": [
+        "LW12",
+        "LW13"
+      ],
+      "status": "same_interviewee_different_question_frames_not_psychological_causal_result",
+      "caution": "Do not call this a direct contradiction or proof of general self-censorship; quotations and question contexts differ, and interviews concern one person."
     }
   ],
   "unresolved": [
@@ -584,7 +611,8 @@
     "The strongest initial '依法查处' public characterization and later '仅教育、批评' are two official public texts; causal reasons for the difference are not established by textual comparison alone.",
     "Earliest verified dissemination of the Commission conclusion in this package is the 19:14 shortened report; an earlier press/agency release may exist. Distinguish first found summary from authorized full transcript.",
     "The published reprimand photograph is attributed to Li by reporters; source archive holds no independently authenticated original physical document scan, and no identifying document fields should be copied into this site's public data.",
-    "19:04 CLS is the earliest publicly readable source found in this register for the Commission conclusion, not verified as the Commission's original first release or an authenticated full-document publication."
+    "19:04 CLS is the earliest publicly readable source found in this register for the Commission conclusion, not verified as the Commission's original first release or an authenticated full-document publication.",
+    "Two published Jan31 interview phrasings about fear and effects have distinct question wording; avoid a false binary contradiction, inferred motive, or a general self-censorship prevalence claim."
   ],
   "release_gates": {
     "G0_document_links": "PARTIAL",
@@ -798,6 +826,37 @@
       "to": "LW04",
       "relation": "early 19:04 bulletin compared with longer 19:28 published investigation",
       "independent_factual_corroboration": false
+    }
+  ],
+  "interview_frame_comparisons": [
+    {
+      "id": "I01",
+      "event": "Li's answers concerning the impact of the January 3 admonition",
+      "source_ids": [
+        "LW12",
+        "LW13"
+      ],
+      "earlier_publication": "2020-01-31T11:29:00+08:00",
+      "later_publication": "2020-01-31T19:35:00+08:00",
+      "interview_1": {
+        "source_id": "LW12",
+        "question_topic": "general effects on family and everyday life of the admonition",
+        "short_excerpt": "没有给我带来特别的影响",
+        "evidence_role": "interviewee_self_report_in_context"
+      },
+      "interview_2": {
+        "source_id": "LW13",
+        "question_topic": "whether he feared detention and repercussions at work",
+        "short_excerpt": "我也怕被拘留；当时担心单位会秋后算账",
+        "evidence_role": "interviewee_self_report_in_context"
+      },
+      "interpretation": "Responses foreground different aspects of possible risk. Reporting time and question framing differ; statements are not a reliable longitudinal measurement of a psychological state and need not be logically inconsistent.",
+      "limits": [
+        "They are two reports of interviews with the same person, not independent population samples.",
+        "No causal estimate of censorship or chilling effect can be derived.",
+        "Article publication time is not necessarily interview time; both sources refer to Jan30 interview contact.",
+        "Avoid distributing the underlying medical/family details or unredacted admonition photograph."
+      ]
     }
   ]
 }
