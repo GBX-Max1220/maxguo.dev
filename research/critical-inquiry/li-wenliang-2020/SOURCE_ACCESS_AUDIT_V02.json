@@ -1,19 +1,20 @@
 {
   "status": "URL_AND_TEXT_SCOPE_REVIEW_NOT_INDEPENDENT_FACT_REVIEW",
   "checked_on": "2026-10-29",
-  "scope": "11 registered web source pages",
+  "scope": "13 registered web source pages",
   "access": "Direct web open performed on primary and republication pages. A readable page supports publication, attribution and scope only; does not by itself independently establish all factual allegations.",
   "counts": {
-    "readable": 11,
+    "readable": 13,
     "unreadable": 0,
-    "independence_groups": 8
+    "independence_groups": 9
   },
   "critical_cautions": [
     "Jan 1 'eight' remained unnamed in public notice; no individual identity inference.",
     "Jan 29 statutory warning/fine/detention denial does not disprove Li's Jan 3 written admonition.",
     "Mar 19 19:14 article is condensed; full authorized March report appeared 19:28.",
     "Police decision at 21:47 differs from 22:09 personnel discipline release.",
-    "No social behavior causal inference from source chronology."
+    "No social behavior causal inference from source chronology.",
+    "Li's written reprimand and attributed photo were already publicly discussed in Jan31 interviews; March19 official report is NOT the first public disclosure of reprimand's existence."
   ],
   "records": [
     {
@@ -167,6 +168,34 @@
       "source_role": "earlier contemporaneous police revocation publication",
       "independence_group": "wuhan_police_correction_mar19",
       "evidence_limit": "REPEAT OF SAME MAR 19 POLICE REVOCATION MESSAGE",
+      "claim_true_independently_established": false,
+      "original_social_or_administrative_records_authenticated": false
+    },
+    {
+      "source_id": "LW12",
+      "url": "https://m.bjnews.com.cn/detail/158044099415716.html",
+      "provider": "新京报记者刘名洋（采访李文亮）",
+      "declared_document_date": "2020-01-31",
+      "site_displayed_publication": "2020-01-31T11:29:00+08:00",
+      "page_access": "DIRECT_TEXT_READABLE",
+      "read_checked_date": "2026-10-29",
+      "source_role": "contemporaneous direct interview of admonished individual with displayed original-message screenshots",
+      "independence_group": "li_personal_interview_jan30_31",
+      "evidence_limit": "JAN31 INTERVIEW + DISPLAYED CHAT SCREENSHOTS, NOT ORIGINAL SERVER RECORDS; EIGHT PERSON MEMBERSHIP NOT CONFIRMED",
+      "claim_true_independently_established": false,
+      "original_social_or_administrative_records_authenticated": false
+    },
+    {
+      "source_id": "LW13",
+      "url": "https://www.thepaper.cn/newsDetail_forward_5716857",
+      "provider": "上游新闻采访／澎湃新闻号转载",
+      "declared_document_date": "2020-01-31",
+      "site_displayed_publication": "2020-01-31T19:35:00+08:00",
+      "page_access": "DIRECT_TEXT_READABLE",
+      "read_checked_date": "2026-10-29",
+      "source_role": "contemporaneous interview and attributed photograph of Li reprimand",
+      "independence_group": "li_personal_interview_jan30_31",
+      "evidence_limit": "JAN31 INTERVIEW + PHOTOGRAPH OF REPRIMAND ATTRIBUTED TO INTERVIEWEE; DON'T REPRODUCE PERSONALLY IDENTIFYING FIELDS",
       "claim_true_independently_established": false,
       "original_social_or_administrative_records_authenticated": false
     }
