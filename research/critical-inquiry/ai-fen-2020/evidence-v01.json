@@ -1,0 +1,813 @@
+{
+  "id": "ai-fen-2020-whistle-giver-publication-visibility",
+  "title": "《发哨子的人》：刊载、失去可见性、文本变体与记忆幸存的初步来源登记",
+  "revision": "pilot-v0.1",
+  "status": "RESEARCH_PILOT_NO_ORIGINAL_EDITION_AUTHENTICATION",
+  "timezone": "Asia/Shanghai",
+  "methodological_warning": "Published page metadata, cached reprints, journalist descriptions of unavailability, and original-platform evidence are distinct. No original WeChat article URL or verified bytes of its 2020-03-10 first edition are established. nCovMemory CSV row 3142 records a candidate original WeChat URL and archive link but their original content remains unverified.",
+  "original_carriers": [
+    {
+      "id": "WX_ORIGINAL",
+      "platform": "WeChat Official Account",
+      "account": "renwumag1980",
+      "original_url": "https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg",
+      "original_edition_available": false,
+      "known_minute": null,
+      "status": "ORIGINAL_URL_INDEXED_IN_NCOVMEMORY_CSV_NOT_DIRECTLY_AUTHENTICATED",
+      "candidate_archive_index": "https://chinatimeline.github.io/nCovMemory/",
+      "archive_candidate_url": "https://archive.vn/OLdHs",
+      "archive_candidate_opened": false,
+      "archive_index_row_id": "3142",
+      "archive_index_row_date": "2020-03-10",
+      "archive_today_secondary_candidate": "https://archive.today/20200310021029/https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg",
+      "archive_today_numeric_timestamp_utc_candidate": "2020-03-10T02:10:29Z",
+      "archive_today_content_verified": false
+    },
+    {
+      "id": "WEIBO_CANDIDATE",
+      "platform": "Sina Weibo long-form article",
+      "account": null,
+      "original_url": "https://www.weibo.com/ttarticle/p/show?id=2309404480863474679890",
+      "original_edition_available": false,
+      "known_minute": null,
+      "status": "URL_CITED_IN_HISTORICAL_CHRONOLOGY_DIRECT_OPEN_FAILED",
+      "possible_wayback_capture": "20200310051416",
+      "capture_authenticated": false
+    }
+  ],
+  "sources": [
+    {
+      "id": "AF01",
+      "url": "https://www.chinesepen.org/blog/archives/145003",
+      "publisher": "独立中文笔会",
+      "display_date": "2020-03-10",
+      "role": "dated early survival reprint / attributed magazine article",
+      "group": "interview_text_replication",
+      "access": "READABLE",
+      "limit": "Reprint with date shown, not archived original first edition or independent authentication of all introductory claims."
+    },
+    {
+      "id": "AF02",
+      "url": "https://botanwang.com/articles/202003/%E5%8F%91%E5%93%A8%E5%AD%90%E7%9A%84%E4%BA%BA.html?page=1",
+      "publisher": "博谈网",
+      "display_date": "2020-03-10",
+      "display_time_local": "21:05",
+      "role": "dated survival reprint",
+      "group": "interview_text_replication",
+      "access": "READABLE",
+      "limit": "Displayed republication time, not proof of exact first-edition text or content at earlier moment."
+    },
+    {
+      "id": "AF03",
+      "url": "https://chinadigitaltimes.net/chinese/637953.html",
+      "publisher": "中国数字时代",
+      "display_date": "2020-03-11",
+      "role": "contemporaneous curated inventory of transformed variants",
+      "group": "cdt_variant_editorial",
+      "access": "READABLE",
+      "limit": "11:40 disappearance time is editor's approximate reported observation, not a forensic platform event timestamp. Its linked variants do not prove specific orders or population reach."
+    },
+    {
+      "id": "AF04",
+      "url": "https://www.rfa.org/mandarin/Xinwen/wul0311b-03112020045013.html",
+      "publisher": "自由亚洲电台",
+      "display_date": "2020-03-11",
+      "role": "contemporaneous reporting of deletion/unavailability and remediated distribution",
+      "group": "rfa_contemporaneous_reporting",
+      "access": "SEARCH_TEXT_READABLE",
+      "limit": "Journalistic source about reported platform outcomes; original exact first-break and directive not independently measured."
+    },
+    {
+      "id": "AF05",
+      "url": "https://www.bbc.com/zhongwen/simp/chinese-news-51831652",
+      "publisher": "BBC中文",
+      "display_date": "2020-03-11",
+      "role": "contemporaneous reporting and interpretation of public reposting",
+      "group": "bbc_contemporaneous_reporting",
+      "access": "SEARCH_OR_SYNDICATED_TEXT_READABLE",
+      "limit": "Cannot assume the original publication/official deletion time or infer a specific censorship command."
+    },
+    {
+      "id": "AF06",
+      "url": "https://www.hrichina.org/en/node/26590",
+      "publisher": "中国人权 HRIC",
+      "display_date": "2020-03-10",
+      "role": "archived attributed full-text reprint and later editorial description",
+      "group": "interview_text_replication",
+      "access": "READABLE",
+      "limit": "Reprint not authorized original, displayed date does not prove when extant page's exact bytes were live; editorial judgments are attributed."
+    },
+    {
+      "id": "AF07",
+      "url": "https://katsura.me/2020/03/12/COVID-19-Ai-Fen/",
+      "publisher": "Katsura personal blog",
+      "display_date": "2020-03-12",
+      "role": "dated later personal reprint",
+      "group": "interview_text_replication",
+      "access": "READABLE",
+      "limit": "Cannot independently authenticate original edition; may inherit identical lead assertions."
+    },
+    {
+      "id": "AF08",
+      "url": "https://bwskyer.com/renwu-aifen-about-covid19.html",
+      "publisher": "个人博客",
+      "display_date": "2020-03-13",
+      "role": "subsequent surviving reprint",
+      "group": "interview_text_replication",
+      "access": "READABLE",
+      "limit": "Explicitly reports further upstream republication; not a separate interview or edition anchor."
+    },
+    {
+      "id": "AF09",
+      "url": "https://www.hrichina.org/sites/default/files/chronicle_of_the_wuhan_new_coronavirus_epidemic_preliminary_draft_chinese.pdf",
+      "publisher": "中国人权疫情编年材料",
+      "display_date": null,
+      "role": "historical bibliography giving explicit March 10 Weibo URL and claimed access date",
+      "group": "hric_compiled_bibliography",
+      "access": "SEARCH_EXCERPT_ONLY_PDF_NOT_PAGE_AUDITED",
+      "limit": "Bibliographic attribution helps locate article ID but does not validate Wayback content; not independently page-inspected this audit."
+    },
+    {
+      "id": "AF10",
+      "url": "https://citizenlab.ca/research/censored-contagion-ii-a-timeline-of-information-control-on-chinese-social-media-during-covid-19/",
+      "publisher": "Citizen Lab",
+      "display_date": "2020-08-25",
+      "role": "external measurement methodology for broader censorship context",
+      "group": "citizen_lab_experimental_measurement",
+      "access": "PUBLIC_REPORT",
+      "limit": "Methodology/background only. No article-specific causal attribution or content-removal evidence inferred."
+    },
+    {
+      "id": "AF11",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/1369118X.2023.2205474",
+      "publisher": "Yu Sun & Scott Wright / Information, Communication & Society",
+      "display_date": "2023-05-24",
+      "role": "peer-reviewed prior study of relay activism and WeChat/GitHub public contention",
+      "group": "peer_reviewed_relay_activism_study",
+      "access": "ABSTRACT_AND_METADATA_READABLE",
+      "limit": "Existing prior art; current audit reviewed abstract and bibliographic metadata, not full methods/results. Do not claim unstudied novelty for transform-and-relay activism."
+    },
+    {
+      "id": "AF12",
+      "url": "https://github.com/2019ncovmemory/nCovMemory/blob/master/data/data.csv",
+      "publisher": "nCovMemory public archive",
+      "display_date": null,
+      "role": "archive CSV row 3142 identifies original WeChat URL, archive.vn/OLdHs and Terminus2049 alternative",
+      "group": "ncovmemory_archival_index",
+      "access": "CSV_ROW_READ_THROUGH_GITHUB_CONNECTOR_ARCHIVE_OBJECT_NOT_OPENED",
+      "limit": "Index CSV supplies exact candidate source URL, archive entry and alternative link; neither the old WeChat page nor archive.vn snapshot was directly retrieved. Row update date is not independently authenticated original-page timestamp."
+    },
+    {
+      "id": "AF13",
+      "url": "https://matters.town/a/b7mibe20eq6f/history",
+      "publisher": "Matters writer repost",
+      "display_date": "2020-03-10",
+      "role": "dated same-day attributed repost from Notion with Douban screenshot reference",
+      "group": "interview_text_replication",
+      "access": "READABLE",
+      "limit": "Explicitly downstream from Notion/Douban, not independent interview or first-edition source; display date cannot certify exact 3/10 start minute."
+    },
+    {
+      "id": "AF14",
+      "url": "https://journals.sagepub.com/doi/10.1177/01634437231219132",
+      "publisher": "Xiaoping Wu / Media, Culture & Society",
+      "display_date": "2024-01-06",
+      "role": "peer-reviewed prior research on creative textual, multimodal and technically encoded retransmissions of same interview",
+      "group": "peer_reviewed_creative_resistance_study",
+      "access": "ABSTRACT_AND_METADATA_READABLE",
+      "limit": "Existing prior art specifically covers formal classifications of transformed versions; do not present this typology as an original empirical discovery from this pilot."
+    },
+    {
+      "id": "AF15",
+      "url": "https://github.com/Terminus2049/Terminus2049.github.io/blob/master/_posts/2020-03-10-fa-shao-zi-de-ren.md",
+      "publisher": "Terminus2049 GitHub markdown archive",
+      "display_date": "2020-03-10",
+      "role": "source text and image-link preserving repost with frontmatter dated March 10",
+      "group": "interview_text_replication",
+      "access": "MARKDOWN_FILE_FIRST_50_LINES_READABLE",
+      "limit": "GitHub frontmatter date and image-link filenames reflect archive metadata, not verified source-origin first-edition bytes or media capture timestamps. Do not reproduce linked images publicly without review."
+    },
+    {
+      "id": "AF16",
+      "url": "https://github.com/Terminus2049/Terminus2049.github.io/commit/4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
+      "publisher": "Terminus2049 historical repository commit",
+      "display_date": "2020-03-10",
+      "display_time_local": "13:23:09",
+      "role": "first file-creation commit on previous Chinese filename, historical git witness of syndicated text",
+      "group": "interview_text_replication",
+      "access": "GITHUB_COMMIT_OBJECT_AND_BLOB_READABLE",
+      "limit": "Commit self-reported UTC author/committer date is not a trusted original WeChat publish timestamp, nor proof of source material being live at that minute. It is a pinned downstream repository content version."
+    },
+    {
+      "id": "AF17",
+      "url": "https://web.archive.org/web/20200310135052/http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256",
+      "publisher": "中国医院人文建设（Wayback历史快照）",
+      "display_date": "2020-03-10",
+      "archive_capture_utc": "2020-03-10T13:50:52Z",
+      "archive_capture_local": "2020-03-10T21:50:52+08:00",
+      "role": "directly readable archived same-day institutional repost with role-framing change in title: 吹哨子的人 versus 发哨子的人",
+      "group": "institutional_downstream_reprint_march10",
+      "access": "WAYBACK_CAPTURE_DIRECT_HTML_TEXT_READABLE",
+      "limit": "Capture records a historically archived *institutional republication*, not the original WeChat edition or confirmation of original removal time. Distinct headline, byline layout, and an opening sentence may be institutional presentation changes but provenance of those edits not independently established."
+    },
+    {
+      "id": "AF18",
+      "url": "https://en.wikipedia.org/wiki/Ai_Fen",
+      "publisher": "Wikipedia public source bibliography",
+      "display_date": null,
+      "role": "secondary bibliographic lead to an archive.today URL with embedded 20200310021029 timestamp",
+      "group": "bibliographic_secondhand_archive_lead",
+      "access": "BIBLIOGRAPHY_READABLE_ARCHIVE_TARGET_FAILED",
+      "limit": "Archive.today target at https://archive.today/20200310021029/https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg was not accessible; embedded numeric timestamp is an unverified locator, not a verified successful fetch or forensic content."
+    },
+    {
+      "id": "AF19",
+      "url": "https://chinadigitaltimes.net/2020/12/minitrue-diary-march-10-2020-tibet-independence-covid-rent-relief-whistleblower-epidemic-transmission-and-treatments/",
+      "publisher": "China Digital Times English editorial, Sophie Beach",
+      "display_date": "2020-12-11",
+      "role": "dated December 2020 retrospective public disclosure of a directive reported as issued March 10; CDT says it acquired and verified a central-party-to-state-media directives collection",
+      "group": "cdt_translated_directives_2020",
+      "access": "DIRECT_HTML_READABLE",
+      "limit": "CDT editorial source attributes and says it verified a collection; original issued memo, exact sender/recipient, signatures, forwarding logs and implementation records not independently obtained in this research. NOT publicly verified as known on March 10."
+    },
+    {
+      "id": "AF20",
+      "url": "https://chinadigitaltimes.net/chinese/655981.html",
+      "publisher": "中国数字时代（中文指令转载）",
+      "display_date": "2020-03-10",
+      "role": "retrospective Chinese edition of alleged March 10 reporting restriction listing yyrw.org.cn article URL verbatim",
+      "group": "cdt_directives_publication_lineage",
+      "access": "DIRECT_HTML_READABLE_PUBLICATION_DATE_UNCERTAIN",
+      "limit": "Page displays alleged command date 2020-03-10; do NOT treat that displayed date as when leak became publicly available; related CDT English feature explicitly published 2020-12-11. Original directive first-issued hour and chain unverified."
+    },
+    {
+      "id": "AF21",
+      "url": "https://chinadigitaltimes.net/chinese/728404.html",
+      "publisher": "中国数字时代乐视内部流出指令总目录",
+      "display_date": "2026-06-22",
+      "role": "2026 publication describing leaked LeTV in-platform moderation instruction collection with 718 dated records, including February 7 vocabulary item",
+      "group": "leshi_leak_curated_2026",
+      "access": "DIRECT_HTML_READABLE",
+      "limit": "Corpus is described by publisher as LeTV-internal leaked instructions; its relation to 2020 CDT-acquired state-media directive collection not proven to constitute independent testimony or independent copies."
+    },
+    {
+      "id": "AF22",
+      "url": "https://chinadigitaltimes.net/space/%E4%B9%90%E8%A7%86%E6%8C%87%E4%BB%A420200207",
+      "publisher": "中国数字空间《乐视指令20200207》",
+      "display_date": "2026-06",
+      "role": "LeTV instruction index containing Feb 7 prohibition on the designation 吹哨的人 in reports",
+      "group": "leshi_leak_curated_2026",
+      "access": "DIRECT_HTML_READABLE",
+      "limit": "Alleged date 2020-02-07 is directive date; public wiki record appears as a later leak. Do NOT assert all outlets obeyed or that a specific article title was changed to follow it."
+    },
+    {
+      "id": "AF23",
+      "url": "https://chinadigitaltimes.net/space/%E4%B9%90%E8%A7%86%E6%8C%87%E4%BB%A420200310",
+      "publisher": "中国数字空间《乐视指令20200310》",
+      "display_date": "2026-06-17",
+      "role": "wiki import entry of alleged March 10 do-not-feature-homepage directive with exact hospital humanities article URL",
+      "group": "leshi_leak_curated_2026",
+      "access": "DIRECT_HTML_READABLE_AND_REVISION_METADATA",
+      "limit": "CDS wiki oldid=175340 says imported 2026-06-17 05:03. This page is a later index and NOT independent proof that directive was public March 10 or that yyrw.org.cn article was actually removed."
+    }
+  ],
+  "observations": [
+    {
+      "id": "EV01",
+      "event_date": "2020-03-10",
+      "time_precision": "day",
+      "event": "Magazine interview said to be published on WeChat and Weibo",
+      "source_ids": [
+        "AF01",
+        "AF03",
+        "AF04"
+      ],
+      "evidence_level": "CONVERGENT_REPORTS_NOT_FIRST_EDITION",
+      "limit": "No original stable WeChat URL or initial page bytes."
+    },
+    {
+      "id": "EV02",
+      "event_date": "2020-03-10",
+      "reported_local_time": "~11:40",
+      "time_precision": "approximate",
+      "event": "Original WeChat article reportedly unavailable/removed around late morning",
+      "source_ids": [
+        "AF03"
+      ],
+      "evidence_level": "ATTRIBUTED_CURATOR_REPORT",
+      "limit": "No captured original-page platform error at this minute authenticated in the current pilot."
+    },
+    {
+      "id": "EV03",
+      "event_date": "2020-03-10",
+      "reported_local_time": "21:05",
+      "time_precision": "displayed-page-time",
+      "event": "A republication was date-stamped and remains readable",
+      "source_ids": [
+        "AF02"
+      ],
+      "evidence_level": "DATED_EXTANT_REPUBLICATION",
+      "limit": "Exact replication fidelity untested, not proof of first original edition content."
+    },
+    {
+      "id": "EV04",
+      "event_date": "2020-03-11",
+      "time_precision": "day",
+      "event": "Curated collection documents text transformation and alternative representation types",
+      "source_ids": [
+        "AF03",
+        "AF04",
+        "AF05"
+      ],
+      "evidence_level": "MULTIPLE_REPORTS_WITH_DISTINCT_EDITORIAL_PROVENANCE",
+      "limit": "Not quantitative censorship efficacy or audience size."
+    },
+    {
+      "id": "EV05",
+      "event_date": "2020-03-10",
+      "reported_local_time": "13:23:09",
+      "time_precision": "git-committer-metadata",
+      "event": "Git repository added `_posts/发哨子的人.md` with 201 lines, preceding the later rename",
+      "source_ids": [
+        "AF16",
+        "AF15"
+      ],
+      "evidence_level": "PINNED_GIT_COMMIT_AND_BLOB_VERSION",
+      "limit": "UTC05:23:09 normalized to Asia/Shanghai; actor-controlled git timestamps are not original publisher timestamps or third-party timestamping certificates."
+    },
+    {
+      "id": "EV06",
+      "event_date": "2020-03-10",
+      "reported_local_time": "21:50:52",
+      "time_precision": "Wayback_capture_timestamp",
+      "event": "Wayback contains directly readable March 10 institutional web republication of the interview under a differently framed title",
+      "source_ids": [
+        "AF17"
+      ],
+      "evidence_level": "VERIFIED_READABLE_THIRD_PARTY_ARCHIVE_CAPTURE_OF_REPRINT",
+      "limit": "The original WeChat publication, its exact first edition and its removal time remain unverified. Timestamp describes this archived institutional copy."
+    }
+  ],
+  "atomic_claims": [
+    {
+      "id": "AFC01",
+      "kind": "reported_historical_publication",
+      "claim": "An Ai Fen interview attributed to the magazine 人物 circulated on March 10, 2020",
+      "source_ids": [
+        "AF01",
+        "AF03",
+        "AF04"
+      ],
+      "status": "SUPPORTED_AS_REPORTED_PUBLIC_EVENT",
+      "caution": "Original publisher first edition not authenticated."
+    },
+    {
+      "id": "AFC02",
+      "kind": "reported_platform_unavailability",
+      "claim": "Contemporaneous observers reported loss of access to the original magazine text on at least some platforms",
+      "source_ids": [
+        "AF03",
+        "AF04",
+        "AF05"
+      ],
+      "status": "SUPPORTED_AS_ATTRIBUTED_CONTEMPORANEOUS_REPORTS",
+      "caution": "No exact failure code, takedown instruction, or verified platform-specific direct test in this pilot."
+    },
+    {
+      "id": "AFC03",
+      "kind": "republication_survival",
+      "claim": "Readable republications of text attributed to the original interview were posted March 10 onward",
+      "source_ids": [
+        "AF01",
+        "AF02",
+        "AF06",
+        "AF07",
+        "AF08"
+      ],
+      "status": "DATED_REPRINTS_OBSERVED",
+      "caution": "Multiple republications are not independent interviews or proof of exact initial-edition fidelity."
+    },
+    {
+      "id": "AFC04",
+      "kind": "reported_text_transformation",
+      "claim": "Contemporaneous curators reported reversed text, scripts, translations and other transformed republications",
+      "source_ids": [
+        "AF03",
+        "AF04",
+        "AF05"
+      ],
+      "status": "DOCUMENTED_VARIANT_CATALOGUE_WITH_LINKS",
+      "caution": "Do not infer that every variant remained reachable, avoided filtering, or achieved a particular audience."
+    },
+    {
+      "id": "AFC05",
+      "kind": "attributed_editorial_intro_not_verified",
+      "claim": "The interview's syndicated introductory framing connects the shared test-report image to 'eight' people described as admonished doctors",
+      "source_ids": [
+        "AF01",
+        "AF06",
+        "AF07"
+      ],
+      "status": "TEXTUAL_CLAIM_PRESENT_NOT_INDEPENDENTLY_ESTABLISHED",
+      "caution": "Introductory/editorial framing is not automatically Ai Fen's direct quote. January 1 police notice lists no full identities, and January 29 police clarification is about eight unnamed people. Do not infer all eight were formally admonished or all copied the same document."
+    },
+    {
+      "id": "AFC06",
+      "kind": "actor_attribution_unverified",
+      "claim": "The first original WeChat message, its exact deletion moment, and issuer of any censorship order are not authenticated in current registered materials",
+      "source_ids": [
+        "AF03",
+        "AF04"
+      ],
+      "status": "UNRESOLVED_IN_REGISTER",
+      "caution": "Cannot infer a named agency issued instructions, even when large-scale information control is a well-documented wider context."
+    },
+    {
+      "id": "AFC07",
+      "kind": "source_identification",
+      "claim": "A historical chronology cites a particular Weibo long-form post ID and an access date of March 10, 2020",
+      "source_ids": [
+        "AF09"
+      ],
+      "status": "BIBLIOGRAPHIC_LEAD_UNVERIFIED_PAGE",
+      "caution": "Direct Weibo and candidate Wayback fetch failed. Do not assert a verified timestamped first-edition capture."
+    },
+    {
+      "id": "AFC08",
+      "kind": "prior_art_scoping",
+      "claim": "Peer-reviewed work has already analyzed Ai Fen interview relay activism in WeChat and GitHub via textual analysis and participant observation",
+      "source_ids": [
+        "AF11"
+      ],
+      "status": "PUBLISHED_PRIOR_ART_ABSTRACT",
+      "caution": "Novelty must be measured against this work; present pilot targets version integrity, evidentiary provenance and inter-case rumor-label drift, not rediscovery of relay activism."
+    },
+    {
+      "id": "AFC09",
+      "kind": "archival_index_not_authenticated_object",
+      "claim": "nCovMemory lists the March 10 article with original link marked unavailable and offers alternative screenshot/archive entries",
+      "source_ids": [
+        "AF12"
+      ],
+      "status": "INDEX_OBSERVATION_ONLY",
+      "caution": "Index metadata does not authenticate archive object bytes or its exact creation timestamp."
+    },
+    {
+      "id": "AFC10",
+      "kind": "prior_art_scoping",
+      "claim": "A second peer-reviewed article already studies three classes of creative relay strategies for this interview on WeChat",
+      "source_ids": [
+        "AF14"
+      ],
+      "status": "PUBLISHED_PRIOR_ART_ABSTRACT",
+      "caution": "This pilot should not claim novelty merely for cataloguing reversed, translated, multimodal or encoded repost formats."
+    },
+    {
+      "id": "AFC11",
+      "kind": "indexed_original_url_candidate",
+      "claim": "nCovMemory CSV row 3142 lists a concrete WeChat publisher URL, archive.vn/OLdHs and a Terminus2049 replacement",
+      "source_ids": [
+        "AF12",
+        "AF15"
+      ],
+      "status": "ORIGINAL_URL_IDENTIFIED_ARCHIVE_CONTENT_NOT_AUTHENTICATED",
+      "caution": "Direct platform and archive access failed; identifying a URL is not validating the text or deletion time of the original."
+    },
+    {
+      "id": "AFC12",
+      "kind": "dated_downstream_version",
+      "claim": "An explicitly identifiable Git commit records a March 10 13:23 Chinese-named copy of the interview, later renamed and modified at 14:02, 14:03 and 14:13",
+      "source_ids": [
+        "AF16",
+        "AF15"
+      ],
+      "status": "REPOSITORY_HISTORY_VERIFIED_METADATA_NOT_ORIGINAL_PUBLISHER",
+      "caution": "Git commit timestamps are self-asserted metadata; source is a derivative copy, not publisher WeChat first edition. A single file duplicates the editorial summary of 'eight admonished doctors' twice, so raw text-frequency does not equal independent support."
+    },
+    {
+      "id": "AFC13",
+      "kind": "verified_archived_republication",
+      "claim": "A March 10 21:50:52 Beijing Wayback capture shows a same-day hospital-humanities repost titled 吹哨子的人, whereas the earlier Terminus2049 edition is titled 发哨子的人 and the interview distinguishes blowing from handing out the whistle.",
+      "source_ids": [
+        "AF17",
+        "AF16"
+      ],
+      "status": "ARCHIVE_CAPTURE_OBSERVED_NOT_ORIGINAL_FIRST_EDITION",
+      "caution": "Observed cross-carrier role-framing difference, not proof who changed the title or why. The same archived institutional page also labels a photographer in its author line and adds a short opening sentence, without authenticated editorial provenance."
+    },
+    {
+      "id": "AFC14",
+      "kind": "unverified_early_archive_locator",
+      "claim": "A secondary bibliography provides archive.today capture-locator string 20200310021029 for the original WeChat URL",
+      "source_ids": [
+        "AF18",
+        "AF12"
+      ],
+      "status": "SECONDARY_ARCHIVE_LEAD_NOT_DIRECTLY_READABLE",
+      "caution": "10:10 Beijing is only a possible conversion of a numeric archive locator, not independently authenticated early snapshot content or deletion chronology."
+    },
+    {
+      "id": "AFC15",
+      "kind": "retrospective_leaked_editorial_instruction",
+      "claim": "A 2020-12-11 CDT editorial discloses and translates a purported March 10 instruction to keep whistle-provider coverage off homepages and remove it from those homepages",
+      "source_ids": [
+        "AF19",
+        "AF20"
+      ],
+      "status": "REPORTED_AND_PUBLISHED_DIRECTIVE_CDT_VERIFICATION_CLAIM",
+      "caution": "Do not describe as authenticated original government document in this project or as proof of actual removal. Its policy action is homepage placement, not blanket erasure of all copies."
+    },
+    {
+      "id": "AFC16",
+      "kind": "specific_referenced_url_overlap",
+      "claim": "The alleged March 10 instruction explicitly includes the yyrw.org.cn article URL whose later historical Wayback copy contains the 吹哨子的人 headline",
+      "source_ids": [
+        "AF20",
+        "AF23",
+        "AF17"
+      ],
+      "status": "EXACT_URL_OVERLAP_WITH_REPUBLICATION",
+      "caution": "URL overlap is established, but original directive release hour, intended recipient, which editor changed the title and actual compliance are not established. Different archive channels are not independent proof of order origination."
+    },
+    {
+      "id": "AFC17",
+      "kind": "earlier_reported_wording_instruction",
+      "claim": "A later published LeTV leak corpus includes a purported 2020-02-07 instruction to avoid the term 吹哨的人 in reporting",
+      "source_ids": [
+        "AF21",
+        "AF22"
+      ],
+      "status": "REPORTED_RETROSPECTIVE_PLATFORM_DIRECTIVE",
+      "caution": "Different from March 10 homepage restriction. No evidence any specific later source changed 發/吹 wording as a consequence."
+    },
+    {
+      "id": "AFC18",
+      "kind": "historical_public_knowledge_gate",
+      "claim": "Directive's stated 2020 issue date and first retrievable public retrospective disclosures are distinct dates; the 2026 indexed Wiki entry cannot be counted as publicly available in March 2020",
+      "source_ids": [
+        "AF19",
+        "AF21",
+        "AF23"
+      ],
+      "status": "PUBLIC_DISCLOSURE_CUTOFF_VERIFIED",
+      "caution": "CDT English dated 2020-12-11 and CDS index imported 2026-06-17. The exact first public leakage of the underlying directive outside these sources is not established."
+    },
+    {
+      "id": "AFC19",
+      "kind": "retrospective_source_monopoly_instruction",
+      "claim": "2026 CDT LeTV archive displays a purported Feb7 restriction allowing Li Wenliang-death coverage only from CCTV television and CCTV News client",
+      "source_ids": [
+        "AF22",
+        "AF21"
+      ],
+      "status": "REPORTED_LEAK_SOURCE_SELECTION_RESTRICTION",
+      "caution": "Original agency issuance and implementation not independently confirmed. One leak item, distinct from the Feb7 word-choice instruction but in same publication lineage."
+    }
+  ],
+  "source_relations": [
+    {
+      "from": "AF01",
+      "to": "AF06",
+      "relation": "attributed republications of same original magazine interview, potentially different editorial prefaces",
+      "independent_original_interview": false
+    },
+    {
+      "from": "AF01",
+      "to": "AF07",
+      "relation": "both attributed republications of same original magazine interview",
+      "independent_original_interview": false
+    },
+    {
+      "from": "AF07",
+      "to": "AF08",
+      "relation": "both downstream reprints, no independent textual-origin claim",
+      "independent_original_interview": false
+    },
+    {
+      "from": "AF03",
+      "to": "AF04",
+      "relation": "distinct curatorial and reporting institutions covering the same circulation episode; not direct platform forensics",
+      "independent_original_interview": false
+    },
+    {
+      "from": "AF04",
+      "to": "AF05",
+      "relation": "different contemporary newsrooms, not independently measured identical deletion timestamps",
+      "independent_original_interview": false
+    },
+    {
+      "from": "AF13",
+      "to": "AF07",
+      "relation": "Same attributed original article later copied via different personal reprint routes; AF13 explicitly states upstream Notion and Douban",
+      "independent_original_interview": false
+    },
+    {
+      "from": "AF15",
+      "to": "AF01",
+      "relation": "Terminus2049 markdown and independent Chinese PEN both reproduce attributed original text, not independent interviews",
+      "independent_original_interview": false
+    },
+    {
+      "from": "AF16",
+      "to": "AF15",
+      "relation": "same Terminus2049 repo artifact: old Chinese filename commit precedes later file rename and revisions; not independent publication or interview",
+      "independent_original_interview": false
+    },
+    {
+      "from": "AF17",
+      "to": "AF15",
+      "relation": "both downstream republications of the same magazine interview but different institutional framing, headlines and source-availability evidence",
+      "independent_original_interview": false
+    },
+    {
+      "from": "AF18",
+      "to": "AF12",
+      "relation": "independent compilation indexes linking to original WeChat URL, but neither indexes primary publisher bytes",
+      "independent_original_interview": false
+    },
+    {
+      "from": "AF20",
+      "to": "AF19",
+      "relation": "Chinese and English CDT renderings of the same alleged March10 directive, editorial republications not independent original orders",
+      "independent_original_interview": false,
+      "independent_directive_document": false
+    },
+    {
+      "from": "AF23",
+      "to": "AF20",
+      "relation": "2026 CDS LeTV catalog repeats the same March10 instruction passage; same text is not independent proof of issuer or first-disclosure date",
+      "independent_original_interview": false,
+      "independent_directive_document": false
+    },
+    {
+      "from": "AF21",
+      "to": "AF23",
+      "relation": "2026 CDT LeTV overview and daily wiki entry belong to same retrospective dataset publication",
+      "independent_original_interview": false,
+      "independent_directive_document": false
+    },
+    {
+      "from": "AF23",
+      "to": "AF17",
+      "relation": "The alleged directive references the exact same yyrw.org.cn republication URL whose March 10 Wayback captured text is registered as AF17",
+      "independent_original_interview": false,
+      "independent_directive_document": false
+    },
+    {
+      "from": "AF21",
+      "to": "AF22",
+      "relation": "LeTV aggregate and Feb7 daily entry are one leaked corpus, not independent witnesses",
+      "independent_original_interview": false,
+      "independent_directive_document": false
+    }
+  ],
+  "publication_gates": {
+    "original_first_edition": "HOLD",
+    "platform_unavailability_forensics": "HOLD",
+    "interview_preface_versus_direct_speech": "READY_FOR_HUMAN_REVIEW",
+    "source_dependent_reprints": "STRUCTURALLY_REGISTERED",
+    "G3_second_human_review": "HOLD",
+    "G4_privacy_copyright": "HOLD",
+    "G6_publication": "HOLD",
+    "original_directive_issue_chain": "HOLD",
+    "reported_directive_and_site_url_join": "READY_FOR_HUMAN_REVIEW",
+    "actual_implementation_and_causality": "HOLD"
+  },
+  "privacy": "No copied unredacted chat logs, patients' reports, private family identifiers or full copyrighted interview text. Public URLs only; no private screenshots.",
+  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases. Wu (2024) also identifies textual, multimodal and technically encoded relay tactics. Avoid repackaging these findings; prioritize source-version attestation and labeled-actor conflation with cross-case corrections. Source discovery: known WeChat URL improves targeted authentication but does not establish exact original text. A concrete March 10 Git commit chain goes back to 13:23:09 Beijing time on a predecessor Chinese filename. Only 73/75 normalized long paragraphs are identical across first and last reviewed editions (remaining: metadata and one <br/> formatting difference). The first copy contains the 'eight admonished doctors' editorial summary twice but the 'I was not admonished by police' self-report once; avoid counting these as three independent statements. A directly accessible Wayback capture at 2020-03-10T13:50:52Z preserves a March10 institutional reprint on yyrw.org.cn with materially different framing/credit; this is verified archived content, not original WeChat edition. A distinct archive.today locator 20200310021029 appears in secondary bibliography but target is inaccessible; do not backdate content to it. Concrete frame inversion now observed: first Git copy '发哨子的人', 21:50 archived professional association repost '吹哨子的人', while first-person testimony distinguishes the terms. Also byline role flattening and an additional opening sentence. No motive attribution. New reported directive evidence explicitly references the same institutionally reprinted yyrw.org.cn URL; critically distinguish Feb7 terminology prohibition, Mar10 homepage placement restriction, delayed public leak and actually observable site removal. CDTs 2020 alleged central instructions and 2026 LeTV internal catalog have a common passage, not independently proven issuer lineages. Cross-case Feb7 reported allowed-source policy affects news about Li, not necessarily the Ai Fen interview itself. Treat it as shared information-governance mechanism rather than an Ai-specific censorship directive.",
+  "historical_git_versions": [
+    {
+      "sha": "4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
+      "path": "_posts/发哨子的人.md",
+      "committer_utc": "2020-03-10T05:23:09Z",
+      "committer_local": "2020-03-10T13:23:09+08:00",
+      "blob_sha": "3b846a56600d21c1ba60aaecffe25d04806b876f",
+      "lines": 201,
+      "editorial_intro_eight_count": 2,
+      "interview_no_police_admonition_count": 1
+    },
+    {
+      "sha": "23dde3e0549ede38e0a982b422a26a7d03748b39",
+      "path": "_posts/2020-03-10-fa-shao-zi-de-ren.md",
+      "committer_utc": "2020-03-10T06:02:15Z",
+      "committer_local": "2020-03-10T14:02:15+08:00",
+      "blob_sha": "5c71b645efcb01dfdf0ef15ca7c825438a73e8fa",
+      "lines": 202,
+      "editorial_intro_eight_count": 2,
+      "interview_no_police_admonition_count": 1
+    },
+    {
+      "sha": "41b36291ffa5d8cd7315b70c8868d2c452872dac",
+      "path": "_posts/2020-03-10-fa-shao-zi-de-ren.md",
+      "committer_utc": "2020-03-10T06:03:24Z",
+      "committer_local": "2020-03-10T14:03:24+08:00",
+      "blob_sha": "3c1052c5ae48a54fb34622a251edb58fd925e811",
+      "lines": 202,
+      "editorial_intro_eight_count": 2,
+      "interview_no_police_admonition_count": 1
+    },
+    {
+      "sha": "8d630f148b0f2f0836c27add46f2a07987ac24ad",
+      "path": "_posts/2020-03-10-fa-shao-zi-de-ren.md",
+      "committer_utc": "2020-03-10T06:13:34Z",
+      "committer_local": "2020-03-10T14:13:34+08:00",
+      "blob_sha": "fec092d58e05b1967e845f581e7e2e82d189e0d3",
+      "lines": 195,
+      "editorial_intro_eight_count": 2,
+      "interview_no_police_admonition_count": 1
+    }
+  ],
+  "historical_git_comparison": {
+    "first_sha": "4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
+    "last_sha": "8d630f148b0f2f0836c27add46f2a07987ac24ad",
+    "normalized_paragraphs_first": 75,
+    "normalized_paragraphs_last": 75,
+    "normalized_paragraphs_identical": 73,
+    "nonmatching_paragraph_types": [
+      "YAML/frontmatter",
+      "first interview introductory body paragraph carries <br/> markup in predecessor"
+    ],
+    "same_original_publisher_edition_authenticated": false,
+    "commit_timestamp_independent_notarization": false
+  },
+  "version_frame_comparison": {
+    "subject": "Ai Fen March 10 downstream editions; this is *not* authenticated publisher-original comparison",
+    "earlier": {
+      "source_id": "AF16",
+      "git_commit_sha": "4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
+      "text_title": "发哨子的人",
+      "credits": {
+        "writer": "龚菁琦",
+        "editor": "金石",
+        "photographer": "尹夕远"
+      },
+      "added_patriotic_lead": false
+    },
+    "later": {
+      "source_id": "AF17",
+      "capture_utc": "2020-03-10T13:50:52Z",
+      "capture_local": "2020-03-10T21:50:52+08:00",
+      "text_title_prefix": "吹哨子的人",
+      "displayed_authors": "龚菁琦 尹夕远",
+      "added_patriotic_lead": true,
+      "added_patriotic_lead_short": "我爱我的祖国。"
+    },
+    "within_interview_statement": "我不是吹哨人，我是那个发哨子的人",
+    "observation": "Role-label shift at the headline layer and redistribution of byline roles in an institutional republication; original editorial responsibility and motive unknown.",
+    "proof_boundary": "Timestamp applies to Wayback copy capture only; first WeChat title/edition bytes and whether the site edit was deliberate or automated remain unknown.",
+    "normative_hypothesis_not_measured": "An institution may reproduce a whistle-related testimony while modifying the public-facing designation of the speaker; assess whether this affects memory only with independent audience evidence."
+  },
+  "directive_evidence": [
+    {
+      "id": "DIR_20200207_SOURCE",
+      "purported_issue_date": "2020-02-07",
+      "action_type": "APPROVED_SOURCE_ONLY",
+      "reported_restriction_short": "李文亮去世一事只允许转载央视电视报道和央视新闻客户端内容",
+      "source_ids": [
+        "AF22",
+        "AF21"
+      ],
+      "first_accessible_dated_disclosure_in_register": "2026-06-22",
+      "publicly_verifiable_at_purported_issue_date_in_registered_sources": false,
+      "independent_original_memo_authenticated": false,
+      "execution_observed": false,
+      "scope": "LeTV-reported instruction about permissible sources when covering Li Wenliang's death, NOT a demonstrated universal ban at all media, nor a claim of actually removed articles",
+      "note": "Same Feb7 LeTV report as terminology restriction; do not treat two lines as independent original memos. Aimed at source selection/editorial reproduction and later publicly disclosed."
+    },
+    {
+      "id": "DIR_20200207_WORD",
+      "purported_issue_date": "2020-02-07",
+      "action_type": "TERM_AVOIDANCE",
+      "reported_restriction_short": "在各类报道中不使用“吹哨的人”这个概念",
+      "source_ids": [
+        "AF22",
+        "AF21"
+      ],
+      "first_accessible_dated_disclosure_in_register": "2026-06-22",
+      "independent_original_memo_authenticated": false,
+      "execution_observed": false,
+      "scope": "wording across reports, does not prove universal censorship of all whistleblower coverage",
+      "note": "LeTV corpus posted in 2026; item displayed as 2020 instruction. No publisher original file or issuance time verified.",
+      "publicly_verifiable_at_purported_issue_date_in_registered_sources": false
+    },
+    {
+      "id": "DIR_20200310_HOME",
+      "purported_issue_date": "2020-03-10",
+      "action_type": "HOMEPAGE_DEMOTION",
+      "reported_restriction_short": "涉发哨人，此类报道不上首页，如有请撤下",
+      "source_ids": [
+        "AF19",
+        "AF20",
+        "AF23"
+      ],
+      "first_accessible_dated_disclosure_in_register": "2020-12-11",
+      "independent_original_memo_authenticated": false,
+      "execution_observed": false,
+      "scope": "do not put this category of reports on homepage; if already on homepage, remove from homepage, not necessarily remove article URL from internet",
+      "target_url": "http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256&from=timeline&isappinstalled=0",
+      "note": "CDT says verified original collection, but researcher lacks original directive/issuer chain. Exact target URL matches AF17 canonical URL without query decoration; no obedience or causality claim.",
+      "publicly_verifiable_at_purported_issue_date_in_registered_sources": false
+    }
+  ],
+  "directive_provenance_caution": "Public-knowledge clock: directives are described as issued in Feb/Mar 2020 but recoverable editorial disclosure of Mar10 example is Dec 11, 2020, and LeTV wiki imported June 17 2026. Do not insert secret contents into a 2020-03-10 what-the-public-knew view. Nor count the LeTV index and CDT translation of the same wording as independent corroboration. Feb7 also contains source-selection exclusivity for reports on Li's death; its effect cannot be measured from the leaked text alone."
+}

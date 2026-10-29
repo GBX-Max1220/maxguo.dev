@@ -14,6 +14,9 @@ on:
       - 'src/components/Footer.astro'
       - 'src/layouts/BaseLayout.astro'
       - 'scripts/validate-critical-hub.mjs'
+      - 'research/critical-inquiry/ai-fen-2020/**'
+      - 'scripts/validate-ai-fen-research.mjs'
+      - 'scripts/audit-ai-fen-source-git.mjs'
       - 'package.json'
       - 'scripts/generate-non-answers-og.mjs'
       - 'scripts/check-non-answers-p13.mjs'
@@ -51,6 +54,11 @@ jobs:
 
       - name: Verify release-safe critical inquiry hub
         run: npm run test:critical-hub
+
+      - name: Validate research-only Ai Fen provenance and publication boundaries
+        run: |
+          node scripts/validate-ai-fen-research.mjs
+          node --check scripts/audit-ai-fen-source-git.mjs
 
       - name: Install Chromium for layout checks
         run: npx playwright install --with-deps chromium-headless-shell
