@@ -10,7 +10,7 @@
 
 请逐条独立判断：**网页可访问、来源归属与发表时间、文书内容、原子命题是否获得支持、反证/反例、史料不可知之处**。对于当天后来才公开的官方调查，不能填回较早“当时可知”视图。
 
-## A. 15份来源逐项核验
+## A. 16份来源逐项核验
 
 | 编号 | 公开时点（UTC+8） | 阅读入口 | 证据角色 | 第二人结论 |
 |---|---|---|---|---|
@@ -29,15 +29,16 @@
 | LW13 | 2020-01-31T19:35:00+08:00 | [原文](https://www.thepaper.cn/newsDetail_forward_5716857) | contemporaneous interview and attributed photograph of Li reprimand | 未复核 |
 | LW14 | 2020-03-19T19:04:01+08:00 | [原文](https://www.cls.cn/detail/461600) | contemporaneous short bulletin of supervisory findings and requested correction | 未复核 |
 | LW15 | 2020-03-19T20:55:00+08:00 | [原文](https://news.sina.cn/gn/2020-03-19/detail-iimxyqwa1770303.d.html) | Sina timestamped police-withdrawal syndication; original Weibo issue time **unverified** | 未复核 |
+| LW16 | 2020-01-01T18:53:00+08:00 | [原文](https://www.thepaper.cn/newsDetail_forward_5402905) | same-day eight-person police announcement, displayed press publication time; first Weibo issue unverified | 未复核 |
 
-**注意：** 共有9个来源关系组，不是15个独立事实观察。LW04/LW05/LW14来自同一次国家监委调查，区别仅在发布时点与信息量。LW10/LW02、LW15/LW11/LW06分别记录同一警方声明。
+**注意：** 共有9个来源关系组，不是16个独立事实观察。LW04/LW05/LW14来自同一次国家监委调查，区别仅在发布时点与信息量。LW10/LW02、LW15/LW11/LW06分别记录同一警方声明。
 
 ## B. 14条命题逐项审核
 
 | 编号 | 命题性质 | 引用来源 | 最重要的界限 | 第二人结论 |
 |---|---|---|---|---|
 | LWC01 | historical_actor_speech | LW04, LW08 | The virus was not SARS-CoV; the infection warning concerned a real emerging pneumonia cluster. Do not label all content fully true or false. | 未复核 |
-| LWC02 | official_public_classification | LW01 | Eight identities and all their messages not individually authenticated from Jan1 notice. | 未复核 |
+| LWC02 | official_public_classification | LW01, LW16 | Eight identities and all their messages not individually authenticated from Jan1 notice. | 未复核 |
 | LWC03 | event_confirmed_retrospectively | LW04, LW06, LW12, LW13 | Li discussed Jan3 admonition publicly Jan31; later March19 commission confirmed the procedure. Newsroom interview does not independently authenticate the raw original pol | 未复核 |
 | LWC04 | official_clarification | LW02 | Does not extinguish Li's actual written reprimand. | 未复核 |
 | LWC05 | official_investigative_finding | LW04, LW08 | Official finding not independent judicial verdict on all original messages. | 未复核 |
@@ -67,6 +68,8 @@
 **禁止**重传含普通人物的私人聊天截图、家庭住址或完整训诫照片。引用原采访的必要短句即可。
 
 ## E. 独立审阅签核
+
+**1月1日存档时间冲突：** 武汉市政府现存页面标示“2020-01-01 11:36”，网址路径却含202004；多家同期报道记述官方微博于1日下午发布，澎湃相关页面标18:53。**11:36不经早期版本认证不能用作原微博首次发布时间**；第二读者需分别核验页面时间与通报原本时间。
 
 **本轮新增专项复核：** 20:55新浪新闻原页面能否确认刊载时间？是否有原始平安武汉微博时间戳？是否存在后续编辑？未经版本级取证不得将20:55写作“原始微博首发时间”；两份同源转载不构成独立事实验证。
 
