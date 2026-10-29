@@ -45,6 +45,10 @@ try {
   assert.ok((await page.locator('#sources a').count())>0);
   await choose('2020-03-19 20:00');
   assert.ok((await page.locator('#sources').innerText()).includes('国家监委'));
+  await choose('2020-03-19 21:00');
+  assert.match(await page.locator('#known').innerText(),/20:55/,'police decision should be known by 21:00');
+  assert.ok((await page.locator('#sources a').allTextContents()).some(t=>t.includes('新浪')));
+  assert.ok(!(await page.locator('#sources').innerText()).includes('21:47'),'later repost cannot enter 21:00');
   await choose('2020-03-19 21:50');
   assert.ok((await page.locator('#known').innerText()).includes('撤销'));
   await checkpoint.selectOption({label:'2020-03-19'});
