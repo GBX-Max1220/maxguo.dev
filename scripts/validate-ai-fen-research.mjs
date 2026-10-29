@@ -8,8 +8,8 @@ const memo = fs.readFileSync(
   root + '/research/critical-inquiry/ai-fen-2020/RESEARCH_DECISION_V01.md','utf8');
 
 assert.equal(doc.status,'RESEARCH_PILOT_NO_ORIGINAL_EDITION_AUTHENTICATION');
-assert.equal(doc.sources.length,16,'expected 16 source records after Git file ancestry audit');
-assert.equal(doc.atomic_claims.length,12,'expected 12 bounded claims after source-version audit');
+assert.equal(doc.sources.length,18,'expected 18 records including Wayback and bibliographic archive leads');
+assert.equal(doc.atomic_claims.length,14,'expected 14 bounded claims after archive provenance audit');
 assert.ok(doc.sources.every(s=>s.id && s.url.startsWith('https://') && s.role && s.group && s.access && s.limit));
 assert.equal(new Set(doc.sources.map(s=>s.id)).size,doc.sources.length,'duplicate source IDs');
 assert.equal(new Set(doc.atomic_claims.map(c=>c.id)).size,doc.atomic_claims.length,'duplicate claim IDs');
@@ -56,6 +56,23 @@ assert.equal(history[0].path,'_posts/发哨子的人.md','follow renamed ancestr
 assert.equal(doc.historical_git_comparison.normalized_paragraphs_identical,73);
 assert.equal(doc.historical_git_comparison.same_original_publisher_edition_authenticated,false);
 assert.equal(doc.historical_git_comparison.commit_timestamp_independent_notarization,false);
+const archived=doc.sources.find(x=>x.id==='AF17');
+assert.equal(archived.archive_capture_utc,'2020-03-10T13:50:52Z');
+assert.equal(Date.parse(archived.archive_capture_local),Date.parse(archived.archive_capture_utc));
+assert.equal(archived.access,'WAYBACK_CAPTURE_DIRECT_HTML_TEXT_READABLE');
+const unverified=doc.sources.find(x=>x.id==='AF18');
+assert.match(unverified.access,/ARCHIVE_TARGET_FAILED/);
+assert.equal(doc.original_carriers.find(x=>x.id==='WX_ORIGINAL').archive_today_content_verified,false);
+const frames=doc.version_frame_comparison;
+assert.equal(frames.earlier.text_title,'发哨子的人');
+assert.equal(frames.later.text_title_prefix,'吹哨子的人');
+assert.equal(frames.earlier.added_patriotic_lead,false);
+assert.equal(frames.later.added_patriotic_lead,true);
+assert.equal(doc.atomic_claims.find(x=>x.id==='AFC13').status,'ARCHIVE_CAPTURE_OBSERVED_NOT_ORIGINAL_FIRST_EDITION');
+assert.equal(doc.atomic_claims.find(x=>x.id==='AFC14').status,'SECONDARY_ARCHIVE_LEAD_NOT_DIRECTLY_READABLE');
+assert.equal(doc.observations.find(x=>x.id==='EV06').evidence_level,
+  'VERIFIED_READABLE_THIRD_PARTY_ARCHIVE_CAPTURE_OF_REPRINT');
+
 assert.equal(doc.atomic_claims.find(x=>x.id==='AFC12').status,'REPOSITORY_HISTORY_VERIFIED_METADATA_NOT_ORIGINAL_PUBLISHER');
 
 
