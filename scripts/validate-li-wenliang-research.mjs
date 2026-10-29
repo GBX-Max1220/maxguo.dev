@@ -67,8 +67,17 @@ assert.equal(src.get('LW05').role,'contemporaneous editorially abridged news acc
 const march2000=evidence.public_asof.find(x=>x.id==='LW_ASOF_0319_2000');
 assert.ok(march2000.public_sources.includes('LW04'),'19:28 report visible at 20:00');
 assert.ok(!march2000.public_sources.includes('LW08')&&!march2000.public_sources.includes('LW11'),'20:07 QA or 21:47 withdrawal leaked to 20:00');
+const march2100=evidence.public_asof.find(x=>x.id==='LW_ASOF_0319_2100');
+assert.ok(march2100 && march2100.public_sources.includes('LW15'),'20:55 police revocation reporting visible by 21:00');
+assert.ok(!march2100.public_sources.includes('LW11') && !march2100.public_sources.includes('LW07'),'21:47 republication or 22:09 discipline must not enter 21:00');
+assert.ok(!march2000.public_sources.includes('LW15'),'20:55 revocation cannot enter 20:00');
+assert.equal(src.get('LW15').published_at_local,'2020-03-19T20:55:00+08:00');
+assert.equal(src.get('LW15').independence_group,src.get('LW11').independence_group,'same police revocation cannot count as separate factual corroboration');
+const policeWithdrawal=evidence.public_label_history.find(x=>x.id==='PL04');
+assert.equal(policeWithdrawal.public_at,'2020-03-19T20:55:00+08:00');
+assert.ok(policeWithdrawal.source_ids.includes('LW15'));
 const march2150=evidence.public_asof.find(x=>x.id==='LW_ASOF_0319_2150');
-assert.ok(march2150.public_sources.includes('LW11'),'21:47 formal withdrawal should be visible at 21:50');
+assert.ok(march2150.public_sources.includes('LW11')&&march2150.public_sources.includes('LW15'),'20:55 and 21:47 withdrawal reports should be visible at 21:50');
 assert.ok(!march2150.public_sources.includes('LW07'),'22:09 officer sanctions must be excluded at 21:50');
 const jan=evidence.public_asof.find(x=>x.cutoff_date==='2020-01-03');
 assert.ok(!jan.public_sources.includes('LW04')&&!jan.public_sources.includes('LW06'));
@@ -120,6 +129,8 @@ assert.equal(evidence.release_gates.G3_second_human_review,'HOLD');
 const sourceAudit=JSON.parse(fs.readFileSync(path.join(root,'research/critical-inquiry/li-wenliang-2020/SOURCE_ACCESS_AUDIT_V02.json'),'utf8'));
 assert.equal(sourceAudit.records.length,evidence.sources.length);
 assert.equal(sourceAudit.counts.readable,evidence.sources.length);
+assert.equal(evidence.sources.length,15,'current documented evidence version has 15 source records');
+assert.equal(evidence.public_asof.length,13,'current documented evidence version has 13 snapshots');
 assert.equal(sourceAudit.counts.independence_groups,new Set(evidence.sources.map(s=>s.independence_group)).size);
 for(const rec of sourceAudit.records){
  const source=src.get(rec.source_id);
@@ -130,6 +141,7 @@ for(const rec of sourceAudit.records){
 }
 assert.match(sourceAudit.records.find(x=>x.source_id==='LW05').evidence_limit,/ABRIDGED/);
 assert.match(sourceAudit.records.find(x=>x.source_id==='LW14').evidence_limit,/19:04:01/);
+assert.match(sourceAudit.records.find(x=>x.source_id==='LW15').evidence_limit,/20:55/);
 
 const protoPath=path.join(root,'research/critical-inquiry/prototypes/dual-asof-comparison-v01.html');
 const proto=fs.readFileSync(protoPath,'utf8');
@@ -138,6 +150,7 @@ assert.match(proto,/<html lang="zh-CN">/);
 assert.match(proto,/2020-03-19 19:10/);
 assert.match(proto,/2020-03-19 19:20/);
 assert.match(proto,/2020-03-19 20:00/);
+assert.match(proto,/2020-03-19 21:00/);
 assert.match(proto,/2020-03-19 21:50/);
 assert.match(proto,/2020-01-29 15:00/);
 assert.match(proto,/2020-01-31 12:00/);
