@@ -28,6 +28,8 @@ The action described, however, is **homepage demotion**. It is not proof that th
 
 CDT’s later publication of a [LeTV internal-moderation corpus](https://chinadigitaltimes.net/chinese/728404.html) includes an entry purportedly dated February 7, 2020 that advised avoiding the designation *吹哨的人* in reporting. The March 10 entry concerns homepage prominence for reporting about a *发哨人*.
 
+The same February 7 LeTV entry also reportedly allowed coverage of Li Wenliang’s death to be republished only from CCTV television or the CCTV News app. This is **approved-source selection**, a separate restriction on a different report—not evidence that all publishers complied, and not a directive specifically addressed to Ai Fen’s later interview.
+
 These should not be collapsed into a single “ban.” One is a reported **wording constraint**; the other, a reported **placement restriction**. We have no evidence that a particular editor changed the March interview title to follow either one. Indeed, the observed direction of the title change cannot be explained mechanically by the February wording instruction.
 
 Their relevance is more specific: authorities or platform managers, as described by the leaked documents, treated both **the label for a person** and **the visibility of their story** as matters for editorial governance. This makes both appropriate subjects for a critical and falsifiable inquiry.
