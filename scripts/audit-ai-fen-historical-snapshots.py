@@ -59,9 +59,38 @@ try:
 except requests.RequestException as exc:
  attempt["status"]="UNAVAILABLE_NOT_DISPROVEN"
  attempt["error"]=type(exc).__name__
+
+# Verify the previously indexed March 10 WeChat candidate and an early Terminus capture.
+# A 200 status alone is insufficient: inspect article text, not just the toolbar.
+extra_candidates=[
+ ("renwu_wechat_20200310225825", "https://web.archive.org/web/20200310225825/https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg"),
+ ("terminus_20200310135935", "https://web.archive.org/web/20200310135935/https://terminus2049.github.io/archive/2020/03/10/fa-shao-zi-de-ren.html"),
+ ("yyrw_20200311041923", "https://web.archive.org/web/20200311041923/http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256")
+]
+extra_checks=[]
+for key,link in extra_candidates:
+ item={"id":key,"candidate_capture_url":link,"status":"UNVERIFIED"}
+ try:
+  resp=session.get(link,timeout=(8,20))
+  item.update({"http_status":resp.status_code,"final_url":resp.url,"response_sha256":hashlib.sha256(resp.content).hexdigest()})
+  text=resp.text
+  item["evidence_indicators"]={
+   "title":"发哨子的人" in text,
+   "long_opening":"接到武汉市中心医院急诊科主任艾芬同意采访" in text,
+   "subject_self_description":"我不是吹哨人" in text,
+   "narrative_heading":"前所未有的训斥" in text,
+   "response_chars":len(text)
+  }
+  item["status"]="BODY_INDICATORS_PRESENT" if resp.status_code==200 and all(
+   item["evidence_indicators"][k] for k in ["title","long_opening","subject_self_description","narrative_heading"]
+  ) else "UNVERIFIED_OR_MISSING_BODY_INDICATORS"
+ except requests.RequestException as exc:
+  item.update({"status":"UNAVAILABLE_NOT_DISPROVEN","error":type(exc).__name__})
+ extra_checks.append(item)
+
 result={"schema_version":"1.0","checked_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),
  "authority":"Internet Archive endpoints, queried live; archived captures not authenticated unless page body was readable",
- "results":results,"known_candidate_capture":attempt,
+ "results":results,"known_candidate_capture":attempt,"other_captured_pages":extra_checks,
  "limits":["A CDX match is indexed capture metadata and does not automatically establish article-body text without opening a capture.",
  "A blocked CDX/available endpoint is not a zero-captures result.",
  "No date displayed by today's source page is converted into a 2020 first-publication claim.",
@@ -70,6 +99,7 @@ p=pathlib.Path(".astro/ai-fen-history/wayback-check.json");p.parent.mkdir(parent
 p.write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
 print("WAYBACK_AUDIT_SUMMARY_BEGIN")
 print(json.dumps({"known_candidate":attempt,
+ "other_captures":[{"id":x["id"],"status":x["status"],"http_status":x.get("http_status"),"evidence_indicators":x.get("evidence_indicators")} for x in extra_checks],
  "queries":[{"id":a["id"],"results":[{"endpoint":z["endpoint"],"http_status":z.get("http_status"),
  "reported_capture":z.get("reported_capture"),"records_after_header":z.get("records_after_header"),
  "error":z.get("error")} for z in a["attempts"]]} for a in results]},ensure_ascii=False))
