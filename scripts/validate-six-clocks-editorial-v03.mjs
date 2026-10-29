@@ -69,6 +69,17 @@ assert.match(e,/not independently reviewed or published/);
 assert.match(audit,/G3 INDEPENDENT HUMAN REVIEW:\*\* \*\*HOLD/);
 assert.match(audit,/G4 RIGHTS\/PRIVACY\/TRANSLATION:\*\* \*\*HOLD/);
 assert.match(audit,/G6 EDITORIAL APPROVAL:\*\* \*\*HOLD/);
+const reviewPack=read('research/critical-inquiry/li-wenliang-2020/INDEPENDENT_REVIEW_PACK_V06_20261030.md');
+// Human handoff must not reintroduce earlier archive-time and source-order mistakes.
+for(const id of Array.from({length:16},(_,i)=>'LW'+String(i+1).padStart(2,'0')))
+ assert.ok(reviewPack.includes('| '+id+' |'),'missing human review source row: '+id);
+for(const id of ['SH-R1','SH-R2','SH-R3','SH-R4','SH-R5'])
+ assert.ok(reviewPack.includes('| '+id+' |'),'missing Shanghai independent review item: '+id);
+assert.ok(reviewPack.includes('原微博首发时刻未知'),'LW01 archive stamp falsely implies original release time');
+assert.ok(reviewPack.includes('later than LW15 20:55'),'LW11 must not be called earliest revocation copy');
+assert.ok(reviewPack.includes('两批**计划上重叠2小时**'),'Shanghai plans incorrectly presented as strictly disjoint');
+assert.ok(reviewPack.includes('0/14 Li原子命题、0/5 上海问题'),'second-human signoffs must not be invented');
+assert.ok(reviewPack.includes('G3 HOLD')&&reviewPack.includes('G4 HOLD')&&reviewPack.includes('G6 HOLD'));
 assert.equal(evidence.sources.length,16);
 assert.equal(new Set(evidence.sources.map(s=>s.independence_group)).size,9);
 assert.equal(evidence.public_asof.length,13);
