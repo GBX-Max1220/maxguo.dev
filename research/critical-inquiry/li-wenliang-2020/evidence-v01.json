@@ -15,7 +15,8 @@
       "role": "retrospectively archived municipal copy of Jan 1 police label, displays 11:36 but original edition/timing not authenticated",
       "note": "Municipal page carries Jan 1 11:36 publication label despite archive URL containing 202004; content reports 8 'handled' without individual identity list.",
       "independence_group": "wuhan_police_eight_jan1",
-      "caution": "Municipal URL has 2020/04 archive path; displayed '2020-01-01 11:36' conflicts with same-day press description of afternoon police Weibo post. Do not use 11:36 as independently authenticated contemporaneous police release time."
+      "caution": "Municipal URL has 2020/04 archive path; displayed '2020-01-01 11:36' conflicts with same-day press description of afternoon police Weibo post. Do not use 11:36 as independently authenticated contemporaneous police release time. The archive page is a retrospective witness, not date-authenticated as an available public webpage on Jan 1; exclude from Jan1–Mar19 as-of sets, while same-day LW16 anchors the police bulletin.",
+      "excluded_from_historical_public_asof": true
     },
     {
       "id": "LW02",
@@ -283,7 +284,6 @@
       "id": "LW_ASOF_0101",
       "cutoff_date": "2020-01-01",
       "public_sources": [
-        "LW01",
         "LW16"
       ],
       "publicly_documented": "Police described eight unnamed people as having been handled for false information.",
@@ -293,7 +293,6 @@
       "id": "LW_ASOF_0103",
       "cutoff_date": "2020-01-03",
       "public_sources": [
-        "LW01",
         "LW16"
       ],
       "publicly_documented": "Public police notice about eight exists; Jan3 police encounter later reconstructed by March19 investigation.",
@@ -304,7 +303,6 @@
       "cutoff_date": "2020-01-29",
       "cutoff_local": "2020-01-29T15:00:00+08:00",
       "public_sources": [
-        "LW01",
         "LW09",
         "LW10",
         "LW16"
@@ -317,7 +315,6 @@
       "id": "LW_ASOF_0129",
       "cutoff_date": "2020-01-29",
       "public_sources": [
-        "LW01",
         "LW02",
         "LW09",
         "LW10",
@@ -332,7 +329,6 @@
       "cutoff_local": "2020-01-31T12:00:00+08:00",
       "label": "1月31日12:00",
       "public_sources": [
-        "LW01",
         "LW02",
         "LW09",
         "LW10",
@@ -348,7 +344,6 @@
       "cutoff_local": "2020-01-31T20:00:00+08:00",
       "label": "1月31日20:00",
       "public_sources": [
-        "LW01",
         "LW02",
         "LW09",
         "LW10",
@@ -363,7 +358,6 @@
       "id": "LW_ASOF_0207",
       "cutoff_date": "2020-02-07",
       "public_sources": [
-        "LW01",
         "LW02",
         "LW03",
         "LW09",
@@ -381,7 +375,6 @@
       "cutoff_local": "2020-03-19T19:10:00+08:00",
       "label": "3月19日19:10",
       "public_sources": [
-        "LW01",
         "LW02",
         "LW03",
         "LW09",
@@ -400,7 +393,6 @@
       "cutoff_local": "2020-03-19T19:20:00+08:00",
       "label": "3月19日19:20",
       "public_sources": [
-        "LW01",
         "LW02",
         "LW03",
         "LW05",
@@ -419,7 +411,6 @@
       "cutoff_date": "2020-03-19",
       "cutoff_local": "2020-03-19T20:00:00+08:00",
       "public_sources": [
-        "LW01",
         "LW02",
         "LW03",
         "LW04",
@@ -440,7 +431,6 @@
       "cutoff_date": "2020-03-19",
       "cutoff_local": "2020-03-19T21:00:00+08:00",
       "public_sources": [
-        "LW01",
         "LW02",
         "LW03",
         "LW04",
@@ -460,7 +450,6 @@
       "cutoff_date": "2020-03-19",
       "cutoff_local": "2020-03-19T21:50:00+08:00",
       "public_sources": [
-        "LW01",
         "LW02",
         "LW03",
         "LW04",
@@ -483,7 +472,6 @@
       "id": "LW_ASOF_0319",
       "cutoff_date": "2020-03-19",
       "public_sources": [
-        "LW01",
         "LW02",
         "LW03",
         "LW04",
@@ -742,7 +730,8 @@
     "calendar_snapshots": "date end 23:59:59+08:00",
     "intraday_snapshots": "published_at_local when verified, otherwise exclude undated-hour sources until end of publication day",
     "first_publication": "Displayed page publication times may not date original issuers or editions. Municipal archive 11:36 on Jan1 conflicts with contemporaneous afternoon-Weibo reportage; 18:53 same-day press copy currently anchored.",
-    "historical_knowledge": "publicly available by cutoff, not necessarily seen or believed by all"
+    "historical_knowledge": "publicly available by cutoff, not necessarily seen or believed by all",
+    "archive_exclusion": "Sources with excluded_from_historical_public_asof=true are retrospective archived copies without authenticated online availability at the purported historical cutoff; keep them in provenance, but exclude from all contemporaneous public-as-of snapshots."
   },
   "public_label_history": [
     {
