@@ -7,6 +7,7 @@ on:
       - 'docs/critical-inquiry/AI_FEN_SOURCE_AUDIT_V01_20261030.md'
       - 'research/critical-inquiry/ai-fen/**'
       - 'scripts/validate-ai-fen-source-audit.mjs'
+      - 'scripts/audit-ai-fen-cross-site.py'
       - '.github/workflows/ai-fen-source-audit.yml'
   workflow_dispatch:
 
@@ -26,3 +27,25 @@ jobs:
           node-version: '22'
       - name: Validate evidence ledger and publication boundary
         run: node scripts/validate-ai-fen-source-audit.mjs
+
+  compare-current-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Parser dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Compare currently accessible derivative copies
+        run: python scripts/audit-ai-fen-cross-site.py --out .astro/ai-fen-cross-site/summary.json
+      - name: Upload aggregate fingerprint comparison
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-fen-current-derivative-comparison
+          path: .astro/ai-fen-cross-site/summary.json
+          if-no-files-found: warn
+          retention-days: 14
