@@ -22,7 +22,7 @@ A news report displayed at **23:21 on March 22** described a circulating claim t
 
 “Shanghai will all shut down for seven days,” “the entire city will shut down for four days,” and “different parts of the city will face sequential four-day restrictions” are different propositions.
 
-The March 27 official notice established a two-phase plan divided by the Huangpu River. Later extensions changed the policy's implementation, but they did not retroactively verify every detail of the earlier accounts.
+The March 27 official notice set out **planned** restrictions for Pudong, southern Shanghai and adjacent districts from **March 28, 05:00 to April 1, 05:00**, and for Puxi from **April 1, 03:00 to April 5, 03:00**. The stated phases therefore **overlapped by two hours**. The notice also said that Puxi's existing high-priority restricted areas would remain under controls during the first phase. This was a geographically phased plan, **not two strictly non-overlapping, citywide four-day blocks**. Later extensions changed implementation, but did not retroactively verify every detail of the earlier accounts.
 
 Assess the **start date, geography, duration, degree of certainty, and purported source** of each precise claim before attempting to classify its accuracy.
 
