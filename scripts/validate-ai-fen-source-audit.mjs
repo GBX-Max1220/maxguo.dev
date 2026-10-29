@@ -7,6 +7,8 @@ const ledgerPath='research/critical-inquiry/ai-fen/source-audit-v01.json';
 const memoPath='docs/critical-inquiry/AI_FEN_SOURCE_AUDIT_V01_20261030.md';
 const ledger=JSON.parse(fs.readFileSync(path.join(root,ledgerPath),'utf8'));
 const memo=fs.readFileSync(path.join(root,memoPath),'utf8');
+const diffPath='research/critical-inquiry/ai-fen/terminus-version-diff-v01.json';
+const diff=JSON.parse(fs.readFileSync(path.join(root,diffPath),'utf8'));
 const knownStatuses=new Set([
  'DIRECTLY_READ_CURRENT_PAGE',
  'CONTEMPORANEOUS_REPORT',
@@ -38,6 +40,11 @@ for(const c of ledger.claims){
 assert.ok(ledger.sources.find(s=>s.id==='AF06'&&s.status==='ORIGINAL_SOURCE_NOT_OBTAINED'));
 assert.ok(ledger.sources.find(s=>s.id==='AF08'&&s.status==='GITHUB_COMMIT_PROVENANCE'&&s.github_signature_verified===true),'signed repository timestamp must be retained');
 assert.ok(ledger.claims.find(c=>c.id==='AF-C08'&&c.status==='SUPPORTED_BY_SIGNED_GITHUB_COMMIT_METADATA'),'repository timestamp claim missing');
+assert.equal(diff.status,'PRELIMINARY_REPRODUCIBLE_INTRA_REPOSITORY_DIFF');
+assert.equal(diff.sources[0].line_count,201);
+assert.equal(diff.sources[1].line_count,195);
+assert.equal(diff.method.lcs_exact_matching_lines,179);
+assert.ok(diff.inference_limits.some(x=>x.includes('does not compare Terminus against the yyrw.org.cn version')));
 assert.ok(ledger.sources.find(s=>s.id==='AF05'&&s.type==='PEER_REVIEWED_PRIOR_WORK'));
 assert.ok(ledger.claims.find(c=>c.id==='AF-C04'&&c.status==='NOT_ESTABLISHED'),'must not infer historical availability from displayed date');
 assert.ok(ledger.claims.find(c=>c.id==='AF-C05'&&c.status==='NOT_ESTABLISHED'),'must not infer exemption/intent from affiliation');
