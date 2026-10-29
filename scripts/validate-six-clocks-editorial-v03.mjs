@@ -80,6 +80,14 @@ assert.ok(reviewPack.includes('later than LW15 20:55'),'LW11 must not be called 
 assert.ok(reviewPack.includes('两批**计划上重叠2小时**'),'Shanghai plans incorrectly presented as strictly disjoint');
 assert.ok(reviewPack.includes('0/14 Li原子命题、0/5 上海问题'),'second-human signoffs must not be invented');
 assert.ok(reviewPack.includes('G3 HOLD')&&reviewPack.includes('G4 HOLD')&&reviewPack.includes('G6 HOLD'));
+const feb7=evidence.sources.find(x=>x.id==='LW03');
+assert.equal(feb7.contemporaneous_crosscheck.url,
+ 'https://wenhui.whb.cn/zhuzhan/rd/20200207/321600.html');
+assert.equal(feb7.contemporaneous_crosscheck.reported_official_website_time_local,
+ '2020-02-07T03:57:55+08:00');
+assert.match(feb7.contemporaneous_crosscheck.scope,/NOT authenticated archived first-edition/);
+assert.ok(reviewPack.includes('2020-02-07 08:41:12'),'missing independent same-day publication crosscheck');
+assert.ok(reviewPack.includes('不同于LW01'),'dangerous false equivalence between Feb7 and Jan1 archive pages');
 assert.equal(evidence.sources.length,16);
 assert.equal(new Set(evidence.sources.map(s=>s.independence_group)).size,9);
 assert.equal(evidence.public_asof.length,13);
