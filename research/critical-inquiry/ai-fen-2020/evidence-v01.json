@@ -159,6 +159,16 @@
       "group": "interview_text_replication",
       "access": "READABLE",
       "limit": "Explicitly downstream from Notion/Douban, not independent interview or first-edition source; display date cannot certify exact 3/10 start minute."
+    },
+    {
+      "id": "AF14",
+      "url": "https://journals.sagepub.com/doi/10.1177/01634437231219132",
+      "publisher": "Xiaoping Wu / Media, Culture & Society",
+      "display_date": "2024-01-06",
+      "role": "peer-reviewed prior research on creative textual, multimodal and technically encoded retransmissions of same interview",
+      "group": "peer_reviewed_creative_resistance_study",
+      "access": "ABSTRACT_AND_METADATA_READABLE",
+      "limit": "Existing prior art specifically covers formal classifications of transformed versions; do not present this typology as an original empirical discovery from this pilot."
     }
   ],
   "observations": [
@@ -316,6 +326,16 @@
       ],
       "status": "INDEX_OBSERVATION_ONLY",
       "caution": "Index metadata does not authenticate archive object bytes or its exact creation timestamp."
+    },
+    {
+      "id": "AFC10",
+      "kind": "prior_art_scoping",
+      "claim": "A second peer-reviewed article already studies three classes of creative relay strategies for this interview on WeChat",
+      "source_ids": [
+        "AF14"
+      ],
+      "status": "PUBLISHED_PRIOR_ART_ABSTRACT",
+      "caution": "This pilot should not claim novelty merely for cataloguing reversed, translated, multimodal or encoded repost formats."
     }
   ],
   "source_relations": [
@@ -366,5 +386,5 @@
     "G6_publication": "HOLD"
   },
   "privacy": "No copied unredacted chat logs, patients' reports, private family identifiers or full copyrighted interview text. Public URLs only; no private screenshots.",
-  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases."
+  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases. Wu (2024) also identifies textual, multimodal and technically encoded relay tactics. Avoid repackaging these findings; prioritize source-version attestation and labeled-actor conflation with cross-case corrections."
 }
