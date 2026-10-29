@@ -12,7 +12,9 @@
     "PEER_REVIEWED_PRIOR_WORK",
     "LINK_IDENTIFIED_ACCESS_BLOCKED",
     "ORIGINAL_SOURCE_NOT_OBTAINED",
-    "GITHUB_COMMIT_PROVENANCE"
+    "GITHUB_COMMIT_PROVENANCE",
+    "HISTORICAL_BODY_CAPTURE",
+    "HISTORICAL_UNAVAILABLE_NOTICE"
   ],
   "sources": [
     {
@@ -193,6 +195,58 @@
       "limitations": [
         "This establishes the association's listing on the 2023 page, not the yyrw site's legal ownership, editorial control, or specific 2020 relationship to the article."
       ]
+    },
+    {
+      "id": "AF10",
+      "title": "Wayback 2020-03-10 yyrw.org.cn archived full interview",
+      "url": "https://web.archive.org/web/20200310135052/http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256",
+      "type": "DATED_ARCHIVED_DERIVATIVE_BODY",
+      "status": "HISTORICAL_BODY_CAPTURE",
+      "independence_group": "yyrw_interview_copy",
+      "wayback_capture_utc": "2020-03-10T13:50:52Z",
+      "observations": [
+        "Historic HTML capture returned HTTP 200 and had the interview title and opening.",
+        "Normalization of the recovered interview body matches 199/200 sentence units with the currently accessible yyrw body."
+      ],
+      "limitations": [
+        "The capture timestamp is not first publishing time.",
+        "The page is a derivative republisher, not the original Renwu WeChat publication.",
+        "Archived body does not imply regulatory exemption or state authorization."
+      ]
+    },
+    {
+      "id": "AF11",
+      "title": "Wayback 2020-03-10 original Renwu WeChat URL captured unavailable notice",
+      "url": "https://web.archive.org/web/20200310225825/https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg",
+      "type": "DATED_ORIGINAL_URL_UNAVAILABLE_PAGE",
+      "status": "HISTORICAL_UNAVAILABLE_NOTICE",
+      "independence_group": "renwu_original_url_status",
+      "wayback_capture_utc": "2020-03-10T22:58:25Z",
+      "observations": [
+        "The archived page displays '此内容因违规无法查看' and a complaint/regulation notice.",
+        "The archived page does not contain the interview title and substantive interview text."
+      ],
+      "limitations": [
+        "HTTP 200 describes the error/status page, not an accessible first-edition article.",
+        "Does not establish when removal initially occurred or who ordered it.",
+        "Original first-publication content remains unauthenticated."
+      ]
+    },
+    {
+      "id": "AF12",
+      "title": "Wayback 2020-03-10 Terminus archive HTML",
+      "url": "https://web.archive.org/web/20200310135935/https://terminus2049.github.io/archive/2020/03/10/fa-shao-zi-de-ren.html",
+      "type": "DATED_ARCHIVED_DERIVATIVE_BODY",
+      "status": "HISTORICAL_BODY_CAPTURE",
+      "independence_group": "terminus_repository_history",
+      "wayback_capture_utc": "2020-03-10T13:59:35Z",
+      "observations": [
+        "Wayback returns archived HTML that contains the article title, opening, first-person self-description and section heading."
+      ],
+      "limitations": [
+        "Separate from original Renwu URL and platform action.",
+        "Does not prove the archive page is first online copy."
+      ]
     }
   ],
   "claims": [
@@ -312,6 +366,44 @@
         "AF03"
       ],
       "limit": "A small editorial terminology/format difference cannot establish a specific censorship or administrative instruction."
+    },
+    {
+      "id": "AF-C13",
+      "claim": "An Internet Archive capture dated 2020-03-10 13:50:52 UTC preserves the article body at the yyrw URL.",
+      "status": "SUPPORTED_BY_DATED_BODY_CAPTURE",
+      "source_ids": [
+        "AF10"
+      ],
+      "limit": "Not the original Renwu first edition or a proof of a censorship exemption."
+    },
+    {
+      "id": "AF-C14",
+      "claim": "A capture of the Renwu WeChat URL dated 2020-03-10 22:58:25 UTC serves an unavailable-content notice citing complaints and regulation, not the article body.",
+      "status": "SUPPORTED_BY_DATED_UNAVAILABLE_NOTICE",
+      "source_ids": [
+        "AF11"
+      ],
+      "limit": "Does not time the original removal moment or identify the responsible actor."
+    },
+    {
+      "id": "AF-C15",
+      "claim": "The 2020-03-10 yyrw body and current yyrw body agree in 199/200 normalized sentence-like units; current copy expands 市卫健委 to 市卫生健康委.",
+      "status": "SUPPORTED_BY_HISTORIC_CURRENT_NORMALIZED_DIFF",
+      "source_ids": [
+        "AF10",
+        "AF03"
+      ],
+      "limit": "Exact edit time/agent/motive not established and raw HTML bytes differ."
+    },
+    {
+      "id": "AF-C16",
+      "claim": "A Wayback capture dated 2020-03-10 13:59:35 UTC contains Terminus' article text.",
+      "status": "SUPPORTED_BY_DATED_BODY_CAPTURE",
+      "source_ids": [
+        "AF12",
+        "AF08"
+      ],
+      "limit": "Independent archived copy, not the missing original."
     }
   ],
   "research_gates": [
@@ -328,7 +420,7 @@
     {
       "id": "G2",
       "name": "Acquire authenticated historical snapshots of original and derivative pages",
-      "status": "OPEN"
+      "status": "PARTIAL_2020_DERIVATIVE_BODIES_VERIFIED_ORIGINAL_BYTES_MISSING"
     },
     {
       "id": "G3",
@@ -343,7 +435,7 @@
     {
       "id": "G5",
       "name": "Review Sun & Wright methods/data for novelty boundary",
-      "status": "OPEN"
+      "status": "CORE_METHOD_AND_FINDINGS_REVIEWED_NOT_REPRODUCED"
     },
     {
       "id": "G6",
@@ -351,7 +443,7 @@
       "status": "NOT_STARTED"
     }
   ],
-  "decision": "CONTINUE_ONE_BOUNDED_SOURCE_AND_VERSION_AUDIT; DO_NOT_CREATE_PUBLIC_PAGE_YET",
+  "decision": "CONTINUE_BOUNDED_HISTORICAL_PROVENANCE_INTERPRETATION; NO_PUBLIC_ARTICLE_YET",
   "stop_condition": "If no authenticated temporal evidence or distinct version-provenance finding emerges beyond existing relay-activism literature, stop as a standalone article and reuse only as a methods appendix or case note.",
   "cross_site_comparison": {
     "report": "research/critical-inquiry/ai-fen/cross-site-comparison-v01.json",
@@ -361,5 +453,14 @@
     "non_equal_blocks": 2,
     "conclusion": "CURRENT_DERIVATIVES_VERY_SIMILAR_AT_BODY_LEVEL; PAGE_WRAPPERS_DIFFER",
     "caution": "No authenticated yyrw historical availability timestamp, no source platform deletion log."
+  },
+  "historical_capture_comparison": {
+    "report": "research/critical-inquiry/ai-fen/historical-captures-v01.json",
+    "workflow_run_id": 40957086391,
+    "status": "TWO_DERIVATIVE_2020_BODIES_AND_ORIGINAL_UNAVAILABLE_NOTICE_VERIFIED",
+    "capture_yyrw_utc": "2020-03-10T13:50:52Z",
+    "capture_original_unavailable_utc": "2020-03-10T22:58:25Z",
+    "current_historic_yyrw_equal_units": 199,
+    "units": 200
   }
 }
