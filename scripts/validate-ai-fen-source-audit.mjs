@@ -40,6 +40,8 @@ for(const c of ledger.claims){
 assert.ok(ledger.sources.find(s=>s.id==='AF06'&&s.status==='ORIGINAL_SOURCE_NOT_OBTAINED'));
 assert.ok(ledger.sources.find(s=>s.id==='AF08'&&s.status==='GITHUB_COMMIT_PROVENANCE'&&s.github_signature_verified===true),'signed repository timestamp must be retained');
 assert.ok(ledger.claims.find(c=>c.id==='AF-C08'&&c.status==='SUPPORTED_BY_SIGNED_GITHUB_COMMIT_METADATA'),'repository timestamp claim missing');
+assert.ok(ledger.sources.find(s=>s.id==='AF09'&&s.type==='OFFICIAL_ORGANIZATIONAL_LIST'),'official NHC list source missing');
+assert.ok(ledger.claims.find(c=>c.id==='AF-C10'&&c.status==='SUPPORTED_BY_OFFICIAL_2023_LIST'),'time-bounded NHC listing claim missing');
 assert.equal(diff.status,'PRELIMINARY_REPRODUCIBLE_INTRA_REPOSITORY_DIFF');
 assert.equal(diff.sources[0].line_count,201);
 assert.equal(diff.sources[1].line_count,195);
