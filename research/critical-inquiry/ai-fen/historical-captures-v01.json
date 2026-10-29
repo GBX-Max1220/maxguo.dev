@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "checked_on": "2026-10-30",
+  "workflow_run_id": 40957086391,
+  "workflow_run_url": "https://github.com/GBX-Max1220/maxguo.dev/actions/runs/40957086391",
+  "check_mode": "WAYBACK_LIVE_RETRIEVAL_AND_BODY_INDICATOR_INSPECTION",
+  "records": [
+    {
+      "id": "AH01",
+      "target": "yyrw.org.cn",
+      "snapshot_url": "https://web.archive.org/web/20200310135052/http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256",
+      "wayback_capture_utc": "2020-03-10T13:50:52Z",
+      "beijing_time": "2020-03-10T21:50:52+08:00",
+      "http_status": 200,
+      "contains_article_title": true,
+      "contains_long_opening": true,
+      "contains_subject_and_section_anchors": true,
+      "body_status": "ARCHIVED_INTERVIEW_BODY_READABLE",
+      "limits": "A verified historical archive capture of this derivative page. Does not prove first publication minute, original editorial authorization or protection from censorship."
+    },
+    {
+      "id": "AH02",
+      "target": "Terminus2049 static archive",
+      "snapshot_url": "https://web.archive.org/web/20200310135935/https://terminus2049.github.io/archive/2020/03/10/fa-shao-zi-de-ren.html",
+      "wayback_capture_utc": "2020-03-10T13:59:35Z",
+      "beijing_time": "2020-03-10T21:59:35+08:00",
+      "http_status": 200,
+      "contains_article_title": true,
+      "contains_long_opening": true,
+      "contains_subject_and_section_anchors": true,
+      "body_status": "ARCHIVED_INTERVIEW_BODY_READABLE",
+      "limits": "Historic derivative copy; separate from signed 13:23 China-time GitHub archive commit."
+    },
+    {
+      "id": "AH03",
+      "target": "Original Renwu WeChat URL",
+      "snapshot_url": "https://web.archive.org/web/20200310225825/https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg",
+      "wayback_capture_utc": "2020-03-10T22:58:25Z",
+      "beijing_time": "2020-03-11T06:58:25+08:00",
+      "http_status": 200,
+      "contains_article_title": false,
+      "contains_long_opening": false,
+      "contains_subject_and_section_anchors": false,
+      "body_status": "ARCHIVED_WECHAT_UNAVAILABLE_NOTICE",
+      "observed_notice": "此内容因违规无法查看",
+      "observed_note": "接相关投诉，此内容违反《互联网用户公众帐号信息服务管理规定》",
+      "limits": "HTTP 200 reflects the captured notice page, not a surviving original article. Demonstrates the original URL was serving a complaint/regulation-related unavailability notice at the captured time, not when it was first taken down or by whom."
+    },
+    {
+      "id": "AH04",
+      "target": "yyrw.org.cn follow-up",
+      "snapshot_url": "https://web.archive.org/web/20200311041923/http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256",
+      "wayback_capture_utc": "2020-03-11T04:19:23Z",
+      "beijing_time": "2020-03-11T12:19:23+08:00",
+      "http_status": 200,
+      "contains_article_title": true,
+      "contains_long_opening": true,
+      "contains_subject_and_section_anchors": true,
+      "body_status": "ARCHIVED_INTERVIEW_BODY_READABLE",
+      "limits": "Later confirmed capture; not first yyrw publication timestamp."
+    }
+  ],
+  "historic_yyrw_vs_current": {
+    "compare_script": "scripts/audit-ai-fen-historical-snapshots.py",
+    "normalized": "NFKC; whitespace removed; quote variants unified; Chinese sentence segmentation",
+    "historic_sha256": "b5784f0b26ebafe730346268c8880efbe4400b6d52529d7fd677a249a281b907",
+    "current_sha256": "e429356875aa0eadb9cf35fdc91c6223387a8810fb6d6360683dcefc5c4d5560",
+    "historic_units": 200,
+    "current_units": 200,
+    "equal_units": 199,
+    "difference_blocks": 1,
+    "difference": {
+      "id": "AH-D01",
+      "historic_phrase": "市卫健委",
+      "current_phrase": "市卫生健康委",
+      "description": "The current copy expands two characters in the government-agency name; this is the only normalized sentence-level difference detected in this comparison.",
+      "limit": "A website text edit took place at some point between the 2020 capture and the current page, but the exact edit time, agent, and motivation are not established."
+    }
+  },
+  "strongest_supported_inferences": [
+    "By the Wayback capture labeled 2020-03-10 13:50:52 UTC, a readable yyrw derivative copy was preserved.",
+    "By 2020-03-10 22:58:25 UTC, the archived original WeChat URL showed a content-unavailable notice, not the interview.",
+    "The current yyrw normalized interview text closely matches its archived March 10, 2020 text (199/200 sentence units), aside from a minor agency name expansion."
+  ],
+  "not_supported": [
+    "The yyrw copy enjoyed any explicit state censorship exemption.",
+    "The original Renwu post was deleted at precisely the archived timestamp.",
+    "The archival error page proves the identity of the initial censor or order issuing authority.",
+    "The current yyrw article is byte-for-byte identical to its 2020 captured webpage.",
+    "This comparison authenticates the deleted first edition of the original Renwu post."
+  ]
+}
