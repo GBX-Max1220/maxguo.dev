@@ -1,0 +1,66 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+
+const root=process.cwd();
+const read=p=>fs.readFileSync(root+'/'+p,'utf8');
+const z=read('research/critical-inquiry/editorial/six-clocks-zh-v03-freeze-candidate.md');
+const e=read('research/critical-inquiry/editorial/six-clocks-en-v03-freeze-candidate.md');
+const audit=read('research/critical-inquiry/editorial/SIX_CLOCKS_FINAL_EDITORIAL_ADJUDICATION_V03_20261030.md');
+const evidence=JSON.parse(read('research/critical-inquiry/li-wenliang-2020/evidence-v01.json'));
+const sixSections=(text,re)=>[...text.matchAll(re)].map(x=>x[1]);
+assert.deepEqual(sixSections(z,/^## 第([一二三四五六])只时钟：/gm),['一','二','三','四','五','六']);
+assert.deepEqual(sixSections(e,/^## ([1-6])\. The clock of/gm),['1','2','3','4','5','6']);
+
+const pairedEvidence=[
+ ['Shanghai early denial',/3月22日晚已出现媒体转述的权威辟谣/,/March 22, 23:21 press report/],
+ ['Shanghai government statement',/08:10:40/,/08:10:40/],
+ ['Shanghai police press time',/17:59:14/,/17:59:14/],
+ ['January archive caveat',/11:36/,/11:36/],
+ ['January first same-day republication',/18:53/,/18:53/],
+ ['March 19 police revocation',/20:55/,/20:55/],
+ ['March 19 officer discipline',/22:09/,/22:09/],
+ ['Jiemian later edit',/19:58更新/,/19:58 update/],
+];
+for(const [name,zh,en] of pairedEvidence){
+ assert.match(z,zh,'Chinese candidate missing: '+name);
+ assert.match(e,en,'English candidate missing: '+name);
+}
+const links=text=>[...text.matchAll(/\]\((https?:\/\/[^)]+)\)/g)].map(x=>x[1]);
+const a=links(z),b=links(e);
+for(const [lang,urls] of [['Chinese',a],['English',b]]){
+ assert.ok(new Set(urls).size>=26,'insufficient public source anchors in '+lang);
+ for(const url of urls) assert.ok(url.startsWith('https://'),'non-HTTPS source URL');
+}
+const essential=[
+ 'https://news.sina.com.cn/o/2022-03-22/doc-imcwipih9980616.shtml',
+ 'https://www.xinhuanet.com/politics/2022-03/23/c_1128494505.htm',
+ 'https://www.yicai.com/news/101358444.html',
+ 'https://www.shanghai.gov.cn/sjzccs/20220327/613eda924f814a4ab4b25642f0e668c5.html',
+ 'https://www.xinhuanet.com/local/2022-03/31/c_1128521854.htm',
+ 'https://www.shanghai.gov.cn/nw9820/20220326/62e454513fbf4b37a48d9b9d769887ef.html',
+ 'https://www.thepaper.cn/newsDetail_forward_17315665',
+ 'https://www.thepaper.cn/newsDetail_forward_5402905',
+ 'https://www.xinhuanet.com/politics/2020-03/19/c_1125737457.htm',
+ 'https://news.sina.cn/gn/2020-03-19/detail-iimxyqwa1770303.d.html',
+ 'https://www.xinhuanet.com/politics/2020-03/19/c_1125737967.htm'
+];
+for(const url of essential){
+ assert.ok(a.includes(url),'missing key source in Chinese candidate: '+url);
+ assert.ok(b.includes(url),'missing key source in English candidate: '+url);
+}
+assert.ok(!z.includes('官方开始公开定性的时间'),'known March22/23 ambiguity regressed');
+assert.ok(!e.includes('first public denial on March 23'),'known March22/23 ambiguity regressed');
+assert.match(z,/未经独立人类复核，未发布/);
+assert.match(e,/not independently reviewed or published/);
+assert.match(audit,/G3 INDEPENDENT HUMAN REVIEW:\*\* \*\*HOLD/);
+assert.match(audit,/G4 RIGHTS\/PRIVACY\/TRANSLATION:\*\* \*\*HOLD/);
+assert.match(audit,/G6 EDITORIAL APPROVAL:\*\* \*\*HOLD/);
+assert.equal(evidence.sources.length,16);
+assert.equal(new Set(evidence.sources.map(s=>s.independence_group)).size,9);
+assert.equal(evidence.public_asof.length,13);
+assert.equal(evidence.atomic_claims.length,14);
+assert.equal(evidence.release_gates.G3_second_human_review,'HOLD');
+assert.equal(evidence.release_gates.G6_editorial_approval,'HOLD');
+assert.ok(!fs.existsSync(root+'/src/pages/critical-inquiry/six-clocks.astro'));
+assert.ok(!fs.existsSync(root+'/src/pages/critical-inquiry/six-clocks/index.astro'));
+console.log('Six Clocks v0.3 editorial freeze structure PASS (NOT historical fact certification nor publication approval).');
