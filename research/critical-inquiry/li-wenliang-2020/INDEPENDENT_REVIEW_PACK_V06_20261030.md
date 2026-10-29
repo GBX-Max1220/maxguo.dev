@@ -12,7 +12,7 @@
 
 ## A. 16份来源逐项核验
 
-| 编号 | 公开时点（UTC+8） | 阅读入口 | 证据角色 | 第二人结论 |
+| 编号 | 页面所示时间/发表时点（UTC+8，**不全等于当时公开**） | 阅读入口 | 证据角色与时钟限制 | 第二人结论 |
 |---|---|---|---|---|
 | LW01 | **现存档案页显示2020-01-01 11:36；原微博首发时刻未知** | [现存归档](https://www.wuhan.gov.cn/hdjl/rdhy/202004/t20200419_1023462.shtml) | **retrospective municipal page，不能把11:36用于2020-01-01公开as-of；当天另由LW16同期新闻提供18:53来源锚** | 未复核 |
 | LW02 | 2020-01-29T16:32:16+08:00 | [原文](https://www.xinhuanet.com/politics/2020-01/29/c_1125510476.htm) | official clarification attributed to police | 未复核 |
