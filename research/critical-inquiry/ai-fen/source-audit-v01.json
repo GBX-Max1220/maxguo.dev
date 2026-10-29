@@ -292,6 +292,26 @@
         "AF09"
       ],
       "limit": "This does not establish that the article page was an NHC-operated site or that the article was intentionally exempted from deletion."
+    },
+    {
+      "id": "AF-C11",
+      "claim": "The pinned Terminus and the currently accessible yyrw copy share 198/200 normalized sentence-like units in a live cross-site comparison.",
+      "status": "SUPPORTED_BY_REPRODUCIBLE_CURRENT_COPY_COMPARISON",
+      "source_ids": [
+        "AF01",
+        "AF03"
+      ],
+      "limit": "A 99% normalized unit match is not byte identity, proof of identical historic versions or proof of authorial intent."
+    },
+    {
+      "id": "AF-C12",
+      "claim": "Of the two detected body differences, one is an absent standalone Ai Fen caption and the other expands 市卫健委 to 市卫生健康委.",
+      "status": "SUPPORTED_BY_MINIMAL_CHANGED_SPAN_DIFF",
+      "source_ids": [
+        "AF01",
+        "AF03"
+      ],
+      "limit": "A small editorial terminology/format difference cannot establish a specific censorship or administrative instruction."
     }
   ],
   "research_gates": [
@@ -313,7 +333,7 @@
     {
       "id": "G3",
       "name": "Perform reproducible paragraph-level version diff",
-      "status": "OPEN_PARTIAL"
+      "status": "PASS_CURRENT_COPIES_ONLY"
     },
     {
       "id": "G4",
@@ -332,5 +352,14 @@
     }
   ],
   "decision": "CONTINUE_ONE_BOUNDED_SOURCE_AND_VERSION_AUDIT; DO_NOT_CREATE_PUBLIC_PAGE_YET",
-  "stop_condition": "If no authenticated temporal evidence or distinct version-provenance finding emerges beyond existing relay-activism literature, stop as a standalone article and reuse only as a methods appendix or case note."
+  "stop_condition": "If no authenticated temporal evidence or distinct version-provenance finding emerges beyond existing relay-activism literature, stop as a standalone article and reuse only as a methods appendix or case note.",
+  "cross_site_comparison": {
+    "report": "research/critical-inquiry/ai-fen/cross-site-comparison-v01.json",
+    "workflow_run_id": 40956016103,
+    "units_each": 200,
+    "exact_normalized_matches": 198,
+    "non_equal_blocks": 2,
+    "conclusion": "CURRENT_DERIVATIVES_VERY_SIMILAR_AT_BODY_LEVEL; PAGE_WRAPPERS_DIFFER",
+    "caution": "No authenticated yyrw historical availability timestamp, no source platform deletion log."
+  }
 }
