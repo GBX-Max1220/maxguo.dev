@@ -12,10 +12,10 @@
       "published_time": "11:36",
       "url": "https://www.wuhan.gov.cn/hdjl/rdhy/202004/t20200419_1023462.shtml",
       "publisher": "武汉市政府转载长江网／平安武汉通报",
-      "role": "contemporaneous police public labeling",
+      "role": "retrospectively archived municipal copy of Jan 1 police label, displays 11:36 but original edition/timing not authenticated",
       "note": "Municipal page carries Jan 1 11:36 publication label despite archive URL containing 202004; content reports 8 'handled' without individual identity list.",
       "independence_group": "wuhan_police_eight_jan1",
-      "published_at_local": "2020-01-01T11:36:00+08:00"
+      "caution": "Municipal URL has 2020/04 archive path; displayed '2020-01-01 11:36' conflicts with same-day press description of afternoon police Weibo post. Do not use 11:36 as independently authenticated contemporaneous police release time."
     },
     {
       "id": "LW02",
@@ -168,6 +168,16 @@
       "role": "earliest currently located dated syndication of formal police revocation and apology",
       "independence_group": "wuhan_police_correction_mar19",
       "caution": "20:55 is Sina's displayed publication time, not an authenticated timestamp of the first original police Weibo post or a byte-preserved first edition."
+    },
+    {
+      "id": "LW16",
+      "url": "https://www.thepaper.cn/newsDetail_forward_5402905",
+      "publisher": "澎湃新闻／武汉市公安局官方微博原通报转载",
+      "publication_date": "2020-01-01",
+      "published_at_local": "2020-01-01T18:53:00+08:00",
+      "role": "dated contemporaneous press republication of eight-person initial police notice",
+      "independence_group": "wuhan_police_eight_jan1",
+      "caution": "18:53 is the currently displayed press publication time, not verified time of first official Weibo issue."
     }
   ],
   "event_history": [
@@ -273,7 +283,8 @@
       "id": "LW_ASOF_0101",
       "cutoff_date": "2020-01-01",
       "public_sources": [
-        "LW01"
+        "LW01",
+        "LW16"
       ],
       "publicly_documented": "Police described eight unnamed people as having been handled for false information.",
       "not_publicly_documented_in_registered_sources": "The full individualized evidence of Li's December 30 messages or his January 3 reprimand (which had not happened yet)."
@@ -282,7 +293,8 @@
       "id": "LW_ASOF_0103",
       "cutoff_date": "2020-01-03",
       "public_sources": [
-        "LW01"
+        "LW01",
+        "LW16"
       ],
       "publicly_documented": "Public police notice about eight exists; Jan3 police encounter later reconstructed by March19 investigation.",
       "not_publicly_documented_in_registered_sources": "Do not backfill March19 investigation transcripts into Jan3 public knowledge."
@@ -294,7 +306,8 @@
       "public_sources": [
         "LW01",
         "LW09",
-        "LW10"
+        "LW10",
+        "LW16"
       ],
       "publicly_documented": "Caixin had republished official 'eight only criticized/educated' statement at 14:45; Xinhua's 16:32 version not yet published.",
       "not_publicly_documented_in_registered_sources": "No later March investigation report or police revocation was public at this time.",
@@ -307,7 +320,8 @@
         "LW01",
         "LW02",
         "LW09",
-        "LW10"
+        "LW10",
+        "LW16"
       ],
       "publicly_documented": "Police's no-statutory-punishment clarification, alongside a signed legal commentary urging proportionality.",
       "not_publicly_documented_in_registered_sources": "The Jan31 interviews and document photo were not yet in the registered public source set; later Commission correction was not available."
@@ -322,7 +336,8 @@
         "LW02",
         "LW09",
         "LW10",
-        "LW12"
+        "LW12",
+        "LW16"
       ],
       "publicly_documented": "Jan31 11:29 Beijing News interview now public: Li described the Jan3 admonition and absence of detention; public message screenshots shown in news report.",
       "not_publicly_documented_in_registered_sources": "19:35 later syndicated Upstream News interview and the full March19 Commission investigation not yet published."
@@ -338,7 +353,8 @@
         "LW09",
         "LW10",
         "LW12",
-        "LW13"
+        "LW13",
+        "LW16"
       ],
       "publicly_documented": "Both Li interview reports had been published, including his description of being admonished and differing contextual answers about workplace fear versus overall effect.",
       "not_publicly_documented_in_registered_sources": "Commission procedural conclusions and the subsequent police revocation remained unpublished until March19."
@@ -353,7 +369,8 @@
         "LW09",
         "LW10",
         "LW12",
-        "LW13"
+        "LW13",
+        "LW16"
       ],
       "publicly_documented": "By Feb7 Li's admonition and excerpts of his Dec30 warnings were already discussed in Jan31 published personal interviews and an interviewee-provided reprimand photograph; Feb7 health authority issued death announcement.",
       "not_publicly_documented_in_registered_sources": "The comprehensive official Commission inquiry, procedural fault finding, March19 withdrawal and officer discipline had not yet been publicly issued."
@@ -371,7 +388,8 @@
         "LW10",
         "LW12",
         "LW13",
-        "LW14"
+        "LW14",
+        "LW16"
       ],
       "publicly_documented": "19:04 CLS short bulletin publicly reports Commission recommendation to withdraw improper Li reprimand and correct irregular procedure. This is a brief, not the full authorized investigative report.",
       "not_publicly_documented_in_registered_sources": "19:14 CNEB edited report, 19:28 Xinhua detailed investigation, 21:47 police formal revocation and 22:09 officer sanctions were not yet published."
@@ -390,7 +408,8 @@
         "LW10",
         "LW12",
         "LW13",
-        "LW14"
+        "LW14",
+        "LW16"
       ],
       "publicly_documented": "19:14 national emergency broadcaster had reported an abridged account of the commission inquiry and recommended correction. The 19:28 fuller authorized report not yet published.",
       "not_publicly_documented_in_registered_sources": "Detailed Xinhua investigative narrative and police formal revocation not yet publicly available by this time."
@@ -409,7 +428,8 @@
         "LW10",
         "LW12",
         "LW13",
-        "LW14"
+        "LW14",
+        "LW16"
       ],
       "publicly_documented": "19:28 official investigation published; Commission recommends undoing the admonition.",
       "not_publicly_documented_in_registered_sources": "Police 21:47 withdrawal, 22:09 personnel measures and later 20:07 Q&A not yet published.",
@@ -431,7 +451,8 @@
         "LW12",
         "LW13",
         "LW14",
-        "LW15"
+        "LW15",
+        "LW16"
       ]
     },
     {
@@ -451,7 +472,8 @@
         "LW12",
         "LW13",
         "LW14",
-        "LW15"
+        "LW15",
+        "LW16"
       ],
       "publicly_documented": "The Commission report and Q&A were public, and 21:47 Wuhan police revocation and apology copy was available.",
       "not_publicly_documented_in_registered_sources": "Two officer sanctions in Xinhua 22:09 and subsequent 22:38 duplicate report were not yet published.",
@@ -475,7 +497,8 @@
         "LW12",
         "LW13",
         "LW14",
-        "LW15"
+        "LW15",
+        "LW16"
       ],
       "publicly_documented": "Official investigation, written reprimand, formal reversal, apology and individual officer sanctions are all recorded.",
       "not_publicly_documented_in_registered_sources": "These later findings cannot be imputed to what every reader knew on Dec30 or Jan3."
@@ -498,7 +521,8 @@
       "kind": "official_public_classification",
       "claim": "Wuhan police publicly said eight unnamed people had been handled for spreading unverified pneumonia information",
       "source_ids": [
-        "LW01"
+        "LW01",
+        "LW16"
       ],
       "status": "contemporaneously_documented_institutional_action",
       "caution": "Eight identities and all their messages not individually authenticated from Jan1 notice."
@@ -647,7 +671,8 @@
     "The published reprimand photograph is attributed to Li by reporters; source archive holds no independently authenticated original physical document scan, and no identifying document fields should be copied into this site's public data.",
     "19:04 CLS is the earliest publicly readable source found in this register for the Commission conclusion, not verified as the Commission's original first release or an authenticated full-document publication.",
     "Two published Jan31 interview phrasings about fear and effects have distinct question wording; avoid a false binary contradiction, inferred motive, or a general self-censorship prevalence claim.",
-    "Sina withdrawal repost has displayed 2020-03-19 20:55 time, earlier than 21:47; first original police Weibo publication timestamp and authenticated initial article edition are not independently located."
+    "Sina withdrawal repost has displayed 2020-03-19 20:55 time, earlier than 21:47; first original police Weibo publication timestamp and authenticated initial article edition are not independently located.",
+    "Municipal archive LW01 shows 2020-01-01 11:36 although archive URL path dates Apr 2020; contemporaneous accounts describe original police Weibo post as Jan 1 afternoon. Do not backdate police public label to 11:36 absent contemporaneous first edition."
   ],
   "release_gates": {
     "G0_document_links": "PARTIAL",
@@ -716,21 +741,21 @@
     "timezone": "Asia/Shanghai",
     "calendar_snapshots": "date end 23:59:59+08:00",
     "intraday_snapshots": "published_at_local when verified, otherwise exclude undated-hour sources until end of publication day",
-    "first_publication": "Source article's displayed time is a currently located publication timestamp, NOT necessarily original Weibo issuance or proof that later-edited text was in the first edition.",
+    "first_publication": "Displayed page publication times may not date original issuers or editions. Municipal archive 11:36 on Jan1 conflicts with contemporaneous afternoon-Weibo reportage; 18:53 same-day press copy currently anchored.",
     "historical_knowledge": "publicly available by cutoff, not necessarily seen or believed by all"
   },
   "public_label_history": [
     {
       "id": "PL01",
-      "public_at": "2020-01-01T11:36:00+08:00",
+      "public_at": "2020-01-01T18:53:00+08:00",
       "actor": "Wuhan police",
       "target": "unnamed_eight",
       "source_ids": [
-        "LW01"
+        "LW16"
       ],
       "label": "违法人员、散布谣言、依法查处",
       "speech_act": "initial public characterization and claim of action",
-      "meaning_limit": "Press bulletin lists no names; it does not establish a later court conviction or identify Li individually."
+      "meaning_limit": "Press bulletin lists no names; it does not establish a later court conviction or identify Li individually. Municipal retrospective archive shows 11:36, but contemporary accounts describe original official post as afternoon; 18:53 belongs to this registered press copy."
     },
     {
       "id": "PL02",
@@ -873,6 +898,12 @@
       "from": "LW15",
       "to": "LW06",
       "relation": "same Wuhan police withdrawal statement, Sina 20:55 versus The Paper 22:38 collection",
+      "independent_factual_corroboration": false
+    },
+    {
+      "from": "LW16",
+      "to": "LW01",
+      "relation": "same original Jan 1 Wuhan police eight-person bulletin; 18:53 contemporaneous The Paper and municipal archived URL displaying unverified 11:36",
       "independent_factual_corroboration": false
     }
   ],
