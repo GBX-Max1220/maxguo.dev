@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "checked_on": "2026-10-30",
-  "workflow_run_id": 40957086391,
-  "workflow_run_url": "https://github.com/GBX-Max1220/maxguo.dev/actions/runs/40957086391",
+  "workflow_run_id": 40957538998,
+  "workflow_run_url": "https://github.com/GBX-Max1220/maxguo.dev/actions/runs/40957538998",
   "check_mode": "WAYBACK_LIVE_RETRIEVAL_AND_BODY_INDICATOR_INSPECTION",
   "records": [
     {
@@ -75,18 +75,27 @@
       "current_phrase": "市卫生健康委",
       "description": "The current copy expands two characters in the government-agency name; this is the only normalized sentence-level difference detected in this comparison.",
       "limit": "A website text edit took place at some point between the 2020 capture and the current page, but the exact edit time, agent, and motivation are not established."
+    },
+    "title_comparison": {
+      "historic_wayback_html_title": "吹哨子的人：如果这些医生都能够得到及时的提醒，或许就不会有这一天",
+      "current_html_title": "发哨子的人：如果这些医生都能够得到及时的提醒，或许就不会有这一天",
+      "change_class": "COVER_TITLE_ROLE_FRAMING_SHIFT",
+      "supports": "Both versions' page header/title and title-bearing article headings were observed in the same source comparison run.",
+      "limitation": "The title change happened between the historical capture and current page, but the actual edit time, editor identity, and whether it was influenced by any reported directive remain unverified."
     }
   },
   "strongest_supported_inferences": [
     "By the Wayback capture labeled 2020-03-10 13:50:52 UTC, a readable yyrw derivative copy was preserved.",
     "By 2020-03-10 22:58:25 UTC, the archived original WeChat URL showed a content-unavailable notice, not the interview.",
-    "The current yyrw normalized interview text closely matches its archived March 10, 2020 text (199/200 sentence units), aside from a minor agency name expansion."
+    "The current yyrw normalized interview text closely matches its archived March 10, 2020 text (199/200 sentence units), aside from a minor agency name expansion.",
+    "The historical yyrw title starts '吹哨子的人', whereas the current yyrw title starts '发哨子的人'; the interview body is nearly unchanged."
   ],
   "not_supported": [
     "The yyrw copy enjoyed any explicit state censorship exemption.",
     "The original Renwu post was deleted at precisely the archived timestamp.",
     "The archival error page proves the identity of the initial censor or order issuing authority.",
     "The current yyrw article is byte-for-byte identical to its 2020 captured webpage.",
-    "This comparison authenticates the deleted first edition of the original Renwu post."
+    "This comparison authenticates the deleted first edition of the original Renwu post.",
+    "That the title was changed in obedience to a directive, or that original Renwu author/editor changed it."
   ]
 }
