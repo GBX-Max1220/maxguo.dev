@@ -11,6 +11,20 @@ const sixSections=(text,re)=>[...text.matchAll(re)].map(x=>x[1]);
 assert.deepEqual(sixSections(z,/^## 第([一二三四五六])只时钟：/gm),['一','二','三','四','五','六']);
 assert.deepEqual(sixSections(e,/^## ([1-6])\. The clock of/gm),['1','2','3','4','5','6']);
 
+// Official 2022-03-27 notice states a two-hour overlap of nominal phases,
+// with certain Puxi high-priority areas already controlled during phase one.
+// This is a primary-source fact, not a guess at actual eventual release dates.
+for(const [lang,body,start,end,overlap,prior] of [
+  ['zh',z,'3月28日05:00','4月5日03:00','两小时重叠','浦西重点区域继续封控管理'],
+  ['en',e,'March 28, 05:00','April 5, 03:00','overlapped by two hours','existing high-priority restricted areas']
+]){
+  assert.ok(body.includes(start),lang+' missing original March 27 planned phase-one start');
+  assert.ok(body.includes(end),lang+' missing original March 27 planned phase-two end');
+  assert.ok(body.includes(overlap),lang+' falsely implies disjoint phases');
+  assert.ok(body.includes(prior),lang+' omits existing controls in Puxi before phase two');
+}
+assert.match(audit,/两批原定重叠2小时/,'editorial decision must register correction');
+
 const pairedEvidence=[
  ['Shanghai early denial',/3月22日晚已出现媒体转述的权威辟谣/,/March 22, 23:21 press report/],
  ['Shanghai government statement',/08:10:40/,/08:10:40/],
