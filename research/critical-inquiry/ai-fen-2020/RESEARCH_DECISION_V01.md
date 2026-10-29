@@ -38,6 +38,22 @@
 
 **本次最实质性的来源收获是：把“原文链接未知”修订为“原文候选URL已经从同年建立的档案索引中定位，但其原版内容仍不可认证”。** 这为版本比较与审查可见性研究提供可操作的下一步，而不夸大证据等级。
 
+## 二点二、新证据：原文件名对应2020年3月10日13:23的Git添加提交
+
+本轮继续检查 [Terminus2049的真实Git版本链](https://github.com/Terminus2049/Terminus2049.github.io)，发现14:02“rename”提交以前，原中文路径 `_posts/发哨子的人.md` 在**2020-03-10 13:23:09 北京时间**的提交 `4dee83a` 中已经增加了201行内容。之后14:02、14:03、14:13三次提交均可读，各有不同Git blob SHA。
+
+- 两端版本各75个经空格归一化后的较长段落，其中73个相同；差异只表现为文章元数据和格式控制，尚未证明与原微信首版同字节。
+- 早期文件的编辑性概括“八位被警方训诫的医生”出现两次，艾芬自身声明未受公安局训诫出现一次。**按单个文件内的词频计数会把重复导语误认为多条事实证据。**
+- Git author/committer time只是仓库提交者可控制的元数据，而非原始微信公众号发表时刻或经第三方封存的证据。
+- [完整审计与四个固定SHA](https://github.com/GBX-Max1220/maxguo.dev/blob/research/ai-fen-source-provenance-20261029/research/critical-inquiry/ai-fen-2020/HISTORICAL_GIT_EDITION_AND_ATTRIBUTION_AUDIT_20261029.md)；本地可选择用以下脚本重复检查源文件的Git blob SHA、时间字段和锚定短句数量，不自动执行网络抓取。
+
+```bash
+git clone https://github.com/Terminus2049/Terminus2049.github.io.git
+node scripts/audit-ai-fen-source-git.mjs --repo ./Terminus2049.github.io
+```
+
+**该命令应从`maxguo.dev`仓库根目录运行**，Git clone保存到同级可访问目录；或自行传入绝对路径。CI只运行脚本的语法检查和研究证据表的静态验证，不会自动克隆版权采访内容或宣称完成原微信验真。
+
 ## 三、核心交叉审计：记者导语 ≠ 受访者原话 ≠ 已认证行政身份
 
 现存《人物》转载文本的前言以“八位被警方训诫的医生”概括早期传播者；**这是一项要审计的编辑/叙述性主张，不应自动归于艾芬的采访原话**。在文中对“八人”的编者导语，与对艾芬自身的第一人称回答之间应有明确的字段区分。
