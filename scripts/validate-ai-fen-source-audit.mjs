@@ -12,7 +12,8 @@ const knownStatuses=new Set([
  'CONTEMPORANEOUS_REPORT',
  'PEER_REVIEWED_PRIOR_WORK',
  'LINK_IDENTIFIED_ACCESS_BLOCKED',
- 'ORIGINAL_SOURCE_NOT_OBTAINED'
+ 'ORIGINAL_SOURCE_NOT_OBTAINED',
+ 'GITHUB_COMMIT_PROVENANCE'
 ]);
 assert.equal(ledger.audit_id,'AI-FEN-VERSION-AUDIT-2026-10-30');
 assert.equal(ledger.status,'RESEARCH_ONLY_FEASIBILITY_AUDIT');
@@ -35,6 +36,8 @@ for(const c of ledger.claims){
  for(const id of c.source_ids)assert.ok(sourceIds.has(id),'unknown source '+id+' for '+c.id);
 }
 assert.ok(ledger.sources.find(s=>s.id==='AF06'&&s.status==='ORIGINAL_SOURCE_NOT_OBTAINED'));
+assert.ok(ledger.sources.find(s=>s.id==='AF08'&&s.status==='GITHUB_COMMIT_PROVENANCE'&&s.github_signature_verified===true),'signed repository timestamp must be retained');
+assert.ok(ledger.claims.find(c=>c.id==='AF-C08'&&c.status==='SUPPORTED_BY_SIGNED_GITHUB_COMMIT_METADATA'),'repository timestamp claim missing');
 assert.ok(ledger.sources.find(s=>s.id==='AF05'&&s.type==='PEER_REVIEWED_PRIOR_WORK'));
 assert.ok(ledger.claims.find(c=>c.id==='AF-C04'&&c.status==='NOT_ESTABLISHED'),'must not infer historical availability from displayed date');
 assert.ok(ledger.claims.find(c=>c.id==='AF-C05'&&c.status==='NOT_ESTABLISHED'),'must not infer exemption/intent from affiliation');
