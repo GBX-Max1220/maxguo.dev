@@ -73,6 +73,8 @@ node scripts/audit-ai-fen-source-git.mjs --repo ./Terminus2049.github.io
 
 在2020年12月11日，[中国数字时代英文编辑文章](https://chinadigitaltimes.net/2020/12/minitrue-diary-march-10-2020-tibet-independence-covid-rent-relief-whistleblower-epidemic-transmission-and-treatments/)称已获取并核验一批当年发给媒体的内部宣传指令，记录3月10日不把“发哨人”相关报道放上首页。其[中文转载](https://chinadigitaltimes.net/chinese/655981.html)还把本站已经找到历史快照的`yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256`具体网址列入参考对象。2026年[乐视内部指令总目录](https://chinadigitaltimes.net/chinese/728404.html)另给出据称2月7日用词要求及3月10日展示位置限制。
 
+**这也是跨案例的稿源垄断线索：** 同一份2月7日乐视档案还称李文亮去世报道只可转载央视电视和央视新闻客户端内容，属于限制可引用来源，而非仅禁用某个称谓。它不自动证明所有媒体实际遵守，也不是直接针对三月艾芬专访的指令。
+
 **这是此前的来源可行性审计遗漏的重要证据类别。** 但我们目前不能访问原始下发件，也不能证明三种二次公开载体相互独立、命令是谁下达、哪家网站在几点实际执行。*Homepage demotion*、*lexical choice constraint*、*source-side takedown*应分别建模。尤其，2020年3月10日公众没有理由知道2020年12月或2026年才公开的内部文书详情。不能据此制造一部“公众在2020年已知指令”的时间机器。
 
 [专项证据、双时钟和政治信息控制分类审核](https://github.com/GBX-Max1220/maxguo.dev/blob/research/ai-fen-source-provenance-20261029/research/critical-inquiry/ai-fen-2020/DIRECTIVE_DISCLOSURE_AND_PUBLIC_VISIBILITY_AUDIT_20261029.md)。
