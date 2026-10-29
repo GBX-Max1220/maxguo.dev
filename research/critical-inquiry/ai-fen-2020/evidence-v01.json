@@ -4,17 +4,21 @@
   "revision": "pilot-v0.1",
   "status": "RESEARCH_PILOT_NO_ORIGINAL_EDITION_AUTHENTICATION",
   "timezone": "Asia/Shanghai",
-  "methodological_warning": "Published page metadata, cached reprints, journalist descriptions of unavailability, and original-platform evidence are distinct. No original WeChat article URL or verified bytes of its 2020-03-10 first edition are established.",
+  "methodological_warning": "Published page metadata, cached reprints, journalist descriptions of unavailability, and original-platform evidence are distinct. No original WeChat article URL or verified bytes of its 2020-03-10 first edition are established. nCovMemory CSV row 3142 records a candidate original WeChat URL and archive link but their original content remains unverified.",
   "original_carriers": [
     {
       "id": "WX_ORIGINAL",
       "platform": "WeChat Official Account",
       "account": "renwumag1980",
-      "original_url": null,
+      "original_url": "https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg",
       "original_edition_available": false,
       "known_minute": null,
-      "status": "ORIGINAL_URL_AND_FIRST_EDITION_UNAUTHENTICATED",
-      "candidate_archive_index": "https://chinatimeline.github.io/nCovMemory/"
+      "status": "ORIGINAL_URL_INDEXED_IN_NCOVMEMORY_CSV_NOT_DIRECTLY_AUTHENTICATED",
+      "candidate_archive_index": "https://chinatimeline.github.io/nCovMemory/",
+      "archive_candidate_url": "https://archive.vn/OLdHs",
+      "archive_candidate_opened": false,
+      "archive_index_row_id": "3142",
+      "archive_index_row_date": "2020-03-10"
     },
     {
       "id": "WEIBO_CANDIDATE",
@@ -142,13 +146,13 @@
     },
     {
       "id": "AF12",
-      "url": "https://chinatimeline.github.io/nCovMemory/",
+      "url": "https://github.com/2019ncovmemory/nCovMemory/blob/master/data/data.csv",
       "publisher": "nCovMemory public archive",
       "display_date": null,
-      "role": "archival link-and-screenshot index for March 10 magazine article",
+      "role": "archive CSV row 3142 identifies original WeChat URL, archive.vn/OLdHs and Terminus2049 alternative",
       "group": "ncovmemory_archival_index",
-      "access": "INDEX_READABLE_ARCHIVED_SCREENSHOT_NOT_INSPECTED",
-      "limit": "Index flags original as unavailable and advertises screenshot/archival mirrors; snapshot bytes, creation time, privacy and correspondence to original edition not authenticated."
+      "access": "CSV_ROW_READ_THROUGH_GITHUB_CONNECTOR_ARCHIVE_OBJECT_NOT_OPENED",
+      "limit": "Index CSV supplies exact candidate source URL, archive entry and alternative link; neither the old WeChat page nor archive.vn snapshot was directly retrieved. Row update date is not independently authenticated original-page timestamp."
     },
     {
       "id": "AF13",
@@ -169,6 +173,16 @@
       "group": "peer_reviewed_creative_resistance_study",
       "access": "ABSTRACT_AND_METADATA_READABLE",
       "limit": "Existing prior art specifically covers formal classifications of transformed versions; do not present this typology as an original empirical discovery from this pilot."
+    },
+    {
+      "id": "AF15",
+      "url": "https://github.com/Terminus2049/Terminus2049.github.io/blob/master/_posts/2020-03-10-fa-shao-zi-de-ren.md",
+      "publisher": "Terminus2049 GitHub markdown archive",
+      "display_date": "2020-03-10",
+      "role": "source text and image-link preserving repost with frontmatter dated March 10",
+      "group": "interview_text_replication",
+      "access": "MARKDOWN_FILE_FIRST_50_LINES_READABLE",
+      "limit": "GitHub frontmatter date and image-link filenames reflect archive metadata, not verified source-origin first-edition bytes or media capture timestamps. Do not reproduce linked images publicly without review."
     }
   ],
   "observations": [
@@ -336,6 +350,17 @@
       ],
       "status": "PUBLISHED_PRIOR_ART_ABSTRACT",
       "caution": "This pilot should not claim novelty merely for cataloguing reversed, translated, multimodal or encoded repost formats."
+    },
+    {
+      "id": "AFC11",
+      "kind": "indexed_original_url_candidate",
+      "claim": "nCovMemory CSV row 3142 lists a concrete WeChat publisher URL, archive.vn/OLdHs and a Terminus2049 replacement",
+      "source_ids": [
+        "AF12",
+        "AF15"
+      ],
+      "status": "ORIGINAL_URL_IDENTIFIED_ARCHIVE_CONTENT_NOT_AUTHENTICATED",
+      "caution": "Direct platform and archive access failed; identifying a URL is not validating the text or deletion time of the original."
     }
   ],
   "source_relations": [
@@ -374,6 +399,12 @@
       "to": "AF07",
       "relation": "Same attributed original article later copied via different personal reprint routes; AF13 explicitly states upstream Notion and Douban",
       "independent_original_interview": false
+    },
+    {
+      "from": "AF15",
+      "to": "AF01",
+      "relation": "Terminus2049 markdown and independent Chinese PEN both reproduce attributed original text, not independent interviews",
+      "independent_original_interview": false
     }
   ],
   "publication_gates": {
@@ -386,5 +417,5 @@
     "G6_publication": "HOLD"
   },
   "privacy": "No copied unredacted chat logs, patients' reports, private family identifiers or full copyrighted interview text. Public URLs only; no private screenshots.",
-  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases. Wu (2024) also identifies textual, multimodal and technically encoded relay tactics. Avoid repackaging these findings; prioritize source-version attestation and labeled-actor conflation with cross-case corrections."
+  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases. Wu (2024) also identifies textual, multimodal and technically encoded relay tactics. Avoid repackaging these findings; prioritize source-version attestation and labeled-actor conflation with cross-case corrections. Source discovery: known WeChat URL improves targeted authentication but does not establish exact original text."
 }
