@@ -8,8 +8,8 @@ const memo = fs.readFileSync(
   root + '/research/critical-inquiry/ai-fen-2020/RESEARCH_DECISION_V01.md','utf8');
 
 assert.equal(doc.status,'RESEARCH_PILOT_NO_ORIGINAL_EDITION_AUTHENTICATION');
-assert.equal(doc.sources.length,18,'expected 18 records including Wayback and bibliographic archive leads');
-assert.equal(doc.atomic_claims.length,14,'expected 14 bounded claims after archive provenance audit');
+assert.equal(doc.sources.length,23,'expected 23 source records incl. retrospective directive disclosure records');
+assert.equal(doc.atomic_claims.length,18,'expected 18 claims after directive evidence audit');
 assert.ok(doc.sources.every(s=>s.id && s.url.startsWith('https://') && s.role && s.group && s.access && s.limit));
 assert.equal(new Set(doc.sources.map(s=>s.id)).size,doc.sources.length,'duplicate source IDs');
 assert.equal(new Set(doc.atomic_claims.map(c=>c.id)).size,doc.atomic_claims.length,'duplicate claim IDs');
@@ -72,6 +72,45 @@ assert.equal(doc.atomic_claims.find(x=>x.id==='AFC13').status,'ARCHIVE_CAPTURE_O
 assert.equal(doc.atomic_claims.find(x=>x.id==='AFC14').status,'SECONDARY_ARCHIVE_LEAD_NOT_DIRECTLY_READABLE');
 assert.equal(doc.observations.find(x=>x.id==='EV06').evidence_level,
   'VERIFIED_READABLE_THIRD_PARTY_ARCHIVE_CAPTURE_OF_REPRINT');
+assert.equal(doc.directive_evidence.length,2,'must separately model Feb7 wording and March10 homepage restriction');
+const issued=new Map(doc.directive_evidence.map(x=>[x.id,x]));
+const feb=issued.get('DIR_20200207_WORD');
+const mar=issued.get('DIR_20200310_HOME');
+assert.equal(feb.action_type,'TERM_AVOIDANCE');
+assert.equal(mar.action_type,'HOMEPAGE_DEMOTION');
+assert.equal(feb.purported_issue_date,'2020-02-07');
+assert.equal(mar.purported_issue_date,'2020-03-10');
+assert.equal(feb.first_accessible_dated_disclosure_in_register,'2026-06-22');
+assert.equal(mar.first_accessible_dated_disclosure_in_register,'2020-12-11');
+assert.equal(feb.independent_original_memo_authenticated,false);
+assert.equal(mar.independent_original_memo_authenticated,false);
+assert.equal(feb.execution_observed,false);
+assert.equal(mar.execution_observed,false);
+assert.equal(feb.publicly_verifiable_at_purported_issue_date_in_registered_sources,false);
+assert.equal(mar.publicly_verifiable_at_purported_issue_date_in_registered_sources,false);
+for(const x of [feb,mar]){
+ assert.ok(x.first_accessible_dated_disclosure_in_register>x.purported_issue_date,
+  'secret purported issue date cannot equal later public discovery date');
+ for(const sid of x.source_ids)assert.ok(ids.has(sid),'directive refers to missing source: '+sid);
+}
+const publicKnownAt=(date)=>doc.directive_evidence.filter(
+ x=>x.first_accessible_dated_disclosure_in_register<=date).map(x=>x.id).sort();
+assert.deepEqual(publicKnownAt('2020-03-10'),[],
+ 'later released secret directives must not leak into contemporaneous public knowledge');
+assert.deepEqual(publicKnownAt('2020-12-12'),['DIR_20200310_HOME'],
+ 'March10 disclosed by CDT in December only within this source register');
+assert.deepEqual(publicKnownAt('2026-07-01'),
+ ['DIR_20200207_WORD','DIR_20200310_HOME'],
+ 'both available by mid-2026 within the registered published sources');
+assert.equal(doc.atomic_claims.find(x=>x.id==='AFC16').status,'EXACT_URL_OVERLAP_WITH_REPUBLICATION');
+assert.equal(doc.atomic_claims.find(x=>x.id==='AFC18').status,'PUBLIC_DISCLOSURE_CUTOFF_VERIFIED');
+assert.equal(doc.publication_gates.original_directive_issue_chain,'HOLD');
+assert.equal(doc.publication_gates.actual_implementation_and_causality,'HOLD');
+const dirname='research/critical-inquiry/ai-fen-2020/DIRECTIVE_DISCLOSURE_AND_PUBLIC_VISIBILITY_AUDIT_20261029.md';
+const directiveMemo=fs.readFileSync(root+'/'+dirname,'utf8');
+for(const phrase of ['2020-12-11','2026-06-17','首页撤下并非URL下架','G3独立人类复核'])
+ assert.ok(directiveMemo.includes(phrase),'missing source-critical boundary: '+phrase);
+
 
 assert.equal(doc.atomic_claims.find(x=>x.id==='AFC12').status,'REPOSITORY_HISTORY_VERIFIED_METADATA_NOT_ORIGINAL_PUBLISHER');
 
