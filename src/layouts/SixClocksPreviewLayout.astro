@@ -27,7 +27,7 @@ const chapters = isEnglish ? [
  description={frontmatter.description}
  lang={frontmatter.lang}
  ogType="article"
- noindex={true}
+ noindex={false}
  alternates={[
   { hreflang:'zh-CN',path:zhPath },
   { hreflang:'en',path:enPath },
@@ -35,12 +35,12 @@ const chapters = isEnglish ? [
  ]}
 >
   <div class="sc-page" lang={frontmatter.lang}>
-    <div class="sc-preview-banner" role="status">
+    <div class="sc-preview-banner">
       <span class="sc-dot" aria-hidden="true"></span>
-      <strong>{isEnglish ? 'UNPUBLISHED EDITORIAL PREVIEW' : '未发布 · 编辑预览'}</strong>
+      <strong>{isEnglish ? 'PUBLIC CRITICAL ESSAY' : '已发表 · 独立批判性研究评论'}</strong>
       <span>{isEnglish
-        ? 'Author-reviewed independent critical essay · Not peer reviewed · Publication approval pending'
-        : '作者本人已审阅的独立批判性研究评论 · 未经独立同行审阅 · 等待发布批准'}</span>
+        ? 'Author-reviewed, source-linked independent essay · Not independently peer reviewed'
+        : '作者本人已审阅、可查来源的批判性研究评论 · 未经独立同行评审'}</span>
     </div>
     <header class="sc-hero">
       <div class="sc-container">
@@ -60,7 +60,7 @@ const chapters = isEnglish ? [
           : '谁有权将未来预测定性为谣言、据此采取行动，又由谁负责更正公共记录？'}</p>
         <div class="sc-meta">
           <span>Baixin Guo（郭佰鑫）</span><span aria-hidden="true">/</span><span>2026-10-30</span>
-          <span aria-hidden="true">/</span><span>{isEnglish?'Source-linked editorial candidate v0.3':'带来源的编辑候选稿 v0.3'}</span>
+          <span aria-hidden="true">/</span><span>{isEnglish?'Published editorial edition v1.0':'公开文章版 v1.0'}</span>
         </div>
       </div>
     </header>
@@ -95,7 +95,7 @@ const chapters = isEnglish ? [
             ? 'It does not republish complete private chats, unredacted police documents, patient records or full copyrighted news articles. To submit a factual correction, include the exact passage, a dated source and an explanation.'
             : '页面不转载私人聊天全文、未遮盖个人字段的警方文书、患者资料或受版权保护的新闻全文。若需更正，请提供具体段落、带日期的来源及修改理由。'}</p>
           <a href="mailto:gbx1220max@gmail.com?subject=Six%20Clocks%20correction">{isEnglish?'Submit a correction by email ↗':'邮件提交史料更正 ↗'}</a>
-          <p class="sc-release-status">{isEnglish?'Preview only; not a public release.':'仅为出版预览，不代表正式上线。'}</p>
+          <p class="sc-release-status">{isEnglish?'Edition v1.0 · Source-linked · Corrections welcome.':'正式发布版 v1.0 · 提供来源和纠错渠道。'}</p>
         </section>
       </div>
     </div>
