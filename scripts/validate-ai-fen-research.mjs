@@ -134,6 +134,21 @@ for(const key of ['original_first_edition','platform_unavailability_forensics','
 assert.ok(!fs.existsSync(root+'/src/pages/critical-inquiry/cases/ai-fen/index.astro'),
   'unreviewed article must not be routed publicly');
 assert.match(memo,/不在公开网站建立页面/);
+const zheditorial=fs.readFileSync(root+'/research/critical-inquiry/ai-fen-2020/editorial/visibility-is-not-preservation-zh-v01.md','utf8');
+const eneditorial=fs.readFileSync(root+'/research/critical-inquiry/ai-fen-2020/editorial/visibility-is-not-preservation-en-v01.md','utf8');
+for(const [lang,body] of [['zh',zheditorial],['en',eneditorial]]){
+  assert.ok(body.length>2000,lang+' draft is empty');
+  assert.ok(body.includes('2020') && body.includes('2026'),lang+' missing delayed-disclosure distinction');
+  assert.ok(body.includes('Wayback') && body.includes('Terminus2049'),lang+' missing two dated source carriers');
+  assert.ok(body.includes('G3') && body.includes('G4') && body.includes('G6'),lang+' draft missing release holds');
+  assert.ok(body.includes('https://chinadigitaltimes.net/chinese/655981.html'),lang+' missing source for reported homepage restriction');
+  assert.ok(body.includes('https://github.com/Terminus2049/Terminus2049.github.io/commit/4dee83a23f66c4a2d7f4433b8e0ce5381101632b'),
+    lang+' missing pinned earlier version');
+}
+assert.ok(/首页/.test(zheditorial)&&/homepage/.test(eneditorial),'drafts must clearly distinguish homepage prominence');
+assert.ok(/不等于/.test(zheditorial)&&/not/.test(eneditorial),'drafts must not report directive compliance as observed');
+assert.ok(!fs.existsSync(root+'/src/pages/critical-inquiry/ai-fen/index.astro'),'research draft must not become a public route');
+
 console.log('Ai Fen research-only structural validation PASS:',doc.sources.length,
   'source records,',doc.atomic_claims.length,'claims,',
   doc.observations.length,'reported episodes,',
