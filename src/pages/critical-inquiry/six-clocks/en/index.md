@@ -7,7 +7,7 @@ description: "A source-linked critical study of Shanghai's 2022 lockdown claims,
 
 # When a “Rumor” Predicts Future Policy: Six Clocks of Historical Evidence
 
-*The Boundaries of the Sayable — English publication-candidate draft v0.3, October 30, 2026. Frozen for editorial review; not independently reviewed or published.*
+*The Boundaries of the Sayable — Independent critical research essay · Published edition v1.0, October 30, 2026 · Author-reviewed, not independently peer reviewed.*
 
 What if a “rumor” is not a statement about an existing fact but a prediction about what the government is about to do?
 
@@ -121,4 +121,4 @@ The purpose of critical history is not to replace one indisputable narrative wit
 
 ---
 
-**Editorial status and evidence limitations:** This is a critical methods essay under review, not a judicial determination of anyone's guilt or innocence. The original circulating Shanghai messages, the investigated individuals' final legal disposition, and an authenticated March 26 government transcript version are not available in this research package. March 19, 2020 investigative findings about Li Wenliang must never be backdated into his December 2019 public evidence environment. Source checking here is author-side and bounded, not a second-human endorsement. A widely circulated January 29 legal commentary by named author Tang Xinghua published on a judiciary-related media outlet was **signed analysis, not a Supreme People's Court judgment or binding judicial interpretation**; neither version treats it as adjudication. [Signed commentary](https://www.thepaper.cn/newsDetail_forward_5672644). Translation parity and independent human review remain outstanding.
+**Editorial disclosure and evidence limitations:** This is an author-reviewed, publicly released independent critical research essay, **not independently fact-audited or journal peer reviewed**, and not a judicial determination of anyone's guilt or innocence. The original circulating Shanghai messages, the investigated individuals' final legal disposition, and an authenticated March 26 government transcript version are not available in this research package. March 19, 2020 investigative findings about Li Wenliang must never be backdated into his December 2019 public evidence environment. Source checking here is author-side and bounded, not a second-human endorsement. A widely circulated January 29 legal commentary by named author Tang Xinghua published on a judiciary-related media outlet was **signed analysis, not a Supreme People's Court judgment or binding judicial interpretation**; neither version treats it as adjudication. [Signed commentary](https://www.thepaper.cn/newsDetail_forward_5672644). The English edition was checked by the author, but has not received independent translation, legal-language or source verification. Corrections based on dated evidence are welcome.
