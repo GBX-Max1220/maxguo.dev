@@ -1,6 +1,6 @@
 # 《言说的边界》｜李文亮案例第二读者复核包 v0.5
 
-**冻结目标：研究数据 research-draft-v0.5 · 2026-10-29**  
+**冻结目标：研究数据 research-draft-v0.6 · 2026-10-29**  
 **状态：G3 = HOLD；以下“未复核”不表示事实为假，仅表示未获得独立人类审阅结论。**  
 **范围：李文亮2020公共标签与行政纠错；上海2022仅作为外部比较，不将其证据混为一体。**
 
@@ -10,7 +10,7 @@
 
 请逐条独立判断：**网页可访问、来源归属与发表时间、文书内容、原子命题是否获得支持、反证/反例、史料不可知之处**。对于当天后来才公开的官方调查，不能填回较早“当时可知”视图。
 
-## A. 14份来源逐项核验
+## A. 15份来源逐项核验
 
 | 编号 | 公开时点（UTC+8） | 阅读入口 | 证据角色 | 第二人结论 |
 |---|---|---|---|---|
@@ -28,8 +28,9 @@
 | LW12 | 2020-01-31T11:29:00+08:00 | [原文](https://m.bjnews.com.cn/detail/158044099415716.html) | contemporaneous direct interview of admonished individual with displayed original-message screenshots | 未复核 |
 | LW13 | 2020-01-31T19:35:00+08:00 | [原文](https://www.thepaper.cn/newsDetail_forward_5716857) | contemporaneous interview and attributed photograph of Li reprimand | 未复核 |
 | LW14 | 2020-03-19T19:04:01+08:00 | [原文](https://www.cls.cn/detail/461600) | contemporaneous short bulletin of supervisory findings and requested correction | 未复核 |
+| LW15 | 2020-03-19T20:55:00+08:00 | [原文](https://news.sina.cn/gn/2020-03-19/detail-iimxyqwa1770303.d.html) | Sina timestamped police-withdrawal syndication; original Weibo issue time **unverified** | 未复核 |
 
-**注意：** 共有9个来源关系组，不是14个独立事实观察。LW04/LW05/LW14来自同一次国家监委调查，区别仅在发布时点与信息量。LW10/LW02、LW11/LW06分别记录同一警方声明。
+**注意：** 共有9个来源关系组，不是15个独立事实观察。LW04/LW05/LW14来自同一次国家监委调查，区别仅在发布时点与信息量。LW10/LW02、LW15/LW11/LW06分别记录同一警方声明。
 
 ## B. 14条命题逐项审核
 
@@ -40,7 +41,7 @@
 | LWC03 | event_confirmed_retrospectively | LW04, LW06, LW12, LW13 | Li discussed Jan3 admonition publicly Jan31; later March19 commission confirmed the procedure. Newsroom interview does not independently authenticate the raw original pol | 未复核 |
 | LWC04 | official_clarification | LW02 | Does not extinguish Li's actual written reprimand. | 未复核 |
 | LWC05 | official_investigative_finding | LW04, LW08 | Official finding not independent judicial verdict on all original messages. | 未复核 |
-| LWC06 | administrative_correction | LW06 | This is a concrete correction record. | 未复核 |
+| LWC06 | administrative_correction | LW15, LW06 | This is a concrete correction record. | 未复核 |
 | LWC07 | discipline | LW07 | Officer sanctions do not mean Li was punished with these sanctions. | 未复核 |
 | LWC08 | legal_opinion_not_binding | LW09 | Not a judgment, binding interpretation or institutional ruling of the Supreme People's Court. | 未复核 |
 | LWC09 | official_retrospective_intent_finding | LW08 | Distinguish official determination of intent from independently established psychological state; not a blanket judgment on all eight unnamed people. | 未复核 |
@@ -55,7 +56,7 @@
 1. **“八人”与李文亮个人：** 2020-01-01官方通告未列名；1月31日《新京报》报道将其称为八人之一，但《上游新闻》采访记录他称自己不清楚是否在其中。不得因为同一事件主题而自动对齐个体名册。
 2. **1月31日当事人自述与原始训诫：** 《新京报》11:29已经刊出李收到训诫的采访及文书照片；19:35《上游新闻》另有采访。不能说公众直到3月19日才知道有训诫，也不能把受访者提供的图片视为取证部门独立认证的原始文件。
 3. **两篇采访的风险表达：** 一篇中说训诫影响不特别大；另一篇描述担心拘留与工作追责。分别复核提问与回答，不把两者简单宣布为逻辑矛盾，也不推导群体性自我审查。
-4. **3月19日四层公开节点：** 19:04财联社结论简讯、19:14国家应急广播摘要、19:28新华社较完整受权全文、21:47警方撤销通报、22:09警务人员处分通报。这些相互关联，但不是同时发布。
+4. **3月19日四层公开节点：** 19:04财联社结论简讯、19:14国家应急广播摘要、19:28新华社较完整受权全文、20:55新浪新闻载警方撤销通报、21:47中国青年网同源转载、22:09警务人员处分通报。这些相互关联，但不是同时发布。
 5. **法律与责任：** 训诫书、法定行政警告、行政拘留、罚款、对警察的行政记过/行政警告，是不同法律对象。国家监委“建议撤销”不等于警方已经“作出撤销决定”。
 6. **中英文一致性：** 中文“训诫”“警告”“撤销”“传唤”“依法处理”“程序不规范”不得在英语译稿中全部归为arrest、punishment、conviction或exoneration。
 
@@ -66,6 +67,8 @@
 **禁止**重传含普通人物的私人聊天截图、家庭住址或完整训诫照片。引用原采访的必要短句即可。
 
 ## E. 独立审阅签核
+
+**本轮新增专项复核：** 20:55新浪新闻原页面能否确认刊载时间？是否有原始平安武汉微博时间戳？是否存在后续编辑？未经版本级取证不得将20:55写作“原始微博首发时间”；两份同源转载不构成独立事实验证。
 
 - 第二审阅人：**待定**
 - 审阅日期：**未完成**
