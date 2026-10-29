@@ -9,6 +9,15 @@ const ledger=JSON.parse(fs.readFileSync(path.join(root,ledgerPath),'utf8'));
 const memo=fs.readFileSync(path.join(root,memoPath),'utf8');
 const diffPath='research/critical-inquiry/ai-fen/terminus-version-diff-v01.json';
 const diff=JSON.parse(fs.readFileSync(path.join(root,diffPath),'utf8'));
+const crossSite=JSON.parse(fs.readFileSync(path.join(root,'research/critical-inquiry/ai-fen/cross-site-comparison-v01.json'),'utf8'));
+assert.equal(crossSite.summary.equal_sentence_units,198);
+assert.equal(crossSite.summary.both_copies_sentence_units,200);
+assert.equal(crossSite.summary.unaligned_blocks,2);
+assert.equal(crossSite.status,'COMPLETED_CURRENT_COPIES_NO_HISTORICAL_TIMESTAMP_AUTHENTICATION');
+assert.equal(ledger.cross_site_comparison.exact_normalized_matches,198);
+assert.ok(ledger.claims.find(c=>c.id==='AF-C11'&&c.status==='SUPPORTED_BY_REPRODUCIBLE_CURRENT_COPY_COMPARISON'));
+assert.ok(ledger.claims.find(c=>c.id==='AF-C12'&&c.status==='SUPPORTED_BY_MINIMAL_CHANGED_SPAN_DIFF'));
+
 const knownStatuses=new Set([
  'DIRECTLY_READ_CURRENT_PAGE',
  'CONTEMPORANEOUS_REPORT',
@@ -51,7 +60,7 @@ assert.ok(ledger.sources.find(s=>s.id==='AF05'&&s.type==='PEER_REVIEWED_PRIOR_WO
 assert.ok(ledger.claims.find(c=>c.id==='AF-C04'&&c.status==='NOT_ESTABLISHED'),'must not infer historical availability from displayed date');
 assert.ok(ledger.claims.find(c=>c.id==='AF-C05'&&c.status==='NOT_ESTABLISHED'),'must not infer exemption/intent from affiliation');
 assert.ok(ledger.claims.find(c=>c.id==='AF-C06'&&c.status==='REJECTED_AS_NOVELTY_CLAIM'),'prior art must constrain novelty');
-assert.ok(ledger.research_gates.some(g=>g.id==='G3'&&g.status==='OPEN_PARTIAL'));
+assert.ok(ledger.research_gates.some(g=>g.id==='G3'&&g.status==='PASS_CURRENT_COPIES_ONLY'));
 assert.ok(ledger.research_gates.some(g=>g.id==='G6'&&g.status==='NOT_STARTED'));
 for(const phrase of ['逐段、逐字符的完整差异分析','没有取得可认证的原始公众号发布记录','Sun 与 Wright','不新建公开文章页']){
  assert.ok(memo.includes(phrase),'audit memo missing required caution: '+phrase);
