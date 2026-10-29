@@ -757,11 +757,11 @@
         "AF21"
       ],
       "first_accessible_dated_disclosure_in_register": "2026-06-22",
-      "first_publicly_known_in_2020": false,
       "independent_original_memo_authenticated": false,
       "execution_observed": false,
       "scope": "wording across reports, does not prove universal censorship of all whistleblower coverage",
-      "note": "LeTV corpus posted in 2026; item displayed as 2020 instruction. No publisher original file or issuance time verified."
+      "note": "LeTV corpus posted in 2026; item displayed as 2020 instruction. No publisher original file or issuance time verified.",
+      "publicly_verifiable_at_purported_issue_date_in_registered_sources": false
     },
     {
       "id": "DIR_20200310_HOME",
@@ -774,12 +774,12 @@
         "AF23"
       ],
       "first_accessible_dated_disclosure_in_register": "2020-12-11",
-      "first_publicly_known_in_2020": false,
       "independent_original_memo_authenticated": false,
       "execution_observed": false,
       "scope": "do not put this category of reports on homepage; if already on homepage, remove from homepage, not necessarily remove article URL from internet",
       "target_url": "http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256&from=timeline&isappinstalled=0",
-      "note": "CDT says verified original collection, but researcher lacks original directive/issuer chain. Exact target URL matches AF17 canonical URL without query decoration; no obedience or causality claim."
+      "note": "CDT says verified original collection, but researcher lacks original directive/issuer chain. Exact target URL matches AF17 canonical URL without query decoration; no obedience or causality claim.",
+      "publicly_verifiable_at_purported_issue_date_in_registered_sources": false
     }
   ],
   "directive_provenance_caution": "Public-knowledge clock: directives are described as issued in Feb/Mar 2020 but recoverable editorial disclosure of Mar10 example is Dec 11, 2020, and LeTV wiki imported June 17 2026. Do not insert secret contents into a 2020-03-10 what-the-public-knew view. Nor count the LeTV index and CDT translation of the same wording as independent corroboration."
