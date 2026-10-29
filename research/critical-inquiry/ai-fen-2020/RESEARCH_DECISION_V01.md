@@ -69,6 +69,14 @@ node scripts/audit-ai-fen-source-git.mjs --repo ./Terminus2049.github.io
 
 来源目录另出现`https://archive.today/20200310021029/https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg`，若其数字编码确为UTC抓取时间，将对应北京时间10:10:29。该目标本轮无法打开，**仅登记为待检线索，不纳入已取证的10:10历史可见集合**。
 
+## 二点四、针对相同URL的据称内部报道限制指令：不得把“下首页”写成“全网删稿”
+
+在2020年12月11日，[中国数字时代英文编辑文章](https://chinadigitaltimes.net/2020/12/minitrue-diary-march-10-2020-tibet-independence-covid-rent-relief-whistleblower-epidemic-transmission-and-treatments/)称已获取并核验一批当年发给媒体的内部宣传指令，记录3月10日不把“发哨人”相关报道放上首页。其[中文转载](https://chinadigitaltimes.net/chinese/655981.html)还把本站已经找到历史快照的`yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256`具体网址列入参考对象。2026年[乐视内部指令总目录](https://chinadigitaltimes.net/chinese/728404.html)另给出据称2月7日用词要求及3月10日展示位置限制。
+
+**这是此前的来源可行性审计遗漏的重要证据类别。** 但我们目前不能访问原始下发件，也不能证明三种二次公开载体相互独立、命令是谁下达、哪家网站在几点实际执行。*Homepage demotion*、*lexical choice constraint*、*source-side takedown*应分别建模。尤其，2020年3月10日公众没有理由知道2020年12月或2026年才公开的内部文书详情。不能据此制造一部“公众在2020年已知指令”的时间机器。
+
+[专项证据、双时钟和政治信息控制分类审核](https://github.com/GBX-Max1220/maxguo.dev/blob/research/ai-fen-source-provenance-20261029/research/critical-inquiry/ai-fen-2020/DIRECTIVE_DISCLOSURE_AND_PUBLIC_VISIBILITY_AUDIT_20261029.md)。
+
 ## 三、核心交叉审计：记者导语 ≠ 受访者原话 ≠ 已认证行政身份
 
 现存《人物》转载文本的前言以“八位被警方训诫的医生”概括早期传播者；**这是一项要审计的编辑/叙述性主张，不应自动归于艾芬的采访原话**。在文中对“八人”的编者导语，与对艾芬自身的第一人称回答之间应有明确的字段区分。
@@ -102,7 +110,7 @@ node scripts/audit-ai-fen-source-git.mjs --repo ./Terminus2049.github.io
 
 ## 六、出版决策
 
-**PILOT GO / PUBLICATION HOLD.**
+**PILOT GO / PUBLICATION HOLD.** 新增了2020年12月与2026年公开的被报道内部编辑指令，说明存在有针对性的词汇与首页展示管控记录；但网页具体删稿执行、原始发令链、2020年3月公众知情时间和改标题因果仍未认证。
 
 已有两篇明确的直接相关同行评审研究，使“传播变体如何抵抗审查”不应成为本站原创主轴；更可发表、且连接上海—李文亮的，是“在审查与平台消失条件下，谁能定义、复制和纠正一个历史叙述”。这有可能形成《言说的边界》独立可复核的方法与调查系列，但必须先通过原始版次证据门槛。
 
