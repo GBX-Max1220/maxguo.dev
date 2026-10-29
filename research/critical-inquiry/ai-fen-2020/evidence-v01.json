@@ -219,6 +219,56 @@
       "group": "bibliographic_secondhand_archive_lead",
       "access": "BIBLIOGRAPHY_READABLE_ARCHIVE_TARGET_FAILED",
       "limit": "Archive.today target at https://archive.today/20200310021029/https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg was not accessible; embedded numeric timestamp is an unverified locator, not a verified successful fetch or forensic content."
+    },
+    {
+      "id": "AF19",
+      "url": "https://chinadigitaltimes.net/2020/12/minitrue-diary-march-10-2020-tibet-independence-covid-rent-relief-whistleblower-epidemic-transmission-and-treatments/",
+      "publisher": "China Digital Times English editorial, Sophie Beach",
+      "display_date": "2020-12-11",
+      "role": "dated December 2020 retrospective public disclosure of a directive reported as issued March 10; CDT says it acquired and verified a central-party-to-state-media directives collection",
+      "group": "cdt_translated_directives_2020",
+      "access": "DIRECT_HTML_READABLE",
+      "limit": "CDT editorial source attributes and says it verified a collection; original issued memo, exact sender/recipient, signatures, forwarding logs and implementation records not independently obtained in this research. NOT publicly verified as known on March 10."
+    },
+    {
+      "id": "AF20",
+      "url": "https://chinadigitaltimes.net/chinese/655981.html",
+      "publisher": "中国数字时代（中文指令转载）",
+      "display_date": "2020-03-10",
+      "role": "retrospective Chinese edition of alleged March 10 reporting restriction listing yyrw.org.cn article URL verbatim",
+      "group": "cdt_directives_publication_lineage",
+      "access": "DIRECT_HTML_READABLE_PUBLICATION_DATE_UNCERTAIN",
+      "limit": "Page displays alleged command date 2020-03-10; do NOT treat that displayed date as when leak became publicly available; related CDT English feature explicitly published 2020-12-11. Original directive first-issued hour and chain unverified."
+    },
+    {
+      "id": "AF21",
+      "url": "https://chinadigitaltimes.net/chinese/728404.html",
+      "publisher": "中国数字时代乐视内部流出指令总目录",
+      "display_date": "2026-06-22",
+      "role": "2026 publication describing leaked LeTV in-platform moderation instruction collection with 718 dated records, including February 7 vocabulary item",
+      "group": "leshi_leak_curated_2026",
+      "access": "DIRECT_HTML_READABLE",
+      "limit": "Corpus is described by publisher as LeTV-internal leaked instructions; its relation to 2020 CDT-acquired state-media directive collection not proven to constitute independent testimony or independent copies."
+    },
+    {
+      "id": "AF22",
+      "url": "https://chinadigitaltimes.net/space/%E4%B9%90%E8%A7%86%E6%8C%87%E4%BB%A420200207",
+      "publisher": "中国数字空间《乐视指令20200207》",
+      "display_date": "2026-06",
+      "role": "LeTV instruction index containing Feb 7 prohibition on the designation 吹哨的人 in reports",
+      "group": "leshi_leak_curated_2026",
+      "access": "DIRECT_HTML_READABLE",
+      "limit": "Alleged date 2020-02-07 is directive date; public wiki record appears as a later leak. Do NOT assert all outlets obeyed or that a specific article title was changed to follow it."
+    },
+    {
+      "id": "AF23",
+      "url": "https://chinadigitaltimes.net/space/%E4%B9%90%E8%A7%86%E6%8C%87%E4%BB%A420200310",
+      "publisher": "中国数字空间《乐视指令20200310》",
+      "display_date": "2026-06-17",
+      "role": "wiki import entry of alleged March 10 do-not-feature-homepage directive with exact hospital humanities article URL",
+      "group": "leshi_leak_curated_2026",
+      "access": "DIRECT_HTML_READABLE_AND_REVISION_METADATA",
+      "limit": "CDS wiki oldid=175340 says imported 2026-06-17 05:03. This page is a later index and NOT independent proof that directive was public March 10 or that yyrw.org.cn article was actually removed."
     }
   ],
   "observations": [
@@ -455,6 +505,52 @@
       ],
       "status": "SECONDARY_ARCHIVE_LEAD_NOT_DIRECTLY_READABLE",
       "caution": "10:10 Beijing is only a possible conversion of a numeric archive locator, not independently authenticated early snapshot content or deletion chronology."
+    },
+    {
+      "id": "AFC15",
+      "kind": "retrospective_leaked_editorial_instruction",
+      "claim": "A 2020-12-11 CDT editorial discloses and translates a purported March 10 instruction to keep whistle-provider coverage off homepages and remove it from those homepages",
+      "source_ids": [
+        "AF19",
+        "AF20"
+      ],
+      "status": "REPORTED_AND_PUBLISHED_DIRECTIVE_CDT_VERIFICATION_CLAIM",
+      "caution": "Do not describe as authenticated original government document in this project or as proof of actual removal. Its policy action is homepage placement, not blanket erasure of all copies."
+    },
+    {
+      "id": "AFC16",
+      "kind": "specific_referenced_url_overlap",
+      "claim": "The alleged March 10 instruction explicitly includes the yyrw.org.cn article URL whose later historical Wayback copy contains the 吹哨子的人 headline",
+      "source_ids": [
+        "AF20",
+        "AF23",
+        "AF17"
+      ],
+      "status": "EXACT_URL_OVERLAP_WITH_REPUBLICATION",
+      "caution": "URL overlap is established, but original directive release hour, intended recipient, which editor changed the title and actual compliance are not established. Different archive channels are not independent proof of order origination."
+    },
+    {
+      "id": "AFC17",
+      "kind": "earlier_reported_wording_instruction",
+      "claim": "A later published LeTV leak corpus includes a purported 2020-02-07 instruction to avoid the term 吹哨的人 in reporting",
+      "source_ids": [
+        "AF21",
+        "AF22"
+      ],
+      "status": "REPORTED_RETROSPECTIVE_PLATFORM_DIRECTIVE",
+      "caution": "Different from March 10 homepage restriction. No evidence any specific later source changed 發/吹 wording as a consequence."
+    },
+    {
+      "id": "AFC18",
+      "kind": "historical_public_knowledge_gate",
+      "claim": "Directive's stated 2020 issue date and first retrievable public retrospective disclosures are distinct dates; the 2026 indexed Wiki entry cannot be counted as publicly available in March 2020",
+      "source_ids": [
+        "AF19",
+        "AF21",
+        "AF23"
+      ],
+      "status": "PUBLIC_DISCLOSURE_CUTOFF_VERIFIED",
+      "caution": "CDT English dated 2020-12-11 and CDS index imported 2026-06-17. The exact first public leakage of the underlying directive outside these sources is not established."
     }
   ],
   "source_relations": [
@@ -517,6 +613,41 @@
       "to": "AF12",
       "relation": "independent compilation indexes linking to original WeChat URL, but neither indexes primary publisher bytes",
       "independent_original_interview": false
+    },
+    {
+      "from": "AF20",
+      "to": "AF19",
+      "relation": "Chinese and English CDT renderings of the same alleged March10 directive, editorial republications not independent original orders",
+      "independent_original_interview": false,
+      "independent_directive_document": false
+    },
+    {
+      "from": "AF23",
+      "to": "AF20",
+      "relation": "2026 CDS LeTV catalog repeats the same March10 instruction passage; same text is not independent proof of issuer or first-disclosure date",
+      "independent_original_interview": false,
+      "independent_directive_document": false
+    },
+    {
+      "from": "AF21",
+      "to": "AF23",
+      "relation": "2026 CDT LeTV overview and daily wiki entry belong to same retrospective dataset publication",
+      "independent_original_interview": false,
+      "independent_directive_document": false
+    },
+    {
+      "from": "AF23",
+      "to": "AF17",
+      "relation": "The alleged directive references the exact same yyrw.org.cn republication URL whose March 10 Wayback captured text is registered as AF17",
+      "independent_original_interview": false,
+      "independent_directive_document": false
+    },
+    {
+      "from": "AF21",
+      "to": "AF22",
+      "relation": "LeTV aggregate and Feb7 daily entry are one leaked corpus, not independent witnesses",
+      "independent_original_interview": false,
+      "independent_directive_document": false
     }
   ],
   "publication_gates": {
@@ -526,10 +657,13 @@
     "source_dependent_reprints": "STRUCTURALLY_REGISTERED",
     "G3_second_human_review": "HOLD",
     "G4_privacy_copyright": "HOLD",
-    "G6_publication": "HOLD"
+    "G6_publication": "HOLD",
+    "original_directive_issue_chain": "HOLD",
+    "reported_directive_and_site_url_join": "READY_FOR_HUMAN_REVIEW",
+    "actual_implementation_and_causality": "HOLD"
   },
   "privacy": "No copied unredacted chat logs, patients' reports, private family identifiers or full copyrighted interview text. Public URLs only; no private screenshots.",
-  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases. Wu (2024) also identifies textual, multimodal and technically encoded relay tactics. Avoid repackaging these findings; prioritize source-version attestation and labeled-actor conflation with cross-case corrections. Source discovery: known WeChat URL improves targeted authentication but does not establish exact original text. A concrete March 10 Git commit chain goes back to 13:23:09 Beijing time on a predecessor Chinese filename. Only 73/75 normalized long paragraphs are identical across first and last reviewed editions (remaining: metadata and one <br/> formatting difference). The first copy contains the 'eight admonished doctors' editorial summary twice but the 'I was not admonished by police' self-report once; avoid counting these as three independent statements. A directly accessible Wayback capture at 2020-03-10T13:50:52Z preserves a March10 institutional reprint on yyrw.org.cn with materially different framing/credit; this is verified archived content, not original WeChat edition. A distinct archive.today locator 20200310021029 appears in secondary bibliography but target is inaccessible; do not backdate content to it. Concrete frame inversion now observed: first Git copy '发哨子的人', 21:50 archived professional association repost '吹哨子的人', while first-person testimony distinguishes the terms. Also byline role flattening and an additional opening sentence. No motive attribution.",
+  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases. Wu (2024) also identifies textual, multimodal and technically encoded relay tactics. Avoid repackaging these findings; prioritize source-version attestation and labeled-actor conflation with cross-case corrections. Source discovery: known WeChat URL improves targeted authentication but does not establish exact original text. A concrete March 10 Git commit chain goes back to 13:23:09 Beijing time on a predecessor Chinese filename. Only 73/75 normalized long paragraphs are identical across first and last reviewed editions (remaining: metadata and one <br/> formatting difference). The first copy contains the 'eight admonished doctors' editorial summary twice but the 'I was not admonished by police' self-report once; avoid counting these as three independent statements. A directly accessible Wayback capture at 2020-03-10T13:50:52Z preserves a March10 institutional reprint on yyrw.org.cn with materially different framing/credit; this is verified archived content, not original WeChat edition. A distinct archive.today locator 20200310021029 appears in secondary bibliography but target is inaccessible; do not backdate content to it. Concrete frame inversion now observed: first Git copy '发哨子的人', 21:50 archived professional association repost '吹哨子的人', while first-person testimony distinguishes the terms. Also byline role flattening and an additional opening sentence. No motive attribution. New reported directive evidence explicitly references the same institutionally reprinted yyrw.org.cn URL; critically distinguish Feb7 terminology prohibition, Mar10 homepage placement restriction, delayed public leak and actually observable site removal. CDTs 2020 alleged central instructions and 2026 LeTV internal catalog have a common passage, not independently proven issuer lineages.",
   "historical_git_versions": [
     {
       "sha": "4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
@@ -611,5 +745,42 @@
     "observation": "Role-label shift at the headline layer and redistribution of byline roles in an institutional republication; original editorial responsibility and motive unknown.",
     "proof_boundary": "Timestamp applies to Wayback copy capture only; first WeChat title/edition bytes and whether the site edit was deliberate or automated remain unknown.",
     "normative_hypothesis_not_measured": "An institution may reproduce a whistle-related testimony while modifying the public-facing designation of the speaker; assess whether this affects memory only with independent audience evidence."
-  }
+  },
+  "directive_evidence": [
+    {
+      "id": "DIR_20200207_WORD",
+      "purported_issue_date": "2020-02-07",
+      "action_type": "TERM_AVOIDANCE",
+      "reported_restriction_short": "在各类报道中不使用“吹哨的人”这个概念",
+      "source_ids": [
+        "AF22",
+        "AF21"
+      ],
+      "first_accessible_dated_disclosure_in_register": "2026-06-22",
+      "first_publicly_known_in_2020": false,
+      "independent_original_memo_authenticated": false,
+      "execution_observed": false,
+      "scope": "wording across reports, does not prove universal censorship of all whistleblower coverage",
+      "note": "LeTV corpus posted in 2026; item displayed as 2020 instruction. No publisher original file or issuance time verified."
+    },
+    {
+      "id": "DIR_20200310_HOME",
+      "purported_issue_date": "2020-03-10",
+      "action_type": "HOMEPAGE_DEMOTION",
+      "reported_restriction_short": "涉发哨人，此类报道不上首页，如有请撤下",
+      "source_ids": [
+        "AF19",
+        "AF20",
+        "AF23"
+      ],
+      "first_accessible_dated_disclosure_in_register": "2020-12-11",
+      "first_publicly_known_in_2020": false,
+      "independent_original_memo_authenticated": false,
+      "execution_observed": false,
+      "scope": "do not put this category of reports on homepage; if already on homepage, remove from homepage, not necessarily remove article URL from internet",
+      "target_url": "http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256&from=timeline&isappinstalled=0",
+      "note": "CDT says verified original collection, but researcher lacks original directive/issuer chain. Exact target URL matches AF17 canonical URL without query decoration; no obedience or causality claim."
+    }
+  ],
+  "directive_provenance_caution": "Public-knowledge clock: directives are described as issued in Feb/Mar 2020 but recoverable editorial disclosure of Mar10 example is Dec 11, 2020, and LeTV wiki imported June 17 2026. Do not insert secret contents into a 2020-03-10 what-the-public-knew view. Nor count the LeTV index and CDT translation of the same wording as independent corroboration."
 }
