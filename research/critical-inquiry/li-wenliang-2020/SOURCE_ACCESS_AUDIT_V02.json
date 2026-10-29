@@ -1,10 +1,10 @@
 {
   "status": "URL_AND_TEXT_SCOPE_REVIEW_NOT_INDEPENDENT_FACT_REVIEW",
   "checked_on": "2026-10-29",
-  "scope": "15 registered web source pages",
+  "scope": "16 registered web source pages",
   "access": "Direct web open performed on primary and republication pages. A readable page supports publication, attribution and scope only; does not by itself independently establish all factual allegations.",
   "counts": {
-    "readable": 15,
+    "readable": 16,
     "unreadable": 0,
     "independence_groups": 9
   },
@@ -17,7 +17,8 @@
     "Li's written reprimand and attributed photo were already publicly discussed in Jan31 interviews; March19 official report is NOT the first public disclosure of reprimand's existence.",
     "At least by Jan31 interviewee-provided reprimand photo was public; therefore do not treat March19 as its first public disclosure. Raw original image may contain personal document fields and must not be copied into the site.",
     "19:04 CLS brief is earliest source found in this register for the Commission finding; 19:14 CNEB summary and 19:28 Xinhua full report must remain separate.",
-    "Sina reported a police withdrawal at 20:55 on March 19, earlier than Youth.cn 21:47; this timestamp is the syndication's displayed publication, not authenticated original Weibo issuance."
+    "Sina reported a police withdrawal at 20:55 on March 19, earlier than Youth.cn 21:47; this timestamp is the syndication's displayed publication, not authenticated original Weibo issuance.",
+    "Wuhan municipal archive displays Jan 1 11:36, but contemporaneous press refers to Jan 1 afternoon police Weibo post; treat 18:53 as a currently located press edition, not original official first-release minute."
   ],
   "records": [
     {
@@ -30,7 +31,7 @@
       "read_checked_date": "2026-10-29",
       "source_role": "contemporaneous police public labeling",
       "independence_group": "wuhan_police_eight_jan1",
-      "evidence_limit": "ARCHIVED MUNICIPAL PAGE CURRENTLY INDICATES JAN 1 ARTICLE DATE; URL PATH SHOWS APR 2020",
+      "evidence_limit": "MUNICIPAL ARCHIVE DISPLAY TIME 2020-01-01 11:36 NOT AUTHENTICATED ORIGINAL RELEASE; URL PATH 202004 AND SAME-DAY PRESS SAYS JAN 1 AFTERNOON WEIBO RELEASE",
       "claim_true_independently_established": false,
       "original_social_or_administrative_records_authenticated": false
     },
@@ -227,6 +228,20 @@
       "source_role": "earliest currently located dated syndication of formal police revocation and apology",
       "independence_group": "wuhan_police_correction_mar19",
       "evidence_limit": "SINA DISPLAYED 20:55, same police statement as LW11/LW06; not authenticated original Weibo posting time or original edition bytes.",
+      "claim_true_independently_established": false,
+      "original_social_or_administrative_records_authenticated": false
+    },
+    {
+      "source_id": "LW16",
+      "url": "https://www.thepaper.cn/newsDetail_forward_5402905",
+      "provider": "澎湃新闻转载平安武汉警方最初八人通报",
+      "declared_document_date": "2020-01-01",
+      "site_displayed_publication": "2020-01-01T18:53:00+08:00",
+      "page_access": "DIRECT_TEXT_READABLE",
+      "read_checked_date": "2026-10-29",
+      "source_role": "dated contemporaneous press republication of eight-person initial police notice",
+      "independence_group": "wuhan_police_eight_jan1",
+      "evidence_limit": "The Paper 18:53 timestamp; not proof of first agency Weibo issue, same institutional original as archived LW01.",
       "claim_true_independently_established": false,
       "original_social_or_administrative_records_authenticated": false
     }
