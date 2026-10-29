@@ -16,6 +16,7 @@ on:
       - 'scripts/validate-critical-hub.mjs'
       - 'research/critical-inquiry/**'
       - 'scripts/validate-li-wenliang-research.mjs'
+      - 'scripts/validate-six-clocks-editorial-v03.mjs'
       - 'scripts/check-dual-asof-prototype.mjs'
       - 'package.json'
       - 'scripts/generate-non-answers-og.mjs'
@@ -57,6 +58,9 @@ jobs:
 
       - name: Validate Li Wenliang critical inquiry chronology and as-of boundaries
         run: node scripts/validate-li-wenliang-research.mjs
+
+      - name: Check Six Clocks editorial v0.3 bilingual timeline and review gates
+        run: node scripts/validate-six-clocks-editorial-v03.mjs
 
       - name: Install Chromium for layout checks
         run: npx playwright install --with-deps chromium-headless-shell
