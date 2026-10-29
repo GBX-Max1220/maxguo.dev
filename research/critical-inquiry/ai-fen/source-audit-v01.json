@@ -393,7 +393,7 @@
         "AF10",
         "AF03"
       ],
-      "limit": "Exact edit time/agent/motive not established and raw HTML bytes differ."
+      "limit": "The historical vs current title also changes from 吹哨子的人 to 发哨子的人; exact edit timing, editor and motivation remain unknown. Raw HTML bytes differ."
     },
     {
       "id": "AF-C16",
@@ -404,6 +404,16 @@
         "AF08"
       ],
       "limit": "Independent archived copy, not the missing original."
+    },
+    {
+      "id": "AF-C17",
+      "claim": "The yyrw page title in the 2020-03-10 Wayback capture begins with 吹哨子的人, while its current page title begins with 发哨子的人.",
+      "status": "SUPPORTED_BY_ARCHIVED_VS_CURRENT_HEADING_COMPARISON",
+      "source_ids": [
+        "AF10",
+        "AF03"
+      ],
+      "limit": "The edit date within this interval, author and motive remain unknown; this does not establish compliance with any leaked instruction."
     }
   ],
   "research_gates": [
@@ -443,7 +453,7 @@
       "status": "NOT_STARTED"
     }
   ],
-  "decision": "CONTINUE_BOUNDED_HISTORICAL_PROVENANCE_INTERPRETATION; NO_PUBLIC_ARTICLE_YET",
+  "decision": "CONTINUE_PROVENANCE_STUDY_WITH_SAME_URL_DIRECTIVE_CORROBORATION_AND_EXPLICIT_NO_CAUSAL_CLAIM; NO_PUBLIC_ARTICLE",
   "stop_condition": "If no authenticated temporal evidence or distinct version-provenance finding emerges beyond existing relay-activism literature, stop as a standalone article and reuse only as a methods appendix or case note.",
   "cross_site_comparison": {
     "report": "research/critical-inquiry/ai-fen/cross-site-comparison-v01.json",
@@ -456,11 +466,12 @@
   },
   "historical_capture_comparison": {
     "report": "research/critical-inquiry/ai-fen/historical-captures-v01.json",
-    "workflow_run_id": 40957086391,
+    "workflow_run_id": 40957538998,
     "status": "TWO_DERIVATIVE_2020_BODIES_AND_ORIGINAL_UNAVAILABLE_NOTICE_VERIFIED",
     "capture_yyrw_utc": "2020-03-10T13:50:52Z",
     "capture_original_unavailable_utc": "2020-03-10T22:58:25Z",
     "current_historic_yyrw_equal_units": 199,
-    "units": 200
+    "units": 200,
+    "title_drift": "2020 snapshot: 吹哨子的人; current page: 发哨子的人"
   }
 }
