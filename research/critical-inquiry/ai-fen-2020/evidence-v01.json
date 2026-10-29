@@ -551,6 +551,17 @@
       ],
       "status": "PUBLIC_DISCLOSURE_CUTOFF_VERIFIED",
       "caution": "CDT English dated 2020-12-11 and CDS index imported 2026-06-17. The exact first public leakage of the underlying directive outside these sources is not established."
+    },
+    {
+      "id": "AFC19",
+      "kind": "retrospective_source_monopoly_instruction",
+      "claim": "2026 CDT LeTV archive displays a purported Feb7 restriction allowing Li Wenliang-death coverage only from CCTV television and CCTV News client",
+      "source_ids": [
+        "AF22",
+        "AF21"
+      ],
+      "status": "REPORTED_LEAK_SOURCE_SELECTION_RESTRICTION",
+      "caution": "Original agency issuance and implementation not independently confirmed. One leak item, distinct from the Feb7 word-choice instruction but in same publication lineage."
     }
   ],
   "source_relations": [
@@ -663,7 +674,7 @@
     "actual_implementation_and_causality": "HOLD"
   },
   "privacy": "No copied unredacted chat logs, patients' reports, private family identifiers or full copyrighted interview text. Public URLs only; no private screenshots.",
-  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases. Wu (2024) also identifies textual, multimodal and technically encoded relay tactics. Avoid repackaging these findings; prioritize source-version attestation and labeled-actor conflation with cross-case corrections. Source discovery: known WeChat URL improves targeted authentication but does not establish exact original text. A concrete March 10 Git commit chain goes back to 13:23:09 Beijing time on a predecessor Chinese filename. Only 73/75 normalized long paragraphs are identical across first and last reviewed editions (remaining: metadata and one <br/> formatting difference). The first copy contains the 'eight admonished doctors' editorial summary twice but the 'I was not admonished by police' self-report once; avoid counting these as three independent statements. A directly accessible Wayback capture at 2020-03-10T13:50:52Z preserves a March10 institutional reprint on yyrw.org.cn with materially different framing/credit; this is verified archived content, not original WeChat edition. A distinct archive.today locator 20200310021029 appears in secondary bibliography but target is inaccessible; do not backdate content to it. Concrete frame inversion now observed: first Git copy '发哨子的人', 21:50 archived professional association repost '吹哨子的人', while first-person testimony distinguishes the terms. Also byline role flattening and an additional opening sentence. No motive attribution. New reported directive evidence explicitly references the same institutionally reprinted yyrw.org.cn URL; critically distinguish Feb7 terminology prohibition, Mar10 homepage placement restriction, delayed public leak and actually observable site removal. CDTs 2020 alleged central instructions and 2026 LeTV internal catalog have a common passage, not independently proven issuer lineages.",
+  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases. Wu (2024) also identifies textual, multimodal and technically encoded relay tactics. Avoid repackaging these findings; prioritize source-version attestation and labeled-actor conflation with cross-case corrections. Source discovery: known WeChat URL improves targeted authentication but does not establish exact original text. A concrete March 10 Git commit chain goes back to 13:23:09 Beijing time on a predecessor Chinese filename. Only 73/75 normalized long paragraphs are identical across first and last reviewed editions (remaining: metadata and one <br/> formatting difference). The first copy contains the 'eight admonished doctors' editorial summary twice but the 'I was not admonished by police' self-report once; avoid counting these as three independent statements. A directly accessible Wayback capture at 2020-03-10T13:50:52Z preserves a March10 institutional reprint on yyrw.org.cn with materially different framing/credit; this is verified archived content, not original WeChat edition. A distinct archive.today locator 20200310021029 appears in secondary bibliography but target is inaccessible; do not backdate content to it. Concrete frame inversion now observed: first Git copy '发哨子的人', 21:50 archived professional association repost '吹哨子的人', while first-person testimony distinguishes the terms. Also byline role flattening and an additional opening sentence. No motive attribution. New reported directive evidence explicitly references the same institutionally reprinted yyrw.org.cn URL; critically distinguish Feb7 terminology prohibition, Mar10 homepage placement restriction, delayed public leak and actually observable site removal. CDTs 2020 alleged central instructions and 2026 LeTV internal catalog have a common passage, not independently proven issuer lineages. Cross-case Feb7 reported allowed-source policy affects news about Li, not necessarily the Ai Fen interview itself. Treat it as shared information-governance mechanism rather than an Ai-specific censorship directive.",
   "historical_git_versions": [
     {
       "sha": "4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
@@ -748,6 +759,22 @@
   },
   "directive_evidence": [
     {
+      "id": "DIR_20200207_SOURCE",
+      "purported_issue_date": "2020-02-07",
+      "action_type": "APPROVED_SOURCE_ONLY",
+      "reported_restriction_short": "李文亮去世一事只允许转载央视电视报道和央视新闻客户端内容",
+      "source_ids": [
+        "AF22",
+        "AF21"
+      ],
+      "first_accessible_dated_disclosure_in_register": "2026-06-22",
+      "publicly_verifiable_at_purported_issue_date_in_registered_sources": false,
+      "independent_original_memo_authenticated": false,
+      "execution_observed": false,
+      "scope": "LeTV-reported instruction about permissible sources when covering Li Wenliang's death, NOT a demonstrated universal ban at all media, nor a claim of actually removed articles",
+      "note": "Same Feb7 LeTV report as terminology restriction; do not treat two lines as independent original memos. Aimed at source selection/editorial reproduction and later publicly disclosed."
+    },
+    {
       "id": "DIR_20200207_WORD",
       "purported_issue_date": "2020-02-07",
       "action_type": "TERM_AVOIDANCE",
@@ -782,5 +809,5 @@
       "publicly_verifiable_at_purported_issue_date_in_registered_sources": false
     }
   ],
-  "directive_provenance_caution": "Public-knowledge clock: directives are described as issued in Feb/Mar 2020 but recoverable editorial disclosure of Mar10 example is Dec 11, 2020, and LeTV wiki imported June 17 2026. Do not insert secret contents into a 2020-03-10 what-the-public-knew view. Nor count the LeTV index and CDT translation of the same wording as independent corroboration."
+  "directive_provenance_caution": "Public-knowledge clock: directives are described as issued in Feb/Mar 2020 but recoverable editorial disclosure of Mar10 example is Dec 11, 2020, and LeTV wiki imported June 17 2026. Do not insert secret contents into a 2020-03-10 what-the-public-knew view. Nor count the LeTV index and CDT translation of the same wording as independent corroboration. Feb7 also contains source-selection exclusivity for reports on Li's death; its effect cannot be measured from the leaked text alone."
 }
