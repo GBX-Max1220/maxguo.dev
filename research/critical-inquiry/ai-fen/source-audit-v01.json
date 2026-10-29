@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "AI-FEN-VERSION-AUDIT-2026-10-30",
+  "checked_on": "2026-10-30",
+  "status": "RESEARCH_ONLY_FEASIBILITY_AUDIT",
+  "publication_authorized": false,
+  "main_base_commit": "bbd6dbe59a15ede8ac4af4891556b46cd8fe9bf8",
+  "scope": "Publicly accessible article/archive pages, displayed metadata, contemporaneous reporting, and peer-reviewed prior work. No original WeChat backend records or authenticated first-publication snapshot obtained.",
+  "source_status_taxonomy": [
+    "DIRECTLY_READ_CURRENT_PAGE",
+    "CONTEMPORANEOUS_REPORT",
+    "PEER_REVIEWED_PRIOR_WORK",
+    "LINK_IDENTIFIED_ACCESS_BLOCKED",
+    "ORIGINAL_SOURCE_NOT_OBTAINED"
+  ],
+  "sources": [
+    {
+      "id": "AF01",
+      "title": "发哨子的人 — 端点星存档",
+      "url": "https://terminus2049.github.io/archive/2020/03/10/fa-shao-zi-de-ren.html",
+      "type": "DERIVATIVE_ARCHIVE",
+      "status": "DIRECTLY_READ_CURRENT_PAGE",
+      "displayed_date": "2020-03-10",
+      "independence_group": "renwu_article_derivative_copies",
+      "observations": [
+        "Page says original source is 人物.",
+        "Article body, credits, image references and archive/copyright note are visible.",
+        "Page's current displayed date is not an authenticated original publication timestamp."
+      ],
+      "limitations": [
+        "Not the original Renwu WeChat publication.",
+        "Current page access does not authenticate original image bytes or version history."
+      ]
+    },
+    {
+      "id": "AF02",
+      "title": "Coronavirus: Wuhan doctor speaks out against authorities — The Guardian",
+      "url": "https://www.theguardian.com/world/2020/mar/11/coronavirus-wuhan-doctor-ai-fen-speaks-out-against-authorities",
+      "type": "CONTEMPORANEOUS_JOURNALISM",
+      "status": "DIRECTLY_READ_CURRENT_PAGE",
+      "published_displayed": "2020-03-11T09:50+01:00",
+      "modified_displayed": "2020-07-01T19:18+02:00",
+      "independence_group": "guardian_newsroom",
+      "observations": [
+        "Contemporaneous report describes Renwu removing the interview and copies quickly disappearing from Chinese social media.",
+        "Describes screenshots and variants including emoji, Morse code and pinyin."
+      ],
+      "limitations": [
+        "News reporting is not platform audit logs.",
+        "Does not identify a complete command chain or establish the identity of every deletion actor."
+      ]
+    },
+    {
+      "id": "AF03",
+      "title": "发哨子的人：如果这些医生都能够得到及时的提醒，或许就不会有这一天 — yyrw.org.cn",
+      "url": "https://yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256",
+      "type": "REPUBLISHED_FULL_TEXT",
+      "status": "DIRECTLY_READ_CURRENT_PAGE",
+      "displayed_date": "2020-03-10",
+      "publisher_field": "《人物》",
+      "author_field": "龚菁琦 尹夕远",
+      "independence_group": "renwu_article_derivative_copies",
+      "observations": [
+        "Current page contains substantial interview text and credits the source as 人物.",
+        "Title includes an additional quoted phrase compared with the Terminus title.",
+        "Page begins with an additional line '我爱我的祖国。' not seen at the same point in the currently read Terminus page.",
+        "Footer states '中欧国际医院管理中心主办' and '北京中欧国际医院管理技术研究院 版权所有'."
+      ],
+      "limitations": [
+        "Displayed date does not prove the page was live on that date.",
+        "No authenticated 2020 snapshot or server record obtained.",
+        "Differences have not yet been compared paragraph-by-paragraph.",
+        "The host's institutional control and editorial authorization in 2020 are not independently confirmed."
+      ]
+    },
+    {
+      "id": "AF04",
+      "title": "中国生命关怀协会医院人文建设专业委员会简介 — yyrw.org.cn",
+      "url": "https://yyrw.org.cn/e/action/ShowInfo.php?classid=2&id=1",
+      "type": "SITE_SELF_DESCRIPTION",
+      "status": "DIRECTLY_READ_CURRENT_PAGE",
+      "displayed_date": "2017-04-13",
+      "independence_group": "yyrw_site_self_description",
+      "observations": [
+        "Page describes the committee as a first-level professional committee of China Life Care Association.",
+        "Page says the association is supervised by the National Health Commission and links to an NHC social-organization list."
+      ],
+      "limitations": [
+        "Self-description is not independent proof of the site's legal owner, operational control, or 2020 governance.",
+        "The linked NHC page could not be retrieved by the current web reader in this session."
+      ]
+    },
+    {
+      "id": "AF05",
+      "title": "Relay activism and the flows of contentious publicness on WeChat: a case study of COVID-19 in China",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/1369118X.2023.2205474",
+      "type": "PEER_REVIEWED_PRIOR_WORK",
+      "status": "PEER_REVIEWED_PRIOR_WORK",
+      "published_online": "2023-05-24",
+      "journal": "Information, Communication & Society",
+      "volume_issue": "27(2), 2024",
+      "pages": "257–277",
+      "doi": "10.1080/1369118X.2023.2205474",
+      "independence_group": "academic_prior_art",
+      "observations": [
+        "Abstract describes textual analysis and participant observation of relay activism around the article, focusing on WeChat and GitHub.",
+        "Published paper's notes point to an item titled 'A hundred and eight versions'."
+      ],
+      "limitations": [
+        "Full text methods and dataset were not reviewed in this audit because access was restricted.",
+        "The cited 108 figure is not an independently reconstructed sample count for this project."
+      ]
+    },
+    {
+      "id": "AF06",
+      "title": "《人物》原始微信公众号发布",
+      "url": null,
+      "type": "ORIGINAL_SOURCE",
+      "status": "ORIGINAL_SOURCE_NOT_OBTAINED",
+      "independence_group": "renwu_original_publication",
+      "observations": [
+        "Multiple surviving sources report publication on 2020-03-10.",
+        "Terminus page links the original article as removed."
+      ],
+      "limitations": [
+        "No authenticated original HTML, WeChat backend record, deletion log, or first-publication snapshot obtained."
+      ]
+    },
+    {
+      "id": "AF07",
+      "title": "人权中国 HRIC archived republication",
+      "url": "https://www.hrichina.org/chs/gong-min-yan-chang/ren-wu-fa-shao-zi-de-ren",
+      "type": "DERIVATIVE_ARCHIVE",
+      "status": "LINK_IDENTIFIED_ACCESS_BLOCKED",
+      "independence_group": "renwu_article_derivative_copies",
+      "observations": [
+        "Registered in prior research as a republication/archival page."
+      ],
+      "limitations": [
+        "Direct read was blocked in this session; content not treated as directly verified here."
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "AF-C01",
+      "claim": "《人物》采访于2020-03-10发布。",
+      "status": "CORROBORATED_AS_REPORTED_EVENT",
+      "source_ids": [
+        "AF01",
+        "AF02",
+        "AF03",
+        "AF05"
+      ],
+      "limit": "No authenticated original WeChat post or byte-level timestamp."
+    },
+    {
+      "id": "AF-C02",
+      "claim": "《人物》原始页面在发布后被移除，且同期报道记录了其他副本消失。",
+      "status": "CONTEMPORANEOUSLY_REPORTED_NOT_LOG_VERIFIED",
+      "source_ids": [
+        "AF02"
+      ],
+      "limit": "Does not prove a specific command source or all copies were removed."
+    },
+    {
+      "id": "AF-C03",
+      "claim": "At least two full-text or near-full-text derivative pages are accessible now.",
+      "status": "DIRECTLY_OBSERVED_2026-10-30",
+      "source_ids": [
+        "AF01",
+        "AF03"
+      ],
+      "limit": "Current availability is not proof of 2020 availability."
+    },
+    {
+      "id": "AF-C04",
+      "claim": "The yyrw.org.cn page was online on 2020-03-10.",
+      "status": "NOT_ESTABLISHED",
+      "source_ids": [
+        "AF03"
+      ],
+      "limit": "Only the page's current displayed date was observed; no authenticated contemporaneous snapshot."
+    },
+    {
+      "id": "AF-C05",
+      "claim": "The page was officially exempted from censorship because of its institutional affiliation.",
+      "status": "NOT_ESTABLISHED",
+      "source_ids": [
+        "AF03",
+        "AF04"
+      ],
+      "limit": "Institutional self-description and current footer do not establish a censorship decision, exemption, or intent."
+    },
+    {
+      "id": "AF-C06",
+      "claim": "The article's relay circulation is an unexplored phenomenon.",
+      "status": "REJECTED_AS_NOVELTY_CLAIM",
+      "source_ids": [
+        "AF05"
+      ],
+      "limit": "Peer-reviewed prior work already directly studies relay activism."
+    },
+    {
+      "id": "AF-C07",
+      "claim": "The currently accessible yyrw and Terminus versions have some page-level differences.",
+      "status": "PRELIMINARY_DIRECT_OBSERVATION",
+      "source_ids": [
+        "AF01",
+        "AF03"
+      ],
+      "limit": "Full text alignment and normalized diff remain pending."
+    }
+  ],
+  "research_gates": [
+    {
+      "id": "G0",
+      "name": "Identify accessible surviving copies",
+      "status": "PASS"
+    },
+    {
+      "id": "G1",
+      "name": "Register contemporaneous reporting and scholarly prior work",
+      "status": "PASS"
+    },
+    {
+      "id": "G2",
+      "name": "Acquire authenticated historical snapshots of original and derivative pages",
+      "status": "OPEN"
+    },
+    {
+      "id": "G3",
+      "name": "Perform reproducible paragraph-level version diff",
+      "status": "OPEN"
+    },
+    {
+      "id": "G4",
+      "name": "Verify host/site governance and 2020 republication context",
+      "status": "OPEN"
+    },
+    {
+      "id": "G5",
+      "name": "Review Sun & Wright methods/data for novelty boundary",
+      "status": "OPEN"
+    },
+    {
+      "id": "G6",
+      "name": "Authorize a public article only if a distinct evidence-based contribution survives",
+      "status": "NOT_STARTED"
+    }
+  ],
+  "decision": "CONTINUE_ONE_BOUNDED_SOURCE_AND_VERSION_AUDIT; DO_NOT_CREATE_PUBLIC_PAGE_YET",
+  "stop_condition": "If no authenticated temporal evidence or distinct version-provenance finding emerges beyond existing relay-activism literature, stop as a standalone article and reuse only as a methods appendix or case note."
+}
