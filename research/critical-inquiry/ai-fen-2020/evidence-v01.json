@@ -13,7 +13,8 @@
       "original_url": null,
       "original_edition_available": false,
       "known_minute": null,
-      "status": "ORIGINAL_URL_AND_FIRST_EDITION_UNAUTHENTICATED"
+      "status": "ORIGINAL_URL_AND_FIRST_EDITION_UNAUTHENTICATED",
+      "candidate_archive_index": "https://chinatimeline.github.io/nCovMemory/"
     },
     {
       "id": "WEIBO_CANDIDATE",
@@ -128,6 +129,36 @@
       "group": "citizen_lab_experimental_measurement",
       "access": "PUBLIC_REPORT",
       "limit": "Methodology/background only. No article-specific causal attribution or content-removal evidence inferred."
+    },
+    {
+      "id": "AF11",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/1369118X.2023.2205474",
+      "publisher": "Yu Sun & Scott Wright / Information, Communication & Society",
+      "display_date": "2023-05-24",
+      "role": "peer-reviewed prior study of relay activism and WeChat/GitHub public contention",
+      "group": "peer_reviewed_relay_activism_study",
+      "access": "ABSTRACT_AND_METADATA_READABLE",
+      "limit": "Existing prior art; current audit reviewed abstract and bibliographic metadata, not full methods/results. Do not claim unstudied novelty for transform-and-relay activism."
+    },
+    {
+      "id": "AF12",
+      "url": "https://chinatimeline.github.io/nCovMemory/",
+      "publisher": "nCovMemory public archive",
+      "display_date": null,
+      "role": "archival link-and-screenshot index for March 10 magazine article",
+      "group": "ncovmemory_archival_index",
+      "access": "INDEX_READABLE_ARCHIVED_SCREENSHOT_NOT_INSPECTED",
+      "limit": "Index flags original as unavailable and advertises screenshot/archival mirrors; snapshot bytes, creation time, privacy and correspondence to original edition not authenticated."
+    },
+    {
+      "id": "AF13",
+      "url": "https://matters.town/a/b7mibe20eq6f/history",
+      "publisher": "Matters writer repost",
+      "display_date": "2020-03-10",
+      "role": "dated same-day attributed repost from Notion with Douban screenshot reference",
+      "group": "interview_text_replication",
+      "access": "READABLE",
+      "limit": "Explicitly downstream from Notion/Douban, not independent interview or first-edition source; display date cannot certify exact 3/10 start minute."
     }
   ],
   "observations": [
@@ -265,6 +296,26 @@
       ],
       "status": "BIBLIOGRAPHIC_LEAD_UNVERIFIED_PAGE",
       "caution": "Direct Weibo and candidate Wayback fetch failed. Do not assert a verified timestamped first-edition capture."
+    },
+    {
+      "id": "AFC08",
+      "kind": "prior_art_scoping",
+      "claim": "Peer-reviewed work has already analyzed Ai Fen interview relay activism in WeChat and GitHub via textual analysis and participant observation",
+      "source_ids": [
+        "AF11"
+      ],
+      "status": "PUBLISHED_PRIOR_ART_ABSTRACT",
+      "caution": "Novelty must be measured against this work; present pilot targets version integrity, evidentiary provenance and inter-case rumor-label drift, not rediscovery of relay activism."
+    },
+    {
+      "id": "AFC09",
+      "kind": "archival_index_not_authenticated_object",
+      "claim": "nCovMemory lists the March 10 article with original link marked unavailable and offers alternative screenshot/archive entries",
+      "source_ids": [
+        "AF12"
+      ],
+      "status": "INDEX_OBSERVATION_ONLY",
+      "caution": "Index metadata does not authenticate archive object bytes or its exact creation timestamp."
     }
   ],
   "source_relations": [
@@ -297,6 +348,12 @@
       "to": "AF05",
       "relation": "different contemporary newsrooms, not independently measured identical deletion timestamps",
       "independent_original_interview": false
+    },
+    {
+      "from": "AF13",
+      "to": "AF07",
+      "relation": "Same attributed original article later copied via different personal reprint routes; AF13 explicitly states upstream Notion and Douban",
+      "independent_original_interview": false
     }
   ],
   "publication_gates": {
@@ -308,5 +365,6 @@
     "G4_privacy_copyright": "HOLD",
     "G6_publication": "HOLD"
   },
-  "privacy": "No copied unredacted chat logs, patients' reports, private family identifiers or full copyrighted interview text. Public URLs only; no private screenshots."
+  "privacy": "No copied unredacted chat logs, patients' reports, private family identifiers or full copyrighted interview text. Public URLs only; no private screenshots.",
+  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases."
 }
