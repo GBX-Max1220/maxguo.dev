@@ -48,7 +48,7 @@ for(const [i,h] of history.entries()){
   assert.match(h.blob_sha,/^[a-f0-9]{40}$/);
   assert.equal(h.editorial_intro_eight_count,2,'duplicated editorial sentence is not two independent observations');
   assert.equal(h.interview_no_police_admonition_count,1);
-  assert.equal(Date.parse(h.committer_utc)+8*3600_000,Date.parse(h.committer_local),
+  assert.equal(Date.parse(h.committer_utc),Date.parse(h.committer_local),
     'UTC to Beijing time conversion mismatch: '+i);
   if(i>0) assert.ok(h.committer_utc>history[i-1].committer_utc,'Git commit timestamps out of order');
 }
