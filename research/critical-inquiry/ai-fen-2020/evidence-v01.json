@@ -1,0 +1,312 @@
+{
+  "id": "ai-fen-2020-whistle-giver-publication-visibility",
+  "title": "《发哨子的人》：刊载、失去可见性、文本变体与记忆幸存的初步来源登记",
+  "revision": "pilot-v0.1",
+  "status": "RESEARCH_PILOT_NO_ORIGINAL_EDITION_AUTHENTICATION",
+  "timezone": "Asia/Shanghai",
+  "methodological_warning": "Published page metadata, cached reprints, journalist descriptions of unavailability, and original-platform evidence are distinct. No original WeChat article URL or verified bytes of its 2020-03-10 first edition are established.",
+  "original_carriers": [
+    {
+      "id": "WX_ORIGINAL",
+      "platform": "WeChat Official Account",
+      "account": "renwumag1980",
+      "original_url": null,
+      "original_edition_available": false,
+      "known_minute": null,
+      "status": "ORIGINAL_URL_AND_FIRST_EDITION_UNAUTHENTICATED"
+    },
+    {
+      "id": "WEIBO_CANDIDATE",
+      "platform": "Sina Weibo long-form article",
+      "account": null,
+      "original_url": "https://www.weibo.com/ttarticle/p/show?id=2309404480863474679890",
+      "original_edition_available": false,
+      "known_minute": null,
+      "status": "URL_CITED_IN_HISTORICAL_CHRONOLOGY_DIRECT_OPEN_FAILED",
+      "possible_wayback_capture": "20200310051416",
+      "capture_authenticated": false
+    }
+  ],
+  "sources": [
+    {
+      "id": "AF01",
+      "url": "https://www.chinesepen.org/blog/archives/145003",
+      "publisher": "独立中文笔会",
+      "display_date": "2020-03-10",
+      "role": "dated early survival reprint / attributed magazine article",
+      "group": "interview_text_replication",
+      "access": "READABLE",
+      "limit": "Reprint with date shown, not archived original first edition or independent authentication of all introductory claims."
+    },
+    {
+      "id": "AF02",
+      "url": "https://botanwang.com/articles/202003/%E5%8F%91%E5%93%A8%E5%AD%90%E7%9A%84%E4%BA%BA.html?page=1",
+      "publisher": "博谈网",
+      "display_date": "2020-03-10",
+      "display_time_local": "21:05",
+      "role": "dated survival reprint",
+      "group": "interview_text_replication",
+      "access": "READABLE",
+      "limit": "Displayed republication time, not proof of exact first-edition text or content at earlier moment."
+    },
+    {
+      "id": "AF03",
+      "url": "https://chinadigitaltimes.net/chinese/637953.html",
+      "publisher": "中国数字时代",
+      "display_date": "2020-03-11",
+      "role": "contemporaneous curated inventory of transformed variants",
+      "group": "cdt_variant_editorial",
+      "access": "READABLE",
+      "limit": "11:40 disappearance time is editor's approximate reported observation, not a forensic platform event timestamp. Its linked variants do not prove specific orders or population reach."
+    },
+    {
+      "id": "AF04",
+      "url": "https://www.rfa.org/mandarin/Xinwen/wul0311b-03112020045013.html",
+      "publisher": "自由亚洲电台",
+      "display_date": "2020-03-11",
+      "role": "contemporaneous reporting of deletion/unavailability and remediated distribution",
+      "group": "rfa_contemporaneous_reporting",
+      "access": "SEARCH_TEXT_READABLE",
+      "limit": "Journalistic source about reported platform outcomes; original exact first-break and directive not independently measured."
+    },
+    {
+      "id": "AF05",
+      "url": "https://www.bbc.com/zhongwen/simp/chinese-news-51831652",
+      "publisher": "BBC中文",
+      "display_date": "2020-03-11",
+      "role": "contemporaneous reporting and interpretation of public reposting",
+      "group": "bbc_contemporaneous_reporting",
+      "access": "SEARCH_OR_SYNDICATED_TEXT_READABLE",
+      "limit": "Cannot assume the original publication/official deletion time or infer a specific censorship command."
+    },
+    {
+      "id": "AF06",
+      "url": "https://www.hrichina.org/en/node/26590",
+      "publisher": "中国人权 HRIC",
+      "display_date": "2020-03-10",
+      "role": "archived attributed full-text reprint and later editorial description",
+      "group": "interview_text_replication",
+      "access": "READABLE",
+      "limit": "Reprint not authorized original, displayed date does not prove when extant page's exact bytes were live; editorial judgments are attributed."
+    },
+    {
+      "id": "AF07",
+      "url": "https://katsura.me/2020/03/12/COVID-19-Ai-Fen/",
+      "publisher": "Katsura personal blog",
+      "display_date": "2020-03-12",
+      "role": "dated later personal reprint",
+      "group": "interview_text_replication",
+      "access": "READABLE",
+      "limit": "Cannot independently authenticate original edition; may inherit identical lead assertions."
+    },
+    {
+      "id": "AF08",
+      "url": "https://bwskyer.com/renwu-aifen-about-covid19.html",
+      "publisher": "个人博客",
+      "display_date": "2020-03-13",
+      "role": "subsequent surviving reprint",
+      "group": "interview_text_replication",
+      "access": "READABLE",
+      "limit": "Explicitly reports further upstream republication; not a separate interview or edition anchor."
+    },
+    {
+      "id": "AF09",
+      "url": "https://www.hrichina.org/sites/default/files/chronicle_of_the_wuhan_new_coronavirus_epidemic_preliminary_draft_chinese.pdf",
+      "publisher": "中国人权疫情编年材料",
+      "display_date": null,
+      "role": "historical bibliography giving explicit March 10 Weibo URL and claimed access date",
+      "group": "hric_compiled_bibliography",
+      "access": "SEARCH_EXCERPT_ONLY_PDF_NOT_PAGE_AUDITED",
+      "limit": "Bibliographic attribution helps locate article ID but does not validate Wayback content; not independently page-inspected this audit."
+    },
+    {
+      "id": "AF10",
+      "url": "https://citizenlab.ca/research/censored-contagion-ii-a-timeline-of-information-control-on-chinese-social-media-during-covid-19/",
+      "publisher": "Citizen Lab",
+      "display_date": "2020-08-25",
+      "role": "external measurement methodology for broader censorship context",
+      "group": "citizen_lab_experimental_measurement",
+      "access": "PUBLIC_REPORT",
+      "limit": "Methodology/background only. No article-specific causal attribution or content-removal evidence inferred."
+    }
+  ],
+  "observations": [
+    {
+      "id": "EV01",
+      "event_date": "2020-03-10",
+      "time_precision": "day",
+      "event": "Magazine interview said to be published on WeChat and Weibo",
+      "source_ids": [
+        "AF01",
+        "AF03",
+        "AF04"
+      ],
+      "evidence_level": "CONVERGENT_REPORTS_NOT_FIRST_EDITION",
+      "limit": "No original stable WeChat URL or initial page bytes."
+    },
+    {
+      "id": "EV02",
+      "event_date": "2020-03-10",
+      "reported_local_time": "~11:40",
+      "time_precision": "approximate",
+      "event": "Original WeChat article reportedly unavailable/removed around late morning",
+      "source_ids": [
+        "AF03"
+      ],
+      "evidence_level": "ATTRIBUTED_CURATOR_REPORT",
+      "limit": "No captured original-page platform error at this minute authenticated in the current pilot."
+    },
+    {
+      "id": "EV03",
+      "event_date": "2020-03-10",
+      "reported_local_time": "21:05",
+      "time_precision": "displayed-page-time",
+      "event": "A republication was date-stamped and remains readable",
+      "source_ids": [
+        "AF02"
+      ],
+      "evidence_level": "DATED_EXTANT_REPUBLICATION",
+      "limit": "Exact replication fidelity untested, not proof of first original edition content."
+    },
+    {
+      "id": "EV04",
+      "event_date": "2020-03-11",
+      "time_precision": "day",
+      "event": "Curated collection documents text transformation and alternative representation types",
+      "source_ids": [
+        "AF03",
+        "AF04",
+        "AF05"
+      ],
+      "evidence_level": "MULTIPLE_REPORTS_WITH_DISTINCT_EDITORIAL_PROVENANCE",
+      "limit": "Not quantitative censorship efficacy or audience size."
+    }
+  ],
+  "atomic_claims": [
+    {
+      "id": "AFC01",
+      "kind": "reported_historical_publication",
+      "claim": "An Ai Fen interview attributed to the magazine 人物 circulated on March 10, 2020",
+      "source_ids": [
+        "AF01",
+        "AF03",
+        "AF04"
+      ],
+      "status": "SUPPORTED_AS_REPORTED_PUBLIC_EVENT",
+      "caution": "Original publisher first edition not authenticated."
+    },
+    {
+      "id": "AFC02",
+      "kind": "reported_platform_unavailability",
+      "claim": "Contemporaneous observers reported loss of access to the original magazine text on at least some platforms",
+      "source_ids": [
+        "AF03",
+        "AF04",
+        "AF05"
+      ],
+      "status": "SUPPORTED_AS_ATTRIBUTED_CONTEMPORANEOUS_REPORTS",
+      "caution": "No exact failure code, takedown instruction, or verified platform-specific direct test in this pilot."
+    },
+    {
+      "id": "AFC03",
+      "kind": "republication_survival",
+      "claim": "Readable republications of text attributed to the original interview were posted March 10 onward",
+      "source_ids": [
+        "AF01",
+        "AF02",
+        "AF06",
+        "AF07",
+        "AF08"
+      ],
+      "status": "DATED_REPRINTS_OBSERVED",
+      "caution": "Multiple republications are not independent interviews or proof of exact initial-edition fidelity."
+    },
+    {
+      "id": "AFC04",
+      "kind": "reported_text_transformation",
+      "claim": "Contemporaneous curators reported reversed text, scripts, translations and other transformed republications",
+      "source_ids": [
+        "AF03",
+        "AF04",
+        "AF05"
+      ],
+      "status": "DOCUMENTED_VARIANT_CATALOGUE_WITH_LINKS",
+      "caution": "Do not infer that every variant remained reachable, avoided filtering, or achieved a particular audience."
+    },
+    {
+      "id": "AFC05",
+      "kind": "attributed_editorial_intro_not_verified",
+      "claim": "The interview's syndicated introductory framing connects the shared test-report image to 'eight' people described as admonished doctors",
+      "source_ids": [
+        "AF01",
+        "AF06",
+        "AF07"
+      ],
+      "status": "TEXTUAL_CLAIM_PRESENT_NOT_INDEPENDENTLY_ESTABLISHED",
+      "caution": "Introductory/editorial framing is not automatically Ai Fen's direct quote. January 1 police notice lists no full identities, and January 29 police clarification is about eight unnamed people. Do not infer all eight were formally admonished or all copied the same document."
+    },
+    {
+      "id": "AFC06",
+      "kind": "actor_attribution_unverified",
+      "claim": "The first original WeChat message, its exact deletion moment, and issuer of any censorship order are not authenticated in current registered materials",
+      "source_ids": [
+        "AF03",
+        "AF04"
+      ],
+      "status": "UNRESOLVED_IN_REGISTER",
+      "caution": "Cannot infer a named agency issued instructions, even when large-scale information control is a well-documented wider context."
+    },
+    {
+      "id": "AFC07",
+      "kind": "source_identification",
+      "claim": "A historical chronology cites a particular Weibo long-form post ID and an access date of March 10, 2020",
+      "source_ids": [
+        "AF09"
+      ],
+      "status": "BIBLIOGRAPHIC_LEAD_UNVERIFIED_PAGE",
+      "caution": "Direct Weibo and candidate Wayback fetch failed. Do not assert a verified timestamped first-edition capture."
+    }
+  ],
+  "source_relations": [
+    {
+      "from": "AF01",
+      "to": "AF06",
+      "relation": "attributed republications of same original magazine interview, potentially different editorial prefaces",
+      "independent_original_interview": false
+    },
+    {
+      "from": "AF01",
+      "to": "AF07",
+      "relation": "both attributed republications of same original magazine interview",
+      "independent_original_interview": false
+    },
+    {
+      "from": "AF07",
+      "to": "AF08",
+      "relation": "both downstream reprints, no independent textual-origin claim",
+      "independent_original_interview": false
+    },
+    {
+      "from": "AF03",
+      "to": "AF04",
+      "relation": "distinct curatorial and reporting institutions covering the same circulation episode; not direct platform forensics",
+      "independent_original_interview": false
+    },
+    {
+      "from": "AF04",
+      "to": "AF05",
+      "relation": "different contemporary newsrooms, not independently measured identical deletion timestamps",
+      "independent_original_interview": false
+    }
+  ],
+  "publication_gates": {
+    "original_first_edition": "HOLD",
+    "platform_unavailability_forensics": "HOLD",
+    "interview_preface_versus_direct_speech": "READY_FOR_HUMAN_REVIEW",
+    "source_dependent_reprints": "STRUCTURALLY_REGISTERED",
+    "G3_second_human_review": "HOLD",
+    "G4_privacy_copyright": "HOLD",
+    "G6_publication": "HOLD"
+  },
+  "privacy": "No copied unredacted chat logs, patients' reports, private family identifiers or full copyrighted interview text. Public URLs only; no private screenshots."
+}
