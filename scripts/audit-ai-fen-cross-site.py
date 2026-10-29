@@ -128,6 +128,23 @@ def run(out):
             "terminus_block_sha256":sha("".join(a[i1:i2])),
             "yyrw_block_sha256":sha("".join(b[j1:j2]))
         })
+    # Only record the *changed spans*, not surrounding copyrighted prose.
+    micro_differences=[]
+    for tag,i1,i2,j1,j2 in opcodes:
+        if tag=="equal":continue
+        old="".join(a[i1:i2]);new="".join(b[j1:j2])
+        char_blocks=[]
+        for chtag,u1,u2,v1,v2 in difflib.SequenceMatcher(a=old,b=new,autojunk=False).get_opcodes():
+            if chtag=="equal":continue
+            x,y=old[u1:u2],new[v1:v2]
+            char_blocks.append({
+               "operation":chtag,
+               "old_changed_character_count":len(x),"new_changed_character_count":len(y),
+               "old_changed_fragment":x[:14] if len(x)<=14 else None,
+               "new_changed_fragment":y[:14] if len(y)<=14 else None,
+               "old_fragment_sha256":sha(x),"new_fragment_sha256":sha(y)
+            })
+        micro_differences.append({"old_unit_range":[i1,i2],"new_unit_range":[j1,j2],"char_changes":char_blocks})
     eq=sum(i2-i1 for tag,i1,i2,j1,j2 in opcodes if tag=="equal")
     r={"schema_version":"1.0","run_utc":datetime.now(timezone.utc).isoformat(),
        "status":"CURRENT_LIVE_SOURCE_COMPARISON_NOT_HISTORICAL_AUTHENTICATION",
@@ -138,7 +155,7 @@ def run(out):
           "equal_units":eq,"matched_fraction_of_terminus":round(eq/len(a),6),
           "matched_fraction_of_yyrw":round(eq/len(b),6),
           "non_equal_blocks":len(blocks),
-          "blocks":blocks},
+          "blocks":blocks,"changed_fragments_only":micro_differences},
        "limitations":[
          "This is a comparison of currently fetched derivative sources, NOT the original Renwu publication.",
          "Differences can reflect copy editing, HTML conversion, omissions, or later changes; no causal/editor attribution is inferred.",
@@ -151,7 +168,7 @@ def run(out):
     print("CROSS_SITE_SUMMARY_JSON_START")
     print(json.dumps({**{k:v for k,v in r.items() if k not in ("comparison",)},
       "comparison":{k:v for k,v in r["comparison"].items() if k!="blocks"},
-      "block_overview":[{"operation":d["operation"],"terminus_units":d["terminus_units"],"yyrw_units":d["yyrw_units"]} for d in blocks[:24]]},ensure_ascii=False))
+      "block_overview":[{"operation":d["operation"],"terminus_units":d["terminus_units"],"yyrw_units":d["yyrw_units"]} for d in blocks[:24]],"changed_fragments_only":micro_differences},ensure_ascii=False))
     print("CROSS_SITE_SUMMARY_JSON_END")
 
 if __name__=="__main__":
