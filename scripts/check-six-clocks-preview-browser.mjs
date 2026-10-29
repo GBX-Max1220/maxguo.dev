@@ -39,7 +39,10 @@ try{
       const response=await page.goto(base+v.route,{waitUntil:'networkidle',timeout:60000});
       assert.equal(response?.status(),200,'preview page not served: '+v.route);
       assert.equal(await page.locator('html').getAttribute('lang'),v.lang);
-      assert.equal(await page.locator('head meta[name="robots"]').getAttribute('content'),'noindex,nofollow');
+      assert.equal(await page.locator('head meta[name="robots"]').count(),0,'published essay must be indexable');
+      assert.ok((await page.title()).includes(v.name==='zh'?'历史证据的六个时钟':'Six Clocks of Historical Evidence'));
+      assert.ok((await page.locator('.sc-preview-banner').innerText()).includes(v.name==='zh'?'已发表':'PUBLIC CRITICAL ESSAY'));
+      assert.ok(!(await page.locator('body').innerText()).includes('未发布 · 编辑预览'),'no unpublished banner after release');
       assert.equal(await page.locator('article.sc-article h1').count(),1,'missing essay title');
       assert.equal(await page.locator('.sc-article .sc-section-anchor').count(),7);
       assert.ok(await page.locator('.sc-article a[href^="https://"]').count()>=26,'source links lost');
@@ -54,11 +57,18 @@ try{
       assert.ok(await page.locator('[data-panel="li-0131"]').isVisible(),'Li early interview not shown');
       await select.selectOption('li-0319');
       assert.ok(await page.locator('[data-panel="li-0319"]').isVisible(),'Li March correction not shown');
+      if(width===320){
+        const hub=await page.goto(base+(v.name==='zh'?'/critical-inquiry/':'/critical-inquiry/en/'),{waitUntil:'networkidle'});
+        assert.equal(hub?.status(),200,'published hub broken');
+        const target=page.locator('a[href*="/critical-inquiry/six-clocks/"]').filter({hasText:v.name==='zh'?'历史证据的六个时钟':'Six Clocks of Historical Evidence'});
+        assert.ok(await target.count()>=1,'published hub must feature article');
+        await page.goto(base+v.route,{waitUntil:'networkidle'});
+      }
       const size=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,client:document.documentElement.clientWidth}));
       assert.ok(size.scroll<=size.client+1,'horizontal overflow on '+v.name+' '+width+': '+JSON.stringify(size));
       assert.deepEqual(errors,[],'browser runtime error: '+v.name);
       if(width===320||width===1440)await page.screenshot({path:path.join(outdir,v.name+'-'+width+'.png'),fullPage:true});
-      console.log('Preview browser PASS',v.name,width,then.slice(0,110).replace(/\s+/g,' '));
+      console.log('Release browser PASS',v.name,width,then.slice(0,110).replace(/\s+/g,' '));
       await page.close();
     }
   }
