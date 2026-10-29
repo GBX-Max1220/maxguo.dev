@@ -31,9 +31,10 @@
       "read_checked_date": "2026-10-29",
       "source_role": "contemporaneous police public labeling",
       "independence_group": "wuhan_police_eight_jan1",
-      "evidence_limit": "MUNICIPAL ARCHIVE DISPLAY TIME 2020-01-01 11:36 NOT AUTHENTICATED ORIGINAL RELEASE; URL PATH 202004 AND SAME-DAY PRESS SAYS JAN 1 AFTERNOON WEIBO RELEASE",
+      "evidence_limit": "MUNICIPAL ARCHIVE DISPLAY TIME 2020-01-01 11:36 NOT AUTHENTICATED ORIGINAL RELEASE; URL PATH 202004 AND SAME-DAY PRESS SAYS JAN 1 AFTERNOON WEIBO RELEASE; excluded from all registered Jan–Mar 2020 public-as-of snapshots; LW16 is dated Jan1 contemporary witness",
       "claim_true_independently_established": false,
-      "original_social_or_administrative_records_authenticated": false
+      "original_social_or_administrative_records_authenticated": false,
+      "historical_public_asof_eligible": false
     },
     {
       "source_id": "LW02",
