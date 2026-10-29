@@ -102,12 +102,24 @@ try:
  ht=sentences(h);ct=sentences(c)
  o=difflib.SequenceMatcher(a=ht,b=ct,autojunk=False).get_opcodes()
  same=sum(i2-i1 for tag,i1,i2,j1,j2 in o if tag=="equal")
+ changes=[]
+ for tag,i1,i2,j1,j2 in o:
+  if tag=="equal":continue
+  old="".join(ht[i1:i2]);new="".join(ct[j1:j2])
+  for ctg,a1,a2,b1,b2 in difflib.SequenceMatcher(a=old,b=new,autojunk=False).get_opcodes():
+   if ctg=="equal":continue
+   fragment_old=old[a1:a2];fragment_new=new[b1:b2]
+   changes.append({"kind":ctg,"historic_fragment":fragment_old if len(fragment_old)<16 else None,
+     "current_fragment":fragment_new if len(fragment_new)<16 else None,
+     "historic_chars":len(fragment_old),"current_chars":len(fragment_new),
+     "historic_sha256":hashlib.sha256(fragment_old.encode()).hexdigest(),
+     "current_sha256":hashlib.sha256(fragment_new.encode()).hexdigest()})
  historic_text_comparison={
    "status":"SUCCESS","historic_wayback_url":known,
    "historic_body_sha256":hashlib.sha256(normalize(h).encode("utf-8")).hexdigest(),
    "current_body_sha256":hashlib.sha256(normalize(c).encode("utf-8")).hexdigest(),
    "historic_sentence_units":len(ht),"current_sentence_units":len(ct),
-   "equal_units":same,"different_blocks":sum(tag!="equal" for tag,*_ in o),
+   "equal_units":same,"different_blocks":sum(tag!="equal" for tag,*_ in o),"changed_fragments_only":changes,
    "equal_normalized_bodies":normalize(h)==normalize(c),
    "limitation":"HTML extraction and normalisation, not raw source bit equality or original Renwu issue"
  }
