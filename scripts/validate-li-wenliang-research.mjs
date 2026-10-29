@@ -33,7 +33,7 @@ for(const snap of evidence.public_asof){
  assert.ok(cutoff>last,'as-of cutoffs must increase strictly');
  last=cutoff;
  const actual=[...snap.public_sources].sort();
- const expected=evidence.sources.filter(s=>sourcePublication(s)<=cutoff).map(s=>s.id).sort();
+ const expected=evidence.sources.filter(s=>!s.excluded_from_historical_public_asof && sourcePublication(s)<=cutoff).map(s=>s.id).sort();
  assert.deepEqual(actual,expected,'as-of contains future publication or misses dated source '+snap.id);
 }
 assert.equal(evidence.public_asof.at(-1).cutoff_date,'2020-03-19');
@@ -145,6 +145,11 @@ assert.match(sourceAudit.records.find(x=>x.source_id==='LW15').evidence_limit,/2
 assert.match(sourceAudit.records.find(x=>x.source_id==='LW01').evidence_limit,/11:36/);
 assert.ok(!src.get('LW01').published_at_local,'11:36 archive stamp must not be modeled as authenticated original police post time');
 assert.equal(src.get('LW16').published_at_local,'2020-01-01T18:53:00+08:00');
+assert.equal(src.get('LW01').excluded_from_historical_public_asof,true,'unverified April archive must not be used as Jan1 public webpage');
+for(const snap of evidence.public_asof)assert.ok(!snap.public_sources.includes('LW01'),'retrospective archival page leaked into as-of '+snap.id);
+const jan1=evidence.public_asof.find(x=>x.id==='LW_ASOF_0101');
+assert.deepEqual(jan1.public_sources,['LW16'],'Jan1 must be supported by a contemporaneous press witness, not a later archive');
+
 const janLabel=evidence.public_label_history.find(x=>x.id==='PL01');
 assert.equal(janLabel.public_at,'2020-01-01T18:53:00+08:00');
 assert.deepEqual(janLabel.source_ids,['LW16']);
