@@ -61,7 +61,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: HTTP dependency
-        run: python -m pip install --disable-pip-version-check requests
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
       - name: Check Wayback candidate and capture indexes
         run: python scripts/audit-ai-fen-historical-snapshots.py
       - name: Upload timestamp-check report
