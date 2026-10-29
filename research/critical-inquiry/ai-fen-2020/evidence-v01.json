@@ -205,7 +205,7 @@
       "display_date": "2020-03-10",
       "archive_capture_utc": "2020-03-10T13:50:52Z",
       "archive_capture_local": "2020-03-10T21:50:52+08:00",
-      "role": "directly readable archived same-day institutional republication, including modified headline and preserved article body",
+      "role": "directly readable archived same-day institutional repost with role-framing change in title: 吹哨子的人 versus 发哨子的人",
       "group": "institutional_downstream_reprint_march10",
       "access": "WAYBACK_CAPTURE_DIRECT_HTML_TEXT_READABLE",
       "limit": "Capture records a historically archived *institutional republication*, not the original WeChat edition or confirmation of original removal time. Distinct headline, byline layout, and an opening sentence may be institutional presentation changes but provenance of those edits not independently established."
@@ -437,12 +437,13 @@
     {
       "id": "AFC13",
       "kind": "verified_archived_republication",
-      "claim": "A directly readable Internet Archive capture dated March 10 13:50:52 UTC preserves a same-day reprint on a hospital-humanities website under a differently framed headline",
+      "claim": "A March 10 21:50:52 Beijing Wayback capture shows a same-day hospital-humanities repost titled 吹哨子的人, whereas the earlier Terminus2049 edition is titled 发哨子的人 and the interview distinguishes blowing from handing out the whistle.",
       "source_ids": [
-        "AF17"
+        "AF17",
+        "AF16"
       ],
       "status": "ARCHIVE_CAPTURE_OBSERVED_NOT_ORIGINAL_FIRST_EDITION",
-      "caution": "No inference that first WeChat edition contained the modified headline or that the institution's current or original operator was ordered to remove content."
+      "caution": "Observed cross-carrier role-framing difference, not proof who changed the title or why. The same archived institutional page also labels a photographer in its author line and adds a short opening sentence, without authenticated editorial provenance."
     },
     {
       "id": "AFC14",
@@ -528,7 +529,7 @@
     "G6_publication": "HOLD"
   },
   "privacy": "No copied unredacted chat logs, patients' reports, private family identifiers or full copyrighted interview text. Public URLs only; no private screenshots.",
-  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases. Wu (2024) also identifies textual, multimodal and technically encoded relay tactics. Avoid repackaging these findings; prioritize source-version attestation and labeled-actor conflation with cross-case corrections. Source discovery: known WeChat URL improves targeted authentication but does not establish exact original text. A concrete March 10 Git commit chain goes back to 13:23:09 Beijing time on a predecessor Chinese filename. Only 73/75 normalized long paragraphs are identical across first and last reviewed editions (remaining: metadata and one <br/> formatting difference). The first copy contains the 'eight admonished doctors' editorial summary twice but the 'I was not admonished by police' self-report once; avoid counting these as three independent statements. A directly accessible Wayback capture at 2020-03-10T13:50:52Z preserves a March10 institutional reprint on yyrw.org.cn with materially different framing/credit; this is verified archived content, not original WeChat edition. A distinct archive.today locator 20200310021029 appears in secondary bibliography but target is inaccessible; do not backdate content to it.",
+  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases. Wu (2024) also identifies textual, multimodal and technically encoded relay tactics. Avoid repackaging these findings; prioritize source-version attestation and labeled-actor conflation with cross-case corrections. Source discovery: known WeChat URL improves targeted authentication but does not establish exact original text. A concrete March 10 Git commit chain goes back to 13:23:09 Beijing time on a predecessor Chinese filename. Only 73/75 normalized long paragraphs are identical across first and last reviewed editions (remaining: metadata and one <br/> formatting difference). The first copy contains the 'eight admonished doctors' editorial summary twice but the 'I was not admonished by police' self-report once; avoid counting these as three independent statements. A directly accessible Wayback capture at 2020-03-10T13:50:52Z preserves a March10 institutional reprint on yyrw.org.cn with materially different framing/credit; this is verified archived content, not original WeChat edition. A distinct archive.today locator 20200310021029 appears in secondary bibliography but target is inaccessible; do not backdate content to it. Concrete frame inversion now observed: first Git copy '发哨子的人', 21:50 archived professional association repost '吹哨子的人', while first-person testimony distinguishes the terms. Also byline role flattening and an additional opening sentence. No motive attribution.",
   "historical_git_versions": [
     {
       "sha": "4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
@@ -583,5 +584,32 @@
     ],
     "same_original_publisher_edition_authenticated": false,
     "commit_timestamp_independent_notarization": false
+  },
+  "version_frame_comparison": {
+    "subject": "Ai Fen March 10 downstream editions; this is *not* authenticated publisher-original comparison",
+    "earlier": {
+      "source_id": "AF16",
+      "git_commit_sha": "4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
+      "text_title": "发哨子的人",
+      "credits": {
+        "writer": "龚菁琦",
+        "editor": "金石",
+        "photographer": "尹夕远"
+      },
+      "added_patriotic_lead": false
+    },
+    "later": {
+      "source_id": "AF17",
+      "capture_utc": "2020-03-10T13:50:52Z",
+      "capture_local": "2020-03-10T21:50:52+08:00",
+      "text_title_prefix": "吹哨子的人",
+      "displayed_authors": "龚菁琦 尹夕远",
+      "added_patriotic_lead": true,
+      "added_patriotic_lead_short": "我爱我的祖国。"
+    },
+    "within_interview_statement": "我不是吹哨人，我是那个发哨子的人",
+    "observation": "Role-label shift at the headline layer and redistribution of byline roles in an institutional republication; original editorial responsibility and motive unknown.",
+    "proof_boundary": "Timestamp applies to Wayback copy capture only; first WeChat title/edition bytes and whether the site edit was deliberate or automated remain unknown.",
+    "normative_hypothesis_not_measured": "An institution may reproduce a whistle-related testimony while modifying the public-facing designation of the speaker; assess whether this affects memory only with independent audience evidence."
   }
 }
