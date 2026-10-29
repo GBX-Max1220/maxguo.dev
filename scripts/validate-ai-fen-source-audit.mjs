@@ -42,7 +42,7 @@ assert.ok(ledger.sources.find(s=>s.id==='AF05'&&s.type==='PEER_REVIEWED_PRIOR_WO
 assert.ok(ledger.claims.find(c=>c.id==='AF-C04'&&c.status==='NOT_ESTABLISHED'),'must not infer historical availability from displayed date');
 assert.ok(ledger.claims.find(c=>c.id==='AF-C05'&&c.status==='NOT_ESTABLISHED'),'must not infer exemption/intent from affiliation');
 assert.ok(ledger.claims.find(c=>c.id==='AF-C06'&&c.status==='REJECTED_AS_NOVELTY_CLAIM'),'prior art must constrain novelty');
-assert.ok(ledger.research_gates.some(g=>g.id==='G3'&&g.status==='OPEN'));
+assert.ok(ledger.research_gates.some(g=>g.id==='G3'&&g.status==='OPEN_PARTIAL'));
 assert.ok(ledger.research_gates.some(g=>g.id==='G6'&&g.status==='NOT_STARTED'));
 for(const phrase of ['逐段、逐字符的完整差异分析','没有取得可认证的原始公众号发布记录','Sun 与 Wright','不新建公开文章页']){
  assert.ok(memo.includes(phrase),'audit memo missing required caution: '+phrase);
