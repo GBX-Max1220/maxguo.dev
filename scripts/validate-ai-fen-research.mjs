@@ -8,8 +8,8 @@ const memo = fs.readFileSync(
   root + '/research/critical-inquiry/ai-fen-2020/RESEARCH_DECISION_V01.md','utf8');
 
 assert.equal(doc.status,'RESEARCH_PILOT_NO_ORIGINAL_EDITION_AUTHENTICATION');
-assert.ok(doc.sources.length>=14);
-assert.ok(doc.atomic_claims.length>=10);
+assert.ok(doc.sources.length>=15);
+assert.ok(doc.atomic_claims.length>=11);
 assert.ok(doc.sources.every(s=>s.id && s.url.startsWith('https://') && s.role && s.group && s.access && s.limit));
 assert.equal(new Set(doc.sources.map(s=>s.id)).size,doc.sources.length,'duplicate source IDs');
 assert.equal(new Set(doc.atomic_claims.map(c=>c.id)).size,doc.atomic_claims.length,'duplicate claim IDs');
@@ -30,7 +30,14 @@ for(const carrier of doc.original_carriers){
   assert.equal(carrier.original_edition_available,false,'unverified original carrier is not authenticated');
   assert.equal(carrier.known_minute,null,'do not invent first edition time');
 }
-assert.equal(doc.original_carriers.find(x=>x.id==='WX_ORIGINAL').original_url,null);
+const wx=doc.original_carriers.find(x=>x.id==='WX_ORIGINAL');
+assert.equal(wx.original_url,'https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg');
+assert.equal(wx.status,'ORIGINAL_URL_INDEXED_IN_NCOVMEMORY_CSV_NOT_DIRECTLY_AUTHENTICATED');
+assert.equal(wx.archive_candidate_opened,false);
+assert.equal(wx.archive_index_row_id,'3142');
+assert.equal(doc.atomic_claims.find(x=>x.id==='AFC11').status,'ORIGINAL_URL_IDENTIFIED_ARCHIVE_CONTENT_NOT_AUTHENTICATED');
+assert.ok(doc.sources.some(x=>x.id==='AF15'),'missing original-dated GitHub markdown archive');
+
 assert.equal(doc.original_carriers.find(x=>x.id==='WEIBO_CANDIDATE').capture_authenticated,false);
 assert.equal(doc.atomic_claims.find(x=>x.id==='AFC05').status,
   'TEXTUAL_CLAIM_PRESENT_NOT_INDEPENDENTLY_ESTABLISHED',
