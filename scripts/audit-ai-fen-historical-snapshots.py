@@ -114,8 +114,20 @@ try:
      "historic_chars":len(fragment_old),"current_chars":len(fragment_new),
      "historic_sha256":hashlib.sha256(fragment_old.encode()).hexdigest(),
      "current_sha256":hashlib.sha256(fragment_new.encode()).hexdigest()})
+ from bs4 import BeautifulSoup
+ def title_evidence(response):
+  soup=BeautifulSoup(response.text,"html.parser")
+  meta=soup.title.get_text(" ",strip=True) if soup.title else None
+  headings=[]
+  for tag in soup.find_all(["h1","h2","h3"]):
+   t=tag.get_text(" ",strip=True)
+   if ("哨" in t or "武汉医生" in t) and len(t)<135:
+    headings.append(t)
+  return {"html_title":meta[:130] if meta else None,"article_heading_candidates":list(dict.fromkeys(headings))[:7]}
+ hist_title=title_evidence(historic);current_title=title_evidence(current)
  historic_text_comparison={
    "status":"SUCCESS","historic_wayback_url":known,
+   "historic_title_metadata":hist_title,"current_title_metadata":current_title,
    "historic_body_sha256":hashlib.sha256(normalize(h).encode("utf-8")).hexdigest(),
    "current_body_sha256":hashlib.sha256(normalize(c).encode("utf-8")).hexdigest(),
    "historic_sentence_units":len(ht),"current_sentence_units":len(ct),
