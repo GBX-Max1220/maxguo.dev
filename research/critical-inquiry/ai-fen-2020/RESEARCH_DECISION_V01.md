@@ -23,8 +23,20 @@
 | A：同期可读媒体 | [博谈网 3月10日21:05](https://botanwang.com/articles/202003/%E5%8F%91%E5%93%A8%E5%AD%90%E7%9A%84%E4%BA%BA.html?page=1)、[独立中文笔会同日](https://www.chinesepen.org/blog/archives/145003)、[Matters同日转载](https://matters.town/a/b7mibe20eq6f/history) | 具有2020年3月10日标示日期的访谈副本目前仍可阅读 | 这些副本逐字等于《人物》首版，或已证当时任何分钟可读 |
 | B：2020年3月11日 contemporaneous reports | [CDT编目](https://chinadigitaltimes.net/chinese/637953.html)、[RFA](https://www.rfa.org/mandarin/Xinwen/wul0311b-03112020045013.html)、[BBC](https://www.bbc.com/zhongwen/simp/chinese-news-51831652) | 当时媒体记录原刊失去可见性、网民再传播以及不同格式 | 原刊恰在11:40被平台服务器删除、删除由某一具名官员直接命令 |
 | C：后期保存的全文、目录 | [HRIC](https://www.hrichina.org/en/node/26590)、[Katsura](https://katsura.me/2020/03/12/COVID-19-Ai-Fen/)、[nCovMemory](https://chinatimeline.github.io/nCovMemory/) | 存在采访的多个可读副本与候选截图档案索引 | 多份相近内容等于多场独立采访；目录中的截图已经过本研究法证验真 |
-| D：原始平台候选 | [微博长文ID](https://www.weibo.com/ttarticle/p/show?id=2309404480863474679890)；候选Wayback `20200310051416` | 具体检索目标和二手文献引用已登记 | 页面已打开、抓取时间已核验、内容完整且首版 |
+| D：原始平台候选 | [nCovMemory 3142 CSV登记](https://github.com/2019ncovmemory/nCovMemory/blob/master/data/data.csv)：[微信原文候选](https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg)、[archive.vn/OLdHs](https://archive.vn/OLdHs)与[Terminus2049](https://github.com/Terminus2049/Terminus2049.github.io/blob/master/_posts/2020-03-10-fa-shao-zi-de-ren.md)；[微博文章ID](https://www.weibo.com/ttarticle/p/show?id=2309404480863474679890)及候选Wayback `20200310051416` | 原刊候选**网址已定位**，存在档案目录索引与同日保存副本 | 微信上游原版或archive.vn快照已验证；保存副本逐字等于首版 |
 | E：外部实证/前人研究 | [Sun & Wright](https://doi.org/10.1080/1369118X.2023.2205474)、[Wu](https://doi.org/10.1177/01634437231219132)、[Citizen Lab](https://citizenlab.ca/research/censored-contagion-ii-a-timeline-of-information-control-on-chinese-social-media-during-covid-19/) | 已有相邻问题的方法与观察，指导差异化设计 | 它们在未被查阅的细节中已经证明本案直接删稿命令或本研究发现 |
+
+## 二点一、来源发现：档案编号3142将原始链接定位到了具体地址
+
+本轮对 [nCovMemory GitHub源CSV](https://github.com/2019ncovmemory/nCovMemory/blob/master/data/data.csv) 进行了定点读取。记录ID `3142` 明确列出：
+
+- 标题《发哨子的人》；类别 `non_fiction`；媒体 `人物/每日人物`；标注日期2020-03-10。
+- 候选原始微信URL：`https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg`。
+- `is_deleted=TRUE` 是**档案编目人的状态标注**，不是本研究在原网站对2020年3月10日进行的实测。
+- 该条提供 `http://archive.vn/OLdHs` 及 Terminus2049 的替代链接。该存档站本轮仍不能直接打开；不得声称已经取得首版。
+- Terminus2049 GitHub正文文件 `_posts/2020-03-10-fa-shao-zi-de-ren.md` 的前50行已能阅读，含日期frontmatter、记者署名、编辑导语与图像链接；它是**可读取的副本**，不是微信官方首发的认证拷贝。
+
+**本次最实质性的来源收获是：把“原文链接未知”修订为“原文候选URL已经从同年建立的档案索引中定位，但其原版内容仍不可认证”。** 这为版本比较与审查可见性研究提供可操作的下一步，而不夸大证据等级。
 
 ## 三、核心交叉审计：记者导语 ≠ 受访者原话 ≠ 已认证行政身份
 
@@ -51,7 +63,7 @@
 
 **仅追三类可能改变判断的来源**：
 
-- 原载体：`renwumag1980` 3月10日公众号原帖URL/保存页面/具抓取元数据的快照，或微博ID`2309404480863474679890`的可信首版截图及时间。
+- 原载体：已定位候选微信原帖URL `nEy0jq5wjj-g6DQVZep1Wg`，下一步核验`archive.vn/OLdHs`网页存档的抓取时间、原始页面元数据与可读内容，或微博ID`2309404480863474679890`的可信首版截图及时间。
 - 版本差异：对原版与2–3份代表性副本只比较标题、导语、作者署名、预警报告归属、“八人/训诫”短句的位置和写法；**不公开全文**。
 - 证据性的删除观测：有日期、来源、明确URL及“违规无法查看”等界面状态的同期记录或平台变更日志，排除“2026年打不开→2020年被删”的倒推。
 
