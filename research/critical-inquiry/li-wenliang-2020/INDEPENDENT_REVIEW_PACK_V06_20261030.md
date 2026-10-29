@@ -16,7 +16,7 @@
 |---|---|---|---|---|
 | LW01 | **现存档案页显示2020-01-01 11:36；原微博首发时刻未知** | [现存归档](https://www.wuhan.gov.cn/hdjl/rdhy/202004/t20200419_1023462.shtml) | **retrospective municipal page，不能把11:36用于2020-01-01公开as-of；当天另由LW16同期新闻提供18:53来源锚** | 未复核 |
 | LW02 | 2020-01-29T16:32:16+08:00 | [原文](https://www.xinhuanet.com/politics/2020-01/29/c_1125510476.htm) | official clarification attributed to police | 未复核 |
-| LW03 | 当前网页显示2020-02-07T03:57:00+08:00 | [现存市卫健委页面](https://wjw.wuhan.gov.cn/ztzl_28/fk/yqtb/202004/t20200430_1197011.shtml) | 行政站点含202004归档路径；**需另查当天首版/迁移记录，不能把今日可见完整网页视为已存证的首版字节** | 未复核 |
+| LW03 | 当前官方归档显示2020-02-07 03:57；**同日文汇报08:41引述官方03:57:55** | [卫健委现存页](https://wjw.wuhan.gov.cn/ztzl_28/fk/yqtb/202004/t20200430_1197011.shtml) · [文汇报当日稿](https://wenhui.whb.cn/zhuzhan/rd/20200207/321600.html) | 当前页面URL含202004归档，但**有真正2020-02-07同期媒体记录同一公告**；支持当日公开，不意味着当前网页与历史首版字节相同，03:57:55也属媒体引述官网时刻 | 未复核 |
 | LW04 | 2020-03-19T19:28:31+08:00 | [原文](https://www.xinhuanet.com/politics/2020-03/19/c_1125737457.htm) | retrospective official investigation report | 未复核 |
 | LW05 | 2020-03-19T19:14:00+08:00 | [原文](https://www.cneb.gov.cn/2020/03/19/ARTI1584615924612215.shtml) | contemporaneous editorially abridged news account of commission investigation | 未复核 |
 | LW06 | 2020-03-19T22:38:00+08:00 | [原文](https://www.thepaper.cn/newsDetail_forward_6600938) | official police withdrawal and apology | 未复核 |
@@ -83,6 +83,15 @@
 - 发布许可：**否。该文件是审核清单而非已发表历史调查。**
 
 文件关系：`research/critical-inquiry/li-wenliang-2020/evidence-v01.json`（事实登记）→ `SOURCE_ACCESS_AUDIT_V02.json`（可访问性）→ `editorial/six-clocks-zh-v03-freeze-candidate.md`／`editorial/six-clocks-en-v03-freeze-candidate.md`（候选文章）→ `editorial/SIX_CLOCKS_FINAL_EDITORIAL_ADJUDICATION_V03_20261030.md`（15项作者侧出版判决）→ `dual-asof-comparison-v01.html`（隔离的离线研究原型）。任何更新都必须重新检查时间顺序与双语解释边界。
+
+### 额外的版本年代区分：LW03不同于LW01
+
+虽然**LW01与LW03两个现存URL都包含2020年4月归档路径**，这不是两者都应从对应事件的同期史料集合中剔除的充分理由。LW01“11:36为警方微博首发”缺少可验证的同时发布版本；与之相对，2020-02-07 08:41:12发表的[《文汇报》报道](https://wenhui.whb.cn/zhuzhan/rd/20200207/321600.html)，明确称武汉市卫健委网页在当日03:57:55刊登了同样的死亡公告。这是**同时期报道对公告发布事实与网页显示时间的见证**，虽不是独立服务器日志或初版HTML快照，却使2月7日的当日公开时间有明确外部旁证。
+
+审阅者应分别回答：
+- 当日媒体是否准确引述卫健委公告主体内容和死亡时刻02:58？
+- 报道中的03:57:55是否属于新闻记者引述的官网标注，而不是记者自行独立记录的HTTP首次可访问时间？
+- 现存官方URL的迁移对今天看到的全文版本带来多少不可验证性？如果内容短且与同期稿吻合，能否写“公告当日已公开”，但不把目前的网页字节当作当日首次版次？
 
 ## F. 上海案例：第二读者应独立核实的五个具体分歧
 
