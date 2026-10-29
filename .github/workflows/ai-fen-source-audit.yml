@@ -1,0 +1,28 @@
+name: Ai Fen source audit
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/critical-inquiry/AI_FEN_SOURCE_AUDIT_V01_20261030.md'
+      - 'research/critical-inquiry/ai-fen/**'
+      - 'scripts/validate-ai-fen-source-audit.mjs'
+      - '.github/workflows/ai-fen-source-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout research audit
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate evidence ledger and publication boundary
+        run: node scripts/validate-ai-fen-source-audit.mjs
