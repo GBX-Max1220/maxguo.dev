@@ -11,7 +11,8 @@
     "CONTEMPORANEOUS_REPORT",
     "PEER_REVIEWED_PRIOR_WORK",
     "LINK_IDENTIFIED_ACCESS_BLOCKED",
-    "ORIGINAL_SOURCE_NOT_OBTAINED"
+    "ORIGINAL_SOURCE_NOT_OBTAINED",
+    "GITHUB_COMMIT_PROVENANCE"
   ],
   "sources": [
     {
@@ -139,6 +140,44 @@
       "limitations": [
         "Direct read was blocked in this session; content not treated as directly verified here."
       ]
+    },
+    {
+      "id": "AF08",
+      "title": "Terminus2049 GitHub commit history for the archived interview",
+      "url": "https://github.com/Terminus2049/Terminus2049.github.io/commit/4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
+      "type": "SIGNED_REPOSITORY_VERSION_HISTORY",
+      "status": "GITHUB_COMMIT_PROVENANCE",
+      "commit_sha": "4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
+      "committer_timestamp_utc": "2020-03-10T05:23:09Z",
+      "committer_timestamp_china": "2020-03-10T13:23:09+08:00",
+      "github_signature_verified": true,
+      "later_commits": [
+        {
+          "sha": "23dde3e0549ede38e0a982b422a26a7d03748b39",
+          "timestamp_utc": "2020-03-10T06:02:15Z",
+          "action": "rename file"
+        },
+        {
+          "sha": "41b36291ffa5d8cd7315b70c8868d2c452872dac",
+          "timestamp_utc": "2020-03-10T06:03:24Z",
+          "action": "update file"
+        },
+        {
+          "sha": "8d630f148b0f2f0836c27add46f2a07987ac24ad",
+          "timestamp_utc": "2020-03-10T06:13:34Z",
+          "action": "update file"
+        }
+      ],
+      "independence_group": "terminus_repository_history",
+      "observations": [
+        "GitHub API records a GitHub-signed, verified commit that added the archive file with a committer timestamp of 2020-03-10 05:23:09Z (13:23:09 China time).",
+        "A line-level comparison of that initial 201-line file and the 195-line version at the later 06:13:34Z commit found observed changes in front-matter formatting/image_feature metadata, markup wrappers and whitespace; no changed prose line was detected by this comparison."
+      ],
+      "limitations": [
+        "The timestamp bounds the repository commit, not the original Renwu publication time and not necessarily the first time any copy existed online.",
+        "The comparison is between two versions inside the Terminus repository, not between Terminus and yyrw.org.cn or the unavailable original WeChat page.",
+        "A verified GitHub commit signature authenticates the commit object under GitHub's verification scheme; it does not independently authenticate the truth of the interview text or the identity of every upstream source."
+      ]
     }
   ],
   "claims": [
@@ -210,6 +249,25 @@
         "AF03"
       ],
       "limit": "Full text alignment and normalized diff remain pending."
+    },
+    {
+      "id": "AF-C08",
+      "claim": "A GitHub-signed Terminus repository commit adding the archived article has a committer timestamp of 2020-03-10 13:23:09 China time.",
+      "status": "SUPPORTED_BY_SIGNED_GITHUB_COMMIT_METADATA",
+      "source_ids": [
+        "AF08"
+      ],
+      "limit": "This is a repository-commit timestamp, not the original publication time or proof of the first online copy."
+    },
+    {
+      "id": "AF-C09",
+      "claim": "The initial and later Terminus repository versions differ in observed metadata/markup/spacing, while this line-level comparison detected no changed prose line.",
+      "status": "PRELIMINARY_REPRODUCIBLE_VERSION_COMPARISON",
+      "source_ids": [
+        "AF08",
+        "AF01"
+      ],
+      "limit": "Does not compare yyrw.org.cn to Terminus or either derivative to the unavailable original WeChat publication."
     }
   ],
   "research_gates": [
@@ -231,7 +289,7 @@
     {
       "id": "G3",
       "name": "Perform reproducible paragraph-level version diff",
-      "status": "OPEN"
+      "status": "OPEN_PARTIAL"
     },
     {
       "id": "G4",
