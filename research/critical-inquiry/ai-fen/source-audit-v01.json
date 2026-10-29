@@ -178,6 +178,21 @@
         "The comparison is between two versions inside the Terminus repository, not between Terminus and yyrw.org.cn or the unavailable original WeChat page.",
         "A verified GitHub commit signature authenticates the commit object under GitHub's verification scheme; it does not independently authenticate the truth of the interview text or the identity of every upstream source."
       ]
+    },
+    {
+      "id": "AF09",
+      "title": "委直属联系单位和日常管理社会组织名单 — National Health Commission of China",
+      "url": "https://www.nhc.gov.cn/wjw/wywzgshzzml/202311/f931fc4448c7496d81813d7ffaa11035.shtml",
+      "type": "OFFICIAL_ORGANIZATIONAL_LIST",
+      "status": "DIRECTLY_READ_CURRENT_PAGE",
+      "published_date": "2023-11-08",
+      "independence_group": "national_health_commission_official_site",
+      "observations": [
+        "The official NHC page lists 中国生命关怀协会 under '国家卫生健康委日常管理社会组织名单'."
+      ],
+      "limitations": [
+        "This establishes the association's listing on the 2023 page, not the yyrw site's legal ownership, editorial control, or specific 2020 relationship to the article."
+      ]
     }
   ],
   "claims": [
@@ -268,6 +283,15 @@
         "AF01"
       ],
       "limit": "Does not compare yyrw.org.cn to Terminus or either derivative to the unavailable original WeChat publication."
+    },
+    {
+      "id": "AF-C10",
+      "claim": "The NHC's 2023 official list includes 中国生命关怀协会 among its daily managed social organizations.",
+      "status": "SUPPORTED_BY_OFFICIAL_2023_LIST",
+      "source_ids": [
+        "AF09"
+      ],
+      "limit": "This does not establish that the article page was an NHC-operated site or that the article was intentionally exempted from deletion."
     }
   ],
   "research_gates": [
