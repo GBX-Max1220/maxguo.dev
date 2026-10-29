@@ -1,7 +1,7 @@
 {
   "id": "li-wenliang-2020-admonition-correction",
   "title": "李文亮信息定性、警方训诫与撤销的时间证据链",
-  "revision": "research-draft-v0.5",
+  "revision": "research-draft-v0.6",
   "status": "RESEARCH_DRAFT_HUMAN_REVIEW_PENDING",
   "timezone": "Asia/Shanghai",
   "source_rule": "An event described in a March 19 retrospective report was not necessarily publicly knowable at the event date. Preserve report_publication_date separately.",
@@ -158,6 +158,16 @@
       "role": "contemporaneous short bulletin of supervisory findings and requested correction",
       "note": "Article timestamp shown as 19:04:01. Briefly reports improper reprimand/procedure and recommended withdrawal, without complete evidentiary account. Earliest verified public copy in this research register, NOT necessarily the earliest official first release.",
       "independence_group": "national_supervisory_commission_mar19"
+    },
+    {
+      "id": "LW15",
+      "url": "https://news.sina.cn/gn/2020-03-19/detail-iimxyqwa1770303.d.html",
+      "publisher": "新浪新闻／平安武汉警方撤销通报",
+      "publication_date": "2020-03-19",
+      "published_at_local": "2020-03-19T20:55:00+08:00",
+      "role": "earliest currently located dated syndication of formal police revocation and apology",
+      "independence_group": "wuhan_police_correction_mar19",
+      "caution": "20:55 is Sina's displayed publication time, not an authenticated timestamp of the first original police Weibo post or a byte-preserved first edition."
     }
   ],
   "event_history": [
@@ -242,6 +252,8 @@
       "event_time": "2020-03-19",
       "event": "Wuhan police formally withdrew admonition and apologized to Li's family",
       "contemporaneous_sources": [
+        "LW15",
+        "LW11",
         "LW06"
       ],
       "caution": "Final institutional reversal for Li's reprimand, not a universal correction for each of the eight people."
@@ -404,6 +416,25 @@
       "label": "3月19日20:00"
     },
     {
+      "id": "LW_ASOF_0319_2100",
+      "cutoff_date": "2020-03-19",
+      "cutoff_local": "2020-03-19T21:00:00+08:00",
+      "public_sources": [
+        "LW01",
+        "LW02",
+        "LW03",
+        "LW04",
+        "LW05",
+        "LW08",
+        "LW09",
+        "LW10",
+        "LW12",
+        "LW13",
+        "LW14",
+        "LW15"
+      ]
+    },
+    {
       "id": "LW_ASOF_0319_2150",
       "cutoff_date": "2020-03-19",
       "cutoff_local": "2020-03-19T21:50:00+08:00",
@@ -419,7 +450,8 @@
         "LW11",
         "LW12",
         "LW13",
-        "LW14"
+        "LW14",
+        "LW15"
       ],
       "publicly_documented": "The Commission report and Q&A were public, and 21:47 Wuhan police revocation and apology copy was available.",
       "not_publicly_documented_in_registered_sources": "Two officer sanctions in Xinhua 22:09 and subsequent 22:38 duplicate report were not yet published.",
@@ -442,7 +474,8 @@
         "LW11",
         "LW12",
         "LW13",
-        "LW14"
+        "LW14",
+        "LW15"
       ],
       "publicly_documented": "Official investigation, written reprimand, formal reversal, apology and individual officer sanctions are all recorded.",
       "not_publicly_documented_in_registered_sources": "These later findings cannot be imputed to what every reader knew on Dec30 or Jan3."
@@ -509,10 +542,11 @@
       "kind": "administrative_correction",
       "claim": "Police March19 withdrew Li's reprimand and apologized to his family",
       "source_ids": [
+        "LW15",
         "LW06"
       ],
       "status": "institutional_revocation_documented",
-      "caution": "This is a concrete correction record."
+      "caution": "This is a concrete correction record. Earliest presently located dated syndication is Sina 20:55, not original Weibo publication."
     },
     {
       "id": "LWC07",
@@ -612,7 +646,8 @@
     "Earliest verified dissemination of the Commission conclusion in this package is the 19:14 shortened report; an earlier press/agency release may exist. Distinguish first found summary from authorized full transcript.",
     "The published reprimand photograph is attributed to Li by reporters; source archive holds no independently authenticated original physical document scan, and no identifying document fields should be copied into this site's public data.",
     "19:04 CLS is the earliest publicly readable source found in this register for the Commission conclusion, not verified as the Commission's original first release or an authenticated full-document publication.",
-    "Two published Jan31 interview phrasings about fear and effects have distinct question wording; avoid a false binary contradiction, inferred motive, or a general self-censorship prevalence claim."
+    "Two published Jan31 interview phrasings about fear and effects have distinct question wording; avoid a false binary contradiction, inferred motive, or a general self-censorship prevalence claim.",
+    "Sina withdrawal repost has displayed 2020-03-19 20:55 time, earlier than 21:47; first original police Weibo publication timestamp and authenticated initial article edition are not independently located."
   ],
   "release_gates": {
     "G0_document_links": "PARTIAL",
@@ -681,7 +716,7 @@
     "timezone": "Asia/Shanghai",
     "calendar_snapshots": "date end 23:59:59+08:00",
     "intraday_snapshots": "published_at_local when verified, otherwise exclude undated-hour sources until end of publication day",
-    "first_publication": "article timestamp is first presently verified public source, not guaranteed to be first post everywhere",
+    "first_publication": "Source article's displayed time is a currently located publication timestamp, NOT necessarily original Weibo issuance or proof that later-edited text was in the first edition.",
     "historical_knowledge": "publicly available by cutoff, not necessarily seen or believed by all"
   },
   "public_label_history": [
@@ -760,16 +795,17 @@
     },
     {
       "id": "PL04",
-      "public_at": "2020-03-19T21:47:00+08:00",
+      "public_at": "2020-03-19T20:55:00+08:00",
       "actor": "Wuhan police",
       "target": "li_admonition",
       "source_ids": [
+        "LW15",
         "LW11",
         "LW06"
       ],
       "label": "撤销训诫书、向家属道歉",
       "speech_act": "police correction implemented",
-      "meaning_limit": "This specific correction should not be silently generalized to all eight unspecified persons."
+      "meaning_limit": "Sina displayed 20:55 is earliest located press syndication in this register; not verified time of first police Weibo publication. Withdrawal concerns Li alone, not all eight."
     },
     {
       "id": "PL05",
@@ -825,6 +861,18 @@
       "from": "LW14",
       "to": "LW04",
       "relation": "early 19:04 bulletin compared with longer 19:28 published investigation",
+      "independent_factual_corroboration": false
+    },
+    {
+      "from": "LW15",
+      "to": "LW11",
+      "relation": "same police withdrawal statement, earlier Sina 20:55 publication versus China Youth 21:47 republication",
+      "independent_factual_corroboration": false
+    },
+    {
+      "from": "LW15",
+      "to": "LW06",
+      "relation": "same Wuhan police withdrawal statement, Sina 20:55 versus The Paper 22:38 collection",
       "independent_factual_corroboration": false
     }
   ],
