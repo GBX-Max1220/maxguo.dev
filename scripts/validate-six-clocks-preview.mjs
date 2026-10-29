@@ -25,10 +25,10 @@ const essentialSources=[
 const layout=read('src/layouts/SixClocksPreviewLayout.astro');
 const widget=read('src/components/SixClocksTimeLens.astro');
 const css=read('src/styles/six-clocks-preview.css');
-assert.match(layout,/noindex=\{true\}/,'preview must remain unindexed');
+assert.match(layout,/noindex=\{false\}/,'approved release must not be noindex');
 assert.match(layout,/NOT PEER REVIEWED|Not peer reviewed/,'missing explicit independence disclosure');
 assert.match(layout,/mailto:gbx1220max@gmail.com/,'correction mechanism missing');
-assert.ok(!layout.includes('href="/critical-inquiry/six-clocks/'), 'do not add live homepage links in layout');
+assert.match(layout,/PUBLIC CRITICAL ESSAY/,'missing released status');
 assert.match(widget,/data-sixclocks-widget/);
 assert.match(widget,/data-asof-select/);
 assert.match(widget,/data-panel=/);
@@ -44,7 +44,7 @@ for(const v of variants){
  assert.ok(md.includes(v.label),'title was rewritten');
  assert.equal((md.match(/class="sc-section-anchor" id="clock-[1-6]"/g)||[]).length,6);
  assert.ok(md.includes('id="comparison"'),'missing cross-case navigation anchor');
- assert.ok(md.includes('未经独立人类复核')||md.includes('not independently reviewed'));
+ assert.ok(md.includes('未经独立第二人事实审核')||md.includes('not independently fact-audited'),'publication must disclose incomplete independent audit');
  assert.ok(!md.includes('![','image embed prohibited without copyright review'));
  assert.ok(md.includes('17:59:14'));
  for(const url of essentialSources)assert.ok(md.includes(url),'missing evidence source '+url+' in '+v.lang);
@@ -57,11 +57,11 @@ for(const v of variants){
  }
  if(fs.existsSync(v.built)){
   const html=read(v.built);
-  assert.ok(html.includes('noindex,nofollow'),'built preview must be noindex');
+  assert.ok(!html.includes('noindex,nofollow'),'released article must be indexable');
   assert.ok(html.includes('hreflang="zh-CN"')&&html.includes('hreflang="en"'));
   assert.ok(html.includes('data-sixclocks-widget'));
   assert.ok(html.includes('data-asof-select'));
-  assert.ok(html.includes('UNPUBLISHED EDITORIAL PREVIEW')||html.includes('未发布 · 编辑预览'));
+  assert.ok(html.includes('PUBLIC CRITICAL ESSAY')||html.includes('已发表 · 独立批判性研究评论'));
   assert.ok(html.includes('/maxguo.dev/critical-inquiry/six-clocks/'),'built relative links must use Pages base');
   assert.ok(html.includes(v.label.replaceAll('“','&ldquo;').replaceAll('”','&rdquo;'))||html.includes(v.label),
     'heading missing from built page');
@@ -74,4 +74,14 @@ for(const forbidden of [
  'research/critical-inquiry/li-wenliang-2020/evidence-v01.json',
  'research/critical-inquiry/prototypes/dual-asof-comparison-v01.html'
 ])assert.ok(!fs.existsSync(forbidden),'unreviewed research material leaked to public preview branch: '+forbidden);
-console.log('Six Clocks preview structural, source, language and noindex boundaries PASS (not final editorial approval).');
+const zhHub=read('src/pages/critical-inquiry/index.astro');
+const enHub=read('src/pages/critical-inquiry/en/index.astro');
+assert.ok(zhHub.includes("href: '/critical-inquiry/six-clocks/'"),'Chinese public hub missing article card');
+assert.ok(enHub.includes("href: '/critical-inquiry/six-clocks/en/'"),'English public hub missing article card');
+assert.ok(zhHub.includes('非独立同行评审'),'Chinese hub must disclose review status');
+assert.ok(enHub.includes('not independently peer reviewed'),'English hub must disclose review status');
+if(fs.existsSync('dist/critical-inquiry/index.html')) {
+ assert.ok(read('dist/critical-inquiry/index.html').includes('/maxguo.dev/critical-inquiry/six-clocks/'),'Chinese deployed index not linked');
+ assert.ok(read('dist/critical-inquiry/en/index.html').includes('/maxguo.dev/critical-inquiry/six-clocks/en/'),'English deployed index not linked');
+}
+console.log('Six Clocks RELEASE source, bilingual, review-disclosure, indexability and public hub PASS.');
