@@ -129,7 +129,7 @@ assert.equal(evidence.release_gates.G3_second_human_review,'HOLD');
 const sourceAudit=JSON.parse(fs.readFileSync(path.join(root,'research/critical-inquiry/li-wenliang-2020/SOURCE_ACCESS_AUDIT_V02.json'),'utf8'));
 assert.equal(sourceAudit.records.length,evidence.sources.length);
 assert.equal(sourceAudit.counts.readable,evidence.sources.length);
-assert.equal(evidence.sources.length,15,'current documented evidence version has 15 source records');
+assert.equal(evidence.sources.length,16,'current documented evidence version has 16 source records');
 assert.equal(evidence.public_asof.length,13,'current documented evidence version has 13 snapshots');
 assert.equal(sourceAudit.counts.independence_groups,new Set(evidence.sources.map(s=>s.independence_group)).size);
 for(const rec of sourceAudit.records){
@@ -142,6 +142,12 @@ for(const rec of sourceAudit.records){
 assert.match(sourceAudit.records.find(x=>x.source_id==='LW05').evidence_limit,/ABRIDGED/);
 assert.match(sourceAudit.records.find(x=>x.source_id==='LW14').evidence_limit,/19:04:01/);
 assert.match(sourceAudit.records.find(x=>x.source_id==='LW15').evidence_limit,/20:55/);
+assert.match(sourceAudit.records.find(x=>x.source_id==='LW01').evidence_limit,/11:36/);
+assert.ok(!src.get('LW01').published_at_local,'11:36 archive stamp must not be modeled as authenticated original police post time');
+assert.equal(src.get('LW16').published_at_local,'2020-01-01T18:53:00+08:00');
+const janLabel=evidence.public_label_history.find(x=>x.id==='PL01');
+assert.equal(janLabel.public_at,'2020-01-01T18:53:00+08:00');
+assert.deepEqual(janLabel.source_ids,['LW16']);
 
 const protoPath=path.join(root,'research/critical-inquiry/prototypes/dual-asof-comparison-v01.html');
 const proto=fs.readFileSync(protoPath,'utf8');
