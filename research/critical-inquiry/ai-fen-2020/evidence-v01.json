@@ -18,7 +18,10 @@
       "archive_candidate_url": "https://archive.vn/OLdHs",
       "archive_candidate_opened": false,
       "archive_index_row_id": "3142",
-      "archive_index_row_date": "2020-03-10"
+      "archive_index_row_date": "2020-03-10",
+      "archive_today_secondary_candidate": "https://archive.today/20200310021029/https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg",
+      "archive_today_numeric_timestamp_utc_candidate": "2020-03-10T02:10:29Z",
+      "archive_today_content_verified": false
     },
     {
       "id": "WEIBO_CANDIDATE",
@@ -194,6 +197,28 @@
       "group": "interview_text_replication",
       "access": "GITHUB_COMMIT_OBJECT_AND_BLOB_READABLE",
       "limit": "Commit self-reported UTC author/committer date is not a trusted original WeChat publish timestamp, nor proof of source material being live at that minute. It is a pinned downstream repository content version."
+    },
+    {
+      "id": "AF17",
+      "url": "https://web.archive.org/web/20200310135052/http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256",
+      "publisher": "中国医院人文建设（Wayback历史快照）",
+      "display_date": "2020-03-10",
+      "archive_capture_utc": "2020-03-10T13:50:52Z",
+      "archive_capture_local": "2020-03-10T21:50:52+08:00",
+      "role": "directly readable archived same-day institutional republication, including modified headline and preserved article body",
+      "group": "institutional_downstream_reprint_march10",
+      "access": "WAYBACK_CAPTURE_DIRECT_HTML_TEXT_READABLE",
+      "limit": "Capture records a historically archived *institutional republication*, not the original WeChat edition or confirmation of original removal time. Distinct headline, byline layout, and an opening sentence may be institutional presentation changes but provenance of those edits not independently established."
+    },
+    {
+      "id": "AF18",
+      "url": "https://en.wikipedia.org/wiki/Ai_Fen",
+      "publisher": "Wikipedia public source bibliography",
+      "display_date": null,
+      "role": "secondary bibliographic lead to an archive.today URL with embedded 20200310021029 timestamp",
+      "group": "bibliographic_secondhand_archive_lead",
+      "access": "BIBLIOGRAPHY_READABLE_ARCHIVE_TARGET_FAILED",
+      "limit": "Archive.today target at https://archive.today/20200310021029/https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg was not accessible; embedded numeric timestamp is an unverified locator, not a verified successful fetch or forensic content."
     }
   ],
   "observations": [
@@ -259,6 +284,18 @@
       ],
       "evidence_level": "PINNED_GIT_COMMIT_AND_BLOB_VERSION",
       "limit": "UTC05:23:09 normalized to Asia/Shanghai; actor-controlled git timestamps are not original publisher timestamps or third-party timestamping certificates."
+    },
+    {
+      "id": "EV06",
+      "event_date": "2020-03-10",
+      "reported_local_time": "21:50:52",
+      "time_precision": "Wayback_capture_timestamp",
+      "event": "Wayback contains directly readable March 10 institutional web republication of the interview under a differently framed title",
+      "source_ids": [
+        "AF17"
+      ],
+      "evidence_level": "VERIFIED_READABLE_THIRD_PARTY_ARCHIVE_CAPTURE_OF_REPRINT",
+      "limit": "The original WeChat publication, its exact first edition and its removal time remain unverified. Timestamp describes this archived institutional copy."
     }
   ],
   "atomic_claims": [
@@ -396,6 +433,27 @@
       ],
       "status": "REPOSITORY_HISTORY_VERIFIED_METADATA_NOT_ORIGINAL_PUBLISHER",
       "caution": "Git commit timestamps are self-asserted metadata; source is a derivative copy, not publisher WeChat first edition. A single file duplicates the editorial summary of 'eight admonished doctors' twice, so raw text-frequency does not equal independent support."
+    },
+    {
+      "id": "AFC13",
+      "kind": "verified_archived_republication",
+      "claim": "A directly readable Internet Archive capture dated March 10 13:50:52 UTC preserves a same-day reprint on a hospital-humanities website under a differently framed headline",
+      "source_ids": [
+        "AF17"
+      ],
+      "status": "ARCHIVE_CAPTURE_OBSERVED_NOT_ORIGINAL_FIRST_EDITION",
+      "caution": "No inference that first WeChat edition contained the modified headline or that the institution's current or original operator was ordered to remove content."
+    },
+    {
+      "id": "AFC14",
+      "kind": "unverified_early_archive_locator",
+      "claim": "A secondary bibliography provides archive.today capture-locator string 20200310021029 for the original WeChat URL",
+      "source_ids": [
+        "AF18",
+        "AF12"
+      ],
+      "status": "SECONDARY_ARCHIVE_LEAD_NOT_DIRECTLY_READABLE",
+      "caution": "10:10 Beijing is only a possible conversion of a numeric archive locator, not independently authenticated early snapshot content or deletion chronology."
     }
   ],
   "source_relations": [
@@ -446,6 +504,18 @@
       "to": "AF15",
       "relation": "same Terminus2049 repo artifact: old Chinese filename commit precedes later file rename and revisions; not independent publication or interview",
       "independent_original_interview": false
+    },
+    {
+      "from": "AF17",
+      "to": "AF15",
+      "relation": "both downstream republications of the same magazine interview but different institutional framing, headlines and source-availability evidence",
+      "independent_original_interview": false
+    },
+    {
+      "from": "AF18",
+      "to": "AF12",
+      "relation": "independent compilation indexes linking to original WeChat URL, but neither indexes primary publisher bytes",
+      "independent_original_interview": false
     }
   ],
   "publication_gates": {
@@ -458,7 +528,7 @@
     "G6_publication": "HOLD"
   },
   "privacy": "No copied unredacted chat logs, patients' reports, private family identifiers or full copyrighted interview text. Public URLs only; no private screenshots.",
-  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases. Wu (2024) also identifies textual, multimodal and technically encoded relay tactics. Avoid repackaging these findings; prioritize source-version attestation and labeled-actor conflation with cross-case corrections. Source discovery: known WeChat URL improves targeted authentication but does not establish exact original text. A concrete March 10 Git commit chain goes back to 13:23:09 Beijing time on a predecessor Chinese filename. Only 73/75 normalized long paragraphs are identical across first and last reviewed editions (remaining: metadata and one <br/> formatting difference). The first copy contains the 'eight admonished doctors' editorial summary twice but the 'I was not admonished by police' self-report once; avoid counting these as three independent statements.",
+  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases. Wu (2024) also identifies textual, multimodal and technically encoded relay tactics. Avoid repackaging these findings; prioritize source-version attestation and labeled-actor conflation with cross-case corrections. Source discovery: known WeChat URL improves targeted authentication but does not establish exact original text. A concrete March 10 Git commit chain goes back to 13:23:09 Beijing time on a predecessor Chinese filename. Only 73/75 normalized long paragraphs are identical across first and last reviewed editions (remaining: metadata and one <br/> formatting difference). The first copy contains the 'eight admonished doctors' editorial summary twice but the 'I was not admonished by police' self-report once; avoid counting these as three independent statements. A directly accessible Wayback capture at 2020-03-10T13:50:52Z preserves a March10 institutional reprint on yyrw.org.cn with materially different framing/credit; this is verified archived content, not original WeChat edition. A distinct archive.today locator 20200310021029 appears in secondary bibliography but target is inaccessible; do not backdate content to it.",
   "historical_git_versions": [
     {
       "sha": "4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
