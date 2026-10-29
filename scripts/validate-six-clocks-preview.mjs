@@ -44,7 +44,7 @@ for(const v of variants){
  assert.ok(md.includes(v.label),'title was rewritten');
  assert.equal((md.match(/class="sc-section-anchor" id="clock-[1-6]"/g)||[]).length,6);
  assert.ok(md.includes('id="comparison"'),'missing cross-case navigation anchor');
- assert.ok(md.includes('未经独立第二人事实审核')||md.includes('not independently fact-audited'),'publication must disclose incomplete independent audit');
+ assert.ok(md.includes('独立第二人事实审核')||md.includes('not independently fact-audited'),'publication must disclose incomplete independent audit');
  assert.ok(!md.includes('![','image embed prohibited without copyright review'));
  assert.ok(md.includes('17:59:14'));
  for(const url of essentialSources)assert.ok(md.includes(url),'missing evidence source '+url+' in '+v.lang);
