@@ -36,9 +36,19 @@
       "url": "https://wjw.wuhan.gov.cn/ztzl_28/fk/yqtb/202004/t20200430_1197011.shtml",
       "publisher": "武汉市卫生健康委员会",
       "role": "contemporaneous public death notice",
-      "note": "Official notice says Li died 02:58 on Feb7. Archival URL slug date is Apr30; web page labels release Feb7 03:57.",
+      "note": "Official notice says Li died 02:58 on Feb7. Archival URL slug date is Apr30; web page labels release Feb7 03:57. Same-day Wen Hui article at 08:41:12 specifically reports Wuhan Health Commission website publication at 03:57:55, supporting contemporaneous existence of the notice despite current archival URL migration.",
       "independence_group": "wuhan_health_commission_feb7",
-      "published_at_local": "2020-02-07T03:57:00+08:00"
+      "published_at_local": "2020-02-07T03:57:00+08:00",
+      "caution": "The currently accessible Wuhan Health Commission page has a 2020/04 archive path and displays 2020-02-07 03:57. Unlike LW01, contemporaneous Wen Hui 2020-02-07 08:41:12 reporting independently cites a commission website notice at 03:57:55 and reproduces the death announcement. This supports same-day public issuance; it does NOT authenticate today's entire web page as byte-identical to a first edition or certify the exact original server timestamp beyond the newspaper's attribution.",
+      "contemporaneous_crosscheck": {
+        "url": "https://wenhui.whb.cn/zhuzhan/rd/20200207/321600.html",
+        "publisher": "文汇报",
+        "displayed_publication_time_local": "2020-02-07T08:41:12+08:00",
+        "reported_official_website_time_local": "2020-02-07T03:57:55+08:00",
+        "corroborated_content": "Wuhan health commission announcement that Li Wenliang died at 02:58 and the commission mourned him",
+        "scope": "independent same-day journalism about issuance, NOT authenticated archived first-edition bytes or primary server logs",
+        "relation": "same Wuhan Health Commission statement, not independent cause-of-death determination"
+      }
     },
     {
       "id": "LW04",
