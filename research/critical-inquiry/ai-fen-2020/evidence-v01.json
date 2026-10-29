@@ -183,6 +183,17 @@
       "group": "interview_text_replication",
       "access": "MARKDOWN_FILE_FIRST_50_LINES_READABLE",
       "limit": "GitHub frontmatter date and image-link filenames reflect archive metadata, not verified source-origin first-edition bytes or media capture timestamps. Do not reproduce linked images publicly without review."
+    },
+    {
+      "id": "AF16",
+      "url": "https://github.com/Terminus2049/Terminus2049.github.io/commit/4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
+      "publisher": "Terminus2049 historical repository commit",
+      "display_date": "2020-03-10",
+      "display_time_local": "13:23:09",
+      "role": "first file-creation commit on previous Chinese filename, historical git witness of syndicated text",
+      "group": "interview_text_replication",
+      "access": "GITHUB_COMMIT_OBJECT_AND_BLOB_READABLE",
+      "limit": "Commit self-reported UTC author/committer date is not a trusted original WeChat publish timestamp, nor proof of source material being live at that minute. It is a pinned downstream repository content version."
     }
   ],
   "observations": [
@@ -235,6 +246,19 @@
       ],
       "evidence_level": "MULTIPLE_REPORTS_WITH_DISTINCT_EDITORIAL_PROVENANCE",
       "limit": "Not quantitative censorship efficacy or audience size."
+    },
+    {
+      "id": "EV05",
+      "event_date": "2020-03-10",
+      "reported_local_time": "13:23:09",
+      "time_precision": "git-committer-metadata",
+      "event": "Git repository added `_posts/发哨子的人.md` with 201 lines, preceding the later rename",
+      "source_ids": [
+        "AF16",
+        "AF15"
+      ],
+      "evidence_level": "PINNED_GIT_COMMIT_AND_BLOB_VERSION",
+      "limit": "UTC05:23:09 normalized to Asia/Shanghai; actor-controlled git timestamps are not original publisher timestamps or third-party timestamping certificates."
     }
   ],
   "atomic_claims": [
@@ -361,6 +385,17 @@
       ],
       "status": "ORIGINAL_URL_IDENTIFIED_ARCHIVE_CONTENT_NOT_AUTHENTICATED",
       "caution": "Direct platform and archive access failed; identifying a URL is not validating the text or deletion time of the original."
+    },
+    {
+      "id": "AFC12",
+      "kind": "dated_downstream_version",
+      "claim": "An explicitly identifiable Git commit records a March 10 13:23 Chinese-named copy of the interview, later renamed and modified at 14:02, 14:03 and 14:13",
+      "source_ids": [
+        "AF16",
+        "AF15"
+      ],
+      "status": "REPOSITORY_HISTORY_VERIFIED_METADATA_NOT_ORIGINAL_PUBLISHER",
+      "caution": "Git commit timestamps are self-asserted metadata; source is a derivative copy, not publisher WeChat first edition. A single file duplicates the editorial summary of 'eight admonished doctors' twice, so raw text-frequency does not equal independent support."
     }
   ],
   "source_relations": [
@@ -405,6 +440,12 @@
       "to": "AF01",
       "relation": "Terminus2049 markdown and independent Chinese PEN both reproduce attributed original text, not independent interviews",
       "independent_original_interview": false
+    },
+    {
+      "from": "AF16",
+      "to": "AF15",
+      "relation": "same Terminus2049 repo artifact: old Chinese filename commit precedes later file rename and revisions; not independent publication or interview",
+      "independent_original_interview": false
     }
   ],
   "publication_gates": {
@@ -417,5 +458,60 @@
     "G6_publication": "HOLD"
   },
   "privacy": "No copied unredacted chat logs, patients' reports, private family identifiers or full copyrighted interview text. Public URLs only; no private screenshots.",
-  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases. Wu (2024) also identifies textual, multimodal and technically encoded relay tactics. Avoid repackaging these findings; prioritize source-version attestation and labeled-actor conflation with cross-case corrections. Source discovery: known WeChat URL improves targeted authentication but does not establish exact original text."
+  "originality_boundary": "Sun & Wright (2023 online, 2024 issue) already study relay activism on WeChat/GitHub. The current pilot asks which platform/edition and secondary-journalism claims are independently authenticatable, particularly the eight-person police-label conflation across cases. Wu (2024) also identifies textual, multimodal and technically encoded relay tactics. Avoid repackaging these findings; prioritize source-version attestation and labeled-actor conflation with cross-case corrections. Source discovery: known WeChat URL improves targeted authentication but does not establish exact original text. A concrete March 10 Git commit chain goes back to 13:23:09 Beijing time on a predecessor Chinese filename. Only 73/75 normalized long paragraphs are identical across first and last reviewed editions (remaining: metadata and one <br/> formatting difference). The first copy contains the 'eight admonished doctors' editorial summary twice but the 'I was not admonished by police' self-report once; avoid counting these as three independent statements.",
+  "historical_git_versions": [
+    {
+      "sha": "4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
+      "path": "_posts/发哨子的人.md",
+      "committer_utc": "2020-03-10T05:23:09Z",
+      "committer_local": "2020-03-10T13:23:09+08:00",
+      "blob_sha": "3b846a56600d21c1ba60aaecffe25d04806b876f",
+      "lines": 201,
+      "editorial_intro_eight_count": 2,
+      "interview_no_police_admonition_count": 1
+    },
+    {
+      "sha": "23dde3e0549ede38e0a982b422a26a7d03748b39",
+      "path": "_posts/2020-03-10-fa-shao-zi-de-ren.md",
+      "committer_utc": "2020-03-10T06:02:15Z",
+      "committer_local": "2020-03-10T14:02:15+08:00",
+      "blob_sha": "5c71b645efcb01dfdf0ef15ca7c825438a73e8fa",
+      "lines": 202,
+      "editorial_intro_eight_count": 2,
+      "interview_no_police_admonition_count": 1
+    },
+    {
+      "sha": "41b36291ffa5d8cd7315b70c8868d2c452872dac",
+      "path": "_posts/2020-03-10-fa-shao-zi-de-ren.md",
+      "committer_utc": "2020-03-10T06:03:24Z",
+      "committer_local": "2020-03-10T14:03:24+08:00",
+      "blob_sha": "3c1052c5ae48a54fb34622a251edb58fd925e811",
+      "lines": 202,
+      "editorial_intro_eight_count": 2,
+      "interview_no_police_admonition_count": 1
+    },
+    {
+      "sha": "8d630f148b0f2f0836c27add46f2a07987ac24ad",
+      "path": "_posts/2020-03-10-fa-shao-zi-de-ren.md",
+      "committer_utc": "2020-03-10T06:13:34Z",
+      "committer_local": "2020-03-10T14:13:34+08:00",
+      "blob_sha": "fec092d58e05b1967e845f581e7e2e82d189e0d3",
+      "lines": 195,
+      "editorial_intro_eight_count": 2,
+      "interview_no_police_admonition_count": 1
+    }
+  ],
+  "historical_git_comparison": {
+    "first_sha": "4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
+    "last_sha": "8d630f148b0f2f0836c27add46f2a07987ac24ad",
+    "normalized_paragraphs_first": 75,
+    "normalized_paragraphs_last": 75,
+    "normalized_paragraphs_identical": 73,
+    "nonmatching_paragraph_types": [
+      "YAML/frontmatter",
+      "first interview introductory body paragraph carries <br/> markup in predecessor"
+    ],
+    "same_original_publisher_edition_authenticated": false,
+    "commit_timestamp_independent_notarization": false
+  }
 }
