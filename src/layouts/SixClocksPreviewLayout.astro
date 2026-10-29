@@ -1,0 +1,104 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SixClocksTimeLens from '../components/SixClocksTimeLens.astro';
+import '../styles/six-clocks-preview.css';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    lang: 'zh-CN' | 'en';
+  };
+}
+const {frontmatter} = Astro.props;
+const isEnglish = frontmatter.lang === 'en';
+const zhPath = '/critical-inquiry/six-clocks/';
+const enPath = '/critical-inquiry/six-clocks/en/';
+const chapters = isEnglish ? [
+ ['01','Utterance'], ['02','Prediction'], ['03','Labeling'],
+ ['04','Enforcement'],['05','Policy change'],['06','Archive editions']
+] : [
+ ['01','说法出现'], ['02','预测对象'], ['03','机构定性'],
+ ['04','强制程序'],['05','政策变化'],['06','档案版本']
+];
+---
+<BaseLayout
+ title={frontmatter.title}
+ description={frontmatter.description}
+ lang={frontmatter.lang}
+ ogType="article"
+ noindex={false}
+ alternates={[
+  { hreflang:'zh-CN',path:zhPath },
+  { hreflang:'en',path:enPath },
+  { hreflang:'x-default',path:zhPath }
+ ]}
+>
+  <div class="sc-page" lang={frontmatter.lang}>
+    <div class="sc-preview-banner">
+      <span class="sc-dot" aria-hidden="true"></span>
+      <strong>{isEnglish ? 'PUBLIC CRITICAL ESSAY' : '已发表 · 独立批判性研究评论'}</strong>
+      <span>{isEnglish
+        ? 'Author-reviewed, source-linked independent essay · Not independently peer reviewed'
+        : '作者本人已审阅、可查来源的批判性研究评论 · 未经独立同行评审'}</span>
+    </div>
+    <header class="sc-hero">
+      <div class="sc-container">
+        <div class="sc-topbar">
+          <a class="sc-parent-link" href={isEnglish?'/critical-inquiry/en/':'/critical-inquiry/'}>
+            ← {isEnglish?'The Boundaries of the Sayable':'言说的边界'}
+          </a>
+          <nav class="sc-lang-switch" aria-label={isEnglish?'Language':'语言'}>
+            <a href={zhPath} lang="zh-CN" aria-current={isEnglish?undefined:'page'}>中文</a>
+            <a href={enPath} lang="en" aria-current={isEnglish?'page':undefined}>English</a>
+          </nav>
+        </div>
+        <p class="sc-hero-kicker">CRITICAL ESSAY <span aria-hidden="true">/</span> {isEnglish?'HISTORY · INFORMATION CONTROL · PUBLIC POWER':'历史 · 信息控制 · 公共权力'}</p>
+        <p class="sc-hero-number" aria-hidden="true">06</p>
+        <p class="sc-hero-deck">{isEnglish
+          ? 'Who can label a prediction false, act on that label, and later correct the public record?'
+          : '谁有权将未来预测定性为谣言、据此采取行动，又由谁负责更正公共记录？'}</p>
+        <div class="sc-meta">
+          <span>Baixin Guo（郭佰鑫）</span><span aria-hidden="true">/</span><span>2026-10-30</span>
+          <span aria-hidden="true">/</span><span>{isEnglish?'Published editorial edition v1.0':'公开文章版 v1.0'}</span>
+        </div>
+      </div>
+    </header>
+    <div class="sc-container sc-content-grid">
+      <aside class="sc-sidebar">
+        <p class="sc-label">{isEnglish?'SIX CLOCKS / CONTENTS':'六个时钟 / 目录'}</p>
+        <nav aria-label={isEnglish?'Article section navigation':'文章章节导航'}>
+          {chapters.map(([number,title],i)=><a href={'#clock-'+(i+1)}><span>{number}</span><span>{title}</span></a>)}
+          <a href="#comparison"><span>07</span><span>{isEnglish?'Documented correction':'李文亮：纠错对照'}</span></a>
+          <a href="#lens"><span>↘</span><span>{isEnglish?'Historical evidence lens':'历史证据视图'}</span></a>
+        </nav>
+        <div class="sc-sidebar-note">
+          {isEnglish
+            ? 'Institutional statements, press reports, source metadata and retrospective interpretations are distinguished throughout. The source links are part of the argument.'
+            : '文章逐层区分机关通报、记者转述、网页元数据与研究者解释。来源链接是论证的一部分。'}
+        </div>
+      </aside>
+      <div class="sc-article-column">
+        <article id="article" class="sc-article">
+          <slot />
+        </article>
+        <div id="lens" class="sc-lens-anchor">
+          <SixClocksTimeLens lang={frontmatter.lang} />
+        </div>
+        <section id="editorial" class="sc-editorial-notes" aria-labelledby="sc-disclosure-title">
+          <p class="sc-label">{isEnglish?'EDITORIAL DISCLOSURE':'编辑与证据公开声明'}</p>
+          <h2 id="sc-disclosure-title">{isEnglish?'How to read this essay':'如何阅读与纠正本文'}</h2>
+          <p>{isEnglish
+            ? 'This is a personal, author-reviewed critical essay based on publicly accessible historical material. It has not received an independent second-person audit or journal peer review. Source-specific claims are bounded by what the cited record actually establishes; missing original messages or final case dispositions are not silently filled in.'
+            : '本文是个人署名、作者本人已审阅的批判性研究评论，依据可公开访问的历史资料写成。本文尚未完成独立第二人事实审核或期刊同行评审。每项事实断言以相应来源的证据范围为限；无法认证的原始消息和未检得的司法终局不会以猜测补齐。'}</p>
+          <p>{isEnglish
+            ? 'It does not republish complete private chats, unredacted police documents, patient records or full copyrighted news articles. To submit a factual correction, include the exact passage, a dated source and an explanation.'
+            : '页面不转载私人聊天全文、未遮盖个人字段的警方文书、患者资料或受版权保护的新闻全文。若需更正，请提供具体段落、带日期的来源及修改理由。'}</p>
+          <a href="mailto:gbx1220max@gmail.com?subject=Six%20Clocks%20correction">{isEnglish?'Submit a correction by email ↗':'邮件提交史料更正 ↗'}</a>
+          <p class="sc-release-status">{isEnglish?'Edition v1.0 · Source-linked · Corrections welcome.':'正式发布版 v1.0 · 提供来源和纠错渠道。'}</p>
+        </section>
+      </div>
+    </div>
+    <footer class="sc-bottom"><div class="sc-container"><a href={isEnglish?'/critical-inquiry/en/':'/critical-inquiry/'}>{isEnglish?'Return to the Critical Inquiry home':'返回《言说的边界》首页'} ↗</a><span>{isEnglish?'AUTHOR REVIEWED · NOT PEER REVIEWED':'作者审阅 · 未经独立同行审阅'}</span></div></footer>
+  </div>
+</BaseLayout>

@@ -14,6 +14,11 @@ on:
       - 'src/components/Footer.astro'
       - 'src/layouts/BaseLayout.astro'
       - 'scripts/validate-critical-hub.mjs'
+      - 'src/layouts/SixClocksPreviewLayout.astro'
+      - 'src/components/SixClocksTimeLens.astro'
+      - 'src/styles/six-clocks-preview.css'
+      - 'scripts/validate-six-clocks-preview.mjs'
+      - 'scripts/check-six-clocks-preview-browser.mjs'
       - 'package.json'
       - 'scripts/generate-non-answers-og.mjs'
       - 'scripts/check-non-answers-p13.mjs'
@@ -52,8 +57,22 @@ jobs:
       - name: Verify release-safe critical inquiry hub
         run: npm run test:critical-hub
 
+      - name: Validate unpublished Six Clocks bilingual article and preview isolation
+        run: node scripts/validate-six-clocks-preview.mjs
+
       - name: Install Chromium for layout checks
         run: npx playwright install --with-deps chromium-headless-shell
+
+      - name: Browser-test Six Clocks preview on mobile and desktop
+        run: node scripts/check-six-clocks-preview-browser.mjs
+
+      - name: Upload Six Clocks review screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: six-clocks-bilingual-preview
+          path: .astro/six-clocks-preview/*.png
+          if-no-files-found: error
+          retention-days: 14
 
       - name: Desktop and mobile overflow checks
         run: npm run check:overflow

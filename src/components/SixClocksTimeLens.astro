@@ -1,0 +1,77 @@
+---
+interface Props { lang?: 'zh-CN' | 'en'; }
+const { lang = 'zh-CN' } = Astro.props;
+const isEnglish = lang === 'en';
+const records = [
+ { id: 'li-0131', labelZh: '2020-01-31 · 李文亮：本人采访',labelEn:'Jan 31, 2020 · Li: first-person interviews',caseZh:'李文亮 / 警务训诫',caseEn:'Li Wenliang / police admonition', time:'2020-01-31',
+   thenZh:'《新京报》在11:29刊出李文亮的采访，个人书面训诫已在公开报道中被提及；晚间另一篇采访还展示了受访者提供的训诫文书图片。',
+   thenEn:'By 11:29, a Beijing News interview had publicly reported Li’s written police admonition. A later interview the same day showed a document photograph attributed to Li.',
+   laterZh:'3月19日国家监委的调查意见、警方撤销与对两名警务人员的处分均尚未公开。不能把这些结论倒填到1月31日。',
+   laterEn:'The March 19 supervisory inquiry, police withdrawal and officer disciplinary notices were not yet public on January 31. They cannot be backdated.',
+   url:'https://m.bjnews.com.cn/detail/158044099415716.html',sourceZh:'新京报当日采访',sourceEn:'Beijing News interview'},
+ { id:'li-0319',labelZh:'2020-03-19 20:55 · 李文亮：警方撤销',labelEn:'Mar 19, 2020, 20:55 · Li: police withdrawal',caseZh:'李文亮 / 机构纠错',caseEn:'Li Wenliang / correction',time:'2020-03-19',
+   thenZh:'截至20:55，已有国家监委调查建议和新浪页面标示20:55的警方撤销训诫、向家属道歉报道。20:55是转载页面显示时间，不是警方原帖认证首发时间。',
+   thenEn:'By the 20:55 timestamp displayed on a Sina article, the supervisory recommendation and a report of police withdrawal and apology were publicly documented. This is a syndication timestamp, not an authenticated original post time.',
+   laterZh:'22:09关于两名警务人员处分的公开通报更晚，不能把它放进20:55时点的当时可知栏。',
+   laterEn:'The 22:09 announcement of discipline for two officers came later and must not enter the 20:55 public-evidence column.',
+   url:'https://news.sina.cn/gn/2020-03-19/detail-iimxyqwa1770303.d.html',sourceZh:'新浪20:55转载',sourceEn:'Sina 20:55 syndication'},
+ {id:'sh-0322',labelZh:'2022-03-22 23:21 · 上海：七天说法与辟谣',labelEn:'Mar 22, 2022, 23:21 · Shanghai: claim and denial',caseZh:'上海 / 预测与辟谣',caseEn:'Shanghai / prediction and rebuttal',time:'2022-03-22',
+  thenZh:'北京日报经新浪转载的当晚报道已记载“督查组到上海后封城七天”的传言，和上海网络辟谣平台向权威部门求证后的否认。',
+  thenEn:'A same-evening news report recorded the seven-day-lockdown claim and described a rumor-checking platform’s consultation with municipal authorities and denial.',
+  laterZh:'3月27日分批封控方案尚未公布；该报道并不认证传言最初发帖者、原始信息来源或其后来是否“说对”。',
+  laterEn:'The March 27 phased plan was not yet announced. This report does not authenticate an original sender or make the later policy a word-for-word verification.',
+  url:'https://news.sina.com.cn/o/2022-03-22/doc-imcwipih9980616.shtml',sourceZh:'3月22日23:21同期报道',sourceEn:'March 22 press record'},
+ {id:'sh-0323a',labelZh:'2022-03-23 08:10 · 上海：官方微博回应',labelEn:'Mar 23, 2022, 08:10 · Shanghai: office statement',caseZh:'上海 / 机构定性',caseEn:'Shanghai / institutional labeling',time:'2022-03-23',
+  thenZh:'新华社08:10:40转载上海市政府新闻办公室官方微博，回应流传的封城说法并说明网格筛查。它并非此议题第一次出现公开辟谣。',
+  thenEn:'At 08:10:40, Xinhua republished the Shanghai Government Information Office’s response about citywide lockdown claims and grid-based screening. This was not the first public rebuttal.',
+  laterZh:'当天17:59出现的警方立案报道还在未来，不能把刑事程序提前到上午这个公开材料截点。',
+  laterEn:'A police-investigation report displayed at 17:59 was still in the future and must not be inferred from the morning statement.',
+  url:'https://www.xinhuanet.com/politics/2022-03/23/c_1128494505.htm',sourceZh:'新华网08:10报道',sourceEn:'Xinhua 08:10 report'},
+ {id:'sh-0323b',labelZh:'2022-03-23 17:59 · 上海：警方立案',labelEn:'Mar 23, 2022, 17:59 · Shanghai: investigation',caseZh:'上海 / 强制程序',caseEn:'Shanghai / enforcement',time:'2022-03-23',
+  thenZh:'第一财经转载的上观新闻报道显示17:59:14，报道警方称两人因涉嫌编造、故意传播虚假信息被立案侦查。',
+  thenEn:'A Shangguan News report syndicated by Yicai displayed 17:59:14 and attributed a criminal-investigation announcement concerning two individuals to police.',
+  laterZh:'立案不等于有罪判决；本研究没有找到能够可靠对应这两人的司法终局文书。',
+  laterEn:'An investigation announcement is not a conviction. The project has not authenticated the final judicial disposition for either person.',
+  url:'https://www.yicai.com/news/101358444.html',sourceZh:'第一财经同期转载',sourceEn:'Yicai syndication'},
+ {id:'sh-0327',labelZh:'2022-03-27 · 上海：分批封控通告',labelEn:'Mar 27, 2022 · Shanghai: phased plan',caseZh:'上海 / 政策变动',caseEn:'Shanghai / policy change',time:'2022-03-27',
+  thenZh:'市府通告拟浦东等地3月28日05:00至4月1日05:00、浦西4月1日03:00至4月5日03:00分批筛查与封控；两批计划有两小时重叠，且浦西重点地区先前已有管控。',
+  thenEn:'The municipality planned restrictions east of the river for Mar 28 05:00–Apr 1 05:00 and west of the river for Apr 1 03:00–Apr 5 03:00. Planned phases overlapped by two hours; high-priority western areas remained under earlier controls.',
+  laterZh:'3月31日晚部分地区更长管控与4月4日继续封控的安排当时尚未公布；不能将后续实施情况当作原方案的完整内容。',
+  laterEn:'Longer zonal controls reported March 31 and the April 4 continuation were not yet public. Later implementation must not be projected into the original planned intervals.',
+  url:'https://www.shanghai.gov.cn/sjzccs/20220327/613eda924f814a4ab4b25642f0e668c5.html',sourceZh:'上海市政府3月27日通告',sourceEn:'March 27 municipal notice'}
+];
+---
+<section class="sc-lens" data-sixclocks-widget aria-labelledby="sc-lens-title">
+  <div class="sc-lens-heading">
+    <p class="sc-label">INTERACTIVE / {isEnglish ? 'PUBLIC-EVIDENCE CLOCK' : '公开证据时间视图'}</p>
+    <h2 id="sc-lens-title">{isEnglish ? 'What was recorded by that point?' : '在那个时点，公开材料记录了什么？'}</h2>
+    <p>{isEnglish
+      ? 'Select a dated source snapshot. The left column describes only the registered records available by the stated cutoff; the right column explicitly separates later knowledge or unresolved questions. This is not an exhaustive public-information census.'
+      : '选择一个已登记的历史资料截点。左栏只呈现该时点已经有公开记录的事项；右栏标明当时尚未公布的后续信息或未解决的问题。它并非全网公众知情状况的穷尽统计。'}</p>
+  </div>
+  <label class="sc-select-label" for="sc-asof-select">{isEnglish ? 'Choose a source and cutoff' : '选择资料截点'}</label>
+  <select id="sc-asof-select" data-asof-select>
+    {records.map((r, i) => <option value={r.id} selected={i===2}>{isEnglish ? r.labelEn : r.labelZh}</option>)}
+  </select>
+  <div class="sc-asof-panels" aria-live="polite">
+    {records.map((r,i) => <section class="sc-asof-panel" data-panel={r.id} hidden={i!==2}>
+      <p class="sc-asof-context"><time datetime={r.time}>{isEnglish ? r.labelEn : r.labelZh}</time> · {isEnglish ? r.caseEn : r.caseZh}</p>
+      <div class="sc-asof-grid">
+        <div><h3>{isEnglish ? 'Recorded by this cutoff' : '截至该时点的公开记录'}</h3><p>{isEnglish ? r.thenEn : r.thenZh}</p></div>
+        <div class="sc-hindsight"><h3>{isEnglish ? 'Not yet public / later perspective' : '尚未公布／后见视角'}</h3><p>{isEnglish ? r.laterEn : r.laterZh}</p></div>
+      </div>
+      <a class="sc-source-link" href={r.url} rel="noopener noreferrer" target="_blank">{isEnglish ? 'Read the dated source' : '查看同期来源'} — {isEnglish ? r.sourceEn : r.sourceZh} ↗</a>
+    </section>)}
+  </div>
+  <p class="sc-lens-caveat">{isEnglish ? 'The listed timestamps refer to reported or displayed publication times. They do not by themselves authenticate a first-edition webpage or the first appearance of an underlying government notice.' : '页面时间戳是登记来源的报道或显示发布时间，并不自动认证原始帖文、公告的首次发布时刻或网页首版字节。'}</p>
+</section>
+<script>
+  document.querySelectorAll('[data-sixclocks-widget]').forEach((widget)=>{
+    const select=widget.querySelector('[data-asof-select]');
+    const panels=[...widget.querySelectorAll('[data-panel]')];
+    if (!(select instanceof HTMLSelectElement)) return;
+    const show=()=>{panels.forEach((panel)=>{panel.hidden = panel.getAttribute('data-panel') !== select.value;});};
+    select.addEventListener('change',show);
+    show();
+  });
+</script>
