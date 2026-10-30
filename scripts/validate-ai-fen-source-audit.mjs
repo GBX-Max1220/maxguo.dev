@@ -24,6 +24,7 @@ const knownStatuses=new Set([
  'PEER_REVIEWED_PRIOR_WORK',
  'LINK_IDENTIFIED_ACCESS_BLOCKED',
  'LINK_IDENTIFIED_NOT_YET_VERIFIED',
+ 'ARCHIVED_CAPTURE_FOUND_ORIGIN_NOT_AUTHENTICATED',
  'ORIGINAL_SOURCE_NOT_OBTAINED',
  'GITHUB_COMMIT_PROVENANCE',
  'HISTORICAL_BODY_CAPTURE',
@@ -78,13 +79,15 @@ assert.ok(ledger.claims.find(c=>c.id==='AF-C23'&&c.status==='OBSERVED_CROSS_SOUR
 assert.ok(ledger.sources.find(s=>s.id==='AF15'&&s.status==='RETROSPECTIVE_DIRECTIVE_DISCLOSURE'));
 assert.ok(ledger.sources.find(s=>s.id==='AF13'&&s.status==='HISTORICAL_HOMEPAGE_CAPTURE'));
 assert.ok(ledger.sources.find(s=>s.id==='AF17'&&s.status==='DIRECTLY_READ_CURRENT_PAGE'&&s.url==='https://chinadigitaltimes.net/chinese/637830.html'));
-assert.ok(ledger.sources.find(s=>s.id==='AF18'&&s.status==='LINK_IDENTIFIED_NOT_YET_VERIFIED'&&s.url.includes('21join.com')));
+assert.ok(ledger.sources.find(s=>s.id==='AF18'&&s.status==='ARCHIVED_CAPTURE_FOUND_ORIGIN_NOT_AUTHENTICATED'&&s.url.includes('21join.com')));
 assert.ok(ledger.claims.find(c=>c.id==='AF-C24'&&c.status==='SUPPORTED_BY_DIRECTLY_READ_CDT_REPRINT_PAGE'));
 assert.ok(ledger.sources.find(s=>s.id==='AF19'&&s.status==='HISTORICAL_BODY_CAPTURE'&&s.url.includes('20200312004223')));
 assert.ok(ledger.claims.find(c=>c.id==='AF-C25'&&c.status==='SUPPORTED_BY_DATED_21JOIN_ARCHIVED_HTML'));
 assert.ok(ledger.claims.find(c=>c.id==='AF-C26'&&c.status==='SUPPORTED_BY_CROSS_SITE_ARCHIVE_TIMELINE'));
 assert.equal(ledger.provenance_followup.status,'21JOIN_ARCHIVED_BODY_CONFIRMED; HE_MEDIA_ATTRIBUTION_STILL_NOT_INDEPENDENTLY_AUTHENTICATED');
 assert.equal(ledger.provenance_followup.capture_beijing,'2020-03-12T08:42:23+08:00');
+assert.equal(ledger.he_media_archive_audit.exact_url_cdx.records,1);
+assert.equal(ledger.he_media_archive_audit.domain_alias_cdx.status,'CDX_REQUEST_FAILED_NO_ABSENCE_INFERENCE');
 assert.equal(ledger.research_gates.find(g=>g.id==='G4').status,'PARTIAL_HOMEPAGE_VISIBILITY_VERIFIED_HOST_GOVERNANCE_OPEN');
 const crossSiteScript=fs.readFileSync(path.join(root,'scripts/audit-ai-fen-cross-site.py'),'utf8');
 assert.ok(crossSiteScript.includes('HE_MEDIA_ARCHIVE_URL'));
