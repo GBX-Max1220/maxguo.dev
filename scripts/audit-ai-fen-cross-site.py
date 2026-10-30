@@ -152,8 +152,15 @@ def run(out):
             extraction_site = "yyrw" if name=="he_media_archive" else name
             main,meta=cut_main(txt,extraction_site)
             if name=="he_media_archive":
+                # The generic yyrw extractor has a fixed displayed_date field;
+                # do not carry it over to another site without inspecting that page.
+                meta.pop("displayed_date",None)
+                from bs4 import BeautifulSoup
+                he_soup=BeautifulSoup(txt,"html.parser")
+                he_page_text=he_soup.get_text(" ",strip=True)
                 meta.update({
                     "title":"发哨子的人 | 合传媒",
+                    "displayed_date_2020_03_10_present":"2020年3月10日" in he_page_text,
                     "archive_capture_utc":"2020-03-12T00:42:23Z",
                     "archive_capture_beijing":"2020-03-12T08:42:23+08:00",
                     "source_type":"Wayback capture of the 21join.com page titled 发哨子的人 | 合传媒",
