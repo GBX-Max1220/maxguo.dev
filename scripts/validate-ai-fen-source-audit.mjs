@@ -92,6 +92,9 @@ assert.equal(ledger.research_gates.find(g=>g.id==='G4').status,'PARTIAL_HOMEPAGE
 const crossSiteScript=fs.readFileSync(path.join(root,'scripts/audit-ai-fen-cross-site.py'),'utf8');
 assert.ok(crossSiteScript.includes('HE_MEDIA_ARCHIVE_URL'));
 assert.ok(crossSiteScript.includes('2020-03-12T00:42:23Z'));
+assert.ok(crossSiteScript.includes('meta.pop("displayed_date",None)'));
+assert.ok(crossSiteScript.includes('displayed_date_2020_03_10_present'));
+assert.ok(historicalScript.includes('displayed_date_2020_03_10'));
 assert.ok(crossSiteScript.includes('source_count = len(normalized)'));
 assert.ok(crossSiteScript.includes('pairwise_comparisons = {}'));
 const historicalScript=fs.readFileSync(path.join(root,'scripts/audit-ai-fen-historical-snapshots.py'),'utf8');
@@ -109,6 +112,8 @@ assert.equal(threeSource.pairwise_comparisons.terminus_vs_he_media_archive.equal
 assert.equal(threeSource.pairwise_comparisons.terminus_vs_yyrw.equal_units,198);
 assert.equal(threeSource.pairwise_comparisons.yyrw_vs_he_media_archive.equal_units,198);
 assert.equal(threeSource.cross_site_visibility_timing.elapsed,'5h48m38s');
+assert.ok(threeSource.sources.he_media_archive.raw_sha256_by_run);
+assert.equal(threeSource.sources.he_media_archive.normalized_body_sha256,threeSource.sources.terminus.normalized_body_sha256);
 assert.equal(threeSource.source_discovery.exact_url_cdx.records,1);
 assert.equal(threeSource.source_discovery.domain_alias_cdx.status,'CDX_REQUEST_FAILED_NO_ABSENCE_INFERENCE');
 assert.ok(ledger.claims.find(c=>c.id==='AF-C27'&&c.status==='SUPPORTED_BY_REPRODUCIBLE_THREE_SOURCE_COMPARISON'));
