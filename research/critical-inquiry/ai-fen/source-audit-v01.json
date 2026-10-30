@@ -16,7 +16,8 @@
     "HISTORICAL_BODY_CAPTURE",
     "HISTORICAL_UNAVAILABLE_NOTICE",
     "HISTORICAL_HOMEPAGE_CAPTURE",
-    "RETROSPECTIVE_DIRECTIVE_DISCLOSURE"
+    "RETROSPECTIVE_DIRECTIVE_DISCLOSURE",
+    "LINK_IDENTIFIED_NOT_YET_VERIFIED"
   ],
   "sources": [
     {
@@ -321,6 +322,46 @@
         "The English explanation warns that the date may be a leak date rather than issue date; wording and scope may be uncertain.",
         "Does not prove the title change or homepage-link disappearance was caused by this instruction."
       ]
+    },
+    {
+      "id": "AF17",
+      "title": "〖404文库〗人物｜发哨子的人 — China Digital Times",
+      "url": "https://chinadigitaltimes.net/chinese/637830.html",
+      "type": "CDT_404_ARCHIVE_REPRINT",
+      "status": "DIRECTLY_READ_CURRENT_PAGE",
+      "displayed_date": "2020-03-10",
+      "independence_group": "cdt_404_archive_lineage",
+      "observations": [
+        "CDT page title is 〖404文库〗人物｜发哨子的人 and the page displays 2020年3月10日.",
+        "The page contains an 原文 link whose href resolves to https://www.21join.com/index.php?a=show&c=index&catid=9&id=2703&m=content.",
+        "CDT editor note says: 该文原文已被删除 由合传媒备份存档.",
+        "The page itself displays the interview text and bylines 文|龚菁琦, 编辑|金石, 摄影|尹夕远.",
+        "The page was directly read through the public web page retrieval; the same URL returned HTTP 403 to the GitHub Actions requests client during attempted automated text comparison."
+      ],
+      "limitations": [
+        "This is a CDT-hosted derivative archive, not the original Renwu WeChat bytes.",
+        "The He Media attribution is CDT's editorial statement and is not an independently authenticated chain-of-custody record.",
+        "The linked 21join URL is labelled 原文 by CDT but has not yet been successfully fetched or authenticated.",
+        "The text may be dependent on the He Media backup and must not be counted as an independent original edition."
+      ]
+    },
+    {
+      "id": "AF18",
+      "title": "21join URL labeled 原文 by CDT's Ai Fen 404 archive",
+      "url": "https://www.21join.com/index.php?a=show&c=index&catid=9&id=2703&m=content",
+      "type": "ORIGINAL_LINK_CANDIDATE",
+      "status": "LINK_IDENTIFIED_NOT_YET_VERIFIED",
+      "independence_group": "he_media_source_link",
+      "observations": [
+        "The hyperlink text 原文 on CDT page AF17 points to this exact 21join URL.",
+        "A direct page retrieval attempt through the web page tool returned a cache-miss error; this is not evidence that the origin server is offline.",
+        "A new Wayback CDX and archived-capture inspection has been added to the reproducible historical audit."
+      ],
+      "limitations": [
+        "No body, server metadata, author identity or publication timestamp has yet been inspected at this URL.",
+        "CDT's label 原文 is a source attribution, not independent authentication that this URL is the original Renwu publication.",
+        "Do not infer the relationship between 21join and He Media beyond the attribution displayed by CDT."
+      ]
     }
   ],
   "claims": [
@@ -548,6 +589,16 @@
         "AF16"
       ],
       "limit": "Because CDT explicitly says its displayed date may be a leak date rather than issue date, this is not proof of noncompliance or causation; homepage capture time is not server-side update time."
+    },
+    {
+      "id": "AF-C24",
+      "claim": "CDT's 404文库 page for 人物｜发哨子的人, dated 2020-03-10, states that the original article had been deleted and that the preserved copy was archived by He Media; its 原文 link points to a 21join URL.",
+      "status": "SUPPORTED_BY_DIRECTLY_READ_CDT_REPRINT_PAGE",
+      "source_ids": [
+        "AF17",
+        "AF18"
+      ],
+      "limit": "This verifies what the CDT page says, not the truth of its attribution. The 21join destination has not yet been authenticated, and the CDT text is not the original WeChat bytes."
     }
   ],
   "research_gates": [
@@ -623,5 +674,11 @@
     "later_no_link_through_beijing": "2020-11-25T22:05:20+08:00",
     "domain_alias_query": "HTTP_503_NO_ABSENCE_INFERENCE",
     "key_caution": "CDT date label may be leak date, not issue date; no causal claim."
+  },
+  "provenance_followup": {
+    "cdt_reprint_source_id": "AF17",
+    "cdt_original_link_source_id": "AF18",
+    "status": "CDT_PAGE_DIRECTLY_READ; 21JOIN_DESTINATION_UNVERIFIED",
+    "next_audit": "scripts/audit-ai-fen-historical-snapshots.py now queries Wayback CDX for the exact 21join URL and inspects up to eight returned captures."
   }
 }
