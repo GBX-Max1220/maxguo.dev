@@ -25,6 +25,7 @@ const knownStatuses=new Set([
  'LINK_IDENTIFIED_ACCESS_BLOCKED',
  'LINK_IDENTIFIED_NOT_YET_VERIFIED',
  'ARCHIVED_CAPTURE_FOUND_ORIGIN_NOT_AUTHENTICATED',
+ 'HISTORICAL_AUXILIARY_ENDPOINT_CAPTURE',
  'ORIGINAL_SOURCE_NOT_OBTAINED',
  'GITHUB_COMMIT_PROVENANCE',
  'HISTORICAL_BODY_CAPTURE',
@@ -120,8 +121,14 @@ assert.equal(threeSource.sources.he_media_archive.normalized_body_sha256,threeSo
 assert.equal(threeSource.source_discovery.exact_url_cdx.records,1);
 assert.equal(threeSource.source_discovery.domain_alias_cdx.status,'SUCCESS_THREE_RECORDS_ONE_ARTICLE_CAPTURE_TWO_COUNT_ENDPOINTS');
 assert.equal(threeSource.source_discovery.domain_alias_cdx.count_endpoint_capture_count,2);
+assert.equal(threeSource.source_discovery.domain_alias_cdx.count_endpoint_captures[0].hits,1493);
+assert.equal(threeSource.source_discovery.domain_alias_cdx.count_endpoint_captures[1].hits,1503);
 assert.ok(ledger.claims.find(c=>c.id==='AF-C27'&&c.status==='SUPPORTED_BY_REPRODUCIBLE_THREE_SOURCE_COMPARISON'));
 assert.ok(ledger.claims.find(c=>c.id==='AF-C28'&&c.status==='SUPPORTED_BY_REPRODUCIBLE_THREE_SOURCE_COMPARISON'));
+assert.ok(ledger.sources.find(s=>s.id==='AF20'&&s.status==='HISTORICAL_AUXILIARY_ENDPOINT_CAPTURE'));
+assert.ok(ledger.claims.find(c=>c.id==='AF-C29'&&c.status==='SUPPORTED_BY_ARCHIVED_COUNTER_ENDPOINT_RESPONSES'));
+assert.equal(ledger.he_media_archive_audit.counter_endpoint.captures[0].hits,1493);
+assert.equal(ledger.he_media_archive_audit.counter_endpoint.captures[1].hits,1503);
 
 const capture=JSON.parse(fs.readFileSync(path.join(root,'research/critical-inquiry/ai-fen/historical-captures-v01.json'),'utf8'));
 const decisionV2=fs.readFileSync(path.join(root,'docs/critical-inquiry/AI_FEN_HISTORICAL_VERSION_DECISION_V02_20261030.md'),'utf8');
