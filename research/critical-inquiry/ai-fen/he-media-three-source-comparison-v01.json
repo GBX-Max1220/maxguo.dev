@@ -45,7 +45,22 @@
       "title": "发哨子的人 | 合传媒",
       "archive_capture_utc": "2020-03-12T00:42:23Z",
       "archive_capture_beijing": "2020-03-12T08:42:23+08:00",
-      "source_type": "Wayback capture of 21join.com page"
+      "source_type": "Wayback capture of 21join.com page",
+      "page_metadata": {
+        "title": "发哨子的人 | 合传媒",
+        "keywords": "中国,武汉,疫情,吹哨人,艾芬",
+        "description": "没有人在任何场合跟我说表示抱歉这句话。但我依然觉得，这次的事情更加说明了每个人还是要坚持自己独立的思想，因为要有人站出来说真话，必须要有人，这个世界必须要有不同的声音……",
+        "og_title": "发哨子的人 - 民声 - ",
+        "canonical_url": null,
+        "extracted_body_characters": 9376,
+        "indicators": [
+          "艾芬",
+          "采访开头",
+          "龚菁琦",
+          "金石",
+          "合传媒"
+        ]
+      }
     }
   },
   "optional_source_not_compared": {
@@ -109,6 +124,22 @@
     "CDT attributes the preserved copy to He Media; the 21join page title contains 合传媒. This is consistent with the attribution but does not independently authenticate the chain of custody.",
     "The yyrw text differs from the Terminus/21join normalized text in two sentence units. No causal, editorial, or censorship explanation is inferred.",
     "Wayback timestamps are archive observation times, not first-publication timestamps.",
-    "The 21join capture and later yyrw homepage capture are separated by 5h48m38s; no claim of continuous availability is made."
-  ]
+    "The 21join capture and later yyrw homepage capture are separated by 5h48m38s; no claim of continuous availability is made.",
+    "The domain-level CDX query for alternate 21join URL variants timed out; one exact-URL capture does not establish exhaustive archive coverage."
+  ],
+  "source_discovery": {
+    "exact_url_cdx": {
+      "status": "SUCCESS_ONE_RECORD",
+      "records": 1,
+      "timestamp": "20200312004223",
+      "http_status": 200,
+      "mimetype": "text/html"
+    },
+    "domain_alias_cdx": {
+      "status": "CDX_REQUEST_FAILED_NO_ABSENCE_INFERENCE",
+      "error": "ReadTimeout",
+      "timeout_seconds": 25
+    },
+    "interpretation": "One exact-URL capture is confirmed; domain-level alias coverage remains unresolved."
+  }
 }
