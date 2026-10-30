@@ -377,14 +377,17 @@
         "The archived page returns HTTP 200 and its HTML title is 发哨子的人 | 合传媒.",
         "The archived page body is 9,376 characters after HTML text extraction and contains the interview-opening phrase, 艾芬, and the bylines 龚菁琦 and 金石.",
         "The page text also contains 合传媒.",
-        "Archived response SHA-256: f6a8b96e7be9b83dbeb4a7e61f9ef5302c770a6219dc3e4b9d4e27db26a031a3."
+        "Archived response SHA-256: f6a8b96e7be9b83dbeb4a7e61f9ef5302c770a6219dc3e4b9d4e27db26a031a3.",
+        "A reproducible three-source CI comparison found its extracted normalized body identical to the pinned Terminus text across all 200 sentence-like units; this is content equality, not proof of source independence."
       ],
       "limitations": [
         "The Wayback capture establishes an archived 200 HTML representation at the capture time; it does not independently authenticate who operated the source page or its exact original publication time.",
         "CDT's editorial note attributes its preserved copy to He Media, and this 21join page title contains 合传媒; this is consistent with that attribution but is not a separate independent edition.",
         "This page must not be counted as independent of the CDT 404 reprint in assessing source independence.",
         "No causal relation between the 21join copy and the yyrw homepage link disappearance is established."
-      ]
+      ],
+      "normalized_body_sha256": "2e3ff7643b2fbda91439e1b99136e6046f83d4fbb59a08899b101ebcee52ce06",
+      "normalized_sentence_units": 200
     }
   ],
   "claims": [
@@ -643,6 +646,27 @@
         "AF19"
       ],
       "limit": "The captures are 5h48m38s apart and do not establish continuous live availability, exact removal time, or causal relationship."
+    },
+    {
+      "id": "AF-C27",
+      "claim": "The archived 21join/合传媒 derivative and the pinned Terminus archive have identical NFKC-normalized, whitespace-removed extracted article bodies across all 200 sentence-like units.",
+      "status": "SUPPORTED_BY_REPRODUCIBLE_THREE_SOURCE_COMPARISON",
+      "source_ids": [
+        "AF01",
+        "AF19"
+      ],
+      "limit": "Normalized text equality does not establish which source copied from which, a shared upstream source, or independent chain of custody."
+    },
+    {
+      "id": "AF-C28",
+      "claim": "The yyrw extracted body differs from the Terminus and 21join/合传媒 normalized bodies in two sentence-like units: it omits the short fragment 艾芬 in one and includes 生康 in another.",
+      "status": "SUPPORTED_BY_REPRODUCIBLE_THREE_SOURCE_COMPARISON",
+      "source_ids": [
+        "AF01",
+        "AF03",
+        "AF19"
+      ],
+      "limit": "The comparison is an extraction/normalization result on derivative texts; it does not establish why the differences occurred or who introduced them."
     }
   ],
   "research_gates": [
@@ -723,9 +747,34 @@
     "cdt_reprint_source_id": "AF17",
     "cdt_original_link_source_id": "AF18",
     "status": "21JOIN_ARCHIVED_BODY_CONFIRMED; HE_MEDIA_ATTRIBUTION_STILL_NOT_INDEPENDENTLY_AUTHENTICATED",
-    "next_audit": "Compare the dated 21join/合传媒 archived body against the yyrw and Terminus derivatives; retain lineage dependence caveat.",
+    "next_audit": "Review the three-source text comparison; distinguish textual identity from source independence and avoid editorial/censorship attribution.",
     "capture_utc": "2020-03-12T00:42:23Z",
     "capture_beijing": "2020-03-12T08:42:23+08:00",
     "capture_title": "发哨子的人 | 合传媒"
+  },
+  "three_source_comparison": {
+    "report": "research/critical-inquiry/ai-fen/he-media-three-source-comparison-v01.json",
+    "workflow_run_id": 41136525095,
+    "status": "THREE_DERIVATIVE_SOURCES_COMPARED",
+    "sentence_units_per_source": 200,
+    "pairs": {
+      "terminus_vs_he_media_archive": {
+        "equal_units": 200,
+        "total_units": 200,
+        "non_equal_blocks": 0
+      },
+      "terminus_vs_yyrw": {
+        "equal_units": 198,
+        "total_units": 200,
+        "non_equal_blocks": 2
+      },
+      "yyrw_vs_he_media_archive": {
+        "equal_units": 198,
+        "total_units": 200,
+        "non_equal_blocks": 2
+      }
+    },
+    "cdt_reprint": "directly read separately; excluded from CI text comparison because CI client received HTTP 403",
+    "caution": "All three are derivative representations. Terminus/21join normalized equality is not evidence of independence; CDT attributes the 21join/He Media copy to He Media."
   }
 }
