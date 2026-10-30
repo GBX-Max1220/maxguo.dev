@@ -357,13 +357,14 @@
         "The hyperlink text 原文 on CDT page AF17 points to this exact 21join URL.",
         "A direct page retrieval attempt through the web page tool returned a cache-miss error; this is not evidence that the origin server is offline.",
         "A new Wayback CDX and archived-capture inspection has been added to the reproducible historical audit.",
-        "A Wayback CDX exact-URL query found one 2020 capture (20200312004223); that archived page returns HTTP 200 and contains the interview body indicators."
+        "A Wayback CDX exact-URL query found one 2020 capture (20200312004223); that archived page returns HTTP 200 and contains the interview body indicators.",
+        "A domain-level CDX query (2020–2026, HTML/200, URL contains id=2703) returned three records: one article page and two api.php?op=count&id=2703&modelid=1 endpoint captures."
       ],
       "limitations": [
         "No body, server metadata, author identity or publication timestamp has yet been inspected at this URL.",
         "CDT's label 原文 is a source attribution, not independent authentication that this URL is the original Renwu publication.",
         "Do not infer the relationship between 21join and He Media beyond the attribution displayed by CDT.",
-        "A broader domain-level CDX query for URL variants/parameter orderings timed out; exact-URL result is one indexed capture, not exhaustive alias coverage or proof of live origin availability."
+        "The two additional domain-level records are count-endpoint captures, not additional article-body editions; only one article page capture is confirmed."
       ]
     },
     {
@@ -383,15 +384,16 @@
         "Archived response SHA-256: f6a8b96e7be9b83dbeb4a7e61f9ef5302c770a6219dc3e4b9d4e27db26a031a3.",
         "A reproducible three-source CI comparison found its extracted normalized body identical to the pinned Terminus text across all 200 sentence-like units; this is content equality, not proof of source independence.",
         "Additional page metadata: keywords include 中国、武汉、疫情、吹哨人、艾芬; description begins with the interview's closing reflection; og:title begins 发哨子的人 - 民声.",
-        "The raw archived HTML response SHA differed across repeated retrieval runs, while the extracted normalized article-body SHA remained constant; raw wrapper fingerprints and article-body identity are therefore tracked separately."
+        "The raw archived HTML response SHA differed across repeated retrieval runs, while the extracted normalized article-body SHA remained constant; raw wrapper fingerprints and article-body identity are therefore tracked separately.",
+        "A broader domain-level CDX query returned two additional 200 HTML captures of the site's api.php?op=count endpoint for id=2703; these are not article-body captures."
       ],
       "limitations": [
         "The Wayback capture establishes an archived 200 HTML representation at the capture time; it does not independently authenticate who operated the source page or its exact original publication time.",
         "CDT's editorial note attributes its preserved copy to He Media, and this 21join page title contains 合传媒; this is consistent with that attribution but is not a separate independent edition.",
         "This page must not be counted as independent of the CDT 404 reprint in assessing source independence.",
         "No causal relation between the 21join copy and the yyrw homepage link disappearance is established.",
-        "The broader domain-level CDX query for alternate 21join URL variants timed out; only the exact URL's one indexed 2020 capture is confirmed.",
-        "Raw response hash variation may reflect archive wrapper/response changes; it is not evidence that the underlying archived article body changed."
+        "Raw response hash variation may reflect archive wrapper/response changes; it is not evidence that the underlying archived article body changed.",
+        "The two count-endpoint captures are not independent article copies and do not establish readership or page-view counts without interpreting their response payloads."
       ],
       "normalized_body_sha256": "2e3ff7643b2fbda91439e1b99136e6046f83d4fbb59a08899b101ebcee52ce06",
       "normalized_sentence_units": 200,
@@ -770,7 +772,7 @@
     "capture_utc": "2020-03-12T00:42:23Z",
     "capture_beijing": "2020-03-12T08:42:23+08:00",
     "capture_title": "发哨子的人 | 合传媒",
-    "domain_alias_query": "READ_TIMEOUT_NO_ABSENCE_INFERENCE"
+    "domain_alias_query": "SUCCESS_THREE_RECORDS_ONE_ARTICLE_CAPTURE_TWO_COUNT_ENDPOINTS"
   },
   "three_source_comparison": {
     "report": "research/critical-inquiry/ai-fen/he-media-three-source-comparison-v01.json",
@@ -806,9 +808,16 @@
       "mimetype": "text/html"
     },
     "domain_alias_cdx": {
-      "status": "CDX_REQUEST_FAILED_NO_ABSENCE_INFERENCE",
-      "error": "ReadTimeout",
-      "timeout_seconds": 25
+      "status": "SUCCESS_THREE_RECORDS_ONE_ARTICLE_CAPTURE_TWO_COUNT_ENDPOINTS",
+      "http_status": 200,
+      "records": 3,
+      "article_page_capture_count": 1,
+      "count_endpoint_capture_count": 2,
+      "count_endpoint_timestamps": [
+        "20200312004223",
+        "20200312010212"
+      ],
+      "note": "Two api.php?op=count captures are not article-body copies; their payloads are not used as audience metrics."
     },
     "page_metadata": {
       "title": "发哨子的人 | 合传媒",
