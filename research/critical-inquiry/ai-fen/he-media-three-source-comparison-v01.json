@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "AF-HE-MEDIA-3SOURCE-20261030",
+  "workflow_run_id": 41136525095,
+  "workflow_run_url": "https://github.com/GBX-Max1220/maxguo.dev/actions/runs/41136525095",
+  "checked_at_utc": "2026-10-30T22:12:24.705428Z",
+  "status": "3_DERIVATIVE_TEXT_SOURCES_COMPARED_NOT_ORIGINAL_PLATFORM_BYTES",
+  "method": {
+    "unit": "NFKC-normalized, whitespace-removed Chinese sentence-like units beginning at the same interview-opening anchor",
+    "algorithm": "difflib.SequenceMatcher(autojunk=False)",
+    "units_per_source": 200,
+    "copyright_handling": "No full article text retained; only very short changed fragments and hashes are recorded."
+  },
+  "sources": {
+    "terminus": {
+      "source_id": "AF01",
+      "url": "https://raw.githubusercontent.com/Terminus2049/Terminus2049.github.io/8d630f148b0f2f0836c27add46f2a07987ac24ad/_posts/2020-03-10-fa-shao-zi-de-ren.md",
+      "raw_sha256": "2ea321e0c1304d2c9b90036c02503ab99839e6c02336d0666e6608f0e475a908",
+      "raw_bytes": 26140,
+      "normalized_body_sha256": "2e3ff7643b2fbda91439e1b99136e6046f83d4fbb59a08899b101ebcee52ce06",
+      "normalized_characters": 8239,
+      "sentence_units": 200,
+      "title": "发哨子的人",
+      "source_type": "Pinned GitHub archive markdown"
+    },
+    "yyrw": {
+      "source_id": "AF03",
+      "url": "https://yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256",
+      "raw_sha256": "fb9a2cc83228c60e2e980e033ba2a30f62cd07db85647beb3a457d75bb14e43e",
+      "raw_bytes": 37732,
+      "normalized_body_sha256": "e429356875aa0eadb9cf35fdc91c6223387a8810fb6d6360683dcefc5c4d5560",
+      "normalized_characters": 8239,
+      "sentence_units": 200,
+      "title": "发哨子的人：如果这些医生都能够得到及时的提醒，或许就不会有这一天",
+      "source_type": "Currently readable yyrw HTML page"
+    },
+    "he_media_archive": {
+      "source_id": "AF19",
+      "url": "https://web.archive.org/web/20200312004223/http://www.21join.com/index.php?m=content&c=index&a=show&catid=9&id=2703",
+      "raw_sha256": "c14130f2f759f74bbb8252a062c37cd64545482b343a9806c0594952e8b43086",
+      "raw_bytes": 43548,
+      "normalized_body_sha256": "2e3ff7643b2fbda91439e1b99136e6046f83d4fbb59a08899b101ebcee52ce06",
+      "normalized_characters": 8239,
+      "sentence_units": 200,
+      "title": "发哨子的人 | 合传媒",
+      "archive_capture_utc": "2020-03-12T00:42:23Z",
+      "archive_capture_beijing": "2020-03-12T08:42:23+08:00",
+      "source_type": "Wayback capture of 21join.com page"
+    }
+  },
+  "optional_source_not_compared": {
+    "source_id": "AF17",
+    "url": "https://chinadigitaltimes.net/chinese/637830.html",
+    "status": "DIRECTLY_READ_BY_WEB_RETRIEVAL_BUT_HTTP_403_IN_GITHUB_ACTIONS",
+    "note": "The CDT 404 page was directly read separately and says the original had been deleted and the copy was preserved by He Media. It was not included in this machine comparison."
+  },
+  "pairwise_comparisons": {
+    "terminus_vs_yyrw": {
+      "left_units": 200,
+      "right_units": 200,
+      "equal_units": 198,
+      "match_fraction": 0.99,
+      "non_equal_blocks": 2
+    },
+    "terminus_vs_he_media_archive": {
+      "left_units": 200,
+      "right_units": 200,
+      "equal_units": 200,
+      "match_fraction": 1,
+      "non_equal_blocks": 0
+    },
+    "yyrw_vs_he_media_archive": {
+      "left_units": 200,
+      "right_units": 200,
+      "equal_units": 198,
+      "match_fraction": 0.99,
+      "non_equal_blocks": 2
+    }
+  },
+  "differences_relative_to_terminus_and_he_media": {
+    "yyrw_span_1": {
+      "unit_range_zero_based": [
+        13,
+        14
+      ],
+      "operation": "delete",
+      "omitted_fragment": "艾芬",
+      "interpretation_limit": "A two-character difference in the extracted derivative text; no reason or editor attribution."
+    },
+    "yyrw_span_2": {
+      "unit_range_zero_based": [
+        33,
+        34
+      ],
+      "operation": "insert",
+      "added_fragment": "生康",
+      "interpretation_limit": "A two-character difference in the extracted derivative text; no reason or editor attribution."
+    }
+  },
+  "cross_site_visibility_timing": {
+    "he_media_archive_capture_beijing": "2020-03-12T08:42:23+08:00",
+    "first_later_yyrw_homepage_without_link_beijing": "2020-03-12T14:31:01+08:00",
+    "elapsed": "5h48m38s",
+    "interpretation": "A separate 21join/合传媒 page is represented in a dated archive capture earlier on the same day that a later yyrw homepage capture lacks the direct link. This is a cross-site visibility observation, not proof of continuous live availability or causal coordination."
+  },
+  "inference_limits": [
+    "These are derivative representations, not original Renwu WeChat bytes.",
+    "Terminus and the 21join/He Media archive have identical extracted normalized text, but this does not establish which copied from which or whether either is independent.",
+    "CDT attributes the preserved copy to He Media; the 21join page title contains 合传媒. This is consistent with the attribution but does not independently authenticate the chain of custody.",
+    "The yyrw text differs from the Terminus/21join normalized text in two sentence units. No causal, editorial, or censorship explanation is inferred.",
+    "Wayback timestamps are archive observation times, not first-publication timestamps.",
+    "The 21join capture and later yyrw homepage capture are separated by 5h48m38s; no claim of continuous availability is made."
+  ]
+}
