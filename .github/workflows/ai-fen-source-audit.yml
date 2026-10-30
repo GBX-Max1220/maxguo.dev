@@ -8,6 +8,7 @@ on:
       - 'research/critical-inquiry/ai-fen/**'
       - 'scripts/validate-ai-fen-source-audit.mjs'
       - 'scripts/audit-ai-fen-cross-site.py'
+      - 'https://chinadigitaltimes.net/chinese/637830.html'
       - 'scripts/audit-ai-fen-historical-snapshots.py'
       - 'scripts/audit-ai-fen-title-and-homepage.py'
       - '.github/workflows/ai-fen-source-audit.yml'
