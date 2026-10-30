@@ -18,7 +18,8 @@
     "HISTORICAL_HOMEPAGE_CAPTURE",
     "RETROSPECTIVE_DIRECTIVE_DISCLOSURE",
     "LINK_IDENTIFIED_NOT_YET_VERIFIED",
-    "ARCHIVED_CAPTURE_FOUND_ORIGIN_NOT_AUTHENTICATED"
+    "ARCHIVED_CAPTURE_FOUND_ORIGIN_NOT_AUTHENTICATED",
+    "HISTORICAL_AUXILIARY_ENDPOINT_CAPTURE"
   ],
   "sources": [
     {
@@ -409,6 +410,25 @@
         "41136525095": "c14130f2f759f74bbb8252a062c37cd64545482b343a9806c0594952e8b43086",
         "41137418890": "162b8f39928a6dbb64b62554f6b4ce74dd7a62de09e78ed9a072e78fd5d6579d"
       }
+    },
+    {
+      "id": "AF20",
+      "title": "Wayback captures of 21join article-specific count endpoint for id=2703",
+      "url": "https://web.archive.org/web/20200312004223/http://www.21join.com/api.php?op=count&id=2703&modelid=1",
+      "type": "HISTORICAL_AUXILIARY_ENDPOINT_CAPTURE",
+      "status": "HISTORICAL_AUXILIARY_ENDPOINT_CAPTURE",
+      "independence_group": "he_media_page_counter",
+      "observations": [
+        "The archived 21join article page HTML includes a script reference to api.php?op=count&id=2703&modelid=1.",
+        "Wayback CDX records two 200 HTML captures of this exact count endpoint: 2020-03-12 00:42:23 UTC and 2020-03-12 01:02:12 UTC.",
+        "The first response sets todaydowns=172, weekdowns=1493, monthdowns=1493 and hits=1493.",
+        "The second response sets todaydowns=182, weekdowns=1503, monthdowns=1503 and hits=1503."
+      ],
+      "limitations": [
+        "The endpoint's fields are site-defined counters; their exact semantics, update rules and uniqueness are not independently documented.",
+        "These values must not be described as unique readers, verified page views, downloads, or total audience without validating the site's code and counter semantics.",
+        "The captures are auxiliary responses associated with the same 21join page, not independent article copies."
+      ]
     }
   ],
   "claims": [
@@ -688,6 +708,16 @@
         "AF19"
       ],
       "limit": "The comparison is an extraction/normalization result on derivative texts; it does not establish why the differences occurred or who introduced them."
+    },
+    {
+      "id": "AF-C29",
+      "claim": "The archived 21join article page references an article-specific api.php?op=count&id=2703&modelid=1 endpoint; two Wayback endpoint captures 19m49s apart return different site-defined counter payloads, including hits values 1493 and 1503.",
+      "status": "SUPPORTED_BY_ARCHIVED_COUNTER_ENDPOINT_RESPONSES",
+      "source_ids": [
+        "AF19",
+        "AF20"
+      ],
+      "limit": "Counter semantics, uniqueness and update rules are unverified; do not interpret these values as unique readers or validated audience size."
     }
   ],
   "research_gates": [
@@ -834,6 +864,30 @@
       "41136525095": "c14130f2f759f74bbb8252a062c37cd64545482b343a9806c0594952e8b43086",
       "41137418890": "162b8f39928a6dbb64b62554f6b4ce74dd7a62de09e78ed9a072e78fd5d6579d"
     },
-    "normalized_body_sha256": "2e3ff7643b2fbda91439e1b99136e6046f83d4fbb59a08899b101ebcee52ce06"
+    "normalized_body_sha256": "2e3ff7643b2fbda91439e1b99136e6046f83d4fbb59a08899b101ebcee52ce06",
+    "counter_endpoint": {
+      "referenced_by_article_html": true,
+      "script_src": "https://web.archive.org/web/20200312004223js_/http://www.21join.com/api.php?op=count&id=2703&modelid=1",
+      "captures": [
+        {
+          "timestamp_utc": "2020-03-12T00:42:23Z",
+          "beijing": "2020-03-12T08:42:23+08:00",
+          "todaydowns": 172,
+          "weekdowns": 1493,
+          "monthdowns": 1493,
+          "hits": 1493
+        },
+        {
+          "timestamp_utc": "2020-03-12T01:02:12Z",
+          "beijing": "2020-03-12T09:02:12+08:00",
+          "todaydowns": 182,
+          "weekdowns": 1503,
+          "monthdowns": 1503,
+          "hits": 1503
+        }
+      ],
+      "elapsed": "19m49s",
+      "interpretation_limit": "Raw site-defined counter payload only; not a validated audience or unique-reader metric."
+    }
   }
 }
