@@ -94,6 +94,17 @@ assert.ok(crossSiteScript.includes('pairwise_comparisons = {}'));
 const historicalScript=fs.readFileSync(path.join(root,'scripts/audit-ai-fen-historical-snapshots.py'),'utf8');
 assert.ok(historicalScript.includes('he_media_original_link'));
 assert.ok(historicalScript.includes('ARTICLE_BODY_INDICATORS_PRESENT'));
+const threeSource=JSON.parse(fs.readFileSync(path.join(root,'research/critical-inquiry/ai-fen/he-media-three-source-comparison-v01.json'),'utf8'));
+assert.equal(threeSource.status,'3_DERIVATIVE_TEXT_SOURCES_COMPARED_NOT_ORIGINAL_PLATFORM_BYTES');
+assert.equal(threeSource.sources.terminus.sentence_units,200);
+assert.equal(threeSource.sources.yyrw.sentence_units,200);
+assert.equal(threeSource.sources.he_media_archive.sentence_units,200);
+assert.equal(threeSource.pairwise_comparisons.terminus_vs_he_media_archive.equal_units,200);
+assert.equal(threeSource.pairwise_comparisons.terminus_vs_yyrw.equal_units,198);
+assert.equal(threeSource.pairwise_comparisons.yyrw_vs_he_media_archive.equal_units,198);
+assert.equal(threeSource.cross_site_visibility_timing.elapsed,'5h48m38s');
+assert.ok(ledger.claims.find(c=>c.id==='AF-C27'&&c.status==='SUPPORTED_BY_REPRODUCIBLE_THREE_SOURCE_COMPARISON'));
+assert.ok(ledger.claims.find(c=>c.id==='AF-C28'&&c.status==='SUPPORTED_BY_REPRODUCIBLE_THREE_SOURCE_COMPARISON'));
 
 const capture=JSON.parse(fs.readFileSync(path.join(root,'research/critical-inquiry/ai-fen/historical-captures-v01.json'),'utf8'));
 const decisionV2=fs.readFileSync(path.join(root,'docs/critical-inquiry/AI_FEN_HISTORICAL_VERSION_DECISION_V02_20261030.md'),'utf8');
