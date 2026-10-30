@@ -120,6 +120,21 @@ for row in list(unique_candidates.values())[:8]:
     if "21join.com" in href or "mp.weixin.qq.com" in href or "yyrw.org.cn" in href:
      relevant_links.append({"text":a.get_text(" ",strip=True)[:80],"href":href[:300]})
    check["relevant_links"]=relevant_links[:12]
+   counter_script_refs=[]
+   for tag in soup.find_all("script",src=True):
+    src=tag.get("src","")
+    if "api.php" in src and "op=count" in src and "id=2703" in src:
+     counter_script_refs.append(src)
+   inline_counter_refs=[]
+   for tag in soup.find_all("script"):
+    code=tag.get_text(" ",strip=True)
+    if "api.php" in code and "op=count" in code and "id=2703" in code:
+     inline_counter_refs.append(code[:300])
+   check["counter_endpoint_references"]={
+    "script_srcs":counter_script_refs[:8],
+    "inline_script_refs":inline_counter_refs[:4],
+    "present":bool(counter_script_refs or inline_counter_refs)
+   }
    check["indicators"]={
      "displayed_date_2020_03_10":"2020年3月10日" in page_text,
      "title_fa_shao_zi":"发哨子的人" in page_text or "发哨子的人" in title,
