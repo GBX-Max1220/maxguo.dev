@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'docs/critical-inquiry/AI_FEN_SOURCE_AUDIT_V01_20261030.md'
+      - 'docs/critical-inquiry/AI_FEN_VISIBILITY_RECONSTRUCTION_V03_20261030.md'
       - 'research/critical-inquiry/ai-fen/**'
       - 'scripts/validate-ai-fen-source-audit.mjs'
       - 'scripts/audit-ai-fen-cross-site.py'
