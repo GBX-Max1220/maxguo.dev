@@ -14,7 +14,9 @@
     "ORIGINAL_SOURCE_NOT_OBTAINED",
     "GITHUB_COMMIT_PROVENANCE",
     "HISTORICAL_BODY_CAPTURE",
-    "HISTORICAL_UNAVAILABLE_NOTICE"
+    "HISTORICAL_UNAVAILABLE_NOTICE",
+    "HISTORICAL_HOMEPAGE_CAPTURE",
+    "RETROSPECTIVE_DIRECTIVE_DISCLOSURE"
   ],
   "sources": [
     {
@@ -246,6 +248,78 @@
       "limitations": [
         "Separate from original Renwu URL and platform action.",
         "Does not prove the archive page is first online copy."
+      ]
+    },
+    {
+      "id": "AF13",
+      "title": "Wayback 2020-03-11 yyrw homepage with direct interview link",
+      "url": "https://web.archive.org/web/20200310190634/https://www.yyrw.org.cn/",
+      "type": "HISTORICAL_HOMEPAGE_CAPTURE",
+      "status": "HISTORICAL_HOMEPAGE_CAPTURE",
+      "wayback_capture_utc": "2020-03-10T19:06:34Z",
+      "beijing_time": "2020-03-11T03:06:34+08:00",
+      "independence_group": "yyrw_homepage_archive",
+      "observations": [
+        "The archived homepage HTML contains a direct link to the target article.",
+        "The link label begins 吹哨子的人 and appears at anchor index 28 (zero-based), nested in p > li > ul > td.",
+        "The capture has 125 anchors, 11 scripts and a readable body."
+      ],
+      "limitations": [
+        "One capture proves the link in that archived representation, not continuous visibility or hero placement.",
+        "The archive timestamp is not the exact server-side update time."
+      ]
+    },
+    {
+      "id": "AF14",
+      "title": "Six later yyrw homepage captures without the direct article link",
+      "url": "https://web.archive.org/web/20200312063101/http://www.yyrw.org.cn/",
+      "type": "HISTORICAL_HOMEPAGE_CAPTURE",
+      "status": "HISTORICAL_HOMEPAGE_CAPTURE",
+      "independence_group": "yyrw_homepage_archive",
+      "observations": [
+        "Six later readable homepage captures from 2020-03-12 through 2020-11-25 lack the direct target-article link and both title phrase markers.",
+        "All six captured pages have 125 anchors, 11 scripts and a readable body."
+      ],
+      "limitations": [
+        "Absence applies to these archived root-homepage representations, not all possible access paths or alternate aliases.",
+        "Does not establish exact removal time, motive, or causal relation to a directive."
+      ]
+    },
+    {
+      "id": "AF15",
+      "title": "China Digital Times English disclosure of March 10 media directive",
+      "url": "https://chinadigitaltimes.net/2020/12/minitrue-diary-march-10-2020-tibet-independence-covid-rent-relief-whistleblower-epidemic-transmission-and-treatments/",
+      "type": "RETROSPECTIVE_DIRECTIVE_DISCLOSURE",
+      "status": "RETROSPECTIVE_DIRECTIVE_DISCLOSURE",
+      "published_date": "2020-12-11",
+      "independence_group": "cdt_minitrue_disclosure",
+      "observations": [
+        "CDT says it acquired and verified a collection of directives and presents 11 items labelled March 10, 2020.",
+        "The relevant instruction says not to place this type of report on home pages and to remove it if present; the yyrw article appears in the reference links.",
+        "CDT cautions that wording may not be exact, some instructions may be local or sector-specific, and the displayed date may be when the directive leaked rather than when issued."
+      ],
+      "limitations": [
+        "This is a later disclosure, not the original signed directive or a recipient/receipt record.",
+        "The Chinese and English CDT pages are one disclosure lineage, not independent original evidence.",
+        "Exact issue time, recipient, scope and execution are not authenticated."
+      ]
+    },
+    {
+      "id": "AF16",
+      "title": "China Digital Times Chinese disclosure listing the yyrw article URL",
+      "url": "https://chinadigitaltimes.net/chinese/655981.html",
+      "type": "RETROSPECTIVE_DIRECTIVE_DISCLOSURE",
+      "status": "RETROSPECTIVE_DIRECTIVE_DISCLOSURE",
+      "displayed_directive_date": "2020-03-10",
+      "independence_group": "cdt_minitrue_disclosure",
+      "observations": [
+        "The Chinese page labels the item 2020-03-10 and quotes 涉发哨人，此类报道不上首页，如有请撤下。",
+        "Its reference list names 吹哨子的人 and gives the same yyrw article URL with tracking parameters."
+      ],
+      "limitations": [
+        "Same CDT disclosure lineage as AF15; not an independent original directive.",
+        "The English explanation warns that the date may be a leak date rather than issue date; wording and scope may be uncertain.",
+        "Does not prove the title change or homepage-link disappearance was caused by this instruction."
       ]
     }
   ],
