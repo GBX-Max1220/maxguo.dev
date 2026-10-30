@@ -87,7 +87,9 @@ assert.ok(ledger.claims.find(c=>c.id==='AF-C26'&&c.status==='SUPPORTED_BY_CROSS_
 assert.equal(ledger.provenance_followup.status,'21JOIN_ARCHIVED_BODY_CONFIRMED; HE_MEDIA_ATTRIBUTION_STILL_NOT_INDEPENDENTLY_AUTHENTICATED');
 assert.equal(ledger.provenance_followup.capture_beijing,'2020-03-12T08:42:23+08:00');
 assert.equal(ledger.he_media_archive_audit.exact_url_cdx.records,1);
-assert.equal(ledger.he_media_archive_audit.domain_alias_cdx.status,'CDX_REQUEST_FAILED_NO_ABSENCE_INFERENCE');
+assert.equal(ledger.he_media_archive_audit.domain_alias_cdx.status,'SUCCESS_THREE_RECORDS_ONE_ARTICLE_CAPTURE_TWO_COUNT_ENDPOINTS');
+assert.equal(ledger.he_media_archive_audit.domain_alias_cdx.article_page_capture_count,1);
+assert.equal(ledger.he_media_archive_audit.domain_alias_cdx.count_endpoint_capture_count,2);
 assert.equal(ledger.research_gates.find(g=>g.id==='G4').status,'PARTIAL_HOMEPAGE_VISIBILITY_VERIFIED_HOST_GOVERNANCE_OPEN');
 const crossSiteScript=fs.readFileSync(path.join(root,'scripts/audit-ai-fen-cross-site.py'),'utf8');
 assert.ok(crossSiteScript.includes('HE_MEDIA_ARCHIVE_URL'));
@@ -115,7 +117,8 @@ assert.equal(threeSource.cross_site_visibility_timing.elapsed,'5h48m38s');
 assert.ok(threeSource.sources.he_media_archive.raw_sha256_by_run);
 assert.equal(threeSource.sources.he_media_archive.normalized_body_sha256,threeSource.sources.terminus.normalized_body_sha256);
 assert.equal(threeSource.source_discovery.exact_url_cdx.records,1);
-assert.equal(threeSource.source_discovery.domain_alias_cdx.status,'CDX_REQUEST_FAILED_NO_ABSENCE_INFERENCE');
+assert.equal(threeSource.source_discovery.domain_alias_cdx.status,'SUCCESS_THREE_RECORDS_ONE_ARTICLE_CAPTURE_TWO_COUNT_ENDPOINTS');
+assert.equal(threeSource.source_discovery.domain_alias_cdx.count_endpoint_capture_count,2);
 assert.ok(ledger.claims.find(c=>c.id==='AF-C27'&&c.status==='SUPPORTED_BY_REPRODUCIBLE_THREE_SOURCE_COMPARISON'));
 assert.ok(ledger.claims.find(c=>c.id==='AF-C28'&&c.status==='SUPPORTED_BY_REPRODUCIBLE_THREE_SOURCE_COMPARISON'));
 
