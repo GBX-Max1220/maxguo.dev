@@ -382,14 +382,16 @@
         "The page text also contains 合传媒.",
         "Archived response SHA-256: f6a8b96e7be9b83dbeb4a7e61f9ef5302c770a6219dc3e4b9d4e27db26a031a3.",
         "A reproducible three-source CI comparison found its extracted normalized body identical to the pinned Terminus text across all 200 sentence-like units; this is content equality, not proof of source independence.",
-        "Additional page metadata: keywords include 中国、武汉、疫情、吹哨人、艾芬; description begins with the interview's closing reflection; og:title begins 发哨子的人 - 民声."
+        "Additional page metadata: keywords include 中国、武汉、疫情、吹哨人、艾芬; description begins with the interview's closing reflection; og:title begins 发哨子的人 - 民声.",
+        "The raw archived HTML response SHA differed across repeated retrieval runs, while the extracted normalized article-body SHA remained constant; raw wrapper fingerprints and article-body identity are therefore tracked separately."
       ],
       "limitations": [
         "The Wayback capture establishes an archived 200 HTML representation at the capture time; it does not independently authenticate who operated the source page or its exact original publication time.",
         "CDT's editorial note attributes its preserved copy to He Media, and this 21join page title contains 合传媒; this is consistent with that attribution but is not a separate independent edition.",
         "This page must not be counted as independent of the CDT 404 reprint in assessing source independence.",
         "No causal relation between the 21join copy and the yyrw homepage link disappearance is established.",
-        "The broader domain-level CDX query for alternate 21join URL variants timed out; only the exact URL's one indexed 2020 capture is confirmed."
+        "The broader domain-level CDX query for alternate 21join URL variants timed out; only the exact URL's one indexed 2020 capture is confirmed.",
+        "Raw response hash variation may reflect archive wrapper/response changes; it is not evidence that the underlying archived article body changed."
       ],
       "normalized_body_sha256": "2e3ff7643b2fbda91439e1b99136e6046f83d4fbb59a08899b101ebcee52ce06",
       "normalized_sentence_units": 200,
@@ -399,6 +401,11 @@
         "description": "没有人在任何场合跟我说表示抱歉这句话。但我依然觉得，这次的事情更加说明了每个人还是要坚持自己独立的思想，因为要有人站出来说真话，必须要有人，这个世界必须要有不同的声音……",
         "og_title": "发哨子的人 - 民声 - ",
         "canonical_url": null
+      },
+      "raw_sha256_by_run": {
+        "41136265966": "f6a8b96e7be9b83dbeb4a7e61f9ef5302c770a6219dc3e4b9d4e27db26a031a3",
+        "41136525095": "c14130f2f759f74bbb8252a062c37cd64545482b343a9806c0594952e8b43086",
+        "41137418890": "162b8f39928a6dbb64b62554f6b4ce74dd7a62de09e78ed9a072e78fd5d6579d"
       }
     }
   ],
@@ -812,6 +819,12 @@
     "archive_capture_beijing": "2020-03-12T08:42:23+08:00",
     "capture_response_sha256": "162b8f39928a6dbb64b62554f6b4ce74dd7a62de09e78ed9a072e78fd5d6579d",
     "body_characters": 9376,
-    "note": "A domain-level query timeout does not prove no other URL variants or captures exist."
+    "note": "A domain-level query timeout does not prove no other URL variants or captures exist.",
+    "raw_response_sha256_by_run": {
+      "41136265966": "f6a8b96e7be9b83dbeb4a7e61f9ef5302c770a6219dc3e4b9d4e27db26a031a3",
+      "41136525095": "c14130f2f759f74bbb8252a062c37cd64545482b343a9806c0594952e8b43086",
+      "41137418890": "162b8f39928a6dbb64b62554f6b4ce74dd7a62de09e78ed9a072e78fd5d6579d"
+    },
+    "normalized_body_sha256": "2e3ff7643b2fbda91439e1b99136e6046f83d4fbb59a08899b101ebcee52ce06"
   }
 }
