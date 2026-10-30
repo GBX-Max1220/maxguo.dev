@@ -25,6 +25,7 @@ TERMINUS_URL = (
 )
 YYRW_URL = "https://yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256"
 CDT_REPRINT_URL = "https://chinadigitaltimes.net/chinese/637830.html"
+HE_MEDIA_ARCHIVE_URL = "https://web.archive.org/web/20200312004223/http://www.21join.com/index.php?m=content&c=index&a=show&catid=9&id=2703"
 START = "接到武汉市中心医院急诊科主任艾芬同意采访的短信"
 
 def sha(s):
@@ -135,12 +136,29 @@ def run(out):
     blobs={}
     normalized={}
     unavailable_sources={}
-    for name,url in [("terminus",TERMINUS_URL),("yyrw",YYRW_URL),("cdt_reprint",CDT_REPRINT_URL)]:
+    for name,url in [
+        ("terminus",TERMINUS_URL),
+        ("yyrw",YYRW_URL),
+        ("he_media_archive",HE_MEDIA_ARCHIVE_URL),
+        ("cdt_reprint",CDT_REPRINT_URL)
+    ]:
         try:
             raw,txt,actual=fetch(session,url)
             if name=="yyrw" and "<html" not in txt.lower():
                 raise ValueError("yyrw response is not HTML")
-            main,meta=cut_main(txt,name)
+            # The 21join capture is a dated Wayback copy of a page titled
+            # "发哨子的人 | 合传媒". Reuse the HTML article extractor, then
+            # override metadata so it cannot be mistaken for the current yyrw page.
+            extraction_site = "yyrw" if name=="he_media_archive" else name
+            main,meta=cut_main(txt,extraction_site)
+            if name=="he_media_archive":
+                meta.update({
+                    "title":"发哨子的人 | 合传媒",
+                    "archive_capture_utc":"2020-03-12T00:42:23Z",
+                    "archive_capture_beijing":"2020-03-12T08:42:23+08:00",
+                    "source_type":"Wayback capture of the 21join.com page titled 发哨子的人 | 合传媒",
+                    "source_lineage_note":"CDT 404 archive attributes its preserved copy to He Media; this page is treated as an attributed derivative, not an authenticated original Renwu edition."
+                })
             tokens=sentences(main)
             if len(tokens)<40: raise ValueError(f"Insufficient article text for {name}: only {len(tokens)} units")
             blobs[name]={"url":url,"actual_url":actual,"raw_sha256":hashlib.sha256(raw).hexdigest(),
@@ -149,12 +167,12 @@ def run(out):
               "sentence_count":len(tokens),"metadata":meta}
             normalized[name]=tokens
         except (requests.RequestException, ValueError) as exc:
-            if name!="cdt_reprint":
+            if name not in ("cdt_reprint","he_media_archive"):
                 raise
             unavailable_sources[name]={
                 "url":url,"status":"LOCATED_BUT_NOT_FETCHABLE_IN_CI",
                 "error_type":type(exc).__name__,"details":str(exc)[:240],
-                "note":"Not included in text comparisons; no content or editorial note is inferred."
+                "note":"Not included in text comparisons; no content is inferred."
             }
     def compare_tokens(left_name, right_name):
         left = normalized[left_name]
@@ -194,12 +212,11 @@ def run(out):
             "differences":changed
         }
 
-    pairwise_comparisons = {
-        "terminus_vs_yyrw": compare_tokens("terminus","yyrw")
-    }
-    if "cdt_reprint" in normalized:
-        pairwise_comparisons["cdt_reprint_vs_yyrw"] = compare_tokens("cdt_reprint","yyrw")
-        pairwise_comparisons["cdt_reprint_vs_terminus"] = compare_tokens("cdt_reprint","terminus")
+    pairwise_comparisons = {}
+    source_names = list(normalized.keys())
+    for left_index,left_name in enumerate(source_names):
+        for right_name in source_names[left_index+1:]:
+            pairwise_comparisons[f"{left_name}_vs_{right_name}"] = compare_tokens(left_name,right_name)
     a,b=normalized["terminus"],normalized["yyrw"]
     sm=difflib.SequenceMatcher(a=a,b=b,autojunk=False)
     opcodes=sm.get_opcodes()
@@ -231,17 +248,15 @@ def run(out):
             })
         micro_differences.append({"old_unit_range":[i1,i2],"new_unit_range":[j1,j2],"char_changes":char_blocks})
     eq=sum(i2-i1 for tag,i1,i2,j1,j2 in opcodes if tag=="equal")
-    optional_cdt_available = "cdt_reprint" in normalized
+    source_count = len(normalized)
     r={"schema_version":"1.0","run_utc":datetime.now(timezone.utc).isoformat(),
-       "status":("THREE_DERIVATIVE_TEXT_COMPARISON_NOT_ORIGINAL_PLATFORM_BYTES"
-                 if optional_cdt_available else
-                 "TWO_DERIVATIVE_TEXT_COMPARISON_CDT_REPRINT_NOT_FETCHABLE_IN_CI"),
+       "status":f"{source_count}_DERIVATIVE_TEXT_SOURCES_COMPARED_NOT_ORIGINAL_PLATFORM_BYTES",
        "sources":blobs,
        "unavailable_sources":unavailable_sources,
        "method":{"unit":"NFKC-normalized, whitespace-removed Chinese sentence-like units beginning at the same interview-opening anchor",
            "algorithm":"difflib SequenceMatcher(autojunk=False)",
-           "sources":(["Pinned Terminus GitHub markdown","current yyrw HTML"] +
-             (["CDT 404文库 reprint page"] if optional_cdt_available else []))},
+           "sources":source_names,
+           "lineage_caution":"The 21join/He Media archived page and the CDT 404文库 reprint are attributed to the same He Media preservation lineage; do not count them as independent original editions."},
        "pairwise_comparisons":pairwise_comparisons,
        "comparison":{"terminus_units":len(a),"yyrw_units":len(b),
           "equal_units":eq,"matched_fraction_of_terminus":round(eq/len(a),6),
@@ -250,7 +265,9 @@ def run(out):
           "blocks":blocks,"changed_fragments_only":micro_differences},
        "limitations":[
          "This is a comparison of currently fetched derivative/reprint sources, NOT the original Renwu WeChat bytes.",
-         "If the optional CDT reprint is blocked, it is recorded as unavailable and excluded from comparisons; the remaining two-source audit continues.",
+         "Optional sources that are blocked or fail extraction are recorded as unavailable and excluded from comparisons.",
+         "The 21join/He Media archived page and CDT 404文库 reprint are not independent editions; CDT attributes the preserved copy to He Media.",
+         "The Wayback capture timestamp is an archive observation time, not proof of first publication or the exact source-server publication time.",
          "The CDT 404文库 page states that the original was deleted and that the copy was archived by He Media; this is an attributed derivative source, not independent proof of the original file.",
          "The CDT source may be textually dependent on the He Media copy and must not be counted as an independent original edition.",
          "Differences can reflect copy editing, HTML conversion, omissions, or later changes; no causal/editor attribution is inferred.",
