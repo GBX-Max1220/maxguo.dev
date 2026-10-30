@@ -9,6 +9,7 @@ on:
       - 'scripts/validate-ai-fen-source-audit.mjs'
       - 'scripts/audit-ai-fen-cross-site.py'
       - 'scripts/audit-ai-fen-historical-snapshots.py'
+      - 'scripts/audit-ai-fen-title-and-homepage.py'
       - '.github/workflows/ai-fen-source-audit.yml'
   workflow_dispatch:
 
@@ -70,5 +71,27 @@ jobs:
         with:
           name: ai-fen-historical-capture-candidates
           path: .astro/ai-fen-history/wayback-check.json
+          if-no-files-found: warn
+          retention-days: 14
+
+  inspect-title-and-homepage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Parser and HTTP dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Inspect article title history and March 2020 homepage captures
+        run: python scripts/audit-ai-fen-title-and-homepage.py
+      - name: Upload metadata-only archive audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-fen-title-and-homepage-audit
+          path: .astro/ai-fen-history/title-homepage-audit.json
           if-no-files-found: warn
           retention-days: 14
