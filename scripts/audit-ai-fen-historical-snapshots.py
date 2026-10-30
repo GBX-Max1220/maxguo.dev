@@ -45,46 +45,96 @@ for key,url in TARGETS.items():
 # CDT 404文库 labels a 21join URL as the "original" link. Treat that label
 # as a lead only; inspect any archived 21join captures before assigning provenance.
 he_media_capture_checks=[]
+he_media_domain_query={"status":"NOT_RUN"}
 he_media_result=next((x for x in results if x["id"]=="he_media_original_link"),None)
+candidate_rows=[]
 if he_media_result:
  cdx=next((x for x in he_media_result["attempts"] if x["endpoint"]=="cdx_2020"),{})
- rows=cdx.get("records_first_10") or []
- for row in rows[:8]:
-  if len(row)<2:
-   continue
-  timestamp,original=row[0],row[1]
-  capture_url=f"https://web.archive.org/web/{timestamp}/{original}"
-  check={"timestamp":timestamp,"original_url":original,"capture_url":capture_url,
-         "status":"UNVERIFIED"}
+ candidate_rows.extend(cdx.get("records_first_10") or [])
+
+# Also search the domain for URL variants/parameter orderings that contain id=2703.
+try:
+ domain_params=[
+  ("url","21join.com"),("matchType","domain"),("output","json"),
+  ("fl","timestamp,original,statuscode,mimetype,digest"),
+  ("from","2020"),("to","2026"),("filter","statuscode:200"),
+  ("filter","mimetype:text/html"),("filter","original:.*id=2703.*"),
+  ("limit","30")
+ ]
+ domain_resp=session.get("https://web.archive.org/cdx/search/cdx",params=domain_params,timeout=(8,25))
+ he_media_domain_query={"http_status":domain_resp.status_code,"query_url":domain_resp.url}
+ if domain_resp.status_code==200:
   try:
-   resp=session.get(capture_url,timeout=(8,22))
-   check.update({"http_status":resp.status_code,"final_url":resp.url,
-                 "response_sha256":hashlib.sha256(resp.content).hexdigest(),
-                 "content_type":resp.headers.get("Content-Type","").split(";")[0]})
-   if resp.status_code==200:
-    from bs4 import BeautifulSoup
-    soup=BeautifulSoup(resp.text,"html.parser")
-    page_text=soup.get_text(" ",strip=True)
-    title=soup.title.get_text(" ",strip=True) if soup.title else ""
-    check["page_title"]=title[:160]
-    check["body_characters"]=len(page_text)
-    check["indicators"]={
-      "title_fa_shao_zi":"发哨子的人" in page_text or "发哨子的人" in title,
-      "title_chui_shao_zi":"吹哨子的人" in page_text or "吹哨子的人" in title,
-      "ai_fen_name":"艾芬" in page_text,
-      "interview_opening":"接到武汉市中心医院急诊科主任艾芬同意采访" in page_text,
-      "source_byline":"龚菁琦" in page_text,
-      "editor_byline":"金石" in page_text,
-      "mentions_he_media":"合传媒" in page_text
-    }
-    check["status"]="ARTICLE_BODY_INDICATORS_PRESENT" if (
-      check["indicators"]["interview_opening"] and check["indicators"]["ai_fen_name"]
-    ) else "CAPTURE_OPENED_BUT_ARTICLE_BODY_NOT_CONFIRMED"
-   else:
-    check["status"]="CAPTURE_UNAVAILABLE_NOT_DISPROVEN"
-  except requests.RequestException as exc:
-   check.update({"status":"CAPTURE_UNAVAILABLE_NOT_DISPROVEN","error":type(exc).__name__})
-  he_media_capture_checks.append(check)
+   domain_rows=domain_resp.json()
+   he_media_domain_query["records_after_header"]=max(0,len(domain_rows)-1)
+   he_media_domain_query["records"]=domain_rows[1:31] if isinstance(domain_rows,list) else []
+   if isinstance(domain_rows,list) and domain_rows:
+    candidate_rows.extend(domain_rows[1:31])
+  except ValueError:
+   he_media_domain_query["status"]="NON_JSON_NO_ABSENCE_INFERENCE"
+ else:
+  he_media_domain_query["status"]="CDX_UNAVAILABLE_NO_ABSENCE_INFERENCE"
+except requests.RequestException as exc:
+ he_media_domain_query={"status":"CDX_REQUEST_FAILED_NO_ABSENCE_INFERENCE",
+                        "error":type(exc).__name__,"details":str(exc)[:180]}
+
+unique_candidates={}
+for row in candidate_rows:
+ if len(row)>=2:
+  unique_candidates[(row[0],row[1])]=row
+for row in list(unique_candidates.values())[:8]:
+ timestamp,original=row[0],row[1]
+ capture_url=f"https://web.archive.org/web/{timestamp}/{original}"
+ check={"timestamp":timestamp,"original_url":original,"capture_url":capture_url,
+        "status":"UNVERIFIED"}
+ try:
+  resp=session.get(capture_url,timeout=(8,22))
+  check.update({"http_status":resp.status_code,"final_url":resp.url,
+                "response_sha256":hashlib.sha256(resp.content).hexdigest(),
+                "content_type":resp.headers.get("Content-Type","").split(";")[0]})
+  if resp.status_code==200:
+   from bs4 import BeautifulSoup
+   soup=BeautifulSoup(resp.text,"html.parser")
+   page_text=soup.get_text(" ",strip=True)
+   title=soup.title.get_text(" ",strip=True) if soup.title else ""
+   check["page_title"]=title[:160]
+   check["body_characters"]=len(page_text)
+   meta={}
+   allowed_meta={"description","keywords","author","og:title","og:site_name",
+                 "article:published_time","article:modified_time","pubdate","publishdate"}
+   for tag in soup.find_all("meta"):
+    key=tag.get("property") or tag.get("name")
+    value=tag.get("content")
+    if key and value and key.lower() in allowed_meta:
+     meta[key.lower()]=value[:240]
+   check["meta"]=meta
+   canonical=soup.find("link",rel=lambda v:v and "canonical" in v)
+   check["canonical_url"]=canonical.get("href") if canonical else None
+   headings=[x.get_text(" ",strip=True)[:100] for x in soup.find_all(["h1","h2","h3"])[:12]]
+   check["headings"]=headings
+   relevant_links=[]
+   for a in soup.find_all("a",href=True):
+    href=a["href"]
+    if "21join.com" in href or "mp.weixin.qq.com" in href or "yyrw.org.cn" in href:
+     relevant_links.append({"text":a.get_text(" ",strip=True)[:80],"href":href[:300]})
+   check["relevant_links"]=relevant_links[:12]
+   check["indicators"]={
+     "title_fa_shao_zi":"发哨子的人" in page_text or "发哨子的人" in title,
+     "title_chui_shao_zi":"吹哨子的人" in page_text or "吹哨子的人" in title,
+     "ai_fen_name":"艾芬" in page_text,
+     "interview_opening":"接到武汉市中心医院急诊科主任艾芬同意采访" in page_text,
+     "source_byline":"龚菁琦" in page_text,
+     "editor_byline":"金石" in page_text,
+     "mentions_he_media":"合传媒" in page_text
+   }
+   check["status"]="ARTICLE_BODY_INDICATORS_PRESENT" if (
+     check["indicators"]["interview_opening"] and check["indicators"]["ai_fen_name"]
+   ) else "CAPTURE_OPENED_BUT_ARTICLE_BODY_NOT_CONFIRMED"
+  else:
+   check["status"]="CAPTURE_UNAVAILABLE_NOT_DISPROVEN"
+ except requests.RequestException as exc:
+  check.update({"status":"CAPTURE_UNAVAILABLE_NOT_DISPROVEN","error":type(exc).__name__})
+ he_media_capture_checks.append(check)
 
 # Known candidate discovered in earlier archival work; try it verbatim.
 known="https://web.archive.org/web/20200310135052/http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256"
@@ -200,7 +250,8 @@ for item in extra_checks:
 
 result={"schema_version":"1.0","checked_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),
  "authority":"Internet Archive endpoints, queried live; archived captures not authenticated unless page body was readable",
- "results":results,"he_media_original_link_captures":he_media_capture_checks,
+ "results":results,"he_media_domain_query":he_media_domain_query,
+ "he_media_original_link_captures":he_media_capture_checks,
  "known_candidate_capture":attempt,"other_captured_pages":extra_checks,"historic_vs_current_yyrw":historic_text_comparison,
  "limits":["A CDX match is indexed capture metadata and does not automatically establish article-body text without opening a capture.",
  "A blocked CDX/available endpoint is not a zero-captures result.",
@@ -210,6 +261,7 @@ p=pathlib.Path(".astro/ai-fen-history/wayback-check.json");p.parent.mkdir(parent
 p.write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
 print("WAYBACK_AUDIT_SUMMARY_BEGIN")
 print(json.dumps({"he_media_original_link_query":next((x for x in results if x["id"]=="he_media_original_link"),None),
+ "he_media_domain_query":he_media_domain_query,
  "he_media_original_link_captures":he_media_capture_checks,
  "known_candidate":attempt,
  "other_captures":[{"id":x["id"],"status":x["status"],"http_status":x.get("http_status"),"evidence_indicators":x.get("evidence_indicators"),"marker_checks":x.get("marker_checks"),"page_title":x.get("page_title"),"visible_page_text_head":x.get("visible_page_text_head")} for x in extra_checks],
