@@ -100,6 +100,7 @@ assert.ok(crossSiteScript.includes('source_count = len(normalized)'));
 assert.ok(crossSiteScript.includes('pairwise_comparisons = {}'));
 const historicalScript=fs.readFileSync(path.join(root,'scripts/audit-ai-fen-historical-snapshots.py'),'utf8');
 assert.ok(historicalScript.includes('displayed_date_2020_03_10'));
+assert.ok(historicalScript.includes('counter_endpoint_references'));
 assert.ok(historicalScript.includes('he_media_original_link'));
 assert.ok(historicalScript.includes('he_media_domain_query'));
 assert.ok(historicalScript.includes('original:.*id=2703.*'));
