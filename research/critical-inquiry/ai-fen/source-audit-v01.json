@@ -1,0 +1,893 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "AI-FEN-VERSION-AUDIT-2026-10-30",
+  "checked_on": "2026-10-30",
+  "status": "RESEARCH_ONLY_FEASIBILITY_AUDIT",
+  "publication_authorized": false,
+  "main_base_commit": "bbd6dbe59a15ede8ac4af4891556b46cd8fe9bf8",
+  "scope": "Publicly accessible article/archive pages, displayed metadata, contemporaneous reporting, and peer-reviewed prior work. No original WeChat backend records or authenticated first-publication snapshot obtained.",
+  "source_status_taxonomy": [
+    "DIRECTLY_READ_CURRENT_PAGE",
+    "CONTEMPORANEOUS_REPORT",
+    "PEER_REVIEWED_PRIOR_WORK",
+    "LINK_IDENTIFIED_ACCESS_BLOCKED",
+    "ORIGINAL_SOURCE_NOT_OBTAINED",
+    "GITHUB_COMMIT_PROVENANCE",
+    "HISTORICAL_BODY_CAPTURE",
+    "HISTORICAL_UNAVAILABLE_NOTICE",
+    "HISTORICAL_HOMEPAGE_CAPTURE",
+    "RETROSPECTIVE_DIRECTIVE_DISCLOSURE",
+    "LINK_IDENTIFIED_NOT_YET_VERIFIED",
+    "ARCHIVED_CAPTURE_FOUND_ORIGIN_NOT_AUTHENTICATED",
+    "HISTORICAL_AUXILIARY_ENDPOINT_CAPTURE"
+  ],
+  "sources": [
+    {
+      "id": "AF01",
+      "title": "发哨子的人 — 端点星存档",
+      "url": "https://terminus2049.github.io/archive/2020/03/10/fa-shao-zi-de-ren.html",
+      "type": "DERIVATIVE_ARCHIVE",
+      "status": "DIRECTLY_READ_CURRENT_PAGE",
+      "displayed_date": "2020-03-10",
+      "independence_group": "renwu_article_derivative_copies",
+      "observations": [
+        "Page says original source is 人物.",
+        "Article body, credits, image references and archive/copyright note are visible.",
+        "Page's current displayed date is not an authenticated original publication timestamp."
+      ],
+      "limitations": [
+        "Not the original Renwu WeChat publication.",
+        "Current page access does not authenticate original image bytes or version history."
+      ]
+    },
+    {
+      "id": "AF02",
+      "title": "Coronavirus: Wuhan doctor speaks out against authorities — The Guardian",
+      "url": "https://www.theguardian.com/world/2020/mar/11/coronavirus-wuhan-doctor-ai-fen-speaks-out-against-authorities",
+      "type": "CONTEMPORANEOUS_JOURNALISM",
+      "status": "DIRECTLY_READ_CURRENT_PAGE",
+      "published_displayed": "2020-03-11T09:50+01:00",
+      "modified_displayed": "2020-07-01T19:18+02:00",
+      "independence_group": "guardian_newsroom",
+      "observations": [
+        "Contemporaneous report describes Renwu removing the interview and copies quickly disappearing from Chinese social media.",
+        "Describes screenshots and variants including emoji, Morse code and pinyin."
+      ],
+      "limitations": [
+        "News reporting is not platform audit logs.",
+        "Does not identify a complete command chain or establish the identity of every deletion actor."
+      ]
+    },
+    {
+      "id": "AF03",
+      "title": "发哨子的人：如果这些医生都能够得到及时的提醒，或许就不会有这一天 — yyrw.org.cn",
+      "url": "https://yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256",
+      "type": "REPUBLISHED_FULL_TEXT",
+      "status": "DIRECTLY_READ_CURRENT_PAGE",
+      "displayed_date": "2020-03-10",
+      "publisher_field": "《人物》",
+      "author_field": "龚菁琦 尹夕远",
+      "independence_group": "renwu_article_derivative_copies",
+      "observations": [
+        "Current page contains substantial interview text and credits the source as 人物.",
+        "Title includes an additional quoted phrase compared with the Terminus title.",
+        "Page begins with an additional line '我爱我的祖国。' not seen at the same point in the currently read Terminus page.",
+        "Footer states '中欧国际医院管理中心主办' and '北京中欧国际医院管理技术研究院 版权所有'."
+      ],
+      "limitations": [
+        "Displayed date does not prove the page was live on that date.",
+        "No authenticated 2020 snapshot or server record obtained.",
+        "Differences have not yet been compared paragraph-by-paragraph.",
+        "The host's institutional control and editorial authorization in 2020 are not independently confirmed."
+      ]
+    },
+    {
+      "id": "AF04",
+      "title": "中国生命关怀协会医院人文建设专业委员会简介 — yyrw.org.cn",
+      "url": "https://yyrw.org.cn/e/action/ShowInfo.php?classid=2&id=1",
+      "type": "SITE_SELF_DESCRIPTION",
+      "status": "DIRECTLY_READ_CURRENT_PAGE",
+      "displayed_date": "2017-04-13",
+      "independence_group": "yyrw_site_self_description",
+      "observations": [
+        "Page describes the committee as a first-level professional committee of China Life Care Association.",
+        "Page says the association is supervised by the National Health Commission and links to an NHC social-organization list."
+      ],
+      "limitations": [
+        "Self-description is not independent proof of the site's legal owner, operational control, or 2020 governance.",
+        "The linked NHC page could not be retrieved by the current web reader in this session."
+      ]
+    },
+    {
+      "id": "AF05",
+      "title": "Relay activism and the flows of contentious publicness on WeChat: a case study of COVID-19 in China",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/1369118X.2023.2205474",
+      "type": "PEER_REVIEWED_PRIOR_WORK",
+      "status": "PEER_REVIEWED_PRIOR_WORK",
+      "published_online": "2023-05-24",
+      "journal": "Information, Communication & Society",
+      "volume_issue": "27(2), 2024",
+      "pages": "257–277",
+      "doi": "10.1080/1369118X.2023.2205474",
+      "independence_group": "academic_prior_art",
+      "observations": [
+        "Abstract describes textual analysis and participant observation of relay activism around the article, focusing on WeChat and GitHub.",
+        "Published paper's notes point to an item titled 'A hundred and eight versions'."
+      ],
+      "limitations": [
+        "Full text methods and dataset were not reviewed in this audit because access was restricted.",
+        "The cited 108 figure is not an independently reconstructed sample count for this project."
+      ]
+    },
+    {
+      "id": "AF06",
+      "title": "《人物》原始微信公众号发布",
+      "url": null,
+      "type": "ORIGINAL_SOURCE",
+      "status": "ORIGINAL_SOURCE_NOT_OBTAINED",
+      "independence_group": "renwu_original_publication",
+      "observations": [
+        "Multiple surviving sources report publication on 2020-03-10.",
+        "Terminus page links the original article as removed."
+      ],
+      "limitations": [
+        "No authenticated original HTML, WeChat backend record, deletion log, or first-publication snapshot obtained."
+      ]
+    },
+    {
+      "id": "AF07",
+      "title": "人权中国 HRIC archived republication",
+      "url": "https://www.hrichina.org/chs/gong-min-yan-chang/ren-wu-fa-shao-zi-de-ren",
+      "type": "DERIVATIVE_ARCHIVE",
+      "status": "LINK_IDENTIFIED_ACCESS_BLOCKED",
+      "independence_group": "renwu_article_derivative_copies",
+      "observations": [
+        "Registered in prior research as a republication/archival page."
+      ],
+      "limitations": [
+        "Direct read was blocked in this session; content not treated as directly verified here."
+      ]
+    },
+    {
+      "id": "AF08",
+      "title": "Terminus2049 GitHub commit history for the archived interview",
+      "url": "https://github.com/Terminus2049/Terminus2049.github.io/commit/4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
+      "type": "SIGNED_REPOSITORY_VERSION_HISTORY",
+      "status": "GITHUB_COMMIT_PROVENANCE",
+      "commit_sha": "4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
+      "committer_timestamp_utc": "2020-03-10T05:23:09Z",
+      "committer_timestamp_china": "2020-03-10T13:23:09+08:00",
+      "github_signature_verified": true,
+      "later_commits": [
+        {
+          "sha": "23dde3e0549ede38e0a982b422a26a7d03748b39",
+          "timestamp_utc": "2020-03-10T06:02:15Z",
+          "action": "rename file"
+        },
+        {
+          "sha": "41b36291ffa5d8cd7315b70c8868d2c452872dac",
+          "timestamp_utc": "2020-03-10T06:03:24Z",
+          "action": "update file"
+        },
+        {
+          "sha": "8d630f148b0f2f0836c27add46f2a07987ac24ad",
+          "timestamp_utc": "2020-03-10T06:13:34Z",
+          "action": "update file"
+        }
+      ],
+      "independence_group": "terminus_repository_history",
+      "observations": [
+        "GitHub API records a GitHub-signed, verified commit that added the archive file with a committer timestamp of 2020-03-10 05:23:09Z (13:23:09 China time).",
+        "A line-level comparison of that initial 201-line file and the 195-line version at the later 06:13:34Z commit found observed changes in front-matter formatting/image_feature metadata, markup wrappers and whitespace; no changed prose line was detected by this comparison."
+      ],
+      "limitations": [
+        "The timestamp bounds the repository commit, not the original Renwu publication time and not necessarily the first time any copy existed online.",
+        "The comparison is between two versions inside the Terminus repository, not between Terminus and yyrw.org.cn or the unavailable original WeChat page.",
+        "A verified GitHub commit signature authenticates the commit object under GitHub's verification scheme; it does not independently authenticate the truth of the interview text or the identity of every upstream source."
+      ]
+    },
+    {
+      "id": "AF09",
+      "title": "委直属联系单位和日常管理社会组织名单 — National Health Commission of China",
+      "url": "https://www.nhc.gov.cn/wjw/wywzgshzzml/202311/f931fc4448c7496d81813d7ffaa11035.shtml",
+      "type": "OFFICIAL_ORGANIZATIONAL_LIST",
+      "status": "DIRECTLY_READ_CURRENT_PAGE",
+      "published_date": "2023-11-08",
+      "independence_group": "national_health_commission_official_site",
+      "observations": [
+        "The official NHC page lists 中国生命关怀协会 under '国家卫生健康委日常管理社会组织名单'."
+      ],
+      "limitations": [
+        "This establishes the association's listing on the 2023 page, not the yyrw site's legal ownership, editorial control, or specific 2020 relationship to the article."
+      ]
+    },
+    {
+      "id": "AF10",
+      "title": "Wayback 2020-03-10 yyrw.org.cn archived full interview",
+      "url": "https://web.archive.org/web/20200310135052/http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256",
+      "type": "DATED_ARCHIVED_DERIVATIVE_BODY",
+      "status": "HISTORICAL_BODY_CAPTURE",
+      "independence_group": "yyrw_interview_copy",
+      "wayback_capture_utc": "2020-03-10T13:50:52Z",
+      "observations": [
+        "Historic HTML capture returned HTTP 200 and had the interview title and opening.",
+        "Normalization of the recovered interview body matches 199/200 sentence units with the currently accessible yyrw body."
+      ],
+      "limitations": [
+        "The capture timestamp is not first publishing time.",
+        "The page is a derivative republisher, not the original Renwu WeChat publication.",
+        "Archived body does not imply regulatory exemption or state authorization."
+      ]
+    },
+    {
+      "id": "AF11",
+      "title": "Wayback 2020-03-10 original Renwu WeChat URL captured unavailable notice",
+      "url": "https://web.archive.org/web/20200310225825/https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg",
+      "type": "DATED_ORIGINAL_URL_UNAVAILABLE_PAGE",
+      "status": "HISTORICAL_UNAVAILABLE_NOTICE",
+      "independence_group": "renwu_original_url_status",
+      "wayback_capture_utc": "2020-03-10T22:58:25Z",
+      "observations": [
+        "The archived page displays '此内容因违规无法查看' and a complaint/regulation notice.",
+        "The archived page does not contain the interview title and substantive interview text."
+      ],
+      "limitations": [
+        "HTTP 200 describes the error/status page, not an accessible first-edition article.",
+        "Does not establish when removal initially occurred or who ordered it.",
+        "Original first-publication content remains unauthenticated."
+      ]
+    },
+    {
+      "id": "AF12",
+      "title": "Wayback 2020-03-10 Terminus archive HTML",
+      "url": "https://web.archive.org/web/20200310135935/https://terminus2049.github.io/archive/2020/03/10/fa-shao-zi-de-ren.html",
+      "type": "DATED_ARCHIVED_DERIVATIVE_BODY",
+      "status": "HISTORICAL_BODY_CAPTURE",
+      "independence_group": "terminus_repository_history",
+      "wayback_capture_utc": "2020-03-10T13:59:35Z",
+      "observations": [
+        "Wayback returns archived HTML that contains the article title, opening, first-person self-description and section heading."
+      ],
+      "limitations": [
+        "Separate from original Renwu URL and platform action.",
+        "Does not prove the archive page is first online copy."
+      ]
+    },
+    {
+      "id": "AF13",
+      "title": "Wayback 2020-03-11 yyrw homepage with direct interview link",
+      "url": "https://web.archive.org/web/20200310190634/https://www.yyrw.org.cn/",
+      "type": "HISTORICAL_HOMEPAGE_CAPTURE",
+      "status": "HISTORICAL_HOMEPAGE_CAPTURE",
+      "wayback_capture_utc": "2020-03-10T19:06:34Z",
+      "beijing_time": "2020-03-11T03:06:34+08:00",
+      "independence_group": "yyrw_homepage_archive",
+      "observations": [
+        "The archived homepage HTML contains a direct link to the target article.",
+        "The link label begins 吹哨子的人 and appears at anchor index 28 (zero-based), nested in p > li > ul > td.",
+        "The capture has 125 anchors, 11 scripts and a readable body."
+      ],
+      "limitations": [
+        "One capture proves the link in that archived representation, not continuous visibility or hero placement.",
+        "The archive timestamp is not the exact server-side update time."
+      ]
+    },
+    {
+      "id": "AF14",
+      "title": "Six later yyrw homepage captures without the direct article link",
+      "url": "https://web.archive.org/web/20200312063101/http://www.yyrw.org.cn/",
+      "type": "HISTORICAL_HOMEPAGE_CAPTURE",
+      "status": "HISTORICAL_HOMEPAGE_CAPTURE",
+      "independence_group": "yyrw_homepage_archive",
+      "observations": [
+        "Six later readable homepage captures from 2020-03-12 through 2020-11-25 lack the direct target-article link and both title phrase markers.",
+        "All six captured pages have 125 anchors, 11 scripts and a readable body."
+      ],
+      "limitations": [
+        "Absence applies to these archived root-homepage representations, not all possible access paths or alternate aliases.",
+        "Does not establish exact removal time, motive, or causal relation to a directive."
+      ]
+    },
+    {
+      "id": "AF15",
+      "title": "China Digital Times English disclosure of March 10 media directive",
+      "url": "https://chinadigitaltimes.net/2020/12/minitrue-diary-march-10-2020-tibet-independence-covid-rent-relief-whistleblower-epidemic-transmission-and-treatments/",
+      "type": "RETROSPECTIVE_DIRECTIVE_DISCLOSURE",
+      "status": "RETROSPECTIVE_DIRECTIVE_DISCLOSURE",
+      "published_date": "2020-12-11",
+      "independence_group": "cdt_minitrue_disclosure",
+      "observations": [
+        "CDT says it acquired and verified a collection of directives and presents 11 items labelled March 10, 2020.",
+        "The relevant instruction says not to place this type of report on home pages and to remove it if present; the yyrw article appears in the reference links.",
+        "CDT cautions that wording may not be exact, some instructions may be local or sector-specific, and the displayed date may be when the directive leaked rather than when issued."
+      ],
+      "limitations": [
+        "This is a later disclosure, not the original signed directive or a recipient/receipt record.",
+        "The Chinese and English CDT pages are one disclosure lineage, not independent original evidence.",
+        "Exact issue time, recipient, scope and execution are not authenticated."
+      ]
+    },
+    {
+      "id": "AF16",
+      "title": "China Digital Times Chinese disclosure listing the yyrw article URL",
+      "url": "https://chinadigitaltimes.net/chinese/655981.html",
+      "type": "RETROSPECTIVE_DIRECTIVE_DISCLOSURE",
+      "status": "RETROSPECTIVE_DIRECTIVE_DISCLOSURE",
+      "displayed_directive_date": "2020-03-10",
+      "independence_group": "cdt_minitrue_disclosure",
+      "observations": [
+        "The Chinese page labels the item 2020-03-10 and quotes 涉发哨人，此类报道不上首页，如有请撤下。",
+        "Its reference list names 吹哨子的人 and gives the same yyrw article URL with tracking parameters."
+      ],
+      "limitations": [
+        "Same CDT disclosure lineage as AF15; not an independent original directive.",
+        "The English explanation warns that the date may be a leak date rather than issue date; wording and scope may be uncertain.",
+        "Does not prove the title change or homepage-link disappearance was caused by this instruction."
+      ]
+    },
+    {
+      "id": "AF17",
+      "title": "〖404文库〗人物｜发哨子的人 — China Digital Times",
+      "url": "https://chinadigitaltimes.net/chinese/637830.html",
+      "type": "CDT_404_ARCHIVE_REPRINT",
+      "status": "DIRECTLY_READ_CURRENT_PAGE",
+      "displayed_date": "2020-03-10",
+      "independence_group": "cdt_404_archive_lineage",
+      "observations": [
+        "CDT page title is 〖404文库〗人物｜发哨子的人 and the page displays 2020年3月10日.",
+        "The page contains an 原文 link whose href resolves to https://www.21join.com/index.php?a=show&c=index&catid=9&id=2703&m=content.",
+        "CDT editor note says: 该文原文已被删除 由合传媒备份存档.",
+        "The page itself displays the interview text and bylines 文|龚菁琦, 编辑|金石, 摄影|尹夕远.",
+        "The page was directly read through the public web page retrieval; the same URL returned HTTP 403 to the GitHub Actions requests client during attempted automated text comparison."
+      ],
+      "limitations": [
+        "This is a CDT-hosted derivative archive, not the original Renwu WeChat bytes.",
+        "The He Media attribution is CDT's editorial statement and is not an independently authenticated chain-of-custody record.",
+        "The linked 21join URL is labelled 原文 by CDT but has not yet been successfully fetched or authenticated.",
+        "The text may be dependent on the He Media backup and must not be counted as an independent original edition."
+      ]
+    },
+    {
+      "id": "AF18",
+      "title": "21join URL labeled 原文 by CDT's Ai Fen 404 archive",
+      "url": "https://www.21join.com/index.php?a=show&c=index&catid=9&id=2703&m=content",
+      "type": "ORIGINAL_LINK_CANDIDATE",
+      "status": "ARCHIVED_CAPTURE_FOUND_ORIGIN_NOT_AUTHENTICATED",
+      "independence_group": "he_media_source_link",
+      "observations": [
+        "The hyperlink text 原文 on CDT page AF17 points to this exact 21join URL.",
+        "A direct page retrieval attempt through the web page tool returned a cache-miss error; this is not evidence that the origin server is offline.",
+        "A new Wayback CDX and archived-capture inspection has been added to the reproducible historical audit.",
+        "A Wayback CDX exact-URL query found one 2020 capture (20200312004223); that archived page returns HTTP 200 and contains the interview body indicators.",
+        "A domain-level CDX query (2020–2026, HTML/200, URL contains id=2703) returned three records: one article page and two api.php?op=count&id=2703&modelid=1 endpoint captures."
+      ],
+      "limitations": [
+        "No body, server metadata, author identity or publication timestamp has yet been inspected at this URL.",
+        "CDT's label 原文 is a source attribution, not independent authentication that this URL is the original Renwu publication.",
+        "Do not infer the relationship between 21join and He Media beyond the attribution displayed by CDT.",
+        "The two additional domain-level records are count-endpoint captures, not additional article-body editions; only one article page capture is confirmed."
+      ]
+    },
+    {
+      "id": "AF19",
+      "title": "Wayback capture of 21join page 发哨子的人 | 合传媒",
+      "url": "https://web.archive.org/web/20200312004223/http://www.21join.com/index.php?m=content&c=index&a=show&catid=9&id=2703",
+      "type": "DATED_ARCHIVED_DERIVATIVE_BODY",
+      "status": "HISTORICAL_BODY_CAPTURE",
+      "wayback_capture_utc": "2020-03-12T00:42:23Z",
+      "beijing_time": "2020-03-12T08:42:23+08:00",
+      "independence_group": "he_media_copy_lineage",
+      "observations": [
+        "The exact 21join URL linked as 原文 from CDT's 404文库 page has one 2020 CDX record with status 200 and mimetype text/html.",
+        "The archived page returns HTTP 200 and its HTML title is 发哨子的人 | 合传媒.",
+        "The archived page body is 9,376 characters after HTML text extraction and contains the interview-opening phrase, 艾芬, and the bylines 龚菁琦 and 金石.",
+        "The page text also contains 合传媒.",
+        "Archived response SHA-256: f6a8b96e7be9b83dbeb4a7e61f9ef5302c770a6219dc3e4b9d4e27db26a031a3.",
+        "A reproducible three-source CI comparison found its extracted normalized body identical to the pinned Terminus text across all 200 sentence-like units; this is content equality, not proof of source independence.",
+        "Additional page metadata: keywords include 中国、武汉、疫情、吹哨人、艾芬; description begins with the interview's closing reflection; og:title begins 发哨子的人 - 民声.",
+        "The raw archived HTML response SHA differed across repeated retrieval runs, while the extracted normalized article-body SHA remained constant; raw wrapper fingerprints and article-body identity are therefore tracked separately.",
+        "A broader domain-level CDX query returned two additional 200 HTML captures of the site's api.php?op=count endpoint for id=2703; these are not article-body captures."
+      ],
+      "limitations": [
+        "The Wayback capture establishes an archived 200 HTML representation at the capture time; it does not independently authenticate who operated the source page or its exact original publication time.",
+        "CDT's editorial note attributes its preserved copy to He Media, and this 21join page title contains 合传媒; this is consistent with that attribution but is not a separate independent edition.",
+        "This page must not be counted as independent of the CDT 404 reprint in assessing source independence.",
+        "No causal relation between the 21join copy and the yyrw homepage link disappearance is established.",
+        "Raw response hash variation may reflect archive wrapper/response changes; it is not evidence that the underlying archived article body changed.",
+        "The two count-endpoint captures are not independent article copies and do not establish readership or page-view counts without interpreting their response payloads."
+      ],
+      "normalized_body_sha256": "2e3ff7643b2fbda91439e1b99136e6046f83d4fbb59a08899b101ebcee52ce06",
+      "normalized_sentence_units": 200,
+      "page_title": "发哨子的人 | 合传媒",
+      "meta": {
+        "keywords": "中国,武汉,疫情,吹哨人,艾芬",
+        "description": "没有人在任何场合跟我说表示抱歉这句话。但我依然觉得，这次的事情更加说明了每个人还是要坚持自己独立的思想，因为要有人站出来说真话，必须要有人，这个世界必须要有不同的声音……",
+        "og_title": "发哨子的人 - 民声 - ",
+        "canonical_url": null
+      },
+      "raw_sha256_by_run": {
+        "41136265966": "f6a8b96e7be9b83dbeb4a7e61f9ef5302c770a6219dc3e4b9d4e27db26a031a3",
+        "41136525095": "c14130f2f759f74bbb8252a062c37cd64545482b343a9806c0594952e8b43086",
+        "41137418890": "162b8f39928a6dbb64b62554f6b4ce74dd7a62de09e78ed9a072e78fd5d6579d"
+      }
+    },
+    {
+      "id": "AF20",
+      "title": "Wayback captures of 21join article-specific count endpoint for id=2703",
+      "url": "https://web.archive.org/web/20200312004223/http://www.21join.com/api.php?op=count&id=2703&modelid=1",
+      "type": "HISTORICAL_AUXILIARY_ENDPOINT_CAPTURE",
+      "status": "HISTORICAL_AUXILIARY_ENDPOINT_CAPTURE",
+      "independence_group": "he_media_page_counter",
+      "observations": [
+        "The archived 21join article page HTML includes a script reference to api.php?op=count&id=2703&modelid=1.",
+        "Wayback CDX records two 200 HTML captures of this exact count endpoint: 2020-03-12 00:42:23 UTC and 2020-03-12 01:02:12 UTC.",
+        "The first response sets todaydowns=172, weekdowns=1493, monthdowns=1493 and hits=1493.",
+        "The second response sets todaydowns=182, weekdowns=1503, monthdowns=1503 and hits=1503."
+      ],
+      "limitations": [
+        "The endpoint's fields are site-defined counters; their exact semantics, update rules and uniqueness are not independently documented.",
+        "These values must not be described as unique readers, verified page views, downloads, or total audience without validating the site's code and counter semantics.",
+        "The captures are auxiliary responses associated with the same 21join page, not independent article copies."
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "AF-C01",
+      "claim": "《人物》采访于2020-03-10发布。",
+      "status": "CORROBORATED_AS_REPORTED_EVENT",
+      "source_ids": [
+        "AF01",
+        "AF02",
+        "AF03",
+        "AF05"
+      ],
+      "limit": "No authenticated original WeChat post or byte-level timestamp."
+    },
+    {
+      "id": "AF-C02",
+      "claim": "《人物》原始页面在发布后被移除，且同期报道记录了其他副本消失。",
+      "status": "CONTEMPORANEOUSLY_REPORTED_NOT_LOG_VERIFIED",
+      "source_ids": [
+        "AF02"
+      ],
+      "limit": "Does not prove a specific command source or all copies were removed."
+    },
+    {
+      "id": "AF-C03",
+      "claim": "At least two full-text or near-full-text derivative pages are accessible now.",
+      "status": "DIRECTLY_OBSERVED_2026-10-30",
+      "source_ids": [
+        "AF01",
+        "AF03"
+      ],
+      "limit": "Current availability is not proof of 2020 availability."
+    },
+    {
+      "id": "AF-C04",
+      "claim": "The yyrw.org.cn page was online on 2020-03-10.",
+      "status": "NOT_ESTABLISHED",
+      "source_ids": [
+        "AF03"
+      ],
+      "limit": "Only the page's current displayed date was observed; no authenticated contemporaneous snapshot."
+    },
+    {
+      "id": "AF-C05",
+      "claim": "The page was officially exempted from censorship because of its institutional affiliation.",
+      "status": "NOT_ESTABLISHED",
+      "source_ids": [
+        "AF03",
+        "AF04"
+      ],
+      "limit": "Institutional self-description and current footer do not establish a censorship decision, exemption, or intent."
+    },
+    {
+      "id": "AF-C06",
+      "claim": "The article's relay circulation is an unexplored phenomenon.",
+      "status": "REJECTED_AS_NOVELTY_CLAIM",
+      "source_ids": [
+        "AF05"
+      ],
+      "limit": "Peer-reviewed prior work already directly studies relay activism."
+    },
+    {
+      "id": "AF-C07",
+      "claim": "The currently accessible yyrw and Terminus versions have some page-level differences.",
+      "status": "PRELIMINARY_DIRECT_OBSERVATION",
+      "source_ids": [
+        "AF01",
+        "AF03"
+      ],
+      "limit": "Full text alignment and normalized diff remain pending."
+    },
+    {
+      "id": "AF-C08",
+      "claim": "A GitHub-signed Terminus repository commit adding the archived article has a committer timestamp of 2020-03-10 13:23:09 China time.",
+      "status": "SUPPORTED_BY_SIGNED_GITHUB_COMMIT_METADATA",
+      "source_ids": [
+        "AF08"
+      ],
+      "limit": "This is a repository-commit timestamp, not the original publication time or proof of the first online copy."
+    },
+    {
+      "id": "AF-C09",
+      "claim": "The initial and later Terminus repository versions differ in observed metadata/markup/spacing, while this line-level comparison detected no changed prose line.",
+      "status": "PRELIMINARY_REPRODUCIBLE_VERSION_COMPARISON",
+      "source_ids": [
+        "AF08",
+        "AF01"
+      ],
+      "limit": "Does not compare yyrw.org.cn to Terminus or either derivative to the unavailable original WeChat publication."
+    },
+    {
+      "id": "AF-C10",
+      "claim": "The NHC's 2023 official list includes 中国生命关怀协会 among its daily managed social organizations.",
+      "status": "SUPPORTED_BY_OFFICIAL_2023_LIST",
+      "source_ids": [
+        "AF09"
+      ],
+      "limit": "This does not establish that the article page was an NHC-operated site or that the article was intentionally exempted from deletion."
+    },
+    {
+      "id": "AF-C11",
+      "claim": "The pinned Terminus and the currently accessible yyrw copy share 198/200 normalized sentence-like units in a live cross-site comparison.",
+      "status": "SUPPORTED_BY_REPRODUCIBLE_CURRENT_COPY_COMPARISON",
+      "source_ids": [
+        "AF01",
+        "AF03"
+      ],
+      "limit": "A 99% normalized unit match is not byte identity, proof of identical historic versions or proof of authorial intent."
+    },
+    {
+      "id": "AF-C12",
+      "claim": "Of the two detected body differences, one is an absent standalone Ai Fen caption and the other expands 市卫健委 to 市卫生健康委.",
+      "status": "SUPPORTED_BY_MINIMAL_CHANGED_SPAN_DIFF",
+      "source_ids": [
+        "AF01",
+        "AF03"
+      ],
+      "limit": "A small editorial terminology/format difference cannot establish a specific censorship or administrative instruction."
+    },
+    {
+      "id": "AF-C13",
+      "claim": "An Internet Archive capture dated 2020-03-10 13:50:52 UTC preserves the article body at the yyrw URL.",
+      "status": "SUPPORTED_BY_DATED_BODY_CAPTURE",
+      "source_ids": [
+        "AF10"
+      ],
+      "limit": "Not the original Renwu first edition or a proof of a censorship exemption."
+    },
+    {
+      "id": "AF-C14",
+      "claim": "A capture of the Renwu WeChat URL dated 2020-03-10 22:58:25 UTC serves an unavailable-content notice citing complaints and regulation, not the article body.",
+      "status": "SUPPORTED_BY_DATED_UNAVAILABLE_NOTICE",
+      "source_ids": [
+        "AF11"
+      ],
+      "limit": "Does not time the original removal moment or identify the responsible actor."
+    },
+    {
+      "id": "AF-C15",
+      "claim": "The 2020-03-10 yyrw body and current yyrw body agree in 199/200 normalized sentence-like units; current copy expands 市卫健委 to 市卫生健康委.",
+      "status": "SUPPORTED_BY_HISTORIC_CURRENT_NORMALIZED_DIFF",
+      "source_ids": [
+        "AF10",
+        "AF03"
+      ],
+      "limit": "The historical vs current title also changes from 吹哨子的人 to 发哨子的人; exact edit timing, editor and motivation remain unknown. Raw HTML bytes differ."
+    },
+    {
+      "id": "AF-C16",
+      "claim": "A Wayback capture dated 2020-03-10 13:59:35 UTC contains Terminus' article text.",
+      "status": "SUPPORTED_BY_DATED_BODY_CAPTURE",
+      "source_ids": [
+        "AF12",
+        "AF08"
+      ],
+      "limit": "Independent archived copy, not the missing original."
+    },
+    {
+      "id": "AF-C17",
+      "claim": "The yyrw page title in the 2020-03-10 Wayback capture begins with 吹哨子的人, while its current page title begins with 发哨子的人.",
+      "status": "SUPPORTED_BY_ARCHIVED_VS_CURRENT_HEADING_COMPARISON",
+      "source_ids": [
+        "AF10",
+        "AF03"
+      ],
+      "limit": "The edit date within this interval, author and motive remain unknown; this does not establish compliance with any leaked instruction."
+    },
+    {
+      "id": "AF-C18",
+      "claim": "A Wayback capture at 2020-03-11 03:06:34 Beijing preserves yyrw's homepage HTML with a direct link to the target interview as a list item labelled 吹哨子的人.",
+      "status": "SUPPORTED_BY_HOMEPAGE_HTML_CAPTURE",
+      "source_ids": [
+        "AF13"
+      ],
+      "limit": "One archived homepage representation; the link is a list item, not evidence of hero/banner placement or continuous visibility."
+    },
+    {
+      "id": "AF-C19",
+      "claim": "Six later readable yyrw homepage captures from 2020-03-12 through 2020-11-25 contain no direct target-article link and no title phrase markers in the captured HTML.",
+      "status": "SUPPORTED_BY_SIX_LATER_HOMEPAGE_CAPTURES",
+      "source_ids": [
+        "AF14"
+      ],
+      "limit": "This describes six archived root-homepage representations, not every possible URL, navigation route or moment."
+    },
+    {
+      "id": "AF-C20",
+      "claim": "Among the seven distinct 2020 root-homepage captures found by exact URL queries, the last linked capture is 2020-03-11 03:06:34 Beijing and the first later no-link capture is 2020-03-12 14:31:01; six later snapshots remain without the link through 2020-11-25.",
+      "status": "SUPPORTED_BY_REPRODUCIBLE_CDX_HOME_AUDIT",
+      "source_ids": [
+        "AF13",
+        "AF14"
+      ],
+      "limit": "Observed archive-state interval only; domain-level alias query failed with HTTP 503, so search was not exhaustive."
+    },
+    {
+      "id": "AF-C21",
+      "claim": "The yyrw article title transition from 吹哨子的人 to 发哨子的人 is bounded by captures at 2020-03-11 01:09:54 and 12:19:23 Beijing, an 11h09m29s observation interval.",
+      "status": "SUPPORTED_BY_21_ARCHIVED_ARTICLE_CAPTURES",
+      "source_ids": [
+        "AF03",
+        "AF10"
+      ],
+      "limit": "The exact edit time, editor, motive and relation to any directive remain unknown."
+    },
+    {
+      "id": "AF-C22",
+      "claim": "CDT's Chinese disclosure lists the same yyrw article URL under the reported March 10 instruction, while CDT's English explanation cautions that the date may be leak date rather than issuance date and that wording/scope may vary.",
+      "status": "SUPPORTED_BY_RETROSPECTIVE_DISCLOSURE_WITH_SOURCE_CAVEAT",
+      "source_ids": [
+        "AF15",
+        "AF16"
+      ],
+      "limit": "One CDT disclosure lineage; original directive, recipient chain, issue time and implementation are not independently authenticated."
+    },
+    {
+      "id": "AF-C23",
+      "claim": "The yyrw homepage's target link is still present in a 2020-03-11 03:06:34 Beijing archive capture, after the March 10 calendar date displayed by CDT; the homepage link is absent from six later 2020 captures.",
+      "status": "OBSERVED_CROSS_SOURCE_TIMING_TENSION",
+      "source_ids": [
+        "AF13",
+        "AF14",
+        "AF15",
+        "AF16"
+      ],
+      "limit": "Because CDT explicitly says its displayed date may be a leak date rather than issue date, this is not proof of noncompliance or causation; homepage capture time is not server-side update time."
+    },
+    {
+      "id": "AF-C24",
+      "claim": "CDT's 404文库 page for 人物｜发哨子的人, dated 2020-03-10, states that the original article had been deleted and that the preserved copy was archived by He Media; its 原文 link points to a 21join URL.",
+      "status": "SUPPORTED_BY_DIRECTLY_READ_CDT_REPRINT_PAGE",
+      "source_ids": [
+        "AF17",
+        "AF18"
+      ],
+      "limit": "This verifies what the CDT page says, not the truth of its attribution. The 21join destination has not yet been authenticated, and the CDT text is not the original WeChat bytes."
+    },
+    {
+      "id": "AF-C25",
+      "claim": "A Wayback capture of the CDT-linked 21join URL at 2020-03-12 08:42:23 Beijing returns a 200 HTML page titled 发哨子的人 | 合传媒, with the interview-opening phrase, 艾芬, and 龚菁琦/金石 byline indicators.",
+      "status": "SUPPORTED_BY_DATED_21JOIN_ARCHIVED_HTML",
+      "source_ids": [
+        "AF17",
+        "AF18",
+        "AF19"
+      ],
+      "limit": "This verifies the archived page representation and its content indicators, not the authenticity of an original Renwu edition or the exact publication time."
+    },
+    {
+      "id": "AF-C26",
+      "claim": "The 21join/合传媒 page was archived at 08:42:23 Beijing on March 12, while the later yyrw homepage capture at 14:31:01 that day lacked the direct interview link; these are distinct site-level visibility observations.",
+      "status": "SUPPORTED_BY_CROSS_SITE_ARCHIVE_TIMELINE",
+      "source_ids": [
+        "AF14",
+        "AF19"
+      ],
+      "limit": "The captures are 5h48m38s apart and do not establish continuous live availability, exact removal time, or causal relationship."
+    },
+    {
+      "id": "AF-C27",
+      "claim": "The archived 21join/合传媒 derivative and the pinned Terminus archive have identical NFKC-normalized, whitespace-removed extracted article bodies across all 200 sentence-like units.",
+      "status": "SUPPORTED_BY_REPRODUCIBLE_THREE_SOURCE_COMPARISON",
+      "source_ids": [
+        "AF01",
+        "AF19"
+      ],
+      "limit": "Normalized text equality does not establish which source copied from which, a shared upstream source, or independent chain of custody."
+    },
+    {
+      "id": "AF-C28",
+      "claim": "The yyrw extracted body differs from the Terminus and 21join/合传媒 normalized bodies in two sentence-like units: it omits the short fragment 艾芬 in one and includes 生康 in another.",
+      "status": "SUPPORTED_BY_REPRODUCIBLE_THREE_SOURCE_COMPARISON",
+      "source_ids": [
+        "AF01",
+        "AF03",
+        "AF19"
+      ],
+      "limit": "The comparison is an extraction/normalization result on derivative texts; it does not establish why the differences occurred or who introduced them."
+    },
+    {
+      "id": "AF-C29",
+      "claim": "The archived 21join article page references an article-specific api.php?op=count&id=2703&modelid=1 endpoint; two Wayback endpoint captures 19m49s apart return different site-defined counter payloads, including hits values 1493 and 1503.",
+      "status": "SUPPORTED_BY_ARCHIVED_COUNTER_ENDPOINT_RESPONSES",
+      "source_ids": [
+        "AF19",
+        "AF20"
+      ],
+      "limit": "Counter semantics, uniqueness and update rules are unverified; do not interpret these values as unique readers or validated audience size."
+    }
+  ],
+  "research_gates": [
+    {
+      "id": "G0",
+      "name": "Identify accessible surviving copies",
+      "status": "PASS"
+    },
+    {
+      "id": "G1",
+      "name": "Register contemporaneous reporting and scholarly prior work",
+      "status": "PASS"
+    },
+    {
+      "id": "G2",
+      "name": "Acquire authenticated historical snapshots of original and derivative pages",
+      "status": "PARTIAL_2020_DERIVATIVE_BODIES_VERIFIED_ORIGINAL_BYTES_MISSING"
+    },
+    {
+      "id": "G3",
+      "name": "Perform reproducible paragraph-level version diff",
+      "status": "PASS_REPRODUCIBLE_CURRENT_AND_HISTORIC_DERIVATIVE_DIFFS"
+    },
+    {
+      "id": "G4",
+      "name": "Verify host/site governance and 2020 republication context",
+      "status": "PARTIAL_HOMEPAGE_VISIBILITY_VERIFIED_HOST_GOVERNANCE_OPEN"
+    },
+    {
+      "id": "G5",
+      "name": "Review Sun & Wright methods/data for novelty boundary",
+      "status": "CORE_METHOD_AND_FINDINGS_REVIEWED_NOT_REPRODUCED"
+    },
+    {
+      "id": "G6",
+      "name": "Authorize a public article only if a distinct evidence-based contribution survives",
+      "status": "NOT_STARTED"
+    }
+  ],
+  "decision": "CONTINUE_BOUNDED_ARCHIVAL_RECONSTRUCTION; REPORT_HOME_LINK_STATE_AND_TITLE_CHANGE_WITHOUT_DIRECTIVE_CAUSATION; NO_PUBLICATION_YET",
+  "stop_condition": "If no authenticated temporal evidence or distinct version-provenance finding emerges beyond existing relay-activism literature, stop as a standalone article and reuse only as a methods appendix or case note.",
+  "cross_site_comparison": {
+    "report": "research/critical-inquiry/ai-fen/cross-site-comparison-v01.json",
+    "workflow_run_id": 40956016103,
+    "units_each": 200,
+    "exact_normalized_matches": 198,
+    "non_equal_blocks": 2,
+    "conclusion": "CURRENT_DERIVATIVES_VERY_SIMILAR_AT_BODY_LEVEL; PAGE_WRAPPERS_DIFFER",
+    "caution": "No authenticated yyrw historical availability timestamp, no source platform deletion log."
+  },
+  "historical_capture_comparison": {
+    "report": "research/critical-inquiry/ai-fen/historical-captures-v01.json",
+    "workflow_run_id": 40957538998,
+    "status": "TWO_DERIVATIVE_2020_BODIES_AND_ORIGINAL_UNAVAILABLE_NOTICE_VERIFIED",
+    "capture_yyrw_utc": "2020-03-10T13:50:52Z",
+    "capture_original_unavailable_utc": "2020-03-10T22:58:25Z",
+    "current_historic_yyrw_equal_units": 199,
+    "units": 200,
+    "title_drift": "2020 snapshot: 吹哨子的人; current page: 发哨子的人"
+  },
+  "homepage_title_audit": {
+    "report": "research/critical-inquiry/ai-fen/title-homepage-cdx-v01.json",
+    "workflow_run_id": 41031919110,
+    "status": "ONE_LINKED_HOMEPAGE_CAPTURE_FOLLOWED_BY_SIX_LATER_NO_LINK_CAPTURES",
+    "article_title_transition_beijing": [
+      "2020-03-11T01:09:54+08:00",
+      "2020-03-11T12:19:23+08:00"
+    ],
+    "homepage_link_state_beijing": [
+      "2020-03-11T03:06:34+08:00",
+      "2020-03-12T14:31:01+08:00"
+    ],
+    "later_no_link_through_beijing": "2020-11-25T22:05:20+08:00",
+    "domain_alias_query": "HTTP_503_NO_ABSENCE_INFERENCE",
+    "key_caution": "CDT date label may be leak date, not issue date; no causal claim."
+  },
+  "provenance_followup": {
+    "cdt_reprint_source_id": "AF17",
+    "cdt_original_link_source_id": "AF18",
+    "status": "21JOIN_ARCHIVED_BODY_CONFIRMED; HE_MEDIA_ATTRIBUTION_STILL_NOT_INDEPENDENTLY_AUTHENTICATED",
+    "next_audit": "Review the three-source text comparison and preserve the unresolved alias-coverage limitation.",
+    "capture_utc": "2020-03-12T00:42:23Z",
+    "capture_beijing": "2020-03-12T08:42:23+08:00",
+    "capture_title": "发哨子的人 | 合传媒",
+    "domain_alias_query": "SUCCESS_THREE_RECORDS_ONE_ARTICLE_CAPTURE_TWO_COUNT_ENDPOINTS"
+  },
+  "three_source_comparison": {
+    "report": "research/critical-inquiry/ai-fen/he-media-three-source-comparison-v01.json",
+    "workflow_run_id": 41136525095,
+    "status": "THREE_DERIVATIVE_SOURCES_COMPARED",
+    "sentence_units_per_source": 200,
+    "pairs": {
+      "terminus_vs_he_media_archive": {
+        "equal_units": 200,
+        "total_units": 200,
+        "non_equal_blocks": 0
+      },
+      "terminus_vs_yyrw": {
+        "equal_units": 198,
+        "total_units": 200,
+        "non_equal_blocks": 2
+      },
+      "yyrw_vs_he_media_archive": {
+        "equal_units": 198,
+        "total_units": 200,
+        "non_equal_blocks": 2
+      }
+    },
+    "cdt_reprint": "directly read separately; excluded from CI text comparison because CI client received HTTP 403",
+    "caution": "All three are derivative representations. Terminus/21join normalized equality is not evidence of independence; CDT attributes the 21join/He Media copy to He Media."
+  },
+  "he_media_archive_audit": {
+    "exact_url_cdx": {
+      "status": "SUCCESS_ONE_RECORD",
+      "records": 1,
+      "timestamp": "20200312004223",
+      "http_status": 200,
+      "mimetype": "text/html"
+    },
+    "domain_alias_cdx": {
+      "status": "SUCCESS_THREE_RECORDS_ONE_ARTICLE_CAPTURE_TWO_COUNT_ENDPOINTS",
+      "http_status": 200,
+      "records": 3,
+      "article_page_capture_count": 1,
+      "count_endpoint_capture_count": 2,
+      "count_endpoint_timestamps": [
+        "20200312004223",
+        "20200312010212"
+      ],
+      "note": "Two api.php?op=count captures are not article-body copies; their payloads are not used as audience metrics."
+    },
+    "page_metadata": {
+      "title": "发哨子的人 | 合传媒",
+      "keywords": "中国,武汉,疫情,吹哨人,艾芬",
+      "og_title": "发哨子的人 - 民声 - ",
+      "canonical_url": null
+    },
+    "archive_capture_beijing": "2020-03-12T08:42:23+08:00",
+    "capture_response_sha256": "162b8f39928a6dbb64b62554f6b4ce74dd7a62de09e78ed9a072e78fd5d6579d",
+    "body_characters": 9376,
+    "note": "A domain-level query timeout does not prove no other URL variants or captures exist.",
+    "raw_response_sha256_by_run": {
+      "41136265966": "f6a8b96e7be9b83dbeb4a7e61f9ef5302c770a6219dc3e4b9d4e27db26a031a3",
+      "41136525095": "c14130f2f759f74bbb8252a062c37cd64545482b343a9806c0594952e8b43086",
+      "41137418890": "162b8f39928a6dbb64b62554f6b4ce74dd7a62de09e78ed9a072e78fd5d6579d"
+    },
+    "normalized_body_sha256": "2e3ff7643b2fbda91439e1b99136e6046f83d4fbb59a08899b101ebcee52ce06",
+    "counter_endpoint": {
+      "referenced_by_article_html": true,
+      "script_src": "https://web.archive.org/web/20200312004223js_/http://www.21join.com/api.php?op=count&id=2703&modelid=1",
+      "captures": [
+        {
+          "timestamp_utc": "2020-03-12T00:42:23Z",
+          "beijing": "2020-03-12T08:42:23+08:00",
+          "todaydowns": 172,
+          "weekdowns": 1493,
+          "monthdowns": 1493,
+          "hits": 1493
+        },
+        {
+          "timestamp_utc": "2020-03-12T01:02:12Z",
+          "beijing": "2020-03-12T09:02:12+08:00",
+          "todaydowns": 182,
+          "weekdowns": 1503,
+          "monthdowns": 1503,
+          "hits": 1503
+        }
+      ],
+      "elapsed": "19m49s",
+      "interpretation_limit": "Raw site-defined counter payload only; not a validated audience or unique-reader metric."
+    }
+  }
+}

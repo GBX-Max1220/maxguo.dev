@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "AI-FEN-TERMINUS-INTRA_REPO-DIFF-2026-10-30",
+  "status": "PRELIMINARY_REPRODUCIBLE_INTRA_REPOSITORY_DIFF",
+  "checked_on": "2026-10-30",
+  "sources": [
+    {
+      "role": "initial_added_version",
+      "commit": "https://github.com/Terminus2049/Terminus2049.github.io/commit/4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
+      "commit_sha": "4dee83a23f66c4a2d7f4433b8e0ce5381101632b",
+      "blob_sha": "3b846a56600d21c1ba60aaecffe25d04806b876f",
+      "path": "_posts/发哨子的人.md",
+      "committer_timestamp_utc": "2020-03-10T05:23:09Z",
+      "signature_verified_by_github": true,
+      "line_count": 201,
+      "character_count": 9475
+    },
+    {
+      "role": "later_same_day_version",
+      "commit": "https://github.com/Terminus2049/Terminus2049.github.io/commit/8d630f148b0f2f0836c27add46f2a07987ac24ad",
+      "commit_sha": "8d630f148b0f2f0836c27add46f2a07987ac24ad",
+      "blob_sha": "fec092d58e05b1967e845f581e7e2e82d189e0d3",
+      "path": "_posts/2020-03-10-fa-shao-zi-de-ren.md",
+      "committer_timestamp_utc": "2020-03-10T06:13:34Z",
+      "line_count": 195,
+      "character_count": 9430
+    }
+  ],
+  "method": {
+    "algorithm": "Exact-line longest common subsequence (LCS) over UTF-8 decoded Markdown content returned by GitHub Contents API.",
+    "initial_line_count": 201,
+    "later_line_count": 195,
+    "lcs_exact_matching_lines": 179,
+    "removed_lines": 22,
+    "added_lines": 16,
+    "note": "Diff counts include whitespace-only and markup/front-matter changes; they are not counts of changed factual statements."
+  },
+  "observed_differences": [
+    {
+      "category": "FRONT_MATTER",
+      "detail": "Initial front matter is indented and image_feature is empty; later version normalizes front-matter spacing and sets image_feature to the existing lead image URL."
+    },
+    {
+      "category": "MARKUP",
+      "detail": "HTML paragraph alignment wrappers around the author/editor/photo credits and around the standalone '艾芬' label were removed or simplified."
+    },
+    {
+      "category": "WHITESPACE",
+      "detail": "Multiple <br/> tags and blank lines were removed."
+    },
+    {
+      "category": "PROSE",
+      "detail": "No changed prose line was detected by the exact-line LCS comparison."
+    }
+  ],
+  "inference_limits": [
+    "This compares two revisions within the Terminus GitHub repository only.",
+    "It does not compare Terminus against the yyrw.org.cn version or the original Renwu WeChat post.",
+    "The GitHub-signed commit timestamp establishes repository commit metadata, not original publication time or the first existence of any copy.",
+    "The comparison does not independently authenticate claims inside the interview."
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "comparison_id": "AF-CROSS-SITE-20261030",
+  "run_id": 40956016103,
+  "run_url": "https://github.com/GBX-Max1220/maxguo.dev/actions/runs/40956016103",
+  "run_utc": "2026-10-29T21:14:11.091682+00:00",
+  "status": "COMPLETED_CURRENT_COPIES_NO_HISTORICAL_TIMESTAMP_AUTHENTICATION",
+  "method": {
+    "script": "scripts/audit-ai-fen-cross-site.py",
+    "collection": "GitHub Actions ubuntu-latest requests and BeautifulSoup; current yyrw HTML and fixed Terminus GitHub commit",
+    "normalization": "NFKC + removed whitespace + quote substitutions + split at Chinese full-stop/question/exclamation sentence marks",
+    "alignment": "difflib.SequenceMatcher(autojunk=False) on normalized sentence units",
+    "note": "A computational comparison of current derivative content, not a character-for-character authentication of the original Renwu article."
+  },
+  "sources": [
+    {
+      "id": "AF01_FIXED_TERMINUS",
+      "url": "https://raw.githubusercontent.com/Terminus2049/Terminus2049.github.io/8d630f148b0f2f0836c27add46f2a07987ac24ad/_posts/2020-03-10-fa-shao-zi-de-ren.md",
+      "git_commit": "8d630f148b0f2f0836c27add46f2a07987ac24ad",
+      "raw_byte_count": 26140,
+      "raw_sha256": "2ea321e0c1304d2c9b90036c02503ab99839e6c02336d0666e6608f0e475a908",
+      "extracted_normalized_body_chars": 8239,
+      "normalized_body_sha256": "2e3ff7643b2fbda91439e1b99136e6046f83d4fbb59a08899b101ebcee52ce06",
+      "normalized_sentence_units": 200
+    },
+    {
+      "id": "AF03_CURRENT_YYRW",
+      "url": "https://yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256",
+      "raw_byte_count": 37732,
+      "raw_sha256": "fb9a2cc83228c60e2e980e033ba2a30f62cd07db85647beb3a457d75bb14e43e",
+      "extracted_normalized_body_chars": 8239,
+      "normalized_body_sha256": "e429356875aa0eadb9cf35fdc91c6223387a8810fb6d6360683dcefc5c4d5560",
+      "normalized_sentence_units": 200
+    }
+  ],
+  "summary": {
+    "equal_sentence_units": 198,
+    "both_copies_sentence_units": 200,
+    "matched_unit_fraction": 0.99,
+    "unaligned_blocks": 2,
+    "body_extraction_success": true,
+    "semantic_assessment": "Two small local differences; no evidence from this comparison of wholesale changes to the narrated interview."
+  },
+  "difference_inventory": [
+    {
+      "id": "AF-D01",
+      "terminus_unit_index_zero_based": 13,
+      "yyrw_unit_index_zero_based": 13,
+      "terminus_difference": "艾芬",
+      "yyrw_difference": "",
+      "difference_type": "STANDALONE_SUBJECT_IMAGE_CAPTION_ABSENT_FROM_SECOND_EXTRACT",
+      "inference": "Formatting/caption handling in the surviving texts; not evidence that a factual claim was excised."
+    },
+    {
+      "id": "AF-D02",
+      "terminus_unit_index_zero_based": 33,
+      "yyrw_unit_index_zero_based": 33,
+      "terminus_phrase": "市卫健委",
+      "yyrw_phrase": "市卫生健康委",
+      "difference_type": "INSTITUTION_ABBREVIATION_EXPANDED",
+      "inference": "An agency name was expanded in the reposted copy. This does not establish editorial motive or an external directive."
+    }
+  ],
+  "extra_page_level_differences": [
+    "yyrw uses an expanded headline; Terminus uses the shorter title.",
+    "yyrw opens its displayed article text with '我爱我的祖国。', unlike the body start in the fixed Terminus copy.",
+    "Author/photographer/editor attributions are presented differently in the two hosting templates.",
+    "Both copies display March 10, 2020 as a date, but only Terminus has the independently located repository commit timestamps discussed in AF08."
+  ],
+  "limitations": [
+    "Does not establish the original Renwu WeChat first-edition bytes or publication time.",
+    "Does not establish that the yyrw version was online during the March 2020 removal period.",
+    "Does not establish why the title, site wrapper, or abbreviation differs.",
+    "Normalized-text equivalence is not raw-byte equivalence; attached raw hashes identify the exact retrieval representations.",
+    "The report is for research only; quoted article content must not be republished in full."
+  ]
+}

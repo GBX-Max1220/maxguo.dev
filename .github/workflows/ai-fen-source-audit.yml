@@ -1,0 +1,98 @@
+name: Ai Fen source audit
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/critical-inquiry/AI_FEN_SOURCE_AUDIT_V01_20261030.md'
+      - 'docs/critical-inquiry/AI_FEN_VISIBILITY_RECONSTRUCTION_V03_20261030.md'
+      - 'research/critical-inquiry/ai-fen/**'
+      - 'scripts/validate-ai-fen-source-audit.mjs'
+      - 'scripts/audit-ai-fen-cross-site.py'
+      - 'scripts/audit-ai-fen-historical-snapshots.py'
+      - 'scripts/audit-ai-fen-title-and-homepage.py'
+      - '.github/workflows/ai-fen-source-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout research audit
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate evidence ledger and publication boundary
+        run: node scripts/validate-ai-fen-source-audit.mjs
+
+  compare-current-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Parser dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Compare currently accessible derivative copies
+        run: python scripts/audit-ai-fen-cross-site.py --out .astro/ai-fen-cross-site/summary.json
+      - name: Upload aggregate fingerprint comparison
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-fen-current-derivative-comparison
+          path: .astro/ai-fen-cross-site/summary.json
+          if-no-files-found: warn
+          retention-days: 14
+
+  check-historical-archives:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: HTTP dependency
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Check Wayback candidate and capture indexes
+        run: python scripts/audit-ai-fen-historical-snapshots.py
+      - name: Upload timestamp-check report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-fen-historical-capture-candidates
+          path: .astro/ai-fen-history/wayback-check.json
+          if-no-files-found: warn
+          retention-days: 14
+
+  inspect-title-and-homepage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Parser and HTTP dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Inspect article title history and March 2020 homepage captures
+        run: python scripts/audit-ai-fen-title-and-homepage.py
+      - name: Upload metadata-only archive audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-fen-title-and-homepage-audit
+          path: .astro/ai-fen-history/title-homepage-audit.json
+          if-no-files-found: warn
+          retention-days: 14
