@@ -37,7 +37,7 @@
     "he_media_archive": {
       "source_id": "AF19",
       "url": "https://web.archive.org/web/20200312004223/http://www.21join.com/index.php?m=content&c=index&a=show&catid=9&id=2703",
-      "raw_sha256": "c14130f2f759f74bbb8252a062c37cd64545482b343a9806c0594952e8b43086",
+      "raw_sha256": "162b8f39928a6dbb64b62554f6b4ce74dd7a62de09e78ed9a072e78fd5d6579d",
       "raw_bytes": 43548,
       "normalized_body_sha256": "2e3ff7643b2fbda91439e1b99136e6046f83d4fbb59a08899b101ebcee52ce06",
       "normalized_characters": 8239,
@@ -60,7 +60,13 @@
           "金石",
           "合传媒"
         ]
-      }
+      },
+      "raw_sha256_by_run": {
+        "41136265966": "f6a8b96e7be9b83dbeb4a7e61f9ef5302c770a6219dc3e4b9d4e27db26a031a3",
+        "41136525095": "c14130f2f759f74bbb8252a062c37cd64545482b343a9806c0594952e8b43086",
+        "41137418890": "162b8f39928a6dbb64b62554f6b4ce74dd7a62de09e78ed9a072e78fd5d6579d"
+      },
+      "raw_response_note": "The raw HTML response SHA varied across repeated Wayback retrievals, while the extracted normalized article-body SHA remained constant. The report therefore distinguishes wrapper-level response fingerprints from normalized article-body identity."
     }
   },
   "optional_source_not_compared": {
