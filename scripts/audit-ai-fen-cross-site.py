@@ -134,19 +134,28 @@ def run(out):
     session=requests.Session()
     blobs={}
     normalized={}
+    unavailable_sources={}
     for name,url in [("terminus",TERMINUS_URL),("yyrw",YYRW_URL),("cdt_reprint",CDT_REPRINT_URL)]:
-        raw,txt,actual=fetch(session,url)
-        if name=="yyrw" and "<html" not in txt.lower():
-            raise ValueError("yyrw response is not HTML")
-        main,meta=cut_main(txt,name)
-        tokens=sentences(main)
-        if len(tokens)<40: raise ValueError(f"Insufficient article text for {name}: only {len(tokens)} units")
-        blobs[name]={"url":url,"actual_url":actual,"raw_sha256":hashlib.sha256(raw).hexdigest(),
-          "raw_byte_count":len(raw),"article_normalized_sha256":sha(normalize(main)),
-          "article_normalized_character_count":len(normalize(main)),
-          "sentence_count":len(tokens),
-          "metadata":meta}
-        normalized[name]=tokens
+        try:
+            raw,txt,actual=fetch(session,url)
+            if name=="yyrw" and "<html" not in txt.lower():
+                raise ValueError("yyrw response is not HTML")
+            main,meta=cut_main(txt,name)
+            tokens=sentences(main)
+            if len(tokens)<40: raise ValueError(f"Insufficient article text for {name}: only {len(tokens)} units")
+            blobs[name]={"url":url,"actual_url":actual,"raw_sha256":hashlib.sha256(raw).hexdigest(),
+              "raw_byte_count":len(raw),"article_normalized_sha256":sha(normalize(main)),
+              "article_normalized_character_count":len(normalize(main)),
+              "sentence_count":len(tokens),"metadata":meta}
+            normalized[name]=tokens
+        except (requests.RequestException, ValueError) as exc:
+            if name!="cdt_reprint":
+                raise
+            unavailable_sources[name]={
+                "url":url,"status":"LOCATED_BUT_NOT_FETCHABLE_IN_CI",
+                "error_type":type(exc).__name__,"details":str(exc)[:240],
+                "note":"Not included in text comparisons; no content or editorial note is inferred."
+            }
     def compare_tokens(left_name, right_name):
         left = normalized[left_name]
         right = normalized[right_name]
@@ -186,10 +195,11 @@ def run(out):
         }
 
     pairwise_comparisons = {
-        "terminus_vs_yyrw": compare_tokens("terminus","yyrw"),
-        "cdt_reprint_vs_yyrw": compare_tokens("cdt_reprint","yyrw"),
-        "cdt_reprint_vs_terminus": compare_tokens("cdt_reprint","terminus")
+        "terminus_vs_yyrw": compare_tokens("terminus","yyrw")
     }
+    if "cdt_reprint" in normalized:
+        pairwise_comparisons["cdt_reprint_vs_yyrw"] = compare_tokens("cdt_reprint","yyrw")
+        pairwise_comparisons["cdt_reprint_vs_terminus"] = compare_tokens("cdt_reprint","terminus")
     a,b=normalized["terminus"],normalized["yyrw"]
     sm=difflib.SequenceMatcher(a=a,b=b,autojunk=False)
     opcodes=sm.get_opcodes()
@@ -224,6 +234,7 @@ def run(out):
     r={"schema_version":"1.0","run_utc":datetime.now(timezone.utc).isoformat(),
        "status":"THREE_DERIVATIVE_TEXT_COMPARISON_NOT_ORIGINAL_PLATFORM_BYTES",
        "sources":blobs,
+       "unavailable_sources":unavailable_sources,
        "method":{"unit":"NFKC-normalized, whitespace-removed Chinese sentence-like units beginning at the same interview-opening anchor",
            "algorithm":"difflib SequenceMatcher(autojunk=False)",
            "sources":"Pinned Terminus GitHub markdown, current yyrw HTML, and CDT 404文库 page whose editor note attributes the archived copy to He Media."},
@@ -235,6 +246,7 @@ def run(out):
           "blocks":blocks,"changed_fragments_only":micro_differences},
        "limitations":[
          "This is a comparison of currently fetched derivative/reprint sources, NOT the original Renwu WeChat bytes.",
+         "If the optional CDT reprint is blocked, it is recorded as unavailable and excluded from comparisons; the remaining two-source audit continues.",
          "The CDT 404文库 page states that the original was deleted and that the copy was archived by He Media; this is an attributed derivative source, not independent proof of the original file.",
          "The CDT source may be textually dependent on the He Media copy and must not be counted as an independent original edition.",
          "Differences can reflect copy editing, HTML conversion, omissions, or later changes; no causal/editor attribution is inferred.",
