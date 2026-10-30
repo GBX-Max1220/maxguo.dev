@@ -131,7 +131,7 @@
     "The yyrw text differs from the Terminus/21join normalized text in two sentence units. No causal, editorial, or censorship explanation is inferred.",
     "Wayback timestamps are archive observation times, not first-publication timestamps.",
     "The 21join capture and later yyrw homepage capture are separated by 5h48m38s; no claim of continuous availability is made.",
-    "The domain-level CDX query for alternate 21join URL variants timed out; one exact-URL capture does not establish exhaustive archive coverage."
+    "The broader domain-level CDX query returned two additional count-endpoint captures, not additional article-body editions; no readership inference is made."
   ],
   "source_discovery": {
     "exact_url_cdx": {
@@ -142,9 +142,16 @@
       "mimetype": "text/html"
     },
     "domain_alias_cdx": {
-      "status": "CDX_REQUEST_FAILED_NO_ABSENCE_INFERENCE",
-      "error": "ReadTimeout",
-      "timeout_seconds": 25
+      "status": "SUCCESS_THREE_RECORDS_ONE_ARTICLE_CAPTURE_TWO_COUNT_ENDPOINTS",
+      "http_status": 200,
+      "records": 3,
+      "article_page_capture_count": 1,
+      "count_endpoint_capture_count": 2,
+      "count_endpoint_timestamps": [
+        "20200312004223",
+        "20200312010212"
+      ],
+      "note": "The two api.php?op=count captures are not additional article-body editions and are not interpreted as readership metrics."
     },
     "interpretation": "One exact-URL capture is confirmed; domain-level alias coverage remains unresolved."
   }
