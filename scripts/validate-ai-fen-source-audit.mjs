@@ -26,7 +26,9 @@ const knownStatuses=new Set([
  'ORIGINAL_SOURCE_NOT_OBTAINED',
  'GITHUB_COMMIT_PROVENANCE',
  'HISTORICAL_BODY_CAPTURE',
- 'HISTORICAL_UNAVAILABLE_NOTICE'
+ 'HISTORICAL_UNAVAILABLE_NOTICE',
+ 'HISTORICAL_HOMEPAGE_CAPTURE',
+ 'RETROSPECTIVE_DIRECTIVE_DISCLOSURE'
 ]);
 assert.equal(ledger.audit_id,'AI-FEN-VERSION-AUDIT-2026-10-30');
 assert.equal(ledger.status,'RESEARCH_ONLY_FEASIBILITY_AUDIT');
@@ -53,6 +55,26 @@ assert.ok(ledger.sources.find(s=>s.id==='AF08'&&s.status==='GITHUB_COMMIT_PROVEN
 assert.ok(ledger.claims.find(c=>c.id==='AF-C08'&&c.status==='SUPPORTED_BY_SIGNED_GITHUB_COMMIT_METADATA'),'repository timestamp claim missing');
 assert.ok(ledger.sources.find(s=>s.id==='AF09'&&s.type==='OFFICIAL_ORGANIZATIONAL_LIST'),'official NHC list source missing');
 
+
+const homeAudit=JSON.parse(fs.readFileSync(path.join(root,'research/critical-inquiry/ai-fen/title-homepage-cdx-v01.json'),'utf8'));
+assert.equal(homeAudit.article_title_history.cdx_records_returned,35);
+assert.equal(homeAudit.article_title_history.html_captures_inspected,21);
+assert.equal(homeAudit.article_title_history.observed_transition.old_title_captures,2);
+assert.equal(homeAudit.article_title_history.observed_transition.new_title_captures,19);
+assert.equal(homeAudit.article_title_history.observed_transition.observed_gap,'11h 09m 29s');
+assert.equal(homeAudit.homepage_history.unique_html_captures_inspected,7);
+assert.equal(homeAudit.homepage_history.snapshots.filter(x=>x.direct_article_link_present).length,1);
+assert.equal(homeAudit.homepage_history.snapshots.filter(x=>x.direct_article_link_present===false).length,6);
+assert.equal(homeAudit.homepage_history.observed_state_interval.interval_length,'35h 24m 27s');
+assert.equal(homeAudit.homepage_history.domain_level_alias_query.http_status,503);
+assert.ok(homeAudit.homepage_history.domain_level_alias_query.limit.includes('not proof') || homeAudit.homepage_history.domain_level_alias_query.status==='CDX_UNAVAILABLE_NO_ABSENCE_INFERENCE');
+assert.ok(ledger.claims.find(c=>c.id==='AF-C18'&&c.status==='SUPPORTED_BY_HOMEPAGE_HTML_CAPTURE'));
+assert.ok(ledger.claims.find(c=>c.id==='AF-C19'&&c.status==='SUPPORTED_BY_SIX_LATER_HOMEPAGE_CAPTURES'));
+assert.ok(ledger.claims.find(c=>c.id==='AF-C23'&&c.status==='OBSERVED_CROSS_SOURCE_TIMING_TENSION'));
+assert.ok(ledger.sources.find(s=>s.id==='AF15'&&s.status==='RETROSPECTIVE_DIRECTIVE_DISCLOSURE'));
+assert.ok(ledger.sources.find(s=>s.id==='AF13'&&s.status==='HISTORICAL_HOMEPAGE_CAPTURE'));
+assert.equal(ledger.research_gates.find(g=>g.id==='G4').status,'PARTIAL_HOMEPAGE_VISIBILITY_VERIFIED_HOST_GOVERNANCE_OPEN');
+
 const capture=JSON.parse(fs.readFileSync(path.join(root,'research/critical-inquiry/ai-fen/historical-captures-v01.json'),'utf8'));
 const decisionV2=fs.readFileSync(path.join(root,'docs/critical-inquiry/AI_FEN_HISTORICAL_VERSION_DECISION_V02_20261030.md'),'utf8');
 assert.equal(capture.records.length,4,'four distinct dated archive objects expected');
@@ -77,7 +99,7 @@ assert.ok(ledger.sources.find(s=>s.id==='AF05'&&s.type==='PEER_REVIEWED_PRIOR_WO
 assert.ok(ledger.claims.find(c=>c.id==='AF-C04'&&c.status==='NOT_ESTABLISHED'),'must not infer historical availability from displayed date');
 assert.ok(ledger.claims.find(c=>c.id==='AF-C05'&&c.status==='NOT_ESTABLISHED'),'must not infer exemption/intent from affiliation');
 assert.ok(ledger.claims.find(c=>c.id==='AF-C06'&&c.status==='REJECTED_AS_NOVELTY_CLAIM'),'prior art must constrain novelty');
-assert.ok(ledger.research_gates.some(g=>g.id==='G3'&&g.status==='PASS_CURRENT_COPIES_ONLY'));
+assert.ok(ledger.research_gates.some(g=>g.id==='G3'&&g.status==='PASS_REPRODUCIBLE_CURRENT_AND_HISTORIC_DERIVATIVE_DIFFS'));
 assert.ok(ledger.research_gates.some(g=>g.id==='G6'&&g.status==='NOT_STARTED'));
 for(const phrase of ['逐段、逐字符的完整差异分析','没有取得可认证的原始公众号发布记录','Sun 与 Wright','不新建公开文章页']){
  assert.ok(memo.includes(phrase),'audit memo missing required caution: '+phrase);
