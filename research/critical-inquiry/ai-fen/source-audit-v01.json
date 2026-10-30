@@ -488,6 +488,66 @@
         "AF03"
       ],
       "limit": "The edit date within this interval, author and motive remain unknown; this does not establish compliance with any leaked instruction."
+    },
+    {
+      "id": "AF-C18",
+      "claim": "A Wayback capture at 2020-03-11 03:06:34 Beijing preserves yyrw's homepage HTML with a direct link to the target interview as a list item labelled 吹哨子的人.",
+      "status": "SUPPORTED_BY_HOMEPAGE_HTML_CAPTURE",
+      "source_ids": [
+        "AF13"
+      ],
+      "limit": "One archived homepage representation; the link is a list item, not evidence of hero/banner placement or continuous visibility."
+    },
+    {
+      "id": "AF-C19",
+      "claim": "Six later readable yyrw homepage captures from 2020-03-12 through 2020-11-25 contain no direct target-article link and no title phrase markers in the captured HTML.",
+      "status": "SUPPORTED_BY_SIX_LATER_HOMEPAGE_CAPTURES",
+      "source_ids": [
+        "AF14"
+      ],
+      "limit": "This describes six archived root-homepage representations, not every possible URL, navigation route or moment."
+    },
+    {
+      "id": "AF-C20",
+      "claim": "Among the seven distinct 2020 root-homepage captures found by exact URL queries, the last linked capture is 2020-03-11 03:06:34 Beijing and the first later no-link capture is 2020-03-12 14:31:01; six later snapshots remain without the link through 2020-11-25.",
+      "status": "SUPPORTED_BY_REPRODUCIBLE_CDX_HOME_AUDIT",
+      "source_ids": [
+        "AF13",
+        "AF14"
+      ],
+      "limit": "Observed archive-state interval only; domain-level alias query failed with HTTP 503, so search was not exhaustive."
+    },
+    {
+      "id": "AF-C21",
+      "claim": "The yyrw article title transition from 吹哨子的人 to 发哨子的人 is bounded by captures at 2020-03-11 01:09:54 and 12:19:23 Beijing, an 11h09m29s observation interval.",
+      "status": "SUPPORTED_BY_21_ARCHIVED_ARTICLE_CAPTURES",
+      "source_ids": [
+        "AF03",
+        "AF10"
+      ],
+      "limit": "The exact edit time, editor, motive and relation to any directive remain unknown."
+    },
+    {
+      "id": "AF-C22",
+      "claim": "CDT's Chinese disclosure lists the same yyrw article URL under the reported March 10 instruction, while CDT's English explanation cautions that the date may be leak date rather than issuance date and that wording/scope may vary.",
+      "status": "SUPPORTED_BY_RETROSPECTIVE_DISCLOSURE_WITH_SOURCE_CAVEAT",
+      "source_ids": [
+        "AF15",
+        "AF16"
+      ],
+      "limit": "One CDT disclosure lineage; original directive, recipient chain, issue time and implementation are not independently authenticated."
+    },
+    {
+      "id": "AF-C23",
+      "claim": "The yyrw homepage's target link is still present in a 2020-03-11 03:06:34 Beijing archive capture, after the March 10 calendar date displayed by CDT; the homepage link is absent from six later 2020 captures.",
+      "status": "OBSERVED_CROSS_SOURCE_TIMING_TENSION",
+      "source_ids": [
+        "AF13",
+        "AF14",
+        "AF15",
+        "AF16"
+      ],
+      "limit": "Because CDT explicitly says its displayed date may be a leak date rather than issue date, this is not proof of noncompliance or causation; homepage capture time is not server-side update time."
     }
   ],
   "research_gates": [
@@ -509,12 +569,12 @@
     {
       "id": "G3",
       "name": "Perform reproducible paragraph-level version diff",
-      "status": "PASS_CURRENT_COPIES_ONLY"
+      "status": "PASS_REPRODUCIBLE_CURRENT_AND_HISTORIC_DERIVATIVE_DIFFS"
     },
     {
       "id": "G4",
       "name": "Verify host/site governance and 2020 republication context",
-      "status": "OPEN"
+      "status": "PARTIAL_HOMEPAGE_VISIBILITY_VERIFIED_HOST_GOVERNANCE_OPEN"
     },
     {
       "id": "G5",
@@ -527,7 +587,7 @@
       "status": "NOT_STARTED"
     }
   ],
-  "decision": "CONTINUE_PROVENANCE_STUDY_WITH_SAME_URL_DIRECTIVE_CORROBORATION_AND_EXPLICIT_NO_CAUSAL_CLAIM; NO_PUBLIC_ARTICLE",
+  "decision": "CONTINUE_BOUNDED_ARCHIVAL_RECONSTRUCTION; REPORT_HOME_LINK_STATE_AND_TITLE_CHANGE_WITHOUT_DIRECTIVE_CAUSATION; NO_PUBLICATION_YET",
   "stop_condition": "If no authenticated temporal evidence or distinct version-provenance finding emerges beyond existing relay-activism literature, stop as a standalone article and reuse only as a methods appendix or case note.",
   "cross_site_comparison": {
     "report": "research/critical-inquiry/ai-fen/cross-site-comparison-v01.json",
@@ -547,5 +607,21 @@
     "current_historic_yyrw_equal_units": 199,
     "units": 200,
     "title_drift": "2020 snapshot: 吹哨子的人; current page: 发哨子的人"
+  },
+  "homepage_title_audit": {
+    "report": "research/critical-inquiry/ai-fen/title-homepage-cdx-v01.json",
+    "workflow_run_id": 41031919110,
+    "status": "ONE_LINKED_HOMEPAGE_CAPTURE_FOLLOWED_BY_SIX_LATER_NO_LINK_CAPTURES",
+    "article_title_transition_beijing": [
+      "2020-03-11T01:09:54+08:00",
+      "2020-03-11T12:19:23+08:00"
+    ],
+    "homepage_link_state_beijing": [
+      "2020-03-11T03:06:34+08:00",
+      "2020-03-12T14:31:01+08:00"
+    ],
+    "later_no_link_through_beijing": "2020-11-25T22:05:20+08:00",
+    "domain_alias_query": "HTTP_503_NO_ABSENCE_INFERENCE",
+    "key_caution": "CDT date label may be leak date, not issue date; no causal claim."
   }
 }
