@@ -130,9 +130,16 @@ for row in list(unique_candidates.values())[:8]:
     code=tag.get_text(" ",strip=True)
     if "api.php" in code and "op=count" in code and "id=2703" in code:
      inline_counter_refs.append(code[:300])
+   counter_field_context={}
+   for field_id in ("todaydowns","weekdowns","monthdowns","hits"):
+    field=soup.find(id=field_id)
+    if field:
+     parent=field.parent
+     counter_field_context[field_id]=parent.get_text(" ",strip=True)[:160] if parent else field.get_text(" ",strip=True)[:160]
    check["counter_endpoint_references"]={
     "script_srcs":counter_script_refs[:8],
     "inline_script_refs":inline_counter_refs[:4],
+    "field_context":counter_field_context,
     "present":bool(counter_script_refs or inline_counter_refs)
    }
    check["indicators"]={
