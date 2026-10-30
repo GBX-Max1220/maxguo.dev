@@ -131,7 +131,8 @@
     "The yyrw text differs from the Terminus/21join normalized text in two sentence units. No causal, editorial, or censorship explanation is inferred.",
     "Wayback timestamps are archive observation times, not first-publication timestamps.",
     "The 21join capture and later yyrw homepage capture are separated by 5h48m38s; no claim of continuous availability is made.",
-    "The broader domain-level CDX query returned two additional count-endpoint captures, not additional article-body editions; no readership inference is made."
+    "The broader domain-level CDX query returned two additional count-endpoint captures, not additional article-body editions; no readership inference is made.",
+    "The two count-endpoint payloads expose site-defined fields such as hits, todaydowns, weekdowns and monthdowns; their semantics and uniqueness are not independently validated, so they are not used as audience estimates."
   ],
   "source_discovery": {
     "exact_url_cdx": {
@@ -151,7 +152,26 @@
         "20200312004223",
         "20200312010212"
       ],
-      "note": "The two api.php?op=count captures are not additional article-body editions and are not interpreted as readership metrics."
+      "note": "The two api.php?op=count captures are not additional article-body editions and are not interpreted as readership metrics.",
+      "count_endpoint_captures": [
+        {
+          "timestamp_utc": "2020-03-12T00:42:23Z",
+          "beijing": "2020-03-12T08:42:23+08:00",
+          "todaydowns": 172,
+          "weekdowns": 1493,
+          "monthdowns": 1493,
+          "hits": 1493
+        },
+        {
+          "timestamp_utc": "2020-03-12T01:02:12Z",
+          "beijing": "2020-03-12T09:02:12+08:00",
+          "todaydowns": 182,
+          "weekdowns": 1503,
+          "monthdowns": 1503,
+          "hits": 1503
+        }
+      ],
+      "counter_endpoint_reference": "The archived 21join article page HTML references api.php?op=count&id=2703&modelid=1."
     },
     "interpretation": "One exact-URL capture is confirmed; domain-level alias coverage remains unresolved."
   }
