@@ -119,6 +119,7 @@ for row in list(unique_candidates.values())[:8]:
      relevant_links.append({"text":a.get_text(" ",strip=True)[:80],"href":href[:300]})
    check["relevant_links"]=relevant_links[:12]
    check["indicators"]={
+     "displayed_date_2020_03_10":"2020年3月10日" in page_text,
      "title_fa_shao_zi":"发哨子的人" in page_text or "发哨子的人" in title,
      "title_chui_shao_zi":"吹哨子的人" in page_text or "吹哨子的人" in title,
      "ai_fen_name":"艾芬" in page_text,
