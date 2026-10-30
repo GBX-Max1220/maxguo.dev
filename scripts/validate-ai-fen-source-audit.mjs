@@ -80,11 +80,20 @@ assert.ok(ledger.sources.find(s=>s.id==='AF13'&&s.status==='HISTORICAL_HOMEPAGE_
 assert.ok(ledger.sources.find(s=>s.id==='AF17'&&s.status==='DIRECTLY_READ_CURRENT_PAGE'&&s.url==='https://chinadigitaltimes.net/chinese/637830.html'));
 assert.ok(ledger.sources.find(s=>s.id==='AF18'&&s.status==='LINK_IDENTIFIED_NOT_YET_VERIFIED'&&s.url.includes('21join.com')));
 assert.ok(ledger.claims.find(c=>c.id==='AF-C24'&&c.status==='SUPPORTED_BY_DIRECTLY_READ_CDT_REPRINT_PAGE'));
-assert.ok(ledger.provenance_followup.status==='CDT_PAGE_DIRECTLY_READ; 21JOIN_DESTINATION_UNVERIFIED');
+assert.ok(ledger.sources.find(s=>s.id==='AF19'&&s.status==='HISTORICAL_BODY_CAPTURE'&&s.url.includes('20200312004223')));
+assert.ok(ledger.claims.find(c=>c.id==='AF-C25'&&c.status==='SUPPORTED_BY_DATED_21JOIN_ARCHIVED_HTML'));
+assert.ok(ledger.claims.find(c=>c.id==='AF-C26'&&c.status==='SUPPORTED_BY_CROSS_SITE_ARCHIVE_TIMELINE'));
+assert.equal(ledger.provenance_followup.status,'21JOIN_ARCHIVED_BODY_CONFIRMED; HE_MEDIA_ATTRIBUTION_STILL_NOT_INDEPENDENTLY_AUTHENTICATED');
+assert.equal(ledger.provenance_followup.capture_beijing,'2020-03-12T08:42:23+08:00');
 assert.equal(ledger.research_gates.find(g=>g.id==='G4').status,'PARTIAL_HOMEPAGE_VISIBILITY_VERIFIED_HOST_GOVERNANCE_OPEN');
 const crossSiteScript=fs.readFileSync(path.join(root,'scripts/audit-ai-fen-cross-site.py'),'utf8');
-assert.ok(crossSiteScript.includes('TWO_DERIVATIVE_TEXT_COMPARISON_CDT_REPRINT_NOT_FETCHABLE_IN_CI'));
-assert.ok(crossSiteScript.includes('if optional_cdt_available else'));
+assert.ok(crossSiteScript.includes('HE_MEDIA_ARCHIVE_URL'));
+assert.ok(crossSiteScript.includes('2020-03-12T00:42:23Z'));
+assert.ok(crossSiteScript.includes('source_count = len(normalized)'));
+assert.ok(crossSiteScript.includes('pairwise_comparisons = {}'));
+const historicalScript=fs.readFileSync(path.join(root,'scripts/audit-ai-fen-historical-snapshots.py'),'utf8');
+assert.ok(historicalScript.includes('he_media_original_link'));
+assert.ok(historicalScript.includes('ARTICLE_BODY_INDICATORS_PRESENT'));
 
 const capture=JSON.parse(fs.readFileSync(path.join(root,'research/critical-inquiry/ai-fen/historical-captures-v01.json'),'utf8'));
 const decisionV2=fs.readFileSync(path.join(root,'docs/critical-inquiry/AI_FEN_HISTORICAL_VERSION_DECISION_V02_20261030.md'),'utf8');
@@ -103,6 +112,8 @@ assert.ok(decisionV2.includes('未经独立')||decisionV2.includes('独立审校
 assert.ok(decisionV3.includes('35小时24分27秒'));
 assert.ok(decisionV3.includes('泄露日期'));
 assert.ok(decisionV3.includes('不是“网站明确违抗命令”的证据'));
+assert.ok(decisionV3.includes('2020-03-12 08:42:23'));
+assert.ok(decisionV3.includes('21join'));
 
 assert.ok(ledger.claims.find(c=>c.id==='AF-C10'&&c.status==='SUPPORTED_BY_OFFICIAL_2023_LIST'),'time-bounded NHC listing claim missing');
 assert.equal(diff.status,'PRELIMINARY_REPRODUCIBLE_INTRA_REPOSITORY_DIFF');
