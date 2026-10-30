@@ -109,6 +109,8 @@ assert.equal(threeSource.pairwise_comparisons.terminus_vs_he_media_archive.equal
 assert.equal(threeSource.pairwise_comparisons.terminus_vs_yyrw.equal_units,198);
 assert.equal(threeSource.pairwise_comparisons.yyrw_vs_he_media_archive.equal_units,198);
 assert.equal(threeSource.cross_site_visibility_timing.elapsed,'5h48m38s');
+assert.equal(threeSource.source_discovery.exact_url_cdx.records,1);
+assert.equal(threeSource.source_discovery.domain_alias_cdx.status,'CDX_REQUEST_FAILED_NO_ABSENCE_INFERENCE');
 assert.ok(ledger.claims.find(c=>c.id==='AF-C27'&&c.status==='SUPPORTED_BY_REPRODUCIBLE_THREE_SOURCE_COMPARISON'));
 assert.ok(ledger.claims.find(c=>c.id==='AF-C28'&&c.status==='SUPPORTED_BY_REPRODUCIBLE_THREE_SOURCE_COMPARISON'));
 
