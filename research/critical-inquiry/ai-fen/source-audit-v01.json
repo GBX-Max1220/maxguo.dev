@@ -362,6 +362,29 @@
         "CDT's label 原文 is a source attribution, not independent authentication that this URL is the original Renwu publication.",
         "Do not infer the relationship between 21join and He Media beyond the attribution displayed by CDT."
       ]
+    },
+    {
+      "id": "AF19",
+      "title": "Wayback capture of 21join page 发哨子的人 | 合传媒",
+      "url": "https://web.archive.org/web/20200312004223/http://www.21join.com/index.php?m=content&c=index&a=show&catid=9&id=2703",
+      "type": "DATED_ARCHIVED_DERIVATIVE_BODY",
+      "status": "HISTORICAL_BODY_CAPTURE",
+      "wayback_capture_utc": "2020-03-12T00:42:23Z",
+      "beijing_time": "2020-03-12T08:42:23+08:00",
+      "independence_group": "he_media_copy_lineage",
+      "observations": [
+        "The exact 21join URL linked as 原文 from CDT's 404文库 page has one 2020 CDX record with status 200 and mimetype text/html.",
+        "The archived page returns HTTP 200 and its HTML title is 发哨子的人 | 合传媒.",
+        "The archived page body is 9,376 characters after HTML text extraction and contains the interview-opening phrase, 艾芬, and the bylines 龚菁琦 and 金石.",
+        "The page text also contains 合传媒.",
+        "Archived response SHA-256: f6a8b96e7be9b83dbeb4a7e61f9ef5302c770a6219dc3e4b9d4e27db26a031a3."
+      ],
+      "limitations": [
+        "The Wayback capture establishes an archived 200 HTML representation at the capture time; it does not independently authenticate who operated the source page or its exact original publication time.",
+        "CDT's editorial note attributes its preserved copy to He Media, and this 21join page title contains 合传媒; this is consistent with that attribution but is not a separate independent edition.",
+        "This page must not be counted as independent of the CDT 404 reprint in assessing source independence.",
+        "No causal relation between the 21join copy and the yyrw homepage link disappearance is established."
+      ]
     }
   ],
   "claims": [
@@ -599,6 +622,27 @@
         "AF18"
       ],
       "limit": "This verifies what the CDT page says, not the truth of its attribution. The 21join destination has not yet been authenticated, and the CDT text is not the original WeChat bytes."
+    },
+    {
+      "id": "AF-C25",
+      "claim": "A Wayback capture of the CDT-linked 21join URL at 2020-03-12 08:42:23 Beijing returns a 200 HTML page titled 发哨子的人 | 合传媒, with the interview-opening phrase, 艾芬, and 龚菁琦/金石 byline indicators.",
+      "status": "SUPPORTED_BY_DATED_21JOIN_ARCHIVED_HTML",
+      "source_ids": [
+        "AF17",
+        "AF18",
+        "AF19"
+      ],
+      "limit": "This verifies the archived page representation and its content indicators, not the authenticity of an original Renwu edition or the exact publication time."
+    },
+    {
+      "id": "AF-C26",
+      "claim": "The 21join/合传媒 page was archived at 08:42:23 Beijing on March 12, while the later yyrw homepage capture at 14:31:01 that day lacked the direct interview link; these are distinct site-level visibility observations.",
+      "status": "SUPPORTED_BY_CROSS_SITE_ARCHIVE_TIMELINE",
+      "source_ids": [
+        "AF14",
+        "AF19"
+      ],
+      "limit": "The captures are 5h48m38s apart and do not establish continuous live availability, exact removal time, or causal relationship."
     }
   ],
   "research_gates": [
@@ -678,7 +722,10 @@
   "provenance_followup": {
     "cdt_reprint_source_id": "AF17",
     "cdt_original_link_source_id": "AF18",
-    "status": "CDT_PAGE_DIRECTLY_READ; 21JOIN_DESTINATION_UNVERIFIED",
-    "next_audit": "scripts/audit-ai-fen-historical-snapshots.py now queries Wayback CDX for the exact 21join URL and inspects up to eight returned captures."
+    "status": "21JOIN_ARCHIVED_BODY_CONFIRMED; HE_MEDIA_ATTRIBUTION_STILL_NOT_INDEPENDENTLY_AUTHENTICATED",
+    "next_audit": "Compare the dated 21join/合传媒 archived body against the yyrw and Terminus derivatives; retain lineage dependence caveat.",
+    "capture_utc": "2020-03-12T00:42:23Z",
+    "capture_beijing": "2020-03-12T08:42:23+08:00",
+    "capture_title": "发哨子的人 | 合传媒"
   }
 }
