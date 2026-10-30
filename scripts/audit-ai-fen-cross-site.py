@@ -231,13 +231,17 @@ def run(out):
             })
         micro_differences.append({"old_unit_range":[i1,i2],"new_unit_range":[j1,j2],"char_changes":char_blocks})
     eq=sum(i2-i1 for tag,i1,i2,j1,j2 in opcodes if tag=="equal")
+    optional_cdt_available = "cdt_reprint" in normalized
     r={"schema_version":"1.0","run_utc":datetime.now(timezone.utc).isoformat(),
-       "status":"THREE_DERIVATIVE_TEXT_COMPARISON_NOT_ORIGINAL_PLATFORM_BYTES",
+       "status":("THREE_DERIVATIVE_TEXT_COMPARISON_NOT_ORIGINAL_PLATFORM_BYTES"
+                 if optional_cdt_available else
+                 "TWO_DERIVATIVE_TEXT_COMPARISON_CDT_REPRINT_NOT_FETCHABLE_IN_CI"),
        "sources":blobs,
        "unavailable_sources":unavailable_sources,
        "method":{"unit":"NFKC-normalized, whitespace-removed Chinese sentence-like units beginning at the same interview-opening anchor",
            "algorithm":"difflib SequenceMatcher(autojunk=False)",
-           "sources":"Pinned Terminus GitHub markdown, current yyrw HTML, and CDT 404文库 page whose editor note attributes the archived copy to He Media."},
+           "sources":(["Pinned Terminus GitHub markdown","current yyrw HTML"] +
+             (["CDT 404文库 reprint page"] if optional_cdt_available else []))},
        "pairwise_comparisons":pairwise_comparisons,
        "comparison":{"terminus_units":len(a),"yyrw_units":len(b),
           "equal_units":eq,"matched_fraction_of_terminus":round(eq/len(a),6),
