@@ -140,6 +140,56 @@ def is_target_article(href, base):
     )
 
 
+def cdx_homepage_domain():
+    params = [
+        ("url", "yyrw.org.cn"),
+        ("matchType", "domain"),
+        ("output", "json"),
+        ("fl", "timestamp,original,statuscode,mimetype,digest,length"),
+        ("from", HOME_FROM),
+        ("to", HOME_TO),
+        ("filter", "statuscode:200"),
+        ("filter", "mimetype:text/html"),
+        ("filter", r"original:^https?://(www\.)?yyrw\.org\.cn/(?:index\.(?:php|html?|htm|asp|shtml)|default\.(?:php|html?|htm|asp|shtml))?/?(?:\?.*)?$"),
+        ("limit", str(MAX_ROWS_PER_QUERY)),
+    ]
+    try:
+        response = session.get(CDX, params=params, timeout=(10, 35))
+        result = {
+            "query_url": "yyrw.org.cn (domain match; homepage/index regex)",
+            "window": [HOME_FROM, HOME_TO],
+            "http_status": response.status_code,
+            "queried_endpoint": response.url,
+        }
+        if response.status_code != 200:
+            result.update({"status": "CDX_UNAVAILABLE_NO_ABSENCE_INFERENCE", "error_excerpt": response.text[:180]})
+            return result, []
+        try:
+            rows = response.json()
+        except ValueError:
+            result.update({"status": "CDX_NON_JSON_NO_ABSENCE_INFERENCE", "error_excerpt": response.text[:180]})
+            return result, []
+        if not isinstance(rows, list) or not rows:
+            result.update({"status": "CDX_EMPTY_RESPONSE_UNVERIFIED"})
+            return result, []
+        header = rows[0]
+        records = [dict(zip(header, row)) for row in rows[1:] if len(row) == len(header)]
+        result.update({
+            "status": "CDX_RESPONSE_PARSED",
+            "records_returned": len(records),
+            "possibly_truncated_at_limit": len(records) >= MAX_ROWS_PER_QUERY
+        })
+        return result, records
+    except requests.RequestException as exc:
+        return {
+            "query_url": "yyrw.org.cn (domain match; homepage/index regex)",
+            "window": [HOME_FROM, HOME_TO],
+            "status": "CDX_REQUEST_FAILED_NO_ABSENCE_INFERENCE",
+            "error": type(exc).__name__,
+            "details": str(exc)[:180]
+        }, []
+
+
 def inspect_capture(row, kind):
     archived = capture_url(row)
     item = {
@@ -306,6 +356,8 @@ def main():
         homepage_rows.extend(rows)
         time.sleep(0.15)
 
+    domain_query, domain_rows = cdx_homepage_domain()
+    homepage_rows.extend(domain_rows)
     unique_home = {}
     for row in homepage_rows:
         key = (row.get("timestamp"), row.get("original"))
@@ -319,6 +371,23 @@ def main():
 
     direct_links = [x for x in home_obs if x.get("direct_article_link_present")]
     no_links = [x for x in home_obs if x.get("inspection_status") == "NO_DIRECT_LINK_IN_CAPTURED_HTML_NOT_PROOF_OF_NO_PROMOTION"]
+    linked_sorted = sorted(direct_links, key=lambda x: x.get("timestamp_utc", ""))
+    unlinked_sorted = sorted(no_links, key=lambda x: x.get("timestamp_utc", ""))
+    if linked_sorted and unlinked_sorted and linked_sorted[-1]["timestamp_utc"] < unlinked_sorted[0]["timestamp_utc"]:
+        homepage_state_interval = {
+            "status": "OBSERVED_LINKED_THEN_UNLINKED_CAPTURE",
+            "last_observed_homepage_link_capture_utc": linked_sorted[-1]["timestamp_utc"],
+            "last_observed_homepage_link_capture_beijing": linked_sorted[-1].get("timestamp_beijing"),
+            "first_observed_homepage_without_link_capture_utc": unlinked_sorted[0]["timestamp_utc"],
+            "first_observed_homepage_without_link_capture_beijing": unlinked_sorted[0].get("timestamp_beijing"),
+            "inference_limit": "The disappearance is bounded between two observed homepage representations; it does not identify the edit time, cause, editor, instruction recipient, or whether the missing link was a deliberate demotion."
+        }
+    else:
+        homepage_state_interval = {
+            "status": "INSUFFICIENT_OR_NON_MONOTONIC_HOME_SNAPSHOTS",
+            "linked_captures": len(linked_sorted),
+            "unlinked_captures": len(unlinked_sorted)
+        }
     report = {
         "schema_version": "1.0",
         "checked_at_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -337,7 +406,9 @@ def main():
         },
         "homepage_history": {
             "cdx_queries": homepage_queries,
+            "domain_level_homepage_query": domain_query,
             "unique_html_captures_inspected": len(home_obs),
+            "observed_homepage_link_state_interval": homepage_state_interval,
             "captures_with_direct_article_link": len(direct_links),
             "captures_without_direct_article_link": len(no_links),
             "direct_link_observations": direct_links,
@@ -372,6 +443,8 @@ def main():
             "status": x.get("status"),
             "records_returned": x.get("records_returned")
         } for x in homepage_queries],
+        "homepage_domain_query": domain_query,
+        "observed_homepage_link_state_interval": homepage_state_interval,
         "homepage_snapshots_inspected": len(home_obs),
         "homepage_direct_link_captures": [{
             "timestamp_utc": x.get("timestamp_utc"),
