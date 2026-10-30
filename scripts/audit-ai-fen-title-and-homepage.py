@@ -10,6 +10,7 @@ when the site edited or published it. Missing links in incomplete captures are
 not evidence that the article was never promoted.
 """
 import datetime
+from datetime import timezone, timedelta
 import hashlib
 import json
 import pathlib
@@ -47,6 +48,15 @@ session.headers.update({
 
 def sha256(data):
     return hashlib.sha256(data).hexdigest()
+
+def beijing_time(timestamp):
+    try:
+        dt = datetime.datetime.strptime(timestamp, "%Y%m%d%H%M%S").replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone(timedelta(hours=8))).isoformat()
+    except (ValueError, TypeError):
+        return None
+
+
 
 
 def cdx(url, start, end):
@@ -134,6 +144,7 @@ def inspect_capture(row, kind):
     archived = capture_url(row)
     item = {
         "timestamp_utc": row.get("timestamp"),
+        "timestamp_beijing": beijing_time(row.get("timestamp")),
         "original_url": row.get("original"),
         "wayback_url": "https://web.archive.org/web/" + row.get("timestamp", "") + "/" + row.get("original", ""),
         "cdx_status": row.get("statuscode"),
@@ -172,19 +183,41 @@ def inspect_capture(row, kind):
             )
         else:
             links = []
-            for anchor in soup.find_all("a", href=True):
+            all_anchors = soup.find_all("a", href=True)
+            for anchor_index, anchor in enumerate(all_anchors):
                 if is_target_article(anchor["href"], response.url):
                     label = anchor.get_text(" ", strip=True)
                     if not label:
                         image = anchor.find("img")
                         label = (image.get("alt") or image.get("title") or "") if image else ""
+                    ancestors = []
+                    node = anchor.parent
+                    for _ in range(4):
+                        if node is None:
+                            break
+                        ancestors.append({
+                            "tag": node.name,
+                            "id": node.get("id"),
+                            "class": node.get("class"),
+                            "text_excerpt": node.get_text(" ", strip=True)[:220]
+                        })
+                        node = node.parent
                     links.append({
-                        "anchor_text": label[:120],
+                        "anchor_index_zero_based": anchor_index,
+                        "anchor_text": label[:160],
                         "href_path": urlparse(urljoin(response.url, anchor["href"])).path,
+                        "ancestor_structure": ancestors
                     })
+            body_text = soup.body.get_text(" ", strip=True) if soup.body else soup.get_text(" ", strip=True)
             item["direct_article_link_present"] = bool(links)
             item["article_link_indicators"] = links[:8]
-            item["anchor_count"] = len(soup.find_all("a", href=True))
+            item["homepage_text_markers"] = {
+                "contains_blow_title_phrase": "吹哨子的人" in body_text,
+                "contains_send_title_phrase": "发哨子的人" in body_text,
+                "contains_aifen_name": "艾芬" in body_text,
+                "contains_article_opening_anchor": "接到武汉市中心医院急诊科主任艾芬同意采访" in body_text
+            }
+            item["anchor_count"] = len(all_anchors)
             item["script_count"] = len(soup.find_all("script"))
             item["body_present"] = soup.body is not None
             item["inspection_status"] = (
@@ -225,6 +258,9 @@ def title_interval(observations):
         }
     last_old = old[-1]
     first_new = new[0]
+    last_dt = datetime.datetime.strptime(last_old["timestamp_utc"], "%Y%m%d%H%M%S")
+    first_dt = datetime.datetime.strptime(first_new["timestamp_utc"], "%Y%m%d%H%M%S")
+    interval_hours = (first_dt - last_dt).total_seconds() / 3600
     if last_old["timestamp_utc"] >= first_new["timestamp_utc"]:
         status = "NON_MONOTONIC_TITLE_OBSERVATIONS"
     else:
@@ -232,7 +268,10 @@ def title_interval(observations):
     return {
         "status": status,
         "last_observed_blow_title_capture_utc": last_old["timestamp_utc"],
+        "last_observed_blow_title_capture_beijing": beijing_time(last_old["timestamp_utc"]),
         "first_observed_send_title_capture_utc": first_new["timestamp_utc"],
+        "first_observed_send_title_capture_beijing": beijing_time(first_new["timestamp_utc"]),
+        "observed_interval_hours": round(interval_hours, 4),
         "interval": (
             "after " + last_old["timestamp_utc"] + " and on/before " + first_new["timestamp_utc"]
             if status == "OBSERVED_TRANSITION_INTERVAL"
