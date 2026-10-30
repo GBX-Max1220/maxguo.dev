@@ -23,6 +23,7 @@ const knownStatuses=new Set([
  'CONTEMPORANEOUS_REPORT',
  'PEER_REVIEWED_PRIOR_WORK',
  'LINK_IDENTIFIED_ACCESS_BLOCKED',
+ 'LINK_IDENTIFIED_NOT_YET_VERIFIED',
  'ORIGINAL_SOURCE_NOT_OBTAINED',
  'GITHUB_COMMIT_PROVENANCE',
  'HISTORICAL_BODY_CAPTURE',
@@ -76,7 +77,14 @@ assert.ok(ledger.claims.find(c=>c.id==='AF-C19'&&c.status==='SUPPORTED_BY_SIX_LA
 assert.ok(ledger.claims.find(c=>c.id==='AF-C23'&&c.status==='OBSERVED_CROSS_SOURCE_TIMING_TENSION'));
 assert.ok(ledger.sources.find(s=>s.id==='AF15'&&s.status==='RETROSPECTIVE_DIRECTIVE_DISCLOSURE'));
 assert.ok(ledger.sources.find(s=>s.id==='AF13'&&s.status==='HISTORICAL_HOMEPAGE_CAPTURE'));
+assert.ok(ledger.sources.find(s=>s.id==='AF17'&&s.status==='DIRECTLY_READ_CURRENT_PAGE'&&s.url==='https://chinadigitaltimes.net/chinese/637830.html'));
+assert.ok(ledger.sources.find(s=>s.id==='AF18'&&s.status==='LINK_IDENTIFIED_NOT_YET_VERIFIED'&&s.url.includes('21join.com')));
+assert.ok(ledger.claims.find(c=>c.id==='AF-C24'&&c.status==='SUPPORTED_BY_DIRECTLY_READ_CDT_REPRINT_PAGE'));
+assert.ok(ledger.provenance_followup.status==='CDT_PAGE_DIRECTLY_READ; 21JOIN_DESTINATION_UNVERIFIED');
 assert.equal(ledger.research_gates.find(g=>g.id==='G4').status,'PARTIAL_HOMEPAGE_VISIBILITY_VERIFIED_HOST_GOVERNANCE_OPEN');
+const crossSiteScript=fs.readFileSync(path.join(root,'scripts/audit-ai-fen-cross-site.py'),'utf8');
+assert.ok(crossSiteScript.includes('TWO_DERIVATIVE_TEXT_COMPARISON_CDT_REPRINT_NOT_FETCHABLE_IN_CI'));
+assert.ok(crossSiteScript.includes('if optional_cdt_available else'));
 
 const capture=JSON.parse(fs.readFileSync(path.join(root,'research/critical-inquiry/ai-fen/historical-captures-v01.json'),'utf8'));
 const decisionV2=fs.readFileSync(path.join(root,'docs/critical-inquiry/AI_FEN_HISTORICAL_VERSION_DECISION_V02_20261030.md'),'utf8');
