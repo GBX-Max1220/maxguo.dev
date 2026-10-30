@@ -99,6 +99,8 @@ for row in list(unique_candidates.values())[:8]:
    title=soup.title.get_text(" ",strip=True) if soup.title else ""
    check["page_title"]=title[:160]
    check["body_characters"]=len(page_text)
+   if "/api.php?op=count" in original:
+    check["count_endpoint_text_preview"]=page_text[:200]
    meta={}
    allowed_meta={"description","keywords","author","og:title","og:site_name",
                  "article:published_time","article:modified_time","pubdate","publishdate"}
