@@ -10,7 +10,7 @@ const items = profile.engineeringContributions;
   <ol class="engineering-list">
     {items.map(item => (
       <li class="engineering-item">
-        <p class="engineering-status">{item.status}</p>
+        <p class="engineering-status">{item.kind ? `${item.kind} · ` : ''}{item.status}</p>
         <h3 class="engineering-title">
           <a href={item.url}>{item.title}</a>
         </h3>

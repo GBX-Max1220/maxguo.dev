@@ -10,7 +10,7 @@ const [featured, ...supporting] = profile.selectedResearch;
   {featured && (
     <article class="research-featured" data-research-id={featured.id} aria-labelledby={`featured-title-${featured.id}`}>
       <div class="research-featured-body">
-        <p class="research-status">{featured.status}</p>
+        <p class="research-status">{featured.kind ? `${featured.kind} · ` : ''}{featured.status}</p>
         <h3 id={`featured-title-${featured.id}`} class="research-featured-title">
           <a href={featured.links[0]?.url}>{featured.title}</a>
         </h3>
@@ -58,7 +58,7 @@ const [featured, ...supporting] = profile.selectedResearch;
             <img src={item.image} alt={`"${item.title}" research structure`} width="360" height="220" loading="lazy" />
           </figure>
           <div class="research-supporting-body">
-            <p class="research-status">{item.status}</p>
+            <p class="research-status">{item.kind ? `${item.kind} · ` : ''}{item.status}</p>
             <h3 id={`support-title-${item.id}`} class="research-supporting-title">
               <a href={item.links[0]?.url}>{item.title}</a>
             </h3>
