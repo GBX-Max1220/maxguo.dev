@@ -3,10 +3,12 @@
   "headline": "Reliable adaptation from imperfect, endogenous feedback.",
   "question": "How can imperfect human, evaluator, and environment feedback become learning signals that let AI agents adapt without becoming less reliable?",
   "profile": "I am Baixin Guo (Max), an independent researcher with a background in Applied Psychology. I study what feedback actually measures, how persistent state and rules are enforced across different paths, and whether adaptation on seen signals transfers to unseen situations. I design evaluations, inspect failure attribution, and build reproducible research tools.",
+  "openness": "I’m open to research collaborations and RA opportunities, and I plan to apply to PhD programs in computer science, machine learning, and human-centered AI for Fall 2027.",
   "interests": "Human and evaluator feedback; preference learning; human-agent collaboration; reliable adaptation; reproducible AI evaluation.",
   "selectedResearch": [
     {
       "id": "boundary",
+      "kind": "Collaboration",
       "title": "What the Score Measured",
       "subtitle": "Failure attribution in an agent memory evaluation",
       "status": "Joint public preprint + my methods report · with Dino Vitale, Boundary Labs",
@@ -48,7 +50,7 @@
       "question": "When one canonical authority decision governs persistent state, do all consumer paths enforce it the same way?",
       "contribution": "Consolidated existing frozen experimental and system evidence into a public research note; identified cross-consumer enforcement divergence in the audited substrate.",
       "result": "In one audited substrate, the same authority decision was applied differently by heterogeneous behavioral consumers.",
-      "scope": "Single audited substrate; the note reports no new experiments and makes no cross-system claim.",
+      "scope": "Single audited substrate; the note reports no new experiments and makes no cross-system claim. The note describes its underlying frozen artifacts as internal and the site does not link to them.",
       "links": [
         {
           "label": "Research note",
@@ -61,6 +63,7 @@
   "engineeringContributions": [
     {
       "id": "rai-judge-data-boundary",
+      "kind": "Open-source contribution",
       "title": "W&B rai-toolkit judge prompt data boundary",
       "status": "Merged upstream · wandb/rai-toolkit#114",
       "summary": "Merged fix that keeps trusted grading rules and the text being scored in separate halves of every LLM-judge prompt: rule prose stays in the system message, row values travel as one structured JSON message, and a scorer whose rule text is missing now stops with an error instead of scoring without rules. Covers 12 scorers with 73 new offline test cases; it narrows where scored text can read as an instruction, and does not claim prompt injection is solved.",
@@ -68,6 +71,7 @@
     },
     {
       "id": "reef-runner",
+      "kind": "Open-source contribution",
       "title": "REEF runner lifecycle fix",
       "status": "Merged upstream · Human-Agent-Society/reef#677",
       "summary": "Fixed a runner that did not wait for evolution steps triggered by passing reports; added regression coverage and corrected tutorial wording.",
@@ -75,6 +79,7 @@
     },
     {
       "id": "skillrl",
+      "kind": "Open-source contribution",
       "title": "SkillRL SkillBank checkpoint/resume",
       "status": "Open PR · aiming-lab/SkillRL#69",
       "summary": "Submitted a checkpoint-resume fix that saves and restores the training SkillBank, with state validation, atomic writes, and legacy-checkpoint compatibility.",
@@ -125,10 +130,10 @@
       "title": "Cross-Consumer Authority Enforcement",
       "date": "2026",
       "status": "Research note v0.1.1 · bounded single-substrate case study",
-      "summary": "In one audited persistent-agent substrate, the same canonical authority decision over the same governed state was enforced inconsistently across heterogeneous behavioral consumer paths. I consolidated the existing frozen experimental and system evidence (v0.1-v0.4, consumer-consistency audit, independent adversarial review, cross-substrate replication package) into a public research note; the note reports no new experiments, and this website update added none. Claims are limited to the recorded frozen evidence.",
+      "summary": "In one audited persistent-agent substrate, the same canonical authority decision over the same governed state was enforced inconsistently across heterogeneous behavioral consumer paths. I consolidated the existing frozen experimental and system evidence (v0.1-v0.4, consumer-consistency audit, adversarial review by a separate AI agent, cross-substrate replication package) into a public research note; the note reports no new experiments, and this website update added none. Claims are limited to the recorded frozen evidence.",
       "url": "/research/building-trustworthy-ai/authority-enforcement/",
       "bullets": [
-        "Consolidated frozen artifacts (v0.1-v0.4, consumer-consistency audit, independent adversarial review, novelty/overlap audit) into public research note v0.1.1.",
+        "Consolidated frozen artifacts (v0.1-v0.4, consumer-consistency audit, adversarial review by a separate AI agent, novelty/overlap audit) into public research note v0.1.1.",
         "Scope is one substrate and recorded evidence: no fresh replication, no residual-authority or prompt-injection result, and no claim about whether the underlying authorization was warranted."
       ]
     },

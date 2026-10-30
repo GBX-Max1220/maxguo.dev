@@ -61,7 +61,7 @@ const provenance = [
   },
   {
     label: 'INDEPENDENT_ARTIFACT_REVIEWED',
-    gloss: 'An independent reviewer inspected the frozen artifacts, including a hostile review.',
+    gloss: 'A separate AI agent and model reviewed the frozen artifacts, including a hostile review. This is an AI-agent review, not a human peer review.',
   },
   {
     label: 'NOT_INDEPENDENTLY_EMPIRICALLY_REPLICATED',
@@ -184,6 +184,26 @@ const provenance = [
             ))
           }
         </div>
+
+        <h3 class="mt-6 mb-2">What is public, and what is not</h3>
+        <ul class="ae-note">
+          <li>
+            <strong>Public:</strong> this note, and the audited substrate, the open-source IJFW project
+            (<a href="https://github.com/FerroxLabs/ijfw/tree/eda62f39f08b3028d824de1d806fe05c1402fd94" target="_blank" rel="noopener">pinned commit <code>eda62f3</code></a>).
+          </li>
+          <li>
+            <strong>Related public issue:</strong>
+            <a href="https://github.com/FerroxLabs/ijfw/issues/48" target="_blank" rel="noopener">FerroxLabs/ijfw#48</a>
+            is a separate public issue on the same project about related approval-gating behavior. It is not
+            validation of this note.
+          </li>
+          <li>
+            <strong>No public link:</strong> the note describes the frozen artifacts it inherits from (v0.1–v0.4
+            runs, the consumer-consistency audit, the adversarial review, the novelty/overlap audit, and the
+            cross-substrate replication package) as internal, and this site does not link to them. Readers
+            cannot currently re-check those artifacts from this page.
+          </li>
+        </ul>
       </section>
 
       <!-- ============ 9. Full research note CTA ============ -->
