@@ -63,6 +63,9 @@ assert.equal(homeAudit.article_title_history.observed_transition.old_title_captu
 assert.equal(homeAudit.article_title_history.observed_transition.new_title_captures,19);
 assert.equal(homeAudit.article_title_history.observed_transition.observed_gap,'11h 09m 29s');
 assert.equal(homeAudit.homepage_history.unique_html_captures_inspected,7);
+assert.equal(homeAudit.homepage_history.snapshots.length,7);
+assert.equal(homeAudit.homepage_history.observed_state_interval.later_no_link_captures,6);
+assert.equal(homeAudit.homepage_history.observed_state_interval.latest_no_link_capture_beijing,'2020-11-25T22:05:20+08:00');
 assert.equal(homeAudit.homepage_history.snapshots.filter(x=>x.direct_article_link_present).length,1);
 assert.equal(homeAudit.homepage_history.snapshots.filter(x=>x.direct_article_link_present===false).length,6);
 assert.equal(homeAudit.homepage_history.observed_state_interval.interval_length,'35h 24m 27s');
@@ -77,6 +80,7 @@ assert.equal(ledger.research_gates.find(g=>g.id==='G4').status,'PARTIAL_HOMEPAGE
 
 const capture=JSON.parse(fs.readFileSync(path.join(root,'research/critical-inquiry/ai-fen/historical-captures-v01.json'),'utf8'));
 const decisionV2=fs.readFileSync(path.join(root,'docs/critical-inquiry/AI_FEN_HISTORICAL_VERSION_DECISION_V02_20261030.md'),'utf8');
+const decisionV3=fs.readFileSync(path.join(root,'docs/critical-inquiry/AI_FEN_VISIBILITY_RECONSTRUCTION_V03_20261030.md'),'utf8');
 assert.equal(capture.records.length,4,'four distinct dated archive objects expected');
 assert.equal(capture.records.find(s=>s.id==='AH01').wayback_capture_utc,'2020-03-10T13:50:52Z');
 assert.equal(capture.records.find(s=>s.id==='AH03').body_status,'ARCHIVED_WECHAT_UNAVAILABLE_NOTICE');
@@ -88,6 +92,9 @@ assert.ok(ledger.research_gates.find(g=>g.id==='G2').status.startsWith('PARTIAL_
 assert.ok(ledger.research_gates.find(g=>g.id==='G5').status==='CORE_METHOD_AND_FINDINGS_REVIEWED_NOT_REPRODUCED');
 assert.ok(decisionV2.includes('2020-03-11 **06:58:25**'));
 assert.ok(decisionV2.includes('未经独立')||decisionV2.includes('独立审校'));
+assert.ok(decisionV3.includes('35小时24分27秒'));
+assert.ok(decisionV3.includes('泄露日期'));
+assert.ok(decisionV3.includes('不是“网站明确违抗命令”的证据'));
 
 assert.ok(ledger.claims.find(c=>c.id==='AF-C10'&&c.status==='SUPPORTED_BY_OFFICIAL_2023_LIST'),'time-bounded NHC listing claim missing');
 assert.equal(diff.status,'PRELIMINARY_REPRODUCIBLE_INTRA_REPOSITORY_DIFF');
