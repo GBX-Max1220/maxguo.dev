@@ -8,7 +8,8 @@ TARGETS={
  "yyrw_http":"http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256",
  "yyrw_https":"https://yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256",
  "renwu_wechat":"https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg",
- "terminus":"https://terminus2049.github.io/archive/2020/03/10/fa-shao-zi-de-ren.html"
+ "terminus":"https://terminus2049.github.io/archive/2020/03/10/fa-shao-zi-de-ren.html",
+ "he_media_original_link":"https://www.21join.com/index.php?a=show&c=index&catid=9&id=2703&m=content"
 }
 session=requests.Session()
 session.headers.update({"User-Agent":"AiFenHistoricalSourceAudit/1.0 (noncommercial research)"})
@@ -40,6 +41,51 @@ for key,url in TARGETS.items():
    item["attempts"].append({"endpoint":endpoint,"error":type(exc).__name__,"details":str(exc)[:180],
      "conclusion":"NO_RESULT_NOT_ZERO_CAPTURES"})
  results.append(item)
+
+# CDT 404文库 labels a 21join URL as the "original" link. Treat that label
+# as a lead only; inspect any archived 21join captures before assigning provenance.
+he_media_capture_checks=[]
+he_media_result=next((x for x in results if x["id"]=="he_media_original_link"),None)
+if he_media_result:
+ cdx=next((x for x in he_media_result["attempts"] if x["endpoint"]=="cdx_2020"),{})
+ rows=cdx.get("records_first_10") or []
+ for row in rows[:8]:
+  if len(row)<2:
+   continue
+  timestamp,original=row[0],row[1]
+  capture_url=f"https://web.archive.org/web/{timestamp}/{original}"
+  check={"timestamp":timestamp,"original_url":original,"capture_url":capture_url,
+         "status":"UNVERIFIED"}
+  try:
+   resp=session.get(capture_url,timeout=(8,22))
+   check.update({"http_status":resp.status_code,"final_url":resp.url,
+                 "response_sha256":hashlib.sha256(resp.content).hexdigest(),
+                 "content_type":resp.headers.get("Content-Type","").split(";")[0]})
+   if resp.status_code==200:
+    from bs4 import BeautifulSoup
+    soup=BeautifulSoup(resp.text,"html.parser")
+    page_text=soup.get_text(" ",strip=True)
+    title=soup.title.get_text(" ",strip=True) if soup.title else ""
+    check["page_title"]=title[:160]
+    check["body_characters"]=len(page_text)
+    check["indicators"]={
+      "title_fa_shao_zi":"发哨子的人" in page_text or "发哨子的人" in title,
+      "title_chui_shao_zi":"吹哨子的人" in page_text or "吹哨子的人" in title,
+      "ai_fen_name":"艾芬" in page_text,
+      "interview_opening":"接到武汉市中心医院急诊科主任艾芬同意采访" in page_text,
+      "source_byline":"龚菁琦" in page_text,
+      "editor_byline":"金石" in page_text,
+      "mentions_he_media":"合传媒" in page_text
+    }
+    check["status"]="ARTICLE_BODY_INDICATORS_PRESENT" if (
+      check["indicators"]["interview_opening"] and check["indicators"]["ai_fen_name"]
+    ) else "CAPTURE_OPENED_BUT_ARTICLE_BODY_NOT_CONFIRMED"
+   else:
+    check["status"]="CAPTURE_UNAVAILABLE_NOT_DISPROVEN"
+  except requests.RequestException as exc:
+   check.update({"status":"CAPTURE_UNAVAILABLE_NOT_DISPROVEN","error":type(exc).__name__})
+  he_media_capture_checks.append(check)
+
 # Known candidate discovered in earlier archival work; try it verbatim.
 known="https://web.archive.org/web/20200310135052/http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256"
 attempt={"candidate_capture_url":known,"claimed_wayback_capture_utc":"2020-03-10T13:50:52Z",
@@ -154,7 +200,8 @@ for item in extra_checks:
 
 result={"schema_version":"1.0","checked_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),
  "authority":"Internet Archive endpoints, queried live; archived captures not authenticated unless page body was readable",
- "results":results,"known_candidate_capture":attempt,"other_captured_pages":extra_checks,"historic_vs_current_yyrw":historic_text_comparison,
+ "results":results,"he_media_original_link_captures":he_media_capture_checks,
+ "known_candidate_capture":attempt,"other_captured_pages":extra_checks,"historic_vs_current_yyrw":historic_text_comparison,
  "limits":["A CDX match is indexed capture metadata and does not automatically establish article-body text without opening a capture.",
  "A blocked CDX/available endpoint is not a zero-captures result.",
  "No date displayed by today's source page is converted into a 2020 first-publication claim.",
@@ -162,7 +209,9 @@ result={"schema_version":"1.0","checked_at_utc":datetime.datetime.now(datetime.t
 p=pathlib.Path(".astro/ai-fen-history/wayback-check.json");p.parent.mkdir(parents=True,exist_ok=True)
 p.write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
 print("WAYBACK_AUDIT_SUMMARY_BEGIN")
-print(json.dumps({"known_candidate":attempt,
+print(json.dumps({"he_media_original_link_query":next((x for x in results if x["id"]=="he_media_original_link"),None),
+ "he_media_original_link_captures":he_media_capture_checks,
+ "known_candidate":attempt,
  "other_captures":[{"id":x["id"],"status":x["status"],"http_status":x.get("http_status"),"evidence_indicators":x.get("evidence_indicators"),"marker_checks":x.get("marker_checks"),"page_title":x.get("page_title"),"visible_page_text_head":x.get("visible_page_text_head")} for x in extra_checks],
  "historic_vs_current_yyrw":historic_text_comparison,
  "queries":[{"id":a["id"],"results":[{"endpoint":z["endpoint"],"http_status":z.get("http_status"),
