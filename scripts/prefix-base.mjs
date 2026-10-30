@@ -33,8 +33,8 @@ function walk(dir) {
 }
 
 function prefixAttribute(html, attr) {
-  // Replace attr="/..." but NOT already-prefixed or external URLs
-  const regex = new RegExp(`(${attr}=")(/[^"]+)"`, 'g');
+  // Replace attr="/..." (including the bare site root "/") but NOT already-prefixed or external URLs
+  const regex = new RegExp(`(${attr}=")(/[^"]*)"`, 'g');
   return html.replace(regex, (match, prefix, path) => {
     // Skip external / protocol-relative / anchor-only paths
     if (SKIP_PATTERN.test(path)) return match;
@@ -42,6 +42,7 @@ function prefixAttribute(html, attr) {
     if (ALREADY_PREFIXED.test(path)) return match;
     // Skip paths that are not root-relative
     if (!path.startsWith('/')) return match;
+    // The bare site root maps to the base's own home, not to the domain root.
     return `${prefix}${BASE}${path}"`;
   });
 }

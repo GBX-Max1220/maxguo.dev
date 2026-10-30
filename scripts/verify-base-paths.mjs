@@ -94,6 +94,24 @@ for (const file of htmlFiles) {
   }
 }
 
+// 6. The site-root link (logo, breadcrumb, 404 button) must stay inside the base:
+//    a bare href="/" would leave /maxguo.dev/ and 404 on GitHub Pages.
+for (const file of htmlFiles) {
+  if (/(?:href|src|action)="\/"/.test(readFileSync(file, 'utf-8'))) {
+    fail(`${file.replace(DIST, '')}: bare root link "/" escapes ${BASE}/`);
+  }
+}
+for (const page of ['index.html', 'about/index.html', 'research/building-trustworthy-ai/authority-enforcement/index.html']) {
+  const pagePath = join(DIST, page);
+  if (!existsSync(pagePath)) {
+    fail(`${page}: missing from dist`);
+    continue;
+  }
+  const logo = readFileSync(pagePath, 'utf-8').match(/<a href="([^"]*)"[^>]*aria-label="Baixin Guo — home"/);
+  if (!logo) fail(`${page}: logo link not found`);
+  else if (logo[1] !== `${BASE}/`) fail(`${page}: logo link is "${logo[1]}", expected "${BASE}/"`);
+}
+
 if (failures.length > 0) {
   console.log('\n=== Base path verification FAILED ===');
   for (const message of failures) console.log(`  ❌ ${message}`);
