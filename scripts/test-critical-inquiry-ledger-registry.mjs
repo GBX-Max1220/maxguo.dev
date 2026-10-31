@@ -74,3 +74,11 @@ test('formal correction, bounded not-located outcome and non-applicable archive 
  d.comparison_contract.correction_state_register.find(x=>x.case_id==='shanghai-2022').state='no_disposition';
  assert.ok(validateRegistry(d).some(x=>x.includes('Shanghai bounded not-located state')));
 });
+
+test('voluntary self-deletion example remains a methodological counterexample, not case evidence',()=>{
+ const d=clone(),x=d.methodological_counterexamples[0];
+ assert.equal(x.case_evidence,false);
+ assert.equal(x.counts_toward_case_source_totals,false);
+ x.case_evidence=true;
+ assert.ok(validateRegistry(d).some(s=>s.includes('outside case evidence')));
+});
