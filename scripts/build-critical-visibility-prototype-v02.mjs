@@ -11,7 +11,7 @@ const template=fs.readFileSync(templatePath,'utf8');
 const placeholder='__REGISTRY_JSON__';
 if(template.split(placeholder).length!==2)throw new Error('Template must contain one registry placeholder');
 if(!template.includes('noindex,nofollow,noarchive'))throw new Error('Research-only robots marker missing');
-if(!template.includes('存档捕获时间不等于页面编辑时间'))throw new Error('Historical archive caveat missing');
+if(!template.includes('艾芬案的档案捕获时间不等于页面编辑时间'))throw new Error('Historical archive caveat missing');
 const json=JSON.stringify(registry).replaceAll('<','\\u003c').replaceAll('>','\\u003e').replaceAll('&','\\u0026');
 const html=template.replace(placeholder,json);
 if(/<script[^>]+src\s*=/.test(html))throw new Error('External script not allowed in offline prototype');
