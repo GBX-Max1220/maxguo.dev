@@ -41,7 +41,7 @@ export function validateData(data) {
   const errors=[];
   if(!data || typeof data!=='object') return ['Document must be an object'];
   if(data.schema_version!==SCHEMA_VERSION) err(errors,'unsupported schema version');
-  if(data.status!=='RESEARCH_ONLY_NOT_PUBLICATION_APPROVED')err(errors,'unapproved status marker missing');
+  if(!['RESEARCH_ONLY_NOT_PUBLICATION_APPROVED','RESEARCH_ONLY_TECHNICAL_PILOT_SUPERSEDED_FOR_FULL_COMPARISON'].includes(data.status))err(errors,'unapproved status marker missing');
   if(data.timezone!=='Asia/Shanghai')err(errors,'timezone must be Asia/Shanghai');
   if(!Array.isArray(data.parent_records)||data.parent_records.length!==3)err(errors,'expected three source provenance records');
   if(!Array.isArray(data.cases)||data.cases.length!==3) return [...errors,'expected exactly three research cases'];
