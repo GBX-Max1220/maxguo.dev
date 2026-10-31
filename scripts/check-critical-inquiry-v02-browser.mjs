@@ -18,6 +18,7 @@ try{
   assert.equal(await page.locator('#case option').count(),3);
   assert.equal(await page.locator('#view option').count(),13);
   assert.equal(await page.locator('#claim-select option').count(),14);
+  assert.match(await page.locator('#lineage-content').innerText(),/已观察到正式纠正/);
 
   await page.locator('#view').selectOption('LW_ASOF_0131_1200');
   assert.ok(!(await page.locator('#time-content').innerText()).includes('LW13'));
@@ -33,6 +34,7 @@ try{
   await page.locator('#case').selectOption('shanghai-2022');
   assert.equal(await page.locator('#view option').count(),11);
   assert.equal(await page.locator('#claim-select option').count(),11);
+  assert.match(await page.locator('#lineage-content').innerText(),/限定公开检索内未定位/);
   await page.locator('#view').selectOption('mar23_1402');
   assert.match(await page.locator('#time-content').innerText(),/S09/);
   assert.ok(!(await page.locator('#time-content').innerText()).includes('S18'));
@@ -47,6 +49,7 @@ try{
   await page.locator('#case').selectOption('ai-fen-2020');
   assert.equal(await page.locator('#view option').count(),30);
   assert.equal(await page.locator('#claim-select option').count(),29);
+  assert.match(await page.locator('#lineage-content').innerText(),/不适用：非正式纠正案件/);
   assert.equal(await page.locator('#retrospective-section').isVisible(),true);
   await page.locator('#view').selectOption('AF_TITLE_20200310170954');
   assert.match(await page.locator('#time-content').innerText(),/吹哨子的人/);
