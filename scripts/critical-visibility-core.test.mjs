@@ -9,7 +9,7 @@ const byId=(d,id)=>d.cases.find(c=>c.id===id);
 test('fixture passes exact provenance, timestamps, references, and completeness',()=>{
   assert.deepEqual(validateData(data),[]);
   assert.deepEqual(data.cases.map(c=>c.observations.length),[5,5,7]);
-  assert.deepEqual(data.cases.map(c=>c.checkpoints.length),[5,5,6]);
+  assert.deepEqual(data.cases.map(c=>c.checkpoints.length),[6,5,6]);
 });
 
 test('Li Jan 1 cannot see Jan 31 interview, March 19 investigation or later correction',()=>{
