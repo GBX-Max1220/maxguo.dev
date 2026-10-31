@@ -14,7 +14,8 @@
     "counts",
     "cases",
     "comparison_contract",
-    "review_state"
+    "review_state",
+    "methodological_counterexamples"
   ],
   "properties": {
     "schema_version": {
@@ -196,6 +197,58 @@
         },
         "note": {
           "type": "string"
+        }
+      }
+    },
+    "methodological_counterexamples": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "source_url",
+          "observed_publication_at",
+          "source_role",
+          "source_claim",
+          "methodological_use",
+          "limitations",
+          "case_evidence",
+          "counts_toward_case_source_totals"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "observed_publication_at": {
+            "type": "string"
+          },
+          "source_role": {
+            "type": "string"
+          },
+          "source_claim": {
+            "type": "string"
+          },
+          "methodological_use": {
+            "type": "string"
+          },
+          "limitations": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "string"
+            }
+          },
+          "case_evidence": {
+            "const": false
+          },
+          "counts_toward_case_source_totals": {
+            "const": false
+          }
         }
       }
     }
