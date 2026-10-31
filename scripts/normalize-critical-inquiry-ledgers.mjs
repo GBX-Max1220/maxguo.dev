@@ -171,7 +171,7 @@ const shCase={
 
 const titleCaptures=cdx.article_title_history.title_captures.map(([stamp,beijing,title])=>({
  capture_id:'AF_TITLE_'+stamp,archive_type:'article_title_capture',
- target_url:cdx.article_title_history.article_url,wayback_timestamp_utc:stamp,
+ target_url:cdx.article_title_history.article_url,wayback_url:'https://web.archive.org/web/'+stamp+'/'+cdx.article_title_history.article_url,wayback_timestamp_utc:stamp,
  observed_at_beijing:beijing,title,direct_article_link_present:null,
  source_parent_ids:['AF03'],independence_group:'yyrw_interview_copy',
  native_record_path:'source-ledgers/ai-fen/title-homepage-cdx-v01.json',
