@@ -1,0 +1,65 @@
+name: Critical inquiry three-case temporal integrity
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'research/critical-inquiry/normalized/**'
+      - 'research/critical-inquiry/prototypes/three-case-time-machine-template-v01.html'
+      - 'scripts/critical-visibility-core.mjs'
+      - 'scripts/critical-visibility-core.test.mjs'
+      - 'scripts/build-critical-visibility-prototype.mjs'
+      - 'scripts/check-three-case-time-machine.mjs'
+      - '.github/workflows/critical-inquiry-three-case.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  evidence-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check no-lookahead, bounded observation, source independence and archive integrity
+        run: node --test scripts/critical-visibility-core.test.mjs
+      - name: Build offline prototype from validated research dataset
+        run: node scripts/build-critical-visibility-prototype.mjs
+      - name: Upload offline research HTML
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: three-case-research-offline-html
+          path: .astro/critical-inquiry-research/three-case-time-machine.html
+          if-no-files-found: warn
+          retention-days: 14
+
+  browser-behavior:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install pinned site dependencies for Playwright test
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Install Chromium for offline QA
+        run: npx playwright install --with-deps chromium
+      - name: Build offline research-only prototype
+        run: node scripts/build-critical-visibility-prototype.mjs
+      - name: Verify three-case interaction, time isolation and responsive layout
+        run: node scripts/check-three-case-time-machine.mjs
+      - name: Upload screenshots for independent editorial review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: three-case-research-mobile-desktop-qa
+          path: .astro/critical-inquiry-research/screenshots/
+          if-no-files-found: warn
+          retention-days: 14
