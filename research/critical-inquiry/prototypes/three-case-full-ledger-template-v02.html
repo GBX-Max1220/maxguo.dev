@@ -165,7 +165,6 @@ function render(){
  $('m-views').textContent=c.as_of_views.length?'历史截点 '+c.as_of_views.length:'存档观察 '+c.archive_observations.length;
  if(c.id==='ai-fen-2020'){
   $('time-panel').classList.remove('hidden');
-  options(viewEl,c.archive_observations.map(x=>({id:x.capture_id,label:x.observed_at_beijing+' · '+x.archive_type+' · '+(x.title|| (x.direct_article_link_present===true?'首页含链接':x.direct_article_link_present===false?'首页无链接':'捕获记录'))})));
   $('retrospective-section').classList.remove('hidden');
   $('retrospective-content').replaceChildren();
   const d=c.retrospective_directive_cross_reference;
@@ -179,7 +178,6 @@ function render(){
  }else{
   $('retrospective-section').classList.add('hidden');
   $('time-panel').classList.remove('hidden');
-  options(viewEl,c.as_of_views.map(x=>({id:x.view_id,label:(x.label||x.view_id)+' · '+timeLabel(x)})));
   const v=c.as_of_views.find(x=>x.view_id===viewEl.value);
   $('time-heading').textContent='截至该截点，原账本登记为公开可引用';
   $('limits-heading').textContent='原账本明确列出的未知或未登记事项';
