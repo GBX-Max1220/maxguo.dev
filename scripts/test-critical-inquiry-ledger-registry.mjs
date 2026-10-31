@@ -67,3 +67,10 @@ test('publication and second-human review cannot be auto-promoted by CI',()=>{
  const d2=clone();d2.review_state.independent_second_human_review='COMPLETED';
  assert.ok(validateRegistry(d2).some(x=>x.includes('human review state')));
 });
+
+test('formal correction, bounded not-located outcome and non-applicable archive state stay distinct',()=>{
+ const d=clone();
+ assert.deepEqual(d.comparison_contract.correction_state_register.map(x=>x.state),['observed_formal_correction','searched_not_located','not_applicable']);
+ d.comparison_contract.correction_state_register.find(x=>x.case_id==='shanghai-2022').state='no_disposition';
+ assert.ok(validateRegistry(d).some(x=>x.includes('Shanghai bounded not-located state')));
+});
