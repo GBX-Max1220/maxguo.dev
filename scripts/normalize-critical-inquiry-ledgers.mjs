@@ -72,8 +72,9 @@ function normalizeShSource(s){
 function normalizeAfSource(s){
  return {
   source_id:s.id,url:s.url||null,publisher:null,source_role:s.type||null,
-  access_status:s.status||null,publication_date:s.displayed_date||s.published_date||null,
-  published_at_local:null,archive_capture_utc:s.wayback_capture_utc||null,
+  access_status:s.status||null,publication_date:s.published_date||s.displayed_date||null,
+  displayed_date:s.displayed_date||null,displayed_directive_date:s.displayed_directive_date||null,
+  published_date:s.published_date||null,published_at_local:null,archive_capture_utc:s.wayback_capture_utc||null,
   independence_group:s.independence_group||null,historical_asof_eligible:false,
   evidence_observations:s.observations||[],evidence_limit:s.limitations||[],
   native_record_id:s.id,native_file:'source-ledgers/ai-fen/source-audit-v01.json'
