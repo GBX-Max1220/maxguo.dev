@@ -167,13 +167,13 @@ function render(){
   $('time-panel').classList.remove('hidden');
   $('retrospective-section').classList.remove('hidden');
   $('retrospective-content').replaceChildren();
+  sourceBlock($('retrospective-content'),c,['AF15','AF16']);
   const d=c.retrospective_directive_cross_reference;
   $('retrospective-content').append(txt('div','CDT DISCLOSURE · 2020-12 later disclosure','tag'));
   $('retrospective-content').append(txt('p','披露页面标注的指令日期：'+d.chinese_disclosure_date_label));
   $('retrospective-content').append(txt('p','所披露措辞：'+d.reported_wording));
   $('retrospective-content').append(txt('p',d.inference,'small'));
   $('retrospective-content').append(txt('p',d.lineage,'muted'));
-  sourceBlock($('retrospective-content'),c,['AF15','AF16']);
   renderAiFen(c);
  }else{
   $('retrospective-section').classList.add('hidden');
