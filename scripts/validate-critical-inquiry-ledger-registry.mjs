@@ -115,6 +115,11 @@ export function validateRegistry(registry,root=process.cwd()){
  }
  const count=registry.counts||{};
  if(count.sources!==58||count.as_of_views!==24||count.claims!==54||count.archive_observations!==30)fail('registry portfolio totals do not match full source ledgers');
+ const controls=registry.methodological_counterexamples||[];
+ if(controls.length!==1||controls[0].case_evidence!==false||controls[0].counts_toward_case_source_totals!==false)
+  fail('voluntary-removal counterexample must remain outside case evidence and source totals');
+ if(controls[0]?.id!=='SMARTHAI_VOLUNTARY_DATE_CORRECTION_20220328'||!/^https:\/\//.test(controls[0]?.source_url||''))
+  fail('methodological counterexample provenance missing');
  const correctionStates=new Map((registry.comparison_contract?.correction_state_register||[]).map(x=>[x.case_id,x.state]));
  if(correctionStates.get('li-2020')!=='observed_formal_correction')fail('Li formal correction state missing');
  if(correctionStates.get('shanghai-2022')!=='searched_not_located')fail('Shanghai bounded not-located state must not become no-disposition');
