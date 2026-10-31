@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>言说的边界 · 三案例完整证据账本 / 研究原型</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,"PingFang SC","Microsoft Yahei",sans-serif;background:#111d25;color:#e8e9e5}
+*{box-sizing:border-box}body{margin:0}.wrap{max-width:1180px;margin:auto;padding:0 24px}
+header{padding:45px 0 26px;border-bottom:1px solid #405965}.eyebrow{font:600 12px ui-monospace,monospace;letter-spacing:.12em;color:#dfad8d}
+h1{font-size:clamp(30px,4vw,52px);line-height:1.2;letter-spacing:-.035em;margin:15px 0}
+h2{font-size:clamp(22px,3vw,29px)}h3{font-size:17px;margin:0 0 14px}
+.lead{max-width:880px;line-height:1.9;color:#c2ced1}
+.notice{margin-top:22px;padding:17px 19px;background:#3a302d;border-left:3px solid #c58d6c;font-size:13px;line-height:1.85}
+main{padding:28px 0 85px}.controls{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:block;font-size:13px;color:#b5c6cb;font-weight:650}
+select{width:100%;min-height:47px;margin-top:8px;padding:12px;background:#213642;color:#f4f5f2;border:1px solid #5b7884;border-radius:3px;font:inherit}
+select:focus-visible,a:focus-visible{outline:3px solid #e3b18e;outline-offset:3px}
+.metrics{display:flex;gap:10px;flex-wrap:wrap;margin:19px 0 26px}
+.metric{border:1px solid #3f5a67;padding:9px 12px;font:12px ui-monospace,monospace;color:#b8cbd0}
+.section{margin-top:27px;padding-top:20px;border-top:1px solid #405965}
+.section p{line-height:1.85;color:#c1ced1}
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+.panel{background:#192d38;padding:22px;border-top:3px solid #71929b;min-width:0}
+.panel.warn{border-color:#bc8b6d;background:#292a2b}
+.small{font-size:13px;color:#b5c6cb;line-height:1.8}
+.record{padding:16px 0;border-top:1px solid #3d5663}.record:first-child{border-top:0}
+.tag{font:600 11px ui-monospace,monospace;color:#dfb08e;letter-spacing:.04em}
+.record p{font-size:14px;line-height:1.8;margin:8px 0;color:#e4e6e1}
+.muted{font-size:12px;color:#b2c1c6;line-height:1.75}
+a{color:#e4b28e;text-underline-offset:3px;overflow-wrap:anywhere}
+.list{margin:10px 0 0;padding-left:18px}.list li{font-size:12px;line-height:1.9;color:#c1ced1}
+.claim{padding:15px 0;border-top:1px solid #3c5663}.claim:first-child{border-top:0}
+.pill{display:inline-block;border:1px solid #607986;padding:3px 7px;font:11px ui-monospace,monospace;color:#d9c3ad;margin-right:6px}
+.gridline{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.hidden{display:none!important}
+footer{margin-top:42px;border-top:1px solid #405965;padding:22px 0;color:#b5c6cb;font-size:13px;line-height:1.9}
+@media(max-width:700px){.wrap{padding:0 16px}header{padding-top:30px}.controls,.two,.gridline{grid-template-columns:1fr}.panel{padding:17px}}
+</style>
+</head>
+<body>
+<header class="wrap">
+<div class="eyebrow">THE BOUNDARIES OF THE SAYABLE / FULL LEDGER V0.2</div>
+<h1>三个案例，三种不同的历史证据结构</h1>
+<p class="lead">将李文亮、上海封控与艾芬采访的原始研究账本完整保留，再提供可比较的来源、主张、时间截点和存档观察。统一的是研究问题和审计规则，不是法律对象，也不是预设的因果结论。</p>
+<div class="notice"><strong>研究原型，不是正式出版物。</strong> 本界面仅使用已固定版本的公开来源元数据与研究摘要，不包含原采访全文或私人材料。原始账本与来源访问审计已逐份保留。CI通过仅证明数据结构和程序约束，不能替代第二位研究者独立核验。未授权部署、合并或引用为司法事实结论。</div>
+</header>
+<main class="wrap">
+<div class="controls">
+<div><label for="case">案例 / CASE</label><select id="case"></select></div>
+<div><label for="view">时间截点或存档观察 / TIME VIEW</label><select id="view"></select></div>
+</div>
+<div class="metrics" aria-live="polite">
+<span class="metric" id="m-sources"></span><span class="metric" id="m-lineages"></span><span class="metric" id="m-claims"></span><span class="metric" id="m-views"></span>
+</div>
+<section class="section">
+<div class="tag" id="view-tag"></div><h2 id="case-title"></h2><p id="case-scope"></p><p class="small" id="view-boundary"></p>
+</section>
+<section class="two">
+<div class="panel" id="time-panel">
+<h3 id="time-heading">当时可引用的记录</h3>
+<div id="time-content"></div>
+</div>
+<div class="panel warn" id="limits-panel">
+<h3 id="limits-heading">当时尚不能推定的事项</h3>
+<div id="limits-content"></div>
+</div>
+</section>
+<section class="section">
+<div class="gridline">
+<div>
+<label for="claim-select">原子主张 / CLAIM REGISTER</label>
+<select id="claim-select"></select>
+</div>
+<div class="small" id="claim-status-note"></div>
+</div>
+<div class="panel" style="margin-top:14px">
+<div id="claim-content"></div>
+</div>
+</section>
+<section class="section hidden" id="retrospective-section">
+<h2>后来的披露与回顾性审计</h2>
+<p>这些材料的公开或登记时间晚于它们所描述的事件。它们不能自动加入更早的历史截点。</p>
+<div class="panel warn" id="retrospective-content"></div>
+</section>
+<section class="section">
+<h3>来源依赖与研究边界</h3>
+<div class="panel"><div id="lineage-content"></div></div>
+</section>
+<footer>
+<strong>研究方法：</strong>以来源谱系而不是网页数量计算独立性；严格区分事件时间、公开/观察时间与存档捕获时间；把日期级材料保留为日期级精度；对未找到的司法文书使用 scoped-search 的未定位状态，不转换成“没有结局”。艾芬案的档案捕获时间不等于页面编辑时间。上海和李文亮案不是相同的法律程序。
+</footer>
+</main>
+<script id="registry" type="application/json">__REGISTRY_JSON__</script>
+<script>
+'use strict';
+const data=JSON.parse(document.getElementById('registry').textContent);
+const $=id=>document.getElementById(id);
+const caseEl=$('case'),viewEl=$('view'),claimEl=$('claim-select');
+let current=null;
+const txt=(tag,value,cls)=>{const e=document.createElement(tag);if(value!==undefined&&value!==null)e.textContent=String(value);if(cls)e.className=cls;return e};
+const link=(url,label)=>{if(!url)return txt('span',label+'（原始URL未取得）','muted');const a=txt('a',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a};
+const timeLabel=v=>v.cutoff.precision==='exact_local_time'?v.cutoff.local_datetime:(v.cutoff.date+'（日期级，按原账本日终口径排序）');
+function options(el,rows){el.replaceChildren();rows.forEach(r=>{const o=txt('option',r.label);o.value=r.id;el.append(o)})}
+function appendBullets(target,items){target.replaceChildren();if(!items||!items.length){target.append(txt('p','原始账本未登记更多条目；这不等于事项不存在。','small'));return}const ul=txt('ul',undefined,'list');items.forEach(x=>ul.append(txt('li',x)));target.append(ul)}
+function sourceBlock(target,c,ids){
+ target.replaceChildren();
+ const map=new Map(c.sources.map(s=>[s.source_id,s]));
+ if(!ids?.length){target.append(txt('p','没有登记可用来源。','small'));return}
+ ids.forEach(id=>{
+  const s=map.get(id);if(!s)return;
+  const r=txt('article',undefined,'record');
+  const head=txt('div',id+' · '+(s.source_role||'source'),'tag');r.append(head);
+  const row=txt('p',s.publisher||s.url||'来源元数据');r.append(row);
+  const urlrow=txt('div');urlrow.append(link(s.url,id+' 打开来源'));r.append(urlrow);
+  const meta=[s.publication_date||'',s.published_at_local||'',s.access_status||'',s.independence_group||''].filter(Boolean).join(' · ');
+  r.append(txt('div',meta,'muted'));
+  if(s.evidence_limit)r.append(txt('div',Array.isArray(s.evidence_limit)?s.evidence_limit.join('；'):s.evidence_limit,'muted'));
+  target.append(r);
+ });
+}
+function renderClaim(){
+ const c=current;if(!c)return;
+ const claim=c.claims.find(x=>x.claim_id===claimEl.value);$('claim-content').replaceChildren();
+ if(!claim)return;
+ const area=$('claim-content');
+ area.append(txt('div',claim.claim_id+' · '+(claim.status||'STATUS NOT SET'),'tag'));
+ area.append(txt('p',claim.claim));
+ if(claim.claim_type)area.append(txt('div','类型：'+claim.claim_type,'small'));
+ if(claim.status_at_mar23||claim.status_after_mar27)area.append(txt('p','3月23日状态：'+(claim.status_at_mar23||'未登记')+'；3月27日后：'+(claim.status_after_mar27||'未登记'),'small'));
+ if(claim.limitations)area.append(txt('p','限制：'+(Array.isArray(claim.limitations)?claim.limitations.join('；'):claim.limitations),'muted'));
+ if(claim.first_observed_date)area.append(txt('p','首次观察日期：'+claim.first_observed_date,'muted'));
+ sourceBlock(area,c,claim.source_ids);
+ $('claim-status-note').textContent='共 '+c.claims.length+' 条主张；每条均保留原账本来源ID与限制。主张状态不是司法裁决。';
+}
+function renderAiFen(c){
+ const cap=c.archive_observations.find(x=>x.capture_id===viewEl.value);
+ $('time-heading').textContent='存档捕获观察（不是公众知识快照）';
+ $('limits-heading').textContent='此捕获不能证明什么';
+ $('time-content').replaceChildren();$('limits-content').replaceChildren();
+ if(!cap)return;
+ const a=$('time-content');
+ a.append(txt('div',cap.archive_type+' / '+cap.capture_id,'tag'));
+ a.append(txt('p',cap.observed_at_beijing,'small'));
+ if(cap.title)a.append(txt('p','捕获标题：'+cap.title));
+ if(typeof cap.direct_article_link_present==='boolean')a.append(txt('p','首页直接链接：'+(cap.direct_article_link_present?'存在':'未在此份HTML中发现')));
+ if(cap.body_status)a.append(txt('p','正文状态：'+cap.body_status));
+ if(cap.observed_notice)a.append(txt('p','页面提示：'+cap.observed_notice));
+ if(cap.wayback_url)a.append(txt('p','存档入口：'));if(cap.wayback_url)a.append(link(cap.wayback_url,'打开此份Wayback快照'));
+ if(cap.snapshot_url)a.append(txt('p','存档入口：'));if(cap.snapshot_url)a.append(link(cap.snapshot_url,'打开此份Wayback快照'));
+ if(cap.target_url)a.append(txt('p','目标URL：'+cap.target_url,'muted'));
+ if(cap.link?.interpretation)a.append(txt('p',cap.link.interpretation,'muted'));
+ $('limits-content').append(txt('p',cap.limitations||'该条记录仅证明该份捕获呈现的状态，不证明编辑者、确切修改时间或因果动机。','small'));
+ sourceBlock($('limits-content'),c,cap.source_parent_ids);
+ $('view-tag').textContent='ARCHIVE OBSERVATION / '+cap.observed_at_beijing;
+ $('view-boundary').textContent='存档观察时间不是原文首发时间、编辑时间或删除时间。此案没有被编码为一般的公众知识 as-of 时间线。';
+}
+function render(){
+ current=data.cases.find(c=>c.id===caseEl.value);const c=current;
+ $('case-title').textContent=c.title;$('case-scope').textContent=c.scope||'';
+ $('m-sources').textContent='来源 '+c.sources.length;
+ $('m-lineages').textContent='来源谱系 '+c.source_lineage_groups.length;
+ $('m-claims').textContent='主张 '+c.claims.length;
+ $('m-views').textContent=c.as_of_views.length?'历史截点 '+c.as_of_views.length:'存档观察 '+c.archive_observations.length;
+ options(claimEl,c.claims.map(x=>({id:x.claim_id,label:x.claim_id+' · '+x.claim.slice(0,54)})));
+ if(c.id==='ai-fen-2020'){
+  $('time-panel').classList.remove('hidden');
+  options(viewEl,c.archive_observations.map(x=>({id:x.capture_id,label:x.observed_at_beijing+' · '+x.archive_type+' · '+(x.title|| (x.direct_article_link_present===true?'首页含链接':x.direct_article_link_present===false?'首页无链接':'捕获记录'))})));
+  $('retrospective-section').classList.remove('hidden');
+  $('retrospective-content').replaceChildren();
+  const d=c.retrospective_directive_cross_reference;
+  $('retrospective-content').append(txt('div','CDT DISCLOSURE · 2020-12 later disclosure','tag'));
+  $('retrospective-content').append(txt('p','披露页面标注的指令日期：'+d.chinese_disclosure_date_label));
+  $('retrospective-content').append(txt('p','所披露措辞：'+d.reported_wording));
+  $('retrospective-content').append(txt('p',d.inference,'small'));
+  $('retrospective-content').append(txt('p',d.lineage,'muted'));
+  sourceBlock($('retrospective-content'),c,['AF15','AF16']);
+  renderAiFen(c);
+ }else{
+  $('retrospective-section').classList.add('hidden');
+  $('time-panel').classList.remove('hidden');
+  options(viewEl,c.as_of_views.map(x=>({id:x.view_id,label:(x.label||x.view_id)+' · '+timeLabel(x)})));
+  const v=c.as_of_views.find(x=>x.view_id===viewEl.value);
+  $('time-heading').textContent='截至该截点，原账本登记为公开可引用';
+  $('limits-heading').textContent='原账本明确列出的未知或未登记事项';
+  $('time-content').replaceChildren();$('limits-content').replaceChildren();
+  $('view-tag').textContent='AS-OF / '+timeLabel(v);
+  $('view-boundary').textContent=v.cutoff.boundary_note;
+  if(v.heading)$('time-content').append(txt('h3',v.heading));
+  if(Array.isArray(v.publicly_documented))appendBullets($('time-content'),v.publicly_documented);
+  else $('time-content').append(txt('p',v.publicly_documented||'未登记','small'));
+  sourceBlock($('time-content'),c,v.source_ids);
+  appendBullets($('limits-content'),Array.isArray(v.not_publicly_documented)?v.not_publicly_documented:[v.not_publicly_documented].filter(Boolean));
+  if(v.analytical_question)$('limits-content').append(txt('p','研究问题：'+v.analytical_question,'small'));
+ }
+ $('lineage-content').replaceChildren();
+ c.source_lineage_groups.forEach(g=>{
+  const row=txt('div',undefined,'record');
+  row.append(txt('div',g.lineage_id,'tag'));
+  row.append(txt('p',g.source_ids.join(' · '),'small'));
+  row.append(txt('p',g.interpretation,'muted'));
+  $('lineage-content').append(row);
+ });
+ renderClaim();
+}
+function setCase(){current=data.cases.find(c=>c.id===caseEl.value);render()}
+options(caseEl,data.cases.map(c=>({id:c.id,label:c.title})));
+caseEl.addEventListener('change',setCase);
+viewEl.addEventListener('change',render);
+claimEl.addEventListener('change',renderClaim);
+setCase();
+</script>
+</body>
+</html>
