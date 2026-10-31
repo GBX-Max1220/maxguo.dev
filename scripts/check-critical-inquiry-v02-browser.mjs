@@ -19,6 +19,8 @@ try{
   assert.equal(await page.locator('#view option').count(),13);
   assert.equal(await page.locator('#claim-select option').count(),14);
   assert.match(await page.locator('#lineage-content').innerText(),/已观察到正式纠正/);
+  assert.match(await page.locator('#lineage-content').innerText(),/不属于本案证据/);
+  assert.equal(await page.locator('#lineage-content a[href*="smartshanghai.com"]').count(),1);
 
   await page.locator('#view').selectOption('LW_ASOF_0131_1200');
   assert.ok(!(await page.locator('#time-content').innerText()).includes('LW13'));
