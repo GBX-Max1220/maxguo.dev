@@ -202,6 +202,16 @@ function render(){
   const correctionSources=txt('div');sourceBlock(correctionSources,c,correction.source_ids);cr.append(correctionSources);
   $('lineage-content').append(cr);
  }
+ const control=data.methodological_counterexamples[0];
+ if(control){
+  const box=txt('div',undefined,'record');
+  box.append(txt('div','竞争性机制示例 / 不属于本案证据','tag'));
+  box.append(txt('p',control.source_claim,'small'));
+  box.append(link(control.source_url,'SmartShanghai · 2022-03-28 原文'));
+  box.append(txt('p',control.methodological_use,'small'));
+  box.append(txt('p',control.limitations.join('；'),'muted'));
+  $('lineage-content').append(box);
+ }
  c.source_lineage_groups.forEach(g=>{
   const row=txt('div',undefined,'record');
   row.append(txt('div',g.lineage_id,'tag'));
