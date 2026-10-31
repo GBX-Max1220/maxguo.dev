@@ -1,0 +1,21 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {validateRegistry} from './validate-critical-inquiry-ledger-registry.mjs';
+
+const root='research/critical-inquiry/normalized';
+const registry=JSON.parse(fs.readFileSync(path.join(root,'three-case-ledger-registry-v02.json'),'utf8'));
+const errors=validateRegistry(registry);
+if(errors.length)throw new Error('Full ledger registry failed validation:\n'+errors.join('\n'));
+const templatePath='research/critical-inquiry/prototypes/three-case-full-ledger-template-v02.html';
+const template=fs.readFileSync(templatePath,'utf8');
+const placeholder='__REGISTRY_JSON__';
+if(template.split(placeholder).length!==2)throw new Error('Template must contain one registry placeholder');
+if(!template.includes('noindex,nofollow,noarchive'))throw new Error('Research-only robots marker missing');
+if(!template.includes('存档捕获时间不等于页面编辑时间'))throw new Error('Historical archive caveat missing');
+const json=JSON.stringify(registry).replaceAll('<','\\u003c').replaceAll('>','\\u003e').replaceAll('&','\\u0026');
+const html=template.replace(placeholder,json);
+if(/<script[^>]+src\s*=/.test(html))throw new Error('External script not allowed in offline prototype');
+const output=path.resolve('.astro/critical-inquiry-research/three-case-full-ledger-v02.html');
+fs.mkdirSync(path.dirname(output),{recursive:true});
+fs.writeFileSync(output,html);
+console.log(JSON.stringify({status:'BUILT_RESEARCH_ONLY',output,bytes:Buffer.byteLength(html),counts:registry.counts},null,2));
