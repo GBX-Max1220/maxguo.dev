@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "status": "RESEARCH_ONLY_NOT_PUBLICATION_APPROVED",
+  "status": "RESEARCH_ONLY_TECHNICAL_PILOT_SUPERSEDED_FOR_FULL_COMPARISON",
   "generated_method": "curated bounded subset cross-walk; NOT exhaustive export of source evidence ledgers",
   "timezone": "Asia/Shanghai",
   "privacy": "public source references only; no private chats, unredacted personal identifiers, or full copyrighted article text",
@@ -557,5 +557,7 @@
         }
       ]
     }
-  ]
+  ],
+  "superseded_by": "research/critical-inquiry/normalized/three-case-ledger-registry-v02.json",
+  "retained_role": "Minimal 17-observation regression fixture for the original temporal isolation prototype; not the complete comparative evidence dataset."
 }
