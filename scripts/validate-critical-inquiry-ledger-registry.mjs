@@ -36,6 +36,22 @@ export function validateRegistry(registry,root=process.cwd()){
   if(c.sources.length!==spec.sources)fail(spec.id+' source count mismatch');
   if(c.as_of_views.length!==spec.views)fail(spec.id+' as-of view count mismatch');
   if(c.claims.length!==spec.claims)fail(spec.id+' claim count mismatch');
+  const primary=inputs.get(spec.id+'|'+(spec.id==='ai-fen-2020'?'primary_source_and_claim_register':'primary_evidence_ledger'))?.raw;
+  const nativeViews=spec.id==='li-2020'?(primary?.public_asof||[]):spec.id==='shanghai-2022'?(primary?.snapshots||[]):[];
+  if(nativeViews.length!==c.as_of_views.length)fail(spec.id+' native as-of view count mismatch');
+  for(const nv of nativeViews){
+   const cv=c.as_of_views.find(x=>x.view_id===nv.id);
+   if(!cv){fail(spec.id+' dropped native as-of view '+nv.id);continue;}
+   const exact=nv.cutoff_local||null;
+   if(exact){
+    if(cv.cutoff.precision!=='exact_local_time'||cv.cutoff.local_datetime!==exact)
+     fail(spec.id+' changed exact native cutoff '+nv.id);
+   }else if(cv.cutoff.precision!=='calendar_day'||cv.cutoff.local_datetime!==null)
+    fail(spec.id+' date-only as-of precision was silently upgraded '+nv.id);
+   const nativeIds=nv.public_sources||nv.available_sources||[];
+   if(JSON.stringify(nativeIds)!==JSON.stringify(cv.source_ids))
+    fail(spec.id+' source IDs changed in native as-of view '+nv.id);
+  }
   const sourceIds=new Set(c.sources.map(s=>s.source_id));
   if(sourceIds.size!==c.sources.length)fail(spec.id+' duplicate source IDs');
   allIds.set(spec.id,sourceIds);
