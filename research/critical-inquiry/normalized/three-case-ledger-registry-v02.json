@@ -3281,7 +3281,8 @@
             "Exact issue time, recipient, scope and execution are not authenticated."
           ],
           "native_record_id": "AF15",
-          "native_file": "source-ledgers/ai-fen/source-audit-v01.json"
+          "native_file": "source-ledgers/ai-fen/source-audit-v01.json",
+          "published_date": "2020-12-11"
         },
         {
           "source_id": "AF16",
@@ -3304,7 +3305,8 @@
             "Does not prove the title change or homepage-link disappearance was caused by this instruction."
           ],
           "native_record_id": "AF16",
-          "native_file": "source-ledgers/ai-fen/source-audit-v01.json"
+          "native_file": "source-ledgers/ai-fen/source-audit-v01.json",
+          "displayed_directive_date": "2020-03-10"
         },
         {
           "source_id": "AF17",
