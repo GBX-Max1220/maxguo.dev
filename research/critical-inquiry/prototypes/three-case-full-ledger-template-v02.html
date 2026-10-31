@@ -199,7 +199,7 @@ function render(){
   cr.append(txt('div','纠正状态 / '+stateLabel,'tag'));
   cr.append(txt('p',correction.correction_object,'small'));
   cr.append(txt('p',correction.scope,'muted'));
-  sourceBlock(cr,c,correction.source_ids);
+  const correctionSources=txt('div');sourceBlock(correctionSources,c,correction.source_ids);cr.append(correctionSources);
   $('lineage-content').append(cr);
  }
  c.source_lineage_groups.forEach(g=>{
