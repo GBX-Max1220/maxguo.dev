@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>言说的边界 · 历史证据时间机器 / 研究原型</title>
+<style>
+:root { color-scheme: dark; font-family:system-ui,-apple-system,"PingFang SC","Microsoft Yahei",sans-serif; color:#e9e6df;background:#121e26; }
+*{box-sizing:border-box}body{margin:0}a{color:#e6ba91;text-underline-offset:3px}
+.wrap{max-width:1100px;margin:auto;padding:0 24px}
+header{padding:50px 0 29px;border-bottom:1px solid #3f5763}
+.eyebrow{font:600 12px/1.4 ui-monospace,monospace;letter-spacing:.13em;color:#dfa98a}
+h1{font-size:clamp(30px,5vw,58px);letter-spacing:-.035em;line-height:1.2;margin:16px 0}
+h2{font-size:clamp(23px,3vw,30px)}
+.lead{max-width:800px;color:#c0cdd0;line-height:1.9;font-size:15px}
+.notice{margin:25px 0 0;background:#3d302e;border-left:3px solid #cb8c6b;padding:18px 19px;font-size:14px;line-height:1.8}
+main{padding:32px 0 90px}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end}
+label{font-size:13px;color:#adbec6;font-weight:600;display:block}
+select{background:#203440;color:#f6f7f7;border:1px solid #5b7685;padding:13px 12px;font:inherit;width:100%;margin-top:9px;min-height:48px;border-radius:3px}
+select:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #e8b18c;outline-offset:3px}
+.meta{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;color:#a9c0c7;font:12px ui-monospace,monospace}
+.metric{border:1px solid #3c5868;padding:9px 11px}
+.chapter{margin-top:32px;border-top:1px solid #3f5763;padding-top:20px}
+.chapter .date{font:600 12px ui-monospace,monospace;color:#e2ae88}
+.chapter p{color:#b8c9ce;line-height:1.8}
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.panel{background:#1a2d39;padding:24px;border-top:3px solid #67909a;min-width:0}
+.panel.retro{border-color:#c18c67;background:#2c2b2d}
+.panel h3{margin:0 0 15px;font-size:17px}
+.empty{color:#a9c0c7;font-size:14px;line-height:1.8}
+.evidence{border-top:1px solid #395463;padding:17px 0}
+.evidence:first-of-type{border-top:0}
+.evidence .type{font:600 11px ui-monospace,monospace;color:#cda48e;letter-spacing:.05em}
+.evidence p{line-height:1.75;margin:10px 0;color:#e2e6e4;font-size:14px}
+.evidence .limit{color:#a9bac3;font-size:13px}
+.evidence ul{margin:12px 0 0;padding-left:18px}
+.evidence li{line-height:1.9;font-size:12px}
+.evidence .stamp{font-size:11px;color:#aebdc3}
+.toggle{display:flex;gap:12px;align-items:flex-start;padding:16px 0 20px}
+.toggle input{width:18px;height:18px;margin-top:2px}
+.toggle label{font-weight:500;line-height:1.7}
+.retro-list{display:none}
+.retro-visible .retro-list{display:block}
+.source-lineage{margin-top:27px;font-size:13px;color:#b1c5c9;line-height:1.8}
+footer{border-top:1px solid #47616d;margin-top:48px;padding:26px 0;color:#b3c6cb;font-size:13px;line-height:1.9}
+@media(max-width:680px){header{padding-top:29px}.wrap{padding:0 16px}.controls,.columns{grid-template-columns:1fr}.panel{padding:17px}}
+</style>
+</head>
+<body>
+<header class="wrap">
+<p class="eyebrow">THE BOUNDARIES OF THE SAYABLE / OFFLINE RESEARCH PROTOTYPE</p>
+<h1>历史记录的两个时钟</h1>
+<p class="lead">一件事何时发生，与一条证据何时可被公开观察，不是同一个问题。切换历史时间只改变已经登记、截至该时点可援引的材料；事后发现可以单独展示，但不会倒灌进当时的知识。</p>
+<div class="notice" role="note"><strong>研究专用、尚未通过独立人类审查。</strong> 这是有限来源集合的演示，不是全网历史知识穷举，不代表任何国家机关或平台行为的最终事实裁判。Wayback存档捕获仅代表该次捕获的网页状态；媒体显示的发布时间不一定认证原始版次。所有三个案例均未授权作为新案例页面正式发布。此页面不会自动联网。</div>
+</header>
+<main class="wrap">
+<div class="controls">
+<div><label for="case-select">研究案例 / CASE</label><select id="case-select"></select></div>
+<div><label for="time-select">证据截点 / AS-OF</label><select id="time-select"></select></div>
+</div>
+<div class="meta" aria-live="polite">
+<span class="metric" id="count-stat"></span>
+<span class="metric" id="lineage-stat"></span>
+<span class="metric" id="model-stat">EVIDENCE STATE / BOUNDED</span>
+</div>
+<section class="chapter" aria-live="polite"><div class="date" id="time-label"></div><h2 id="case-title"></h2><p id="case-focus"></p></section>
+<div class="toggle">
+<input type="checkbox" id="retro-checkbox">
+<label for="retro-checkbox">显示后来公开、但所述事件早已发生的材料。<strong>这些材料不会加入“当时已可观察”列表。</strong>这只是认知时间隔离的展示功能，并非对嵌入数据的访问控制。</label>
+</div>
+<div class="columns" id="panels">
+<section class="panel" aria-labelledby="known-heading">
+<h3 id="known-heading">截至截点已登记的公开或存档观察</h3>
+<div id="known-items"></div>
+</section>
+<section class="panel retro retro-list" aria-labelledby="retro-heading">
+<h3 id="retro-heading">事后材料（不能倒灌为当时已知）</h3>
+<div id="retro-items"></div>
+</section>
+</div>
+<p class="source-lineage" id="method-note"></p>
+<footer><strong>如何审阅：</strong>点击每条观察的原始来源，比较它所支持的具体陈述与限制。不同转载可能属于同一来源谱系；数量不等于独立证据数量。当前固定数据集对应三个未合并的研究 PR；从历史记录导出的子集，不等同于各案例完整档案。</footer>
+</main>
+<script id="research-data" type="application/json">__EMBEDDED_CASE_DATA__</script>
+<script>
+'use strict';
+const dataset=JSON.parse(document.getElementById('research-data').textContent);
+const caseEl=document.getElementById('case-select');
+const timeEl=document.getElementById('time-select');
+const retroEl=document.getElementById('retro-checkbox');
+const byId=id=>document.getElementById(id);
+const at=t=>new Date(t).getTime();
+function child(tag,text,cls){
+  const el=document.createElement(tag);
+  if(text!==undefined)el.textContent=text;
+  if(cls)el.className=cls;
+  return el;
+}
+function resetOptions(el,items){
+  el.replaceChildren();
+  items.forEach(x=>{const opt=child('option',x.label);opt.value=x.id;el.appendChild(opt)});
+}
+function renderEvidence(target,records,caseObj){
+  target.replaceChildren();
+  if(!records.length){target.appendChild(child('p','本来源登记尚未提供适用材料。此处是观察范围限制，并不等于材料或事件不存在。','empty'));return;}
+  const sourceById=new Map(caseObj.source_refs.map(s=>[s.id,s]));
+  records.forEach(o=>{
+    const e=child('article',undefined,'evidence');
+    e.appendChild(child('div',o.kind+' / '+o.observation_basis,'type'));
+    e.appendChild(child('div','观察时点 '+o.observed_at+(o.observed_time_precision==='day_end_bound'?'（仅日期已知，采用保守日终边界）':''),'stamp'));
+    e.appendChild(child('p',o.statement));
+    e.appendChild(child('p','限制：'+o.limits,'limit'));
+    const list=child('ul');
+    o.source_ids.forEach(id=>{
+      const s=sourceById.get(id),item=child('li');
+      const link=child('a',id+' · 来源');
+      link.href=s.url;link.target='_blank';link.rel='noopener noreferrer';
+      item.appendChild(link);
+      item.appendChild(child('span','　来源谱系：'+s.lineage_id+'。'+(s.timestamp_caveat||''),'limit'));
+      list.appendChild(item);
+    });
+    e.appendChild(list);target.appendChild(e);
+  });
+}
+function render(){
+  const c=dataset.cases.find(c=>c.id===caseEl.value);
+  const k=c.checkpoints.find(k=>k.id===timeEl.value);
+  const cutoff=at(k.at);
+  const known=c.observations.filter(o=>at(o.observed_at)<=cutoff);
+  const retro=c.observations.filter(o=>o.event_at&&at(o.event_at)<=cutoff&&at(o.observed_at)>cutoff);
+  const bySource=new Map(c.source_refs.map(s=>[s.id,s]));
+  const lineages=new Set(known.flatMap(o=>o.source_ids.map(id=>bySource.get(id).lineage_id)));
+  byId('count-stat').textContent='观察 '+known.length+' / '+c.observations.length;
+  byId('lineage-stat').textContent='已涉及来源谱系 '+lineages.size;
+  byId('time-label').textContent='AS-OF '+k.at+' / '+k.label;
+  byId('case-title').textContent=c.title;
+  byId('case-focus').textContent=c.focus;
+  renderEvidence(byId('known-items'),known,c);
+  renderEvidence(byId('retro-items'),retro,c);
+  byId('panels').classList.toggle('retro-visible',retroEl.checked);
+  byId('method-note').textContent='本视图只证明所选来源在规定时间模型内可以引用；不证明每位当事人实际读到信息，也不对后续政策或执法行为给出因果评分。';
+}
+function setCase(){
+  const c=dataset.cases.find(c=>c.id===caseEl.value);
+  resetOptions(timeEl,c.checkpoints.map(k=>({id:k.id,label:k.label})));
+  render();
+}
+resetOptions(caseEl,dataset.cases.map(c=>({id:c.id,label:c.title})));
+caseEl.addEventListener('change',setCase);
+timeEl.addEventListener('change',render);
+retroEl.addEventListener('change',render);
+setCase();
+</script>
+</body>
+</html>
