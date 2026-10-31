@@ -77,7 +77,10 @@
         "common_question",
         "common_dimensions",
         "case_specific_objects",
-        "prohibited_equivalences"
+        "prohibited_equivalences",
+        "correction_types",
+        "correction_state_semantics",
+        "correction_state_register"
       ],
       "properties": {
         "common_question": {
@@ -97,6 +100,79 @@
           "minItems": 5,
           "items": {
             "type": "string"
+          }
+        },
+        "correction_types": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "definition"
+            ],
+            "properties": {
+              "id": {
+                "enum": [
+                  "factual_correction",
+                  "legal_administrative_correction",
+                  "policy_update",
+                  "webpage_version_update"
+                ]
+              },
+              "definition": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "correction_state_semantics": {
+          "type": "string"
+        },
+        "correction_state_register": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "case_id",
+              "state",
+              "correction_object",
+              "scope",
+              "source_ids"
+            ],
+            "properties": {
+              "case_id": {
+                "enum": [
+                  "li-2020",
+                  "shanghai-2022",
+                  "ai-fen-2020"
+                ]
+              },
+              "state": {
+                "enum": [
+                  "observed_formal_correction",
+                  "searched_not_located",
+                  "not_applicable"
+                ]
+              },
+              "correction_object": {
+                "type": "string"
+              },
+              "scope": {
+                "type": "string"
+              },
+              "source_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "review_asset": {
+                "type": "string"
+              }
+            }
           }
         }
       }
