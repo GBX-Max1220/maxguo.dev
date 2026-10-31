@@ -115,6 +115,11 @@ export function validateRegistry(registry,root=process.cwd()){
  }
  const count=registry.counts||{};
  if(count.sources!==58||count.as_of_views!==24||count.claims!==54||count.archive_observations!==30)fail('registry portfolio totals do not match full source ledgers');
+ const correctionStates=new Map((registry.comparison_contract?.correction_state_register||[]).map(x=>[x.case_id,x.state]));
+ if(correctionStates.get('li-2020')!=='observed_formal_correction')fail('Li formal correction state missing');
+ if(correctionStates.get('shanghai-2022')!=='searched_not_located')fail('Shanghai bounded not-located state must not become no-disposition');
+ if(correctionStates.get('ai-fen-2020')!=='not_applicable')fail('Ai Fen archive case must not be assigned a formal correction state');
+ if((registry.comparison_contract?.correction_types||[]).length!==4)fail('four distinct correction types must remain explicit');
  if(registry.review_state?.independent_second_human_review!=='NOT_COMPLETED')fail('human review state must remain open');
  if(registry.review_state?.publication_authorization!=='NOT_AUTHORIZED')fail('publication authorization must remain blocked');
  return errors;
