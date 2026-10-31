@@ -277,6 +277,18 @@ const out={
    'A missing homepage link is not proof of censorship; ordinary rotation remains a competing explanation.',
    'Repeated republications within one lineage are not independent corroboration.',
    'The three cases do not share one legal process or one causal treatment.'
+  ],
+  correction_types:[
+   {id:'factual_correction',definition:'Correction of a testable proposition about an event that has already occurred.'},
+   {id:'legal_administrative_correction',definition:'Withdrawal or alteration of a specific legal or administrative action against an identified target.'},
+   {id:'policy_update',definition:'A later decision about future policy; it does not retroactively certify an earlier forecast.'},
+   {id:'webpage_version_update',definition:'A change to title, link, page text or archive representation; it is not by itself factual or legal correction.'}
+  ],
+  correction_state_semantics:'Use observed_formal_correction | searched_not_located | not_applicable. searched_not_located is bounded by the documented search scope and must never be recoded as no disposition.',
+  correction_state_register:[
+   {case_id:'li-2020',state:'observed_formal_correction',correction_object:'Li personal Jan 3 written admonition; officer discipline is a separate action.',source_ids:['LW15','LW06','LW07'],scope:'Public records report withdrawal and apology for Li; separate report records officer discipline. Republishing sources remain lineage-dependent.'},
+   {case_id:'shanghai-2022',state:'searched_not_located',correction_object:'Case-specific final judicial disposition for the two persons named in the police investigation notice.',source_ids:[],scope:'Not located within the documented scoped public search; this is not evidence that no final disposition exists.',review_asset:'PR #21 docs/critical-inquiry/SHANGHAI_2022_IDENTIFICATION_AND_STOP_RULES_V07_20261101.md'},
+   {case_id:'ai-fen-2020',state:'not_applicable',correction_object:'Archive visibility, title and homepage-link history; no formal legal/administrative correction object is registered.',source_ids:[],scope:'Do not map webpage version changes to formal correction.'}
   ]
  },
  review_state:{
