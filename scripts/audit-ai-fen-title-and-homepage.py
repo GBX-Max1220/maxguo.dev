@@ -408,6 +408,7 @@ def main():
             "cdx_queries": homepage_queries,
             "domain_level_homepage_query": domain_query,
             "unique_html_captures_inspected": len(home_obs),
+            "captures": home_obs,  # metadata-only per-capture evidence for CI reproduction
             "observed_homepage_link_state_interval": homepage_state_interval,
             "captures_with_direct_article_link": len(direct_links),
             "captures_without_direct_article_link": len(no_links),
