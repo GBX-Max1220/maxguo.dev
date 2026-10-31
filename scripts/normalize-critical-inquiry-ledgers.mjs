@@ -291,6 +291,16 @@ const out={
    {case_id:'ai-fen-2020',state:'not_applicable',correction_object:'Archive visibility, title and homepage-link history; no formal legal/administrative correction object is registered.',source_ids:[],scope:'Do not map webpage version changes to formal correction.'}
   ]
  },
+ methodological_counterexamples:[
+  {id:'SMARTHAI_VOLUNTARY_DATE_CORRECTION_20220328',
+   source_url:'https://www.smartshanghai.com/articles/shanghai-life/the-big-2022-shanghai-lockdown-frequently-asked-questions',
+   observed_publication_at:'2022-03-28T12:00:00+08:00',
+   source_role:'publisher_self_attribution',
+   source_claim:'SmartShanghai states that its prior WeChat post contained a lockdown-date typo, that it chose to delete the post because it could not adequately edit the sent article, and that the removal was not censorship.',
+   methodological_use:'A concrete competing mechanism for content disappearance: voluntary deletion for correction. Absence of a page or link alone does not identify censorship.',
+   limitations:['This is the publisher\'s own public attribution, not an independently authenticated WeChat server log or original post byte stream.','This is an existence example, not a matched or statistical negative control.','It does not explain the Ai Fen, Renwu, yyrw or any other specific removal.'],
+   case_evidence:false,counts_toward_case_source_totals:false}
+ ],
  review_state:{
   independent_second_human_review:'NOT_COMPLETED',
   editorial_rights_privacy_review:'NOT_COMPLETED',
