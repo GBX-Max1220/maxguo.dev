@@ -192,6 +192,16 @@ function render(){
   if(v.analytical_question)$('limits-content').append(txt('p','研究问题：'+v.analytical_question,'small'));
  }
  $('lineage-content').replaceChildren();
+ const correction=data.comparison_contract.correction_state_register.find(x=>x.case_id===c.id);
+ if(correction){
+  const stateLabel={observed_formal_correction:'已观察到正式纠正',searched_not_located:'限定公开检索内未定位',not_applicable:'不适用：非正式纠正案件'}[correction.state]||correction.state;
+  const cr=txt('div',undefined,'record');
+  cr.append(txt('div','纠正状态 / '+stateLabel,'tag'));
+  cr.append(txt('p',correction.correction_object,'small'));
+  cr.append(txt('p',correction.scope,'muted'));
+  sourceBlock(cr,c,correction.source_ids);
+  $('lineage-content').append(cr);
+ }
  c.source_lineage_groups.forEach(g=>{
   const row=txt('div',undefined,'record');
   row.append(txt('div',g.lineage_id,'tag'));
