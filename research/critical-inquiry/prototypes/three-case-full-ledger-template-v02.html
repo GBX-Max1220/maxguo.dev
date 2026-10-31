@@ -31,6 +31,7 @@ select:focus-visible,a:focus-visible{outline:3px solid #e3b18e;outline-offset:3p
 .muted{font-size:12px;color:#b2c1c6;line-height:1.75}
 a{color:#e4b28e;text-underline-offset:3px;overflow-wrap:anywhere}
 .list{margin:10px 0 0;padding-left:18px}.list li{font-size:12px;line-height:1.9;color:#c1ced1}
+.record p,.record .muted,.record .small,.record .tag{overflow-wrap:anywhere;word-break:break-word}
 .claim{padding:15px 0;border-top:1px solid #3c5663}.claim:first-child{border-top:0}
 .pill{display:inline-block;border:1px solid #607986;padding:3px 7px;font:11px ui-monospace,monospace;color:#d9c3ad;margin-right:6px}
 .gridline{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -112,7 +113,7 @@ function sourceBlock(target,c,ids){
   const s=map.get(id);if(!s)return;
   const r=txt('article',undefined,'record');
   const head=txt('div',id+' · '+(s.source_role||'source'),'tag');r.append(head);
-  const row=txt('p',s.publisher||s.url||'来源元数据');r.append(row);
+  const row=txt('p',s.publisher||s.source_role||'来源元数据');r.append(row);
   const urlrow=txt('div');urlrow.append(link(s.url,id+' 打开来源'));r.append(urlrow);
   const meta=[s.publication_date||'',s.published_at_local||'',s.access_status||'',s.independence_group||''].filter(Boolean).join(' · ');
   r.append(txt('div',meta,'muted'));
