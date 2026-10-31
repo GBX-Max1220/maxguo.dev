@@ -6,11 +6,14 @@ on:
     paths:
       - 'research/critical-inquiry/normalized/**'
       - 'research/critical-inquiry/prototypes/three-case-time-machine-template-v01.html'
+      - 'research/critical-inquiry/prototypes/three-case-full-ledger-template-v02.html'
       - 'scripts/critical-visibility-core.mjs'
       - 'scripts/critical-visibility-core.test.mjs'
       - 'scripts/normalize-critical-inquiry-ledgers.mjs'
       - 'scripts/validate-critical-inquiry-ledger-registry.mjs'
       - 'scripts/test-critical-inquiry-ledger-registry.mjs'
+      - 'scripts/build-critical-visibility-prototype-v02.mjs'
+      - 'scripts/check-critical-inquiry-v02-browser.mjs'
       - 'scripts/build-critical-visibility-prototype.mjs'
       - 'scripts/check-three-case-time-machine.mjs'
       - '.github/workflows/critical-inquiry-three-case.yml'
@@ -36,14 +39,18 @@ jobs:
         run: node --test scripts/test-critical-inquiry-ledger-registry.mjs
       - name: Check pilot no-lookahead, bounded observation and archive integrity
         run: node --test scripts/critical-visibility-core.test.mjs
-      - name: Build offline prototype from validated research dataset
+      - name: Build v1 pilot offline prototype
         run: node scripts/build-critical-visibility-prototype.mjs
+      - name: Build full-ledger v2 offline prototype
+        run: node scripts/build-critical-visibility-prototype-v02.mjs
       - name: Upload offline research HTML
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: three-case-research-offline-html
-          path: .astro/critical-inquiry-research/three-case-time-machine.html
+          path: |
+            .astro/critical-inquiry-research/three-case-time-machine.html
+            .astro/critical-inquiry-research/three-case-full-ledger-v02.html
           if-no-files-found: warn
           retention-days: 14
 
@@ -60,15 +67,25 @@ jobs:
         run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Install Chromium for offline QA
         run: npx playwright install --with-deps chromium
-      - name: Build offline research-only prototype
-        run: node scripts/build-critical-visibility-prototype.mjs
-      - name: Verify three-case interaction, time isolation and responsive layout
-        run: node scripts/check-three-case-time-machine.mjs
+      - name: Normalize and validate complete pinned source ledgers
+        run: |
+          node scripts/normalize-critical-inquiry-ledgers.mjs
+          node scripts/validate-critical-inquiry-ledger-registry.mjs
+      - name: Build and verify original pilot prototype
+        run: |
+          node scripts/build-critical-visibility-prototype.mjs
+          node scripts/check-three-case-time-machine.mjs
+      - name: Build and verify complete v2 prototype
+        run: |
+          node scripts/build-critical-visibility-prototype-v02.mjs
+          node scripts/check-critical-inquiry-v02-browser.mjs
       - name: Upload screenshots for independent editorial review
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: three-case-research-mobile-desktop-qa
-          path: .astro/critical-inquiry-research/screenshots/
+          path: |
+            .astro/critical-inquiry-research/screenshots/
+            .astro/critical-inquiry-research/full-ledger-screenshots/
           if-no-files-found: warn
           retention-days: 14
