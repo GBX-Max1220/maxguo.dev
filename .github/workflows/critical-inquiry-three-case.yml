@@ -25,7 +25,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Check no-lookahead, bounded observation, source independence and archive integrity
+      - name: Normalize complete pinned source ledgers without dropping native records
+        run: node scripts/normalize-critical-inquiry-ledgers.mjs
+      - name: Verify pinned source blob hashes, full ledger counts and historical as-of boundaries
+        run: node scripts/validate-critical-inquiry-ledger-registry.mjs
+      - name: Run adversarial full-ledger regressions
+        run: node --test scripts/test-critical-inquiry-ledger-registry.mjs
+      - name: Check pilot no-lookahead, bounded observation and archive integrity
         run: node --test scripts/critical-visibility-core.test.mjs
       - name: Build offline prototype from validated research dataset
         run: node scripts/build-critical-visibility-prototype.mjs
