@@ -1,12 +1,12 @@
-# Module A — Li Wenliang and Shanghai — Phase I Conclusion-Blind Source Index
+# Module A — Li Wenliang and Shanghai — Phase I Author-Claim-Withheld Source Index
 
 **2026-11-04 · Research-only reviewer material · Phase I only**
 
 Frozen registry blob SHA: `7b4f4b858cd911c0586cbadcd3c37a2a4ccc23e8`
 
-This module-specific index contains 38 source locators and 0 archive observation locators. It uses neutral identifiers and intentionally withholds native ledger IDs, case-level source-role judgments, author-assigned source-lineage groups, claims, conclusions, and author interpretations. The crosswalk is retained by the project author and will be released only after the Phase I worksheet is frozen.
+This module-specific index contains 38 source locators and 0 archive observation locators. It is not access-controlled: the public PR branch contains the full registry and Phase II material. It uses neutral identifiers and intentionally withholds native ledger IDs, case-level source-role judgments, author-assigned source-lineage groups, claims, conclusions, and author interpretations. The crosswalk is retained by the project author and will be released only after the Phase I worksheet is frozen.
 
-Use this index with `G3_INDEPENDENT_REVIEW_PROTOCOL_V01_20261104.md` and the corresponding module worksheet. URLs may reveal the underlying subject; this is conclusion-blind source reconstruction, not a fully blinded experiment.
+Use this index with `G3_INDEPENDENT_REVIEW_PROTOCOL_V01_20261104.md` and the corresponding module worksheet. URLs may reveal the underlying subject; this is author-claim-withheld first-pass source reconstruction, not a fully blinded experiment.
 
 **Do not open the author claim register or prior case review packs until your Phase I worksheet has been frozen.**
 
