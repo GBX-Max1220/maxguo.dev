@@ -71,11 +71,11 @@ A reviewer accepting only one module receives only that module's Phase I index a
 - Module A: `G3_MODULE_A_PHASE_I_SOURCE_INDEX_V01_20261104.md` and `G3_MODULE_A_PHASE_I_WORKSHEET_V01_20261104.csv`.
 - Module B: `G3_MODULE_B_PHASE_I_SOURCE_INDEX_V01_20261104.md` and `G3_MODULE_B_PHASE_I_WORKSHEET_V01_20261104.csv`.
 
-The corresponding module-specific Phase II worksheet is withheld until the Phase I record is frozen:
+The author will not hand over the corresponding module-specific Phase II worksheet until the Phase I record is frozen. **The files remain publicly accessible in this branch**, so this is not technical withholding:
 - Module A: `G3_MODULE_A_PHASE_II_WORKSHEET_V01_20261104.csv`.
 - Module B: `G3_MODULE_B_PHASE_II_WORKSHEET_V01_20261104.csv`.
 
-Do not send the all-project combined index when the reviewer has accepted only one module. The neutral IDs are module-local; the author retains the crosswalk to native ledger identifiers.
+Do not send the all-project combined index when the reviewer has accepted only one module. The neutral IDs are module-local; the author retains the crosswalk to native ledger identifiers. For access-controlled withholding, use a separate private Phase I-only packet and remove reliance on this public branch.
 
 ## 4. Freeze Phase I before revealing author claims
 
