@@ -63,6 +63,18 @@ Do not convert a page's displayed date into a verified first-publication timesta
 
 An inaccessible archive is not proof that the underlying record never existed. A live page today is not proof that the same bytes were present at the historical date.
 
+### Module-specific packet assignment
+
+A reviewer accepting only one module receives only that module's Phase I index and Phase I worksheet:
+- Module A: `G3_MODULE_A_PHASE_I_SOURCE_INDEX_V01_20261104.md` and `G3_MODULE_A_PHASE_I_WORKSHEET_V01_20261104.csv`.
+- Module B: `G3_MODULE_B_PHASE_I_SOURCE_INDEX_V01_20261104.md` and `G3_MODULE_B_PHASE_I_WORKSHEET_V01_20261104.csv`.
+
+The corresponding module-specific Phase II worksheet is withheld until the Phase I record is frozen:
+- Module A: `G3_MODULE_A_PHASE_II_WORKSHEET_V01_20261104.csv`.
+- Module B: `G3_MODULE_B_PHASE_II_WORKSHEET_V01_20261104.csv`.
+
+Do not send the all-project combined index when the reviewer has accepted only one module. The neutral IDs are module-local; the author retains the crosswalk to native ledger identifiers.
+
 ## 4. Freeze Phase I before revealing author claims
 
 Before Phase II, the reviewer should send or commit a dated Phase I worksheet. Record the worksheet filename, date, reviewer identifier (public name or chosen pseudonym), and SHA-256 if practical. Preserve this first-pass record unchanged.
