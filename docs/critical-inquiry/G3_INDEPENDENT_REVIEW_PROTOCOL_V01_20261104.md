@@ -22,10 +22,12 @@ The reviewer should:
 - State which parts fall outside their expertise. No reviewer should be pressured to sign off on a domain they cannot assess.
 
 **Recommended allocation:**  
-- **Reviewer A:** Li Wenliang and Shanghai collections — contemporary Chinese history, legal/administrative procedure, public communication, or related archival research.  
-- **Reviewer B:** Ai Fen / Renwu digital-archive collection — digital history, web archiving, digital preservation, or provenance analysis.
+- **Reviewer A:** Li Wenliang and Shanghai source chronology / institutional context — contemporary Chinese history, China pandemic governance, political communication, or historical source criticism.
+- **Reviewer B:** Ai Fen / Renwu digital-archive collection — digital history, web archiving, digital preservation, archive replay behavior, or provenance analysis.
 
-One person may cover both only if they can explain their relevant competence. A technical CI run, a second AI model, or the author's own re-prompting does not count as a second human reviewer.
+A separate Chinese-law specialist should review legal interpretation, legal terminology and translation parity under **G4**. G3 source verification does not itself constitute a legal opinion. If a G3 reviewer also has legal expertise, record source findings and legal interpretations as separate review outputs.
+
+One person may cover both G3 collections only if they can explain their relevant competence. A technical CI run, a second AI model, or the author's own re-prompting does not count as a second human reviewer.
 
 ## 3. Phase I — conclusion-blind source reconstruction
 
@@ -71,7 +73,7 @@ Only after that freeze should the author provide:
 - the 24 historical public-as-of views;
 - the existing case-specific review documents and the current draft prose.
 
-This sequence makes it possible to compare an independent reconstruction with the author's model rather than merely asking the reviewer to agree with it.
+This sequence makes it possible to compare an independent reconstruction with the author's model rather than merely asking the reviewer to agree with it. If a claim requires legal interpretation beyond checking what a document says, flag it for G4 legal review rather than treating the G3 source audit as a legal determination.
 
 ## 5. Phase II — claim and time-view adjudication
 
