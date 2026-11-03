@@ -28,6 +28,13 @@ A reviewer may accept only one module.
 - Core questions include archived-page provenance, capture reproducibility, title and homepage states, derivative-copy dependence, and the difference between archive capture time and server-side edit or deletion time.
 - The reviewer is not asked to infer censorship or intent from a missing page or link.
 
+### Module-specific Phase I packets
+
+- **Module A (Li Wenliang + Shanghai):** [Phase I source index](G3_MODULE_A_PHASE_I_SOURCE_INDEX_V01_20261104.md) · [Phase I worksheet](G3_MODULE_A_PHASE_I_WORKSHEET_V01_20261104.csv) · [Phase II worksheet — hold until Phase I is frozen](G3_MODULE_A_PHASE_II_WORKSHEET_V01_20261104.csv).
+- **Module B (Ai Fen / Renwu):** [Phase I source index](G3_MODULE_B_PHASE_I_SOURCE_INDEX_V01_20261104.md) · [Phase I worksheet](G3_MODULE_B_PHASE_I_WORKSHEET_V01_20261104.csv) · [Phase II worksheet — hold until Phase I is frozen](G3_MODULE_B_PHASE_II_WORKSHEET_V01_20261104.csv).
+
+Each Phase I index uses neutral reviewer IDs and withholds the native-ledger crosswalk. The module-specific packet lets a reviewer accept only the area matching their expertise.
+
 ## Independence procedure
 
 The review is staged:
