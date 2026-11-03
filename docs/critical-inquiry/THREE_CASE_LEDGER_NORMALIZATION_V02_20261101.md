@@ -119,6 +119,8 @@ v2离线页面仅写入 `.astro/critical-inquiry-research/`，不属于Astro正�
 - 仓库根目录未发现 `LICENSE` 文件；项目自有代码与原创文章的授权政策仍需决定，且不能覆盖第三方来源版权。
 - PR #29 位于公开仓库；研究分支不是私有空间。G3 Phase I 只能称为作者主张暂不提供的初审，不能称为受访问控制的盲审。
 
+配套引文候选表：`G4_QUOTATION_AND_SOURCE_RIGHTS_REGISTER_V01_20261104.csv`（39条候选出现位置，尚未完成权利判断）；法律术语表：`G4_CHINESE_LEGAL_TERMINOLOGY_REVIEW_REGISTER_V01_20261104.csv`（10项，全部待合格法律/双语专家审阅）。
+
 **G4 = HOLD / incomplete；G6 = NOT AUTHORIZED。** 完整三案例查看器不得部署；不得上传完整访谈、新闻正文、原始HTML或未经脱敏的训诫照片。
 
 ## 8. 当前审查与下一关
