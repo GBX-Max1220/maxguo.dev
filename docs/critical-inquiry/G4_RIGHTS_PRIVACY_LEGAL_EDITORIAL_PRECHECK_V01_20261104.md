@@ -8,7 +8,7 @@
 
 The existing public *Six Clocks* pages show several good safeguards: they contain no embedded images, link to source pages rather than reproducing source screenshots, disclose that the essay is author-reviewed rather than independently fact-audited, and explicitly warn against republishing an unredacted reprimand photograph containing personal identity/address fields. The Ai Fen draft does not reproduce the full interview and explicitly limits what can be inferred from archive captures.
 
-However, **G4 is not complete**. Source links are not licenses; there is no source-by-source rights/quotation register; Chinese-law terminology and the bilingual edition have not received independent specialist review; and public release of the full v2 viewer remains blocked pending a human rights/privacy/editorial review.
+However, **G4 is not complete**. Source links are not licenses; a preliminary 39-row quotation/title-text candidate register now exists, but it has not been reviewed or completed; Chinese-law terminology and the bilingual edition have not received independent specialist review; and public release of the full v2 viewer remains blocked pending a human rights/privacy/editorial review.
 
 This memo is an author-side risk inventory based on the current repository files. It does not determine copyright exceptions, privacy-law compliance, defamation liability, or the legality of publication in any jurisdiction.
 
@@ -30,6 +30,8 @@ Observed in the current files:
 
 **Editorial action:** decide whether the English edition is an expanded adaptation or whether the missing 18:10 source and timestamp should be added to the Chinese edition. Do not imply strict translation parity until the source lists and legally material statements have been compared.
 
+A preliminary quotation candidate inventory is available at `G4_QUOTATION_AND_SOURCE_RIGHTS_REGISTER_V01_20261104.csv` (39 occurrences across the two published pages and v2 registry). Its classification column is deliberately unresolved; these rows are candidates for author/reviewer disposition, not a finding that every item is a legally significant quotation.
+
 ### 1.2 PR #29 research branch
 
 The v2 normalized registry and nine pinned source-ledger inputs were inspected for long source-text reproduction, personal identifiers, and media assets.
@@ -39,7 +41,7 @@ Observed:
 - No full article body, full interview, raw HTML page, screenshot, or image binary was identified in the inspected JSON source-ledger inputs.
 - The Li interview comparison includes two short excerpts: `没有给我带来特别的影响` and `我也怕被拘留；当时担心单位会秋后算账`. These should remain short, attributed, contextualized and individually entered in a quotation register before any wider publication.
 - Ai Fen title and homepage records preserve article-title / anchor-text fragments and archive metadata, not the full interview.
-- The repository root has no `LICENSE` file on `main` at the time of this check. The license status of the project's own software and prose therefore needs an explicit decision; third-party content rights remain separate.
+- The repository root has no `LICENSE` file on `main` at the time of this check. The license status of the project's own software and prose therefore needs an explicit decision; third-party content rights remain separate. A proposed ten-term bilingual legal-language checklist is available at `G4_CHINESE_LEGAL_TERMINOLOGY_REVIEW_REGISTER_V01_20261104.csv`; every entry remains `NOT_REVIEWED`.
 
 ### 1.3 Unpublished Ai Fen draft
 
