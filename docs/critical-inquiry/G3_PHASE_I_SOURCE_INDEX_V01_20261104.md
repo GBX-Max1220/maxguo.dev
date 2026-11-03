@@ -1,12 +1,12 @@
-# G3 Phase I — Conclusion-Blind Source Index
+# G3 Phase I — Author-Claim-Withheld Source Index
 
 **2026-11-04 · Research-only reviewer material · Phase I only**
 
 Frozen registry blob SHA: `7b4f4b858cd911c0586cbadcd3c37a2a4ccc23e8`
 
-This index uses neutral identifiers (`SRC-001`…`SRC-058`, `ARC-001`…`ARC-030`). It intentionally withholds the mapping to native ledger IDs, case membership, source roles, publication-time judgments, source-lineage groupings, claims, conclusions, and author interpretations. The mapping is retained by the project author and is released only after the Phase I worksheet is frozen.
+This index is a distribution-stage aid only, not an access-controlled blind packet. The full registry and Phase II materials remain accessible in the public PR branch. This index uses neutral identifiers (`SRC-001`…`SRC-058`, `ARC-001`…`ARC-030`). It intentionally withholds the mapping to native ledger IDs, case membership, source roles, publication-time judgments, source-lineage groupings, claims, conclusions, and author interpretations. The mapping is retained by the project author and is released only after the Phase I worksheet is frozen.
 
-Use this index with `G3_INDEPENDENT_REVIEW_PROTOCOL_V01_20261104.md`. The URLs may reveal the underlying subject, so this is conclusion-blind source reconstruction, not a fully blinded experiment.
+Use this index with `G3_INDEPENDENT_REVIEW_PROTOCOL_V01_20261104.md`. The URLs may reveal the underlying subject, so this is author-claim-withheld first-pass source reconstruction, not a fully blinded experiment.
 
 **Do not open the author claim register or prior case review packs until your Phase I worksheet has been frozen.**
 
