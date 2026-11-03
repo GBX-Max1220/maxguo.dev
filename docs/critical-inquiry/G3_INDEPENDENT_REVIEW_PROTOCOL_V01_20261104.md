@@ -29,7 +29,7 @@ One person may cover both only if they can explain their relevant competence. A 
 
 ## 3. Phase I — conclusion-blind source reconstruction
 
-**What the reviewer receives:** this protocol and `G3_PHASE_I_SOURCE_INDEX_V01_20261104.md` plus the blank Phase I worksheet. Do not initially send the full PR description, article drafts, claim register, source-role labels, source-lineage groupings, or prior review documents.
+**What the reviewer receives:** this protocol and `G3_PHASE_I_SOURCE_INDEX_V01_20261104.md` plus the blank Phase I worksheet. The source index uses neutral `SRC-###` and `ARC-###` identifiers; the crosswalk to native ledger IDs and case groupings is withheld until Phase I is frozen. Do not initially send the full PR description, article drafts, claim register, source-role labels, source-lineage groupings, or prior review documents.
 
 For every source or archive locator the reviewer actually checks, record:
 1. Access date/time and timezone; final URL or archive locator; HTTP/status information where available.
