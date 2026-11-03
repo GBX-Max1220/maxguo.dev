@@ -1,0 +1,365 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "AF-TITLE-HOMEPAGE-CDX-20261030",
+  "checked_at_utc": "2026-10-30T09:14:51.4748206Z",
+  "workflow_run_id": 41031919110,
+  "workflow_run_url": "https://github.com/GBX-Max1220/maxguo.dev/actions/runs/41031919110",
+  "script": "scripts/audit-ai-fen-title-and-homepage.py",
+  "raw_artifact_sha256": "7b1140990d94af0c288cf610719d1d62e8150eed6f9e4b460bdf3506b3754567",
+  "article_title_history": {
+    "article_url": "http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256",
+    "window_utc": [
+      "2020-03-01",
+      "2026-12-31"
+    ],
+    "cdx_records_returned": 35,
+    "html_captures_inspected": 21,
+    "title_captures": [
+      [
+        "20200310135052",
+        "2020-03-10T21:50:52+08:00",
+        "吹哨子的人"
+      ],
+      [
+        "20200310170954",
+        "2020-03-11T01:09:54+08:00",
+        "吹哨子的人"
+      ],
+      [
+        "20200311041923",
+        "2020-03-11T12:19:23+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20200312063045",
+        "2020-03-12T14:30:45+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20200313033629",
+        "2020-03-13T11:36:29+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20200326083308",
+        "2020-03-26T16:33:08+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20200720105633",
+        "2020-07-20T18:56:33+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20200725003701",
+        "2020-07-25T08:37:01+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20210513150330",
+        "2021-05-13T23:03:30+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20211230135500",
+        "2021-12-30T21:55:00+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20220129125524",
+        "2022-01-29T20:55:24+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20220422120537",
+        "2022-04-22T20:05:37+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20220818054340",
+        "2022-08-18T13:43:40+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20221013223924",
+        "2022-10-14T06:39:24+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20221204075954",
+        "2022-12-04T15:59:54+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20221204152308",
+        "2022-12-04T23:23:08+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20230314025145",
+        "2023-03-14T10:51:45+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20241010171552",
+        "2024-10-11T01:15:52+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20250216120907",
+        "2025-02-16T20:09:07+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20260515193132",
+        "2026-05-16T03:31:32+08:00",
+        "发哨子的人"
+      ],
+      [
+        "20260606014834",
+        "2026-06-06T09:48:34+08:00",
+        "发哨子的人"
+      ]
+    ],
+    "observed_transition": {
+      "status": "OBSERVED_TRANSITION_INTERVAL",
+      "last_old_title_capture_utc": "2020-03-10T17:09:54Z",
+      "last_old_title_capture_beijing": "2020-03-11T01:09:54+08:00",
+      "first_new_title_capture_utc": "2020-03-11T04:19:23Z",
+      "first_new_title_capture_beijing": "2020-03-11T12:19:23+08:00",
+      "interval": "after 2020-03-11 01:09:54 and on/before 2020-03-11 12:19:23 Beijing",
+      "observed_gap": "11h 09m 29s",
+      "old_title_captures": 2,
+      "new_title_captures": 19,
+      "limit": "Archive observations bound the title state; they do not reveal the exact edit timestamp, editor, or motive."
+    }
+  },
+  "homepage_history": {
+    "exact_root_url_query_window_utc": [
+      "2020-03-01",
+      "2020-12-31"
+    ],
+    "exact_root_url_variants": [
+      "http://www.yyrw.org.cn/",
+      "http://www.yyrw.org.cn",
+      "https://www.yyrw.org.cn/",
+      "https://www.yyrw.org.cn",
+      "http://yyrw.org.cn/",
+      "https://yyrw.org.cn/"
+    ],
+    "each_root_variant_cdx_rows": 7,
+    "unique_html_captures_inspected": 7,
+    "index_alias_queries": {
+      "urls": [
+        "http://www.yyrw.org.cn/index.php",
+        "https://www.yyrw.org.cn/index.php",
+        "http://www.yyrw.org.cn/index.html"
+      ],
+      "status": "CDX_EMPTY_RESPONSE_UNVERIFIED",
+      "limit": "An empty exact-query response is not proof that no other aliases exist."
+    },
+    "domain_level_alias_query": {
+      "match_type": "domain",
+      "filter": "200 HTML pages whose original URL is root or a default index page",
+      "http_status": 503,
+      "status": "CDX_UNAVAILABLE_NO_ABSENCE_INFERENCE",
+      "limit": "Internet Archive returned a temporary-offline response; this broader alias query did not complete."
+    },
+    "snapshots": [
+      {
+        "timestamp_utc": "2020-03-10T19:06:34Z",
+        "timestamp_beijing": "2020-03-11T03:06:34+08:00",
+        "original_url": "https://www.yyrw.org.cn/",
+        "wayback_url": "https://web.archive.org/web/20200310190634/https://www.yyrw.org.cn/",
+        "cdx_status": 200,
+        "mimetype": "text/html",
+        "cdx_digest": "TDLYC3EL2FSJHRKLC7QRL7GWYN5TUKCL",
+        "cdx_length": 8568,
+        "fetch_status": 200,
+        "response_sha256": "071ae9bb95e3e7cb1ebbadf2bc479582ce59197d4b3ed6ac40515e6e0bbb9a8a",
+        "page_title": "中国医院人文建设",
+        "direct_article_link_present": true,
+        "link": {
+          "anchor_index_zero_based": 28,
+          "anchor_text": "吹哨子的人：如果这些医生都能够得到及时的提醒，或许就不",
+          "href_path": "/e/action/ShowInfo.php",
+          "parent_structure": [
+            "p",
+            "li",
+            "ul",
+            "td"
+          ],
+          "interpretation": "A direct article link appears as an item in a homepage list, not a verified hero/banner placement."
+        },
+        "homepage_integrity_indicators": {
+          "body_present": true,
+          "anchor_count": 125,
+          "script_count": 11
+        },
+        "homepage_text_markers": {
+          "blow_title": true,
+          "send_title": false,
+          "aifen_name": false,
+          "article_opening": false
+        }
+      },
+      {
+        "timestamp_utc": "2020-03-12T06:31:01Z",
+        "timestamp_beijing": "2020-03-12T14:31:01+08:00",
+        "original_url": "http://www.yyrw.org.cn/",
+        "wayback_url": "https://web.archive.org/web/20200312063101/http://www.yyrw.org.cn/",
+        "cdx_status": 200,
+        "mimetype": "text/html",
+        "cdx_digest": "XXA3FHYD4ZFPM75CXMBCY4VL2IS6MZ76",
+        "cdx_length": 8603,
+        "fetch_status": 200,
+        "response_sha256": "c0d308f8f76680b1d43be98957b7fbe5b536d4c9e7d3ba95a3f7d58662228c86",
+        "page_title": "中国医院人文建设",
+        "direct_article_link_present": false,
+        "homepage_integrity_indicators": {
+          "body_present": true,
+          "anchor_count": 125,
+          "script_count": 11
+        },
+        "homepage_text_markers": {
+          "blow_title": false,
+          "send_title": false,
+          "aifen_name": false,
+          "article_opening": false
+        }
+      },
+      {
+        "timestamp_utc": "2020-08-10T04:32:46Z",
+        "timestamp_beijing": "2020-08-10T12:32:46+08:00",
+        "cdx_status": 200,
+        "mimetype": "text/html",
+        "cdx_digest": "E7LXHNLP6WZY5KZRAEKO7N5QXPNWN4RI",
+        "page_title": "中国医院人文建设",
+        "direct_article_link_present": false,
+        "homepage_integrity_indicators": {
+          "body_present": true,
+          "anchor_count": 125,
+          "script_count": 11
+        },
+        "homepage_text_markers": {
+          "blow_title": false,
+          "send_title": false,
+          "aifen_name": false,
+          "article_opening": false
+        }
+      },
+      {
+        "timestamp_utc": "2020-09-20T03:43:08Z",
+        "timestamp_beijing": "2020-09-20T11:43:08+08:00",
+        "cdx_status": 200,
+        "mimetype": "text/html",
+        "cdx_digest": "Z2BXJUVQSVA7U5SPRFCJ3VMSDKMZX3PB",
+        "page_title": "中国医院人文建设",
+        "direct_article_link_present": false,
+        "homepage_integrity_indicators": {
+          "body_present": true,
+          "anchor_count": 125,
+          "script_count": 11
+        },
+        "homepage_text_markers": {
+          "blow_title": false,
+          "send_title": false,
+          "aifen_name": false,
+          "article_opening": false
+        }
+      },
+      {
+        "timestamp_utc": "2020-10-23T23:51:54Z",
+        "timestamp_beijing": "2020-10-24T07:51:54+08:00",
+        "cdx_status": 200,
+        "mimetype": "text/html",
+        "cdx_digest": "QPO73QEBGMGYGF52ULBMZWD4OP3YPOKM",
+        "page_title": "中国医院人文建设",
+        "direct_article_link_present": false,
+        "homepage_integrity_indicators": {
+          "body_present": true,
+          "anchor_count": 125,
+          "script_count": 11
+        },
+        "homepage_text_markers": {
+          "blow_title": false,
+          "send_title": false,
+          "aifen_name": false,
+          "article_opening": false
+        }
+      },
+      {
+        "timestamp_utc": "2020-11-23T18:37:29Z",
+        "timestamp_beijing": "2020-11-24T02:37:29+08:00",
+        "cdx_status": 200,
+        "mimetype": "text/html",
+        "cdx_digest": "G2X5GD54BCSBF4TQQIYP3XF456DSULGX",
+        "page_title": "中国医院人文建设",
+        "direct_article_link_present": false,
+        "homepage_integrity_indicators": {
+          "body_present": true,
+          "anchor_count": 125,
+          "script_count": 11
+        },
+        "homepage_text_markers": {
+          "blow_title": false,
+          "send_title": false,
+          "aifen_name": false,
+          "article_opening": false
+        }
+      },
+      {
+        "timestamp_utc": "2020-11-25T14:05:20Z",
+        "timestamp_beijing": "2020-11-25T22:05:20+08:00",
+        "cdx_status": 200,
+        "mimetype": "text/html",
+        "cdx_digest": "6P5IX56WZGDBALO725I6GL6XIZXYOVZU",
+        "page_title": "中国医院人文建设",
+        "direct_article_link_present": false,
+        "homepage_integrity_indicators": {
+          "body_present": true,
+          "anchor_count": 125,
+          "script_count": 11
+        },
+        "homepage_text_markers": {
+          "blow_title": false,
+          "send_title": false,
+          "aifen_name": false,
+          "article_opening": false
+        }
+      }
+    ],
+    "observed_state_interval": {
+      "status": "OBSERVED_LINKED_THEN_ABSENT_IN_SIX_LATER_CAPTURES",
+      "last_linked_capture_beijing": "2020-03-11T03:06:34+08:00",
+      "first_later_no_link_capture_beijing": "2020-03-12T14:31:01+08:00",
+      "interval": "after 2020-03-11 03:06:34 and on/before 2020-03-12 14:31:01 Beijing",
+      "interval_length": "35h 24m 27s",
+      "later_no_link_captures": 6,
+      "latest_no_link_capture_beijing": "2020-11-25T22:05:20+08:00",
+      "limit": "This is an interval between archived homepage representations. It does not identify the actual update time, whether the missing item was intentionally demoted, or the reason for its disappearance."
+    }
+  },
+  "directive_cross_reference": {
+    "cdt_english_url": "https://chinadigitaltimes.net/2020/12/minitrue-diary-march-10-2020-tibet-independence-covid-rent-relief-whistleblower-epidemic-transmission-and-treatments/",
+    "cdt_chinese_url": "https://chinadigitaltimes.net/chinese/655981.html",
+    "chinese_disclosure_date_label": "2020年3月10日",
+    "reported_wording": "涉发哨人，此类报道不上首页，如有请撤下。",
+    "reference_title_and_url": "吹哨子的人：如果这些医生都能够得到及时的提醒，或许就不会有这一天 — http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256&from=timeline&isappinstalled=0",
+    "lineage": "The Chinese and English pages are one CDT disclosure lineage, not two independent original directives.",
+    "cdt_english_caveats": [
+      "CDT says some directives may have been communicated orally, so wording may not be exact.",
+      "Some instructions may be local or directed to specific sectors and may not apply universally.",
+      "CDT explicitly says the displayed date may be when a directive was leaked rather than when it was issued."
+    ],
+    "inference": "The archived homepage still contained the target link after the directive's displayed calendar date. Because the issue time and scope are not authenticated and the disclosure itself warns that its date may be a leak date, this is a cross-source timing tension, not proof of noncompliance or causation."
+  },
+  "method_limits": [
+    "CDX exact URL queries returned seven distinct root-homepage captures in calendar 2020; root aliases were deduplicated by timestamp and original URL.",
+    "The broader domain-level regex query failed with HTTP 503, so alternate homepage aliases are not exhaustively ruled out.",
+    "The homepage link is a list item, not proof of a top banner, featured slot, or continuous front-page placement.",
+    "No direct link in later captured HTML is evidence about those specific archived representations, not proof of no other path to the article.",
+    "Wayback capture times are archive observation times, not server-side edit times.",
+    "No causal attribution is made between the disclosed directive, the title change, and the homepage link disappearance."
+  ]
+}

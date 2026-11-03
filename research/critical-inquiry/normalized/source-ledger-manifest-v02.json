@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0.0",
+  "created_at": "2026-11-01",
+  "status": "RESEARCH_ONLY_NOT_PUBLICATION_APPROVED",
+  "repository": "GBX-Max1220/maxguo.dev",
+  "normalization_branch": "research/critical-inquiry-three-case-time-model-20261101",
+  "description": "Exact copies of pinned original source ledgers and audit records. Canonical v2 outputs are generated from these inputs; source PRs remain separate and unchanged.",
+  "inputs": [
+    {
+      "case_id": "li-2020",
+      "source_pr": 23,
+      "source_branch": "research/li-wenliang-six-clocks-20261029",
+      "source_commit": "bb327643481f1609201bb2df25671905800a97f6",
+      "source_path": "research/critical-inquiry/li-wenliang-2020/evidence-v01.json",
+      "source_blob_sha": "be01d749c711fc8853753463dc4d4e713401a053",
+      "local_path": "research/critical-inquiry/normalized/source-ledgers/li-wenliang/evidence-v01.json",
+      "role": "primary_evidence_ledger"
+    },
+    {
+      "case_id": "li-2020",
+      "source_pr": 23,
+      "source_branch": "research/li-wenliang-six-clocks-20261029",
+      "source_commit": "bb327643481f1609201bb2df25671905800a97f6",
+      "source_path": "research/critical-inquiry/li-wenliang-2020/SOURCE_ACCESS_AUDIT_V02.json",
+      "source_blob_sha": "ce62252b283911da8334cd7f8c47f494d05725fd",
+      "local_path": "research/critical-inquiry/normalized/source-ledgers/li-wenliang/source-access-audit-v02.json",
+      "role": "source_access_audit"
+    },
+    {
+      "case_id": "shanghai-2022",
+      "source_pr": 21,
+      "source_branch": "feature/critical-inquiry-hub-20261028",
+      "source_commit": "d3cbfaafd83fd61cb602d2f32d97dc2be36369d3",
+      "source_path": "src/data/critical-inquiry/shanghai2022.json",
+      "source_blob_sha": "05374f9753d4e94c28e8c08760a8a3affc660ad2",
+      "local_path": "research/critical-inquiry/normalized/source-ledgers/shanghai/shanghai2022.json",
+      "role": "primary_evidence_ledger"
+    },
+    {
+      "case_id": "shanghai-2022",
+      "source_pr": 21,
+      "source_branch": "feature/critical-inquiry-hub-20261028",
+      "source_commit": "d3cbfaafd83fd61cb602d2f32d97dc2be36369d3",
+      "source_path": "docs/critical-inquiry/SOURCE_ACCESS_AUDIT_20261029.json",
+      "source_blob_sha": "0d021787839beeb1839d33246d6e547c430bac17",
+      "local_path": "research/critical-inquiry/normalized/source-ledgers/shanghai/source-access-audit-20261029.json",
+      "role": "source_access_audit"
+    },
+    {
+      "case_id": "ai-fen-2020",
+      "source_pr": 26,
+      "source_branch": "research/ai-fen-version-audit-20261030",
+      "source_commit": "6f938fd01727445b6ac4ca1cd7421291ee624d92",
+      "source_path": "research/critical-inquiry/ai-fen/source-audit-v01.json",
+      "source_blob_sha": "6fc84a5b4c3d999907d4587f51d16ddbe9c681ff",
+      "local_path": "research/critical-inquiry/normalized/source-ledgers/ai-fen/source-audit-v01.json",
+      "role": "primary_source_and_claim_register"
+    },
+    {
+      "case_id": "ai-fen-2020",
+      "source_pr": 26,
+      "source_branch": "research/ai-fen-version-audit-20261030",
+      "source_commit": "6f938fd01727445b6ac4ca1cd7421291ee624d92",
+      "source_path": "research/critical-inquiry/ai-fen/title-homepage-cdx-v01.json",
+      "source_blob_sha": "5a3e8a520ad9ce1c44dba5009b4e75d697998292",
+      "local_path": "research/critical-inquiry/normalized/source-ledgers/ai-fen/title-homepage-cdx-v01.json",
+      "role": "archive_capture_index"
+    },
+    {
+      "case_id": "ai-fen-2020",
+      "source_pr": 26,
+      "source_branch": "research/ai-fen-version-audit-20261030",
+      "source_commit": "6f938fd01727445b6ac4ca1cd7421291ee624d92",
+      "source_path": "research/critical-inquiry/ai-fen/historical-captures-v01.json",
+      "source_blob_sha": "508df7d240dc18bda59d9f2ae83a6b95ab2a7f0e",
+      "local_path": "research/critical-inquiry/normalized/source-ledgers/ai-fen/historical-captures-v01.json",
+      "role": "archive_capture_audit"
+    },
+    {
+      "case_id": "ai-fen-2020",
+      "source_pr": 26,
+      "source_branch": "research/ai-fen-version-audit-20261030",
+      "source_commit": "6f938fd01727445b6ac4ca1cd7421291ee624d92",
+      "source_path": "research/critical-inquiry/ai-fen/cross-site-comparison-v01.json",
+      "source_blob_sha": "88f7de394d8c2a60e29d6b334dbd414d7a9cfa7c",
+      "local_path": "research/critical-inquiry/normalized/source-ledgers/ai-fen/cross-site-comparison-v01.json",
+      "role": "cross_site_text_comparison"
+    },
+    {
+      "case_id": "ai-fen-2020",
+      "source_pr": 26,
+      "source_branch": "research/ai-fen-version-audit-20261030",
+      "source_commit": "6f938fd01727445b6ac4ca1cd7421291ee624d92",
+      "source_path": "research/critical-inquiry/ai-fen/he-media-three-source-comparison-v01.json",
+      "source_blob_sha": "c9d52c820a198b514d36682318f66f4bba479df0",
+      "local_path": "research/critical-inquiry/normalized/source-ledgers/ai-fen/he-media-three-source-comparison-v01.json",
+      "role": "three_source_text_comparison"
+    }
+  ],
+  "review_assets": [
+    {
+      "case_id": "li-2020",
+      "pr": 23,
+      "path": "research/critical-inquiry/li-wenliang-2020/INDEPENDENT_REVIEW_PACK_V06_20261030.md",
+      "purpose": "Second-human review protocol and 16-source review table; not a completed review."
+    },
+    {
+      "case_id": "shanghai-2022",
+      "pr": 21,
+      "path": "docs/critical-inquiry/SHANGHAI_2022_IDENTIFICATION_AND_STOP_RULES_V07_20261101.md",
+      "purpose": "Identification, legal boundaries, and stop rules."
+    },
+    {
+      "case_id": "ai-fen-2020",
+      "pr": 26,
+      "path": "docs/critical-inquiry/AI_FEN_INDEPENDENT_REVIEW_PROTOCOL_V04_20261101.md",
+      "purpose": "R1-R8 independent archive review protocol; not a completed review."
+    }
+  ],
+  "public_portfolio_assets": [
+    {
+      "pr": 22,
+      "status": "MERGED",
+      "role": "Bilingual Critical Inquiry public hub; published portal, not a case-level verdict."
+    },
+    {
+      "pr": 25,
+      "status": "MERGED",
+      "role": "Published bilingual Six Clocks methods essay and six public evidence snapshots; author-reviewed but not independently fact-audited."
+    }
+  ]
+}
