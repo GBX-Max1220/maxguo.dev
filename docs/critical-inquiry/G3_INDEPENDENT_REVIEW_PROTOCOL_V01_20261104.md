@@ -1,4 +1,4 @@
-# G3 Independent Human Review Protocol v1.0
+# G3 Independent Human Review Protocol v1.1
 
 **Date:** 2026-11-04  
 **Status:** RESEARCH ONLY · REVIEW MATERIAL · NOT PUBLICATION AUTHORIZATION  
@@ -11,7 +11,9 @@ This is an independent audit of evidentiary claims, source provenance, historica
 
 The reviewer is explicitly invited to reject claims, identify missing evidence, propose competing explanations, and recommend deleting or narrowing parts of the analysis. A negative or inconclusive result is a valid research outcome.
 
-The first phase is **conclusion-blind**, not fully blind: URLs and source content may reveal the underlying events. The reviewer is asked not to inspect the author's claim register, source-role classifications, lineage groupings, draft essay, or prior author-side review packs until the Phase I record has been frozen. This is not represented as a preregistered experiment or a formal double-blind design.
+The first phase is an **author-claim-withheld first pass**, not a blind or access-controlled review: URLs and source content reveal the underlying events, and the repository is public. The reviewer is asked not to inspect the author's claim register, source-role classifications, lineage groupings, draft essay, or prior author-side review packs until the Phase I record has been frozen. This is a voluntary review sequence, not a preregistered experiment or a formal double-blind design.
+
+**Public-access limitation:** PR #29 is hosted in the public repository `GBX-Max1220/maxguo.dev`. The same public branch contains the canonical registry, source-ledger mappings, author claims, and Phase II worksheets. Neutral IDs in the Phase I index do not provide access control; any visitor can navigate to the other files. Therefore the current packet cannot guarantee that a reviewer has not seen the author's claims. Do not describe this process as a blind review. If access-controlled withholding is required, create a separate private Phase I packet containing only the assigned module's source index and blank Phase I worksheet, distribute it through private storage, and do not send the public PR or registry links. Until that is done, record the process as `author_claim_withheld_at_handoff`, not `conclusion_blind`.
 
 ## 2. Independence and reviewer competence
 
@@ -29,7 +31,7 @@ A separate Chinese-law specialist should review legal interpretation, legal term
 
 One person may cover both G3 collections only if they can explain their relevant competence. A technical CI run, a second AI model, or the author's own re-prompting does not count as a second human reviewer.
 
-## 3. Phase I — conclusion-blind source reconstruction
+## 3. Phase I — author-claim-withheld first-pass source reconstruction
 
 **What the reviewer receives:** this protocol and `G3_PHASE_I_SOURCE_INDEX_V01_20261104.md` plus the blank Phase I worksheet. The source index uses neutral `SRC-###` and `ARC-###` identifiers; the crosswalk to native ledger IDs and case groupings is withheld until Phase I is frozen. Do not initially send the full PR description, article drafts, claim register, source-role labels, source-lineage groupings, or prior review documents.
 
