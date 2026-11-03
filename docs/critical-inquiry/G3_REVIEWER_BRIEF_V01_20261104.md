@@ -30,8 +30,8 @@ A reviewer may accept only one module.
 
 ### Module-specific Phase I packets
 
-- **Module A (Li Wenliang + Shanghai):** [Phase I source index](G3_MODULE_A_PHASE_I_SOURCE_INDEX_V01_20261104.md) · [Phase I worksheet](G3_MODULE_A_PHASE_I_WORKSHEET_V01_20261104.csv) · [Phase II worksheet — hold until Phase I is frozen](G3_MODULE_A_PHASE_II_WORKSHEET_V01_20261104.csv).
-- **Module B (Ai Fen / Renwu):** [Phase I source index](G3_MODULE_B_PHASE_I_SOURCE_INDEX_V01_20261104.md) · [Phase I worksheet](G3_MODULE_B_PHASE_I_WORKSHEET_V01_20261104.csv) · [Phase II worksheet — hold until Phase I is frozen](G3_MODULE_B_PHASE_II_WORKSHEET_V01_20261104.csv).
+- **Module A (Li Wenliang + Shanghai):** [Phase I source index](G3_MODULE_A_PHASE_I_SOURCE_INDEX_V01_20261104.md) · [Phase I worksheet](G3_MODULE_A_PHASE_I_WORKSHEET_V01_20261104.csv) .
+- **Module B (Ai Fen / Renwu):** [Phase I source index](G3_MODULE_B_PHASE_I_SOURCE_INDEX_V01_20261104.md) · [Phase I worksheet](G3_MODULE_B_PHASE_I_WORKSHEET_V01_20261104.csv) .
 
 Each Phase I index uses neutral reviewer IDs and withholds the native-ledger crosswalk. The module-specific packet lets a reviewer accept only the area matching their expertise.
 
@@ -39,11 +39,13 @@ Each Phase I index uses neutral reviewer IDs and withholds the native-ledger cro
 
 The review is staged:
 
-1. **Phase I:** a conclusion-blind source reconstruction. The reviewer receives a locator index with neutral IDs and direct source/archive links, but not the author's claims, source-role labels, lineage groupings, or interpretations.
+1. **Phase I:** an author-claim-withheld first-pass source reconstruction. The reviewer receives a locator index with neutral IDs and direct source/archive links; the author does not hand over the claim register or interpretations at this stage.
 2. **Freeze:** the reviewer returns a dated first-pass worksheet.
 3. **Phase II:** after the first pass is frozen, the author provides the claim register and historical time views for item-by-item adjudication.
 
 This is not a fully blinded experiment: URLs and source content may reveal the subject. It is designed to prevent the author's conclusions from being supplied as the reviewer's starting point.
+
+**Access limitation:** the GitHub repository and PR #29 branch are public. The full registry, native source mappings, author claims, and Phase II worksheets are accessible elsewhere in that branch. The neutral Phase I files do not enforce blinding. A reviewer who needs access-controlled withholding must receive a separate private Phase I-only packet; do not use the public PR as the review environment.
 
 ## What the reviewer can return
 
@@ -68,4 +70,4 @@ The full evidence registry and offline research prototype have passed automated 
 - `G3_INDEPENDENT_REVIEW_PROTOCOL_V01_20261104.md`  
 - `G3_PHASE_I_SOURCE_INDEX_V01_20261104.md`  
 - `G3_PHASE_I_REVIEW_WORKSHEET_V01_20261104.csv`  
-- `G3_PHASE_II_CLAIM_ASOF_WORKSHEET_V01_20261104.csv` (share only after Phase I is frozen)
+
