@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContributionLog from '../../components/ContributionLog.astro';
+import cases from '../../data/contribution-cases.json';
 import '../../styles/contribution-editorial.css';
 ---
 <BaseLayout title="Contributions" description="Research, evaluation, and engineering contributions by Baixin Guo, linked to dated public evidence and upstream records.">
@@ -17,6 +18,13 @@ import '../../styles/contribution-editorial.css';
         <section><h2>Technical review</h2><p>Public issue and discussion work clarifying behavior, interfaces, and evidence requirements.</p></section>
       </div>
       <p class="text-sm text-[var(--color-text-dim)] leading-relaxed mb-10">The timeline below preserves the sequence of work. Status describes the public artifact or upstream process; it does not by itself indicate research quality or impact. Dates use Asia/Shanghai (UTC+8), and each entry links to its source so its current state can be checked directly.</p>
+      <section class="contribution-cases mb-10" aria-labelledby="cases-heading">
+        <h2 id="cases-heading">Selected cases</h2>
+        <p>Project background, my contribution, the result, and what the evidence does not establish.</p>
+        <ul>
+          {cases.map(item => <li><a href={`/contributions/cases/${item.slug}/`}>{item.title}</a><span>{item.project}</span></li>)}
+        </ul>
+      </section>
       <nav class="contribution-filters" aria-label="Filter contributions by area">
         <button type="button" data-filter="all" aria-pressed="true">All work</button>
         <button type="button" data-filter="research-artifacts" aria-pressed="false">Research artifacts</button>
@@ -31,6 +39,12 @@ import '../../styles/contribution-editorial.css';
 </BaseLayout>
 
 <style>
+  .contribution-cases h2 { margin: 0 0 .5rem; }
+  .contribution-cases > p { font-size: .85rem; color: var(--color-text-dim); }
+  .contribution-cases ul { margin: 1rem 0 0; padding: 0; list-style: none; }
+  .contribution-cases li { padding: .7rem 0; border-bottom: 1px solid var(--color-rule); }
+  .contribution-cases li a { display: block; font-weight: 500; overflow-wrap: anywhere; }
+  .contribution-cases li span { display: block; margin-top: .2rem; color: var(--color-text-muted); font: .65rem/1.5 var(--font-mono); }
   .contribution-lenses {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
