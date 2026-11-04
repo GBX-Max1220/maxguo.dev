@@ -1,5 +1,5 @@
 {
-  "updated": "October 2026",
+  "updated": "2026-11-04",
   "headline": "Reliable adaptation from imperfect, endogenous feedback.",
   "question": "How can imperfect human, evaluator, and environment feedback become learning signals that let AI agents adapt without becoming less reliable?",
   "profile": "I am Baixin Guo (Max), an independent researcher with a background in Applied Psychology. I study what feedback actually measures, how persistent state and rules are enforced across different paths, and whether adaptation on seen signals transfers to unseen situations. I design evaluations, inspect failure attribution, and build reproducible research tools.",
@@ -17,7 +17,10 @@
       "result": "Outcome scores alone cannot identify the failing component when traces are missing.",
       "scope": "LongMemEval-based evaluation; claims are bounded to inspected and collaborator-reported evidence.",
       "links": [
-        { "label": "Preprint", "url": "https://zenodo.org/records/22980060" },
+        {
+          "label": "Preprint",
+          "url": "https://zenodo.org/records/22980060"
+        },
         {
           "label": "Methods report",
           "url": "https://zenodo.org/records/23273896"
@@ -62,28 +65,28 @@
   ],
   "engineeringContributions": [
     {
-      "id": "rai-judge-data-boundary",
-      "kind": "Open-source contribution",
-      "title": "W&B rai-toolkit judge prompt data boundary",
-      "status": "Merged upstream · wandb/rai-toolkit#114",
-      "summary": "Merged fix that keeps trusted grading rules and the text being scored in separate halves of every LLM-judge prompt: rule prose stays in the system message, row values travel as one structured JSON message, and a scorer whose rule text is missing now stops with an error instead of scoring without rules. Covers 12 scorers with 73 new offline test cases; it narrows where scored text can read as an instruction, and does not claim prompt injection is solved.",
-      "url": "https://github.com/wandb/rai-toolkit/pull/114"
+      "id": "cje-label-selection",
+      "kind": "Research engineering",
+      "title": "CJE (cimo-labs): label-selection sensitivity",
+      "status": "Merged upstream · cimo-labs/cje#88",
+      "summary": "Reproducible fixed-budget sensitivity notebook: six conditions, 600 result records and maintainer independent recomputation. Tests how label selection affects model comparisons; not a new estimator.",
+      "url": "https://github.com/cimo-labs/cje/pull/88"
     },
     {
-      "id": "reef-runner",
-      "kind": "Open-source contribution",
-      "title": "REEF runner lifecycle fix",
-      "status": "Merged upstream · Human-Agent-Society/reef#677",
-      "summary": "Fixed a runner that did not wait for evolution steps triggered by passing reports; added regression coverage and corrected tutorial wording.",
-      "url": "https://github.com/Human-Agent-Society/reef/pull/677"
+      "id": "unirl-reward-lifecycle",
+      "kind": "Open-source engineering",
+      "title": "UniRL (Tencent Hunyuan): reward loading lifecycle",
+      "status": "Merged upstream · Tencent-Hunyuan/UniRL#621",
+      "summary": "Validates the reward graph before materializing models, with idempotent loading and a 42-check CPU baseline/fix comparison through actual construction paths.",
+      "url": "https://github.com/Tencent-Hunyuan/UniRL/pull/621"
     },
     {
-      "id": "skillrl",
-      "kind": "Open-source contribution",
-      "title": "SkillRL SkillBank checkpoint/resume",
-      "status": "Open PR · aiming-lab/SkillRL#69",
-      "summary": "Submitted a checkpoint-resume fix that saves and restores the training SkillBank, with state validation, atomic writes, and legacy-checkpoint compatibility.",
-      "url": "https://github.com/aiming-lab/SkillRL/pull/69"
+      "id": "marin-trace-preferences",
+      "kind": "Research engineering",
+      "title": "Marin (marin-community): trace preference feasibility",
+      "status": "Merged upstream · marin-community/marin#10741",
+      "summary": "Added parser-tier screening and reproduction code for action spans and schemas, documenting the missing evidence needed for same-history preference pairs. No preference training was performed.",
+      "url": "https://github.com/marin-community/marin/pull/10741"
     }
   ],
   "collaboration": {
