@@ -39,6 +39,8 @@ const VIEWPORTS = [
 // and two DOIs, so the detail page is checked like the rest of the site.
 const ROUTES = ['/', '/non-answers/', '/non-answers/cases/youth-unemployment-2023/', '/demo/', '/demo/interactionkit/', '/demo/checkmycoach/', '/demo/eval-runtime/', '/research/', '/contributions/', '/projects/', '/publications/', '/publications/longmemeval-failure-attribution-framework/', '/cv/', '/research/building-trustworthy-ai/authority-enforcement/', '/research/building-trustworthy-ai/authority-enforcement/note/', '/critical-inquiry/', '/critical-inquiry/en/', '/critical-inquiry/six-clocks/', '/critical-inquiry/six-clocks/en/'];
 
+ROUTES.push('/contributions/cases/cje-label-selection/', '/contributions/cases/lenskit-logrbp/', '/contributions/cases/unirl-reward-lifecycle/', '/contributions/cases/marin-trace-preferences/', '/contributions/cases/tapestry-interval-gates/', '/contributions/cases/skillopt-feedback-scope/');
+
 const MIME_TYPES = {
   '.html': 'text/html',
   '.css': 'text/css',
