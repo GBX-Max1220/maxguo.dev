@@ -11,6 +11,10 @@ const CATEGORY_LABELS = {
 const CASE_STUDIES = {
   'cimo-labs/cje': 'cje-label-selection',
   'lenskit/lkpy': 'lenskit-logrbp',
+  'Tencent-Hunyuan/UniRL': 'unirl-reward-lifecycle',
+  'marin-community/marin': 'marin-trace-preferences',
+  'The-AI-Alliance/tapestry': 'tapestry-interval-gates',
+  'microsoft/SkillOpt': 'skillopt-feedback-scope',
 };
 ---
 <div class="contribution-timeline">
@@ -36,6 +40,7 @@ const CASE_STUDIES = {
               <p class="contribution-project">{record.project} <span aria-hidden="true">·</span> {EVENT_LABELS[record.event]} <span class="contribution-area">{CATEGORY_LABELS[record.category]}</span></p>
               <h3 class="contribution-entry-title"><a href={record.url}>{record.title}</a></h3>
               <ContributionStatus record={record} />
+              {record.projectContext && <p class="contribution-entry-context"><span>Project context</span>{record.projectContext}</p>}
               <p class="contribution-entry-summary">{record.contribution}</p>
               <p class="contribution-entry-context"><span>Why it matters</span>{record.whyItMatters}</p>
               <div class="contribution-entry-links">
