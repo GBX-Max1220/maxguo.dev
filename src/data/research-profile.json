@@ -39,6 +39,10 @@
       "scope": "CPU-only study across 94 eligible known users; results apply to the tested prompt distribution.",
       "links": [
         {
+          "label": "Explore results",
+          "url": "/demo/pmd/"
+        },
+        {
           "label": "Artifact",
           "url": "https://github.com/GBX-Max1220/preference-modeling-diagnostics/tree/d232327047a206b8d4f16b5c6f7a5e508ad43146"
         }

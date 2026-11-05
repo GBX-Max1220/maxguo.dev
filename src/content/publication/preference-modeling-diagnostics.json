@@ -1,14 +1,21 @@
 {
   "id": "preference-modeling-diagnostics",
   "title": "Preference Modeling Diagnostics: Known-User Adaptation with Identity Controls",
-  "authors": ["Baixin Guo"],
+  "authors": [
+    "Baixin Guo"
+  ],
   "year": 2026,
   "status": "artifact",
   "workflowState": "frozen",
   "lastVerified": "2026-10-10",
-  "tags": ["Preference Learning", "Identity Controls", "Diagnostic Study"],
+  "tags": [
+    "Preference Learning",
+    "Identity Controls",
+    "Diagnostic Study"
+  ],
   "links": {
-    "code": "https://github.com/GBX-Max1220/preference-modeling-diagnostics/tree/d232327047a206b8d4f16b5c6f7a5e508ad43146"
+    "code": "https://github.com/GBX-Max1220/preference-modeling-diagnostics/tree/d232327047a206b8d4f16b5c6f7a5e508ad43146",
+    "note": "/demo/pmd/"
   },
   "citation": {
     "bibtex": "@misc{guo2026pmd,\n  author = {Guo, Baixin},\n  title = {Preference Modeling Diagnostics: Known-User Adaptation with Identity Controls},\n  year = {2026},\n  note = {Frozen research artifact (CPU-only diagnostic study); not a peer-reviewed publication}\n}",

@@ -1,0 +1,108 @@
+{
+  "source": {
+    "repository": "https://github.com/GBX-Max1220/preference-modeling-diagnostics",
+    "revision": "d232327047a206b8d4f16b5c6f7a5e508ad43146",
+    "files": {
+      "results/day2b_test_summary.json": "bf21930270076db0702aa2eb2d9496fd16a4329a6a5075f78914a06a0b092fb1",
+      "results/day2b_wrong_user_control.json": "681633ad49f14c123c0382f1fa9cc5248859a2cfbd3355b6ba817f7b0bd96a01",
+      "results/day2b_shuffled_id_control.json": "1b30e074cb0b98b07dc8d102786119c2ff18ce72e2d78f878bb3528c49f15b49",
+      "results/day2c_curve.csv": "7eca3768950f3948e847b68a30da57df1e26df9429cc104ce47c7d84b52b5881",
+      "figures/day2b_user_effects.png": "abd0e851994b6235b10d201bb641333a90e5a639beca7196ba4e9c84f6f2f771"
+    }
+  },
+  "scope": {
+    "users": 94,
+    "median_train_contexts": 12.0,
+    "median_test_contexts": 3.0,
+    "weighting": "equal-user",
+    "dataset": "Community Alignment v1.1 bounded wave-1 subset",
+    "data_license": "CC BY 4.0; derived results from Zhang et al.; filtered and transformed by Baixin Guo"
+  },
+  "arms": [
+    {
+      "id": "pooled",
+      "label": "Pooled baseline",
+      "nll": 1.3399391420734306
+    },
+    {
+      "id": "correct",
+      "label": "Correct-user adaptation",
+      "nll": 1.3281587181982697
+    },
+    {
+      "id": "wrong",
+      "label": "Wrong-user control",
+      "nll": 1.340911046393962,
+      "repetitions": 500
+    },
+    {
+      "id": "shuffled",
+      "label": "Shuffled-ID control",
+      "nll": 1.3405224442832668,
+      "repetitions": 100
+    }
+  ],
+  "effects": {
+    "improved": 67,
+    "worsened": 27,
+    "tied": 0,
+    "mean_delta_nll": -0.011780423875161174,
+    "median_delta_nll": -0.010997866383435584,
+    "bootstrap_ci_95": [
+      -0.017496880714589807,
+      -0.006156858073262682
+    ]
+  },
+  "history": [
+    {
+      "history_level": "0",
+      "nll": 1.3399391420734306,
+      "delta_nll": 0.0,
+      "gain_fraction_of_all_available": -0.0,
+      "mean_within_user_sd_delta_nll": 0.0
+    },
+    {
+      "history_level": "1",
+      "nll": 1.3390366190702856,
+      "delta_nll": -0.000902523003145048,
+      "gain_fraction_of_all_available": 0.0766120992511995,
+      "mean_within_user_sd_delta_nll": 0.005908364079207349
+    },
+    {
+      "history_level": "3",
+      "nll": 1.3372261574507607,
+      "delta_nll": -0.002712984622669895,
+      "gain_fraction_of_all_available": 0.23029601068856084,
+      "mean_within_user_sd_delta_nll": 0.009404850900358806
+    },
+    {
+      "history_level": "5",
+      "nll": 1.3357686313527521,
+      "delta_nll": -0.0041705107206782355,
+      "gain_fraction_of_all_available": 0.3540204295595583,
+      "mean_within_user_sd_delta_nll": 0.010518979301348676
+    },
+    {
+      "history_level": "8",
+      "nll": 1.3332977669232378,
+      "delta_nll": -0.006641375150192999,
+      "gain_fraction_of_all_available": 0.5637636829177451,
+      "mean_within_user_sd_delta_nll": 0.009961587623604473
+    },
+    {
+      "history_level": "10",
+      "nll": 1.3316919790996848,
+      "delta_nll": -0.008247162973745621,
+      "gain_fraction_of_all_available": 0.700073533952766,
+      "mean_within_user_sd_delta_nll": 0.006519180987223614
+    },
+    {
+      "history_level": "ALL_AVAILABLE",
+      "nll": 1.3281587181982697,
+      "delta_nll": -0.011780423875161174,
+      "gain_fraction_of_all_available": 1.0,
+      "mean_within_user_sd_delta_nll": 0.0
+    }
+  ],
+  "per_user_rows_available": false
+}
