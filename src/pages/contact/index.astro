@@ -1,15 +1,39 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Contact" description="Get in touch — Baixin Guo">
+<BaseLayout title="Research & Collaboration" description="Contact Baixin Guo about research collaborations, academic discussions, and open-source projects.">
   <div class="container-content py-16">
     <div class="max-w-lg">
 
-      <span class="section-label mb-4">Contact</span>
-      <h1 class="mb-4">Get in Touch</h1>
-      <p class="text-sm text-[var(--color-text-dim)] mb-8">
-        Feel free to reach out for research discussions, collaboration opportunities, or questions about my work.
+      <span class="section-label mb-4">Research &amp; Collaboration</span>
+      <h1 class="mb-4">Let's talk research.</h1>
+      <p class="text-sm text-[var(--color-text-dim)] mb-8 max-w-2xl">
+        I'm an independent researcher working on machine learning, preference modeling, statistical methods, and human-AI interaction. I'm open to research collaborations, academic discussions, and open-source projects. If you'd like to connect, please leave a message below.
       </p>
+
+      <!-- Tally research and collaboration inquiry form -->
+      <section aria-label="Research and collaboration inquiry" class="mb-16">
+        <iframe
+          data-tally-src="https://tally.so/embed/M1DyOA?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
+          loading="lazy"
+          width="100%"
+          height="200"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Research &amp; Collaboration Inquiry"
+          class="w-full"
+        ></iframe>
+        <script is:inline async src="https://tally.so/widgets/embed.js"></script>
+        <p class="mt-3 text-xs text-[var(--color-text-muted)]">
+          Prefer a separate page? <a href="https://tally.so/r/M1DyOA" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-[var(--color-primary)]">Open the inquiry form</a>.
+        </p>
+      </section>
+
+      <div class="mb-5">
+        <h2 class="text-xl mb-2">Other ways to connect</h2>
+        <p class="text-sm text-[var(--color-text-dim)]">You can also reach me directly through the channels below.</p>
+      </div>
 
       <div class="space-y-4">
 
