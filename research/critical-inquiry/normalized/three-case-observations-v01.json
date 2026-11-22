@@ -1,0 +1,563 @@
+{
+  "schema_version": "1.0.0",
+  "status": "RESEARCH_ONLY_TECHNICAL_PILOT_SUPERSEDED_FOR_FULL_COMPARISON",
+  "generated_method": "curated bounded subset cross-walk; NOT exhaustive export of source evidence ledgers",
+  "timezone": "Asia/Shanghai",
+  "privacy": "public source references only; no private chats, unredacted personal identifiers, or full copyrighted article text",
+  "parent_records": [
+    {
+      "case_id": "li-2020",
+      "pr": 23,
+      "branch_ref": "e58b88ee72aa0002c0d7c205d0ba6d39598a135f",
+      "path": "research/critical-inquiry/li-wenliang-2020/evidence-v01.json",
+      "source_blob_sha": "be01d749c711fc8853753463dc4d4e713401a053",
+      "relationship": "selected source ID/lineage references; editorially curated observations"
+    },
+    {
+      "case_id": "shanghai-2022",
+      "pr": 21,
+      "branch_ref": "1ab645b94d8f64298ed04db7788d857cb575d51f",
+      "path": "src/data/critical-inquiry/shanghai2022.json",
+      "source_blob_sha": "05374f9753d4e94c28e8c08760a8a3affc660ad2",
+      "relationship": "selected source ID/lineage references; editorially curated observations"
+    },
+    {
+      "case_id": "ai-fen-2020",
+      "pr": 26,
+      "branch_ref": "6f938fd01727445b6ac4ca1cd7421291ee624d92",
+      "path": "research/critical-inquiry/ai-fen/title-homepage-cdx-v01.json",
+      "source_blob_sha": "5a3e8a520ad9ce1c44dba5009b4e75d697998292",
+      "relationship": "frozen Wayback observation timestamps; editorially curated observations"
+    }
+  ],
+  "cases": [
+    {
+      "id": "li-2020",
+      "title": "李文亮｜2020年信息定性与正式纠错",
+      "focus": "同一事件中，警方公开标签、个人训诫、事后调查和正式纠错何时分别可见？",
+      "source_refs": [
+        {
+          "id": "LW16",
+          "url": "https://www.thepaper.cn/newsDetail_forward_5402905",
+          "lineage_id": "wuhan_police_eight_jan1",
+          "source_role": "dated contemporaneous press republication of eight-person initial police notice",
+          "timestamp_caveat": "18:53 is the currently displayed press publication time, not verified time of first official Weibo issue."
+        },
+        {
+          "id": "LW12",
+          "url": "https://m.bjnews.com.cn/detail/158044099415716.html",
+          "lineage_id": "li_personal_interview_jan30_31",
+          "source_role": "contemporaneous direct interview of admonished individual with displayed original-message screenshots",
+          "timestamp_caveat": null
+        },
+        {
+          "id": "LW04",
+          "url": "https://www.xinhuanet.com/politics/2020-03/19/c_1125737457.htm",
+          "lineage_id": "national_supervisory_commission_mar19",
+          "source_role": "retrospective official investigation report",
+          "timestamp_caveat": null
+        },
+        {
+          "id": "LW15",
+          "url": "https://news.sina.cn/gn/2020-03-19/detail-iimxyqwa1770303.d.html",
+          "lineage_id": "wuhan_police_correction_mar19",
+          "source_role": "earliest currently located dated syndication of formal police revocation and apology",
+          "timestamp_caveat": "20:55 is Sina's displayed publication time, not an authenticated timestamp of the first original police Weibo post or a byte-preserved first edition."
+        },
+        {
+          "id": "LW07",
+          "url": "https://www.xinhuanet.com/politics/2020-03/19/c_1125737967.htm",
+          "lineage_id": "wuhan_police_discipline_mar19",
+          "source_role": "official personnel discipline",
+          "timestamp_caveat": null
+        }
+      ],
+      "checkpoints": [
+        {
+          "id": "L1",
+          "at": "2020-01-01T19:00:00+08:00",
+          "label": "1月1日｜警方关于八人的公开标签"
+        },
+        {
+          "id": "L1B",
+          "at": "2020-01-03T23:59:59+08:00",
+          "label": "1月3日末｜训诫已发生，尚无本登记的当时公开个案来源"
+        },
+        {
+          "id": "L2",
+          "at": "2020-01-31T12:00:00+08:00",
+          "label": "1月31日12时｜李文亮的采访公开"
+        },
+        {
+          "id": "L3",
+          "at": "2020-03-19T20:00:00+08:00",
+          "label": "3月19日20时｜国家监委调查"
+        },
+        {
+          "id": "L4",
+          "at": "2020-03-19T21:00:00+08:00",
+          "label": "3月19日21时｜警方撤销通报已有转载"
+        },
+        {
+          "id": "L5",
+          "at": "2020-03-19T23:00:00+08:00",
+          "label": "3月19日23时｜责任人处分通报"
+        }
+      ],
+      "observations": [
+        {
+          "id": "LI-O01",
+          "observed_at": "2020-01-01T18:53:00+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "LW16"
+          ],
+          "kind": "official_label_report",
+          "statement": "同期报道转载武汉警方对八名未列名人员的公开定性。",
+          "limits": "不能据此确认八人全部身份；18:53是媒体页显示时间，不是警方原微博首发时间。",
+          "observation_basis": "contemporaneous_report",
+          "observed_time_precision": "second",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        },
+        {
+          "id": "LI-O02",
+          "observed_at": "2020-01-31T11:29:00+08:00",
+          "event_at": "2020-01-03T23:59:59+08:00",
+          "event_time_precision": "day_end_bound",
+          "source_ids": [
+            "LW12"
+          ],
+          "kind": "actor_interview",
+          "statement": "李文亮在媒体采访中谈到1月3日收到书面训诫。",
+          "limits": "这是当事人自述经媒体发表；不能当成已认证的原始执法文书或3月调查已提前公开。",
+          "observation_basis": "contemporaneous_report",
+          "observed_time_precision": "second",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        },
+        {
+          "id": "LI-O03",
+          "observed_at": "2020-03-19T19:28:31+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "LW04"
+          ],
+          "kind": "official_investigation_report",
+          "statement": "新华社刊发国家监委对训诫不当及程序不规范的调查内容与纠正建议。",
+          "limits": "19:28:31为当前登记的媒体公开时间；纠正建议不等于警方已经撤销。",
+          "observation_basis": "contemporaneous_report",
+          "observed_time_precision": "second",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        },
+        {
+          "id": "LI-O04",
+          "observed_at": "2020-03-19T20:55:00+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "LW15"
+          ],
+          "kind": "administrative_correction_report",
+          "statement": "新浪现存页面转载武汉警方撤销李文亮书面训诫并道歉的声明。",
+          "limits": "20:55是媒体页面标示的时间，不是原始警方微博发布分钟。",
+          "observation_basis": "contemporaneous_report",
+          "observed_time_precision": "second",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        },
+        {
+          "id": "LI-O05",
+          "observed_at": "2020-03-19T22:09:58+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "LW07"
+          ],
+          "kind": "officer_discipline_report",
+          "statement": "新华社记录武汉警方对涉事警务人员的处分决定。",
+          "limits": "处分对象是警务人员，不是李文亮；不能推定八人案件全员均得到同样纠正。",
+          "observation_basis": "contemporaneous_report",
+          "observed_time_precision": "second",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        }
+      ]
+    },
+    {
+      "id": "shanghai-2022",
+      "title": "上海｜2022年传言定性、立案与政策变化",
+      "focus": "未来政策传言、官方否认、警方立案和后来政策通告究竟属于哪些不同证据对象？",
+      "source_refs": [
+        {
+          "id": "S05",
+          "url": "https://news.sina.com.cn/o/2022-03-22/doc-imcwipih9980616.shtml",
+          "lineage_id": "shanghai_mar22_official_fact_check",
+          "source_role": "contemporaneous_news_republication",
+          "timestamp_caveat": null
+        },
+        {
+          "id": "S18",
+          "url": "https://www.yicai.com/news/101358444.html",
+          "lineage_id": "shanghai_police_notice_mar23",
+          "source_role": "contemporaneous_police_notice_report",
+          "timestamp_caveat": null
+        },
+        {
+          "id": "S03",
+          "url": "https://www.shanghai.gov.cn/sjzccs/20220327/613eda924f814a4ab4b25642f0e668c5.html",
+          "lineage_id": "shanghai_official_policy_mar27",
+          "source_role": "official_notice",
+          "timestamp_caveat": null
+        },
+        {
+          "id": "S10",
+          "url": "https://www.xinhuanet.com/local/2022-03/31/c_1128521854.htm",
+          "lineage_id": "shanghai_policy_revision_mar31",
+          "source_role": "contemporaneous_news_of_government_notice",
+          "timestamp_caveat": null
+        },
+        {
+          "id": "S12",
+          "url": "https://www.cna.com.tw/news/acn/202204040212.aspx",
+          "lineage_id": "shanghai_policy_extension_apr04",
+          "source_role": "independent_news_report_on_official_announcement",
+          "timestamp_caveat": null
+        }
+      ],
+      "checkpoints": [
+        {
+          "id": "S1",
+          "at": "2022-03-22T23:30:00+08:00",
+          "label": "3月22日23:30｜七天传言被否认"
+        },
+        {
+          "id": "S2",
+          "at": "2022-03-23T18:05:00+08:00",
+          "label": "3月23日18:05｜警方立案已有报道"
+        },
+        {
+          "id": "S3",
+          "at": "2022-03-27T23:59:59+08:00",
+          "label": "3月27日末｜分批封控计划"
+        },
+        {
+          "id": "S4",
+          "at": "2022-03-31T23:00:00+08:00",
+          "label": "3月31日23时｜分区政策调整"
+        },
+        {
+          "id": "S5",
+          "at": "2022-04-04T20:00:00+08:00",
+          "label": "4月4日20时｜后续持续管控报道"
+        }
+      ],
+      "observations": [
+        {
+          "id": "SH-O01",
+          "observed_at": "2022-03-22T23:21:00+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "S05"
+          ],
+          "kind": "official_rebuttal_report",
+          "statement": "同期媒体记载：有关‘督查组来后全市封城七天’的传言受到公开否认。",
+          "limits": "不能把报道转述当作已认证的完整原帖；否认某一具体预测不等于对全部未来政策给出保证。",
+          "observation_basis": "contemporaneous_report",
+          "observed_time_precision": "second",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        },
+        {
+          "id": "SH-O02",
+          "observed_at": "2022-03-23T17:59:14+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "S18"
+          ],
+          "kind": "police_investigation_report",
+          "statement": "媒体转载警方关于两名人员因相关传言被立案侦查的通报。",
+          "limits": "警方指称是机构主张；立案不是法院判决，不能对应匿名 Y 采访。",
+          "observation_basis": "contemporaneous_report",
+          "observed_time_precision": "second",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        },
+        {
+          "id": "SH-O03",
+          "observed_at": "2022-03-27T23:59:59+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "S03"
+          ],
+          "kind": "official_policy_notice",
+          "statement": "上海市政府公布黄浦江两侧分批封控核酸筛查的计划，两个阶段原计划相差两小时重叠。",
+          "limits": "以日终作为保守可见时间下界，不声称通告于23:59:59发布；计划不能替代实际执行记录。",
+          "observation_basis": "official_notice",
+          "observed_time_precision": "day_end_bound",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        },
+        {
+          "id": "SH-O04",
+          "observed_at": "2022-03-31T22:51:59+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "S10"
+          ],
+          "kind": "official_policy_revision_report",
+          "statement": "新华社报道浦东等地区后续分区分类管理，部分区域实行延长管控。",
+          "limits": "后来的政策变化不意味着3月22日不同版本的传言在当时被证明真实。",
+          "observation_basis": "contemporaneous_report",
+          "observed_time_precision": "second",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        },
+        {
+          "id": "SH-O05",
+          "observed_at": "2022-04-04T19:42:00+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "S12"
+          ],
+          "kind": "continued_controls_report",
+          "statement": "同期报道显示全市核酸筛查后部分管控继续实施。",
+          "limits": "现有公开登记尚未获得警方此前涉及两名人员的案件特定最终司法处置文件。",
+          "observation_basis": "contemporaneous_report",
+          "observed_time_precision": "second",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        }
+      ]
+    },
+    {
+      "id": "ai-fen-2020",
+      "title": "艾芬｜《发哨子的人》历史可见性状态",
+      "focus": "原始 URL、转载、首页发现与标题版本在离散存档时点如何分化？",
+      "source_refs": [
+        {
+          "id": "AF-HARTICLE-OLD",
+          "url": "https://web.archive.org/web/20200310135052/http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256",
+          "lineage_id": "yyrw_article_history",
+          "source_role": "archived_website_representation",
+          "timestamp_caveat": "Wayback观察时刻非网站编辑或首发时刻"
+        },
+        {
+          "id": "AF-HHOME-OLD",
+          "url": "https://web.archive.org/web/20200310190634/https://www.yyrw.org.cn/",
+          "lineage_id": "yyrw_homepage_history",
+          "source_role": "archived_website_representation",
+          "timestamp_caveat": "首页列表链接不等于首页置顶"
+        },
+        {
+          "id": "AF-WECHAT-UNAVAILABLE",
+          "url": "https://web.archive.org/web/20200310225825/https://mp.weixin.qq.com/s/nEy0jq5wjj-g6DQVZep1Wg",
+          "lineage_id": "original_wechat_url_archived_error",
+          "source_role": "archived_unavailable_notice",
+          "timestamp_caveat": "原微信原始首版字节未取得"
+        },
+        {
+          "id": "AF-HARTICLE-NEW",
+          "url": "https://web.archive.org/web/20200311041923/http://www.yyrw.org.cn/e/action/ShowInfo.php?classid=5&id=2256",
+          "lineage_id": "yyrw_article_history",
+          "source_role": "archived_website_representation",
+          "timestamp_caveat": "标题变化编辑时刻、动机未知"
+        },
+        {
+          "id": "AF-21JOIN",
+          "url": "https://web.archive.org/web/20200312004223/http://www.21join.com/index.php?m=content&c=index&a=show&catid=9&id=2703",
+          "lineage_id": "he_media_derivative_lineage",
+          "source_role": "archived_derivative_copy",
+          "timestamp_caveat": "与 Terminus 正文相同不证明来源独立"
+        },
+        {
+          "id": "AF-HHOME-NEW",
+          "url": "https://web.archive.org/web/20200312063101/http://www.yyrw.org.cn/",
+          "lineage_id": "yyrw_homepage_history",
+          "source_role": "archived_website_representation",
+          "timestamp_caveat": "单次缺失不证明持续移除，亦可能为正常首页轮替"
+        },
+        {
+          "id": "AF-CDT-DISCLOSURE",
+          "url": "https://chinadigitaltimes.net/2020/12/minitrue-diary-march-10-2020-tibet-independence-covid-rent-relief-whistleblower-epidemic-transmission-and-treatments/",
+          "lineage_id": "cdt_later_directive_disclosure",
+          "source_role": "retrospective_directive_disclosure",
+          "timestamp_caveat": "日期可能为泄露日而非签发日，未经原始指令认证"
+        }
+      ],
+      "checkpoints": [
+        {
+          "id": "A1",
+          "at": "2020-03-10T22:00:00+08:00",
+          "label": "3月10日22时｜衍生页面存档"
+        },
+        {
+          "id": "A2",
+          "at": "2020-03-11T03:10:00+08:00",
+          "label": "3月11日03:10｜首页有直接链接"
+        },
+        {
+          "id": "A3",
+          "at": "2020-03-11T07:00:00+08:00",
+          "label": "3月11日07时｜原微信 URL 不可读"
+        },
+        {
+          "id": "A4",
+          "at": "2020-03-11T12:30:00+08:00",
+          "label": "3月11日12:30｜另一标题版本"
+        },
+        {
+          "id": "A5",
+          "at": "2020-03-12T14:40:00+08:00",
+          "label": "3月12日14:40｜首页无直接链接"
+        },
+        {
+          "id": "A6",
+          "at": "2020-12-12T00:00:00+08:00",
+          "label": "12月12日｜后来的指令披露"
+        }
+      ],
+      "observations": [
+        {
+          "id": "AF-O01",
+          "observed_at": "2020-03-10T21:50:52+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "AF-HARTICLE-OLD"
+          ],
+          "kind": "article_archive_capture",
+          "statement": "Wayback捕获的 yyrw 文章正文可读，标题以‘吹哨子的人’开头。",
+          "limits": "网站源页在早期被捕获，不代表原《人物》微信首发字节；只支持此捕获的状态。",
+          "observation_basis": "archive_capture",
+          "observed_time_precision": "second",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        },
+        {
+          "id": "AF-O02",
+          "observed_at": "2020-03-11T03:06:34+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "AF-HHOME-OLD"
+          ],
+          "kind": "homepage_archive_capture",
+          "statement": "yyrw 首页的一份 HTML 快照在普通新闻列表中含有指向采访页的直接链接。",
+          "limits": "这是快照时点的可发现性，不能说明首页头条、持续展示或政策豁免。",
+          "observation_basis": "archive_capture",
+          "observed_time_precision": "second",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        },
+        {
+          "id": "AF-O03",
+          "observed_at": "2020-03-11T06:58:25+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "AF-WECHAT-UNAVAILABLE"
+          ],
+          "kind": "wechat_url_archive_capture",
+          "statement": "原《人物》微信 URL 的 Wayback 快照显示内容不可查看提示。",
+          "limits": "无法定位最早失效分钟，也无法判断具体执行者；不是原始采访全文。",
+          "observation_basis": "archive_capture",
+          "observed_time_precision": "second",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        },
+        {
+          "id": "AF-O04",
+          "observed_at": "2020-03-11T12:19:23+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "AF-HARTICLE-NEW"
+          ],
+          "kind": "article_title_archive_capture",
+          "statement": "yyrw 同一文章 URL 的另一份快照标题以‘发哨子的人’开头。",
+          "limits": "与上一旧标题快照构成有界状态变化，不代表编辑发生于捕获时刻或某条指令造成修改。",
+          "observation_basis": "archive_capture",
+          "observed_time_precision": "second",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        },
+        {
+          "id": "AF-O05",
+          "observed_at": "2020-03-12T08:42:23+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "AF-21JOIN"
+          ],
+          "kind": "derivative_copy_archive_capture",
+          "statement": "Wayback 捕获可读的 21join／合传媒衍生版本。",
+          "limits": "这不是《人物》原始微信首版，也不能证明与其他衍生版独立采集。",
+          "observation_basis": "archive_capture",
+          "observed_time_precision": "second",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        },
+        {
+          "id": "AF-O06",
+          "observed_at": "2020-03-12T14:31:01+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "AF-HHOME-NEW"
+          ],
+          "kind": "homepage_archive_capture",
+          "statement": "下一个已登记的 yyrw 首页快照不含上述采访的直接链接。",
+          "limits": "与前次有链接快照之间相隔35小时24分27秒；一般列表轮替是未排除的竞争解释。",
+          "observation_basis": "archive_capture",
+          "observed_time_precision": "second",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        },
+        {
+          "id": "AF-O07",
+          "observed_at": "2020-12-11T23:59:59+08:00",
+          "event_at": null,
+          "event_time_precision": null,
+          "source_ids": [
+            "AF-CDT-DISCLOSURE"
+          ],
+          "kind": "retrospective_disclosure",
+          "statement": "中国数字时代发表的指令汇编涉及‘不上首页’的文字及 yyrw 转载 URL。",
+          "limits": "日终时间仅作为不早于披露日期的保守边界；公布时间不是指令签发日，措辞及接收范围没有独立认证。",
+          "observation_basis": "retrospective_disclosure",
+          "observed_time_precision": "day_end_bound",
+          "status": "source_attributed",
+          "claim_role": "descriptive",
+          "source_lineage_note": null
+        }
+      ]
+    }
+  ],
+  "superseded_by": "research/critical-inquiry/normalized/three-case-ledger-registry-v02.json",
+  "retained_role": "Minimal 17-observation regression fixture for the original temporal isolation prototype; not the complete comparative evidence dataset."
+}

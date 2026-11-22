@@ -1,0 +1,543 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/GBX-Max1220/maxguo.dev/blob/research/critical-inquiry-three-case-time-model-20261101/research/critical-inquiry/normalized/three-case-ledger-registry-v02.schema.json",
+  "title": "Three-case critical inquiry lossless historical evidence registry v2",
+  "description": "Canonical projections backed by exact pinned native source-ledger copies. Cross-record constraints are enforced by scripts/validate-critical-inquiry-ledger-registry.mjs.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "status",
+    "created_at",
+    "timezone",
+    "normalization_method",
+    "manifest_path",
+    "counts",
+    "cases",
+    "comparison_contract",
+    "review_state",
+    "methodological_counterexamples"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "2.0.0"
+    },
+    "status": {
+      "const": "RESEARCH_ONLY_NOT_PUBLICATION_APPROVED"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "timezone": {
+      "const": "Asia/Shanghai"
+    },
+    "normalization_method": {
+      "type": "string"
+    },
+    "manifest_path": {
+      "type": "string"
+    },
+    "counts": {
+      "type": "object",
+      "required": [
+        "cases",
+        "sources",
+        "as_of_views",
+        "claims",
+        "archive_observations"
+      ],
+      "properties": {
+        "cases": {
+          "const": 3
+        },
+        "sources": {
+          "const": 58
+        },
+        "as_of_views": {
+          "const": 24
+        },
+        "claims": {
+          "const": 54
+        },
+        "archive_observations": {
+          "const": 30
+        }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/$defs/case"
+      }
+    },
+    "comparison_contract": {
+      "type": "object",
+      "required": [
+        "common_question",
+        "common_dimensions",
+        "case_specific_objects",
+        "prohibited_equivalences",
+        "correction_types",
+        "correction_state_semantics",
+        "correction_state_register"
+      ],
+      "properties": {
+        "common_question": {
+          "type": "string"
+        },
+        "common_dimensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "case_specific_objects": {
+          "type": "object"
+        },
+        "prohibited_equivalences": {
+          "type": "array",
+          "minItems": 5,
+          "items": {
+            "type": "string"
+          }
+        },
+        "correction_types": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "definition"
+            ],
+            "properties": {
+              "id": {
+                "enum": [
+                  "factual_correction",
+                  "legal_administrative_correction",
+                  "policy_update",
+                  "webpage_version_update"
+                ]
+              },
+              "definition": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "correction_state_semantics": {
+          "type": "string"
+        },
+        "correction_state_register": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "case_id",
+              "state",
+              "correction_object",
+              "scope",
+              "source_ids"
+            ],
+            "properties": {
+              "case_id": {
+                "enum": [
+                  "li-2020",
+                  "shanghai-2022",
+                  "ai-fen-2020"
+                ]
+              },
+              "state": {
+                "enum": [
+                  "observed_formal_correction",
+                  "searched_not_located",
+                  "not_applicable"
+                ]
+              },
+              "correction_object": {
+                "type": "string"
+              },
+              "scope": {
+                "type": "string"
+              },
+              "source_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "review_asset": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "review_state": {
+      "type": "object",
+      "required": [
+        "independent_second_human_review",
+        "editorial_rights_privacy_review",
+        "publication_authorization"
+      ],
+      "properties": {
+        "independent_second_human_review": {
+          "const": "NOT_COMPLETED"
+        },
+        "editorial_rights_privacy_review": {
+          "const": "NOT_COMPLETED"
+        },
+        "publication_authorization": {
+          "const": "NOT_AUTHORIZED"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "methodological_counterexamples": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "source_url",
+          "observed_publication_at",
+          "source_role",
+          "source_claim",
+          "methodological_use",
+          "limitations",
+          "case_evidence",
+          "counts_toward_case_source_totals"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "observed_publication_at": {
+            "type": "string"
+          },
+          "source_role": {
+            "type": "string"
+          },
+          "source_claim": {
+            "type": "string"
+          },
+          "methodological_use": {
+            "type": "string"
+          },
+          "limitations": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "string"
+            }
+          },
+          "case_evidence": {
+            "const": false
+          },
+          "counts_toward_case_source_totals": {
+            "const": false
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": [
+        "source_id",
+        "source_role",
+        "independence_group",
+        "historical_asof_eligible",
+        "native_record_id"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publisher": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publication_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "published_at_local": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "independence_group": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "historical_asof_eligible": {
+          "type": "boolean"
+        },
+        "access_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "native_record_id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "cutoff": {
+      "type": "object",
+      "required": [
+        "date",
+        "local_datetime",
+        "precision",
+        "ordering_boundary",
+        "boundary_note"
+      ],
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "local_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "precision": {
+          "enum": [
+            "exact_local_time",
+            "calendar_day"
+          ]
+        },
+        "ordering_boundary": {
+          "type": "string"
+        },
+        "boundary_note": {
+          "type": "string"
+        }
+      }
+    },
+    "view": {
+      "type": "object",
+      "required": [
+        "view_id",
+        "cutoff",
+        "source_ids"
+      ],
+      "properties": {
+        "view_id": {
+          "type": "string"
+        },
+        "cutoff": {
+          "$ref": "#/$defs/cutoff"
+        },
+        "label": {
+          "type": "string"
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "publicly_documented": {},
+        "not_publicly_documented": {},
+        "analytical_question": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "claim": {
+      "type": "object",
+      "required": [
+        "claim_id",
+        "claim",
+        "source_ids"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string"
+        },
+        "claim": {
+          "type": "string"
+        },
+        "source_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "limitations": {}
+      },
+      "additionalProperties": true
+    },
+    "case": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "source_ledger",
+        "sources",
+        "as_of_views",
+        "claims",
+        "source_lineage_groups"
+      ],
+      "properties": {
+        "id": {
+          "enum": [
+            "li-2020",
+            "shanghai-2022",
+            "ai-fen-2020"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "source_ledger": {
+          "type": "object",
+          "required": [
+            "path",
+            "commit",
+            "blob_sha",
+            "source_pr"
+          ],
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "commit": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{40}$"
+            },
+            "blob_sha": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{40}$"
+            },
+            "source_pr": {
+              "type": "integer"
+            }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "as_of_views": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/view"
+          }
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/claim"
+          }
+        },
+        "source_lineage_groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "lineage_id",
+              "source_ids"
+            ],
+            "properties": {
+              "lineage_id": {
+                "type": "string"
+              },
+              "source_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "archive_observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "capture_id",
+              "archive_type",
+              "observed_at_beijing",
+              "source_parent_ids"
+            ],
+            "properties": {
+              "capture_id": {
+                "type": "string"
+              },
+              "archive_type": {
+                "type": "string"
+              },
+              "observed_at_beijing": {
+                "type": "string"
+              },
+              "source_parent_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

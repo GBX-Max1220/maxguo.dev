@@ -1,0 +1,269 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/GBX-Max1220/maxguo.dev/blob/research/critical-inquiry-three-case-time-model-20261101/research/critical-inquiry/normalized/three-case-schema-v01.json",
+  "title": "Critical Inquiry Bounded Historical Observation Dataset",
+  "description": "Machine-readable schema. Cross-record temporal, lineage, source, and publication-gate invariants are enforced by scripts/critical-visibility-core.mjs.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "status",
+    "generated_method",
+    "timezone",
+    "privacy",
+    "parent_records",
+    "cases"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "status": {
+      "const": "RESEARCH_ONLY_NOT_PUBLICATION_APPROVED"
+    },
+    "generated_method": {
+      "type": "string",
+      "minLength": 20
+    },
+    "timezone": {
+      "const": "Asia/Shanghai"
+    },
+    "privacy": {
+      "type": "string"
+    },
+    "parent_records": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "$ref": "#/$defs/provenance"
+      }
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "$ref": "#/$defs/case"
+      }
+    }
+  },
+  "$defs": {
+    "beijingTimestamp": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+08:00$"
+    },
+    "sha": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "case_id",
+        "pr",
+        "branch_ref",
+        "path",
+        "source_blob_sha",
+        "relationship"
+      ],
+      "properties": {
+        "case_id": {
+          "type": "string"
+        },
+        "pr": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "branch_ref": {
+          "$ref": "#/$defs/sha"
+        },
+        "path": {
+          "type": "string"
+        },
+        "source_blob_sha": {
+          "$ref": "#/$defs/sha"
+        },
+        "relationship": {
+          "type": "string"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "id",
+        "url",
+        "lineage_id",
+        "source_role",
+        "timestamp_caveat"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "lineage_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_role": {
+          "type": "string"
+        },
+        "timestamp_caveat": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "checkpoint": {
+      "type": "object",
+      "required": [
+        "id",
+        "at",
+        "label"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "at": {
+          "$ref": "#/$defs/beijingTimestamp"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "observation": {
+      "type": "object",
+      "required": [
+        "id",
+        "observed_at",
+        "event_at",
+        "event_time_precision",
+        "source_ids",
+        "kind",
+        "statement",
+        "limits",
+        "observation_basis",
+        "observed_time_precision",
+        "status",
+        "claim_role",
+        "source_lineage_note"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "observed_at": {
+          "$ref": "#/$defs/beijingTimestamp"
+        },
+        "event_at": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/beijingTimestamp"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "event_time_precision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "kind": {
+          "type": "string"
+        },
+        "statement": {
+          "type": "string"
+        },
+        "limits": {
+          "type": "string"
+        },
+        "observation_basis": {
+          "enum": [
+            "archive_capture",
+            "contemporaneous_report",
+            "official_notice",
+            "retrospective_disclosure"
+          ]
+        },
+        "observed_time_precision": {
+          "enum": [
+            "second",
+            "day_end_bound"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "claim_role": {
+          "enum": [
+            "descriptive",
+            "attributed",
+            "analytical"
+          ]
+        },
+        "source_lineage_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "case": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "focus",
+        "source_refs",
+        "checkpoints",
+        "observations"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "focus": {
+          "type": "string"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "checkpoints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/checkpoint"
+          }
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/observation"
+          }
+        }
+      }
+    }
+  }
+}
