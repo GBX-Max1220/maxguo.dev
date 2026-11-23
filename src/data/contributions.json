@@ -2041,5 +2041,74 @@
       "apiUrl": "https://api.github.com/repos/microsoft/agent-lightning/pulls/706"
     },
     "category": "open-source-engineering"
+  },
+  {
+    "id": "rajghugare19-builderbench-pr-1",
+    "occurredAt": "2026-11-06T10:47:38Z",
+    "localDate": "2026-11-06",
+    "project": "RajGhugare19/builderbench",
+    "kind": "pr",
+    "scope": "external",
+    "event": "submitted",
+    "title": "Fix Reflexion cross-trial state isolation",
+    "projectContext": "BuilderBench is a benchmark for evaluating language-model agents in building tasks.",
+    "contribution": "Proposed clearing per-trial observation, action and summary buffers while retaining archived reflections, and preventing duplicate summary injection. Added eight deterministic regression tests.",
+    "whyItMatters": "Stale state crossing trial boundaries can change what an agent sees and undermine the interpretation of an evaluation.",
+    "status": "open",
+    "url": "https://github.com/RajGhugare19/builderbench/pull/1",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-11-06T10:47:38Z",
+      "verifiedAt": "2026-11-23T00:00:00Z",
+      "apiUrl": "https://api.github.com/repos/RajGhugare19/builderbench/pulls/1"
+    },
+    "category": "open-source-engineering"
+  },
+  {
+    "id": "rajghugare19-builderbench-pr-2",
+    "occurredAt": "2026-11-06T22:18:16Z",
+    "localDate": "2026-11-07",
+    "project": "RajGhugare19/builderbench",
+    "kind": "pr",
+    "scope": "external",
+    "event": "submitted",
+    "title": "Fix run output isolation and safe submission selection",
+    "projectContext": "BuilderBench is a benchmark for evaluating language-model agents in building tasks.",
+    "contribution": "Proposed isolated output directories for repeated runs, selection of usable runs with fallback, and validation before aggregation; added 56 offline regression tests. A usable run is not necessarily complete because the existing format lacks a completion marker.",
+    "whyItMatters": "Avoids overwriting previous runs and makes selection and invalid input handling more explicit.",
+    "status": "open",
+    "url": "https://github.com/RajGhugare19/builderbench/pull/2",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-11-06T22:18:16Z",
+      "verifiedAt": "2026-11-23T00:00:00Z",
+      "apiUrl": "https://api.github.com/repos/RajGhugare19/builderbench/pulls/2"
+    },
+    "category": "open-source-engineering"
+  },
+  {
+    "id": "rajghugare19-builderbench-pr-3",
+    "occurredAt": "2026-11-07T20:57:08Z",
+    "localDate": "2026-11-08",
+    "project": "RajGhugare19/builderbench",
+    "kind": "pr",
+    "scope": "external",
+    "event": "submitted",
+    "title": "Fix transition alignment at summary and trial boundaries",
+    "projectContext": "BuilderBench is a benchmark for evaluating language-model agents in building tasks.",
+    "contribution": "Proposed preserving causal action–observation alignment across history-window and trial boundaries for Reflexion, Naive and CoT agents. Added 18 deterministic tests including negative controls; no model inference was run.",
+    "whyItMatters": "Missing boundary actions can distort the history used for agent evaluation; the fix does not establish a benchmark performance improvement.",
+    "status": "open",
+    "url": "https://github.com/RajGhugare19/builderbench/pull/3",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-11-07T20:57:08Z",
+      "verifiedAt": "2026-11-23T00:00:00Z",
+      "apiUrl": "https://api.github.com/repos/RajGhugare19/builderbench/pulls/3"
+    },
+    "category": "open-source-engineering"
   }
 ]
