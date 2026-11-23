@@ -1,0 +1,28 @@
+---
+id: feedback-evaluation-research-log-november-2026
+title: "Research Log: Feedback, Pairing, and Evaluation Reliability"
+date: 2026-11-22
+type: research-note
+tags: ["Preference learning", "Off-policy evaluation", "Reproducibility"]
+excerpt: "Independent investigations of selective feedback, preference pairs, and sparse offline evaluation, with explicit boundaries on what the results support."
+draft: false
+---
+
+These are independent investigations using public materials and controlled simulations. They are not claims of collaboration with the organizations behind the projects.
+
+## What missing feedback does to a learning target
+
+Using controlled CPU simulations, I compared complete feedback, selective observations and inverse-probability weighting. Low response probability increased variability; zero probability of observation leaves the target unidentified without additional assumptions. The simulations are illustrations, not evidence of a new algorithm or a real-world intervention.
+
+## COALA: preserving the identity of preference pairs
+
+I inspected the public [COALA reference implementation](https://github.com/pilancilab/COALA) and its data path. In a controlled synthetic comparison, pairing responses from the same prompt can cancel shared prompt-related components, whereas re-pairing may retain them. The published reference path is not the complete experimental pipeline: this observation does not establish which pairing was used for the final reported models.
+
+## Open Bandit Dataset: the limits of a small offline comparison
+
+Using the public [Open Bandit Dataset](https://github.com/st-tech/zr-obp), I checked IPS, SNIPS and doubly robust estimators on a 10,000-row sample, with a 7,000/3,000 temporal split. The evaluation segment contained 18 clicks. In a leave-one-positive-out check, six deletions changed the candidate ranking. These results describe one sparse setting; they do not establish a winning online policy.
+
+## MedCalc-Bench: reconstructing available labels
+
+I reviewed the public [MedCalc label-validation materials](https://github.com/junzeye/validate-medcalc-labels) and checked the published selection and consensus procedure. Of 1,047 test cases, 887 received labels under that procedure; my independent rerun reproduced those 887 labels and case IDs. This is label reconstruction, not model accuracy or clinical validation.
+

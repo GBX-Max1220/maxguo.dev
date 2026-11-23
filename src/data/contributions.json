@@ -1975,5 +1975,71 @@
       "threadAuthor": "clongbupt"
     },
     "category": "technical-review"
+  },
+  {
+    "id": "nvidia-nemo-rl-pull-5319",
+    "occurredAt": "2026-11-19T19:55:49Z",
+    "localDate": "2026-11-20",
+    "project": "NVIDIA-NeMo/RL",
+    "kind": "pr",
+    "scope": "external",
+    "event": "submitted",
+    "title": "Fix windowed sampler buffer capacity",
+    "contribution": "Corrected two capacity calculations to account for all groups held during a training step; added CPU regression tests. Linux Ray and functional validation remain outstanding.",
+    "whyItMatters": "A capacity undercount can cause rollout and training pumps to wait indefinitely.",
+    "status": "open",
+    "url": "https://github.com/NVIDIA-NeMo/RL/pull/5319",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-11-19T19:55:49Z",
+      "verifiedAt": "2026-11-23T10:56:49.840Z",
+      "apiUrl": "https://api.github.com/repos/NVIDIA-NeMo/RL/pulls/5319"
+    },
+    "category": "open-source-engineering"
+  },
+  {
+    "id": "bytedance-seed-taskmem-pull-2",
+    "occurredAt": "2026-11-18T19:17:21Z",
+    "localDate": "2026-11-19",
+    "project": "ByteDance-Seed/TaskMem",
+    "kind": "pr",
+    "scope": "external",
+    "event": "submitted",
+    "title": "Fix long-term memory serialization",
+    "contribution": "Corrected episodic and semantic serialization, handling missing modalities and sparse clip IDs; added regression tests. No model inference or benchmark improvement is claimed.",
+    "whyItMatters": "Preserves correct memory output when available modalities differ.",
+    "status": "open",
+    "url": "https://github.com/ByteDance-Seed/TaskMem/pull/2",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-11-18T19:17:21Z",
+      "verifiedAt": "2026-11-23T10:56:49.840Z",
+      "apiUrl": "https://api.github.com/repos/ByteDance-Seed/TaskMem/pulls/2"
+    },
+    "category": "open-source-engineering"
+  },
+  {
+    "id": "microsoft-agent-lightning-pull-706",
+    "occurredAt": "2026-11-18T19:04:06Z",
+    "localDate": "2026-11-19",
+    "project": "microsoft/agent-lightning",
+    "kind": "pr",
+    "scope": "external",
+    "event": "submitted",
+    "title": "Clarify failed rollout and reward semantics",
+    "contribution": "Contributed documentation explaining failed rollouts, missing rewards and retries, including the distinction between infrastructure failures and task outcomes. No production behavior was changed.",
+    "whyItMatters": "Helps users interpret training feedback and avoid conflating infrastructure errors with task outcomes.",
+    "status": "open",
+    "url": "https://github.com/microsoft/agent-lightning/pull/706",
+    "selected": false,
+    "source": {
+      "author": "GBX-Max1220",
+      "createdAt": "2026-11-18T19:04:06Z",
+      "verifiedAt": "2026-11-23T10:56:49.840Z",
+      "apiUrl": "https://api.github.com/repos/microsoft/agent-lightning/pulls/706"
+    },
+    "category": "open-source-engineering"
   }
 ]
