@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getEntry, render } from 'astro:content';
+const entry = await getEntry('blog', 'feedback-evaluation-research-log-november-2026');
+if (!entry) throw new Error('Research note not found');
+const { Content } = await render(entry);
+---
+<BaseLayout title={entry.data.title} description={entry.data.excerpt}>
+  <div class="container-content py-16">
+    <article class="max-w-2xl">
+      <a href="/research-notes/" class="link-arrow mb-6 inline-flex">← Research notes</a>
+      <p class="font-mono text-[0.65rem] text-[var(--color-text-muted)] mb-3">Research Note · 2026-11-22</p>
+      <h1 class="mb-8">{entry.data.title}</h1>
+      <div class="prose-page text-base leading-relaxed text-[var(--color-text)] space-y-4"><Content /></div>
+    </article>
+  </div>
+</BaseLayout>
