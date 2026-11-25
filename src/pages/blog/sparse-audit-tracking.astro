@@ -1,0 +1,24 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const entry = await getEntry('blog', 'sparse-audit-tracking');
+if (!entry) throw new Error('Sparse audit tracking note not found');
+const { Content } = await render(entry);
+
+const date = entry.data.date.toISOString().slice(0, 10);
+const reproduction = '/research/sparse-audit-tracking/sparse-audit-tracking-reproduction.zip';
+---
+<BaseLayout title={entry.data.title} description={entry.data.excerpt}>
+  <div class="container-content py-16">
+    <article class="max-w-2xl">
+      <a href="/research-notes/" class="link-arrow mb-6 inline-flex">← Research notes</a>
+      <p class="font-mono text-[0.65rem] text-[var(--color-text-muted)] mb-3">Research Note · {date}</p>
+      <h1 class="mb-8">{entry.data.title}</h1>
+      <div class="prose-page text-base leading-relaxed text-[var(--color-text)] space-y-4">
+        <Content />
+        <p><a href={reproduction} download>Download the reproduction script, instructions, and full results</a></p>
+      </div>
+    </article>
+  </div>
+</BaseLayout>
