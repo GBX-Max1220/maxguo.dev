@@ -1,0 +1,36 @@
+---
+id: sparse-audit-tracking
+title: "Tracking a changing rate with five audit labels per window"
+date: 2026-11-25
+type: research-note
+tags: ["Online estimation", "Sparse feedback", "Reproducibility"]
+excerpt: "A simulation, with numerical checks, of six update rules tracking a step change from five audit labels per window."
+draft: false
+---
+
+How quickly can a running estimate recover after a change when it sees just five labels per window? I compared six update rules on the same audit labels and checked five of them using exact and numerical calculations.
+
+## Setup
+
+The simulation tracks a Bernoulli rate that starts at 20% and either stays there or rises by 5 or 15 percentage points. Each condition uses 2,400 paired runs. The table shows mean absolute error in percentage points with a 20% initial prediction. The stationary column averages all 30 windows. The shift columns average the first 10 windows after the change.
+
+| Update rule | No shift | +5 pp | +15 pp |
+| --- | ---: | ---: | ---: |
+| Fixed estimate | 0.00 | 5.00 | 15.00 |
+| Exponential moving average, gain 0.25 | 5.23 | 5.99 | 7.74 |
+| Exponential moving average, gain 0.10 | 2.96 | 4.28 | 9.06 |
+| Four-window rolling mean | 7.26 | 7.56 | 8.95 |
+| Rolling mean with a 20-label prior | 3.42 | 4.51 | 8.94 |
+| CUSUM alarm, then a gain-0.25 EMA | 0.04 | 5.01 | 13.62 |
+
+The 20% initial prediction equals the true rate in the no-shift column. There, the fixed estimate and the CUSUM rule have MAEs of 0.00 and 0.04 pp. Starting at 24% raises those errors to 4.00 and 4.02 pp, respectively.
+
+## Checks and interpretation
+
+A lower EMA gain reduced noise in the stationary case and adapted more slowly after the larger shift. Binomial count distributions and numerical propagation of the EMA estimate reproduced the simulated errors for the five rules without CUSUM to within Monte Carlo uncertainty and numerical tolerance.
+
+The rolling estimate with a prior gives equal weight to its prior and the 20 labels in a full window. With a 35% target, moving the prior from 20% to 24% reduces its steady-state bias from 7.5 to 5.5 percentage points in absolute value.
+
+The CUSUM compares a 20% reference rate to a 35% alternative. Its threshold of 4.83 came from the original two-region simulation and was carried over unchanged. The expected increment is negative at 25%, which helps explain the weak response to the smaller shift. At 35%, dividing the threshold by the expected drift of about 0.30 nats per window gives a rough timescale of 16 windows, longer than the 10-window scoring horizon. The reported CUSUM MAEs come from simulation.
+
+The simulation provides only audit labels for the stream being scored. It isolates how estimators respond to sparse observations and leaves questions about combining selective routine feedback with audits, or reallocating audit effort, open.
