@@ -39,7 +39,7 @@ def work(w):
  bits=[para(w['title']+' | '+w['date'],'title')]
  if w.get('context'): bits.append(para(w['context'],'meta'))
  bits.append(para(w['status'],'meta'))
- for b in w['bullets']:bits.append(para('- '+b,'bullet'))
+ for b in w['bullets'][:2]:bits.append(para('- '+b,'bullet'))
  if w.get('url'):
   url=w['url']
   if url.startswith('/'):url='https://gbx-max1220.github.io/maxguo.dev'+url
@@ -49,10 +49,10 @@ def work(w):
 def footer(c,doc):
  c.setStrokeColor(colors.HexColor('#d9dfe2'));c.line(42,36,A4[0]-42,36)
  c.setFont('CVSans',8);c.setFillColor(muted)
- c.drawString(42,24,'Baixin (Max) Guo | Research CV | October 2026')
+ c.drawString(42,24,'Baixin (Max) Guo | Research CV | November 2026')
  c.drawRightString(A4[0]-42,24,str(doc.page))
 story=[]
-story.extend([para('BAIXIN (MAX) GUO','name'),para('Human-Centered AI | Feedback Learning | Reliable AI Agents','subtitle')])
+story.extend([para('BAIXIN (MAX) GUO','name'),para('Machine Learning | Feedback and Adaptation | Research Methods','subtitle')])
 story.append(Paragraph('<link href="mailto:gbx1220max@gmail.com">gbx1220max@gmail.com</link> | <link href="https://gbx-max1220.github.io/maxguo.dev/">Website</link> | <link href="https://github.com/GBX-Max1220">GitHub</link>',styles['meta']))
 story.append(para('China | Remote availability from October 2026','meta'))
 section('RESEARCH PROFILE')
@@ -60,18 +60,24 @@ story.append(para(p['profile']))
 story.append(para('Interests: '+p['interests']))
 section('RESEARCH COLLABORATIONS')
 for w in p['collaborations']:work(w)
+story.append(para('Co-authored the public preprint What the Score Measured (Zenodo, 2026) and authored its companion methods report. Neither is peer reviewed.'))
 section('SELECTED RESEARCH & TECHNICAL WORK')
 for w in p['projects'][:2]:work(w)
-story.append(PageBreak())
+# Let ReportLab choose page breaks for the current content.
 section('SELECTED RESEARCH & TECHNICAL WORK - CONTINUED')
 work(p['projects'][2])
-for w in p['additional'][:2]:work(w)
+work(p['additional'][0])
 work({'id':'thesis','title':'Undergraduate thesis - Chinese LLM evaluation on CBT-Bench','date':'2026','status':'Benchmark evaluation', 'bullets':['Designed fixed zero-shot evaluation across five Chinese LLM services on 442 structured examples, with checkpointing and retry logic.','Reported exact match, partial-overlap, and sample-average F1; bounded findings to benchmark evidence rather than clinical or human-outcome validity.']})
 section('EARLIER RESEARCH EXPERIENCE')
 work({'id':'usc','title':'Trojan Sports Research Lab, USC Marshall School of Business','date':'Mar 2025 - Mar 2026','status':'Research collaboration | Supervisor: Prof. Lorena Martin','bullets':['Collected, cleaned, visualized, and analyzed multi-source baseball data for research on pitcher workload, pitch characteristics, and injury risk.']})
 section('EDUCATION')
 story.append(para('Changchun Humanities and Sciences College | 2022-2026','title'))
 story.append(para("Bachelor's degree in Applied Psychology"))
+section('SELECTED RESEARCH ENGINEERING')
+for item in p['engineeringContributions']:
+ story.append(para(item['title'] + ' — ' + item['status'], 'title'))
+ story.append(para(item['summary'], 'body'))
+story.append(para('AIMS / torch_measure — proposed a missing-response fix for item-fit statistics, with regression tests. Separate exploratory WILD work uses artificial masks on fixed panels; the natural missingness mechanism is not established.'))
 section('METHODS & TECHNICAL SKILLS')
 story.append(para('Programming: Python; JavaScript/TypeScript; SQL/SQLite; Git/GitHub; pytest; CLI tooling; structured data pipelines.'))
 story.append(para('AI and evaluation: LLM/API pipelines; agent prototyping; supervised ML; preference diagnostics; reproducible evaluation; contextual bandits.'))

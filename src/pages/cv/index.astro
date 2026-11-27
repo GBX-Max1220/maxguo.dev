@@ -18,7 +18,7 @@ const pdfUrl = siteUrl('Baixin_Guo_CV.pdf');
           <div>
             <h1 class="mb-2">Baixin (Max) Guo</h1>
             <p class="text-base text-[var(--color-text-dim)] mb-3">
-              Human-Centered AI · AI Evaluation &amp; Learning · Reliable AI Agents
+              Machine Learning · Feedback and Adaptation · Research Methods
             </p>
           </div>
           <a class="btn btn-sm" href={pdfUrl} target="_blank" rel="noopener noreferrer">Download PDF</a>
@@ -28,7 +28,7 @@ const pdfUrl = siteUrl('Baixin_Guo_CV.pdf');
           <a class="link" href="https://github.com/GBX-Max1220" target="_blank" rel="noopener noreferrer">GitHub</a>
           <span>China · Remote availability from Oct 2026</span>
         </div>
-        <p class="text-xs text-[var(--color-text-muted)] mt-3">Canonical research-outreach CV · Updated October 2026</p>
+        <p class="text-xs text-[var(--color-text-muted)] mt-3">Web and PDF research CV · Updated November 2026</p>
       </div>
 
       <section class="mb-10">
@@ -80,6 +80,14 @@ const pdfUrl = siteUrl('Baixin_Guo_CV.pdf');
               <li>Collected, cleaned, visualized, and analyzed multi-source baseball data for research on pitcher workload, pitch characteristics, and injury risk.</li>
             </ul>
           </div>
+        </div>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-[1.3rem] mb-4">Selected Research Engineering</h2>
+        <div class="space-y-4">
+          {profile.engineeringContributions.map(work => <div class="card-static"><h3 class="font-medium text-[var(--color-ink)]"><a class="link" href={work.url}>{work.title}</a></h3><p class="work-kind mb-2">{work.status}</p><p class="text-sm text-[var(--color-text-dim)]">{work.summary}</p></div>)}
+          <div class="card-static"><h3 class="font-medium text-[var(--color-ink)]"><a class="link" href="https://github.com/aims-foundations/torch_measure/pull/53">AI measurement: missing-response diagnostics</a></h3><p class="text-sm text-[var(--color-text-dim)]">Proposed a fix for masked missing values in item-fit statistics, with regression tests. Separate exploratory work studies sensitivity to artificial missingness on fixed WILD benchmark panels; it does not establish the natural missingness mechanism.</p></div>
         </div>
       </section>
 
